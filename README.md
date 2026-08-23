@@ -153,7 +153,7 @@ Everything under `/v1/` is static JSON:
 
 ```
 /v1/manifest.json            index: countries, node counts, tiers, freshness
-/v1/tournaments.json         every qualifying tournament: name, season, tier, date, FIVB code
+/v1/tournaments.json         every qualifying tournament: name, season, tier, date, FIVB code, level
 /v1/search.json              every published player, grouped by slice, for search
 /v1/graphs/{CC}-{G}.json     nodes + edges for one country × gender
 /v1/players/{CC}-{G}.json    height, weight, date of birth, medals, foreign partners
@@ -188,6 +188,20 @@ player card, and never otherwise. The rows carry no names: tournaments are
 named once in the shared `/v1/tournaments.json`, and partners by the slice's
 own graph, with only the ones from outside it (see below) named in the results
 file itself. The largest results file is 85 KB uncompressed.
+
+Each tournament also carries the **level** FIVB gave it at the time — "Grand
+Slam", "4-star", "Elite16" — on the 1,552 tour events, and absent on the
+Olympics, World Championships and age-group championships, which have no level
+below their tier. This is what lets the player card badge a week on tour at
+all: `tier` collapses thirteen distinct rungs into one `world-tour` value, so
+before this a 2005 Grand Slam and a 2019 1-star read identically.
+
+It is a label rather than a rank, and deliberately so. FIVB renumbered its own
+hierarchy twice and no mapping across those eras survives, so nothing here
+orders a Grand Slam against a 4-star — the names come from
+[FIVB's own enum](https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html)
+rather than from tournament names, which is how `Type` 38 spent months
+mislabelled "Major" when it is `WorldTour5Star`.
 
 Each tournament also carries FIVB's own `code` — `WBUS2026` is the 2026 women's
 Busan event. It is the only stable, public handle on a tournament: FIVB retired

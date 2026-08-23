@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { FIVB_ORGANIZER_TYPE, tierFor } from './tiers';
+import { FIVB_ORGANIZER_TYPE, levelFor, TIER_BY_TYPE, tierFor } from './tiers';
 
 describe('tierFor', () => {
   it('admits the Olympic Games and nothing else Olympic-adjacent', () => {
@@ -76,5 +76,53 @@ describe('tierFor', () => {
 
   afterEach(() => {
     vi.resetModules();
+  });
+});
+
+describe('levelFor', () => {
+  it('names each level the way FIVB does, era by era', () => {
+    // Checked against FIVB's own enum, not inferred from tournament names —
+    // https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html
+    expect(levelFor('0')).toBe('Grand Slam');
+    expect(levelFor('38')).toBe('5-star');
+    expect(levelFor('39')).toBe('4-star');
+    expect(levelFor('42')).toBe('1-star');
+    expect(levelFor('52')).toBe('Elite16');
+    expect(levelFor('53')).toBe('Futures');
+  });
+
+  it('does not confuse Major Series with the 5-star that replaced it', () => {
+    // Type 32 is the 2015-16 branding; Type 38 is `WorldTour5Star`, which this
+    // repo mislabelled "Major" for months. Two different things, two levels.
+    expect(levelFor('32')).toBe('Major Series');
+    expect(levelFor('38')).toBe('5-star');
+  });
+
+  it('has no level for a tier that has none below it', () => {
+    expect(levelFor('5')).toBeNull(); // Olympic Games
+    expect(levelFor('4')).toBeNull(); // World Championships
+    expect(levelFor('26')).toBeNull(); // U21 World Championships
+  });
+
+  it('is null for a type outside the allowlist entirely', () => {
+    expect(levelFor('15')).toBeNull(); // National Tour
+    expect(levelFor('50')).toBeNull(); // King of the Court
+    expect(levelFor(undefined)).toBeNull();
+  });
+
+  /**
+   * The levels are labels, not a scale. Two eras used a *word* for their top
+   * rung and one used a number, so anything sorting these would be inventing
+   * a hierarchy FIVB itself abandoned twice.
+   */
+  it('every level a qualifying tour type can carry is a non-empty label', () => {
+    for (const [type, tier] of Object.entries(TIER_BY_TYPE)) {
+      const level = levelFor(type);
+      if (tier === 'world-tour' || tier === 'beach-pro-tour') {
+        expect(level, `type ${type} is a tour event and should carry a level`).toBeTruthy();
+      } else {
+        expect(level, `type ${type} is not a tour event and should not`).toBeNull();
+      }
+    }
   });
 });

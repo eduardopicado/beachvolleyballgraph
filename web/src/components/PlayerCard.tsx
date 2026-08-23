@@ -145,9 +145,17 @@ function SeasonList({
                         {events.map((event) => {
                           const finish = formatFinish(event.rank);
                           const when = formatDayMonth(event.date);
-                          // Only for the tiers that are not the ordinary week
-                          // on tour — see TIER_BADGE.
-                          const badge = TIER_BADGE[event.tier];
+                          // Tier first, then level. The Olympics, the World
+                          // Championships and the age-group championships are
+                          // badged by tier and have no level below it; every
+                          // other event is a week on tour and its level is the
+                          // thing worth saying — "4-star", "Elite16", "Grand
+                          // Slam". Before this, a tour row carried no badge at
+                          // all, so a 2005 Grand Slam and a 2019 1-star read
+                          // identically. See LEVEL_BY_TYPE in ingest/tiers.ts
+                          // for why these are era-native labels rather than a
+                          // scale.
+                          const badge = TIER_BADGE[event.tier] ?? event.level;
                           return (
                             <li key={`${event.no}-${event.partnerId}`}>
                               <p className="event">

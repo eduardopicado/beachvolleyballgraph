@@ -24,6 +24,12 @@ export interface SeasonEvent {
   partner: string | null;
   /** FIVB's placement. See `formatFinish` for what the negatives mean. */
   rank: number;
+  /**
+   * What FIVB called this event's level at the time — "4-star", "Elite16",
+   * "Grand Slam". Null for the Olympics, the World Championships and the
+   * age-group championships, which the card badges by tier instead.
+   */
+  level: string | null;
 }
 
 /**
@@ -58,6 +64,9 @@ export function seasonEvents(
     const meta = tournaments[no];
     if (!meta || meta[1] !== season) continue;
     const [name, , tier, offset] = meta;
+    // Positional read rather than a destructure: the tuple has four arities
+    // and only the longest carries a level.
+    const level = meta.length > 5 ? (meta[5] ?? null) : null;
     out.push({
       no,
       name,
@@ -66,6 +75,7 @@ export function seasonEvents(
       partnerId: partner,
       partner: nameOf(partner),
       rank,
+      level,
     });
   }
   return out;

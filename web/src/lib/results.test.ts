@@ -69,3 +69,38 @@ describe('seasonEvents', () => {
     expect(seasonEvents(undefined, tournaments, 2024, nameOf)).toEqual([]);
   });
 });
+
+describe('seasonEvents — tournament level', () => {
+  it('carries the level from the six-element form', () => {
+    const events = seasonEvents(
+      [[1, 99, 3]],
+      { 1: ['Gstaad', 2019, 'world-tour', 180, 'MGST2019', '5-star'] },
+      2019,
+      () => 'Partner',
+    );
+    expect(events[0]!.level).toBe('5-star');
+  });
+
+  it('is null for a tournament published before the level existed', () => {
+    // Five elements: the shape shipped by PR #55. A stale index must not throw
+    // or invent a level, because the two files are published together and a
+    // mismatch means one of them is old.
+    const events = seasonEvents(
+      [[1, 99, 3]],
+      { 1: ['Gstaad', 2019, 'world-tour', 180, 'MGST2019'] },
+      2019,
+      () => 'Partner',
+    );
+    expect(events[0]!.level).toBeNull();
+  });
+
+  it('is null for the tiers that have no level below them', () => {
+    const events = seasonEvents(
+      [[1, 99, 1]],
+      { 1: ['Olympic Games 2016', 2016, 'olympics', 220, 'MOLY2016'] },
+      2016,
+      () => 'Partner',
+    );
+    expect(events[0]!.level).toBeNull();
+  });
+});

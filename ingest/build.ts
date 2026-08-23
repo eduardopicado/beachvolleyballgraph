@@ -17,7 +17,7 @@ import type {
   Tier,
 } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
-import { tierFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
+import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
 
 export interface Tournament {
@@ -38,6 +38,11 @@ export interface Tournament {
    */
   name: string;
   tier: Tier;
+  /**
+   * What FIVB called this event's level at the time — "Grand Slam", "4-star",
+   * "Elite16". Null for the tiers that have no level below themselves.
+   */
+  level: string | null;
   season: number;
   version: string;
   /** `YYYY-MM-DD` of the main draw's last day, or null if VIS gave none. */
@@ -162,6 +167,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       name: (row.Name ?? '').trim() || `Tournament ${no}`,
       code: (row.Code ?? '').trim(),
       tier,
+      level: levelFor(row.Type),
       season,
       version: (row.Version ?? '').trim(),
       endsOn: /^\d{4}-\d{2}-\d{2}/.test(row.EndDateMainDraw ?? '')

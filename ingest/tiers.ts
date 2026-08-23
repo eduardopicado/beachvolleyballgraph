@@ -121,6 +121,51 @@ export const TIER_BY_TYPE: Record<number, Tier> = {
 };
 
 /**
+ * VIS `Type` -> the level FIVB called it *at the time*.
+ *
+ * Deliberately era-native and deliberately not ranked. FIVB has renumbered its
+ * own hierarchy twice — Open/Challenger/Satellite, then 1-to-5-star, then
+ * Elite16/Challenge/Futures — and no mapping between those eras survives the
+ * archive. A 2005 Grand Slam is not a 2019 4-star is not a 2023 Elite16, so
+ * this says what the event was called and stops there. Anything that tries to
+ * order these against each other is inventing a fact.
+ *
+ * Names are FIVB's own, from the enum linked in the file header, not inferred
+ * from tournament names — which is how Type 38 spent months labelled "Major"
+ * when it is `WorldTour5Star`.
+ *
+ * Only the tour tiers appear. The Olympics, the World Championships and the
+ * age-group championships have no level below the tier itself, and the card
+ * already badges them by tier.
+ */
+export const LEVEL_BY_TYPE: Record<number, string> = {
+  // --- World Tour (1987-2021) ---
+  0: 'Grand Slam',
+  1: 'Open',
+  2: 'Challenger',
+  3: 'World Series',
+  6: 'Satellite',
+  32: 'Major Series',
+  33: 'Finals',
+  38: '5-star',
+  39: '4-star',
+  40: '3-star',
+  41: '2-star',
+  42: '1-star',
+
+  // --- Beach Pro Tour (2022-) ---
+  51: 'Challenge',
+  52: 'Elite16',
+  53: 'Futures',
+  54: 'Finals',
+};
+
+/** The level for a VIS `Type`, or null for a tier that has none. */
+export function levelFor(type: string | undefined): string | null {
+  return LEVEL_BY_TYPE[Number(type)] ?? null;
+}
+
+/**
  * Age-group world championships are FIVB world-level events but not senior
  * competition. Set `INCLUDE_AGE_GROUP=false` to restrict the graph to the
  * senior international game.
