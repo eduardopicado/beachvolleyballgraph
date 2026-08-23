@@ -47,14 +47,46 @@ runs:
     # guards against — a stalled CDN fetch — is exactly the kind that succeeds
     # on a second attempt, and a red deploy for a network blip trains people
     # to re-run without reading.
+    #
+    # The retry has to clear apt first, and that is not incidental. `--with-deps`
+    # shells out to `apt-get` as root; `timeout` kills the `npx` process it can
+    # see, not the root-owned grandchild, which is left holding
+    # /var/lib/apt/lists/lock. The retry then dies in under two seconds with
+    # "Could not get lock ... held by process N (apt-get)" — so the guard failed
+    # every time it was actually needed. Observed on run 32158148540: the Azure
+    # Ubuntu mirror went unreachable, apt sat retrying until the 8m bound, and
+    # the retry never had a chance.
     - name: Install Playwright browser
       shell: bash
       run: |
-        install() { timeout 8m npx playwright install --with-deps chromium; }
-        if ! install; then
-          echo "::warning::Playwright install failed or stalled; retrying once."
-          install
+        install() { timeout -k 30s 8m npx playwright install --with-deps chromium; }
+
+        apt_busy() { pgrep -x apt-get >/dev/null 2>&1 || pgrep -x dpkg >/dev/null 2>&1; }
+
+        if install; then exit 0; fi
+
+        echo "::warning::Playwright install failed or stalled; retrying once."
+
+        # Kill what the timeout orphaned, then wait for the lock to actually be
+        # released — SIGTERM to apt-get is not instant, and racing it just
+        # reproduces the same lock error.
+        #
+        # apt-get only, never dpkg: the hang this guards against is `apt-get
+        # update` sitting on an unreachable mirror while holding the lists lock,
+        # and killing a dpkg that is genuinely mid-transaction would turn a
+        # recoverable stall into a broken package database.
+        sudo pkill -x apt-get || true
+        for _ in $(seq 1 30); do
+          apt_busy || break
+          sleep 2
+        done
+        if apt_busy; then
+          echo "::warning::apt still busy after 60s; retrying anyway."
         fi
+        # No-op unless the killed run left something half-configured.
+        sudo dpkg --configure -a || true
+
+        install
 
     - name: Smoke test the built site
       shell: bash
