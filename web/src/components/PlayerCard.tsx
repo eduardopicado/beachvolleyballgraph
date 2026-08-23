@@ -55,6 +55,12 @@ interface SeasonListProps {
   eventsFor: (season: number) => SeasonEvent[];
   status: 'idle' | 'loading' | 'ready' | 'failed';
   onSelectPartner: (id: number) => void;
+  /**
+   * Extra class on the <ol>. The card renders two of these now, and without
+   * something to tell them apart `.timeline` matches both — which is not a
+   * styling problem but a correctness one for anything selecting on it.
+   */
+  variant?: string;
 }
 
 function SeasonList({
@@ -65,9 +71,10 @@ function SeasonList({
   eventsFor,
   status,
   onSelectPartner,
+  variant,
 }: SeasonListProps) {
   return (
-          <ol className="timeline">
+          <ol className={variant ? `timeline ${variant}` : 'timeline'}>
             {rows.map((row) => {
               const open = open_.has(row.season);
               // The season's real calendar, not the graph's view of it: the
@@ -572,6 +579,7 @@ export function PlayerCard({
                 eventsFor={awayEventsForSeason}
                 status={results.status}
                 onSelectPartner={onSelectAwayById}
+                variant="is-away"
               />
             ) : (
             <ul>

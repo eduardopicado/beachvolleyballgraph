@@ -181,6 +181,10 @@ test.describe('timeline view', () => {
     return best;
   };
 
+  // Scoped to `.partners > .timeline` throughout, not a bare `.timeline`: the
+  // card renders a second one inside `.away` for partnerships the graph cannot
+  // hold, so an unscoped selector matches both and silently doubles every
+  // count. `.is-away` marks the other one.
   test('groups a career by season and matches the graph file', async ({ page }) => {
     const target = busiest();
     // Guards the guard: if the published data ever loses its per-season field
@@ -192,16 +196,18 @@ test.describe('timeline view', () => {
 
     // One group per season the player actually competed in — derived from the
     // same edges the page was built from, so this stays true as data changes.
-    await expect(page.locator('.timeline > li')).toHaveCount(target.seasons);
+    await expect(page.locator('.partners > .timeline > li')).toHaveCount(target.seasons);
 
     // Seasons run newest first.
-    const years = await page.locator('.timeline .year').allInnerTexts();
+    const years = await page.locator('.partners > .timeline .year').allInnerTexts();
     const numbers = years.map(Number);
     expect(numbers).toEqual([...numbers].sort((a, b) => b - a));
 
     // And the thing the partner list structurally cannot show: one year with
     // more than one name against it.
-    const shared = page.locator('.timeline > li').filter({ has: page.locator('ul > li:nth-child(2)') });
+    const shared = page
+      .locator('.partners > .timeline > li')
+      .filter({ has: page.locator('ul > li:nth-child(2)') });
     await expect(shared).toHaveCount(target.shared);
   });
 
@@ -212,10 +218,10 @@ test.describe('timeline view', () => {
     await expect(tab(page, 'Partners')).toHaveAttribute('aria-pressed', 'true');
     await tab(page, 'Timeline').click();
     await expect(tab(page, 'Timeline')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('.timeline')).toBeVisible();
+    await expect(page.locator('.partners > .timeline')).toBeVisible();
 
     await tab(page, 'Partners').click();
-    await expect(page.locator('.timeline')).toHaveCount(0);
+    await expect(page.locator('.partners > .timeline')).toHaveCount(0);
     await expect(page.locator('.partners > ul > li').first()).toBeVisible();
   });
 
@@ -520,5 +526,74 @@ test.describe('without JavaScript', () => {
     const expected = graph(COUNTRY, GENDER).nodes.length;
     await expect(page.locator('table tbody tr')).toHaveCount(expected);
     await expect(page.locator('nav[aria-label="Other countries"] a').first()).toBeVisible();
+  });
+});
+
+/**
+ * The other-federations block, which now runs through the same timeline as the
+ * player's own partnerships.
+ *
+ * Worth its own coverage because for the 49 players with no partner in their
+ * own federation this block *is* the career — the main list is empty and
+ * everything the card has to say lives here. It is also the change that put a
+ * second `.timeline` in the card, which is why every selector above had to say
+ * which one it meant.
+ */
+test.describe('other federations', () => {
+  const tab = (page: import('@playwright/test').Page, name: 'Partners' | 'Timeline') =>
+    page.getByRole('group', { name: 'Partner view' }).getByRole('button', { name, exact: true });
+
+  test('the away block gets seasons that expand, like the list above it', async ({ page }) => {
+    const stranded = strandedPlayer();
+    test.skip(!stranded, 'no player in the archive has only cross-federation partners');
+    const { code, gender, id, away } = stranded!;
+    const entry = manifest().countries.find((c) => c.code === code)!;
+    await page.goto(`./${sliceSlug(entry.name, gender as 'M' | 'W')}/?player=${id}`);
+
+    await expect(page.locator('.player-card')).toBeVisible();
+    await expect(page.locator('.away')).toBeVisible();
+
+    // In the partners view it is still the flat list of names it always was.
+    await expect(page.locator('.away ul > li')).toHaveCount(away);
+
+    await tab(page, 'Timeline').click();
+    const timeline = page.locator('.away .timeline.is-away');
+    await expect(timeline).toBeVisible();
+    const seasons = timeline.locator('> li');
+    const count = await seasons.count();
+    expect(count, 'an away timeline with no seasons would pass everything vacuously').toBeGreaterThan(0);
+
+    // Newest first, the same direction as the card's own timeline.
+    const years = (await timeline.locator('.year').allInnerTexts()).map(Number);
+    expect(years).toEqual([...years].sort((a, b) => b - a));
+
+    // And a season opens into the tournaments behind it — the whole point of
+    // giving this block the same behaviour rather than a flat list.
+    await seasons.first().locator('.season').click();
+    await expect(timeline.locator('.events > li').first()).toBeVisible();
+  });
+
+  test('an expanded away season lists only cross-federation events', async ({ page }) => {
+    // The results file holds a player's whole career, so an unfiltered season
+    // would show their home partnerships under a heading reading "other
+    // federations" — real events, wrong question.
+    const stranded = strandedPlayer();
+    test.skip(!stranded, 'no player in the archive has only cross-federation partners');
+    const { code, gender, id } = stranded!;
+    const entry = manifest().countries.find((c) => c.code === code)!;
+    const awayNames = new Set(
+      (players(code, gender).players.find((p) => p.id === id)!.away ?? []).map((a) => a.name),
+    );
+
+    await page.goto(`./${sliceSlug(entry.name, gender as 'M' | 'W')}/?player=${id}`);
+    await tab(page, 'Timeline').click();
+    const timeline = page.locator('.away .timeline.is-away');
+    await timeline.locator('> li').first().locator('.season').click();
+
+    const withs = await timeline.locator('.events .with').allInnerTexts();
+    expect(withs.length, 'need at least one event to check').toBeGreaterThan(0);
+    for (const name of withs) {
+      expect(awayNames, `${name} is not one of this player's away partners`).toContain(name.trim());
+    }
   });
 });
