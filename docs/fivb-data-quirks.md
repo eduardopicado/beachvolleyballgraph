@@ -188,10 +188,41 @@ This is accepted behaviour, not a bug to fix — but it is the reason
 "tournaments" and the sum of partner entries can legitimately disagree on a
 player card.
 
+**The second worked example, which runs the other way.** Schalk shows a
+partnership *dropped*. The inverse is a partnership **relabelled**: a pair who
+were compatriots at the time, filed as cross-federation because one of them
+moved afterwards.
+
+Pedro Solberg and Tiago De J Santos played one event together in 2005. Both
+were Brazilian then — `BeachTeam.FederationCode` says `BRA` for Tiago on every
+entry from 2005 to 2010, and `BRA` for Solberg on all 24 of his, 2002 to 2026.
+Tiago later moved to Qatar, and `Player.FederationCode` is a snapshot, so today
+he is `QAT`. The consequence is that a Brazil–Brazil partnership is missing
+from the Brazil men's graph and appears on Solberg's card under *Other
+federations*, attributed to a country neither of them represented in 2005.
+
+Note which way round the distortion goes, because the obvious guess is
+backwards. A pair who **both** move stay correct: Jefferson Santos Pereira and
+Tiago played nine events together in 2013–14, and `BeachTeam.FederationCode`
+records `QAT` for both across exactly those seasons, so the Qatar men's graph
+is right about them. What breaks is not the transfer — it is the transfer that
+only **one** of them made.
+
+There is a third thing in those same rows: Jefferson's entries run `BRA`
+(2006–08), then `QAT` (2013–19), then `GER` (2018–19), while his player record
+says `QAT`. The snapshot is not even reliably the *latest* federation.
+
 **Worth knowing.** `BeachTeam` rows carry their own `FederationCode` — the
-federation the pair actually represented at that tournament. The pipeline
-fetches it but does not use it. That field is the raw material for a proper
-fix if this ever becomes worth doing.
+federation the pair actually represented at that tournament, which is where
+every figure above came from. The pipeline fetches it but does not use it. That
+field is the raw material for a proper fix if this ever becomes worth doing,
+and it would fix both directions at once: Schalk's dropped edges and Solberg's
+relabelled one.
+
+**Scale.** 157 players have at least one partner in another federation and 49
+have no partner in their own, so for those 49 the *Other federations* block is
+the whole career rather than a footnote — which is also why it is worth being
+precise about what that heading means. It means "other federations **today**".
 
 ---
 
