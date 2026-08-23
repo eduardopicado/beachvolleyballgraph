@@ -14,8 +14,20 @@
   touch-action: none;
 }
 
+/* Both of these are toggled imperatively, via classList rather than through the
+   className prop, and they have to be: React only rewrites an attribute whose
+   prop changed, so a constant className="graph" is written once at mount and
+   these survive the re-render that every pan frame causes. Move either into the
+   prop and the other gets wiped mid-gesture. */
 .graph.is-panning {
   cursor: grabbing;
+}
+
+/* The dot itself no longer decides what is clickable — the canvas resolves that
+   against node centres — so the cursor is the only thing left telling a mouse
+   user they are within reach of a node. */
+.graph.is-over-node {
+  cursor: pointer;
 }
 
 /* --- links --------------------------------------------------------------- */
@@ -71,7 +83,7 @@
   opacity: 0.22;
 }
 
-.node .label {
+.label {
   fill: var(--text-secondary);
   font-size: 11px;
   font-weight: 500;
@@ -84,12 +96,12 @@
   pointer-events: none;
 }
 
-.node.is-active .label {
+.label.is-active {
   fill: var(--text-primary);
   font-weight: 650;
 }
 
-.node.is-dimmed .label {
+.label.is-dimmed {
   opacity: 0.25;
 }
 

@@ -15,6 +15,7 @@ import type { GraphEdge, GraphNode } from '../schema';
 import {
   buildLayout,
   fitToView,
+  nodeAtPoint,
   pickLabels,
   settle,
   type LayoutLink,
@@ -54,11 +55,21 @@ const prefersReducedMotion = () =>
 /** Upper bound on automatically placed labels; collision thins it further. */
 const MAX_LABELS = 16;
 
+/**
+ * How far a pointer may travel and still count as a tap rather than a drag.
+ *
+ * A finger never lands and lifts on the same pixel, so without a tolerance
+ * every touch is a pan; much above this and a deliberate short drag starts
+ * selecting whatever it ended on.
+ */
+const TAP_SLOP = 8;
+
 export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey, onSize }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const viewRef = useRef<SVGGElement>(null);
   const nodeEls = useRef(new Map<number, SVGGElement>());
+  const labelEls = useRef(new Map<number, SVGGElement>());
   const linkEls = useRef<(SVGLineElement | null)[]>([]);
   const [size, setSize] = useState({ width: 900, height: 620 });
   // The simulation callbacks outlive any single render, so they read the
@@ -70,6 +81,25 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
   const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
   const transformRef = useRef(transform);
   transformRef.current = transform;
+  // Read at pointer-up to toggle the tap target off if it is already selected.
+  // A ref rather than a dependency: the pointer handlers are stable across the
+  // whole gesture, and rebuilding them mid-drag on a selection change would
+  // drop the pan bookkeeping they hold.
+  const selectedIdRef = useRef(selectedId);
+  selectedIdRef.current = selectedId;
+
+  /**
+   * Anchor the tooltip to the node's simulation coordinates rather than the
+   * pointer, so it stays put on keyboard focus too.
+   */
+  const showHover = useCallback((node: LayoutNode) => {
+    const t = transformRef.current;
+    setHover((prev) =>
+      prev?.node.id === node.id
+        ? prev
+        : { node, x: (node.x ?? 0) * t.k + t.x, y: (node.y ?? 0) * t.k + t.y },
+    );
+  }, []);
 
   // --- responsive sizing ---------------------------------------------------
   useLayoutEffect(() => {
@@ -135,8 +165,13 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
         el.setAttribute('y2', String(t.y ?? 0));
       }
       for (const node of layout.nodes) {
+        const at = `translate(${node.x ?? 0},${node.y ?? 0})`;
         const el = nodeEls.current.get(node.id);
-        if (el) el.setAttribute('transform', `translate(${node.x ?? 0},${node.y ?? 0})`);
+        if (el) el.setAttribute('transform', at);
+        // The label layer is positioned separately now, so it has to be driven
+        // from the same tick or labels lag a frame behind their dots.
+        const label = labelEls.current.get(node.id);
+        if (label) label.setAttribute('transform', at);
       }
       // Keep the whole graph framed while it expands, or the reader spends the
       // animation looking at a zoomed-in corner of it.
@@ -246,17 +281,41 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
     transform: typeof transform;
   } | null>(null);
 
+  /**
+   * The in-flight gesture, for telling a tap from a pan at pointer-up.
+   *
+   * Selection used to be an `onClick` on each node's `<g>`, which forced
+   * pointer-down on a node to opt out of panning entirely — otherwise the drag
+   * and the click fought over the same gesture. That was survivable while the
+   * targets were a few pixels wide; at 44px it would make most of a dense graph
+   * un-pannable, because almost anywhere you put a finger is on a node. So the
+   * canvas now owns the whole gesture and decides afterwards: travel under
+   * TAP_SLOP with one finger is a tap, anything else was a pan or a pinch.
+   */
+  const gesture = useRef<{ pointerId: number; x: number; y: number; moved: number; multi: boolean } | null>(
+    null,
+  );
+
   const distanceAndMid = (pts: { x: number; y: number }[]) => {
     const [a, b] = pts;
     return { distance: Math.hypot(a!.x - b!.x, a!.y - b!.y), mid: { x: (a!.x + b!.x) / 2, y: (a!.y + b!.y) / 2 } };
   };
 
+  /** The node under a client-space point, or null. */
+  const hitTest = useCallback(
+    (clientX: number, clientY: number) => {
+      const svg = svgRef.current;
+      if (!svg) return null;
+      const rect = svg.getBoundingClientRect();
+      return nodeAtPoint(layout.nodes, transformRef.current, clientX - rect.left, clientY - rect.top);
+    },
+    [layout],
+  );
+
   const onPointerDown = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
     // Touch/pen contacts report button 0 too, but aren't "a button held down"
     // in the mouse sense — only gate on it for an actual mouse.
     if (event.pointerType === 'mouse' && event.button !== 0) return;
-    const target = event.target as Element;
-    if (target.closest('[data-node]')) return; // let node taps/clicks through
     userAdjusted.current = true;
 
     const svg = event.currentTarget;
@@ -274,18 +333,38 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
       svg.classList.remove('is-panning');
       const pts = [...pointers.current.values()];
       pinchStart.current = { ...distanceAndMid(pts), transform: transformRef.current };
+      // A pinch is never a tap, however little either finger ends up moving.
+      if (gesture.current) gesture.current.multi = true;
     } else if (pointers.current.size === 1) {
       pinchStart.current = null;
       panStart.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, transform: transformRef.current };
       svg.classList.add('is-panning');
+      gesture.current = { pointerId: event.pointerId, x: event.clientX, y: event.clientY, moved: 0, multi: false };
     }
     // A third simultaneous pointer is tracked but otherwise ignored — pinch
     // math keeps using whichever two pointers were already active.
   }, []);
 
   const onPointerMove = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
-    if (!pointers.current.has(event.pointerId)) return;
+    if (!pointers.current.has(event.pointerId)) {
+      // No button down: this is a mouse crossing the canvas. Hover comes from
+      // the same hit test as selection, so the node the tooltip names is always
+      // the node a click would select — two different resolutions (the browser's
+      // topmost-element for hover, nearest-centre for the tap) would disagree
+      // wherever targets overlap, which is most of a dense graph.
+      if (event.pointerType !== 'mouse') return;
+      const node = hitTest(event.clientX, event.clientY);
+      svgRef.current?.classList.toggle('is-over-node', node !== null);
+      if (node) showHover(node);
+      else setHover((prev) => (prev ? null : prev));
+      return;
+    }
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+    const g = gesture.current;
+    if (g && g.pointerId === event.pointerId) {
+      g.moved = Math.max(g.moved, Math.hypot(event.clientX - g.x, event.clientY - g.y));
+    }
 
     if (pointers.current.size >= 2 && pinchStart.current) {
       const pts = [...pointers.current.values()].slice(0, 2);
@@ -306,7 +385,7 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
       const { x: startX, y: startY, transform: start } = panStart.current;
       setTransform({ ...start, x: start.x + (event.clientX - startX), y: start.y + (event.clientY - startY) });
     }
-  }, []);
+  }, [hitTest, showHover]);
 
   const endPointer = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
     if (!pointers.current.has(event.pointerId)) return;
@@ -317,6 +396,21 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
     } catch {
       /* already released */
     }
+
+    // Settle the gesture before the pan bookkeeping below reassigns anything.
+    const g = gesture.current;
+    if (event.type === 'pointerup' && g?.pointerId === event.pointerId && !g.multi && g.moved <= TAP_SLOP) {
+      const node = hitTest(event.clientX, event.clientY);
+      // Tapping the canvas closes the card. On a phone the card sits below the
+      // fold, so without this the only way to dismiss it is to scroll down and
+      // find the × — and a reader who opened it by mistake has no reason to
+      // expect it is down there at all.
+      onSelect(node ? (node.id === selectedIdRef.current ? null : node.id) : null);
+      // Touch has no hover: leaving the tooltip up would park it over the graph
+      // until something else happened to clear it.
+      if (event.pointerType !== 'mouse') setHover(null);
+    }
+    if (g?.pointerId === event.pointerId) gesture.current = null;
 
     if (pointers.current.size === 1) {
       // Dropped from two fingers to one: resume panning from here, not from
@@ -333,7 +427,7 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
       pinchStart.current = null;
       svg.classList.remove('is-panning');
     }
-  }, []);
+  }, [hitTest, onSelect]);
 
   // Bound natively rather than through an `onWheel` prop, and explicitly
   // non-passive. React registers `wheel` on its root container as a *passive*
@@ -389,17 +483,16 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
     return s === activeId || t === activeId ? 'link is-active' : 'link is-dimmed';
   };
 
+  const labelClass = (node: LayoutNode) => {
+    if (activeId === null) return 'label';
+    if (node.id === activeId) return 'label is-active';
+    return activeNeighbours?.has(node.id) ? 'label' : 'label is-dimmed';
+  };
+
   const showLabel = (node: LayoutNode) =>
     labelled.has(node.id) ||
     node.id === activeId ||
     (activeNeighbours?.has(node.id) ?? false);
-
-  // Position the tooltip from the node's simulation coordinates rather than the
-  // pointer, so it stays anchored to the mark on keyboard focus too.
-  const handleHover = (node: LayoutNode) => () => {
-    const t = transformRef.current;
-    setHover({ node, x: (node.x ?? 0) * t.k + t.x, y: (node.y ?? 0) * t.k + t.y });
-  };
 
   return (
     <div className="graph-wrap" ref={wrapRef}>
@@ -412,6 +505,14 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
         onPointerMove={onPointerMove}
         onPointerUp={endPointer}
         onPointerCancel={endPointer}
+        // Hover is resolved against node centres rather than by the browser
+        // hit-testing an element, so nothing fires a "left the node" event when
+        // the mouse slides off the canvas mid-graph — the tooltip would stay up
+        // over whatever the reader moved on to.
+        onPointerLeave={() => {
+          svgRef.current?.classList.remove('is-over-node');
+          setHover(null);
+        }}
         role="group"
         aria-label={`Partnership graph: ${plural(nodes.length, 'player')}, ${plural(edges.length, 'partnership')}. Use the table view below for a screen-reader friendly listing.`}
       >
@@ -441,33 +542,69 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
                 tabIndex={0}
                 role="button"
                 aria-label={`${node.name}, ${plural(node.tournaments, 'tournament')}, ${plural(node.degree, 'partner')}`}
-                onClick={() => onSelect(node.id === selectedId ? null : node.id)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     onSelect(node.id === selectedId ? null : node.id);
                   }
                 }}
-                onPointerEnter={handleHover(node)}
-                onPointerLeave={() => setHover(null)}
-                onFocus={handleHover(node)}
+                onFocus={() => showHover(node)}
                 onBlur={() => setHover(null)}
               >
-                {/* Transparent hit area — the painted dot is far too small to aim at. */}
+                {/*
+                  Not the tap target. Selection is resolved against node centres
+                  by the canvas (see `hitTest` and `nodeAtPoint`), which is what
+                  gives every node its 44px of reach — this circle only has to
+                  give the group a bounding box centred on the dot, for the
+                  focus ring and for anything automating a click on it.
+
+                  Deliberately *not* grown to MIN_TAP_RADIUS. Sized in screen
+                  pixels these circles are 44px wide and overlap constantly, and
+                  since they still take pointer events, the topmost one over any
+                  given dot is whichever node happens to render last —
+                  `elementFromPoint` at a node's own centre starts returning a
+                  neighbour, and a click driven off the box never lands.
+                */}
                 <circle className="hit" r={Math.max(node.radius + 8, 14)} />
                 <circle className="dot" r={node.radius} />
-                {showLabel(node) && (
-                  // Counter-scale so label text keeps a constant on-screen size
-                  // however far the view is zoomed out. Inside this transform
-                  // one unit is one screen pixel.
-                  <text
-                    className="label"
-                    transform={`scale(${1 / transform.k})`}
-                    y={-(node.radius * transform.k + 7)}
-                  >
-                    {node.short}
-                  </text>
-                )}
+              </g>
+            ))}
+          </g>
+          {/*
+            Labels are a layer of their own rather than a child of each node,
+            and that is load-bearing in two ways.
+
+            Hovering reveals the labels of a player and all their partners. With
+            the text inside the node group, that changed the group's bounding
+            box the instant the cursor arrived — and a click driven off that box
+            oscillates: the box grows, its centre moves off the dot, the cursor
+            follows it, the hover drops, the box shrinks back. Playwright sat in
+            exactly that loop until it timed out ("element is not stable").
+
+            It also fixes the z-order. Every label now paints above every dot,
+            instead of being overlapped by whichever nodes happen to render
+            after it.
+          */}
+          <g className="labels">
+            {layout.nodes.filter(showLabel).map((node) => (
+              <g
+                key={node.id}
+                ref={(el) => {
+                  if (el) labelEls.current.set(node.id, el);
+                  else labelEls.current.delete(node.id);
+                }}
+                transform={`translate(${node.x ?? 0},${node.y ?? 0})`}
+              >
+                {/* Counter-scale so label text keeps a constant on-screen size
+                    however far the view is zoomed out. Inside this transform
+                    one unit is one screen pixel. */}
+                <text
+                  className={labelClass(node)}
+                  transform={`scale(${1 / transform.k})`}
+                  y={-(node.radius * transform.k + 7)}
+                >
+                  {node.short}
+                </text>
               </g>
             ))}
           </g>

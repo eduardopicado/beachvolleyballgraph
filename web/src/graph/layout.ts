@@ -188,6 +188,58 @@ export function fitToView(
   };
 }
 
+/**
+ * Smallest on-screen radius a node can be aimed at, in CSS pixels — a 44px
+ * target, which is Apple's HIG minimum and comfortably over WCAG 2.5.8's 24px.
+ *
+ * This has to be applied in *screen* space. The obvious implementation, a
+ * generous `r` on a transparent circle inside the pan/zoom group, silently
+ * scales with the view: measured on the built site, a 14-unit hit circle came
+ * out at a median 4.6px of radius on a 390px-wide phone showing Brazil's men
+ * (k=0.33) and 4.1px for the United States (k=0.29) — 9.2px and 8.2px across,
+ * against those two minimums, which are widths. The labels next to them
+ * already counter-scale for exactly this reason; the hit areas did not.
+ */
+export const MIN_TAP_RADIUS = 22;
+
+/**
+ * The node at a point, or null for empty canvas.
+ *
+ * Nearest-centre-wins rather than "whichever transparent circle the browser
+ * hit-tested first". Once targets are 44px wide they overlap constantly — in
+ * the United States men's graph at its default fit, 358 of 398 nodes sit within
+ * 22px of another node's centre — and stacked SVG circles resolve that by DOM
+ * order, which is aggregation order and means nothing to the reader. Nearest
+ * centre is at least the thing they aimed at.
+ *
+ * `px`/`py` are relative to the canvas's top-left corner, in CSS pixels.
+ * Distances are compared squared, so this stays a single pass with no `sqrt`
+ * over the largest slice's 422 nodes on every mouse move.
+ */
+export function nodeAtPoint(
+  nodes: LayoutNode[],
+  view: ViewTransform,
+  px: number,
+  py: number,
+): LayoutNode | null {
+  let best: LayoutNode | null = null;
+  let bestDistance = Infinity;
+  for (const node of nodes) {
+    const dx = px - ((node.x ?? 0) * view.k + view.x);
+    const dy = py - ((node.y ?? 0) * view.k + view.y);
+    const distance = dx * dx + dy * dy;
+    // A big node keeps its own painted area as the target; a small one is
+    // padded up to the floor. Without the first half, zooming right into a
+    // 22px-radius dot would leave its edges unclickable.
+    const reach = Math.max(node.radius * view.k + 8, MIN_TAP_RADIUS);
+    if (distance <= reach * reach && distance < bestDistance) {
+      best = node;
+      bestDistance = distance;
+    }
+  }
+  return best;
+}
+
 /** Rough on-screen width of a node label at the 11px label size. */
 const labelWidth = (name: string) => name.length * 5.7 + 14;
 

@@ -5,6 +5,8 @@ import {
   fitToView,
   MAX_RADIUS,
   MIN_RADIUS,
+  MIN_TAP_RADIUS,
+  nodeAtPoint,
   pickLabels,
   radiusScale,
   settle,
@@ -194,5 +196,73 @@ describe('settle', () => {
       expect(Number.isFinite(n.x)).toBe(true);
       expect(Number.isFinite(n.y)).toBe(true);
     }
+  });
+});
+
+describe('nodeAtPoint', () => {
+  const identity = { x: 0, y: 0, k: 1 };
+
+  it('finds a node the pointer is directly over', () => {
+    const nodes = placed([[100, 100]]);
+    expect(nodeAtPoint(nodes, identity, 100, 100)?.id).toBe(1);
+  });
+
+  it('returns null for empty canvas, so a tap there can deselect', () => {
+    const nodes = placed([[100, 100]]);
+    expect(nodeAtPoint(nodes, identity, 400, 400)).toBeNull();
+  });
+
+  it('reaches a node from MIN_TAP_RADIUS away but not beyond it', () => {
+    const nodes = placed([[100, 100]], 3);
+    expect(nodeAtPoint(nodes, identity, 100 + MIN_TAP_RADIUS - 1, 100)?.id).toBe(1);
+    expect(nodeAtPoint(nodes, identity, 100 + MIN_TAP_RADIUS + 1, 100)).toBeNull();
+  });
+
+  /**
+   * The regression this whole change exists for. A hit area expressed in
+   * user-space units shrinks with the view; measured on the built site, the
+   * old 14-unit circle came out at 4.6px on a phone showing Brazil's men.
+   */
+  it('keeps the same on-screen reach however far the view is zoomed out', () => {
+    const nodes = placed([[100, 100]], 3);
+    for (const k of [1, 0.5, 0.33, 0.25]) {
+      const view = { x: 0, y: 0, k };
+      const sx = 100 * k;
+      const sy = 100 * k;
+      expect(nodeAtPoint(nodes, view, sx + MIN_TAP_RADIUS - 1, sy)?.id).toBe(1);
+      expect(nodeAtPoint(nodes, view, sx + MIN_TAP_RADIUS + 1, sy)).toBeNull();
+    }
+  });
+
+  it('grows the target with a big node rather than capping it at the floor', () => {
+    // Zoomed in, a 40-unit radius node is 80px on screen — every painted pixel
+    // of it has to stay clickable, which the floor alone would not give.
+    const nodes = placed([[100, 100]], 40);
+    const view = { x: 0, y: 0, k: 2 };
+    expect(nodeAtPoint(nodes, view, 200 + 70, 200)?.id).toBe(1);
+  });
+
+  it('picks the nearest centre when targets overlap', () => {
+    // Two nodes 20px apart: both are within reach of a point between them, so
+    // DOM order would decide. The tap is 6px from the first and 14px from the
+    // second, and must resolve to the first.
+    const nodes = placed([
+      [100, 100],
+      [120, 100],
+    ]);
+    expect(nodeAtPoint(nodes, identity, 106, 100)?.id).toBe(1);
+    expect(nodeAtPoint(nodes, identity, 114, 100)?.id).toBe(2);
+  });
+
+  it('respects the pan offset', () => {
+    const nodes = placed([[0, 0]]);
+    const view = { x: 250, y: 80, k: 1 };
+    expect(nodeAtPoint(nodes, view, 250, 80)?.id).toBe(1);
+    expect(nodeAtPoint(nodes, view, 0, 0)).toBeNull();
+  });
+
+  it('survives a node the simulation has not placed yet', () => {
+    const nodes: LayoutNode[] = [{ ...node(1), degree: 0, radius: 5 }];
+    expect(() => nodeAtPoint(nodes, identity, 0, 0)).not.toThrow();
   });
 });
