@@ -84,12 +84,15 @@ describe('levelFor', () => {
   it('names each level the way FIVB does, era by era', () => {
     // Read against FIVB's enum —
     // https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html
-    // — and then confirmed against the tournaments themselves, which is the
-    // half that was missing. This line used to say the names were deliberately
-    // *not* consulted, and 51/52 sat transposed behind that reasoning: every
-    // Elite16 on the site was badged "Challenge" for as long as badges existed.
-    // Of the tournaments whose own title says "Elite", all 88 are Type 51 and
-    // none is 52; of the 68 saying "Challenge", all are 52.
+    // — for everything up to Type 50, which is where that enum stops.
+    //
+    // The Beach Pro Tour types are past the end of it, so for 51-54 the
+    // tournaments are the only source there is. This line used to say the
+    // names were "not inferred from tournament names", which was true and was
+    // the problem: 51 and 52 sat transposed for months behind that reasoning,
+    // and every Elite16 on the site was badged "Challenge". Of the titles
+    // containing "Elite", all 88 are Type 51 and none is 52; of the 68
+    // containing "Challenge", all are 52.
     expect(levelFor('0')).toBe('Grand Slam');
     expect(levelFor('38')).toBe('5-star');
     expect(levelFor('39')).toBe('4-star');
