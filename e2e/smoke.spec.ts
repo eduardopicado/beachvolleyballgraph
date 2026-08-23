@@ -609,3 +609,79 @@ test.describe('other federations', () => {
     }
   });
 });
+
+/**
+ * The tournament level on an expanded season.
+ *
+ * Until this, a tour row carried no badge at all: `tier` collapses thirteen
+ * distinct levels into one `world-tour` value, so a 2005 Grand Slam and a 2019
+ * 1-star read identically. The badge now falls back to the level when the tier
+ * has none of its own.
+ */
+test('an expanded season badges tour events with the level FIVB gave them', async ({ page }) => {
+  const index = tournamentIndex();
+  // Find a player whose expanded season contains an event with a level, by
+  // scanning rather than naming one — which level a career touches depends on
+  // when it happened, and careers move as the archive is rebuilt.
+  const rows = results(COUNTRY, GENDER).players;
+  let found: { id: number; season: number; level: string; name: string } | null = null;
+  for (const [id, entries] of Object.entries(rows)) {
+    for (const [no] of entries) {
+      const meta = index[no];
+      if (meta && meta.length > 5 && meta[5]) {
+        found = { id: Number(id), season: meta[1], level: meta[5] as string, name: meta[0] };
+        break;
+      }
+    }
+    if (found) break;
+  }
+  expect(found, 'no tournament in this slice carries a level').not.toBeNull();
+
+  await page.goto(`./${slicePath()}?player=${found!.id}`);
+  await page
+    .getByRole('group', { name: 'Partner view' })
+    .getByRole('button', { name: 'Timeline', exact: true })
+    .click();
+  const season = page
+    .locator('.partners > .timeline > li')
+    .filter({ hasText: String(found!.season) })
+    .first();
+  await season.locator('.season').click();
+
+  const row = season.locator('.events > li').filter({ hasText: found!.name }).first();
+  await expect(row).toBeVisible();
+  // The badge says exactly what the published index says, not a guess.
+  await expect(row.locator('.badge')).toHaveText(found!.level);
+});
+
+test('the Olympics keep their tier badge rather than gaining a level', async ({ page }) => {
+  // Tier wins where it exists: the Games have no level below them, and a row
+  // reading "Olympics" is the right answer where "1-star" would be nonsense.
+  const index = tournamentIndex();
+  const rows = results(COUNTRY, GENDER).players;
+  let found: { id: number; season: number; name: string } | null = null;
+  for (const [id, entries] of Object.entries(rows)) {
+    for (const [no] of entries) {
+      const meta = index[no];
+      if (meta && meta[2] === 'olympics') {
+        found = { id: Number(id), season: meta[1], name: meta[0] };
+        break;
+      }
+    }
+    if (found) break;
+  }
+  test.skip(!found, 'no Olympic entry in this slice');
+
+  await page.goto(`./${slicePath()}?player=${found!.id}`);
+  await page
+    .getByRole('group', { name: 'Partner view' })
+    .getByRole('button', { name: 'Timeline', exact: true })
+    .click();
+  const season = page
+    .locator('.partners > .timeline > li')
+    .filter({ hasText: String(found!.season) })
+    .first();
+  await season.locator('.season').click();
+  const row = season.locator('.events > li').filter({ hasText: found!.name }).first();
+  await expect(row.locator('.badge')).toHaveText('Olympics');
+});

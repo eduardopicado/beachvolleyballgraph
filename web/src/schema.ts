@@ -185,7 +185,24 @@ export interface PlayersFile {
 export type TournamentMeta =
   | [name: string, season: number, tier: Tier]
   | [name: string, season: number, tier: Tier, startOffset: number]
-  | [name: string, season: number, tier: Tier, startOffset: number | null, code: string];
+  | [name: string, season: number, tier: Tier, startOffset: number | null, code: string]
+  | [
+      name: string,
+      season: number,
+      tier: Tier,
+      startOffset: number | null,
+      code: string,
+      /**
+       * What FIVB called this event's level at the time — "Grand Slam",
+       * "4-star", "Elite16". Absent for the Olympics, the World Championships
+       * and the age-group championships, which have no level below the tier.
+       *
+       * Era-native and unranked on purpose: the hierarchy was renumbered twice
+       * and no mapping across those eras survives, so these are labels rather
+       * than a scale. See `LEVEL_BY_TYPE` in ingest/tiers.ts.
+       */
+      level: string,
+    ];
 
 /**
  * Every qualifying tournament, keyed by FIVB tournament number.

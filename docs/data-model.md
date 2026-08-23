@@ -147,8 +147,8 @@ everywhere, and 264 slices each carrying their own subset would repeat most of
 this file hundreds of times in a committed tree.
 
 ```json
-"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 225, "WBUS2026"]
-//        name                season tier             offset code
+"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 225, "WBUS2026", "Futures"]
+//        name                season tier             offset code       level
 ```
 
 **`code` is FIVB's own identifier** — gender letter, venue, season. Populated on
@@ -159,10 +159,25 @@ derived, and VIS itself carries no URL (`WebSite` and `BuyTicketsUrl` are empty
 on every record). Nothing renders it — it exists so this data can be joined to
 another source, and so a link is one line the day a durable target appears.
 
+**`level` is what FIVB called the event's rung at the time** — "Grand Slam",
+"4-star", "Elite16". Present on the 1,552 tour events, absent on the Olympics,
+the World Championships and the age-group championships, which have no level
+below their tier. It is what lets the player card badge an ordinary week on
+tour: `tier` collapses thirteen distinct rungs into one `world-tour` value, so
+a 2005 Grand Slam and a 2019 1-star were indistinguishable before it.
+
+It is a **label, not a rank**. FIVB renumbered the hierarchy twice —
+Open/Challenger/Satellite, then 1-to-5-star, then Elite16/Challenge/Futures —
+and no mapping across those eras survives, so nothing may order one against
+another. The names come from
+[FIVB's own enum](https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html)
+rather than from tournament names, which is how `Type` 38 spent months
+mislabelled "Major" here when it is `WorldTour5Star`.
+
 **The tuple was appended to, never reordered.** Indices 0–3 keep their meaning,
-so this stayed additive to a published contract. One consequence: the
-five-element form makes an *explicit null* offset representable where the slot
-used to be absent, and a reader that treats null as 0 would date every undated
+so this stayed additive to a published contract — twice now, `code` then
+`level`. One consequence: the five-element form makes an *explicit null* offset
+representable where the slot used to be absent, and a reader that treats null as 0 would date every undated
 tournament to 1 January.
 
 ## results/{CC}-{G}.json
