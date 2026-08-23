@@ -193,9 +193,8 @@
 
 .player-search-results li {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 1px;
+  align-items: center;
+  gap: 10px;
   padding: 7px 10px;
   border-radius: 6px;
   text-align: left;
@@ -206,6 +205,37 @@
 
 .player-search-results li.is-active {
   background: var(--series-1-wash);
+}
+
+/* The two text lines, now beside the portrait rather than filling the row. */
+.player-search-results .who {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1px;
+  min-width: 0;
+}
+
+/* 32px, which is the smallest a face is still a face — 24 reads as a coloured
+   dot. It costs no height: the name and meta already stand the row at ~40px,
+   so the circle fits in space the row had regardless. */
+.player-search-results .avatar {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--series-1-wash);
+}
+
+/* No photo on file, which is common rather than exceptional — see Avatar.tsx. */
+.player-search-results .avatar.is-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--series-1);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .player-search-results .name {
@@ -225,13 +255,18 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Where a match lives, when that is not the page you are on. Reads louder
-   than the tournament count beside it: it is the thing that makes the row
-   different, and picking it changes country. */
+/* Where a match lives. On every row, so that eight results naming eight
+   countries can be told apart — but quiet by default, because for a player
+   already on screen it is context rather than news. */
 .player-search-results .where {
+  white-space: nowrap;
+}
+
+/* The ones that are somewhere else keep the emphasis: picking these changes
+   country and gender, which is the only thing here with a consequence. */
+.player-search-results .where.is-elsewhere {
   color: var(--text-secondary);
   font-weight: 600;
-  white-space: nowrap;
 }
 
 .player-search-empty {

@@ -7,10 +7,20 @@ export interface SearchablePlayer {
   name: string;
   tournaments: number;
   /**
-   * The slice this player belongs to, set only for players outside the one
-   * being viewed. Present means "picking this changes country and gender".
+   * The slice this player belongs to. Always set, because every row names a
+   * country now — a reader looking at a list of eight "Sam"s wants to know
+   * which is which, and the ones already on screen were the rows left blank.
    */
-  slice?: { country: string; gender: Gender };
+  slice: { country: string; gender: Gender };
+  /**
+   * True when that slice is *not* the one being viewed, i.e. picking this row
+   * changes country and gender.
+   *
+   * Kept separate from `slice` rather than inferred from its presence: the two
+   * questions are "where is this player from" and "does choosing them navigate
+   * somewhere", and only the second should decide ranking or emphasis.
+   */
+  elsewhere?: boolean;
 }
 
 /** A player with their name pre-folded, so a keystroke does not refold 12,000 of them. */
@@ -70,7 +80,7 @@ export function searchPlayers(
   }
 
   const byProminence = (a: IndexedPlayer, b: IndexedPlayer) =>
-    Number(Boolean(a.slice)) - Number(Boolean(b.slice)) ||
+    Number(Boolean(a.elsewhere)) - Number(Boolean(b.elsewhere)) ||
     b.tournaments - a.tournaments ||
     a.name.localeCompare(b.name);
   starts.sort(byProminence);

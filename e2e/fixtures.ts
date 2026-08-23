@@ -142,7 +142,18 @@ export const test = base.extend<{ jsErrors: string[] }>({
       const errors: string[] = [];
       page.on('pageerror', (err) => errors.push(`uncaught: ${err.message}`));
       page.on('console', (msg) => {
-        if (msg.type() === 'error') errors.push(`console.error: ${msg.text()}`);
+        if (msg.type() !== 'error') return;
+        // A portrait that 404s is the designed path, not a fault: FIVB has no
+        // photo for a large share of the archive and both the card and the
+        // search rows fall back to initials. The blanket stub above means this
+        // only fires for a test that asked for a failure on purpose, so the
+        // exemption is scoped to that host and to a failed *request* — a real
+        // console.error from the app still fails the run, and so does a
+        // resource failure from anywhere else.
+        if (msg.location().url.includes(PHOTO_HOST) && /Failed to load resource/.test(msg.text())) {
+          return;
+        }
+        errors.push(`console.error: ${msg.text()}`);
       });
 
       await use(errors);

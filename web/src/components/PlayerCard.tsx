@@ -7,18 +7,18 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
-import { playerPhotoUrl, playerProfileUrl, TIER_BADGE } from '../schema';
+import { playerProfileUrl, TIER_BADGE } from '../schema';
 import {
   age,
   formatDate,
   formatDayMonth,
   formatFinish,
   formatMedals,
-  initials,
   medalAriaLabel,
   plural,
   seasonSpan,
 } from '../lib/format';
+import { Avatar } from './Avatar';
 import { buildTimeline, type TimelineSeason } from '../lib/timeline';
 import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { useResults } from '../lib/useResults';
@@ -222,30 +222,6 @@ function isFocusable(el: Element): el is Element & Pick<HTMLOrSVGElement, 'focus
   return typeof (el as Partial<HTMLOrSVGElement>).focus === 'function';
 }
 
-function Photo({ src, name }: { src: string | undefined; name: string }) {
-  const [failed, setFailed] = useState(false);
-  // A new player means a new URL: reset so a previous 404 doesn't stick.
-  useEffect(() => setFailed(false), [src]);
-
-  if (!src || failed) {
-    return (
-      <div className="player-photo is-fallback" aria-hidden="true">
-        {initials(name)}
-      </div>
-    );
-  }
-  return (
-    <img
-      className="player-photo"
-      src={src}
-      alt={`Portrait of ${name}`}
-      loading="lazy"
-      decoding="async"
-      onError={() => setFailed(true)}
-    />
-  );
-}
-
 export function PlayerCard({
   node,
   detail,
@@ -436,7 +412,7 @@ export function PlayerCard({
       aria-label={`Profile: ${node.name}`}
     >
       <header>
-        <Photo src={playerPhotoUrl(node.id)} name={node.name} />
+        <Avatar id={node.id} name={node.name} width={200} className="player-photo" />
         <div className="who">
           <h2>{node.name}</h2>
           <p className="country">
