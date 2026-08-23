@@ -191,7 +191,10 @@
   box-shadow: var(--shadow-lg);
 }
 
-.player-search-results li {
+/* Scoped to `.result` rather than every `li`: results are nested one level
+   deeper now, inside a labelled group, and a bare `li` selector would style the
+   group wrapper as a row too — giving it a row's padding and pointer cursor. */
+.player-search-results .result {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -203,8 +206,52 @@
   color: var(--text-primary);
 }
 
-.player-search-results li.is-active {
+.player-search-results .result.is-active {
   background: var(--series-1-wash);
+}
+
+.player-search-results .group ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Where one group ends and the next begins — the precedence the country
+   selector has always had, finally written down. Rendered only when a boundary
+   is actually crossed, so the common all-from-this-page result is unchanged. */
+.player-search-results .split {
+  display: block;
+  padding: 8px 10px 3px;
+  color: var(--text-muted);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* The first heading in the list sits right under the input; it needs less air
+   above it than one that follows a row. */
+.player-search-results > .split:first-child,
+.player-search-results > .group:first-child .split {
+  padding-top: 3px;
+}
+
+.player-search-results .split.is-note {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.player-search-results .split.is-more {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 7px 10px 3px;
+  margin-top: 4px;
+  border-top: 1px solid var(--border);
 }
 
 /* The two text lines, now beside the portrait rather than filling the row. */
