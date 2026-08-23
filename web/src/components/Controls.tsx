@@ -10,6 +10,7 @@ import { GENDER_LABEL, GENDERS, parseSliceKey } from '../schema';
 import { fetchSearchIndex } from '../lib/api';
 import { flagEmoji, plural } from '../lib/format';
 import { indexPlayers, searchPlayers, type SearchablePlayer } from '../lib/search';
+import { Avatar } from './Avatar';
 import './Controls.css';
 
 /**
@@ -64,14 +65,16 @@ function HelpTip({ text }: { text: string }) {
 function Where({
   slice,
   countries,
+  elsewhere,
 }: {
-  slice: NonNullable<SearchablePlayer['slice']>;
+  slice: SearchablePlayer['slice'];
   countries: Manifest['countries'];
+  elsewhere?: boolean;
 }) {
   const entry = countries.find((c) => c.code === slice.country);
   const flag = flagEmoji(entry?.iso2, slice.country);
   return (
-    <span className="where">
+    <span className={elsewhere ? 'where is-elsewhere' : 'where'}>
       {flag && <span aria-hidden="true">{flag} </span>}
       {entry?.name ?? slice.country} {GENDER_LABEL[slice.gender]}
     </span>
@@ -99,10 +102,15 @@ function Where({
 function PlayerSearch({
   players,
   countries,
+  country,
+  gender,
   onSelectPlayer,
 }: {
-  players: SearchablePlayer[];
+  /** The slice on screen. Named by `country`/`gender` rather than carrying it. */
+  players: readonly { id: number; name: string; tournaments: number }[];
   countries: Manifest['countries'];
+  country: string;
+  gender: Gender;
   onSelectPlayer: (player: SearchablePlayer) => void;
 }) {
   const [query, setQuery] = useState('');
@@ -135,17 +143,18 @@ function PlayerSearch({
    * about needing to navigate anywhere.
    */
   const searchable = useMemo(() => {
-    const all: SearchablePlayer[] = [...players];
+    // The slice on screen is named too, so every row carries a country.
+    const all: SearchablePlayer[] = players.map((p) => ({ ...p, slice: { country, gender } }));
     for (const [key, entries] of Object.entries(index?.slices ?? {})) {
       const slice = parseSliceKey(key);
       if (!slice) continue;
       for (const [id, name, tournaments] of entries) {
         if (onScreen.has(id)) continue;
-        all.push({ id, name, tournaments, slice });
+        all.push({ id, name, tournaments, slice, elsewhere: true });
       }
     }
     return indexPlayers(all);
-  }, [players, index, onScreen]);
+  }, [players, index, onScreen, country, gender]);
 
   const matches = useMemo(() => searchPlayers(searchable, query), [searchable, query]);
 
@@ -260,18 +269,25 @@ function PlayerSearch({
                   run long — "Barbara De Sousa Alves Ferreira" — and sharing a
                   line with a country label ellipsised most of them down to
                   "Barbar…", which is not a search result. */}
+              {/* Decorative, and deliberately not a reason to make the row
+                  taller: the name and its meta line already stand two rows
+                  high, so a 32px circle sits in space the row had anyway. */}
+              <Avatar id={m.id} name={m.name} width={64} className="avatar" />
+              <span className="who">
               <span className="name">{m.name}</span>
               <span className="meta">
-                {/* Only for players the reader would have to navigate to.
-                    Flagging the whole list would put a Brazilian flag on
-                    every row of the Brazil page and say nothing. */}
-                {m.slice && (
-                  <>
-                    <Where slice={m.slice} countries={countries} />
-                    <span aria-hidden="true">·</span>
-                  </>
-                )}
+                {/* On every row. It used to appear only for players the
+                    reader would have to navigate to, on the reasoning that a
+                    Brazilian flag on every row of the Brazil page says
+                    nothing — but eight rows where some name a country and
+                    some do not reads as missing data rather than as a
+                    distinction, and the blank rows are the ones the reader is
+                    most likely to pick. `is-elsewhere` keeps the "this
+                    changes country" emphasis where it belongs. */}
+                <Where slice={m.slice} countries={countries} elsewhere={m.elsewhere} />
+                <span aria-hidden="true">·</span>
                 {plural(m.tournaments, 'tournament')}
+              </span>
               </span>
             </li>
           ))}
@@ -299,7 +315,8 @@ interface Props {
   onGender: (gender: Gender) => void;
   minTogether: number;
   onMinTogether: (value: number) => void;
-  players: SearchablePlayer[];
+  /** The slice on screen; the search names its country from the props below. */
+  players: readonly { id: number; name: string; tournaments: number }[];
   onSelectPlayer: (player: SearchablePlayer) => void;
 }
 
@@ -377,7 +394,13 @@ export function Controls({
         </div>
       </div>
 
-      <PlayerSearch players={players} countries={manifest.countries} onSelectPlayer={onSelectPlayer} />
+      <PlayerSearch
+        players={players}
+        countries={manifest.countries}
+        country={country}
+        gender={gender}
+        onSelectPlayer={onSelectPlayer}
+      />
 
       <p className="as-of">
         Data as of{' '}

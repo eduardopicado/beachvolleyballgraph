@@ -144,3 +144,68 @@ test.describe('search combobox', () => {
     await expect(input).toHaveValue('a');
   });
 });
+
+/**
+ * The portrait beside each search result.
+ *
+ * Two things worth pinning, both invisible to a passing build: that the
+ * portrait does not push the row taller (the whole reason 32px was affordable
+ * is that the two text lines already stand the row at ~40px), and that a
+ * player with no photo on file still gets a circle rather than a gap. FIVB
+ * 404s a large share of the archive, so the fallback is the common path, not
+ * the edge case — and `fixtures.ts` stubs every portrait with a 200, which
+ * means nothing exercises it unless a test asks for a failure on purpose.
+ */
+test.describe('search result portraits', () => {
+  const box = (page: import('@playwright/test').Page) => page.getByPlaceholder('Start typing a name…');
+
+  async function openResults(page: import('@playwright/test').Page, term: string) {
+    await page.goto(`./${slicePath()}`);
+    const input = box(page);
+    await input.click();
+    await input.fill(term);
+    await expect(page.locator('.player-search-results li').first()).toBeVisible();
+  }
+
+  test('every result carries a 32px portrait, and the row is no taller for it', async ({ page }) => {
+    const target = [...graph(COUNTRY, GENDER).nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    await openResults(page, target.name.split(' ')[0]!);
+
+    const rows = page.locator('.player-search-results li');
+    const count = await rows.count();
+    expect(count, 'need results to assert on').toBeGreaterThan(0);
+    // One avatar per row, no row left without one.
+    await expect(page.locator('.player-search-results .avatar')).toHaveCount(count);
+
+    const avatar = (await page.locator('.player-search-results .avatar').first().boundingBox())!;
+    expect(Math.round(avatar.width)).toBe(32);
+    expect(Math.round(avatar.height)).toBe(32);
+
+    // The circle costs no height, and this is the assertion that says so
+    // without hard-coding a row height: the two text lines are taller than the
+    // avatar, so the row is sized by them and the avatar rides in space it
+    // already had. Measured rather than assumed — the row is ~54px, not the
+    // ~40px I first guessed, but the text column is ~40px and still wins.
+    const who = (await page.locator('.player-search-results .who').first().boundingBox())!;
+    expect(who.height).toBeGreaterThanOrEqual(avatar.height);
+  });
+
+  test('a player with no photo on file gets initials, not a hole', async ({ page }) => {
+    const target = [...graph(COUNTRY, GENDER).nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    // Registered after the fixture's blanket stub, so it wins for this one
+    // player: Playwright matches the most recently added route first.
+    await page.route(`**://sharp.fivb.com/**No=${target.id}**`, (route) =>
+      route.fulfill({ status: 404, contentType: 'text/plain', body: 'no photo' }),
+    );
+
+    await openResults(page, target.name.split(' ')[0]!);
+    const row = page.locator('.player-search-results li').filter({ hasText: target.name }).first();
+    const fallback = row.locator('.avatar.is-fallback');
+    await expect(fallback).toBeVisible();
+    // Initials of the same name the row shows, so the circle still identifies
+    // somebody rather than sitting there empty.
+    await expect(fallback).not.toBeEmpty();
+    const box2 = (await fallback.boundingBox())!;
+    expect(Math.round(box2.width)).toBe(32);
+  });
+});

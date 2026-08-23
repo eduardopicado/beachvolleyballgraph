@@ -416,8 +416,14 @@ test.describe('cross-country search', () => {
       .toContain(sliceSlug(entry!.name, parseSliceKey(target!.slice)!.gender));
   });
 
-  test('does not flag players who are already on the page', async ({ page }) => {
-    // A flag on a row that needs no navigation would be a lie about it.
+  test('every row names a country, and only the ones elsewhere are flagged as such', async ({ page }) => {
+    // Every row says where the player is from — eight results named "Sam" are
+    // otherwise impossible to tell apart, and the rows left blank were the
+    // local ones, which is exactly the group a reader is most likely to want.
+    //
+    // The emphasis is the part that stays conditional: `is-elsewhere` marks
+    // the rows whose selection changes country and gender, which is the only
+    // thing on this line with a consequence.
     const local = graph(COUNTRY, GENDER).nodes.sort((a, b) => b.tournaments - a.tournaments)[0]!;
     await page.goto(`./${slicePath()}`);
     await box(page).click();
@@ -425,7 +431,13 @@ test.describe('cross-country search', () => {
 
     const row = page.locator('.player-search-results li', { hasText: local.name }).first();
     await expect(row).toBeVisible();
-    await expect(row.locator('.where')).toHaveCount(0);
+    const where = row.locator('.where');
+    await expect(where).toHaveCount(1);
+    // Named as the country actually on screen, not left blank.
+    const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
+    await expect(where).toContainText(entry.name);
+    // …but not dressed as somewhere you would have to navigate to.
+    await expect(row.locator('.where.is-elsewhere')).toHaveCount(0);
   });
 });
 

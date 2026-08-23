@@ -2,8 +2,14 @@ import { describe, expect, it } from 'vitest';
 import { foldAccents, indexPlayers, searchPlayers, type SearchablePlayer } from './search';
 import type { Gender } from '../schema';
 
-const p = (id: number, name: string, tournaments = 10, slice?: { country: string; gender: Gender }) =>
-  indexPlayers([{ id, name, tournaments, slice } as SearchablePlayer])[0]!;
+/**
+ * `elsewhere` is what ranking turns on, not the presence of a slice: every
+ * player carries a slice now, because every search row names a country.
+ */
+const p = (id: number, name: string, tournaments = 10, elsewhere = false) =>
+  indexPlayers([
+    { id, name, tournaments, slice: { country: 'BRA', gender: 'M' as Gender }, elsewhere },
+  ] as SearchablePlayer[])[0]!;
 
 describe('searchPlayers', () => {
   const players = [
@@ -73,14 +79,14 @@ describe('searchPlayers', () => {
   it('puts players from the slice on screen above players from elsewhere', () => {
     // A reader on the Brazil page typing a name almost certainly means a
     // Brazilian one -- even when a more prominent player elsewhere matches.
-    const elsewhere = p(9, 'Ana Patricia Silva Ramos', 200, { country: 'BRA', gender: 'W' });
+    const elsewhere = p(9, 'Ana Patricia Silva Ramos', 200, true);
     const here = p(8, 'Ana Someone', 4);
     expect(searchPlayers([elsewhere, here], 'Ana').map((m) => m.id)).toEqual([8, 9]);
   });
 
   it('still ranks a prefix from elsewhere above a substring on screen', () => {
     // Slice is a tie-break inside a match group, not a filter over them.
-    const elsewhere = p(9, 'Costa Junior', 1, { country: 'POR', gender: 'M' });
+    const elsewhere = p(9, 'Costa Junior', 1, true);
     const here = p(2, 'Ricardo Alex Costa Santos', 281);
     expect(searchPlayers([here, elsewhere], 'Costa').map((m) => m.id)).toEqual([9, 2]);
   });
