@@ -13,6 +13,10 @@
  *
  * The result is auditable: every kept tournament carries its tier into the
  * manifest, so `manifest.tiers` shows exactly what the filter admitted.
+ *
+ * The `Type` names below come from FIVB's own enum and should be checked
+ * against it rather than guessed from tournament names:
+ * https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html
  */
 
 import type { Tier } from '../web/src/schema.js';
@@ -91,13 +95,25 @@ export const TIER_BY_TYPE: Record<number, Tier> = {
   6: 'world-tour', // Satellite
   32: 'world-tour', // Major Series
   33: 'world-tour', // World Tour Finals
-  38: 'world-tour', // Major
+  // FIVB's own enum names this `WorldTour5Star`, "World Tour 5*" — not Major,
+  // which is what this comment used to say. 32 events, 2017-2020: the top rung
+  // of the star era, the tier Gstaad and Fort Lauderdale sat on. Nothing about
+  // the mapping was wrong (they were always kept as world-tour), but the label
+  // would have gone straight onto the page the day a tournament-level badge
+  // ships. Major Series is 32, below, and is a genuinely different thing: the
+  // 2015-2016 branding that 5-star replaced.
+  38: 'world-tour', // World Tour 5*
   39: 'world-tour', // 4-star
   40: 'world-tour', // 3-star
   41: 'world-tour', // 2-star
   42: 'world-tour', // 1-star
 
   // --- Beach Pro Tour (2022-) ---
+  // Types 51-55 are in use in live VIS data but are *not* in FIVB's published
+  // enum, which stops at 50 (KingOfTheCourt). These four names are inferred
+  // from the tournaments carrying them, not read off a spec — treat them as
+  // less certain than everything above, and re-check before putting any of
+  // them in front of a reader as a label.
   51: 'beach-pro-tour', // Challenge
   52: 'beach-pro-tour', // Elite16
   53: 'beach-pro-tour', // Futures

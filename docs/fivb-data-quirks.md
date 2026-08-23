@@ -266,8 +266,8 @@ MROM2017  Type=38  rows=21  played=0   Name: "Rome (canceled)"
 ```
 
 Which is easy to miss, because `Name` is not a field you need for anything
-else. It surfaced only by asking why just 16 of 32 Majors contributed
-anything.
+else. It surfaced only by asking why just 16 of 32 World Tour 5\* events
+contributed anything.
 
 **Scale.** 131 of 1,825 qualifying tournaments are marked cancelled, and
 **all 131 contribute zero appearances** — the correlation is exact, because a
