@@ -448,10 +448,24 @@ describe('awayPartnersByPlayer', () => {
   it('records a partnership split across federations on both players', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
     const { partnerships } = aggregatePartnerships([entry('t1', 1, 2), entry('t2', 1, 2)], tournaments, people);
-    const away = awayPartnersByPlayer(partnerships, people);
+    const away = awayPartnersByPlayer(partnerships, people, tournaments);
 
     expect(away.get(1)).toEqual([
-      { id: 2, name: 'First2 Last2', fed: 'ARG', gender: 'M', t: 2, f: 2023, l: 2024 },
+      {
+        id: 2,
+        name: 'First2 Last2',
+        fed: 'ARG',
+        gender: 'M',
+        t: 2,
+        f: 2023,
+        l: 2024,
+        // The same per-season shape a graph edge carries, so the card can run
+        // both through one timeline.
+        s: [
+          [2023, 1],
+          [2024, 1],
+        ],
+      },
     ]);
     // And symmetrically — the Argentine's card is just as empty without it.
     expect(away.get(2)![0]).toMatchObject({ id: 1, fed: 'BRA' });
@@ -460,7 +474,7 @@ describe('awayPartnersByPlayer', () => {
   it('ignores a partnership the graph already shows', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
     const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people).size).toBe(0);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
   });
 
   it('treats a different gender under the same federation as away too', () => {
@@ -469,7 +483,7 @@ describe('awayPartnersByPlayer', () => {
     // slice rather than guessing.
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '1', 'BRA')]);
     const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
   });
 
   it('orders a player\'s away partners by tournaments together, then name', () => {
@@ -483,7 +497,7 @@ describe('awayPartnersByPlayer', () => {
       tournaments,
       people,
     );
-    expect(awayPartnersByPlayer(partnerships, people).get(1)!.map((a) => [a.id, a.t])).toEqual([
+    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)!.map((a) => [a.id, a.t])).toEqual([
       [3, 2],
       [2, 1],
     ]);
@@ -492,7 +506,7 @@ describe('awayPartnersByPlayer', () => {
   it('skips players with no federation on file', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), { ...player(2, '0', 'ARG'), FederationCode: '' }]);
     const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people).size).toBe(0);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
   });
 });
 

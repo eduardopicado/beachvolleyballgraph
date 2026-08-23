@@ -268,7 +268,7 @@ async function main() {
   // Partnerships split across federations, which the slicing drops from both
   // countries. Carried on the player instead, so a career built with foreign
   // partners still shows on the card.
-  const awayPartners = awayPartnersByPlayer(partnerships, players);
+  const awayPartners = awayPartnersByPlayer(partnerships, players, tournaments);
 
   // How many players are left with nothing visible in their own slice — they
   // competed, they have partners, and every one of those partners is filed

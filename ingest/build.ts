@@ -584,9 +584,44 @@ export interface Slice {
  * it, and sorted the same way the in-slice partner list is: most tournaments
  * together first, then name.
  */
+/**
+ * A partnership's tournaments, grouped into per-season tallies.
+ *
+ * Shared by the graph's edges and by the away partners below, which is the
+ * point: the player card renders both through the same timeline, so a season
+ * tally computed two ways would be two ways for them to disagree.
+ *
+ * The offset marks the pair's *last* event that season rather than their first,
+ * because the card lists seasons newest first and the rows inside one have to
+ * run the same way or the reading order jumps at every season boundary.
+ */
+export function seasonTallies(
+  tournamentNumbers: Iterable<string>,
+  tournaments: Map<string, Tournament>,
+): SeasonTally[] {
+  const perSeason = new Map<number, { n: number; latest: number | null }>();
+  for (const t of tournamentNumbers) {
+    const tournament = tournaments.get(t);
+    const season = tournament?.season ?? 0;
+    if (season <= 0) continue;
+    const row = perSeason.get(season);
+    const start = tournament?.startOffset ?? null;
+    if (!row) {
+      perSeason.set(season, { n: 1, latest: start });
+    } else {
+      row.n++;
+      if (start !== null && (row.latest === null || start > row.latest)) row.latest = start;
+    }
+  }
+  return [...perSeason]
+    .sort((x, y) => x[0] - y[0])
+    .map(([season, { n, latest }]): SeasonTally => (latest === null ? [season, n] : [season, n, latest]));
+}
+
 export function awayPartnersByPlayer(
   partnerships: Map<string, Partnership>,
   players: Map<number, Player>,
+  tournaments: Map<string, Tournament>,
 ): Map<number, AwayPartner[]> {
   const out = new Map<number, AwayPartner[]>();
   const sliceKey = (p: Player) => `${p.federation}-${p.gender}`;
@@ -610,6 +645,7 @@ export function awayPartnersByPlayer(
         t: pair.tournaments.size,
         f: pair.firstSeason,
         l: pair.lastSeason,
+        s: seasonTallies(pair.tournaments, tournaments),
       });
       out.set(self.id, list);
     }
@@ -679,30 +715,13 @@ export function sliceByCountryAndGender(
     // partnership belongs where it was most recently played, which is also
     // what puts a partner carried into the following season directly beneath
     // their row in it.
-    const perSeason = new Map<number, { n: number; latest: number | null }>();
-    for (const t of pair.tournaments) {
-      const tournament = tournaments.get(t);
-      const season = tournament?.season ?? 0;
-      if (season <= 0) continue;
-      const row = perSeason.get(season);
-      const start = tournament?.startOffset ?? null;
-      if (!row) {
-        perSeason.set(season, { n: 1, latest: start });
-      } else {
-        row.n++;
-        if (start !== null && (row.latest === null || start > row.latest)) row.latest = start;
-      }
-    }
-
     list.push({
       a: pair.a,
       b: pair.b,
       t: pair.tournaments.size,
       f: pair.firstSeason,
       l: pair.lastSeason,
-      s: [...perSeason]
-        .sort((x, y) => x[0] - y[0])
-        .map(([season, { n, latest }]): SeasonTally => (latest === null ? [season, n] : [season, n, latest])),
+      s: seasonTallies(pair.tournaments, tournaments),
     });
   }
 

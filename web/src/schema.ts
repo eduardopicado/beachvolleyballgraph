@@ -103,6 +103,16 @@ export interface AwayPartner {
   t: number;
   f: number;
   l: number;
+  /**
+   * Per-season breakdown, exactly as on a graph edge — so the player card can
+   * run these through the same timeline as in-slice partnerships rather than
+   * stranding a transferred player's career in a flat list below it.
+   *
+   * Optional for the same reason `s` is terse on edges: it is absent on a
+   * partnership whose tournaments all carried unusable seasons, which is rare
+   * but not impossible.
+   */
+  s?: SeasonTally[];
 }
 
 /** Lazy-loaded detail for every player in one country x gender slice. */
