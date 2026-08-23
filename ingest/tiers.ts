@@ -154,8 +154,17 @@ export const LEVEL_BY_TYPE: Record<number, string> = {
   42: '1-star',
 
   // --- Beach Pro Tour (2022-) ---
-  51: 'Challenge',
-  52: 'Elite16',
+  //
+  // 51 and 52 were the wrong way round here, which put "Challenge" on every
+  // Elite16 badge on the site and "Elite16" on the 2022 Challenges. Checked
+  // against VIS rather than reasoned about: of the 88 tournaments whose own
+  // name contains "Elite", every one is Type 51 and none is 52; of the 68
+  // named "Challenge", every one is 52 and none is 51.
+  //
+  // Nothing else moved — both types are `beach-pro-tour` in TIER_BY_TYPE, so
+  // no player, partnership or count was ever affected. Only the label.
+  51: 'Elite16',
+  52: 'Challenge',
   53: 'Futures',
   54: 'Finals',
 };
