@@ -52,9 +52,6 @@ interface Hover {
 const prefersReducedMotion = () =>
   typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/** Upper bound on automatically placed labels; collision thins it further. */
-const MAX_LABELS = 16;
-
 /**
  * How far a pointer may travel and still count as a tap rather than a drag.
  *
@@ -191,7 +188,11 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
         setTransform(view);
         applyView(view);
       }
-      setLabelled(pickLabels(layout.nodes, view, width, height, MAX_LABELS));
+      // No cap passed: how many names fit is a question about the geometry of
+      // this view, and pickLabels is where that geometry lives. A number here
+      // was the thing actually deciding, and it decided 16 everywhere -- on a
+      // 900x620 desktop view of Brazil's men there was room for over a hundred.
+      setLabelled(pickLabels(layout.nodes, view, width, height));
       setSettled(true);
     };
 
@@ -228,7 +229,7 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
     if (layout.simulation.alpha() > layout.simulation.alphaMin()) return;
     const view = fitToView(layout.nodes, size.width, size.height);
     setTransform(view);
-    setLabelled(pickLabels(layout.nodes, view, size.width, size.height, MAX_LABELS));
+    setLabelled(pickLabels(layout.nodes, view, size.width, size.height));
   }, [layout, size]);
 
   // Pan to keep a newly selected player in view — otherwise "select" (from
@@ -624,7 +625,7 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
             userAdjusted.current = false;
             const view = fitToView(layout.nodes, size.width, size.height);
             setTransform(view);
-            setLabelled(pickLabels(layout.nodes, view, size.width, size.height, MAX_LABELS));
+            setLabelled(pickLabels(layout.nodes, view, size.width, size.height));
           }}
           aria-label="Fit graph to view"
           className="reset"

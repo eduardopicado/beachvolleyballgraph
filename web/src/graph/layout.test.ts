@@ -3,6 +3,7 @@ import {
   buildLayout,
   edgeWidth,
   fitToView,
+  LABEL_GUTTER,
   MAX_RADIUS,
   MIN_RADIUS,
   MIN_TAP_RADIUS,
@@ -182,6 +183,54 @@ describe('pickLabels', () => {
   it('skips labels that would fall outside the canvas', () => {
     const nodes = placed([[-500, -500], [5000, 5000]]);
     expect(pickLabels(nodes, identity, 400, 400).size).toBe(0);
+  });
+
+  /**
+   * The complaint this exists for: names missing from places with obvious room
+   * for them. The limit was a hard count of 16, reached on every real slice
+   * long before the geometry ran out — at 900x620 Brazil's men had space for
+   * over a hundred and drew sixteen.
+   */
+  it('labels far more than the old cap when the room is there', () => {
+    const nodes = placed(
+      Array.from({ length: 40 }, (_, i) => [60 + (i % 8) * 160, 60 + Math.floor(i / 8) * 140]),
+    );
+    expect(pickLabels(nodes, identity, 1300, 700).size).toBe(40);
+  });
+
+  it('still honours an explicit maximum, as a backstop', () => {
+    const nodes = placed(
+      Array.from({ length: 40 }, (_, i) => [60 + (i % 8) * 160, 60 + Math.floor(i / 8) * 140]),
+    );
+    expect(pickLabels(nodes, identity, 1300, 700, 5).size).toBe(5);
+  });
+
+  /**
+   * Distances here are literal on purpose. Deriving them from LABEL_GUTTER
+   * made the fixture move with the constant, so the test passed at a gutter of
+   * zero -- it was asserting the code agreed with itself. A label box for "P1"
+   * is 25.4px wide, so 30px apart leaves 4.6px of air and 45px leaves 19.6px:
+   * one is inside a gutter of 8 and the other is outside it.
+   */
+  it('keeps a clear gutter between labels rather than letting them touch', () => {
+    // 4.6px of clearance: closer than the gutter, so only one gets a name.
+    expect(pickLabels(placed([[200, 200], [230, 200]]), identity, 800, 400).size).toBe(1);
+    // 19.6px: comfortably clear, so both do.
+    expect(pickLabels(placed([[200, 200], [245, 200]]), identity, 800, 400).size).toBe(2);
+  });
+
+  /**
+   * The distances above are literal, which is what makes them able to fail:
+   * derived from LABEL_GUTTER they moved with it, and the test passed at a
+   * gutter of zero. This is the note that keeps them honest.
+   */
+  it('is measured against the gutter its fixtures assume', () => {
+    expect(LABEL_GUTTER).toBe(8);
+  });
+
+  it('never lets a node block its own label, however big it is', () => {
+    const big = { ...node(1, 100), x: 200, y: 200, degree: 0, radius: 40 };
+    expect(pickLabels([big], identity, 400, 400).has(1)).toBe(true);
   });
 });
 

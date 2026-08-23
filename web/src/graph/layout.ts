@@ -244,23 +244,58 @@ export function nodeAtPoint(
 const labelWidth = (name: string) => name.length * 5.7 + 14;
 
 /**
+ * Clear screen pixels required between one label and its neighbours.
+ *
+ * This, not a count, is what decides how many names a view carries. The rule
+ * is geometric, so it answers the question a reader actually asks — "there is
+ * obviously room here, why is that dot not named?" — at every zoom level and
+ * on every screen, without a number to re-tune when either changes.
+ *
+ * 8px, measured rather than picked: Brazil's men at 900x620 carry 75 names
+ * against the 16 a hard cap allowed, and 32 against 16 on a 390px phone — more
+ * names everywhere, and still a clear gap between any two. At 12 the phone
+ * gained nothing over the old cap; at 4 the labels touched.
+ *
+ * Labels are still allowed to cross *dots*, as they always have been. Treating
+ * dots as obstacles too was built and then thrown away: dots are what the core
+ * of a dense graph is made of, so the rule pushed every name out to the sparse
+ * rim and cost Emanuel, Ricardo, Pedro Solberg and Bruno Schmidt their labels
+ * — the graph stopped naming the players it exists to be about. Obvious in a
+ * screenshot, invisible in the counts, which had it costing almost nothing.
+ */
+export const LABEL_GUTTER = 8;
+
+
+/**
  * Choose which labels to draw.
  *
  * Labelling the top N by appearances puts every label in the dense core, where
  * they overlap into mush. Instead, walk players from most to least prominent
  * and keep a label only when its box is clear of every label already placed —
  * so the graph self-thins, and sparse regions get labelled too.
+ *
+ * `max` is a backstop against a pathological viewport, not the design control
+ * it used to be. It sat at 16, which on every real slice was reached long
+ * before the geometry ran out: at 900x620 Brazil's men had room for 108 names
+ * and drew 16 of them, which is exactly the "there was space right there"
+ * complaint. Whatever is dropped now is dropped for want of room, and the
+ * ranking means it is the least prominent players who lose out.
  */
 export function pickLabels(
   nodes: LayoutNode[],
   view: ViewTransform,
   width: number,
   height: number,
-  max = 16,
+  max = 120,
 ): Set<number> {
   const placed: { x1: number; y1: number; x2: number; y2: number }[] = [];
   const chosen = new Set<number>();
   const ranked = [...nodes].sort((a, b) => b.tournaments - a.tournaments || b.degree - a.degree);
+
+  const overlaps = (
+    a: { x1: number; y1: number; x2: number; y2: number },
+    b: { x1: number; y1: number; x2: number; y2: number },
+  ) => a.x1 < b.x2 && a.x2 > b.x1 && a.y1 < b.y2 && a.y2 > b.y1;
 
   for (const node of ranked) {
     if (chosen.size >= max) break;
@@ -273,10 +308,15 @@ export function pickLabels(
     // Off-canvas labels are wasted picks.
     if (box.x1 < 0 || box.x2 > width || box.y1 < 0 || box.y2 > height) continue;
 
-    const clashes = placed.some(
-      (p) => box.x1 < p.x2 && box.x2 > p.x1 && box.y1 < p.y2 && box.y2 > p.y1,
-    );
-    if (clashes) continue;
+    // The gutter is applied to the candidate only, so two labels end up with
+    // one gutter between them rather than two.
+    const padded = {
+      x1: box.x1 - LABEL_GUTTER,
+      y1: box.y1 - LABEL_GUTTER,
+      x2: box.x2 + LABEL_GUTTER,
+      y2: box.y2 + LABEL_GUTTER,
+    };
+    if (placed.some((p) => overlaps(padded, p))) continue;
 
     placed.push(box);
     chosen.add(node.id);
