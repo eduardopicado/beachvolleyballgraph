@@ -592,6 +592,81 @@ test.describe('cross-country search', () => {
     await expect(page.locator('.player-search-results .result.is-active')).toContainText(second);
   });
 
+  /**
+   * The bug both touch complaints came from.
+   *
+   * Rows selected on `pointerdown` with `preventDefault()`, which on a finger
+   * fires the instant contact is made and cancels the browser's scroll gesture
+   * with it. So every drag that began on a row opened whichever player it
+   * started over, the list could not be scrolled at all, and opening a player
+   * happened before the finger was lifted.
+   */
+  test.describe('touch', () => {
+    test.use({ hasTouch: true, viewport: { width: 768, height: 1024 } });
+
+    test('dragging a row scrolls the list instead of opening a player', async ({ page }) => {
+      const index = searchable();
+      const home: Slice = { country: COUNTRY, gender: GENDER };
+      // A query with more matches than fit, so there is something to scroll to.
+      const token = [...new Set(index.map((p) => p.folded.slice(0, 3)))].find(
+        (t) => t.length === 3 && searchPlayers(index, t, home).matches.length >= 10,
+      );
+      test.skip(!token, 'no query in this archive fills the list');
+
+      await page.goto(`./${slicePath()}`);
+      await box(page).click();
+      await box(page).fill(token!);
+      await page.waitForSelector('.player-search-results .result');
+
+      const list = page.locator('.player-search-results');
+      // Overflowing is the precondition; without it the drag proves nothing.
+      const overflow = await list.evaluate((el) => el.scrollHeight - el.clientHeight);
+      expect(overflow, 'the list does not overflow, so scrolling is untestable').toBeGreaterThan(20);
+
+      const bb = (await list.boundingBox())!;
+      const x = bb.x + bb.width / 2;
+
+      // A finger that starts on a row and travels upward: the gesture that used
+      // to open whichever player it happened to land on.
+      const row = '.player-search-results .result >> nth=2';
+      const touch = (clientY: number) => ({
+        pointerType: 'touch',
+        pointerId: 1,
+        clientX: x,
+        clientY,
+        bubbles: true,
+      });
+      await page.dispatchEvent(row, 'pointerdown', touch(bb.y + 200));
+      await page.dispatchEvent(row, 'pointermove', touch(bb.y + 140));
+      await page.dispatchEvent(row, 'pointermove', touch(bb.y + 80));
+      await page.dispatchEvent(row, 'pointerup', touch(bb.y + 80));
+      await page.waitForTimeout(200);
+
+      // The drag moved the finger, so nothing was chosen and the list is still up.
+      await expect(list).toBeVisible();
+      await expect(page.locator('.player-card')).toHaveCount(0);
+    });
+
+    test('a tap that stays put still opens the player it is on', async ({ page }) => {
+      // The other half: making a drag scroll must not make a tap inert.
+      await page.goto(`./${slicePath()}`);
+      await box(page).click();
+      const target = graph(COUNTRY, GENDER).nodes.sort((a, b) => b.tournaments - a.tournaments)[0]!;
+      await box(page).fill(target.name);
+      const row = page.locator('.player-search-results .result').first();
+      await expect(row).toBeVisible();
+
+      const rb = (await row.boundingBox())!;
+      const x = rb.x + rb.width / 2;
+      const y = rb.y + rb.height / 2;
+      const at = { pointerType: 'touch', pointerId: 1, clientX: x, clientY: y, bubbles: true };
+      await page.dispatchEvent('.player-search-results .result >> nth=0', 'pointerdown', at);
+      await page.dispatchEvent('.player-search-results .result >> nth=0', 'pointerup', at);
+
+      await expect(page.locator('.player-card h2')).toHaveText(target.name);
+    });
+  });
+
   test('the list says how many matches it threw away', async ({ page }) => {
     // The eight-row cut is what actually filters this search, and it used to be
     // completely silent: against the published index the median three-letter

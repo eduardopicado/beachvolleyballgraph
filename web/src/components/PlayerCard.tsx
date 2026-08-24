@@ -21,6 +21,7 @@ import {
 import { Avatar } from './Avatar';
 import { buildTimeline, type TimelineSeason } from '../lib/timeline';
 import { seasonEvents, type SeasonEvent } from '../lib/results';
+import { prefersReducedMotion } from '../lib/motion';
 import { useResults } from '../lib/useResults';
 import './PlayerCard.css';
 
@@ -274,7 +275,20 @@ export function PlayerCard({
     // again in 19ms, which made every player unreachable from the keyboard.
     // A container with tabIndex -1 has no default action to trigger, and
     // focusing it announces the panel's own label rather than "Close profile".
-    cardRef.current?.focus();
+    //
+    // `preventScroll` because focusing an off-screen element makes the browser
+    // jump to it with no transition, and on a phone that is a 1,570px jump the
+    // moment a search result is picked — measured, and the reason opening a
+    // player read as "what just happened". The scroll is still wanted; it is
+    // the instantaneous part that is not, so it is done deliberately below
+    // rather than as a side effect of focus.
+    cardRef.current?.focus({ preventScroll: true });
+    cardRef.current?.scrollIntoView({
+      // `nearest` so a card already on screen -- the desktop case, and clicking
+      // a graph node right beside it -- does not move at all.
+      block: 'nearest',
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+    });
     return () => {
       if (
         previouslyFocused &&

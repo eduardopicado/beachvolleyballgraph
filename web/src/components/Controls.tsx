@@ -21,6 +21,14 @@ import { Avatar } from './Avatar';
 import './Controls.css';
 
 /**
+ * How far a finger may travel on a result row and still count as a tap.
+ *
+ * Same value and the same reason as the graph's: a touch never lands
+ * perfectly still, and anything past this is someone scrolling the list.
+ */
+const TAP_SLOP = 8;
+
+/**
  * A help affordance that works on both input modes: `title` still gives
  * desktop mouse users the free native hover tooltip, but a `title` attribute
  * alone is invisible on touch — there is no hover state to trigger it. So the
@@ -124,6 +132,8 @@ function PlayerSearch({
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const [wantIndex, setWantIndex] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  /** The in-flight touch on a result row, so a drag can be told from a tap. */
+  const drag = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
 
   // Failure is silent on purpose: the slice-local search below still works,
   // so the box degrades to what it did before this file existed rather than
@@ -305,11 +315,38 @@ function PlayerSearch({
                 id={`player-search-option-${i}`}
                 aria-selected={i === activeIndex}
                 onPointerEnter={() => setActiveIndex(i)}
-                // Selection happens on pointerdown rather than click so it beats
-                // the outside-pointerdown handler that closes the dropdown.
+                // A mouse still selects on pointerdown, which is what beats the
+                // outside-pointerdown handler that closes the dropdown, and
+                // `preventDefault` is what keeps focus in the input.
+                //
+                // A finger must not. `preventDefault` on a touch pointerdown
+                // cancels the browser's scroll gesture, so every drag that
+                // began on a row selected that row instead of moving the list —
+                // which is both why the list could not be scrolled and why
+                // opening a player felt abrupt: it fired on contact, before the
+                // finger was lifted. Touch now waits for pointerup, and only
+                // when the finger stayed put.
                 onPointerDown={(e) => {
-                  e.preventDefault(); // keep focus in the input
+                  if (e.pointerType === 'mouse') {
+                    e.preventDefault();
+                    select(m);
+                    return;
+                  }
+                  drag.current = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
+                }}
+                onPointerMove={(e) => {
+                  const d = drag.current;
+                  if (!d || d.id !== e.pointerId || d.moved) return;
+                  if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > TAP_SLOP) d.moved = true;
+                }}
+                onPointerUp={(e) => {
+                  const d = drag.current;
+                  drag.current = null;
+                  if (!d || d.id !== e.pointerId || d.moved) return;
                   select(m);
+                }}
+                onPointerCancel={() => {
+                  drag.current = null;
                 }}
               >
                 {/* Name on its own line, everything else under it. These names
