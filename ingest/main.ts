@@ -61,6 +61,7 @@ import type {
   TournamentMeta,
 } from '../web/src/schema.js';
 import { DATA_VERSION } from '../web/src/schema.js';
+import { foldAccents } from '../web/src/lib/search.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.resolve(HERE, '../web/public');
@@ -400,7 +401,16 @@ async function main() {
     // ranks by — and so an eye scanning it lands on the names it would expect.
     searchIndex[`${slice.country}-${slice.gender}`] = [...slice.nodes]
       .sort((a, b) => b.tournaments - a.tournaments || a.name.localeCompare(b.name))
-      .map((n): SearchEntry => [n.id, n.name, n.tournaments]);
+      .map((n): SearchEntry =>
+        // The graph's label, but only when it says something the name does
+        // not. See SearchEntry: this is what makes "Duda" find Eduarda Santos
+        // Lisboa, and it is skipped for the plain shortenings that a name
+        // search already reaches.
+        foldAccents(n.short).includes(foldAccents(n.name)) ||
+        foldAccents(n.name).includes(foldAccents(n.short))
+          ? [n.id, n.name, n.tournaments]
+          : [n.id, n.name, n.tournaments, n.short],
+      );
 
     let entry = byCountry.get(slice.country);
     if (!entry) {
