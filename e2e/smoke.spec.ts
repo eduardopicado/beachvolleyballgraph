@@ -92,6 +92,40 @@ test('selecting a player opens their card with the right numbers', async ({ page
   await expect(tournaments.locator('dd')).toHaveText(String(target.tournaments));
 });
 
+/**
+ * The card is where a reader decides they landed on the right person, and it
+ * was the first place to stop saying the name that got them there: the node
+ * says "Duda", the search row says "Duda", and the profile said only "Eduarda
+ * Santos Lisboa". Subject found by scanning, since which players carry a label
+ * outside their name moves with the archive.
+ */
+test('the card carries the name the graph draws, when that is not the name itself', async ({
+  page,
+}) => {
+  const subject = [...graph(COUNTRY, GENDER).nodes]
+    .filter((n) => n.short.length >= 4 && !n.name.toLowerCase().includes(n.short.toLowerCase()))
+    .sort((a, b) => b.tournaments - a.tournaments)[0];
+  test.skip(!subject, 'no player in this slice has a label outside their name');
+
+  await page.goto(`./${slicePath()}?player=${subject!.id}`);
+  const card = page.locator('.player-card');
+  await expect(card.getByRole('heading', { level: 2 })).toHaveText(subject!.name);
+  await expect(card.locator('header .alias')).toContainText(subject!.short);
+});
+
+test('a player whose label is just their name shortened gets no second name', async ({ page }) => {
+  // The guard on the guard: without it, printing the label unconditionally
+  // would pass the test above while putting "P. Solberg" under "Pedro Solberg"
+  // on most of the archive.
+  const plain = [...graph(COUNTRY, GENDER).nodes]
+    .filter((n) => n.name.toLowerCase().includes(n.short.toLowerCase()))
+    .sort((a, b) => b.tournaments - a.tournaments)[0];
+  test.skip(!plain, 'no player in this slice has a label inside their name');
+
+  await page.goto(`./${slicePath()}?player=${plain!.id}`);
+  await expect(page.locator('.player-card header .alias')).toHaveCount(0);
+});
+
 test.describe('partners from other federations', () => {
   const sliceFor = (code: string, gender: string) => {
     const entry = manifest().countries.find((c) => c.code === code);

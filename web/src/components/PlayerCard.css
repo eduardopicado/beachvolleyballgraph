@@ -61,6 +61,15 @@
   overflow-wrap: anywhere;
 }
 
+/* The name on the node. Sits between the heading and the country because that
+   is the order a reader checks them in: is this the right person, and where
+   are they from. */
+.player-card header .alias {
+  margin: 1px 0 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
 .player-card .country {
   margin: 0;
   display: flex;
