@@ -23,10 +23,17 @@ import {
   graph,
   players,
   results,
+  searchIndex,
   strandedPlayer,
   tournamentIndex,
 } from './fixtures.js';
 import { sliceSlug } from '../web/src/lib/slug.js';
+import {
+  indexPlayers,
+  searchPlayers,
+  type SearchablePlayer,
+  type Slice,
+} from '../web/src/lib/search.js';
 import { parseSliceKey } from '../web/src/schema.js';
 import { CONTACT_EMAIL } from '../web/src/site.js';
 
@@ -382,6 +389,52 @@ test('the table lists the whole slice', async ({ page }) => {
 test.describe('cross-country search', () => {
   const box = (page: Page) => page.getByPlaceholder('Start typing a name…');
 
+  /** Result rows only — the list also holds group wrappers and headings. */
+  const rows = (page: Page) => page.locator('.player-search-results .result');
+
+  /**
+   * The same list the app searches, built from the same published index.
+   *
+   * Used only to *choose* a query whose matches land in more than one group —
+   * which names do that depends entirely on the archive, and the archive moves
+   * every week. Every assertion below is still made against the rendered DOM.
+   */
+  const searchable = () => {
+    const all: SearchablePlayer[] = [];
+    for (const [key, entries] of Object.entries(searchIndex())) {
+      const slice = parseSliceKey(key);
+      if (!slice) continue;
+      for (const [id, name, tournaments] of entries) all.push({ id, name, tournaments, slice });
+    }
+    return indexPlayers(all);
+  };
+
+  /**
+   * Where a match sits relative to the page, worked out from the *published
+   * slices* rather than from the grouping code this file is testing. Deriving
+   * the subject from `MatchGroup` would mean a revert of the grouping made
+   * these tests silently skip instead of fail.
+   */
+  const placeOf = (slice: Slice, home: Slice) =>
+    slice.country !== home.country ? 'elsewhere' : slice.gender === home.gender ? 'home' : 'country';
+
+  /** Scan for a query whose eight rows reach every place named. */
+  const queryCovering = (home: Slice, wanted: string[]) => {
+    const index = searchable();
+    const seen = new Set<string>();
+    for (const player of index) {
+      // A single name token: what a reader actually types.
+      for (const token of player.folded.split(' ')) {
+        if (token.length < 3 || seen.has(token)) continue;
+        seen.add(token);
+        const { matches } = searchPlayers(index, token, home);
+        const places = new Set(matches.map((m) => placeOf(m.slice, home)));
+        if (wanted.every((w) => places.has(w))) return { token, matches };
+      }
+    }
+    return null;
+  };
+
   test('finds an accented name from another country, typed without the accents', async ({
     page,
   }) => {
@@ -400,7 +453,7 @@ test.describe('cross-country search', () => {
     await expect.poll(() => requests.filter((p) => p.endsWith('/search.json')).length).toBe(1);
 
     await box(page).fill(target!.plain);
-    const row = page.locator('.player-search-results li', { hasText: target!.name });
+    const row = rows(page).filter({ hasText: target!.name });
     await expect(row).toBeVisible();
     // Flagged with where they actually are, since picking it leaves this page.
     await expect(row.locator('.where')).toBeVisible();
@@ -416,28 +469,184 @@ test.describe('cross-country search', () => {
       .toContain(sliceSlug(entry!.name, parseSliceKey(target!.slice)!.gender));
   });
 
-  test('every row names a country, and only the ones elsewhere are flagged as such', async ({ page }) => {
-    // Every row says where the player is from — eight results named "Sam" are
-    // otherwise impossible to tell apart, and the rows left blank were the
-    // local ones, which is exactly the group a reader is most likely to want.
-    //
-    // The emphasis is the part that stays conditional: `is-elsewhere` marks
-    // the rows whose selection changes country and gender, which is the only
-    // thing on this line with a consequence.
-    const local = graph(COUNTRY, GENDER).nodes.sort((a, b) => b.tournaments - a.tournaments)[0]!;
+  /**
+   * Where a row's country comes from.
+   *
+   * The original complaint was a list where some rows named a country and some
+   * were blank, which reads as missing data rather than as a distinction. That
+   * was fixed by naming it on every row; the headings then made six of those
+   * eight labels repeat the line directly above them.
+   *
+   * So it moves rather than coming back: the two groups that *can* be named by
+   * a heading are, and Elsewhere -- where every row is a different country, so
+   * no heading could -- keeps its per-row label. No row is left for the reader
+   * to infer.
+   */
+  test('a country is named once per group, and per row only where a heading cannot', async ({
+    page,
+  }) => {
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    const found = queryCovering(home, ['home', 'elsewhere']);
+    test.skip(!found, 'no query in this archive spans this page and elsewhere');
+    const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
+
     await page.goto(`./${slicePath()}`);
     await box(page).click();
-    await box(page).fill(local.name);
+    await box(page).fill(found!.token);
 
-    const row = page.locator('.player-search-results li', { hasText: local.name }).first();
-    await expect(row).toBeVisible();
-    const where = row.locator('.where');
-    await expect(where).toHaveCount(1);
-    // Named as the country actually on screen, not left blank.
+    const list = page.locator('.player-search-results');
+    const group = (name: string) => list.locator(`[role="group"][aria-label="${name}"]`);
+
+    // Named by its heading, so the rows beneath carry no label of their own.
+    await expect(group(`${entry.name} Men`)).toBeVisible();
+    await expect(group(`${entry.name} Men`).locator('.result .where')).toHaveCount(0);
+
+    // Elsewhere cannot be named by a heading -- so every row under it is.
+    const away = group('Elsewhere').locator('.result');
+    const awayCount = await away.count();
+    expect(awayCount, 'need at least one row from elsewhere').toBeGreaterThan(0);
+    await expect(group('Elsewhere').locator('.result .where')).toHaveCount(awayCount);
+
+    // And each one names its own country, not the one on screen.
+    const labels = await group('Elsewhere')
+      .locator('.result .where')
+      .evaluateAll((els) => els.map((e) => e.textContent ?? ''));
+    for (const label of labels) {
+      expect(label.trim().length, 'an away row has an empty country label').toBeGreaterThan(0);
+    }
+  });
+
+  /**
+   * The country selector has always ranked this list rather than filtering it,
+   * and nothing on screen said so — which is why the same box reads as strict
+   * on one query and absent on the next. The headings are that precedence,
+   * written down.
+   */
+  test('headings separate this page from the rest of the country and from everywhere else', async ({
+    page,
+  }) => {
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    const found = queryCovering(home, ['home', 'country', 'elsewhere']);
+    test.skip(!found, 'no query in this archive spans all three groups');
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(found!.token);
+
+    const list = page.locator('.player-search-results');
+    await expect(rows(page)).toHaveCount(found!.matches.length);
+
+    // Three groups, in order, each named for what it holds.
     const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
-    await expect(where).toContainText(entry.name);
-    // …but not dressed as somewhere you would have to navigate to.
-    await expect(row.locator('.where.is-elsewhere')).toHaveCount(0);
+    const labels = await list.locator('[role="group"]').evaluateAll((els) =>
+      els.map((el) => el.getAttribute('aria-label')),
+    );
+    expect(labels).toEqual([`${entry.name} Men`, `${entry.name} Women`, 'Elsewhere']);
+
+    // Each group holds exactly the rows the ranking put in it, and the rows
+    // sit under the right heading rather than merely in the right order.
+    for (const [i, place] of ['home', 'country', 'elsewhere'].entries()) {
+      const expected = found!.matches
+        .filter((m) => placeOf(m.slice, home) === place)
+        .map((m) => m.name);
+      const names = await list
+        .locator('[role="group"]')
+        .nth(i)
+        .locator('.result .name')
+        .allInnerTexts();
+      expect(names).toEqual(expected);
+    }
+  });
+
+  test('a heading is not an option, so the arrow keys pass straight over it', async ({ page }) => {
+    // A heading faked with a plain <li> inside the listbox would be counted as
+    // an option by assistive tech and stopped on by the keyboard. This is the
+    // guard on that: options are only ever result rows.
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    const found = queryCovering(home, ['home', 'elsewhere']);
+    test.skip(!found, 'no query in this archive spans two groups');
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(found!.token);
+
+    const options = page.locator('.player-search-results [role="option"]');
+    await expect(options).toHaveCount(found!.matches.length);
+    // Every option is a result row — no headings crept into the count.
+    await expect(page.locator('.player-search-results [role="option"].result')).toHaveCount(
+      found!.matches.length,
+    );
+    // And nothing in the list is an unlabelled list item: every <li> is either
+    // an option, a named group, or explicitly presentational. A heading left as
+    // a bare <li> would be counted as an option by assistive tech without
+    // changing either count above.
+    const unroled = await page
+      .locator('.player-search-results li')
+      .evaluateAll((els) => els.filter((el) => !el.getAttribute('role')).map((el) => el.textContent));
+    expect(unroled).toEqual([]);
+
+    // Arrowing from the top hit lands on the second *row*, across the heading
+    // that sits between them in the DOM.
+    const second = found!.matches[1]!.name;
+    await box(page).press('ArrowDown');
+    await expect(page.locator('.player-search-results .result.is-active')).toContainText(second);
+  });
+
+  test('the list says how many matches it threw away', async ({ page }) => {
+    // The eight-row cut is what actually filters this search, and it used to be
+    // completely silent: against the published index the median three-letter
+    // query matches far more players than the list can hold.
+    const index = searchable();
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    const token = [...new Set(index.map((p) => p.folded.slice(0, 3)))].find(
+      (t) => t.length === 3 && searchPlayers(index, t, home).hidden > 0,
+    );
+    test.skip(!token, 'no query in this archive overflows the list');
+    const { hidden } = searchPlayers(index, token!, home);
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(token!);
+
+    await expect(page.locator('.player-search-results .is-more')).toHaveText(
+      `${hidden} more not shown`,
+    );
+  });
+
+  test('a compatriot of the other gender is a compatriot, not a foreigner', async ({ page }) => {
+    // Kimberly Dicello is American. On the United States men's page she used to
+    // be flagged in orange as being from somewhere else, below players from
+    // Switzerland, because "here" meant the country *and* the gender.
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    // Needs an Elsewhere group too, for the guard at the end of this test.
+    const found = queryCovering(home, ['country', 'elsewhere']);
+    test.skip(!found, 'no query in this archive reaches the other gender');
+    const compatriot = found!.matches.find(
+      (m) => m.slice.country === COUNTRY && m.slice.gender !== GENDER,
+    )!;
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(found!.token);
+
+    const row = rows(page).filter({ hasText: compatriot.name }).first();
+    await expect(row).toBeVisible();
+
+    // She sits under her own country's heading, which is what says she is from
+    // it -- and so carries no per-row country label and none of the emphasis
+    // that marks a row as leaving the country.
+    const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
+    const other = GENDER === 'M' ? 'Women' : 'Men';
+    await expect(
+      page.locator(`.player-search-results [role="group"][aria-label="${entry.name} ${other}"]`),
+    ).toContainText(compatriot.name);
+    await expect(row.locator('.where')).toHaveCount(0);
+
+    // The guard on that guard: the rows that *are* foreign still say so, so a
+    // change that simply stopped rendering country labels would not pass here.
+    await expect(
+      page.locator('.player-search-results [role="group"][aria-label="Elsewhere"] .where').first(),
+    ).toBeVisible();
   });
 });
 

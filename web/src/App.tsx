@@ -351,11 +351,17 @@ export default function App() {
    */
   const jumpToPlayer = useCallback(
     (player: SearchablePlayer) => {
-      // A match from another country: switch the slice with the selection, the
-      // same move an away partner makes. The graph, the table and the stats all
-      // follow the new country, so this is a page change with a player already
-      // picked rather than a selection that happens to be somewhere else.
-      if (player.slice) {
+      // A match from another slice: switch with the selection, the same move an
+      // away partner makes. The graph, the table and the stats all follow the
+      // new country, so this is a page change with a player already picked
+      // rather than a selection that happens to be somewhere else.
+      //
+      // The test is whether the slice *differs*, not whether it is set. Every
+      // search row carries one now — that changed when every row started naming
+      // a country — and a presence check had quietly become "always true",
+      // which reset the threshold on every pick, including a player standing
+      // right there in the graph at the threshold the reader chose.
+      if (player.slice.country !== country || player.slice.gender !== gender) {
         setCountry(player.slice.country);
         setGender(player.slice.gender);
         setMinTogether(1);
@@ -365,7 +371,7 @@ export default function App() {
       if (!nodesById.has(player.id)) setMinTogether(1);
       setSelectedId(player.id);
     },
-    [nodesById],
+    [nodesById, country, gender],
   );
 
   // Matches the player card's height to the graph's actual rendered height

@@ -95,7 +95,7 @@ test.describe('search combobox', () => {
     const input = box(page);
     await input.click();
     await input.fill(target.name.split(' ')[0]!);
-    await expect(page.locator('.player-search-results li').first()).toBeVisible();
+    await expect(page.locator('.player-search-results .result').first()).toBeVisible();
 
     // The first hit is active without any key being pressed, so Enter alone
     // does the obvious thing.
@@ -121,7 +121,7 @@ test.describe('search combobox', () => {
     const input = box(page);
     await input.click();
     await input.fill(target.name);
-    await expect(page.locator('.player-search-results li').first()).toBeVisible();
+    await expect(page.locator('.player-search-results .result').first()).toBeVisible();
     await input.press('Enter');
 
     await expect(page.locator('.player-card h2')).toHaveText(target.name);
@@ -135,7 +135,7 @@ test.describe('search combobox', () => {
     const input = box(page);
     await input.click();
     await input.fill('a');
-    await expect(page.locator('.player-search-results li').first()).toBeVisible();
+    await expect(page.locator('.player-search-results .result').first()).toBeVisible();
 
     await input.press('Escape');
     await expect(page.locator('.player-search-results')).toHaveCount(0);
@@ -164,14 +164,14 @@ test.describe('search result portraits', () => {
     const input = box(page);
     await input.click();
     await input.fill(term);
-    await expect(page.locator('.player-search-results li').first()).toBeVisible();
+    await expect(page.locator('.player-search-results .result').first()).toBeVisible();
   }
 
   test('every result carries a 32px portrait, and the row is no taller for it', async ({ page }) => {
     const target = [...graph(COUNTRY, GENDER).nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
     await openResults(page, target.name.split(' ')[0]!);
 
-    const rows = page.locator('.player-search-results li');
+    const rows = page.locator('.player-search-results .result');
     const count = await rows.count();
     expect(count, 'need results to assert on').toBeGreaterThan(0);
     // One avatar per row, no row left without one.
@@ -199,7 +199,7 @@ test.describe('search result portraits', () => {
     );
 
     await openResults(page, target.name.split(' ')[0]!);
-    const row = page.locator('.player-search-results li').filter({ hasText: target.name }).first();
+    const row = page.locator('.player-search-results .result').filter({ hasText: target.name }).first();
     const fallback = row.locator('.avatar.is-fallback');
     await expect(fallback).toBeVisible();
     // Initials of the same name the row shows, so the circle still identifies

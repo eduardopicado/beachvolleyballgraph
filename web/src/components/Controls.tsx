@@ -9,7 +9,14 @@ import type { Gender, Manifest, SearchIndex } from '../schema';
 import { GENDER_LABEL, GENDERS, parseSliceKey } from '../schema';
 import { fetchSearchIndex } from '../lib/api';
 import { flagEmoji, plural } from '../lib/format';
-import { indexPlayers, searchPlayers, type SearchablePlayer } from '../lib/search';
+import {
+  indexPlayers,
+  searchPlayers,
+  type MatchGroup,
+  type SearchablePlayer,
+  type SearchMatch,
+  type Slice,
+} from '../lib/search';
 import { Avatar } from './Avatar';
 import './Controls.css';
 
@@ -61,20 +68,18 @@ function HelpTip({ text }: { text: string }) {
   );
 }
 
-/** Where a search match lives, for the matches that are not on this page. */
-function Where({
-  slice,
-  countries,
-  elsewhere,
-}: {
-  slice: SearchablePlayer['slice'];
-  countries: Manifest['countries'];
-  elsewhere?: boolean;
-}) {
+/**
+ * Where a search match lives.
+ *
+ * Rendered only on the rows under Elsewhere, so it no longer needs to decide
+ * whether to emphasise itself: every row that has one is a row whose selection
+ * leaves this country, which is the only thing on the line with a consequence.
+ */
+function Where({ slice, countries }: { slice: Slice; countries: Manifest['countries'] }) {
   const entry = countries.find((c) => c.code === slice.country);
   const flag = flagEmoji(entry?.iso2, slice.country);
   return (
-    <span className={elsewhere ? 'where is-elsewhere' : 'where'}>
+    <span className="where">
       {flag && <span aria-hidden="true">{flag} </span>}
       {entry?.name ?? slice.country} {GENDER_LABEL[slice.gender]}
     </span>
@@ -150,13 +155,42 @@ function PlayerSearch({
       if (!slice) continue;
       for (const [id, name, tournaments] of entries) {
         if (onScreen.has(id)) continue;
-        all.push({ id, name, tournaments, slice, elsewhere: true });
+        all.push({ id, name, tournaments, slice });
       }
     }
     return indexPlayers(all);
   }, [players, index, onScreen, country, gender]);
 
-  const matches = useMemo(() => searchPlayers(searchable, query), [searchable, query]);
+  const home = useMemo<Slice>(() => ({ country, gender }), [country, gender]);
+  const { matches, hidden } = useMemo(
+    () => searchPlayers(searchable, query, home),
+    [searchable, query, home],
+  );
+
+  const countryName = (code: string) => countries.find((c) => c.code === code)?.name ?? code;
+  const label = (slice: Slice) => `${countryName(slice.country)} ${GENDER_LABEL[slice.gender]}`;
+
+  /**
+   * The matches cut into contiguous runs by how near they are.
+   *
+   * Safe to build by walking the list because proximity is the outermost sort
+   * key — each group appears exactly once, so a run break *is* a group break.
+   */
+  const groups = useMemo(() => {
+    const out: { group: MatchGroup; rows: { match: SearchMatch; index: number }[] }[] = [];
+    matches.forEach((match, index) => {
+      const last = out[out.length - 1];
+      if (last?.group === match.group) last.rows.push({ match, index });
+      else out.push({ group: match.group, rows: [{ match, index }] });
+    });
+    return out;
+  }, [matches]);
+
+  // Only when a boundary is actually crossed. On a query whose matches are all
+  // from this page — which is how the box already behaved and how a reader
+  // expects it to — a lone heading over one undivided list is noise.
+  const noneHere = groups.length > 0 && groups[0]!.group !== 'home';
+  const showGroups = groups.length > 1 || noneHere;
 
   // A new query invalidates whatever was highlighted; default to the top hit.
   useEffect(() => {
@@ -242,55 +276,106 @@ function PlayerSearch({
       />
       {showResults && (
         <ul className="player-search-results" role="listbox" id="player-search-listbox">
-          {matches.map((m, i) => (
-            // Not a <button>: in the combobox pattern real focus stays in the
-            // input and `aria-activedescendant` points at the active option, so
-            // a focusable control per row would put 8 extra stops in the tab
-            // order between the search box and the next control. `option` also
-            // takes presentational children, so a nested button's semantics are
-            // stripped from the accessibility tree anyway — it would be
-            // tabbable but announce as nothing. Pointer users still click the
-            // row; keyboard users arrow and press Enter.
-            <li
-              key={m.id}
-              role="option"
-              id={`player-search-option-${i}`}
-              aria-selected={i === activeIndex}
-              className={i === activeIndex ? 'is-active' : ''}
-              onPointerEnter={() => setActiveIndex(i)}
-              // Selection happens on pointerdown rather than click so it beats
-              // the outside-pointerdown handler that closes the dropdown.
-              onPointerDown={(e) => {
-                e.preventDefault(); // keep focus in the input
-                select(m);
-              }}
-            >
-              {/* Name on its own line, everything else under it. These names
-                  run long — "Barbara De Sousa Alves Ferreira" — and sharing a
-                  line with a country label ellipsised most of them down to
-                  "Barbar…", which is not a search result. */}
-              {/* Decorative, and deliberately not a reason to make the row
-                  taller: the name and its meta line already stand two rows
-                  high, so a 32px circle sits in space the row had anyway. */}
-              <Avatar id={m.id} name={m.name} width={64} className="avatar" />
-              <span className="who">
-              <span className="name">{m.name}</span>
-              <span className="meta">
-                {/* On every row. It used to appear only for players the
-                    reader would have to navigate to, on the reasoning that a
-                    Brazilian flag on every row of the Brazil page says
-                    nothing — but eight rows where some name a country and
-                    some do not reads as missing data rather than as a
-                    distinction, and the blank rows are the ones the reader is
-                    most likely to pick. `is-elsewhere` keeps the "this
-                    changes country" emphasis where it belongs. */}
-                <Where slice={m.slice} countries={countries} elsewhere={m.elsewhere} />
-                <span aria-hidden="true">·</span>
-                {plural(m.tournaments, 'tournament')}
-              </span>
-              </span>
+          {/* Says the quiet part. Without it the box looks identical whether
+              the country selector matched everything or nothing, and half of
+              realistic queries fill six or more of the eight rows from other
+              slices. Hidden from assistive tech because the first group's
+              label already carries it — a screen reader hears "Elsewhere,
+              group" and knows exactly the same thing. */}
+          {noneHere && (
+            <li className="split is-note" role="presentation" aria-hidden="true">
+              {`No ${countryName(country)} ${GENDER_LABEL[gender].toLowerCase()} match “${query.trim()}”`}
             </li>
-          ))}
+          )}
+
+          {groups.map((g) => {
+            const rows = g.rows.map(({ match: m, index: i }) => (
+              // Not a <button>: in the combobox pattern real focus stays in the
+              // input and `aria-activedescendant` points at the active option, so
+              // a focusable control per row would put 8 extra stops in the tab
+              // order between the search box and the next control. `option` also
+              // takes presentational children, so a nested button's semantics are
+              // stripped from the accessibility tree anyway — it would be
+              // tabbable but announce as nothing. Pointer users still click the
+              // row; keyboard users arrow and press Enter.
+              <li
+                key={m.id}
+                role="option"
+                className={i === activeIndex ? 'result is-active' : 'result'}
+                id={`player-search-option-${i}`}
+                aria-selected={i === activeIndex}
+                onPointerEnter={() => setActiveIndex(i)}
+                // Selection happens on pointerdown rather than click so it beats
+                // the outside-pointerdown handler that closes the dropdown.
+                onPointerDown={(e) => {
+                  e.preventDefault(); // keep focus in the input
+                  select(m);
+                }}
+              >
+                {/* Name on its own line, everything else under it. These names
+                    run long — "Barbara De Sousa Alves Ferreira" — and sharing a
+                    line with a country label ellipsised most of them down to
+                    "Barbar…", which is not a search result. */}
+                {/* Decorative, and deliberately not a reason to make the row
+                    taller: the name and its meta line already stand two rows
+                    high, so a 32px circle sits in space the row had anyway. */}
+                <Avatar id={m.id} name={m.name} width={64} className="avatar" />
+                <span className="who">
+                  <span className="name">{m.name}</span>
+                  <span className="meta">
+                    {/* Only under Elsewhere, because that is the only heading
+                        that cannot name a country — every row under it is from
+                        a different one. The other two groups say it once, at
+                        the top, instead of repeating it down seven rows.
+
+                        This looks like the behaviour that was rejected — a
+                        country on the far rows and nothing on the near ones —
+                        but the objection was that a list where some rows named
+                        a country and some were blank read as missing data. A
+                        heading answers that for every row beneath it, so
+                        nothing is left for the reader to infer. */}
+                    {m.group === 'elsewhere' && (
+                      <Where slice={m.slice} countries={countries} />
+                    )}
+                    {/* The separator travels with the count rather than sitting
+                        between the two as its own item. A long country name
+                        wraps this line, and on its own the dot was left
+                        stranded at the end of the first one. */}
+                    <span className="tally">
+                      {m.group === 'elsewhere' && <span aria-hidden="true">· </span>}
+                      {plural(m.tournaments, 'tournament')}
+                    </span>
+                  </span>
+                </span>
+              </li>
+            ));
+
+            if (!showGroups) return rows;
+
+            // listbox -> group -> option is the ARIA-sanctioned nesting, and it
+            // is what makes the heading free: a labelled group is announced
+            // without being an option, so the arrow keys skip it and the option
+            // positions a screen reader reads out stay honest. A heading faked
+            // with a presentational <li> would have to be excluded from both by
+            // hand.
+            const name = g.group === 'elsewhere' ? 'Elsewhere' : label(g.rows[0]!.match.slice);
+            return (
+              <li className="group" key={g.group} role="group" aria-label={name}>
+                <span className="split" aria-hidden="true">
+                  {name}
+                </span>
+                <ul role="presentation">{rows}</ul>
+              </li>
+            );
+          })}
+
+          {/* The cut is the search's real filter and was completely silent: the
+              median three-letter query matches 79 players and shows 8. */}
+          {hidden > 0 && (
+            <li className="split is-more" role="presentation">
+              {hidden} more not shown
+            </li>
+          )}
         </ul>
       )}
       {showEmpty && (

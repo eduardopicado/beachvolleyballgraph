@@ -1,15 +1,48 @@
 import { describe, expect, it } from 'vitest';
-import { foldAccents, indexPlayers, searchPlayers, type SearchablePlayer } from './search';
-import type { Gender } from '../schema';
+import {
+  foldAccents,
+  groupOf,
+  indexPlayers,
+  searchPlayers,
+  type SearchablePlayer,
+  type Slice,
+} from './search';
+
+const HOME: Slice = { country: 'BRA', gender: 'M' };
+const HOME_WOMEN: Slice = { country: 'BRA', gender: 'W' };
+const ABROAD: Slice = { country: 'URU', gender: 'W' };
 
 /**
- * `elsewhere` is what ranking turns on, not the presence of a slice: every
- * player carries a slice now, because every search row names a country.
+ * Every player carries a slice — every search row names a country — so what
+ * ranking turns on is how that slice compares to the page being viewed.
  */
-const p = (id: number, name: string, tournaments = 10, elsewhere = false) =>
-  indexPlayers([
-    { id, name, tournaments, slice: { country: 'BRA', gender: 'M' as Gender }, elsewhere },
-  ] as SearchablePlayer[])[0]!;
+const p = (id: number, name: string, tournaments = 10, slice: Slice = HOME) =>
+  indexPlayers([{ id, name, tournaments, slice }] as SearchablePlayer[])[0]!;
+
+/** Result ids in order, which is what nearly every case here is about. */
+const ids = (players: Parameters<typeof searchPlayers>[0], query: string, limit?: number) =>
+  searchPlayers(players, query, HOME, limit).matches.map((m) => m.id);
+
+describe('groupOf', () => {
+  it('separates this page, the rest of the country, and everywhere else', () => {
+    expect(groupOf(HOME, HOME)).toBe('home');
+    expect(groupOf(HOME_WOMEN, HOME)).toBe('country');
+    expect(groupOf(ABROAD, HOME)).toBe('elsewhere');
+  });
+
+  it('calls a compatriot of the other gender a compatriot, not a foreigner', () => {
+    // The bug this exists for: home used to mean country *and* gender, so an
+    // American woman was "elsewhere" on the United States men's page.
+    expect(groupOf({ country: 'USA', gender: 'W' }, { country: 'USA', gender: 'M' })).toBe(
+      'country',
+    );
+  });
+
+  it('does not care which gender when the country already differs', () => {
+    expect(groupOf({ country: 'GER', gender: 'M' }, HOME)).toBe('elsewhere');
+    expect(groupOf({ country: 'GER', gender: 'W' }, HOME)).toBe('elsewhere');
+  });
+});
 
 describe('searchPlayers', () => {
   const players = [
@@ -21,74 +54,143 @@ describe('searchPlayers', () => {
   ];
 
   it('matches an empty or whitespace query to nothing', () => {
-    expect(searchPlayers(players, '')).toEqual([]);
-    expect(searchPlayers(players, '   ')).toEqual([]);
+    expect(searchPlayers(players, '', HOME)).toEqual({ matches: [], hidden: 0 });
+    expect(searchPlayers(players, '   ', HOME)).toEqual({ matches: [], hidden: 0 });
   });
 
   it('is case-insensitive', () => {
-    expect(searchPlayers(players, 'emanuel').map((m) => m.id)).toEqual([1]);
-    expect(searchPlayers(players, 'EMANUEL').map((m) => m.id)).toEqual([1]);
+    expect(ids(players, 'emanuel')).toEqual([1]);
+    expect(ids(players, 'EMANUEL')).toEqual([1]);
   });
 
   it('ranks a name starting with the query above one that merely contains it', () => {
-    // "Rego" starts player 1's surname-first... actually starts neither full
-    // name, so use a query that distinguishes prefix vs substring directly.
-    const result = searchPlayers(players, 'Rego');
     // Player 5 "Rego Junior" starts with "Rego"; player 1 "Emanuel Rego" only
     // contains it partway through.
-    expect(result.map((m) => m.id)).toEqual([5, 1]);
+    expect(ids(players, 'Rego')).toEqual([5, 1]);
   });
 
   it('breaks ties within a rank group by tournament count', () => {
     // Ricardo, Renato and "Rego Junior" all start with "r" case-insensitively;
     // within that group, the more prominent player sorts first.
-    const result = searchPlayers(players, 'R');
+    const result = searchPlayers(players, 'R', HOME).matches;
     const starts = result.filter((m) => m.name.toLowerCase().startsWith('r'));
     expect(starts.map((m) => m.id)).toEqual([2, 4, 5]); // 281, 12, 3 tournaments
   });
 
   it('caps results at the limit', () => {
     const many = Array.from({ length: 20 }, (_, i) => p(i, `Test Player ${i}`, i));
-    expect(searchPlayers(many, 'Test')).toHaveLength(8);
-    expect(searchPlayers(many, 'Test', 3)).toHaveLength(3);
+    expect(ids(many, 'Test')).toHaveLength(8);
+    expect(ids(many, 'Test', 3)).toHaveLength(3);
+  });
+
+  it('counts the matches the limit threw away', () => {
+    // The cut is the search's real filter, and it used to be silent: against
+    // the published index the median three-letter query matches 79 players.
+    const many = Array.from({ length: 20 }, (_, i) => p(i, `Test Player ${i}`, i));
+    expect(searchPlayers(many, 'Test', HOME).hidden).toBe(12);
+    expect(searchPlayers(many, 'Test', HOME, 3).hidden).toBe(17);
+    expect(searchPlayers(many, 'Test', HOME, 50).hidden).toBe(0);
   });
 
   it('finds a mid-name substring, not just a prefix', () => {
-    expect(searchPlayers(players, 'Costa').map((m) => m.id)).toEqual([2]);
+    expect(ids(players, 'Costa')).toEqual([2]);
   });
 
   it('returns nothing for a query that matches no one', () => {
-    expect(searchPlayers(players, 'Zzyzx')).toEqual([]);
+    expect(ids(players, 'Zzyzx')).toEqual([]);
   });
 
   it('finds an accented name from its plain-ASCII spelling', () => {
-    // The whole reason this exists: typing the accents is the unusual case,
-    // and before folding, "Barbara" matched nothing at all -- which reads as
-    // "she is not in the data" rather than "type it with the accent".
+    // The whole reason folding exists: typing the accents is the unusual case,
+    // and before it, "Barbara" matched nothing at all -- which reads as "she is
+    // not in the data" rather than "type it with the accent".
     const accented = [p(1, 'Bárbara Seixas de Freitas'), p(2, 'Kristīne Puriņa')];
-    expect(searchPlayers(accented, 'Barbara').map((m) => m.id)).toEqual([1]);
-    expect(searchPlayers(accented, 'Kristine').map((m) => m.id)).toEqual([2]);
-    expect(searchPlayers(accented, 'purina').map((m) => m.id)).toEqual([2]);
+    expect(ids(accented, 'Barbara')).toEqual([1]);
+    expect(ids(accented, 'Kristine')).toEqual([2]);
+    expect(ids(accented, 'purina')).toEqual([2]);
   });
 
   it('still finds a name typed with its accents', () => {
     const accented = [p(1, 'Bárbara Seixas de Freitas')];
-    expect(searchPlayers(accented, 'Bárbara').map((m) => m.id)).toEqual([1]);
+    expect(ids(accented, 'Bárbara')).toEqual([1]);
   });
 
-  it('puts players from the slice on screen above players from elsewhere', () => {
+  it('puts players from the page on screen above players from elsewhere', () => {
     // A reader on the Brazil page typing a name almost certainly means a
     // Brazilian one -- even when a more prominent player elsewhere matches.
-    const elsewhere = p(9, 'Ana Patricia Silva Ramos', 200, true);
+    const away = p(9, 'Ana Patricia Silva Ramos', 200, ABROAD);
     const here = p(8, 'Ana Someone', 4);
-    expect(searchPlayers([elsewhere, here], 'Ana').map((m) => m.id)).toEqual([8, 9]);
+    expect(ids([away, here], 'Ana')).toEqual([8, 9]);
   });
 
-  it('still ranks a prefix from elsewhere above a substring on screen', () => {
-    // Slice is a tie-break inside a match group, not a filter over them.
-    const elsewhere = p(9, 'Costa Junior', 1, true);
-    const here = p(2, 'Ricardo Alex Costa Santos', 281);
-    expect(searchPlayers([here, elsewhere], 'Costa').map((m) => m.id)).toEqual([9, 2]);
+  /**
+   * The regression this change exists for.
+   *
+   * Proximity used to be a tie-break *inside* the prefix and substring groups,
+   * so any prefix match in the world outranked a local substring match.
+   * Searching "silva" on the Brazil men's page really did put Silvana Hernandez
+   * Barisone -- Uruguay, one tournament -- above Harley Marques Silva and his
+   * 147, because "Silvana" begins with those five letters.
+   */
+  it('ranks a local substring above a prefix from another country', () => {
+    const silvana = p(9, 'Silvana Hernandez Barisone', 1, ABROAD);
+    const harley = p(2, 'Harley Marques Silva', 147);
+    expect(ids([silvana, harley], 'Silva')).toEqual([2, 9]);
+  });
+
+  it('keeps prefix ahead of substring within one group', () => {
+    // Proximity leading does not flatten the prefix rule, it only outranks it:
+    // among players equally near, a prefix still comes first.
+    const prefix = p(9, 'Costa Junior', 1);
+    const substring = p(2, 'Ricardo Alex Costa Santos', 281);
+    expect(ids([substring, prefix], 'Costa')).toEqual([9, 2]);
+  });
+
+  it('sorts the country in between, above everywhere else', () => {
+    const away = p(9, 'Ana Elsewhere', 500, ABROAD);
+    const compatriot = p(7, 'Ana Compatriot', 50, HOME_WOMEN);
+    const here = p(8, 'Ana Here', 1);
+    expect(ids([away, compatriot, here], 'Ana')).toEqual([8, 7, 9]);
+  });
+
+  it('labels every match with the group it was sorted into', () => {
+    // The dropdown draws its headings straight off these, so they have to be
+    // right on the rows and not merely right in the ordering.
+    const matches = searchPlayers(
+      [p(9, 'Ana Elsewhere', 500, ABROAD), p(7, 'Ana Compatriot', 50, HOME_WOMEN), p(8, 'Ana Here', 1)],
+      'Ana',
+      HOME,
+    ).matches;
+    expect(matches.map((m) => m.group)).toEqual(['home', 'country', 'elsewhere']);
+  });
+
+  it('keeps each group contiguous, so a run break is a group break', () => {
+    // What lets the dropdown build its groups by walking the list once.
+    const mixed = [
+      p(1, 'Ana One', 1),
+      p(2, 'Ana Two', 900, ABROAD),
+      p(3, 'Ana Three', 800, HOME_WOMEN),
+      p(4, 'Ana Four', 700, ABROAD),
+      p(5, 'Ana Five', 2),
+      p(6, 'Ana Six', 600, HOME_WOMEN),
+    ];
+    const seen = searchPlayers(mixed, 'Ana', HOME).matches.map((m) => m.group);
+    expect(seen).toEqual(['home', 'home', 'country', 'country', 'elsewhere', 'elsewhere']);
+  });
+
+  it('is unchanged for a reader whose matches are all on their own page', () => {
+    // The common case has to stay exactly as it was, headings and all: with one
+    // group there is no boundary to draw.
+    const only = [p(1, 'Ana One', 5), p(2, 'Ana Two', 50)];
+    const matches = searchPlayers(only, 'Ana', HOME).matches;
+    expect(matches.map((m) => m.id)).toEqual([2, 1]);
+    expect(new Set(matches.map((m) => m.group))).toEqual(new Set(['home']));
+  });
+
+  it('reads the page from the argument, not from the players', () => {
+    // Same list, different page: who counts as near changes with it.
+    const list = [p(1, 'Ana Brazil', 5), p(2, 'Ana Uruguay', 5, ABROAD)];
+    expect(searchPlayers(list, 'Ana', ABROAD).matches.map((m) => m.id)).toEqual([2, 1]);
   });
 });
 

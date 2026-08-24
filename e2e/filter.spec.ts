@@ -107,7 +107,7 @@ test('searching for a hidden player reveals them and says so', async ({ page }) 
   const input = page.getByPlaceholder('Start typing a name…');
   await input.click();
   await input.fill(hiddenPlayer!.name);
-  await expect(page.locator('.player-search-results li').first()).toBeVisible();
+  await expect(page.locator('.player-search-results .result').first()).toBeVisible();
   await input.press('Enter');
 
   // Searching the *visible* set would have answered "no players match" for
