@@ -114,8 +114,13 @@ export const TIER_BY_TYPE: Record<number, Tier> = {
   // from the tournaments carrying them, not read off a spec — treat them as
   // less certain than everything above, and re-check before putting any of
   // them in front of a reader as a label.
-  51: 'beach-pro-tour', // Challenge
-  52: 'beach-pro-tour', // Elite16
+  //
+  // That warning was earned and then ignored: 51 and 52 were inferred the
+  // wrong way round, and the day a level badge shipped they went straight onto
+  // the page, putting "Challenge" under every Elite16 on the site. They are
+  // now checked the only way these four can be — see LEVEL_BY_TYPE.
+  51: 'beach-pro-tour', // Elite16
+  52: 'beach-pro-tour', // Challenge
   53: 'beach-pro-tour', // Futures
   54: 'beach-pro-tour', // Finals
 };
@@ -154,8 +159,24 @@ export const LEVEL_BY_TYPE: Record<number, string> = {
   42: '1-star',
 
   // --- Beach Pro Tour (2022-) ---
-  51: 'Challenge',
-  52: 'Elite16',
+  //
+  // These four are the exception to the paragraph above: FIVB's enum stops at
+  // 50, so there is no spec to read them off and the tournaments themselves
+  // are the only source. 51 and 52 were inferred the wrong way round, which
+  // put "Challenge" under every Elite16 on the site and "Elite16" under the
+  // 2022 Challenges.
+  //
+  // Settled by cross-tabulating Type against the tournaments' own titles: of
+  // the 88 whose name contains "Elite", every one is Type 51 and none is 52;
+  // of the 68 containing "Challenge", every one is 52 and none is 51. Futures
+  // (53) and Finals (54) were confirmed the same way. A test re-runs that
+  // comparison against the published index, so a future transposition fails
+  // instead of shipping.
+  //
+  // Nothing else moved — both types are `beach-pro-tour` above, so no player,
+  // partnership or count was ever affected. Only the label.
+  51: 'Elite16',
+  52: 'Challenge',
   53: 'Futures',
   54: 'Finals',
 };

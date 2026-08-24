@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { FIVB_ORGANIZER_TYPE, levelFor, TIER_BY_TYPE, tierFor } from './tiers';
 
@@ -81,13 +82,23 @@ describe('tierFor', () => {
 
 describe('levelFor', () => {
   it('names each level the way FIVB does, era by era', () => {
-    // Checked against FIVB's own enum, not inferred from tournament names —
+    // Read against FIVB's enum —
     // https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html
+    // — for everything up to Type 50, which is where that enum stops.
+    //
+    // The Beach Pro Tour types are past the end of it, so for 51-54 the
+    // tournaments are the only source there is. This line used to say the
+    // names were "not inferred from tournament names", which was true and was
+    // the problem: 51 and 52 sat transposed for months behind that reasoning,
+    // and every Elite16 on the site was badged "Challenge". Of the titles
+    // containing "Elite", all 88 are Type 51 and none is 52; of the 68
+    // containing "Challenge", all are 52.
     expect(levelFor('0')).toBe('Grand Slam');
     expect(levelFor('38')).toBe('5-star');
     expect(levelFor('39')).toBe('4-star');
     expect(levelFor('42')).toBe('1-star');
-    expect(levelFor('52')).toBe('Elite16');
+    expect(levelFor('51')).toBe('Elite16');
+    expect(levelFor('52')).toBe('Challenge');
     expect(levelFor('53')).toBe('Futures');
   });
 
@@ -124,5 +135,55 @@ describe('levelFor', () => {
         expect(level, `type ${type} is not a tour event and should not`).toBeNull();
       }
     }
+  });
+});
+
+/**
+ * The level we print against the tournament's own name.
+ *
+ * This is the check that was missing when 51 and 52 went in transposed, and it
+ * is the only kind that could have caught it: the mapping was internally
+ * consistent, typechecked, and produced a plausible label for every event —
+ * it was just the wrong label, and nothing compared it to anything.
+ *
+ * Reads the published artifact rather than a fixture, because that is the
+ * thing readers actually see, and because it keeps working as the weekly
+ * ingest changes the archive underneath it.
+ *
+ * Only the Beach Pro Tour rungs name themselves in their titles, so only those
+ * can be checked this way. The World Tour era wrote plain city names.
+ */
+describe('published levels agree with the tournament names', () => {
+  const file = JSON.parse(
+    readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'),
+  ) as { tournaments: Record<string, [string, number, string, number, string, string?]> };
+
+  const rows = Object.values(file.tournaments);
+
+  /**
+   * What a title claims about itself, or null when it says nothing. "Challenger"
+   * is deliberately not "Challenge": it is the 1990s World Tour rung, a
+   * different thing that happens to share a prefix.
+   */
+  const claims = (name: string): string | null => {
+    if (/\bElite\s?16\b|\bElite\b/i.test(name)) return 'Elite16';
+    if (/\bChallenge\b/i.test(name)) return 'Challenge';
+    if (/\bFutures\b/i.test(name)) return 'Futures';
+    return null;
+  };
+
+  it('finds tournaments that name their own rung, so this is not vacuous', () => {
+    const named = rows.filter((r) => claims(r[0]) !== null);
+    expect(named.length).toBeGreaterThan(100);
+  });
+
+  it('never labels a tournament as a rung its own name contradicts', () => {
+    const wrong = rows
+      .filter((r) => {
+        const claimed = claims(r[0]);
+        return claimed !== null && r[5] !== undefined && r[5] !== claimed;
+      })
+      .map((r) => `${r[1]} ${r[0]} — named ${claims(r[0])}, labelled ${r[5]}`);
+    expect(wrong).toEqual([]);
   });
 });
