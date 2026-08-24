@@ -246,8 +246,24 @@ export interface ResultsFile {
   players: Record<string, ResultEntry[]>;
 }
 
-/** One player in the search index: `[id, name, tournaments]`. */
-export type SearchEntry = [id: number, name: string, tournaments: number];
+/**
+ * One player in the search index: `[id, name, tournaments]`, plus the graph's
+ * label for them when that label cannot be reached by typing their name.
+ *
+ * The fourth element exists because the graph draws `short` and the search
+ * matched only `name`, so the one word a reader could see was the one word
+ * that found nothing: Eduarda Santos Lisboa is labelled "Duda" on every graph
+ * she appears in, and searching "Duda" returned nobody. 203 players are in
+ * that position -- FIVB nicknames, and names taken later in a career, like
+ * Laura Longuet appearing as "Walgenwitz".
+ *
+ * Omitted when `short` is already inside `name` (a plain shortening such as
+ * "P. Solberg"), which is the overwhelming majority: carrying it for all
+ * 12,000 would grow the second-largest published file to no purpose.
+ */
+export type SearchEntry =
+  | [id: number, name: string, tournaments: number]
+  | [id: number, name: string, tournaments: number, short: string];
 
 /**
  * Every published player, grouped by the slice they belong to.

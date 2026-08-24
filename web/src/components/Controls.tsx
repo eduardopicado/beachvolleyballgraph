@@ -120,7 +120,7 @@ function PlayerSearch({
   onSelectPlayer,
 }: {
   /** The slice on screen. Named by `country`/`gender` rather than carrying it. */
-  players: readonly { id: number; name: string; tournaments: number }[];
+  players: readonly { id: number; name: string; short?: string; tournaments: number }[];
   countries: Manifest['countries'];
   country: string;
   gender: Gender;
@@ -163,9 +163,9 @@ function PlayerSearch({
     for (const [key, entries] of Object.entries(index?.slices ?? {})) {
       const slice = parseSliceKey(key);
       if (!slice) continue;
-      for (const [id, name, tournaments] of entries) {
+      for (const [id, name, tournaments, short] of entries) {
         if (onScreen.has(id)) continue;
-        all.push({ id, name, tournaments, slice });
+        all.push({ id, name, tournaments, slice, short });
       }
     }
     return indexPlayers(all);
@@ -371,6 +371,13 @@ function PlayerSearch({
                         a country and some were blank read as missing data. A
                         heading answers that for every row beneath it, so
                         nothing is left for the reader to infer. */}
+                    {/* The graph's label, when it is not just the name cut
+                        short. Someone who typed "Duda" is looking at a row
+                        headed "Eduarda Santos Lisboa", and without this there
+                        is nothing on it explaining why it matched. `foldedShort`
+                        is set by indexPlayers only when the label reaches
+                        somewhere the name does not, which is the same test. */}
+                    {m.foldedShort && <span className="alias">“{m.short}”</span>}
                     {m.group === 'elsewhere' && (
                       <Where slice={m.slice} countries={countries} />
                     )}
@@ -438,7 +445,7 @@ interface Props {
   minTogether: number;
   onMinTogether: (value: number) => void;
   /** The slice on screen; the search names its country from the props below. */
-  players: readonly { id: number; name: string; tournaments: number }[];
+  players: readonly { id: number; name: string; short?: string; tournaments: number }[];
   onSelectPlayer: (player: SearchablePlayer) => void;
 }
 

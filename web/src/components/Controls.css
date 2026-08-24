@@ -321,6 +321,14 @@
    beneath a heading that already names its country — so this is always a row
    whose selection leaves the country on screen, and always carries the
    emphasis that says so. */
+/* The graph's own label for a player, on the rows where it is not simply their
+   name shortened. Quiet: it is there to explain the match, not to compete with
+   the name above it. */
+.player-search-results .alias {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
 /* Neither half of the meta line may break internally — only between them. */
 .player-search-results .meta .tally,
 .player-search-results .where {

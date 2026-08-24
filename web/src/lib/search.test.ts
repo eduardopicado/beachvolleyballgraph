@@ -17,8 +17,8 @@ const ABROAD: Slice = { country: 'URU', gender: 'W' };
  * Every player carries a slice — every search row names a country — so what
  * ranking turns on is how that slice compares to the page being viewed.
  */
-const p = (id: number, name: string, tournaments = 10, slice: Slice = HOME) =>
-  indexPlayers([{ id, name, tournaments, slice }] as SearchablePlayer[])[0]!;
+const p = (id: number, name: string, tournaments = 10, slice: Slice = HOME, short?: string) =>
+  indexPlayers([{ id, name, tournaments, slice, short }] as SearchablePlayer[])[0]!;
 
 /** Result ids in order, which is what nearly every case here is about. */
 const ids = (players: Parameters<typeof searchPlayers>[0], query: string, limit?: number) =>
@@ -192,6 +192,51 @@ describe('searchPlayers', () => {
     // Same list, different page: who counts as near changes with it.
     const list = [p(1, 'Ana Brazil', 5), p(2, 'Ana Uruguay', 5, ABROAD)];
     expect(searchPlayers(list, 'Ana', ABROAD).matches.map((m) => m.id)).toEqual([2, 1]);
+  });
+});
+
+/**
+ * The graph draws `short`, and until this the search matched only `name` — so
+ * the one word a reader could see was the one word that found nobody. Eduarda
+ * Santos Lisboa is "Duda" on every graph she appears in; 203 published players
+ * are labelled with something their name does not contain.
+ */
+describe('the label the graph draws', () => {
+  const duda = p(1, 'Eduarda Santos Lisboa', 104, HOME, 'Duda');
+
+  it('finds a player by the name on their node', () => {
+    expect(searchPlayers([duda], 'Duda', HOME).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('is folded like any other name', () => {
+    const acc = p(2, 'Kevin Cès', 140, HOME, 'Cès K.');
+    expect(searchPlayers([acc], 'ces', HOME).matches.map((m) => m.id)).toEqual([2]);
+  });
+
+  it('counts as a prefix, since it is the whole of what was on screen', () => {
+    // Against a substring match on someone far more prominent: typing the label
+    // exactly should not lose to a player who merely contains those letters.
+    const other = p(2, 'Fernanda Dudamel', 300);
+    const order = searchPlayers([other, duda], 'Duda', HOME).matches.map((m) => m.id);
+    expect(order).toEqual([1, 2]);
+  });
+
+  it('still finds the player by their real name', () => {
+    expect(searchPlayers([duda], 'Eduarda', HOME).matches.map((m) => m.id)).toEqual([1]);
+    expect(searchPlayers([duda], 'Lisboa', HOME).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('is ignored when it only repeats the name', () => {
+    // "P. Solberg" is already reachable by typing the name, so carrying it
+    // would cost bytes in the published index and buy nothing.
+    const plain = p(3, 'Pedro Solberg', 263, HOME, 'Solberg');
+    expect(plain.foldedShort).toBeUndefined();
+  });
+
+  it('matches nothing extra for a player who has no label', () => {
+    const plain = p(4, 'Ana Someone', 5);
+    expect(plain.foldedShort).toBeUndefined();
+    expect(searchPlayers([plain], 'zzz', HOME).matches).toEqual([]);
   });
 });
 

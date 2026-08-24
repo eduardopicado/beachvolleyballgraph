@@ -18,6 +18,15 @@ export interface SearchablePlayer {
    * which is which, and the ones already on screen were the rows left blank.
    */
   slice: Slice;
+  /**
+   * The label the graph draws for this player, when it is not simply their
+   * name shortened -- "Duda" for Eduarda Santos Lisboa.
+   *
+   * Searchable because it is the only name a reader may ever have seen: the
+   * graph shows it, the card's partner rows show it, and until this it was the
+   * one word that found nobody.
+   */
+  short?: string;
 }
 
 /**
@@ -39,9 +48,11 @@ export function groupOf(slice: Slice, home: Slice): MatchGroup {
   return slice.gender === home.gender ? 'home' : 'country';
 }
 
-/** A player with their name pre-folded, so a keystroke does not refold 12,000 of them. */
+/** A player with their names pre-folded, so a keystroke does not refold 12,000 of them. */
 export interface IndexedPlayer extends SearchablePlayer {
   folded: string;
+  /** The folded label, absent when it would only repeat `folded`. */
+  foldedShort?: string;
 }
 
 export interface SearchMatch extends IndexedPlayer {
@@ -95,7 +106,17 @@ export function foldAccents(value: string): string {
 
 /** Fold a list of players once, ready to be searched by every keystroke. */
 export function indexPlayers(players: readonly SearchablePlayer[]): IndexedPlayer[] {
-  return players.map((player) => ({ ...player, folded: foldAccents(player.name) }));
+  return players.map((player) => {
+    const folded = foldAccents(player.name);
+    const short = player.short ? foldAccents(player.short) : '';
+    return {
+      ...player,
+      folded,
+      // Only when it reaches somewhere the name does not, so the hot loop below
+      // skips a redundant second `includes` on almost every player.
+      foldedShort: short && !folded.includes(short) ? short : undefined,
+    };
+  });
 }
 
 /**
@@ -135,7 +156,15 @@ export function searchPlayers(
   // now that it is no longer the outermost distinction.
   const found: { player: IndexedPlayer; group: MatchGroup; prefix: number }[] = [];
   for (const player of players) {
-    const prefix = player.folded.startsWith(q) ? 0 : player.folded.includes(q) ? 1 : -1;
+    // Either name can match, and a prefix on either counts as a prefix: someone
+    // typing "Duda" has typed the whole of what they saw.
+    const short = player.foldedShort;
+    const prefix =
+      player.folded.startsWith(q) || short?.startsWith(q)
+        ? 0
+        : player.folded.includes(q) || short?.includes(q)
+          ? 1
+          : -1;
     if (prefix < 0) continue;
     found.push({ player, group: groupOf(player.slice, home), prefix });
   }

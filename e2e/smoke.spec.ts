@@ -667,6 +667,41 @@ test.describe('cross-country search', () => {
     });
   });
 
+  /**
+   * The name on the node has to find the player on the node.
+   *
+   * The graph draws `short` and nothing else; for a player whose label is not
+   * their name shortened, that label was the only name a reader had seen and
+   * the only one that found nobody. Found by scanning the published data
+   * rather than naming Duda, because which players are in this position moves
+   * with the archive.
+   */
+  test('a player is findable by the label their own node carries', async ({ page }) => {
+    const rows = graph(COUNTRY, GENDER).nodes;
+    const subject = [...rows]
+      .filter((n) => {
+        const short = n.short.toLowerCase();
+        // A label that reaches somewhere the name does not, and long enough to
+        // be worth typing.
+        return short.length >= 4 && !n.name.toLowerCase().includes(short);
+      })
+      .sort((a, b) => b.tournaments - a.tournaments)[0];
+    test.skip(!subject, 'no player in this slice has a label outside their name');
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(subject!.short);
+
+    // The row is their real name -- and it carries the label that matched, so
+    // the reader can see why a name they did not type came back.
+    const row = page.locator('.player-search-results .result').filter({ hasText: subject!.name }).first();
+    await expect(row).toBeVisible();
+    await expect(row.locator('.alias')).toContainText(subject!.short);
+
+    await row.click();
+    await expect(page.locator('.player-card h2')).toHaveText(subject!.name);
+  });
+
   test('the list says how many matches it threw away', async ({ page }) => {
     // The eight-row cut is what actually filters this search, and it used to be
     // completely silent: against the published index the median three-letter
