@@ -327,7 +327,7 @@
       "id": 141983,
       "name": "Tina Graudina",
       "short": "Tina",
-      "tournaments": 81,
+      "tournaments": 82,
       "first": 2014,
       "last": 2026
     },
@@ -335,7 +335,7 @@
       "id": 141984,
       "name": "Anastasija Samoilova",
       "short": "Anastasija",
-      "tournaments": 78,
+      "tournaments": 79,
       "first": 2017,
       "last": 2026
     },
@@ -535,7 +535,7 @@
       "id": 188963,
       "name": "Renāte Krūklīte",
       "short": "Krūklīte",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2023,
       "last": 2026
     },
@@ -567,7 +567,7 @@
       "id": 190916,
       "name": "Denēva Šauberga",
       "short": "Šauberga",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2022,
       "last": 2026
     },
@@ -575,7 +575,7 @@
       "id": 191933,
       "name": "Alise Aleksāne",
       "short": "Aleksāne",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -607,7 +607,7 @@
       "id": 204793,
       "name": "Milana Tina Aleksejeva",
       "short": "Aleksejeva",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -631,7 +631,7 @@
       "id": 214095,
       "name": "Aurēlija Kotāne",
       "short": "Kotāne",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -647,7 +647,7 @@
       "id": 223425,
       "name": "Estere Zakite",
       "short": "Zakite",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -1373,7 +1373,7 @@
     {
       "a": 141983,
       "b": 141984,
-      "t": 75,
+      "t": 76,
       "f": 2017,
       "l": 2026,
       "s": [
@@ -1419,8 +1419,8 @@
         ],
         [
           2026,
-          5,
-          217
+          6,
+          231
         ]
       ]
     },
@@ -1931,14 +1931,14 @@
     {
       "a": 188963,
       "b": 223425,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          161
+          3,
+          231
         ]
       ]
     },
@@ -2048,14 +2048,14 @@
     {
       "a": 190916,
       "b": 204793,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          161
+          2,
+          231
         ]
       ]
     },
@@ -2070,6 +2070,20 @@
           2026,
           5,
           161
+        ]
+      ]
+    },
+    {
+      "a": 191933,
+      "b": 214095,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

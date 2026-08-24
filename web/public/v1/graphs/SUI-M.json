@@ -1231,7 +1231,7 @@
       "id": 168507,
       "name": "Jonathan Jordan",
       "short": "Jordan",
-      "tournaments": 52,
+      "tournaments": 53,
       "first": 2018,
       "last": 2026
     },
@@ -1343,7 +1343,7 @@
       "id": 192384,
       "name": "Julian Friedli",
       "short": "Friedli",
-      "tournaments": 31,
+      "tournaments": 32,
       "first": 2023,
       "last": 2026
     },
@@ -5175,14 +5175,14 @@
     {
       "a": 168507,
       "b": 192384,
-      "t": 9,
+      "t": 10,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          9,
-          217
+          10,
+          231
         ]
       ]
     },

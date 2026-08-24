@@ -655,7 +655,7 @@
       "id": 142091,
       "name": "Sunniva Helland-Hansen",
       "short": "Sunniva",
-      "tournaments": 49,
+      "tournaments": 50,
       "first": 2014,
       "last": 2026
     },
@@ -911,7 +911,7 @@
       "id": 221053,
       "name": "Nina Pavlova",
       "short": "Pavlova",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2025,
       "last": 2026
     },
@@ -2963,7 +2963,7 @@
     {
       "a": 142091,
       "b": 221053,
-      "t": 13,
+      "t": 14,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -2974,8 +2974,8 @@
         ],
         [
           2026,
-          5,
-          203
+          6,
+          231
         ]
       ]
     },

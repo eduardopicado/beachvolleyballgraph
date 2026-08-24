@@ -1213,7 +1213,12 @@
       "name": "Jiri Dostal",
       "dob": "2003-07-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
     },
     {
       "id": 190771,
@@ -1227,7 +1232,12 @@
       "name": "Filip Rydval",
       "dob": "2005-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
     },
     {
       "id": 191893,

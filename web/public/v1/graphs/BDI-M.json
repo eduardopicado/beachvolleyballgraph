@@ -47,9 +47,9 @@
       "id": 192199,
       "name": "Don Diamel Ndayisaba",
       "short": "Ndayisaba",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2023,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 194231,
@@ -71,41 +71,41 @@
       "id": 204927,
       "name": "ISHIMWE DAN JORDY",
       "short": "ISHIMWE",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 204932,
       "name": "HARAGAKIZA BELOW",
       "short": "HARAGAKIZA",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 211939,
       "name": "IGIRANEZA ENGAMBE",
       "short": "IGIRANEZA",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 214061,
       "name": "GAKIZA DON CARMEL",
       "short": "GAKIZA",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 214062,
       "name": "MANARIYO FLORIAN",
       "short": "MANARIYO",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 226569,
@@ -184,14 +184,19 @@
     {
       "a": 192199,
       "b": 211939,
-      "t": 1,
+      "t": 2,
       "f": 2024,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2024,
           1,
           255
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -220,6 +225,20 @@
       ]
     },
     {
+      "a": 204927,
+      "b": 204932,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 204932,
       "b": 211939,
       "t": 1,
@@ -236,14 +255,19 @@
     {
       "a": 214061,
       "b": 214062,
-      "t": 1,
+      "t": 2,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           1,
           232
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

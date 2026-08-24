@@ -1063,7 +1063,7 @@
       "id": 124979,
       "name": "Melissa Humana-Paredes",
       "short": "Melissa",
-      "tournaments": 107,
+      "tournaments": 108,
       "first": 2009,
       "last": 2026
     },
@@ -1359,7 +1359,7 @@
       "id": 141868,
       "name": "Brandie Wilkerson",
       "short": "Brandie",
-      "tournaments": 89,
+      "tournaments": 90,
       "first": 2014,
       "last": 2026
     },
@@ -1431,7 +1431,7 @@
       "id": 153036,
       "name": "Marie-Alex Bélanger",
       "short": "Bélanger",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2022,
       "last": 2026
     },
@@ -1487,7 +1487,7 @@
       "id": 156483,
       "name": "Alison Mckay",
       "short": "McKay",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2022,
       "last": 2026
     },
@@ -1527,7 +1527,7 @@
       "id": 161787,
       "name": "Darby Dunn",
       "short": "Dunn",
-      "tournaments": 28,
+      "tournaments": 29,
       "first": 2017,
       "last": 2026
     },
@@ -1543,7 +1543,7 @@
       "id": 162674,
       "name": "Molly McBain",
       "short": "McBain",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2019,
       "last": 2026
     },
@@ -1551,7 +1551,7 @@
       "id": 162675,
       "name": "Lea Monkhouse",
       "short": "Monkhouse",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2019,
       "last": 2026
     },
@@ -1623,7 +1623,7 @@
       "id": 172891,
       "name": "Abbey Thorup",
       "short": "Thorup",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2019,
       "last": 2026
     },
@@ -1687,7 +1687,7 @@
       "id": 178946,
       "name": "Kaylee Glagau",
       "short": "Glagau",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2021,
       "last": 2026
     },
@@ -1735,7 +1735,7 @@
       "id": 182615,
       "name": "Ruby Sorra",
       "short": "Sorra",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2021,
       "last": 2026
     },
@@ -1887,7 +1887,7 @@
       "id": 211284,
       "name": "Emma Cudmore",
       "short": "Cudmore",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2024,
       "last": 2026
     },
@@ -1895,7 +1895,7 @@
       "id": 212433,
       "name": "Ofure Odigie",
       "short": "Odigie",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2024,
       "last": 2026
     },
@@ -5071,7 +5071,7 @@
     {
       "a": 124979,
       "b": 141868,
-      "t": 29,
+      "t": 30,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -5092,8 +5092,8 @@
         ],
         [
           2026,
-          4,
-          217
+          5,
+          231
         ]
       ]
     },
@@ -5970,7 +5970,7 @@
     {
       "a": 153036,
       "b": 162675,
-      "t": 13,
+      "t": 14,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -5991,8 +5991,8 @@
         ],
         [
           2026,
-          1,
-          217
+          2,
+          231
         ]
       ]
     },
@@ -6149,7 +6149,7 @@
     {
       "a": 156483,
       "b": 161787,
-      "t": 4,
+      "t": 5,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -6160,8 +6160,8 @@
         ],
         [
           2026,
-          2,
-          84
+          3,
+          231
         ]
       ]
     },
@@ -6431,14 +6431,14 @@
     {
       "a": 162674,
       "b": 182615,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          209
+          4,
+          231
         ]
       ]
     },
@@ -6750,7 +6750,7 @@
     {
       "a": 172891,
       "b": 178946,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -6761,8 +6761,8 @@
         ],
         [
           2026,
-          5,
-          203
+          6,
+          231
         ]
       ]
     },
@@ -7155,14 +7155,14 @@
     {
       "a": 211284,
       "b": 212433,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          176
+          3,
+          231
         ]
       ]
     },

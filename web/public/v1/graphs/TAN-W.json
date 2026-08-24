@@ -4,6 +4,14 @@
   "gender": "W",
   "nodes": [
     {
+      "id": 178693,
+      "name": "Mariam Omari",
+      "short": "Marium",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 214521,
       "name": "Leah Emmanuel Steven",
       "short": "Leah",
@@ -15,12 +23,26 @@
       "id": 214953,
       "name": "Victoria Mwita Samson",
       "short": "Victoria",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2024,
-      "last": 2024
+      "last": 2026
     }
   ],
   "edges": [
+    {
+      "a": 178693,
+      "b": 214953,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
     {
       "a": 214521,
       "b": 214953,

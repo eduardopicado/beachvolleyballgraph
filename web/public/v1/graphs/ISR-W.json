@@ -215,7 +215,7 @@
       "id": 149781,
       "name": "Shahar Rosner",
       "short": "Rosner",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2019,
       "last": 2026
     },
@@ -295,7 +295,7 @@
       "id": 181349,
       "name": "Daniela Gonzalez",
       "short": "Gonzalez",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -319,7 +319,7 @@
       "id": 210909,
       "name": "Shiray Danenberg",
       "short": "Danenberg",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2025,
       "last": 2026
     },
@@ -327,7 +327,7 @@
       "id": 210910,
       "name": "Dafna Maor",
       "short": "Maor",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     }
@@ -774,14 +774,14 @@
     {
       "a": 149781,
       "b": 210910,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          190
+          4,
+          231
         ]
       ]
     },
@@ -886,7 +886,7 @@
     {
       "a": 181349,
       "b": 210909,
-      "t": 7,
+      "t": 8,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -897,8 +897,8 @@
         ],
         [
           2026,
-          6,
-          218
+          7,
+          231
         ]
       ]
     },

@@ -471,7 +471,7 @@
       "id": 170183,
       "name": "Zsófi Vasvári",
       "short": "Vasvári, Z.",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2019,
       "last": 2026
     },
@@ -479,7 +479,7 @@
       "id": 170184,
       "name": "Eszter Vasvári",
       "short": "Vasvári, E.",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2021,
       "last": 2026
     },
@@ -527,7 +527,7 @@
       "id": 181618,
       "name": "Chiara Honti-Majoros",
       "short": "Honti-Majoros",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2022,
       "last": 2026
     },
@@ -583,7 +583,7 @@
       "id": 202017,
       "name": "Kármen Honti-Majoros",
       "short": "Honti-Majoros",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -1661,7 +1661,7 @@
     {
       "a": 170183,
       "b": 170184,
-      "t": 15,
+      "t": 16,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -1682,8 +1682,8 @@
         ],
         [
           2026,
-          3,
-          169
+          4,
+          231
         ]
       ]
     },
@@ -1798,7 +1798,7 @@
     {
       "a": 181618,
       "b": 202017,
-      "t": 3,
+      "t": 4,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -1809,8 +1809,8 @@
         ],
         [
           2026,
-          2,
-          155
+          3,
+          231
         ]
       ]
     },

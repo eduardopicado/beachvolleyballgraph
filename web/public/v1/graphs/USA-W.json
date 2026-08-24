@@ -1607,7 +1607,7 @@
       "id": 140066,
       "name": "Kelly Cheng",
       "short": "Cheng",
-      "tournaments": 86,
+      "tournaments": 87,
       "first": 2013,
       "last": 2026
     },
@@ -1783,7 +1783,7 @@
       "id": 147243,
       "name": "Hailey Harward",
       "short": "Harward",
-      "tournaments": 45,
+      "tournaments": 46,
       "first": 2022,
       "last": 2026
     },
@@ -1927,7 +1927,7 @@
       "id": 157794,
       "name": "Corinne Quiggle",
       "short": "Quiggle",
-      "tournaments": 39,
+      "tournaments": 40,
       "first": 2018,
       "last": 2026
     },
@@ -1935,7 +1935,7 @@
       "id": 157946,
       "name": "Molly Phillips",
       "short": "Phillips",
-      "tournaments": 29,
+      "tournaments": 30,
       "first": 2024,
       "last": 2026
     },
@@ -1975,7 +1975,7 @@
       "id": 162244,
       "name": "Savannah Cory",
       "short": "Savvy",
-      "tournaments": 34,
+      "tournaments": 35,
       "first": 2017,
       "last": 2026
     },
@@ -1991,7 +1991,7 @@
       "id": 162432,
       "name": "Kristen Cruz",
       "short": "Cruz",
-      "tournaments": 40,
+      "tournaments": 41,
       "first": 2022,
       "last": 2026
     },
@@ -2031,9 +2031,9 @@
       "id": 165164,
       "name": "Devanne Sours",
       "short": "Sours",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 167580,
@@ -2143,7 +2143,7 @@
       "id": 167939,
       "name": "Devon Newberry",
       "short": "Newberry",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2018,
       "last": 2026
     },
@@ -2327,7 +2327,7 @@
       "id": 168251,
       "name": "Megan Kraft",
       "short": "Kraft",
-      "tournaments": 48,
+      "tournaments": 49,
       "first": 2018,
       "last": 2026
     },
@@ -2431,7 +2431,7 @@
       "id": 170643,
       "name": "Molly Shaw",
       "short": "Shaw",
-      "tournaments": 28,
+      "tournaments": 29,
       "first": 2019,
       "last": 2026
     },
@@ -2623,7 +2623,7 @@
       "id": 182533,
       "name": "Lexy Denaburg",
       "short": "Denaburg",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2023,
       "last": 2026
     },
@@ -2631,7 +2631,7 @@
       "id": 182816,
       "name": "Julia Donlin",
       "short": "Donlin",
-      "tournaments": 32,
+      "tournaments": 33,
       "first": 2022,
       "last": 2026
     },
@@ -2655,7 +2655,7 @@
       "id": 184611,
       "name": "Taryn Brasher",
       "short": "Brasher",
-      "tournaments": 40,
+      "tournaments": 41,
       "first": 2022,
       "last": 2026
     },
@@ -2799,7 +2799,7 @@
       "id": 192399,
       "name": "Alexis Durish",
       "short": "Durish",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -2823,7 +2823,7 @@
       "id": 194139,
       "name": "Kylie Kuyava-De Berg",
       "short": "DeBerg",
-      "tournaments": 26,
+      "tournaments": 27,
       "first": 2022,
       "last": 2026
     },
@@ -2959,7 +2959,7 @@
       "id": 206894,
       "name": "Madison Shields",
       "short": "Shields",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2023,
       "last": 2026
     },
@@ -3023,7 +3023,7 @@
       "id": 209692,
       "name": "Chloe Loreen",
       "short": "Loreen",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2024,
       "last": 2026
     },
@@ -3215,7 +3215,7 @@
       "id": 222998,
       "name": "Audrey Koenig",
       "short": "Koenig",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -9418,14 +9418,14 @@
     {
       "a": 140066,
       "b": 168251,
-      "t": 6,
+      "t": 7,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          6,
-          209
+          7,
+          231
         ]
       ]
     },
@@ -9996,9 +9996,9 @@
     {
       "a": 147243,
       "b": 194139,
-      "t": 9,
+      "t": 10,
       "f": 2022,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2022,
@@ -10009,6 +10009,11 @@
           2024,
           8,
           333
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -10399,7 +10404,7 @@
     {
       "a": 157794,
       "b": 209692,
-      "t": 12,
+      "t": 13,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -10410,8 +10415,8 @@
         ],
         [
           2026,
-          5,
-          209
+          6,
+          231
         ]
       ]
     },
@@ -10432,14 +10437,14 @@
     {
       "a": 157946,
       "b": 170643,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          217
+          4,
+          231
         ]
       ]
     },
@@ -10671,14 +10676,14 @@
     {
       "a": 162244,
       "b": 167939,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          181
+          6,
+          231
         ]
       ]
     },
@@ -10765,7 +10770,7 @@
     {
       "a": 162432,
       "b": 184611,
-      "t": 40,
+      "t": 41,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -10791,8 +10796,8 @@
         ],
         [
           2026,
-          4,
-          181
+          5,
+          231
         ]
       ]
     },
@@ -10940,14 +10945,19 @@
     {
       "a": 165164,
       "b": 206894,
-      "t": 1,
+      "t": 2,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           1,
           288
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -12462,7 +12472,7 @@
     {
       "a": 182533,
       "b": 182816,
-      "t": 13,
+      "t": 14,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -12473,8 +12483,8 @@
         ],
         [
           2026,
-          2,
-          209
+          3,
+          231
         ]
       ]
     },
@@ -12743,7 +12753,7 @@
     {
       "a": 192399,
       "b": 222998,
-      "t": 7,
+      "t": 8,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -12754,8 +12764,8 @@
         ],
         [
           2026,
-          5,
-          209
+          6,
+          231
         ]
       ]
     },

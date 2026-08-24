@@ -975,7 +975,7 @@
       "id": 168597,
       "name": "Adam Miroslav Stocek",
       "short": "Stocek",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2019,
       "last": 2026
     },
@@ -1039,7 +1039,7 @@
       "id": 173415,
       "name": "Tomas Semerad",
       "short": "Semerad",
-      "tournaments": 43,
+      "tournaments": 44,
       "first": 2021,
       "last": 2026
     },
@@ -1199,7 +1199,7 @@
       "id": 190440,
       "name": "Jiri Dostal",
       "short": "Dostal",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -1215,7 +1215,7 @@
       "id": 190772,
       "name": "Filip Rydval",
       "short": "Rydval",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -4716,7 +4716,7 @@
     {
       "a": 168597,
       "b": 173415,
-      "t": 13,
+      "t": 14,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -4732,8 +4732,8 @@
         ],
         [
           2026,
-          4,
-          203
+          5,
+          231
         ]
       ]
     },
@@ -5170,14 +5170,14 @@
     {
       "a": 190440,
       "b": 190772,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          140
+          3,
+          231
         ]
       ]
     },

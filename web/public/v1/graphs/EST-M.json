@@ -303,7 +303,7 @@
       "id": 143530,
       "name": "Urmas Piik",
       "short": "Piik",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2023,
       "last": 2026
     },
@@ -335,7 +335,7 @@
       "id": 148483,
       "name": "Dimitriy Korotkov",
       "short": "Korotkov",
-      "tournaments": 31,
+      "tournaments": 32,
       "first": 2016,
       "last": 2026
     },
@@ -343,7 +343,7 @@
       "id": 149120,
       "name": "Mart Tiisaar",
       "short": "Tiisaar",
-      "tournaments": 74,
+      "tournaments": 75,
       "first": 2016,
       "last": 2026
     },
@@ -359,7 +359,7 @@
       "id": 157777,
       "name": "Siim Ennemuist",
       "short": "Ennemuist",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2016,
       "last": 2026
     },
@@ -399,7 +399,7 @@
       "id": 173516,
       "name": "Kaur Erik Kais",
       "short": "Kais",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2021,
       "last": 2026
     },
@@ -407,7 +407,7 @@
       "id": 182928,
       "name": "Jaan Rebel",
       "short": "Rebel",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2021,
       "last": 2026
     },
@@ -423,7 +423,7 @@
       "id": 185769,
       "name": "Karl Rinaldo",
       "short": "Rinaldo",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -431,7 +431,7 @@
       "id": 190802,
       "name": "Joosep Põldma",
       "short": "Põldma",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -447,9 +447,9 @@
       "id": 190808,
       "name": "Karl Maidle",
       "short": "Maidle",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 190811,
@@ -471,7 +471,7 @@
       "id": 201782,
       "name": "Armin Kender",
       "short": "Kender",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2024,
       "last": 2026
     },
@@ -479,7 +479,7 @@
       "id": 201783,
       "name": "Patrik Parijõgi",
       "short": "Parijõgi",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -487,7 +487,7 @@
       "id": 201873,
       "name": "Nils Rühka",
       "short": "Rühka",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1249,14 +1249,14 @@
     {
       "a": 143530,
       "b": 201782,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          161
+          3,
+          231
         ]
       ]
     },
@@ -1277,7 +1277,7 @@
     {
       "a": 148483,
       "b": 149120,
-      "t": 15,
+      "t": 16,
       "f": 2019,
       "l": 2026,
       "s": [
@@ -1303,8 +1303,8 @@
         ],
         [
           2026,
-          3,
-          217
+          4,
+          231
         ]
       ]
     },
@@ -1444,14 +1444,14 @@
     {
       "a": 157777,
       "b": 201783,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          190
+          3,
+          231
         ]
       ]
     },
@@ -1500,7 +1500,7 @@
     {
       "a": 173516,
       "b": 182928,
-      "t": 7,
+      "t": 8,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -1516,8 +1516,8 @@
         ],
         [
           2026,
-          3,
-          218
+          4,
+          231
         ]
       ]
     },
@@ -1552,6 +1552,20 @@
     {
       "a": 185769,
       "b": 201873,
+      "t": 2,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          2,
+          231
+        ]
+      ]
+    },
+    {
+      "a": 190802,
+      "b": 190808,
       "t": 1,
       "f": 2026,
       "l": 2026,
@@ -1559,7 +1573,7 @@
         [
           2026,
           1,
-          161
+          231
         ]
       ]
     },

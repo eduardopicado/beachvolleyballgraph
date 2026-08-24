@@ -695,7 +695,7 @@
       "id": 182702,
       "name": "Emilia Saxne",
       "short": "Saxne",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
       "last": 2026
     },
@@ -703,7 +703,7 @@
       "id": 187922,
       "name": "Sanna Madestam",
       "short": "Madestam",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -751,7 +751,7 @@
       "id": 232314,
       "name": "Sofia Russo",
       "short": "Russo, S.",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -759,7 +759,7 @@
       "id": 232315,
       "name": "Lina Russo",
       "short": "Russo, L.",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     }
@@ -2491,14 +2491,14 @@
     {
       "a": 182702,
       "b": 187922,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          162
+          2,
+          231
         ]
       ]
     },
@@ -2519,14 +2519,14 @@
     {
       "a": 232314,
       "b": 232315,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          148
+          2,
+          231
         ]
       ]
     }

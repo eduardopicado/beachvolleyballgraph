@@ -1907,7 +1907,7 @@
       },
       "tour": {
         "gold": 7,
-        "silver": 8,
+        "silver": 9,
         "bronze": 7
       }
     },
@@ -2061,7 +2061,7 @@
       },
       "tour": {
         "gold": 1,
-        "silver": 1,
+        "silver": 2,
         "bronze": 1
       }
     },

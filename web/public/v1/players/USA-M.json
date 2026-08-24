@@ -2531,7 +2531,7 @@
       "weight": null,
       "tour": {
         "gold": 0,
-        "silver": 0,
+        "silver": 1,
         "bronze": 1
       }
     },
@@ -3490,6 +3490,18 @@
       "dob": "2002-08-23",
       "height": null,
       "weight": null
+    },
+    {
+      "id": 242029,
+      "name": "Wesley Jensen",
+      "dob": "2002-07-02",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
     }
   ]
 }

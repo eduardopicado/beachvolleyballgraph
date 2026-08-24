@@ -743,7 +743,7 @@
       "id": 125549,
       "name": "Cinja Tillmann",
       "short": "Tillmann",
-      "tournaments": 74,
+      "tournaments": 75,
       "first": 2010,
       "last": 2026
     },
@@ -839,7 +839,7 @@
       "id": 141678,
       "name": "Louisa Lippmann",
       "short": "Lippmann",
-      "tournaments": 36,
+      "tournaments": 37,
       "first": 2022,
       "last": 2026
     },
@@ -935,7 +935,7 @@
       "id": 153267,
       "name": "Svenja Müller",
       "short": "Müller",
-      "tournaments": 46,
+      "tournaments": 47,
       "first": 2019,
       "last": 2026
     },
@@ -1007,7 +1007,7 @@
       "id": 163416,
       "name": "Chenoa Christ",
       "short": "Christ",
-      "tournaments": 40,
+      "tournaments": 41,
       "first": 2021,
       "last": 2026
     },
@@ -1023,7 +1023,7 @@
       "id": 168101,
       "name": "Anna-Lena Grüne",
       "short": "Grüne",
-      "tournaments": 39,
+      "tournaments": 40,
       "first": 2018,
       "last": 2026
     },
@@ -1103,7 +1103,7 @@
       "id": 182339,
       "name": "Tabea Schwarz",
       "short": "Schwarz",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2022,
       "last": 2026
     },
@@ -1127,7 +1127,7 @@
       "id": 182352,
       "name": "Melanie Paul",
       "short": "Paul",
-      "tournaments": 28,
+      "tournaments": 29,
       "first": 2022,
       "last": 2026
     },
@@ -1135,7 +1135,7 @@
       "id": 182792,
       "name": "Janne Uhl",
       "short": "Uhl",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2021,
       "last": 2026
     },
@@ -1167,7 +1167,7 @@
       "id": 192816,
       "name": "Mareet Maidhof",
       "short": "Maidhof",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2022,
       "last": 2026
     },
@@ -1199,7 +1199,7 @@
       "id": 203700,
       "name": "Sophia Neuß",
       "short": "Neuß",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2023,
       "last": 2026
     },
@@ -1295,9 +1295,17 @@
       "id": 225804,
       "name": "Nika Elaine Reddin",
       "short": "Reddin",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
+    },
+    {
+      "id": 226516,
+      "name": "Emilia Antonia Bruno",
+      "short": "Bruno",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
     },
     {
       "id": 226708,
@@ -4477,7 +4485,7 @@
     {
       "a": 125549,
       "b": 153267,
-      "t": 42,
+      "t": 43,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -4508,8 +4516,8 @@
         ],
         [
           2026,
-          4,
-          217
+          5,
+          231
         ]
       ]
     },
@@ -4941,14 +4949,14 @@
     {
       "a": 141678,
       "b": 182352,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          217
+          2,
+          231
         ]
       ]
     },
@@ -5459,14 +5467,14 @@
     {
       "a": 163416,
       "b": 203700,
-      "t": 7,
+      "t": 8,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          7,
-          217
+          8,
+          231
         ]
       ]
     },
@@ -5581,14 +5589,14 @@
     {
       "a": 168101,
       "b": 182792,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          217
+          3,
+          231
         ]
       ]
     },
@@ -5863,7 +5871,7 @@
     {
       "a": 182339,
       "b": 192816,
-      "t": 7,
+      "t": 8,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -5874,8 +5882,8 @@
         ],
         [
           2026,
-          6,
-          217
+          7,
+          231
         ]
       ]
     },
@@ -6181,6 +6189,20 @@
           2026,
           1,
           189
+        ]
+      ]
+    },
+    {
+      "a": 225804,
+      "b": 226516,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

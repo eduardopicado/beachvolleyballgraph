@@ -383,7 +383,7 @@
       "id": 202446,
       "name": "Lucas Rijvers",
       "short": "Rijvers",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -431,6 +431,14 @@
       "id": 223286,
       "name": "Jonathan Butler",
       "short": "Butler",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 239884,
+      "name": "Alexander Cottee",
+      "short": "Cottee",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -1303,6 +1311,20 @@
           2026,
           2,
           155
+        ]
+      ]
+    },
+    {
+      "a": 202446,
+      "b": 239884,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

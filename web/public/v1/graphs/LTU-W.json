@@ -135,7 +135,7 @@
       "id": 135488,
       "name": "Monika Paulikiene",
       "short": "Paulikiene",
-      "tournaments": 87,
+      "tournaments": 88,
       "first": 2011,
       "last": 2026
     },
@@ -231,7 +231,7 @@
       "id": 163333,
       "name": "Rugile Grudzinskaite",
       "short": "Grudzinskaite R.",
-      "tournaments": 17,
+      "tournaments": 18,
       "first": 2022,
       "last": 2026
     },
@@ -247,7 +247,7 @@
       "id": 169389,
       "name": "Ariana Rudkovskaja",
       "short": "Rudkovskaja",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2022,
       "last": 2026
     },
@@ -255,7 +255,7 @@
       "id": 169390,
       "name": "Aine Raupelyte",
       "short": "Raupelyte",
-      "tournaments": 59,
+      "tournaments": 60,
       "first": 2022,
       "last": 2026
     },
@@ -263,7 +263,7 @@
       "id": 169437,
       "name": "Skalve Krizanauskaite",
       "short": "Krizanauskaite",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2022,
       "last": 2026
     },
@@ -287,7 +287,7 @@
       "id": 214650,
       "name": "Meja Matiukaite",
       "short": "Matiukaite",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -617,7 +617,7 @@
     {
       "a": 135488,
       "b": 169390,
-      "t": 53,
+      "t": 54,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -643,8 +643,8 @@
         ],
         [
           2026,
-          6,
-          161
+          7,
+          231
         ]
       ]
     },
@@ -987,14 +987,14 @@
     {
       "a": 163333,
       "b": 214650,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          161
+          3,
+          231
         ]
       ]
     },
@@ -1029,7 +1029,7 @@
     {
       "a": 169389,
       "b": 169437,
-      "t": 6,
+      "t": 7,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -1045,8 +1045,8 @@
         ],
         [
           2026,
-          1,
-          183
+          2,
+          231
         ]
       ]
     },

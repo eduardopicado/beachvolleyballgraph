@@ -351,7 +351,7 @@
       "id": 103677,
       "name": "Alexander Horst",
       "short": "Horst",
-      "tournaments": 196,
+      "tournaments": 197,
       "first": 2003,
       "last": 2026
     },
@@ -831,7 +831,7 @@
       "id": 139640,
       "name": "Philipp Waller",
       "short": "Waller",
-      "tournaments": 79,
+      "tournaments": 80,
       "first": 2013,
       "last": 2026
     },
@@ -871,7 +871,7 @@
       "id": 142473,
       "name": "Moritz Pristauz-Telsnigg",
       "short": "Pristauz",
-      "tournaments": 96,
+      "tournaments": 97,
       "first": 2014,
       "last": 2026
     },
@@ -911,9 +911,9 @@
       "id": 143889,
       "name": "Moritz Fabian Kindl",
       "short": "Kindl",
-      "tournaments": 38,
+      "tournaments": 39,
       "first": 2016,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 146000,
@@ -967,7 +967,7 @@
       "id": 156224,
       "name": "Paul Pascariuc",
       "short": "Pascariuc P.",
-      "tournaments": 42,
+      "tournaments": 43,
       "first": 2016,
       "last": 2026
     },
@@ -975,9 +975,9 @@
       "id": 157102,
       "name": "Laurenz Leitner",
       "short": "Leitner L.",
-      "tournaments": 31,
+      "tournaments": 32,
       "first": 2018,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 164908,
@@ -3119,7 +3119,7 @@
     {
       "a": 103677,
       "b": 156224,
-      "t": 11,
+      "t": 12,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -3135,8 +3135,8 @@
         ],
         [
           2026,
-          6,
-          203
+          7,
+          231
         ]
       ]
     },
@@ -5482,14 +5482,14 @@
     {
       "a": 139640,
       "b": 142473,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          181
+          4,
+          231
         ]
       ]
     },
@@ -5856,9 +5856,9 @@
     {
       "a": 143889,
       "b": 157102,
-      "t": 2,
+      "t": 3,
       "f": 2019,
-      "l": 2022,
+      "l": 2026,
       "s": [
         [
           2019,
@@ -5869,6 +5869,11 @@
           2022,
           1,
           132
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

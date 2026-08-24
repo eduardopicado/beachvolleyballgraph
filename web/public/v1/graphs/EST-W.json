@@ -151,7 +151,7 @@
       "id": 143851,
       "name": "Heleene Hollas",
       "short": "Hollas, H.",
-      "tournaments": 57,
+      "tournaments": 58,
       "first": 2016,
       "last": 2026
     },
@@ -159,7 +159,7 @@
       "id": 143852,
       "name": "Liisa Remmelg",
       "short": "Remmelg",
-      "tournaments": 57,
+      "tournaments": 58,
       "first": 2016,
       "last": 2026
     },
@@ -191,7 +191,7 @@
       "id": 169783,
       "name": "Eva Liisa Kuivonen",
       "short": "Kuivonen",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2022,
       "last": 2026
     },
@@ -199,9 +199,9 @@
       "id": 174412,
       "name": "Maret Kuuse",
       "short": "Kuuse",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 179208,
@@ -215,7 +215,7 @@
       "id": 179209,
       "name": "Merike Errit",
       "short": "Errit",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
       "last": 2026
     },
@@ -223,7 +223,7 @@
       "id": 179427,
       "name": "Liisa-Lotta Jürgenson",
       "short": "Jürgenson",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2022,
       "last": 2026
     },
@@ -231,9 +231,9 @@
       "id": 181630,
       "name": "Laura Liisa Maiste",
       "short": "Maiste",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 182736,
@@ -263,7 +263,7 @@
       "id": 197471,
       "name": "Marta-Mia Ploomipuu",
       "short": "Ploomipuu",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -271,7 +271,7 @@
       "id": 197472,
       "name": "Hannemai Hanimägi",
       "short": "Hanimägi",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -279,7 +279,7 @@
       "id": 202559,
       "name": "Keira Liina Lukas",
       "short": "Lukas",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -287,7 +287,7 @@
       "id": 204597,
       "name": "Emma Lust",
       "short": "Lust",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -295,7 +295,7 @@
       "id": 204598,
       "name": "Kirke Liise Lukas",
       "short": "Lukas",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -303,7 +303,7 @@
       "id": 213988,
       "name": "Sandra Lepp",
       "short": "Lepp",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -311,7 +311,7 @@
       "id": 225572,
       "name": "Lenna Kuusik",
       "short": "Kuusik",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -637,7 +637,7 @@
     {
       "a": 143851,
       "b": 143852,
-      "t": 57,
+      "t": 58,
       "f": 2016,
       "l": 2026,
       "s": [
@@ -673,8 +673,8 @@
         ],
         [
           2026,
-          7,
-          217
+          8,
+          231
         ]
       ]
     },
@@ -695,7 +695,7 @@
     {
       "a": 169783,
       "b": 179427,
-      "t": 23,
+      "t": 24,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -721,17 +721,17 @@
         ],
         [
           2026,
-          5,
-          211
+          6,
+          231
         ]
       ]
     },
     {
       "a": 174412,
       "b": 181630,
-      "t": 2,
+      "t": 3,
       "f": 2024,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2024,
@@ -742,6 +742,11 @@
           2025,
           1,
           162
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -762,14 +767,14 @@
     {
       "a": 179209,
       "b": 225572,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          161
+          2,
+          231
         ]
       ]
     },
@@ -804,20 +809,6 @@
     {
       "a": 197471,
       "b": 197472,
-      "t": 1,
-      "f": 2026,
-      "l": 2026,
-      "s": [
-        [
-          2026,
-          1,
-          161
-        ]
-      ]
-    },
-    {
-      "a": 202559,
-      "b": 213988,
       "t": 2,
       "f": 2026,
       "l": 2026,
@@ -825,7 +816,21 @@
         [
           2026,
           2,
-          176
+          231
+        ]
+      ]
+    },
+    {
+      "a": 202559,
+      "b": 213988,
+      "t": 3,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          3,
+          231
         ]
       ]
     },
@@ -846,14 +851,14 @@
     {
       "a": 204597,
       "b": 204598,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          148
+          2,
+          231
         ]
       ]
     }

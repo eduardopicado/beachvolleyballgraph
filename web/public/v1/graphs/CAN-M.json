@@ -775,7 +775,7 @@
       "id": 120717,
       "name": "Samuel Schachter",
       "short": "Schachter",
-      "tournaments": 124,
+      "tournaments": 125,
       "first": 2008,
       "last": 2026
     },
@@ -1303,7 +1303,7 @@
       "id": 166905,
       "name": "Robert Kemp",
       "short": "Kemp",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2018,
       "last": 2026
     },
@@ -1335,7 +1335,7 @@
       "id": 168774,
       "name": "Steven Abrams",
       "short": "Abrams",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2019,
       "last": 2026
     },
@@ -1383,7 +1383,7 @@
       "id": 172785,
       "name": "Jonathan Pickett",
       "short": "Pickett",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2019,
       "last": 2026
     },
@@ -1431,7 +1431,7 @@
       "id": 178483,
       "name": "Guillaume Rivest",
       "short": "Rivest",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2023,
       "last": 2026
     },
@@ -1463,7 +1463,7 @@
       "id": 182539,
       "name": "Luke de Greeff",
       "short": "de Greeff",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2025,
       "last": 2026
     },
@@ -1495,7 +1495,7 @@
       "id": 182654,
       "name": "Martin Licht",
       "short": "Licht",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2021,
       "last": 2026
     },
@@ -1511,7 +1511,7 @@
       "id": 185582,
       "name": "Cameron Chadwick",
       "short": "Chadwick",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2021,
       "last": 2026
     },
@@ -1559,7 +1559,7 @@
       "id": 193939,
       "name": "Rouzbeh Rahnavard",
       "short": "Rahnavard",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2023,
       "last": 2026
     },
@@ -1575,7 +1575,7 @@
       "id": 198925,
       "name": "Tynan Gannett",
       "short": "Gannett",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2023,
       "last": 2026
     },
@@ -1663,9 +1663,9 @@
       "id": 205274,
       "name": "Louis Charbonneau",
       "short": "Charbonneau",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 208694,
@@ -1735,9 +1735,9 @@
       "id": 213297,
       "name": "Henry Heider",
       "short": "Heider",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 215088,
@@ -4831,7 +4831,7 @@
     {
       "a": 120717,
       "b": 172785,
-      "t": 15,
+      "t": 16,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -4847,8 +4847,8 @@
         ],
         [
           2026,
-          5,
-          161
+          6,
+          231
         ]
       ]
     },
@@ -6204,14 +6204,14 @@
     {
       "a": 166905,
       "b": 193939,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          127
+          4,
+          231
         ]
       ]
     },
@@ -6288,14 +6288,14 @@
     {
       "a": 168774,
       "b": 185582,
-      "t": 4,
+      "t": 5,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          4,
-          140
+          5,
+          231
         ]
       ]
     },
@@ -6433,14 +6433,14 @@
     {
       "a": 178483,
       "b": 182654,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          140
+          4,
+          231
         ]
       ]
     },
@@ -6517,7 +6517,7 @@
     {
       "a": 182539,
       "b": 198925,
-      "t": 10,
+      "t": 11,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -6528,8 +6528,8 @@
         ],
         [
           2026,
-          8,
-          203
+          9,
+          231
         ]
       ]
     },
@@ -6723,14 +6723,19 @@
     {
       "a": 205274,
       "b": 213297,
-      "t": 1,
+      "t": 2,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           1,
           288
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

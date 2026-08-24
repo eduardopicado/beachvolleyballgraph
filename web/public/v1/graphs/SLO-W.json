@@ -191,9 +191,9 @@
       "id": 153211,
       "name": "Tajda Lovsin",
       "short": "Lovsin, T.",
-      "tournaments": 48,
+      "tournaments": 49,
       "first": 2016,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 153482,
@@ -279,9 +279,9 @@
       "id": 157843,
       "name": "Tjasa Kotnik",
       "short": "Kotnik",
-      "tournaments": 47,
+      "tournaments": 48,
       "first": 2017,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 157871,
@@ -760,9 +760,9 @@
     {
       "a": 153211,
       "b": 157843,
-      "t": 28,
+      "t": 29,
       "f": 2021,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2021,
@@ -783,6 +783,11 @@
           2024,
           4,
           116
+        ],
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

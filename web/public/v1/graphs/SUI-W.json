@@ -967,7 +967,7 @@
       "id": 182277,
       "name": "Muriel Bossart",
       "short": "Bossart",
-      "tournaments": 29,
+      "tournaments": 30,
       "first": 2022,
       "last": 2026
     },
@@ -975,7 +975,7 @@
       "id": 182278,
       "name": "Livia Stolz",
       "short": "Stolz",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -983,7 +983,7 @@
       "id": 182766,
       "name": "Nadine Demierre",
       "short": "Demierre",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -991,15 +991,15 @@
       "id": 184252,
       "name": "Jasmine Wandeler",
       "short": "Wandeler",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2023,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 184253,
       "name": "Zoé Flückiger",
       "short": "Flückiger",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2023,
       "last": 2026
     },
@@ -1047,7 +1047,7 @@
       "id": 200480,
       "name": "Linda Abbühl",
       "short": "Abbühl",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -4218,14 +4218,14 @@
     {
       "a": 182277,
       "b": 200480,
-      "t": 6,
+      "t": 7,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          6,
-          190
+          7,
+          231
         ]
       ]
     },
@@ -4240,6 +4240,20 @@
           2026,
           3,
           169
+        ]
+      ]
+    },
+    {
+      "a": 182278,
+      "b": 184252,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -4279,14 +4293,14 @@
     {
       "a": 182766,
       "b": 184253,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          190
+          2,
+          231
         ]
       ]
     },

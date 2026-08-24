@@ -807,9 +807,9 @@
       "id": 146165,
       "name": "Maho Yabumi",
       "short": "Yabumi",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2022,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 146166,
@@ -1071,7 +1071,7 @@
       "id": 172468,
       "name": "Riko Tsujimura",
       "short": "Riko",
-      "tournaments": 27,
+      "tournaments": 28,
       "first": 2019,
       "last": 2026
     },
@@ -1135,7 +1135,7 @@
       "id": 186496,
       "name": "Miharu Kashihara",
       "short": "Miharu",
-      "tournaments": 28,
+      "tournaments": 29,
       "first": 2022,
       "last": 2026
     },
@@ -1207,7 +1207,7 @@
       "id": 193534,
       "name": "Yu Okuno",
       "short": "OKUNO",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1279,7 +1279,7 @@
       "id": 214142,
       "name": "Nozomi Sekiguchi",
       "short": "Sekiguchi",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2024,
       "last": 2026
     },
@@ -1311,7 +1311,7 @@
       "id": 226549,
       "name": "Kako Yajima",
       "short": "Yajima",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -4146,6 +4146,20 @@
     },
     {
       "a": 146165,
+      "b": 186496,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
+      "a": 146165,
       "b": 192901,
       "t": 3,
       "f": 2025,
@@ -4931,6 +4945,20 @@
       ]
     },
     {
+      "a": 172468,
+      "b": 226549,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 173555,
       "b": 192903,
       "t": 3,
@@ -5267,7 +5295,7 @@
     {
       "a": 193534,
       "b": 214142,
-      "t": 4,
+      "t": 5,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -5278,8 +5306,8 @@
         ],
         [
           2026,
-          2,
-          140
+          3,
+          231
         ]
       ]
     },

@@ -147,7 +147,7 @@
       "tour": {
         "gold": 2,
         "silver": 5,
-        "bronze": 2
+        "bronze": 3
       }
     },
     {
@@ -159,7 +159,7 @@
       "tour": {
         "gold": 2,
         "silver": 5,
-        "bronze": 2
+        "bronze": 3
       }
     },
     {
@@ -190,7 +190,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 1,
         "bronze": 2
       }
@@ -223,7 +223,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 1,
         "bronze": 2
       }

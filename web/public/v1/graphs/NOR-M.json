@@ -815,7 +815,7 @@
       "id": 137127,
       "name": "Christian Sandlie Sørum",
       "short": "Sørum, C.",
-      "tournaments": 99,
+      "tournaments": 100,
       "first": 2012,
       "last": 2026
     },
@@ -823,7 +823,7 @@
       "id": 137129,
       "name": "Hendrik Nikolai Mol",
       "short": "Mol, H.",
-      "tournaments": 85,
+      "tournaments": 86,
       "first": 2013,
       "last": 2026
     },
@@ -831,7 +831,7 @@
       "id": 138642,
       "name": "Stian Opsahl",
       "short": "Opsahl",
-      "tournaments": 44,
+      "tournaments": 45,
       "first": 2012,
       "last": 2026
     },
@@ -895,7 +895,7 @@
       "id": 143189,
       "name": "Mathias Berntsen",
       "short": "Berntsen",
-      "tournaments": 91,
+      "tournaments": 92,
       "first": 2014,
       "last": 2026
     },
@@ -911,7 +911,7 @@
       "id": 143192,
       "name": "Anders Berntsen Mol",
       "short": "Mol, A.",
-      "tournaments": 82,
+      "tournaments": 83,
       "first": 2014,
       "last": 2026
     },
@@ -1039,7 +1039,7 @@
       "id": 157029,
       "name": "Nils Gunnar Ringøen",
       "short": "Ringøen",
-      "tournaments": 39,
+      "tournaments": 40,
       "first": 2018,
       "last": 2026
     },
@@ -1095,7 +1095,7 @@
       "id": 179497,
       "name": "Syver Drolsum Klungsøyr",
       "short": "Klungsøyr",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2024,
       "last": 2026
     },
@@ -1127,7 +1127,7 @@
       "id": 182797,
       "name": "Even Stray Aas",
       "short": "Aas",
-      "tournaments": 27,
+      "tournaments": 28,
       "first": 2022,
       "last": 2026
     },
@@ -1167,7 +1167,7 @@
       "id": 192770,
       "name": "Tobias Kawika Kauffman Pedersen",
       "short": "Pedersen",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2024,
       "last": 2026
     },
@@ -1183,7 +1183,7 @@
       "id": 201399,
       "name": "Jonah Andre Lyngaas Kjemperud",
       "short": "Kjemperud",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -1215,7 +1215,7 @@
       "id": 210034,
       "name": "Mathias Damian Smørholm",
       "short": "Smørholm",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -1223,7 +1223,7 @@
       "id": 210037,
       "name": "Sebastian Lyngaas Kjemperud",
       "short": "Kjemperud",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2025,
       "last": 2026
     },
@@ -1239,7 +1239,7 @@
       "id": 222813,
       "name": "Mon Mathys",
       "short": "Mathys",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -1255,7 +1255,7 @@
       "id": 232806,
       "name": "Mikael Beckman Dos Santos",
       "short": "Dos Santos",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -4668,7 +4668,7 @@
     {
       "a": 137127,
       "b": 143192,
-      "t": 74,
+      "t": 75,
       "f": 2016,
       "l": 2026,
       "s": [
@@ -4719,8 +4719,8 @@
         ],
         [
           2026,
-          3,
-          217
+          4,
+          231
         ]
       ]
     },
@@ -4755,7 +4755,7 @@
     {
       "a": 137129,
       "b": 143189,
-      "t": 74,
+      "t": 75,
       "f": 2018,
       "l": 2026,
       "s": [
@@ -4801,8 +4801,8 @@
         ],
         [
           2026,
-          4,
-          217
+          5,
+          231
         ]
       ]
     },
@@ -4940,6 +4940,20 @@
           2026,
           3,
           176
+        ]
+      ]
+    },
+    {
+      "a": 138642,
+      "b": 222813,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -5525,7 +5539,7 @@
     {
       "a": 157029,
       "b": 182797,
-      "t": 18,
+      "t": 19,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -5541,8 +5555,8 @@
         ],
         [
           2026,
-          6,
-          203
+          7,
+          231
         ]
       ]
     },
@@ -5667,14 +5681,14 @@
     {
       "a": 179497,
       "b": 192770,
-      "t": 8,
+      "t": 9,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          8,
-          211
+          9,
+          231
         ]
       ]
     },
@@ -5827,7 +5841,7 @@
     {
       "a": 201399,
       "b": 210037,
-      "t": 9,
+      "t": 10,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -5838,8 +5852,8 @@
         ],
         [
           2026,
-          7,
-          203
+          8,
+          231
         ]
       ]
     },
@@ -5896,6 +5910,20 @@
           2026,
           3,
           204
+        ]
+      ]
+    },
+    {
+      "a": 210034,
+      "b": 232806,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

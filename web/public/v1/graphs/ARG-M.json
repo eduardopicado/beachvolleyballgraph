@@ -863,7 +863,7 @@
       "id": 145990,
       "name": "Nicolás Capogrosso N.",
       "short": "Capogrosso N.",
-      "tournaments": 83,
+      "tournaments": 84,
       "first": 2014,
       "last": 2026
     },
@@ -903,7 +903,7 @@
       "id": 174855,
       "name": "Tomas Capogrosso",
       "short": "Capogrosso T.",
-      "tournaments": 51,
+      "tournaments": 52,
       "first": 2021,
       "last": 2026
     },
@@ -3007,7 +3007,7 @@
     {
       "a": 145990,
       "b": 174855,
-      "t": 47,
+      "t": 48,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -3033,8 +3033,8 @@
         ],
         [
           2026,
-          8,
-          210
+          9,
+          231
         ]
       ]
     },

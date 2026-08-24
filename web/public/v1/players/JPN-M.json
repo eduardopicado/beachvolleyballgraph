@@ -892,6 +892,13 @@
       "weight": null
     },
     {
+      "id": 178300,
+      "name": "Kouma Tomita",
+      "dob": "2002-12-23",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 181805,
       "name": "Ruiji Ideguchi",
       "dob": "1996-11-19",
@@ -969,6 +976,13 @@
       "weight": null
     },
     {
+      "id": 218533,
+      "name": "Takuya Toda",
+      "dob": "1996-10-25",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 222564,
       "name": "Rikuho Kashiwaki",
       "dob": "2009-03-15",
@@ -979,6 +993,13 @@
       "id": 234153,
       "name": "Sota Sugiura",
       "dob": "2009-04-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 242058,
+      "name": "Yuma Takasaki",
+      "dob": "1999-02-18",
       "height": null,
       "weight": null
     }

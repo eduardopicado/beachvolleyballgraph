@@ -799,7 +799,7 @@
       "id": 169895,
       "name": "Richard Likhatskyi",
       "short": "Likhatskyi",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2024,
       "last": 2026
     },
@@ -855,7 +855,7 @@
       "id": 187007,
       "name": "Ivan Likhatskyi",
       "short": "Likhatskyi",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2024,
       "last": 2026
     },
@@ -2363,7 +2363,7 @@
     {
       "a": 169895,
       "b": 187007,
-      "t": 8,
+      "t": 9,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -2374,8 +2374,8 @@
         ],
         [
           2026,
-          4,
-          183
+          5,
+          231
         ]
       ]
     },

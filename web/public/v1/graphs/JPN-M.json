@@ -847,7 +847,7 @@
       "id": 163564,
       "name": "Taito Mizumachi",
       "short": "Mizumachi",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -940,6 +940,14 @@
       "last": 2022
     },
     {
+      "id": 178300,
+      "name": "Kouma Tomita",
+      "short": "Tomita",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 181805,
       "name": "Ruiji Ideguchi",
       "short": "Ideguchi",
@@ -983,7 +991,7 @@
       "id": 189719,
       "name": "Kota Kurosawa",
       "short": "Kurosawa",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2022,
       "last": 2026
     },
@@ -1007,7 +1015,7 @@
       "id": 193529,
       "name": "Shuma Watanabe",
       "short": "Watanabe",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2023,
       "last": 2026
     },
@@ -1028,6 +1036,14 @@
       "last": 2025
     },
     {
+      "id": 218533,
+      "name": "Takuya Toda",
+      "short": "Toda",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 222564,
       "name": "Rikuho Kashiwaki",
       "short": "Kashiwaki",
@@ -1039,6 +1055,14 @@
       "id": 234153,
       "name": "Sota Sugiura",
       "short": "Sugiura",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 242058,
+      "name": "Yuma Takasaki",
+      "short": "Takasaki",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -4077,14 +4101,14 @@
     {
       "a": 163564,
       "b": 189719,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          218
+          2,
+          231
         ]
       ]
     },
@@ -4268,6 +4292,20 @@
       ]
     },
     {
+      "a": 178300,
+      "b": 242058,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 184182,
       "b": 193529,
       "t": 2,
@@ -4325,6 +4363,20 @@
           2026,
           1,
           71
+        ]
+      ]
+    },
+    {
+      "a": 193529,
+      "b": 218533,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

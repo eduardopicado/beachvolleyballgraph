@@ -777,7 +777,12 @@
       "name": "Maho Yabumi",
       "dob": "1997-05-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
     },
     {
       "id": 146166,
@@ -1077,7 +1082,7 @@
       "tour": {
         "gold": 0,
         "silver": 0,
-        "bronze": 1
+        "bronze": 2
       }
     },
     {
@@ -1152,7 +1157,7 @@
       "weight": 65,
       "tour": {
         "gold": 1,
-        "silver": 0,
+        "silver": 1,
         "bronze": 0
       }
     },
@@ -1328,7 +1333,12 @@
       "name": "Kako Yajima",
       "dob": "2002-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
     },
     {
       "id": 227435,

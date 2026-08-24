@@ -1575,7 +1575,7 @@
       "id": 124881,
       "name": "Taylor Crabb",
       "short": "Crabb",
-      "tournaments": 60,
+      "tournaments": 61,
       "first": 2015,
       "last": 2026
     },
@@ -1815,7 +1815,7 @@
       "id": 136067,
       "name": "Cody Caldwell",
       "short": "Caldwell",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2022,
       "last": 2026
     },
@@ -1823,7 +1823,7 @@
       "id": 136078,
       "name": "James Shaw",
       "short": "Shaw",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2024,
       "last": 2026
     },
@@ -2111,7 +2111,7 @@
       "id": 147689,
       "name": "Trevor Crabb",
       "short": "Crabb Tr.",
-      "tournaments": 79,
+      "tournaments": 80,
       "first": 2014,
       "last": 2026
     },
@@ -2119,7 +2119,7 @@
       "id": 147719,
       "name": "Andrew Benesh",
       "short": "Benesh",
-      "tournaments": 37,
+      "tournaments": 38,
       "first": 2021,
       "last": 2026
     },
@@ -2143,7 +2143,7 @@
       "id": 151673,
       "name": "Miles Evans",
       "short": "Evans",
-      "tournaments": 78,
+      "tournaments": 79,
       "first": 2017,
       "last": 2026
     },
@@ -2199,7 +2199,7 @@
       "id": 156222,
       "name": "Benjamin Vaught",
       "short": "Vaught",
-      "tournaments": 17,
+      "tournaments": 18,
       "first": 2016,
       "last": 2026
     },
@@ -2239,7 +2239,7 @@
       "id": 157394,
       "name": "Timothy Brewster",
       "short": "Brewster",
-      "tournaments": 41,
+      "tournaments": 42,
       "first": 2018,
       "last": 2026
     },
@@ -2303,7 +2303,7 @@
       "id": 162451,
       "name": "Logan Webber",
       "short": "Webber",
-      "tournaments": 39,
+      "tournaments": 40,
       "first": 2018,
       "last": 2026
     },
@@ -2343,7 +2343,7 @@
       "id": 167494,
       "name": "Chase Budinger",
       "short": "Budinger",
-      "tournaments": 68,
+      "tournaments": 69,
       "first": 2018,
       "last": 2026
     },
@@ -2727,7 +2727,7 @@
       "id": 187577,
       "name": "Evan Cory",
       "short": "Cory",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2022,
       "last": 2026
     },
@@ -2863,7 +2863,7 @@
       "id": 208790,
       "name": "Derek Bradford",
       "short": "Bradford",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2024,
       "last": 2026
     },
@@ -3095,7 +3095,7 @@
       "id": 225768,
       "name": "Jacob La Bouliere",
       "short": "La Bouliere",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2025,
       "last": 2026
     },
@@ -3184,6 +3184,14 @@
       "name": "Mitchell Keddie",
       "short": "Keddie",
       "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 242029,
+      "name": "Wesley Jensen",
+      "short": "Jensen",
+      "tournaments": 1,
       "first": 2026,
       "last": 2026
     }
@@ -8208,14 +8216,14 @@
     {
       "a": 124881,
       "b": 147719,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          181
+          6,
+          231
         ]
       ]
     },
@@ -8846,14 +8854,28 @@
     {
       "a": 136067,
       "b": 225768,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          210
+          6,
+          231
+        ]
+      ]
+    },
+    {
+      "a": 136078,
+      "b": 151673,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },
@@ -9638,14 +9660,14 @@
     {
       "a": 147689,
       "b": 167494,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          210
+          4,
+          231
         ]
       ]
     },
@@ -9965,6 +9987,20 @@
       ]
     },
     {
+      "a": 156222,
+      "b": 242029,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 157022,
       "b": 157023,
       "t": 1,
@@ -10051,7 +10087,7 @@
     {
       "a": 157394,
       "b": 162451,
-      "t": 9,
+      "t": 10,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -10062,8 +10098,8 @@
         ],
         [
           2026,
-          6,
-          203
+          7,
+          231
         ]
       ]
     },
@@ -10937,7 +10973,7 @@
     {
       "a": 187577,
       "b": 208790,
-      "t": 7,
+      "t": 8,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -10948,8 +10984,8 @@
         ],
         [
           2026,
-          5,
-          210
+          6,
+          231
         ]
       ]
     },

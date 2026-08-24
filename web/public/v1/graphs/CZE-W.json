@@ -919,7 +919,7 @@
       "id": 166811,
       "name": "Amalie Tonova",
       "short": "Tonova",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2025,
       "last": 2026
     },
@@ -991,7 +991,7 @@
       "id": 179123,
       "name": "Marketa Prihodova",
       "short": "Prihodova",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2022,
       "last": 2026
     },
@@ -1167,7 +1167,7 @@
       "id": 192868,
       "name": "Laura Kubistova",
       "short": "Kubistova",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2024,
       "last": 2026
     },
@@ -1239,7 +1239,7 @@
       "id": 214027,
       "name": "Stela Hummelova",
       "short": "Hummelova",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -4098,7 +4098,7 @@
     {
       "a": 166811,
       "b": 192868,
-      "t": 14,
+      "t": 15,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4109,8 +4109,8 @@
         ],
         [
           2026,
-          6,
-          176
+          7,
+          231
         ]
       ]
     },
@@ -4353,7 +4353,7 @@
     {
       "a": 179123,
       "b": 214027,
-      "t": 4,
+      "t": 5,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4364,8 +4364,8 @@
         ],
         [
           2026,
-          3,
-          183
+          4,
+          231
         ]
       ]
     },

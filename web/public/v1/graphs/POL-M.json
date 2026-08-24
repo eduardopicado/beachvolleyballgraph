@@ -1263,7 +1263,7 @@
       "id": 182951,
       "name": "Mikolaj Kaczmarek",
       "short": "Kaczmarek",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2023,
       "last": 2026
     },
@@ -1271,7 +1271,7 @@
       "id": 185563,
       "name": "Artem Besarab",
       "short": "Besarab",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2021,
       "last": 2026
     },
@@ -1287,7 +1287,7 @@
       "id": 188284,
       "name": "Szymon Beta",
       "short": "Beta",
-      "tournaments": 27,
+      "tournaments": 28,
       "first": 2022,
       "last": 2026
     },
@@ -1319,7 +1319,7 @@
       "id": 202002,
       "name": "Marcel Wanat",
       "short": "Wanat",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2024,
       "last": 2026
     },
@@ -5423,6 +5423,20 @@
     },
     {
       "a": 182951,
+      "b": 202002,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
+      "a": 182951,
       "b": 210831,
       "t": 3,
       "f": 2026,
@@ -5452,7 +5466,7 @@
     {
       "a": 185563,
       "b": 188284,
-      "t": 11,
+      "t": 12,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -5468,8 +5482,8 @@
         ],
         [
           2026,
-          9,
-          217
+          10,
+          231
         ]
       ]
     },

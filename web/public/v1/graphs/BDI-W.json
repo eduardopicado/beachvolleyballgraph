@@ -15,9 +15,9 @@
       "id": 191914,
       "name": "Delly Drice Kaze",
       "short": "KAZE",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2023,
-      "last": 2023
+      "last": 2026
     },
     {
       "id": 192200,
@@ -47,9 +47,9 @@
       "id": 194227,
       "name": "Nadia Buntubwimana",
       "short": "BUNTUBWIMANA",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 223517,
@@ -104,6 +104,20 @@
           2023,
           1,
           229
+        ]
+      ]
+    },
+    {
+      "a": 191914,
+      "b": 194227,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

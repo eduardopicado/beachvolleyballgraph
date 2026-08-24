@@ -819,7 +819,7 @@
       "tour": {
         "gold": 0,
         "silver": 0,
-        "bronze": 2
+        "bronze": 3
       }
     },
     {
@@ -1001,7 +1001,12 @@
       "name": "Mārcis Bērziņš",
       "dob": "2006-07-08",
       "height": 194,
-      "weight": 78
+      "weight": 78,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
     },
     {
       "id": 211968,

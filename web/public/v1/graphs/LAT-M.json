@@ -207,7 +207,7 @@
       "id": 104142,
       "name": "Martins Plavins",
       "short": "Plavins",
-      "tournaments": 201,
+      "tournaments": 202,
       "first": 2002,
       "last": 2026
     },
@@ -423,7 +423,7 @@
       "id": 124810,
       "name": "Benjavs Toms",
       "short": "Benjavs T.",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2015,
       "last": 2026
     },
@@ -799,7 +799,7 @@
       "id": 173506,
       "name": "Markuss Graudins",
       "short": "Graudins",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2022,
       "last": 2026
     },
@@ -807,7 +807,7 @@
       "id": 173607,
       "name": "Olivers Bulgacs",
       "short": "Bulgacs O.",
-      "tournaments": 32,
+      "tournaments": 33,
       "first": 2021,
       "last": 2026
     },
@@ -831,7 +831,7 @@
       "id": 179122,
       "name": "Kristians Fokerots",
       "short": "Fokerots",
-      "tournaments": 43,
+      "tournaments": 44,
       "first": 2022,
       "last": 2026
     },
@@ -839,7 +839,7 @@
       "id": 179133,
       "name": "Ernests Puskundzis",
       "short": "Puskundzis",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2022,
       "last": 2026
     },
@@ -919,7 +919,7 @@
       "id": 190325,
       "name": "Ernests Gūtmanis",
       "short": "Gutmanis",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2023,
       "last": 2026
     },
@@ -927,7 +927,7 @@
       "id": 190909,
       "name": "Matīss Šalkovskis",
       "short": "Šalkovskis",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2024,
       "last": 2026
     },
@@ -951,7 +951,7 @@
       "id": 192792,
       "name": "Karlis Jaundžeikars",
       "short": "Jaundžeikars",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2024,
       "last": 2026
     },
@@ -991,7 +991,7 @@
       "id": 211966,
       "name": "Mārcis Bērziņš",
       "short": "Bērziņš M.",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -1007,7 +1007,7 @@
       "id": 211992,
       "name": "Kārlis Arturs Mičulis",
       "short": "Mičulis",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1015,7 +1015,7 @@
       "id": 211993,
       "name": "Bruno Liepiņš",
       "short": "Liepiņš B.",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -2108,7 +2108,7 @@
     {
       "a": 104142,
       "b": 179122,
-      "t": 26,
+      "t": 27,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -2129,8 +2129,8 @@
         ],
         [
           2026,
-          6,
-          217
+          7,
+          231
         ]
       ]
     },
@@ -2626,14 +2626,14 @@
     {
       "a": 124810,
       "b": 190325,
-      "t": 4,
+      "t": 5,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          4,
-          183
+          5,
+          231
         ]
       ]
     },
@@ -3472,6 +3472,20 @@
       ]
     },
     {
+      "a": 173506,
+      "b": 179133,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 173607,
       "b": 173608,
       "t": 4,
@@ -3507,14 +3521,14 @@
     {
       "a": 173607,
       "b": 211966,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          190
+          2,
+          231
         ]
       ]
     },
@@ -3803,7 +3817,7 @@
     {
       "a": 190909,
       "b": 192792,
-      "t": 8,
+      "t": 9,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -3819,8 +3833,8 @@
         ],
         [
           2026,
-          2,
-          183
+          3,
+          231
         ]
       ]
     },
@@ -3911,14 +3925,14 @@
     {
       "a": 211992,
       "b": 211993,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          190
+          2,
+          231
         ]
       ]
     },

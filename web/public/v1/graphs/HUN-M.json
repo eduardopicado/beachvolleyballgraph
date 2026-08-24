@@ -271,7 +271,7 @@
       "id": 161607,
       "name": "Artúr Hajós",
       "short": "Hajós",
-      "tournaments": 43,
+      "tournaments": 44,
       "first": 2018,
       "last": 2026
     },
@@ -351,7 +351,7 @@
       "id": 181706,
       "name": "Ákos Veress",
       "short": "Veress",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2022,
       "last": 2026
     },
@@ -994,6 +994,20 @@
           2026,
           1,
           183
+        ]
+      ]
+    },
+    {
+      "a": 161607,
+      "b": 181706,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     },

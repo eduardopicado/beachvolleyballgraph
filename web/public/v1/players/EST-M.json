@@ -311,7 +311,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 3,
         "bronze": 1
       }
@@ -323,7 +323,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 4,
         "bronze": 2
       }

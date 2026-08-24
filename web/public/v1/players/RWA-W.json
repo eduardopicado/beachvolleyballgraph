@@ -24,13 +24,6 @@
       "weight": null
     },
     {
-      "id": 147318,
-      "name": "Lea Uwimbabazi",
-      "dob": "1997-08-10",
-      "height": null,
-      "weight": null
-    },
-    {
       "id": 147320,
       "name": "Grace Niyigena",
       "dob": "1996-09-13",
@@ -99,6 +92,13 @@
       "dob": "1996-08-28",
       "height": null,
       "weight": null
+    },
+    {
+      "id": 241483,
+      "name": "UWIMBABAZI LEA",
+      "dob": "1995-01-01",
+      "height": 170,
+      "weight": 62
     }
   ]
 }

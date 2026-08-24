@@ -1135,7 +1135,7 @@
       "id": 133285,
       "name": "Evandro Gonçalves Oliveira Júnior",
       "short": "Evandro",
-      "tournaments": 147,
+      "tournaments": 148,
       "first": 2010,
       "last": 2026
     },
@@ -1303,7 +1303,7 @@
       "id": 145393,
       "name": "Arthur Diego Mariano Lanci",
       "short": "Arthur Lanci",
-      "tournaments": 67,
+      "tournaments": 68,
       "first": 2014,
       "last": 2026
     },
@@ -1327,7 +1327,7 @@
       "id": 147009,
       "name": "Andre Loyola Stein",
       "short": "Andre",
-      "tournaments": 103,
+      "tournaments": 104,
       "first": 2014,
       "last": 2026
     },
@@ -1463,7 +1463,7 @@
       "id": 156493,
       "name": "Renato Andrew Lima de Carvalho",
       "short": "Renato",
-      "tournaments": 52,
+      "tournaments": 53,
       "first": 2016,
       "last": 2026
     },
@@ -7184,7 +7184,7 @@
     {
       "a": 133285,
       "b": 145393,
-      "t": 43,
+      "t": 44,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -7205,8 +7205,8 @@
         ],
         [
           2026,
-          6,
-          217
+          7,
+          231
         ]
       ]
     },
@@ -7787,7 +7787,7 @@
     {
       "a": 147009,
       "b": 156493,
-      "t": 10,
+      "t": 11,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -7798,8 +7798,8 @@
         ],
         [
           2026,
-          5,
-          210
+          6,
+          231
         ]
       ]
     },

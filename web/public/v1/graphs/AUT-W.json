@@ -983,7 +983,7 @@
       "id": 173533,
       "name": "Magdalena Rabitsch",
       "short": "Rabitsch Mag.",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2022,
       "last": 2026
     },
@@ -1031,7 +1031,7 @@
       "id": 190904,
       "name": "Oleksandra Shkarupa",
       "short": "Shkarupa",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -3766,14 +3766,14 @@
     {
       "a": 173533,
       "b": 190904,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          190
+          3,
+          231
         ]
       ]
     },

@@ -879,7 +879,7 @@
       "id": 179516,
       "name": "Maja Kruczek",
       "short": "Kruczek",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2022,
       "last": 2026
     },
@@ -1015,7 +1015,7 @@
       "id": 223696,
       "name": "Zuzanna Michalska",
       "short": "Michalska",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     }
@@ -3679,7 +3679,7 @@
     {
       "a": 179516,
       "b": 223696,
-      "t": 7,
+      "t": 8,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -3690,8 +3690,8 @@
         ],
         [
           2026,
-          6,
-          190
+          7,
+          231
         ]
       ]
     },

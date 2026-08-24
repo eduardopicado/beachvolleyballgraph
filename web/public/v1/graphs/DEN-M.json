@@ -295,7 +295,7 @@
       "id": 144472,
       "name": "Kristoffer Abell",
       "short": "Abell",
-      "tournaments": 44,
+      "tournaments": 45,
       "first": 2014,
       "last": 2026
     },
@@ -359,7 +359,7 @@
       "id": 173509,
       "name": "Jacob Hejlsvig Petersen",
       "short": "Petersen",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -375,7 +375,7 @@
       "id": 179489,
       "name": "Christian Lundby Andersen",
       "short": "Andersen",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2022,
       "last": 2026
     },
@@ -391,7 +391,7 @@
       "id": 187549,
       "name": "Villads Flügge Napier",
       "short": "Napier",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -1132,14 +1132,14 @@
     {
       "a": 144472,
       "b": 179489,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          190
+          3,
+          231
         ]
       ]
     },
@@ -1288,14 +1288,14 @@
     {
       "a": 173509,
       "b": 187549,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          204
+          2,
+          231
         ]
       ]
     },

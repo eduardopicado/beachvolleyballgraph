@@ -1367,7 +1367,7 @@
       "id": 153926,
       "name": "Jonas Sagstetter",
       "short": "Sagstetter, J.",
-      "tournaments": 35,
+      "tournaments": 36,
       "first": 2022,
       "last": 2026
     },
@@ -1487,7 +1487,7 @@
       "id": 168767,
       "name": "Benedikt Sagstetter",
       "short": "Sagstetter, B.",
-      "tournaments": 37,
+      "tournaments": 38,
       "first": 2022,
       "last": 2026
     },
@@ -1847,7 +1847,7 @@
       "id": 223294,
       "name": "Arne Robert Brendel",
       "short": "Brendel",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1879,9 +1879,9 @@
       "id": 225872,
       "name": "Dinh Long Tran",
       "short": "Long",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 225887,
@@ -1904,6 +1904,22 @@
       "name": "Hannes Ludwig",
       "short": "Ludwig",
       "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 240555,
+      "name": "Philipp Henke",
+      "short": "Henke",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 242460,
+      "name": "Nikolai Terpe",
+      "short": "Terpe",
+      "tournaments": 1,
       "first": 2026,
       "last": 2026
     }
@@ -6596,7 +6612,7 @@
     {
       "a": 153926,
       "b": 168767,
-      "t": 33,
+      "t": 34,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -6622,8 +6638,8 @@
         ],
         [
           2026,
-          8,
-          203
+          9,
+          231
         ]
       ]
     },
@@ -7753,6 +7769,20 @@
       ]
     },
     {
+      "a": 223294,
+      "b": 240555,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
+        ]
+      ]
+    },
+    {
       "a": 224058,
       "b": 231058,
       "t": 1,
@@ -7777,6 +7807,20 @@
           2025,
           1,
           232
+        ]
+      ]
+    },
+    {
+      "a": 225872,
+      "b": 242460,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          231
         ]
       ]
     }

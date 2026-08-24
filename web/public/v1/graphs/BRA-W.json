@@ -543,7 +543,7 @@
       "id": 104079,
       "name": "Carolina Solberg Salgado",
       "short": "Carol",
-      "tournaments": 233,
+      "tournaments": 234,
       "first": 2002,
       "last": 2026
     },
@@ -911,7 +911,7 @@
       "id": 132686,
       "name": "Rebecca Cavalcante Barbosa Silva",
       "short": "Rebecca",
-      "tournaments": 83,
+      "tournaments": 84,
       "first": 2010,
       "last": 2026
     },
@@ -919,7 +919,7 @@
       "id": 132695,
       "name": "Carolina Horta Maximo",
       "short": "Carol Horta",
-      "tournaments": 55,
+      "tournaments": 56,
       "first": 2011,
       "last": 2026
     },
@@ -1055,7 +1055,7 @@
       "id": 146801,
       "name": "Victoria Lopes Pereira Tosta",
       "short": "Victoria",
-      "tournaments": 74,
+      "tournaments": 75,
       "first": 2016,
       "last": 2026
     },
@@ -1071,7 +1071,7 @@
       "id": 147073,
       "name": "Ana Patricia Silva Ramos",
       "short": "Ana Patrícia",
-      "tournaments": 72,
+      "tournaments": 73,
       "first": 2014,
       "last": 2026
     },
@@ -1175,7 +1175,7 @@
       "id": 155479,
       "name": "Verena Figueira de Oliveira",
       "short": "Verena",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2023,
       "last": 2026
     },
@@ -1231,7 +1231,7 @@
       "id": 163501,
       "name": "Thamela Coradello Galil",
       "short": "Thamela",
-      "tournaments": 49,
+      "tournaments": 50,
       "first": 2018,
       "last": 2026
     },
@@ -1311,7 +1311,7 @@
       "id": 172745,
       "name": "Thainara Mylena Feitosa de Oliveira",
       "short": "Thainara",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2021,
       "last": 2026
     },
@@ -4453,7 +4453,7 @@
     {
       "a": 104079,
       "b": 132686,
-      "t": 19,
+      "t": 20,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4464,8 +4464,8 @@
         ],
         [
           2026,
-          6,
-          217
+          7,
+          231
         ]
       ]
     },
@@ -5579,7 +5579,7 @@
     {
       "a": 132695,
       "b": 147073,
-      "t": 5,
+      "t": 6,
       "f": 2016,
       "l": 2026,
       "s": [
@@ -5595,8 +5595,8 @@
         ],
         [
           2026,
-          1,
-          217
+          2,
+          231
         ]
       ]
     },
@@ -6162,7 +6162,7 @@
     {
       "a": 146801,
       "b": 163501,
-      "t": 24,
+      "t": 25,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -6178,8 +6178,8 @@
         ],
         [
           2026,
-          7,
-          217
+          8,
+          231
         ]
       ]
     },
@@ -6450,14 +6450,14 @@
     {
       "a": 155479,
       "b": 172745,
-      "t": 7,
+      "t": 8,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          7,
-          209
+          8,
+          231
         ]
       ]
     },
