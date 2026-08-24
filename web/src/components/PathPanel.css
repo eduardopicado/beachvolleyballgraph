@@ -1,0 +1,314 @@
+/* Takes the card's slot, so it inherits the same surface and the same height
+   the graph reports. Scrolls internally for a long chain rather than growing
+   past the graph beside it. */
+.path-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 18px 18px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-y: auto;
+}
+
+.path-panel header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.path-panel h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--text-primary);
+}
+
+.path-panel .close {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.path-panel .close:hover {
+  color: var(--text-primary);
+  background: var(--series-1-wash);
+}
+
+/* --- the two ends --------------------------------------------------------- */
+
+.path-panel .ends {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.path-panel .ends > li {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+}
+
+.path-panel .lab {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.path-panel .ends .nm {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.path-panel .chosen {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.path-panel .chosen button {
+  border: 0;
+  background: transparent;
+  color: var(--series-1);
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  flex: none;
+}
+
+.path-panel input {
+  width: 100%;
+  padding: 7px 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--page);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+}
+
+.path-panel .suggestions {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  max-height: 260px;
+  overflow-y: auto;
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  box-shadow: var(--shadow-lg);
+}
+
+.path-panel .suggestions li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--text-primary);
+}
+
+.path-panel .suggestions li.is-active {
+  background: var(--series-1-wash);
+}
+
+.path-panel .suggestions .tally {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+
+/* --- the answer ----------------------------------------------------------- */
+
+.path-panel .answer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.path-panel .verdict {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.path-panel .verdict strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.path-panel .verdict .sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.path-panel .chain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.path-panel .chain > li {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The partnership between two people on the chain, in the gutter above the
+   second of them — so the count reads as belonging to the pair, not the row. */
+.path-panel .chain .link {
+  padding: 3px 0 3px 17px;
+  margin-left: 15px;
+  border-left: 2px solid var(--series-1);
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.path-panel .chain .link b {
+  color: var(--text-primary);
+  font-weight: 650;
+}
+
+.path-panel .chain > li > button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.path-panel .chain > li > button:hover {
+  background: var(--series-1-wash);
+}
+
+.path-panel .chain .avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--series-1-wash);
+}
+
+.path-panel .chain .avatar.is-fallback {
+  display: grid;
+  place-items: center;
+  color: var(--series-1);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.path-panel .chain .who {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.path-panel .chain .who .nm {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.path-panel .chain .who .meta {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The two ends take the selected-player colour, which is what the graph gives
+   the whole chain — so the panel and the picture agree on which ink means
+   "this is what you asked about". */
+.path-panel .chain > li.end .who .nm {
+  color: var(--series-2);
+}
+
+.path-panel .chain > li.end .avatar {
+  background: var(--series-2-wash);
+  box-shadow: 0 0 0 2px var(--series-2);
+}
+
+.path-panel .chain > li.end .avatar.is-fallback {
+  color: var(--series-2);
+}
+
+.path-panel .islands {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.path-panel .islands p {
+  margin: 0;
+}
+
+.path-panel .islands .nm {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.path-panel .islands b {
+  color: var(--text-primary);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.path-panel .foot,
+.path-panel .hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.path-panel .hint {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}

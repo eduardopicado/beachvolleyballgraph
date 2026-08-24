@@ -21,6 +21,7 @@ import {
   type LayoutLink,
   type LayoutNode,
 } from '../graph/layout';
+import { pairKey } from '../lib/path';
 import { seasonSpan, plural } from '../lib/format';
 import { prefersReducedMotion } from '../lib/motion';
 import './PartnershipGraph.css';
@@ -42,6 +43,15 @@ interface Props {
    * row height. An explicit pixel value from here sidesteps that entirely.
    */
   onSize?: (size: { width: number; height: number }) => void;
+  /**
+   * A partnership path to light up, if one is open.
+   *
+   * When set it takes over the dimming entirely — hover and selection stop
+   * deciding what is bright, because the reader is asking one question and the
+   * picture should answer that one. Edges are keyed by `pairKey` from lib/path.
+   */
+  pathIds?: ReadonlySet<number> | null;
+  pathEdges?: ReadonlySet<string> | null;
 }
 
 interface Hover {
@@ -59,7 +69,16 @@ interface Hover {
  */
 const TAP_SLOP = 8;
 
-export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey, onSize }: Props) {
+export function PartnershipGraph({
+  nodes,
+  edges,
+  selectedId,
+  onSelect,
+  layoutKey,
+  onSize,
+  pathIds,
+  pathEdges,
+}: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const viewRef = useRef<SVGGElement>(null);
@@ -468,7 +487,12 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
   const activeId = hover?.node.id ?? selectedId;
   const activeNeighbours = activeId === null ? null : (neighbours.get(activeId) ?? new Set<number>());
 
+  // A path answers one question, so while it is open it owns the dimming: hover
+  // and selection stop deciding what is bright.
+  const onPath = pathIds && pathIds.size > 0 ? pathIds : null;
+
   const nodeClass = (node: LayoutNode) => {
+    if (onPath) return onPath.has(node.id) ? 'node is-active' : 'node is-dimmed';
     if (activeId === null) return 'node';
     if (node.id === activeId) return 'node is-active';
     if (activeNeighbours?.has(node.id)) return 'node is-partner';
@@ -476,19 +500,26 @@ export function PartnershipGraph({ nodes, edges, selectedId, onSelect, layoutKey
   };
 
   const linkClass = (link: LayoutLink) => {
-    if (activeId === null) return 'link';
     const s = (link.source as LayoutNode).id;
     const t = (link.target as LayoutNode).id;
+    if (onPath) {
+      return pathEdges?.has(pairKey(s, t)) ? 'link is-active' : 'link is-dimmed';
+    }
+    if (activeId === null) return 'link';
     return s === activeId || t === activeId ? 'link is-active' : 'link is-dimmed';
   };
 
   const labelClass = (node: LayoutNode) => {
+    if (onPath) return onPath.has(node.id) ? 'label is-active' : 'label is-dimmed';
     if (activeId === null) return 'label';
     if (node.id === activeId) return 'label is-active';
     return activeNeighbours?.has(node.id) ? 'label' : 'label is-dimmed';
   };
 
+  // Every player on the chain is named, whether or not the collision test would
+  // have picked them: a route you cannot read the names of is not an answer.
   const showLabel = (node: LayoutNode) =>
+    onPath?.has(node.id) ||
     labelled.has(node.id) ||
     node.id === activeId ||
     (activeNeighbours?.has(node.id) ?? false);
