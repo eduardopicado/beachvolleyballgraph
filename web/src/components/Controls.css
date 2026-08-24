@@ -182,9 +182,15 @@
   margin: 0;
   padding: 6px;
   list-style: none;
-  /* Two lines a row now, so eight results need more room than they did. */
-  max-height: 400px;
+  /* Taller than the eight rows it used to hold exactly, because the list is
+     now meant to be scrolled rather than to fit. Capped against the viewport
+     too: 400px of dropdown on a short landscape phone covers the page. */
+  max-height: min(62vh, 520px);
   overflow-y: auto;
+  /* Keep the gesture in the list. Without this, a flick that reaches the end
+     of the results carries on into the page behind, which on a phone scrolls
+     the dropdown out from under the finger mid-read. */
+  overscroll-behavior: contain;
   background: var(--surface-1);
   border: 1px solid var(--border-strong);
   border-radius: 10px;
@@ -219,6 +225,15 @@
 /* Where one group ends and the next begins — the precedence the country
    selector has always had, finally written down. Rendered only when a boundary
    is actually crossed, so the common all-from-this-page result is unchanged. */
+/* Sticky, because the list is long enough to scroll now and a heading that
+   scrolls away takes the answer to "which of these are Brazilian?" with it. */
+.player-search-results .group .split {
+  position: sticky;
+  top: -6px; /* cancels the list's own 6px of padding */
+  z-index: 1;
+  background: var(--surface-1);
+}
+
 .player-search-results .split {
   display: block;
   padding: 8px 10px 3px;

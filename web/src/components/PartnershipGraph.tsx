@@ -22,6 +22,7 @@ import {
   type LayoutNode,
 } from '../graph/layout';
 import { seasonSpan, plural } from '../lib/format';
+import { prefersReducedMotion } from '../lib/motion';
 import './PartnershipGraph.css';
 
 interface Props {
@@ -48,9 +49,6 @@ interface Hover {
   x: number;
   y: number;
 }
-
-const prefersReducedMotion = () =>
-  typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /**
  * How far a pointer may travel and still count as a tap rather than a drag.

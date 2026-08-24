@@ -48,6 +48,19 @@ export interface SearchMatch extends IndexedPlayer {
   group: MatchGroup;
 }
 
+/**
+ * Rows the dropdown renders at once.
+ *
+ * Was 8, chosen when the list could not be scrolled: eight rows fitted the
+ * panel exactly, so the cap and the visible area happened to agree. Now that a
+ * drag scrolls instead of selecting, eight is stingy for the case that asks for
+ * scrolling in the first place -- knowing roughly how a name is spelled and
+ * wanting to look down the list for it. 20 is enough to browse, small enough
+ * to stay a jump-to-player box rather than a directory, and the footer still
+ * reports what it left out.
+ */
+export const SEARCH_LIMIT = 20;
+
 export interface SearchResult {
   matches: SearchMatch[];
   /**
@@ -113,7 +126,7 @@ export function searchPlayers(
   players: readonly IndexedPlayer[],
   query: string,
   home: Slice,
-  limit = 8,
+  limit = SEARCH_LIMIT,
 ): SearchResult {
   const q = foldAccents(query.trim());
   if (!q) return { matches: [], hidden: 0 };

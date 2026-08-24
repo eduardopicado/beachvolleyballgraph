@@ -4,6 +4,7 @@ import {
   groupOf,
   indexPlayers,
   searchPlayers,
+  SEARCH_LIMIT,
   type SearchablePlayer,
   type Slice,
 } from './search';
@@ -78,18 +79,18 @@ describe('searchPlayers', () => {
   });
 
   it('caps results at the limit', () => {
-    const many = Array.from({ length: 20 }, (_, i) => p(i, `Test Player ${i}`, i));
-    expect(ids(many, 'Test')).toHaveLength(8);
+    const many = Array.from({ length: SEARCH_LIMIT + 12 }, (_, i) => p(i, `Test Player ${i}`, i));
+    expect(ids(many, 'Test')).toHaveLength(SEARCH_LIMIT);
     expect(ids(many, 'Test', 3)).toHaveLength(3);
   });
 
   it('counts the matches the limit threw away', () => {
     // The cut is the search's real filter, and it used to be silent: against
     // the published index the median three-letter query matches 79 players.
-    const many = Array.from({ length: 20 }, (_, i) => p(i, `Test Player ${i}`, i));
+    const many = Array.from({ length: SEARCH_LIMIT + 12 }, (_, i) => p(i, `Test Player ${i}`, i));
     expect(searchPlayers(many, 'Test', HOME).hidden).toBe(12);
-    expect(searchPlayers(many, 'Test', HOME, 3).hidden).toBe(17);
-    expect(searchPlayers(many, 'Test', HOME, 50).hidden).toBe(0);
+    expect(searchPlayers(many, 'Test', HOME, 3).hidden).toBe(SEARCH_LIMIT + 9);
+    expect(searchPlayers(many, 'Test', HOME, 500).hidden).toBe(0);
   });
 
   it('finds a mid-name substring, not just a prefix', () => {
