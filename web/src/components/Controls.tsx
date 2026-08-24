@@ -68,23 +68,18 @@ function HelpTip({ text }: { text: string }) {
   );
 }
 
-/** Where a search match lives. On every row; emphasised on the ones far from here. */
-function Where({
-  slice,
-  countries,
-  group,
-}: {
-  slice: Slice;
-  countries: Manifest['countries'];
-  group: MatchGroup;
-}) {
+/**
+ * Where a search match lives.
+ *
+ * Rendered only on the rows under Elsewhere, so it no longer needs to decide
+ * whether to emphasise itself: every row that has one is a row whose selection
+ * leaves this country, which is the only thing on the line with a consequence.
+ */
+function Where({ slice, countries }: { slice: Slice; countries: Manifest['countries'] }) {
   const entry = countries.find((c) => c.code === slice.country);
   const flag = flagEmoji(entry?.iso2, slice.country);
   return (
-    // Only a different country takes the emphasis now. It used to fall on
-    // anything outside the exact slice, which put it on the reader's own
-    // compatriots whenever they were the other gender.
-    <span className={group === 'elsewhere' ? 'where is-elsewhere' : 'where'}>
+    <span className="where">
       {flag && <span aria-hidden="true">{flag} </span>}
       {entry?.name ?? slice.country} {GENDER_LABEL[slice.gender]}
     </span>
@@ -328,16 +323,28 @@ function PlayerSearch({
                 <span className="who">
                   <span className="name">{m.name}</span>
                   <span className="meta">
-                    {/* On every row. It used to appear only for players the
-                        reader would have to navigate to, on the reasoning that a
-                        Brazilian flag on every row of the Brazil page says
-                        nothing — but eight rows where some name a country and
-                        some do not reads as missing data rather than as a
-                        distinction, and the blank rows are the ones the reader is
-                        most likely to pick. */}
-                    <Where slice={m.slice} countries={countries} group={m.group} />
-                    <span aria-hidden="true">·</span>
-                    {plural(m.tournaments, 'tournament')}
+                    {/* Only under Elsewhere, because that is the only heading
+                        that cannot name a country — every row under it is from
+                        a different one. The other two groups say it once, at
+                        the top, instead of repeating it down seven rows.
+
+                        This looks like the behaviour that was rejected — a
+                        country on the far rows and nothing on the near ones —
+                        but the objection was that a list where some rows named
+                        a country and some were blank read as missing data. A
+                        heading answers that for every row beneath it, so
+                        nothing is left for the reader to infer. */}
+                    {m.group === 'elsewhere' && (
+                      <Where slice={m.slice} countries={countries} />
+                    )}
+                    {/* The separator travels with the count rather than sitting
+                        between the two as its own item. A long country name
+                        wraps this line, and on its own the dot was left
+                        stranded at the end of the first one. */}
+                    <span className="tally">
+                      {m.group === 'elsewhere' && <span aria-hidden="true">· </span>}
+                      {plural(m.tournaments, 'tournament')}
+                    </span>
                   </span>
                 </span>
               </li>

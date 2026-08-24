@@ -302,16 +302,17 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Where a match lives. On every row, so that eight results naming eight
-   countries can be told apart — but quiet by default, because for a player
-   already on screen it is context rather than news. */
+/* Where a match lives. Only on the rows under Elsewhere — every other row sits
+   beneath a heading that already names its country — so this is always a row
+   whose selection leaves the country on screen, and always carries the
+   emphasis that says so. */
+/* Neither half of the meta line may break internally — only between them. */
+.player-search-results .meta .tally,
 .player-search-results .where {
   white-space: nowrap;
 }
 
-/* The ones that are somewhere else keep the emphasis: picking these changes
-   country and gender, which is the only thing here with a consequence. */
-.player-search-results .where.is-elsewhere {
+.player-search-results .where {
   color: var(--text-secondary);
   font-weight: 600;
 }

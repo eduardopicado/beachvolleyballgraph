@@ -469,28 +469,51 @@ test.describe('cross-country search', () => {
       .toContain(sliceSlug(entry!.name, parseSliceKey(target!.slice)!.gender));
   });
 
-  test('every row names a country, and only the ones elsewhere are flagged as such', async ({ page }) => {
-    // Every row says where the player is from — eight results named "Sam" are
-    // otherwise impossible to tell apart, and the rows left blank were the
-    // local ones, which is exactly the group a reader is most likely to want.
-    //
-    // The emphasis is the part that stays conditional: `is-elsewhere` marks
-    // the rows whose selection leaves this country, which is the only thing on
-    // this line with a consequence.
-    const local = graph(COUNTRY, GENDER).nodes.sort((a, b) => b.tournaments - a.tournaments)[0]!;
+  /**
+   * Where a row's country comes from.
+   *
+   * The original complaint was a list where some rows named a country and some
+   * were blank, which reads as missing data rather than as a distinction. That
+   * was fixed by naming it on every row; the headings then made six of those
+   * eight labels repeat the line directly above them.
+   *
+   * So it moves rather than coming back: the two groups that *can* be named by
+   * a heading are, and Elsewhere -- where every row is a different country, so
+   * no heading could -- keeps its per-row label. No row is left for the reader
+   * to infer.
+   */
+  test('a country is named once per group, and per row only where a heading cannot', async ({
+    page,
+  }) => {
+    const home: Slice = { country: COUNTRY, gender: GENDER };
+    const found = queryCovering(home, ['home', 'elsewhere']);
+    test.skip(!found, 'no query in this archive spans this page and elsewhere');
+    const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
+
     await page.goto(`./${slicePath()}`);
     await box(page).click();
-    await box(page).fill(local.name);
+    await box(page).fill(found!.token);
 
-    const row = rows(page).filter({ hasText: local.name }).first();
-    await expect(row).toBeVisible();
-    const where = row.locator('.where');
-    await expect(where).toHaveCount(1);
-    // Named as the country actually on screen, not left blank.
-    const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
-    await expect(where).toContainText(entry.name);
-    // …but not dressed as somewhere you would have to navigate to.
-    await expect(row.locator('.where.is-elsewhere')).toHaveCount(0);
+    const list = page.locator('.player-search-results');
+    const group = (name: string) => list.locator(`[role="group"][aria-label="${name}"]`);
+
+    // Named by its heading, so the rows beneath carry no label of their own.
+    await expect(group(`${entry.name} Men`)).toBeVisible();
+    await expect(group(`${entry.name} Men`).locator('.result .where')).toHaveCount(0);
+
+    // Elsewhere cannot be named by a heading -- so every row under it is.
+    const away = group('Elsewhere').locator('.result');
+    const awayCount = await away.count();
+    expect(awayCount, 'need at least one row from elsewhere').toBeGreaterThan(0);
+    await expect(group('Elsewhere').locator('.result .where')).toHaveCount(awayCount);
+
+    // And each one names its own country, not the one on screen.
+    const labels = await group('Elsewhere')
+      .locator('.result .where')
+      .evaluateAll((els) => els.map((e) => e.textContent ?? ''));
+    for (const label of labels) {
+      expect(label.trim().length, 'an away row has an empty country label').toBeGreaterThan(0);
+    }
   });
 
   /**
@@ -595,7 +618,8 @@ test.describe('cross-country search', () => {
     // be flagged in orange as being from somewhere else, below players from
     // Switzerland, because "here" meant the country *and* the gender.
     const home: Slice = { country: COUNTRY, gender: GENDER };
-    const found = queryCovering(home, ['country']);
+    // Needs an Elsewhere group too, for the guard at the end of this test.
+    const found = queryCovering(home, ['country', 'elsewhere']);
     test.skip(!found, 'no query in this archive reaches the other gender');
     const compatriot = found!.matches.find(
       (m) => m.slice.country === COUNTRY && m.slice.gender !== GENDER,
@@ -607,10 +631,22 @@ test.describe('cross-country search', () => {
 
     const row = rows(page).filter({ hasText: compatriot.name }).first();
     await expect(row).toBeVisible();
-    // Named — every row is — but not dressed as a country change.
+
+    // She sits under her own country's heading, which is what says she is from
+    // it -- and so carries no per-row country label and none of the emphasis
+    // that marks a row as leaving the country.
     const entry = manifest().countries.find((c) => c.code === COUNTRY)!;
-    await expect(row.locator('.where')).toContainText(entry.name);
-    await expect(row.locator('.where.is-elsewhere')).toHaveCount(0);
+    const other = GENDER === 'M' ? 'Women' : 'Men';
+    await expect(
+      page.locator(`.player-search-results [role="group"][aria-label="${entry.name} ${other}"]`),
+    ).toContainText(compatriot.name);
+    await expect(row.locator('.where')).toHaveCount(0);
+
+    // The guard on that guard: the rows that *are* foreign still say so, so a
+    // change that simply stopped rendering country labels would not pass here.
+    await expect(
+      page.locator('.player-search-results [role="group"][aria-label="Elsewhere"] .where').first(),
+    ).toBeVisible();
   });
 });
 
