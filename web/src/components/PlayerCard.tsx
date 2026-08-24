@@ -8,6 +8,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
 import { playerProfileUrl, TIER_BADGE } from '../schema';
+import { foldAccents } from '../lib/search';
 import {
   age,
   formatDate,
@@ -247,6 +248,17 @@ export function PlayerCard({
 }: Props) {
   const cardRef = useRef<HTMLElement>(null);
 
+  /**
+   * The graph's label for this player, when it says something their name does
+   * not — "Duda" for Eduarda Santos Lisboa, "Guto" for Gustavo Albrecht
+   * Carvalhaes. 203 published players are in that position. Empty for the
+   * plain shortenings ("P. Solberg"), which would only repeat the heading.
+   */
+  const alias = useMemo(() => {
+    const short = foldAccents(node.short);
+    return short && !foldAccents(node.name).includes(short) ? node.short : '';
+  }, [node.name, node.short]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -437,6 +449,14 @@ export function PlayerCard({
         <Avatar id={node.id} name={node.name} width={200} className="player-photo" />
         <div className="who">
           <h2>{node.name}</h2>
+          {/* The name the graph draws, when it is not simply this one cut
+              short. It is how a reader got here — the node said "Duda", the
+              search row said "Duda" — and without it the card is the first
+              place that stops saying it, which is exactly where they are
+              deciding whether they landed on the right person. Same test as
+              the search index: shown only when it reaches somewhere the full
+              name does not. */}
+          {alias && <p className="alias">“{alias}”</p>}
           <p className="country">
             <span aria-hidden="true">{flag}</span> {countryName}
           </p>
