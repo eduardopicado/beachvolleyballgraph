@@ -96,7 +96,11 @@ export interface MedalCounts {
 export interface AwayPartner {
   id: number;
   name: string;
-  /** Federation code — the slice this partner actually lives in. */
+  /**
+   * Federation code — the slice this partner lives in *today*, which is where
+   * selecting them navigates to. Deliberately not what the card says the
+   * partnership was: see `at`.
+   */
   fed: string;
   gender: Gender;
   /** Tournaments together, and the first and last season of them. */
@@ -113,6 +117,21 @@ export interface AwayPartner {
    * but not impossible.
    */
   s?: SeasonTally[];
+  /**
+   * The federation the pair actually represented, per season, oldest first —
+   * `[[2005, 'BRA']]`, or several entries for a pair who kept playing through
+   * a transfer.
+   *
+   * A player's federation is a snapshot of today, so using it to describe a
+   * partnership from twenty years ago states something false: Pedro Solberg
+   * and Tiago De J Santos played one event together in 2005, both Brazilian,
+   * and the card attributed it to Qatar because that is where Tiago went in
+   * 2013. FIVB stamps a federation on the team entry itself, which is the
+   * thing that was true at the time.
+   *
+   * Absent when no entry carried a usable code.
+   */
+  at?: [season: number, fed: string][];
 }
 
 /** Lazy-loaded detail for every player in one country x gender slice. */

@@ -2,2083 +2,245 @@
   "country": "GER",
   "gender": "M",
   "players": [
-    {
-      "id": 100035,
-      "name": "Christian Tiemann",
-      "dob": "1964-02-23",
-      "height": 193,
-      "weight": 87
-    },
-    {
-      "id": 100079,
-      "name": "Bernhard Hoffman",
-      "dob": "1967-01-16",
-      "height": 198,
-      "weight": 84
-    },
-    {
-      "id": 100158,
-      "name": "Burkhard Sude",
-      "dob": "1957-08-18",
-      "height": 193,
-      "weight": 91
-    },
-    {
-      "id": 100159,
-      "name": "Christian Voss",
-      "dob": "1963-02-26",
-      "height": 194,
-      "weight": 85
-    },
-    {
-      "id": 100164,
-      "name": "... Kuchenhoff",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100165,
-      "name": "... Schweigler",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100212,
-      "name": "Jan Fell",
-      "dob": "1963-02-20",
-      "height": 190,
-      "weight": 88
-    },
-    {
-      "id": 100223,
-      "name": "Andreas Boltze",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100224,
-      "name": "Thomas Brall",
-      "dob": "1963-07-27",
-      "height": 192,
-      "weight": 87
-    },
-    {
-      "id": 100242,
-      "name": "Lars-Bjorn Freier",
-      "dob": "1971-07-02",
-      "height": 207,
-      "weight": 95
-    },
-    {
-      "id": 100494,
-      "name": "Jörg \"Vince\" Ahmann",
-      "dob": "1966-02-12",
-      "height": 190,
-      "weight": 87,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100495,
-      "name": "Axel \"Hägar\" Hager",
-      "dob": "1969-03-14",
-      "height": 202,
-      "weight": 95,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100503,
-      "name": "David Schuler",
-      "dob": "1963-02-14",
-      "height": 200,
-      "weight": 89
-    },
-    {
-      "id": 100520,
-      "name": "Andreas \"Andy\" Scheuerpflug",
-      "dob": "1967-07-13",
-      "height": 196,
-      "weight": 81,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100804,
-      "name": "Ralph Bergmann",
-      "dob": "1970-05-26",
-      "height": 206,
-      "weight": 98
-    },
-    {
-      "id": 100805,
-      "name": "Martin Berkenkamp",
-      "dob": "1971-07-07",
-      "height": 201,
-      "weight": 103
-    },
-    {
-      "id": 100806,
-      "name": "Pierre-André Froehlich",
-      "dob": "1969-02-08",
-      "height": 198,
-      "weight": 101,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 100807,
-      "name": "Elmar Harbrecht",
-      "dob": "1969-02-24",
-      "height": 200,
-      "weight": 95
-    },
-    {
-      "id": 100808,
-      "name": "Malte \"Supergrobi\" Homeyer",
-      "dob": "1972-05-08",
-      "height": 191,
-      "weight": 84
-    },
-    {
-      "id": 100809,
-      "name": "Matthias \"Matza\" Kuring",
-      "dob": "1967-01-15",
-      "height": 188,
-      "weight": 80
-    },
-    {
-      "id": 100810,
-      "name": "Soeren Resch",
-      "dob": "1967-03-05",
-      "height": 195,
-      "weight": 88
-    },
-    {
-      "id": 100811,
-      "name": "Thorsten \"Schulle\" Schulz",
-      "dob": "1969-02-02",
-      "height": 188,
-      "weight": 85
-    },
-    {
-      "id": 100812,
-      "name": "Thilo Von Hagen",
-      "dob": "1971-09-24",
-      "height": 183,
-      "weight": 78
-    },
-    {
-      "id": 100813,
-      "name": "Matthias \"Matthi\" Walter",
-      "dob": "1969-04-25",
-      "height": 190,
-      "weight": 85
-    },
-    {
-      "id": 100814,
-      "name": "Holger Werner",
-      "dob": "1968-01-24",
-      "height": 198,
-      "weight": 95
-    },
-    {
-      "id": 100815,
-      "name": "Falk Zimmermann",
-      "dob": "1971-06-09",
-      "height": 190,
-      "weight": 85
-    },
-    {
-      "id": 101049,
-      "name": "Haucke Braack",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101079,
-      "name": "Frank Mackerodt",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101098,
-      "name": "Humbertus Platt",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101105,
-      "name": "Paul Schmeing",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101203,
-      "name": "Roman Schwarz",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101255,
-      "name": "Ralf Jeder",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101470,
-      "name": "Martin \"Sunny\" Peiske",
-      "dob": "1971-05-14",
-      "height": 196,
-      "weight": 94
-    },
-    {
-      "id": 101472,
-      "name": "Sven \"Susi\" Anton",
-      "dob": "1970-06-07",
-      "height": 202,
-      "weight": 102
-    },
-    {
-      "id": 101473,
-      "name": "Stefan Pomerenke",
-      "dob": "1973-07-04",
-      "height": 191,
-      "weight": 85
-    },
-    {
-      "id": 101474,
-      "name": "Andreas Rüger",
-      "dob": "1972-10-14",
-      "height": 190,
-      "weight": 83
-    },
-    {
-      "id": 101475,
-      "name": "Peter Hummel",
-      "dob": "1966-05-31",
-      "height": 189,
-      "weight": 82
-    },
-    {
-      "id": 101476,
-      "name": "Edgar Krank",
-      "dob": "1967-04-14",
-      "height": 190,
-      "weight": 70
-    },
-    {
-      "id": 101477,
-      "name": "Oliver Oetke",
-      "dob": "1968-08-18",
-      "height": 198,
-      "weight": 90
-    },
-    {
-      "id": 101478,
-      "name": "Uwe Körner",
-      "dob": "1965-04-14",
-      "height": 189,
-      "weight": 92
-    },
-    {
-      "id": 101479,
-      "name": "Dirk Schlotfeldt",
-      "dob": "1968-02-12",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 101480,
-      "name": "Markus Dieckmann",
-      "dob": "1976-01-07",
-      "height": 189,
-      "weight": 78,
-      "tour": {
-        "gold": 2,
-        "silver": 7,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 101481,
-      "name": "Christoph Dieckmann",
-      "dob": "1976-01-07",
-      "height": 198,
-      "weight": 89,
-      "tour": {
-        "gold": 5,
-        "silver": 4,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 101482,
-      "name": "Christian Kilgus",
-      "dob": "1969-01-26",
-      "height": 182,
-      "weight": 72
-    },
-    {
-      "id": 101531,
-      "name": "Wolfgang Groos",
-      "dob": "1968-04-22",
-      "height": 192,
-      "weight": 90
-    },
-    {
-      "id": 101916,
-      "name": "Dirk \"Olde\" Oldenburg",
-      "dob": "1967-02-11",
-      "height": 198,
-      "weight": 92
-    },
-    {
-      "id": 101917,
-      "name": "Kjell \"Kelli\" Schneider",
-      "dob": "1976-10-04",
-      "height": 199,
-      "weight": 88,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 101918,
-      "name": "Börrje Schneider",
-      "dob": "1974-08-16",
-      "height": 192,
-      "weight": 75
-    },
-    {
-      "id": 102297,
-      "name": "Oliver Heiming",
-      "dob": "1969-05-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102298,
-      "name": "Daniel Sander",
-      "dob": "1970-01-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102299,
-      "name": "Bernard Gau",
-      "dob": "1975-12-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102300,
-      "name": "Erik Schmidt",
-      "dob": "1975-09-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102301,
-      "name": "Vincent Lange",
-      "dob": "1974-06-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102303,
-      "name": "Dietmar Bauer",
-      "dob": "1973-07-05",
-      "height": 197,
-      "weight": 91
-    },
-    {
-      "id": 102703,
-      "name": "Niclas \"Hille\" Hildebrand",
-      "dob": "1980-08-05",
-      "height": 193,
-      "weight": 80
-    },
-    {
-      "id": 102704,
-      "name": "Igor Wiederschein",
-      "dob": "1980-03-02",
-      "height": 195,
-      "weight": 82
-    },
-    {
-      "id": 102705,
-      "name": "Michael \"Mike\" Raddatz",
-      "dob": "1975-12-01",
-      "height": 207,
-      "weight": 99
-    },
-    {
-      "id": 102706,
-      "name": "Jochen \"Jockel\" Wächter",
-      "dob": "1971-09-22",
-      "height": 185,
-      "weight": 75
-    },
-    {
-      "id": 102986,
-      "name": "Rüdiger Strosik",
-      "dob": "1978-06-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103108,
-      "name": "David \"Hase\" Klemperer",
-      "dob": "1980-06-22",
-      "height": 187,
-      "weight": 82,
-      "tour": {
-        "gold": 1,
-        "silver": 5,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 103109,
-      "name": "Jonas Reckermann",
-      "dob": "1979-05-26",
-      "height": 200,
-      "weight": 97,
-      "olympics": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      },
-      "worldChamps": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 5,
-        "silver": 18,
-        "bronze": 10
-      }
-    },
-    {
-      "id": 103217,
-      "name": "Julius Brink",
-      "dob": "1982-07-06",
-      "height": 186,
-      "weight": 86,
-      "olympics": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      },
-      "worldChamps": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 2
-      },
-      "tour": {
-        "gold": 7,
-        "silver": 11,
-        "bronze": 12
-      }
-    },
-    {
-      "id": 103244,
-      "name": "Niklas Rademacher",
-      "dob": "1982-03-03",
-      "height": 207,
-      "weight": 75,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 103297,
-      "name": "Matthias \"Charger\" Karger",
-      "dob": "1982-05-10",
-      "height": 197,
-      "weight": 85
-    },
-    {
-      "id": 103298,
-      "name": "Maarten Lammens",
-      "dob": "1982-10-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103348,
-      "name": "Kay Matysik",
-      "dob": "1980-06-18",
-      "height": 191,
-      "weight": 88,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 103349,
-      "name": "Karl Strempel",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103441,
-      "name": "Drazan Slacanin",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103442,
-      "name": "Hannes Ambelang",
-      "dob": "1982-09-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103443,
-      "name": "Manuel Rieke",
-      "dob": "1982-10-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103567,
-      "name": "Jochen Hartmann",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103568,
-      "name": "Knut Winter",
-      "dob": "1966-12-17",
-      "height": 196,
-      "weight": 92
-    },
-    {
-      "id": 103591,
-      "name": "Wolfgang Beck",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103606,
-      "name": "Florian Reckermann",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103876,
-      "name": "Thomas Hikel",
-      "dob": "1973-01-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103877,
-      "name": "Marvin Polte",
-      "dob": "1976-02-05",
-      "height": 187,
-      "weight": 80
-    },
-    {
-      "id": 103878,
-      "name": "Morten Klein",
-      "dob": "1971-02-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103879,
-      "name": "Gregor Rolinski",
-      "dob": "1974-06-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103881,
-      "name": "Simon Forster",
-      "dob": "1982-08-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103882,
-      "name": "Carlo Wiese",
-      "dob": "1982-04-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104022,
-      "name": "Florian Huth",
-      "dob": "1983-08-05",
-      "height": 196,
-      "weight": 93
-    },
-    {
-      "id": 104100,
-      "name": "René Bentin",
-      "dob": "1985-04-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104101,
-      "name": "Tom Götz",
-      "dob": "1985-02-11",
-      "height": 192,
-      "weight": 88,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104138,
-      "name": "Oliver Schmäschke",
-      "dob": "1985-04-12",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 104137,
-          "name": "Tomas Knebelkamp",
-          "fed": "BRA",
-          "gender": "M",
-          "t": 1,
-          "f": 2002,
-          "l": 2002,
-          "s": [
-            [
-              2002,
-              1,
-              240
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 104320,
-      "name": "Marcus Popp",
-      "dob": "1981-09-23",
-      "height": 192,
-      "weight": 90,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104334,
-      "name": "Arvid Kinder",
-      "dob": "1980-12-06",
-      "height": 192,
-      "weight": 80
-    },
-    {
-      "id": 104335,
-      "name": "Leonard Waligora",
-      "dob": "1980-03-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104336,
-      "name": "Eric Koreng",
-      "dob": "1981-05-16",
-      "height": 194,
-      "weight": 84,
-      "tour": {
-        "gold": 1,
-        "silver": 4,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 104422,
-      "name": "Daniel Krug",
-      "dob": "1983-05-06",
-      "height": 201,
-      "weight": 94
-    },
-    {
-      "id": 104423,
-      "name": "Mischa Urbatzka",
-      "dob": "1983-03-29",
-      "height": 189,
-      "weight": 87,
-      "tour": {
-        "gold": 0,
-        "silver": 4,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104424,
-      "name": "Sebastian Dollinger",
-      "dob": "1984-11-05",
-      "height": 205,
-      "weight": 90,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104454,
-      "name": "Sebastian Fuchs",
-      "dob": "1986-07-24",
-      "height": 202,
-      "weight": 105
-    },
-    {
-      "id": 104455,
-      "name": "Thomas Kaczmarek",
-      "dob": "1986-01-04",
-      "height": 191,
-      "weight": 83,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104456,
-      "name": "Tilo Backhaus",
-      "dob": "1986-02-14",
-      "height": 190,
-      "weight": 90
-    },
-    {
-      "id": 104457,
-      "name": "Timo Wilhelm",
-      "dob": "1986-04-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104790,
-      "name": "Raimund Wenning",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104791,
-      "name": "Michael Schiewe",
-      "dob": "1979-08-31",
-      "height": 204,
-      "weight": 110
-    },
-    {
-      "id": 104792,
-      "name": "Thorsten Schoen",
-      "dob": "1972-06-25",
-      "height": 198,
-      "weight": 85
-    },
-    {
-      "id": 105036,
-      "name": "Tobias Kook",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105043,
-      "name": "Marko Kienast",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105106,
-      "name": "Stefan Windscheif",
-      "dob": "1987-09-10",
-      "height": 188,
-      "weight": 79,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 105108,
-      "name": "Stanislav Bakumovski",
-      "dob": "1984-10-22",
-      "height": 191,
-      "weight": 84
-    },
-    {
-      "id": 105109,
-      "name": "Stefan Uhmann",
-      "dob": "1986-04-28",
-      "height": 212,
-      "weight": 98,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 105126,
-      "name": "Conrado Groth Couto",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 113208,
-      "name": "Wolfgang Kuck",
-      "dob": "1967-10-12",
-      "height": 197,
-      "weight": 91
-    },
-    {
-      "id": 113857,
-      "name": "Eugen Bakumovski",
-      "dob": "1980-10-11",
-      "height": 193,
-      "weight": 90
-    },
-    {
-      "id": 115930,
-      "name": "Daniel Braeckevelt",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 115931,
-      "name": "Stephan Kern",
-      "dob": "1976-02-12",
-      "height": 197,
-      "weight": 95
-    },
-    {
-      "id": 116660,
-      "name": "Jonathan Erdmann",
-      "dob": "1988-03-12",
-      "height": 194,
-      "weight": 96,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 116662,
-      "name": "Florian Malescha",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117952,
-      "name": "Matthias Pompe",
-      "dob": "1984-02-15",
-      "height": 198,
-      "weight": 95,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 118265,
-      "name": "Marvin Klass",
-      "dob": "1988-11-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118349,
-      "name": "Thilo Späth-Westerholt",
-      "dob": "1987-06-08",
-      "height": 187,
-      "weight": 86
-    },
-    {
-      "id": 119067,
-      "name": "Stefan Köhler",
-      "dob": "1989-04-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119068,
-      "name": "Malte Stiel",
-      "dob": "1990-07-02",
-      "height": 192,
-      "weight": 89
-    },
-    {
-      "id": 119069,
-      "name": "Rene Einbrodt",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119070,
-      "name": "Rasmus Mumme",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119963,
-      "name": "Markus Böckermann",
-      "dob": "1986-01-14",
-      "height": 198,
-      "weight": 95,
-      "tour": {
-        "gold": 3,
-        "silver": 4,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 120049,
-      "name": "Nils Rohde",
-      "dob": "1987-02-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120050,
-      "name": "Rene Rudolph",
-      "dob": "1987-07-28",
-      "height": 189,
-      "weight": 82
-    },
-    {
-      "id": 120757,
-      "name": "Steffen Drößler",
-      "dob": "1990-10-14",
-      "height": 200,
-      "weight": 85
-    },
-    {
-      "id": 120758,
-      "name": "Thomas Just",
-      "dob": "1990-06-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120759,
-      "name": "Paul Becker",
-      "dob": "1990-04-03",
-      "height": 186,
-      "weight": 87
-    },
-    {
-      "id": 120762,
-      "name": "Toni Hellmuth",
-      "dob": "1990-05-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120763,
-      "name": "Lars Flüggen",
-      "dob": "1990-05-24",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 3,
-        "silver": 5,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 120849,
-      "name": "Florian Lüdike",
-      "dob": "1983-10-22",
-      "height": 194,
-      "weight": 83
-    },
-    {
-      "id": 120887,
-      "name": "Matthias Penk",
-      "dob": "1982-02-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120888,
-      "name": "Alexander Walkenhorst",
-      "dob": "1988-07-30",
-      "height": 206,
-      "weight": 98,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 123014,
-      "name": "Ferdinand Tille",
-      "dob": "1988-12-08",
-      "height": 185,
-      "weight": 75
-    },
-    {
-      "id": 124612,
-      "name": "Stefan Schneider",
-      "dob": "1980-11-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124771,
-      "name": "David Strobel",
-      "dob": "1992-04-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124772,
-      "name": "Dominik Stork",
-      "dob": "1992-01-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124773,
-      "name": "Peter Wolf",
-      "dob": "1992-06-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125053,
-      "name": "Michel Bargmann",
-      "dob": "1991-04-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125054,
-      "name": "Felix Quecke",
-      "dob": "1991-01-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125055,
-      "name": "Philipp Arne Bergmann",
-      "dob": "1991-01-04",
-      "height": 198,
-      "weight": 95,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 125056,
-      "name": "Benjamin Dollhofer",
-      "dob": "1991-03-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125490,
-      "name": "Finn Dittelbach",
-      "dob": "1990-04-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125523,
-      "name": "Armin Dollinger",
-      "dob": "1990-09-28",
-      "height": 202,
-      "weight": 92,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 132666,
-      "name": "Lorenz Schümann",
-      "dob": "1992-01-10",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 132875,
-      "name": "Jenne Hinrichsen",
-      "dob": "1993-09-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132877,
-      "name": "Yannick Harms",
-      "dob": "1994-01-14",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 133717,
-      "name": "Valentin Begemann",
-      "dob": "1989-10-03",
-      "height": 197,
-      "weight": 90
-    },
-    {
-      "id": 135407,
-      "name": "Jonas Schröder",
-      "dob": "1991-03-15",
-      "height": 188,
-      "weight": 78,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 135671,
-      "name": "Lennart Bevers",
-      "dob": "1993-07-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135672,
-      "name": "David Poniewaz",
-      "dob": "1993-07-06",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 136761,
-      "name": "Dirk Westphal",
-      "dob": "1986-01-31",
-      "height": 203,
-      "weight": 93
-    },
-    {
-      "id": 137151,
-      "name": "Fabian Schmidt",
-      "dob": "1992-01-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 137342,
-      "name": "Max-Jonas Karpa",
-      "dob": "1994-02-01",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 137343,
-      "name": "Max Betzien",
-      "dob": "1994-03-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 137407,
-      "name": "Henry Glöckner",
-      "dob": "1991-09-03",
-      "height": 188,
-      "weight": 90
-    },
-    {
-      "id": 139386,
-      "name": "Moritz Reichert",
-      "dob": "1995-03-15",
-      "height": 194,
-      "weight": 85
-    },
-    {
-      "id": 139387,
-      "name": "Clemens Wickler",
-      "dob": "1995-04-28",
-      "height": 190,
-      "weight": 83,
-      "olympics": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "worldChamps": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 5,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 139388,
-      "name": "Jannik Reimann",
-      "dob": "1995-05-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139389,
-      "name": "Niklas Rudolf",
-      "dob": "1996-03-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 140026,
-      "name": "Bennet Poniewaz",
-      "dob": "1993-07-06",
-      "height": 194,
-      "weight": 88,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 143091,
-      "name": "Georg Wolf",
-      "dob": "1995-07-19",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 143092,
-      "name": "Eric Stadie",
-      "dob": "1996-06-07",
-      "height": 190,
-      "weight": 80,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 143617,
-      "name": "Tim Holler",
-      "dob": "1991-02-23",
-      "height": 203,
-      "weight": 94,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 143618,
-      "name": "Lars Lückemeier",
-      "dob": "1994-09-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143966,
-      "name": "Mirko Schneider",
-      "dob": "1994-04-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 144342,
-      "name": "Felix Göbert",
-      "dob": "1996-10-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 147665,
-      "name": "Julius Thole",
-      "dob": "1997-05-17",
-      "height": null,
-      "weight": null,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 147930,
-      "name": "Sven Winter",
-      "dob": "1998-06-21",
-      "height": 197,
-      "weight": 88,
-      "tour": {
-        "gold": 0,
-        "silver": 4,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 147931,
-      "name": "Milan Sievers",
-      "dob": "1998-03-14",
-      "height": 202,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 152347,
-      "name": "Paul Henning",
-      "dob": "1997-09-28",
-      "height": 202,
-      "weight": 92,
-      "tour": {
-        "gold": 1,
-        "silver": 4,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 153264,
-      "name": "Robin Sowa",
-      "dob": "1999-05-15",
-      "height": 204,
-      "weight": 94,
-      "tour": {
-        "gold": 2,
-        "silver": 2,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 153266,
-      "name": "Simon Kulzer",
-      "dob": "1998-01-17",
-      "height": 193,
-      "weight": 90,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 153837,
-      "name": "Manuel Harms",
-      "dob": "1996-09-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 153925,
-      "name": "Rudy Schneider",
-      "dob": "2000-10-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 153926,
-      "name": "Jonas Sagstetter",
-      "dob": "1999-04-21",
-      "height": 190,
-      "weight": 82,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 154959,
-      "name": "Martin Kaufer",
-      "dob": "1987-08-28",
-      "height": 194,
-      "weight": 104
-    },
-    {
-      "id": 156567,
-      "name": "Nils Ehlers",
-      "dob": "1994-02-04",
-      "height": 210,
-      "weight": 106,
-      "olympics": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "tour": {
-        "gold": 1,
-        "silver": 5,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 156568,
-      "name": "Thomas Kröger",
-      "dob": "1979-06-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156598,
-      "name": "Daniel Malescha",
-      "dob": "1994-04-28",
-      "height": 203,
-      "weight": 90
-    },
-    {
-      "id": 157173,
-      "name": "Dan John",
-      "dob": "1998-07-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157761,
-      "name": "Lukas Pfretzschner L.",
-      "dob": "2000-01-13",
-      "height": 193,
-      "weight": 80,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 160092,
-      "name": "Johannes Kirsten",
-      "dob": "1995-09-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 163563,
-      "name": "Filip John",
-      "dob": "2001-08-01",
-      "height": 204,
-      "weight": 95
-    },
-    {
-      "id": 163594,
-      "name": "Niko Meyer",
-      "dob": "1997-09-17",
-      "height": 193,
-      "weight": null
-    },
-    {
-      "id": 164619,
-      "name": "Jonas Reinhardt",
-      "dob": "1998-07-30",
-      "height": 196,
-      "weight": 90,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 164645,
-      "name": "Moritz Klein",
-      "dob": "1996-09-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 167232,
-      "name": "Maximilian Fromm",
-      "dob": "1996-12-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 168186,
-      "name": "Mio Wüst",
-      "dob": "2000-12-22",
-      "height": 188,
-      "weight": 73
-    },
-    {
-      "id": 168360,
-      "name": "Simon Pfretzschner S.",
-      "dob": "2002-02-06",
-      "height": 192,
-      "weight": 89,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 168767,
-      "name": "Benedikt Sagstetter",
-      "dob": "2000-12-30",
-      "height": 196,
-      "weight": 84,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 168768,
-      "name": "Jannis Hopt",
-      "dob": "1996-08-03",
-      "height": 207,
-      "weight": 102
-    },
-    {
-      "id": 169018,
-      "name": "Luis Kubo",
-      "dob": "2000-08-04",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 169019,
-      "name": "Yannik Ahr",
-      "dob": "2000-10-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169779,
-      "name": "Ole Schwarmann",
-      "dob": "1999-05-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 172905,
-      "name": "Momme Lorenz",
-      "dob": "2003-11-24",
-      "height": 201,
-      "weight": 86,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 172907,
-      "name": "Lui Wüst",
-      "dob": "2002-05-22",
-      "height": 186,
-      "weight": 74,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 173053,
-      "name": "Leo Hauschild",
-      "dob": "1998-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 173733,
-      "name": "Richard Peemüller",
-      "dob": "1998-02-08",
-      "height": 199,
-      "weight": 94,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 174292,
-      "name": "Lars Winkler",
-      "dob": "2000-04-24",
-      "height": 180,
-      "weight": 72
-    },
-    {
-      "id": 174664,
-      "name": "Maximilian Just",
-      "dob": "2002-11-18",
-      "height": 198,
-      "weight": 95,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 179314,
-      "name": "Hennes Jorge Nissen",
-      "dob": "2004-12-01",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 179419,
-      "name": "Laurenz Welsch",
-      "dob": "2003-06-20",
-      "height": 196,
-      "weight": 76
-    },
-    {
-      "id": 181184,
-      "name": "Philipp Huster",
-      "dob": "2002-05-22",
-      "height": 206,
-      "weight": 102,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 182343,
-      "name": "Daniel Kirchner",
-      "dob": "2000-05-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182345,
-      "name": "Niklas Held",
-      "dob": "2002-02-11",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 182794,
-      "name": "Tristan Fröbel",
-      "dob": "2005-10-11",
-      "height": 205,
-      "weight": 102,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 182795,
-      "name": "Tamo Wüst",
-      "dob": "2005-01-11",
-      "height": 196,
-      "weight": 78,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 184134,
-      "name": "Kim Huber",
-      "dob": "2001-09-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 184140,
-      "name": "Florian Fiedler",
-      "dob": "1994-11-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 184141,
-      "name": "Lorenz Teege",
-      "dob": "1991-12-06",
-      "height": 192,
-      "weight": 90
-    },
-    {
-      "id": 184144,
-      "name": "Aaron Korn",
-      "dob": "1993-07-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 184323,
-      "name": "Lasse Fröhlich",
-      "dob": "1990-10-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 184329,
-      "name": "Paul Hausknecht",
-      "dob": "1989-10-06",
-      "height": 194,
-      "weight": 103
-    },
-    {
-      "id": 184330,
-      "name": "Christopher Teetz",
-      "dob": "1991-03-19",
-      "height": 190,
-      "weight": 93
-    },
-    {
-      "id": 190864,
-      "name": "Joke Johanning",
-      "dob": "2006-04-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 190866,
-      "name": "Ole Sackermann",
-      "dob": "2006-01-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192813,
-      "name": "Hannes Gerken",
-      "dob": "1998-05-29",
-      "height": 187,
-      "weight": 84
-    },
-    {
-      "id": 192815,
-      "name": "Bjarne Severloh",
-      "dob": "2005-06-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 198325,
-      "name": "Jonathan Bungert",
-      "dob": "2008-03-26",
-      "height": 195,
-      "weight": 83
-    },
-    {
-      "id": 198326,
-      "name": "Kalle Pieper",
-      "dob": "2007-08-06",
-      "height": 205,
-      "weight": 92
-    },
-    {
-      "id": 199225,
-      "name": "Malte Höppner",
-      "dob": "2003-08-30",
-      "height": 196,
-      "weight": 85,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 199226,
-      "name": "Tilo Rietschel",
-      "dob": "2003-11-12",
-      "height": 187,
-      "weight": 78,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 203267,
-      "name": "Moritz Camp",
-      "dob": "2003-05-21",
-      "height": 191,
-      "weight": 86,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 203698,
-      "name": "Julian Hikel",
-      "dob": "2006-05-09",
-      "height": 190,
-      "weight": null
-    },
-    {
-      "id": 205219,
-      "name": "Moritz Hauschild",
-      "dob": "2004-04-14",
-      "height": 189,
-      "weight": 81
-    },
-    {
-      "id": 210742,
-      "name": "Janik Sambale",
-      "dob": "2005-01-21",
-      "height": 189,
-      "weight": 85
-    },
-    {
-      "id": 211379,
-      "name": "Nicola Kössler",
-      "dob": "2002-02-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 213002,
-      "name": "Colin Alexander Paszkiewicz",
-      "dob": "2006-11-08",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 219583,
-      "name": "Noah Lachmund",
-      "dob": "1999-11-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 219622,
-      "name": "Leo Kunath",
-      "dob": "2005-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 219662,
-      "name": "Louis Emmanuel Höfer",
-      "dob": "2005-12-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 220666,
-      "name": "Bockfeld Ben",
-      "dob": "2009-12-03",
-      "height": 189,
-      "weight": 72
-    },
-    {
-      "id": 220667,
-      "name": "Faber Hendrik",
-      "dob": "2010-03-10",
-      "height": 190,
-      "weight": null
-    },
-    {
-      "id": 222417,
-      "name": "Charlie Peters",
-      "dob": "2000-08-04",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 223294,
-      "name": "Arne Robert Brendel",
-      "dob": "2005-10-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 223856,
-      "name": "Valentin Schneckenburger",
-      "dob": "2004-05-21",
-      "height": 200,
-      "weight": 88
-    },
-    {
-      "id": 223882,
-      "name": "Linus Barth",
-      "dob": "2000-03-25",
-      "height": 192,
-      "weight": 88
-    },
-    {
-      "id": 224058,
-      "name": "Filo Wüst",
-      "dob": "2009-02-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 225872,
-      "name": "Dinh Long Tran",
-      "dob": "2002-12-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 225887,
-      "name": "Joris Knoll",
-      "dob": "2005-07-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 231058,
-      "name": "Lasse Hüper",
-      "dob": "2009-03-29",
-      "height": 201,
-      "weight": 90
-    },
-    {
-      "id": 232640,
-      "name": "Hannes Ludwig",
-      "dob": "2008-01-04",
-      "height": 194,
-      "weight": 76
-    },
-    {
-      "id": 240555,
-      "name": "Philipp Henke",
-      "dob": "2002-05-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 242460,
-      "name": "Nikolai Terpe",
-      "dob": "2004-05-07",
-      "height": null,
-      "weight": null
-    }
+    {"id":100035,"name":"Christian Tiemann","dob":"1964-02-23","height":193,"weight":87},
+    {"id":100079,"name":"Bernhard Hoffman","dob":"1967-01-16","height":198,"weight":84},
+    {"id":100158,"name":"Burkhard Sude","dob":"1957-08-18","height":193,"weight":91},
+    {"id":100159,"name":"Christian Voss","dob":"1963-02-26","height":194,"weight":85},
+    {"id":100164,"name":"... Kuchenhoff","dob":null,"height":null,"weight":null},
+    {"id":100165,"name":"... Schweigler","dob":null,"height":null,"weight":null},
+    {"id":100212,"name":"Jan Fell","dob":"1963-02-20","height":190,"weight":88},
+    {"id":100223,"name":"Andreas Boltze","dob":null,"height":null,"weight":null},
+    {"id":100224,"name":"Thomas Brall","dob":"1963-07-27","height":192,"weight":87},
+    {"id":100242,"name":"Lars-Bjorn Freier","dob":"1971-07-02","height":207,"weight":95},
+    {"id":100494,"name":"Jörg \"Vince\" Ahmann","dob":"1966-02-12","height":190,"weight":87,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":100495,"name":"Axel \"Hägar\" Hager","dob":"1969-03-14","height":202,"weight":95,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":100503,"name":"David Schuler","dob":"1963-02-14","height":200,"weight":89},
+    {"id":100520,"name":"Andreas \"Andy\" Scheuerpflug","dob":"1967-07-13","height":196,"weight":81,"tour":{"gold":2,"silver":1,"bronze":1}},
+    {"id":100804,"name":"Ralph Bergmann","dob":"1970-05-26","height":206,"weight":98},
+    {"id":100805,"name":"Martin Berkenkamp","dob":"1971-07-07","height":201,"weight":103},
+    {"id":100806,"name":"Pierre-André Froehlich","dob":"1969-02-08","height":198,"weight":101,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":100807,"name":"Elmar Harbrecht","dob":"1969-02-24","height":200,"weight":95},
+    {"id":100808,"name":"Malte \"Supergrobi\" Homeyer","dob":"1972-05-08","height":191,"weight":84},
+    {"id":100809,"name":"Matthias \"Matza\" Kuring","dob":"1967-01-15","height":188,"weight":80},
+    {"id":100810,"name":"Soeren Resch","dob":"1967-03-05","height":195,"weight":88},
+    {"id":100811,"name":"Thorsten \"Schulle\" Schulz","dob":"1969-02-02","height":188,"weight":85},
+    {"id":100812,"name":"Thilo Von Hagen","dob":"1971-09-24","height":183,"weight":78},
+    {"id":100813,"name":"Matthias \"Matthi\" Walter","dob":"1969-04-25","height":190,"weight":85},
+    {"id":100814,"name":"Holger Werner","dob":"1968-01-24","height":198,"weight":95},
+    {"id":100815,"name":"Falk Zimmermann","dob":"1971-06-09","height":190,"weight":85},
+    {"id":101049,"name":"Haucke Braack","dob":null,"height":null,"weight":null},
+    {"id":101079,"name":"Frank Mackerodt","dob":null,"height":null,"weight":null},
+    {"id":101098,"name":"Humbertus Platt","dob":null,"height":null,"weight":null},
+    {"id":101105,"name":"Paul Schmeing","dob":null,"height":null,"weight":null},
+    {"id":101203,"name":"Roman Schwarz","dob":null,"height":null,"weight":null},
+    {"id":101255,"name":"Ralf Jeder","dob":null,"height":null,"weight":null},
+    {"id":101470,"name":"Martin \"Sunny\" Peiske","dob":"1971-05-14","height":196,"weight":94},
+    {"id":101472,"name":"Sven \"Susi\" Anton","dob":"1970-06-07","height":202,"weight":102},
+    {"id":101473,"name":"Stefan Pomerenke","dob":"1973-07-04","height":191,"weight":85},
+    {"id":101474,"name":"Andreas Rüger","dob":"1972-10-14","height":190,"weight":83},
+    {"id":101475,"name":"Peter Hummel","dob":"1966-05-31","height":189,"weight":82},
+    {"id":101476,"name":"Edgar Krank","dob":"1967-04-14","height":190,"weight":70},
+    {"id":101477,"name":"Oliver Oetke","dob":"1968-08-18","height":198,"weight":90},
+    {"id":101478,"name":"Uwe Körner","dob":"1965-04-14","height":189,"weight":92},
+    {"id":101479,"name":"Dirk Schlotfeldt","dob":"1968-02-12","height":190,"weight":80},
+    {"id":101480,"name":"Markus Dieckmann","dob":"1976-01-07","height":189,"weight":78,"tour":{"gold":2,"silver":7,"bronze":1}},
+    {"id":101481,"name":"Christoph Dieckmann","dob":"1976-01-07","height":198,"weight":89,"tour":{"gold":5,"silver":4,"bronze":4}},
+    {"id":101482,"name":"Christian Kilgus","dob":"1969-01-26","height":182,"weight":72},
+    {"id":101531,"name":"Wolfgang Groos","dob":"1968-04-22","height":192,"weight":90},
+    {"id":101916,"name":"Dirk \"Olde\" Oldenburg","dob":"1967-02-11","height":198,"weight":92},
+    {"id":101917,"name":"Kjell \"Kelli\" Schneider","dob":"1976-10-04","height":199,"weight":88,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":101918,"name":"Börrje Schneider","dob":"1974-08-16","height":192,"weight":75},
+    {"id":102297,"name":"Oliver Heiming","dob":"1969-05-01","height":null,"weight":null},
+    {"id":102298,"name":"Daniel Sander","dob":"1970-01-14","height":null,"weight":null},
+    {"id":102299,"name":"Bernard Gau","dob":"1975-12-25","height":null,"weight":null},
+    {"id":102300,"name":"Erik Schmidt","dob":"1975-09-14","height":null,"weight":null},
+    {"id":102301,"name":"Vincent Lange","dob":"1974-06-15","height":null,"weight":null},
+    {"id":102303,"name":"Dietmar Bauer","dob":"1973-07-05","height":197,"weight":91},
+    {"id":102703,"name":"Niclas \"Hille\" Hildebrand","dob":"1980-08-05","height":193,"weight":80},
+    {"id":102704,"name":"Igor Wiederschein","dob":"1980-03-02","height":195,"weight":82},
+    {"id":102705,"name":"Michael \"Mike\" Raddatz","dob":"1975-12-01","height":207,"weight":99},
+    {"id":102706,"name":"Jochen \"Jockel\" Wächter","dob":"1971-09-22","height":185,"weight":75},
+    {"id":102986,"name":"Rüdiger Strosik","dob":"1978-06-07","height":null,"weight":null},
+    {"id":103108,"name":"David \"Hase\" Klemperer","dob":"1980-06-22","height":187,"weight":82,"tour":{"gold":1,"silver":5,"bronze":3}},
+    {"id":103109,"name":"Jonas Reckermann","dob":"1979-05-26","height":200,"weight":97,"olympics":{"gold":1,"silver":0,"bronze":0},"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":5,"silver":18,"bronze":10}},
+    {"id":103217,"name":"Julius Brink","dob":"1982-07-06","height":186,"weight":86,"olympics":{"gold":1,"silver":0,"bronze":0},"worldChamps":{"gold":1,"silver":0,"bronze":2},"tour":{"gold":7,"silver":11,"bronze":12}},
+    {"id":103244,"name":"Niklas Rademacher","dob":"1982-03-03","height":207,"weight":75,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":103297,"name":"Matthias \"Charger\" Karger","dob":"1982-05-10","height":197,"weight":85},
+    {"id":103298,"name":"Maarten Lammens","dob":"1982-10-04","height":null,"weight":null},
+    {"id":103348,"name":"Kay Matysik","dob":"1980-06-18","height":191,"weight":88,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":1,"silver":1,"bronze":3}},
+    {"id":103349,"name":"Karl Strempel","dob":null,"height":null,"weight":null},
+    {"id":103441,"name":"Drazan Slacanin","dob":null,"height":null,"weight":null},
+    {"id":103442,"name":"Hannes Ambelang","dob":"1982-09-15","height":null,"weight":null},
+    {"id":103443,"name":"Manuel Rieke","dob":"1982-10-23","height":null,"weight":null},
+    {"id":103567,"name":"Jochen Hartmann","dob":null,"height":null,"weight":null},
+    {"id":103568,"name":"Knut Winter","dob":"1966-12-17","height":196,"weight":92},
+    {"id":103591,"name":"Wolfgang Beck","dob":null,"height":null,"weight":null},
+    {"id":103606,"name":"Florian Reckermann","dob":null,"height":null,"weight":null},
+    {"id":103876,"name":"Thomas Hikel","dob":"1973-01-22","height":null,"weight":null},
+    {"id":103877,"name":"Marvin Polte","dob":"1976-02-05","height":187,"weight":80},
+    {"id":103878,"name":"Morten Klein","dob":"1971-02-18","height":null,"weight":null},
+    {"id":103879,"name":"Gregor Rolinski","dob":"1974-06-28","height":null,"weight":null},
+    {"id":103881,"name":"Simon Forster","dob":"1982-08-14","height":null,"weight":null},
+    {"id":103882,"name":"Carlo Wiese","dob":"1982-04-15","height":null,"weight":null},
+    {"id":104022,"name":"Florian Huth","dob":"1983-08-05","height":196,"weight":93},
+    {"id":104100,"name":"René Bentin","dob":"1985-04-12","height":null,"weight":null},
+    {"id":104101,"name":"Tom Götz","dob":"1985-02-11","height":192,"weight":88,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":104138,"name":"Oliver Schmäschke","dob":"1985-04-12","height":null,"weight":null,"away":[{"id":104137,"name":"Tomas Knebelkamp","fed":"BRA","gender":"M","t":1,"f":2002,"l":2002,"s":[[2002,1,240]],"at":[[2002,"BRA"]]}]},
+    {"id":104320,"name":"Marcus Popp","dob":"1981-09-23","height":192,"weight":90,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":104334,"name":"Arvid Kinder","dob":"1980-12-06","height":192,"weight":80},
+    {"id":104335,"name":"Leonard Waligora","dob":"1980-03-31","height":null,"weight":null},
+    {"id":104336,"name":"Eric Koreng","dob":"1981-05-16","height":194,"weight":84,"tour":{"gold":1,"silver":4,"bronze":3}},
+    {"id":104422,"name":"Daniel Krug","dob":"1983-05-06","height":201,"weight":94},
+    {"id":104423,"name":"Mischa Urbatzka","dob":"1983-03-29","height":189,"weight":87,"tour":{"gold":0,"silver":4,"bronze":1}},
+    {"id":104424,"name":"Sebastian Dollinger","dob":"1984-11-05","height":205,"weight":90,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":104454,"name":"Sebastian Fuchs","dob":"1986-07-24","height":202,"weight":105},
+    {"id":104455,"name":"Thomas Kaczmarek","dob":"1986-01-04","height":191,"weight":83,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":104456,"name":"Tilo Backhaus","dob":"1986-02-14","height":190,"weight":90},
+    {"id":104457,"name":"Timo Wilhelm","dob":"1986-04-02","height":null,"weight":null},
+    {"id":104790,"name":"Raimund Wenning","dob":null,"height":null,"weight":null},
+    {"id":104791,"name":"Michael Schiewe","dob":"1979-08-31","height":204,"weight":110},
+    {"id":104792,"name":"Thorsten Schoen","dob":"1972-06-25","height":198,"weight":85},
+    {"id":105036,"name":"Tobias Kook","dob":null,"height":null,"weight":null},
+    {"id":105043,"name":"Marko Kienast","dob":null,"height":null,"weight":null},
+    {"id":105106,"name":"Stefan Windscheif","dob":"1987-09-10","height":188,"weight":79,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":105108,"name":"Stanislav Bakumovski","dob":"1984-10-22","height":191,"weight":84},
+    {"id":105109,"name":"Stefan Uhmann","dob":"1986-04-28","height":212,"weight":98,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":105126,"name":"Conrado Groth Couto","dob":null,"height":null,"weight":null},
+    {"id":113208,"name":"Wolfgang Kuck","dob":"1967-10-12","height":197,"weight":91},
+    {"id":113857,"name":"Eugen Bakumovski","dob":"1980-10-11","height":193,"weight":90},
+    {"id":115930,"name":"Daniel Braeckevelt","dob":null,"height":null,"weight":null},
+    {"id":115931,"name":"Stephan Kern","dob":"1976-02-12","height":197,"weight":95},
+    {"id":116660,"name":"Jonathan Erdmann","dob":"1988-03-12","height":194,"weight":96,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":116662,"name":"Florian Malescha","dob":null,"height":null,"weight":null},
+    {"id":117952,"name":"Matthias Pompe","dob":"1984-02-15","height":198,"weight":95,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":118265,"name":"Marvin Klass","dob":"1988-11-12","height":null,"weight":null},
+    {"id":118349,"name":"Thilo Späth-Westerholt","dob":"1987-06-08","height":187,"weight":86},
+    {"id":119067,"name":"Stefan Köhler","dob":"1989-04-29","height":null,"weight":null},
+    {"id":119068,"name":"Malte Stiel","dob":"1990-07-02","height":192,"weight":89},
+    {"id":119069,"name":"Rene Einbrodt","dob":null,"height":null,"weight":null},
+    {"id":119070,"name":"Rasmus Mumme","dob":null,"height":null,"weight":null},
+    {"id":119963,"name":"Markus Böckermann","dob":"1986-01-14","height":198,"weight":95,"tour":{"gold":3,"silver":4,"bronze":0}},
+    {"id":120049,"name":"Nils Rohde","dob":"1987-02-05","height":null,"weight":null},
+    {"id":120050,"name":"Rene Rudolph","dob":"1987-07-28","height":189,"weight":82},
+    {"id":120757,"name":"Steffen Drößler","dob":"1990-10-14","height":200,"weight":85},
+    {"id":120758,"name":"Thomas Just","dob":"1990-06-25","height":null,"weight":null},
+    {"id":120759,"name":"Paul Becker","dob":"1990-04-03","height":186,"weight":87},
+    {"id":120762,"name":"Toni Hellmuth","dob":"1990-05-21","height":null,"weight":null},
+    {"id":120763,"name":"Lars Flüggen","dob":"1990-05-24","height":null,"weight":null,"tour":{"gold":3,"silver":5,"bronze":0}},
+    {"id":120849,"name":"Florian Lüdike","dob":"1983-10-22","height":194,"weight":83},
+    {"id":120887,"name":"Matthias Penk","dob":"1982-02-11","height":null,"weight":null},
+    {"id":120888,"name":"Alexander Walkenhorst","dob":"1988-07-30","height":206,"weight":98,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":123014,"name":"Ferdinand Tille","dob":"1988-12-08","height":185,"weight":75},
+    {"id":124612,"name":"Stefan Schneider","dob":"1980-11-28","height":null,"weight":null},
+    {"id":124771,"name":"David Strobel","dob":"1992-04-03","height":null,"weight":null},
+    {"id":124772,"name":"Dominik Stork","dob":"1992-01-03","height":null,"weight":null},
+    {"id":124773,"name":"Peter Wolf","dob":"1992-06-14","height":null,"weight":null},
+    {"id":125053,"name":"Michel Bargmann","dob":"1991-04-30","height":null,"weight":null},
+    {"id":125054,"name":"Felix Quecke","dob":"1991-01-13","height":null,"weight":null},
+    {"id":125055,"name":"Philipp Arne Bergmann","dob":"1991-01-04","height":198,"weight":95,"tour":{"gold":1,"silver":1,"bronze":0}},
+    {"id":125056,"name":"Benjamin Dollhofer","dob":"1991-03-24","height":null,"weight":null},
+    {"id":125490,"name":"Finn Dittelbach","dob":"1990-04-13","height":null,"weight":null},
+    {"id":125523,"name":"Armin Dollinger","dob":"1990-09-28","height":202,"weight":92,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":132666,"name":"Lorenz Schümann","dob":"1992-01-10","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":132875,"name":"Jenne Hinrichsen","dob":"1993-09-22","height":null,"weight":null},
+    {"id":132877,"name":"Yannick Harms","dob":"1994-01-14","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":0}},
+    {"id":133717,"name":"Valentin Begemann","dob":"1989-10-03","height":197,"weight":90},
+    {"id":135407,"name":"Jonas Schröder","dob":"1991-03-15","height":188,"weight":78,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":135671,"name":"Lennart Bevers","dob":"1993-07-10","height":null,"weight":null},
+    {"id":135672,"name":"David Poniewaz","dob":"1993-07-06","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":136761,"name":"Dirk Westphal","dob":"1986-01-31","height":203,"weight":93},
+    {"id":137151,"name":"Fabian Schmidt","dob":"1992-01-06","height":null,"weight":null},
+    {"id":137342,"name":"Max-Jonas Karpa","dob":"1994-02-01","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":137343,"name":"Max Betzien","dob":"1994-03-02","height":null,"weight":null},
+    {"id":137407,"name":"Henry Glöckner","dob":"1991-09-03","height":188,"weight":90},
+    {"id":139386,"name":"Moritz Reichert","dob":"1995-03-15","height":194,"weight":85},
+    {"id":139387,"name":"Clemens Wickler","dob":"1995-04-28","height":190,"weight":83,"olympics":{"gold":0,"silver":1,"bronze":0},"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":0,"silver":5,"bronze":5}},
+    {"id":139388,"name":"Jannik Reimann","dob":"1995-05-25","height":null,"weight":null},
+    {"id":139389,"name":"Niklas Rudolf","dob":"1996-03-06","height":null,"weight":null},
+    {"id":140026,"name":"Bennet Poniewaz","dob":"1993-07-06","height":194,"weight":88,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":143091,"name":"Georg Wolf","dob":"1995-07-19","height":190,"weight":80},
+    {"id":143092,"name":"Eric Stadie","dob":"1996-06-07","height":190,"weight":80,"tour":{"gold":0,"silver":0,"bronze":2}},
+    {"id":143617,"name":"Tim Holler","dob":"1991-02-23","height":203,"weight":94,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":143618,"name":"Lars Lückemeier","dob":"1994-09-20","height":null,"weight":null},
+    {"id":143966,"name":"Mirko Schneider","dob":"1994-04-27","height":null,"weight":null},
+    {"id":144342,"name":"Felix Göbert","dob":"1996-10-04","height":null,"weight":null},
+    {"id":147665,"name":"Julius Thole","dob":"1997-05-17","height":null,"weight":null,"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":0,"silver":2,"bronze":2}},
+    {"id":147930,"name":"Sven Winter","dob":"1998-06-21","height":197,"weight":88,"tour":{"gold":0,"silver":4,"bronze":3}},
+    {"id":147931,"name":"Milan Sievers","dob":"1998-03-14","height":202,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":152347,"name":"Paul Henning","dob":"1997-09-28","height":202,"weight":92,"tour":{"gold":1,"silver":4,"bronze":1}},
+    {"id":153264,"name":"Robin Sowa","dob":"1999-05-15","height":204,"weight":94,"tour":{"gold":2,"silver":2,"bronze":3}},
+    {"id":153266,"name":"Simon Kulzer","dob":"1998-01-17","height":193,"weight":90,"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":153837,"name":"Manuel Harms","dob":"1996-09-20","height":null,"weight":null},
+    {"id":153925,"name":"Rudy Schneider","dob":"2000-10-07","height":null,"weight":null},
+    {"id":153926,"name":"Jonas Sagstetter","dob":"1999-04-21","height":190,"weight":82,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":154959,"name":"Martin Kaufer","dob":"1987-08-28","height":194,"weight":104},
+    {"id":156567,"name":"Nils Ehlers","dob":"1994-02-04","height":210,"weight":106,"olympics":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":1,"silver":5,"bronze":4}},
+    {"id":156568,"name":"Thomas Kröger","dob":"1979-06-11","height":null,"weight":null},
+    {"id":156598,"name":"Daniel Malescha","dob":"1994-04-28","height":203,"weight":90},
+    {"id":157173,"name":"Dan John","dob":"1998-07-02","height":null,"weight":null},
+    {"id":157761,"name":"Lukas Pfretzschner L.","dob":"2000-01-13","height":193,"weight":80,"tour":{"gold":1,"silver":2,"bronze":2}},
+    {"id":160092,"name":"Johannes Kirsten","dob":"1995-09-11","height":null,"weight":null},
+    {"id":163563,"name":"Filip John","dob":"2001-08-01","height":204,"weight":95},
+    {"id":163594,"name":"Niko Meyer","dob":"1997-09-17","height":193,"weight":null},
+    {"id":164619,"name":"Jonas Reinhardt","dob":"1998-07-30","height":196,"weight":90,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":164645,"name":"Moritz Klein","dob":"1996-09-05","height":null,"weight":null},
+    {"id":167232,"name":"Maximilian Fromm","dob":"1996-12-21","height":null,"weight":null},
+    {"id":168186,"name":"Mio Wüst","dob":"2000-12-22","height":188,"weight":73},
+    {"id":168360,"name":"Simon Pfretzschner S.","dob":"2002-02-06","height":192,"weight":89,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":168767,"name":"Benedikt Sagstetter","dob":"2000-12-30","height":196,"weight":84,"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":168768,"name":"Jannis Hopt","dob":"1996-08-03","height":207,"weight":102},
+    {"id":169018,"name":"Luis Kubo","dob":"2000-08-04","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":169019,"name":"Yannik Ahr","dob":"2000-10-15","height":null,"weight":null},
+    {"id":169779,"name":"Ole Schwarmann","dob":"1999-05-15","height":null,"weight":null},
+    {"id":172905,"name":"Momme Lorenz","dob":"2003-11-24","height":201,"weight":86,"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":172907,"name":"Lui Wüst","dob":"2002-05-22","height":186,"weight":74,"tour":{"gold":1,"silver":1,"bronze":2}},
+    {"id":173053,"name":"Leo Hauschild","dob":"1998-07-05","height":null,"weight":null},
+    {"id":173733,"name":"Richard Peemüller","dob":"1998-02-08","height":199,"weight":94,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":174292,"name":"Lars Winkler","dob":"2000-04-24","height":180,"weight":72},
+    {"id":174664,"name":"Maximilian Just","dob":"2002-11-18","height":198,"weight":95,"tour":{"gold":2,"silver":0,"bronze":2}},
+    {"id":179314,"name":"Hennes Jorge Nissen","dob":"2004-12-01","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":179419,"name":"Laurenz Welsch","dob":"2003-06-20","height":196,"weight":76},
+    {"id":181184,"name":"Philipp Huster","dob":"2002-05-22","height":206,"weight":102,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":182343,"name":"Daniel Kirchner","dob":"2000-05-24","height":null,"weight":null},
+    {"id":182345,"name":"Niklas Held","dob":"2002-02-11","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":2}},
+    {"id":182794,"name":"Tristan Fröbel","dob":"2005-10-11","height":205,"weight":102,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":182795,"name":"Tamo Wüst","dob":"2005-01-11","height":196,"weight":78,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":184134,"name":"Kim Huber","dob":"2001-09-03","height":null,"weight":null},
+    {"id":184140,"name":"Florian Fiedler","dob":"1994-11-17","height":null,"weight":null},
+    {"id":184141,"name":"Lorenz Teege","dob":"1991-12-06","height":192,"weight":90},
+    {"id":184144,"name":"Aaron Korn","dob":"1993-07-13","height":null,"weight":null},
+    {"id":184323,"name":"Lasse Fröhlich","dob":"1990-10-08","height":null,"weight":null},
+    {"id":184329,"name":"Paul Hausknecht","dob":"1989-10-06","height":194,"weight":103},
+    {"id":184330,"name":"Christopher Teetz","dob":"1991-03-19","height":190,"weight":93},
+    {"id":190864,"name":"Joke Johanning","dob":"2006-04-01","height":null,"weight":null},
+    {"id":190866,"name":"Ole Sackermann","dob":"2006-01-29","height":null,"weight":null},
+    {"id":192813,"name":"Hannes Gerken","dob":"1998-05-29","height":187,"weight":84},
+    {"id":192815,"name":"Bjarne Severloh","dob":"2005-06-01","height":null,"weight":null},
+    {"id":198325,"name":"Jonathan Bungert","dob":"2008-03-26","height":195,"weight":83},
+    {"id":198326,"name":"Kalle Pieper","dob":"2007-08-06","height":205,"weight":92},
+    {"id":199225,"name":"Malte Höppner","dob":"2003-08-30","height":196,"weight":85,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":199226,"name":"Tilo Rietschel","dob":"2003-11-12","height":187,"weight":78,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":203267,"name":"Moritz Camp","dob":"2003-05-21","height":191,"weight":86,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":203698,"name":"Julian Hikel","dob":"2006-05-09","height":190,"weight":null},
+    {"id":205219,"name":"Moritz Hauschild","dob":"2004-04-14","height":189,"weight":81},
+    {"id":210742,"name":"Janik Sambale","dob":"2005-01-21","height":189,"weight":85},
+    {"id":211379,"name":"Nicola Kössler","dob":"2002-02-03","height":null,"weight":null},
+    {"id":213002,"name":"Colin Alexander Paszkiewicz","dob":"2006-11-08","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":219583,"name":"Noah Lachmund","dob":"1999-11-22","height":null,"weight":null},
+    {"id":219622,"name":"Leo Kunath","dob":"2005-07-05","height":null,"weight":null},
+    {"id":219662,"name":"Louis Emmanuel Höfer","dob":"2005-12-05","height":null,"weight":null},
+    {"id":220666,"name":"Bockfeld Ben","dob":"2009-12-03","height":189,"weight":72},
+    {"id":220667,"name":"Faber Hendrik","dob":"2010-03-10","height":190,"weight":null},
+    {"id":222417,"name":"Charlie Peters","dob":"2000-08-04","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":223294,"name":"Arne Robert Brendel","dob":"2005-10-26","height":null,"weight":null},
+    {"id":223856,"name":"Valentin Schneckenburger","dob":"2004-05-21","height":200,"weight":88},
+    {"id":223882,"name":"Linus Barth","dob":"2000-03-25","height":192,"weight":88},
+    {"id":224058,"name":"Filo Wüst","dob":"2009-02-11","height":null,"weight":null},
+    {"id":225872,"name":"Dinh Long Tran","dob":"2002-12-15","height":null,"weight":null},
+    {"id":225887,"name":"Joris Knoll","dob":"2005-07-16","height":null,"weight":null},
+    {"id":231058,"name":"Lasse Hüper","dob":"2009-03-29","height":201,"weight":90},
+    {"id":232640,"name":"Hannes Ludwig","dob":"2008-01-04","height":194,"weight":76},
+    {"id":240555,"name":"Philipp Henke","dob":"2002-05-04","height":null,"weight":null},
+    {"id":242460,"name":"Nikolai Terpe","dob":"2004-05-07","height":null,"weight":null}
   ]
 }

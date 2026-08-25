@@ -190,10 +190,37 @@ function SeasonList({
 /** An away partner, resolved against the manifest so it can be rendered. */
 export interface AwayRow {
   partner: AwayPartner;
+  /** Where they compete *now* — where selecting this row navigates to. */
   countryName: string;
   flag: string;
+  /**
+   * What the pair actually represented, season by season, oldest first.
+   *
+   * Distinct from the two fields above, and that distinction is the whole
+   * point: a federation is a snapshot of today, so describing a 2005
+   * partnership with it says something false. Pedro Solberg and Tiago De J
+   * Santos played one event together as Brazilians and this block called it
+   * Qatar, because Tiago moved there eight years later.
+   */
+  then: { season: number; fed: string; countryName: string; flag: string }[];
   /** False when that slice was too small to publish — nothing to link to. */
   linkable: boolean;
+}
+
+/**
+ * The federations a pair represented, collapsed for display: consecutive
+ * seasons under one flag read as one span rather than as a list of years.
+ */
+function representedAs(
+  then: AwayRow['then'],
+): { fed: string; countryName: string; flag: string; from: number; to: number }[] {
+  const out: { fed: string; countryName: string; flag: string; from: number; to: number }[] = [];
+  for (const entry of then) {
+    const last = out[out.length - 1];
+    if (last && last.fed === entry.fed) last.to = entry.season;
+    else out.push({ ...entry, from: entry.season, to: entry.season });
+  }
+  return out;
 }
 
 interface Props {
@@ -604,15 +631,27 @@ export function PlayerCard({
               />
             ) : (
             <ul>
-              {away.map(({ partner, countryName: partnerCountry, flag: partnerFlag, linkable }) => (
+              {away.map(({ partner, countryName: partnerCountry, flag: partnerFlag, then, linkable }) => {
+                // What the pair represented, not where the partner is today.
+                // The two differ for exactly the partnerships this block was
+                // getting wrong.
+                const spans = representedAs(then);
+                const label =
+                  spans.length > 0
+                    ? spans
+                        .map((r) => `${r.countryName}, ${r.from === r.to ? r.from : `${r.from}–${r.to}`}`)
+                        .join(' · ')
+                    : partnerCountry;
+                const badge = spans.length > 0 ? spans.map((r) => r.flag).join('') : partnerFlag;
+                return (
                 <li key={partner.id}>
                   {linkable ? (
                     <button type="button" onClick={() => onSelectAway(partner)}>
                       <span className="name">{partner.name}</span>
                       <span className="meta">
-                        <span className="fed" title={partnerCountry}>
-                          <span aria-hidden="true">{partnerFlag}</span>
-                          <span className="sr-only">{partnerCountry}</span>
+                        <span className="fed" title={label}>
+                          <span aria-hidden="true">{badge}</span>
+                          <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
                         <span className="span">{seasonSpan(partner.f, partner.l)}</span>
@@ -624,9 +663,9 @@ export function PlayerCard({
                     <span className="unlinked">
                       <span className="name">{partner.name}</span>
                       <span className="meta">
-                        <span className="fed" title={partnerCountry}>
-                          <span aria-hidden="true">{partnerFlag}</span>
-                          <span className="sr-only">{partnerCountry}</span>
+                        <span className="fed" title={label}>
+                          <span aria-hidden="true">{badge}</span>
+                          <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
                         <span className="span">{seasonSpan(partner.f, partner.l)}</span>
@@ -634,7 +673,8 @@ export function PlayerCard({
                     </span>
                   )}
                 </li>
-              ))}
+                );
+              })}
             </ul>
             )}
           </div>

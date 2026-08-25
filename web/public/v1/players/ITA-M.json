@@ -2,2529 +2,314 @@
   "country": "ITA",
   "gender": "M",
   "players": [
-    {
-      "id": 100006,
-      "name": "Andrea Ghiurghi",
-      "dob": "1966-12-15",
-      "height": 199,
-      "weight": 91,
-      "tour": {
-        "gold": 0,
-        "silver": 3,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100008,
-      "name": "Nicola \"Grigolinho\" Grigolo",
-      "dob": "1967-11-08",
-      "height": 188,
-      "weight": 85,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 100017,
-      "name": "Dionisio \"Dio\" Lequaglie",
-      "dob": "1963-10-12",
-      "height": 185,
-      "weight": 75,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100032,
-      "name": "Marco \"Sollu\" Solustri",
-      "dob": "1959-09-14",
-      "height": 188,
-      "weight": 74,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100106,
-      "name": "Ennio \"Jordan\" Giordani",
-      "dob": null,
-      "height": 192,
-      "weight": null
-    },
-    {
-      "id": 100107,
-      "name": "Riccardo \"Richie\" Marchiori",
-      "dob": "1963-09-27",
-      "height": 184,
-      "weight": 76
-    },
-    {
-      "id": 100168,
-      "name": "Gianni Mascagna",
-      "dob": "1967-04-08",
-      "height": 192,
-      "weight": 82,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 100171,
-      "name": "Franco \"Mano di Pietra\" Bertoli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100175,
-      "name": "Alessandro Rigo",
-      "dob": "1966-07-29",
-      "height": 192,
-      "weight": 92,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 100176,
-      "name": "Giovanni Errichiello",
-      "dob": null,
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 100177,
-      "name": "Stefano \"Scozz\" Pascucci",
-      "dob": "1969-12-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100178,
-      "name": "Mirko Castagnoli",
-      "dob": "1971-06-01",
-      "height": 195,
-      "weight": 80
-    },
-    {
-      "id": 100179,
-      "name": "Davide Sanguanins",
-      "dob": "1963-04-14",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 100200,
-      "name": "Fulvio Di Prinzio",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100221,
-      "name": "Massimo Rossato",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100585,
-      "name": "Claudio \"Gallo\" Galli",
-      "dob": "1965-07-12",
-      "height": null,
-      "weight": 92
-    },
-    {
-      "id": 100591,
-      "name": "Antonio Babini",
-      "dob": "1961-06-23",
-      "height": 187,
-      "weight": 80
-    },
-    {
-      "id": 100726,
-      "name": "Giorgio Pallotta",
-      "dob": "1966-06-13",
-      "height": 186,
-      "weight": 80
-    },
-    {
-      "id": 100786,
-      "name": "Roberto \"Mascia\" Masciarelli",
-      "dob": "1963-09-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100850,
-      "name": "Piero Antonini",
-      "dob": "1968-08-18",
-      "height": 188,
-      "weight": 80
-    },
-    {
-      "id": 100897,
-      "name": "Andrea \"Berna\" Bernabè",
-      "dob": "1969-09-12",
-      "height": 192,
-      "weight": 82
-    },
-    {
-      "id": 100898,
-      "name": "Emanuele or Lele Fracascia",
-      "dob": "1966-11-15",
-      "height": 198,
-      "weight": 88
-    },
-    {
-      "id": 100899,
-      "name": "Fabio Galli",
-      "dob": "1969-12-10",
-      "height": 191,
-      "weight": 82,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 100900,
-      "name": "Riccardo \"Riccardino\" Lione",
-      "dob": "1972-04-13",
-      "height": 197,
-      "weight": 97,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100901,
-      "name": "Marco \"Piri\" Malavolta",
-      "dob": "1971-06-26",
-      "height": 186,
-      "weight": 73
-    },
-    {
-      "id": 100902,
-      "name": "Marco \"Mattè\" Pallottelli",
-      "dob": "1971-01-10",
-      "height": 190,
-      "weight": 78
-    },
-    {
-      "id": 100903,
-      "name": "Andrea \"Raffa\" Raffaelli",
-      "dob": "1969-12-19",
-      "height": 187,
-      "weight": 92,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 100904,
-      "name": "Massimo Ridi",
-      "dob": "1966-05-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101017,
-      "name": "Fabio Vullo",
-      "dob": "1964-09-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101041,
-      "name": "Fabrizio \"Basti\" Bastianelli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101050,
-      "name": "Mauro \"Mauretto\" Budani",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101053,
-      "name": "Enrico Corsetti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101059,
-      "name": "Alejandro Diz",
-      "dob": null,
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 101099,
-          "name": "Raul Quiroga",
-          "fed": "ARG",
-          "gender": "M",
-          "t": 1,
-          "f": 1987,
-          "l": 1987,
-          "s": [
-            [
-              1987,
-              1,
-              936
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 101085,
-      "name": "Fabio Pulita",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101086,
-      "name": "Maurizio Giannini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101097,
-      "name": "Carlo \"Pezza\" Pezzullo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101101,
-      "name": "Stefano Recine",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101160,
-      "name": "Massimo Penteriani",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101168,
-      "name": "Marco De Zolt",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101238,
-      "name": "... Padoan",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101257,
-      "name": "Andrea Fusco",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101258,
-      "name": "Leonzio Menon",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101260,
-      "name": "Alessandro Lorenzoni",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101357,
-      "name": "Carlo Viberti",
-      "dob": "1963-04-22",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 101671,
-          "name": "Emanuele \"Bada\" Monduzzi",
-          "fed": "SMR",
-          "gender": "M",
-          "t": 1,
-          "f": 1996,
-          "l": 1996,
-          "s": [
-            [
-              1996,
-              1,
-              347
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 101389,
-      "name": "Liano Petrelli",
-      "dob": "1965-03-24",
-      "height": 195,
-      "weight": 91
-    },
-    {
-      "id": 101498,
-      "name": "Giorgio Colombo",
-      "dob": "1963-05-21",
-      "height": 196,
-      "weight": 85
-    },
-    {
-      "id": 101529,
-      "name": "Maurizio \"Pimpo\" Pimponi",
-      "dob": "1970-09-01",
-      "height": 190,
-      "weight": 89
-    },
-    {
-      "id": 101714,
-      "name": "Diego Caielli",
-      "dob": "1977-09-04",
-      "height": 198,
-      "weight": 100
-    },
-    {
-      "id": 101783,
-      "name": "Marcello Abbondanza",
-      "dob": "1970-08-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101784,
-      "name": "Enrico Maccagni",
-      "dob": "1968-05-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101885,
-      "name": "Pietro Salvi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101886,
-      "name": "Cristiano Rubini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101887,
-      "name": "Claudio Maurelli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101889,
-      "name": "Filippo Orsatti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101912,
-      "name": "Paolo \"Crazy Paul\" Bina",
-      "dob": "1964-05-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101926,
-      "name": "Maurizio Carletti",
-      "dob": "1969-01-09",
-      "height": 196,
-      "weight": 96
-    },
-    {
-      "id": 101933,
-      "name": "Massimo Marino",
-      "dob": "1969-10-11",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 101937,
-      "name": "Massimo Bedino",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101938,
-      "name": "Fosco Cicola",
-      "dob": "1974-07-02",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 102021,
-      "name": "Andrea Toni",
-      "dob": "1962-10-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102089,
-      "name": "Angelo Caso",
-      "dob": "1970-05-03",
-      "height": 190,
-      "weight": 87
-    },
-    {
-      "id": 102131,
-      "name": "Matteo 'Il Teo' De Cecco",
-      "dob": "1969-01-23",
-      "height": 194,
-      "weight": 90
-    },
-    {
-      "id": 102307,
-      "name": "Sandro \"Giogio\" Cordovana",
-      "dob": "1973-05-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102309,
-      "name": "Giovanni \"Dupon\" Tarantini",
-      "dob": "1976-08-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102310,
-      "name": "Luca \"Dupon\" Tarantini",
-      "dob": "1976-08-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102311,
-      "name": "Luigi \"Japo\" Martini",
-      "dob": "1971-11-26",
-      "height": 191,
-      "weight": 94
-    },
-    {
-      "id": 102312,
-      "name": "Piero Simoni",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102313,
-      "name": "Gianluca Pozzato",
-      "dob": "1969-04-05",
-      "height": 190,
-      "weight": 89
-    },
-    {
-      "id": 102315,
-      "name": "Mauro \"Devil\" Mercanti",
-      "dob": "1976-06-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102376,
-      "name": "Fabrizio Rolando",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102402,
-      "name": "Gianluca Casadei",
-      "dob": "1978-06-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102515,
-      "name": "Antonio Scardino",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102555,
-      "name": "Giorgio Giordano",
-      "dob": "1970-12-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102556,
-      "name": "Alessandro Abba",
-      "dob": "1961-12-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102557,
-      "name": "Giulio Mosci",
-      "dob": "1971-09-23",
-      "height": 186,
-      "weight": 78
-    },
-    {
-      "id": 102558,
-      "name": "Eugenio Amore",
-      "dob": "1972-02-17",
-      "height": 193,
-      "weight": 91,
-      "tour": {
-        "gold": 3,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 102605,
-      "name": "Simone Bendandi",
-      "dob": "1976-08-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102622,
-      "name": "Roberto Mosca",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102635,
-      "name": "Massimiliano Piccinetti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102648,
-      "name": "Matteo Varnier",
-      "dob": "1979-10-16",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 3,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 102661,
-      "name": "Mario Marolda",
-      "dob": "1976-12-05",
-      "height": 188,
-      "weight": 84
-    },
-    {
-      "id": 102667,
-      "name": "Marcello Canzian",
-      "dob": "1974-08-29",
-      "height": 192,
-      "weight": 94,
-      "away": [
-        {
-          "id": 102666,
-          "name": "Enzo Gerotto",
-          "fed": "SMR",
-          "gender": "M",
-          "t": 3,
-          "f": 1999,
-          "l": 2005,
-          "s": [
-            [
-              1999,
-              2,
-              210
-            ],
-            [
-              2005,
-              1,
-              223
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 102670,
-      "name": "Giorgio Cicchelli",
-      "dob": "1970-07-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103100,
-      "name": "Lorenzo Simeon",
-      "dob": "1975-10-30",
-      "height": 193,
-      "weight": 83
-    },
-    {
-      "id": 103101,
-      "name": "Giancarlo \"Jack\" Salvador",
-      "dob": "1975-05-05",
-      "height": 196,
-      "weight": 87
-    },
-    {
-      "id": 103103,
-      "name": "Riccardo Fenili",
-      "dob": "1975-10-06",
-      "height": 193,
-      "weight": 96,
-      "tour": {
-        "gold": 4,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 103104,
-      "name": "Marco Martinelli",
-      "dob": "1965-10-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103105,
-      "name": "Vittorio Bortini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103106,
-      "name": "Roberto Marini",
-      "dob": "1974-03-07",
-      "height": 192,
-      "weight": 86
-    },
-    {
-      "id": 103278,
-      "name": "Wout Wijsmans",
-      "dob": "1977-10-30",
-      "height": 201,
-      "weight": 98,
-      "away": [
-        {
-          "id": 102604,
-          "name": "Frederik \"Fredo\" Delanghe",
-          "fed": "BEL",
-          "gender": "M",
-          "t": 5,
-          "f": 2001,
-          "l": 2002,
-          "s": [
-            [
-              2001,
-              4,
-              199
-            ],
-            [
-              2002,
-              1,
-              206
-            ]
-          ]
-        },
-        {
-          "id": 100765,
-          "name": "Jacques Kempenaers",
-          "fed": "BEL",
-          "gender": "M",
-          "t": 3,
-          "f": 2003,
-          "l": 2003,
-          "s": [
-            [
-              2003,
-              3,
-              205
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 103506,
-      "name": "Matteo Cherubin",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103507,
-      "name": "Paolo Amari",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103508,
-      "name": "Maurizio Latelli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103620,
-      "name": "Andrea Tomatis",
-      "dob": "1978-04-09",
-      "height": 197,
-      "weight": 80,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 103743,
-      "name": "Diego Nota",
-      "dob": "1979-08-10",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 103936,
-      "name": "Claudio Carletti",
-      "dob": "1982-02-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103938,
-      "name": "Massimiliano Zunino",
-      "dob": "1984-06-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103939,
-      "name": "Alessio Marri",
-      "dob": "1982-09-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103972,
-      "name": "Danilo Lorenzini",
-      "dob": "1983-03-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103973,
-      "name": "Davide Giuffrida",
-      "dob": "1982-11-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103998,
-      "name": "Alessandro Spanakis",
-      "dob": "1978-08-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104256,
-      "name": "Erardo Meggiolaro",
-      "dob": "1977-10-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104301,
-      "name": "Daniele Desiderio",
-      "dob": "1979-01-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104302,
-      "name": "Giuseppe Patriarca",
-      "dob": "1977-03-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104401,
-      "name": "Riccardo Garofalo",
-      "dob": "1986-07-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104402,
-      "name": "Fabio Giorlando",
-      "dob": "1984-06-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104403,
-      "name": "Stefano Duraute",
-      "dob": "1984-01-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104404,
-      "name": "Paolo Fiore",
-      "dob": "1985-02-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104822,
-      "name": "Domenico Apicella",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104824,
-      "name": "Fabio Casali",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104825,
-      "name": "Thomas Casali",
-      "dob": "1972-03-20",
-      "height": 182,
-      "weight": 85
-    },
-    {
-      "id": 104826,
-      "name": "Matteo Targhini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104828,
-      "name": "Simone Baldessoei",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104830,
-      "name": "Masimiliano Otgianu",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104878,
-      "name": "Giorgio Domenghini",
-      "dob": "1977-03-17",
-      "height": 190,
-      "weight": 90,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 104879,
-      "name": "Paolo Ficosecco",
-      "dob": "1979-09-22",
-      "height": 198,
-      "weight": 92,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104880,
-      "name": "Matteo Galli",
-      "dob": "1983-06-21",
-      "height": 180,
-      "weight": 72
-    },
-    {
-      "id": 104888,
-      "name": "Simone Maggioli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104889,
-      "name": "Mattia Filanti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104890,
-      "name": "Riccardo Grassini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104904,
-      "name": "Marco Tasca",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104905,
-      "name": "Gianluca Ugolini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104927,
-      "name": "Fabrizio Migliosi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104932,
-      "name": "Andrea Petri",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104933,
-      "name": "Robert Torello",
-      "dob": "1976-04-23",
-      "height": 186,
-      "weight": 90
-    },
-    {
-      "id": 104996,
-      "name": "Enrico Balletto",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105077,
-      "name": "Andrea Collini",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105078,
-      "name": "Pietro Pezzi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105079,
-      "name": "Gabriele E. Parisi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105080,
-      "name": "Andrea Russo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105122,
-      "name": "Stefano Paolo Provenzano",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105161,
-      "name": "Luca De Gennaro",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105162,
-      "name": "Michele De Prisco",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 112158,
-      "name": "Matteo Paoletti",
-      "dob": "1982-05-27",
-      "height": 205,
-      "weight": 95
-    },
-    {
-      "id": 113220,
-      "name": "Alberto Cisolla",
-      "dob": "1977-10-10",
-      "height": 197,
-      "weight": 86
-    },
-    {
-      "id": 113306,
-      "name": "Andrea Anastasi",
-      "dob": "1960-10-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 115726,
-      "name": "Tchernichov Vladimir",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116331,
-      "name": "Giuseppe Bua",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116394,
-      "name": "Monopoli Natale",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116407,
-      "name": "Simone Di Tommaso",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116531,
-      "name": "Balsamo Yuri",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116532,
-      "name": "Cavaliere Rodolfo",
-      "dob": "1974-11-10",
-      "height": 194,
-      "weight": 92
-    },
-    {
-      "id": 116540,
-      "name": "Giorgio Pizzolotto",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116541,
-      "name": "Pietro Ioppi",
-      "dob": "2011-08-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116542,
-      "name": "Nicola Daldello",
-      "dob": "1983-05-06",
-      "height": 180,
-      "weight": 75
-    },
-    {
-      "id": 116549,
-      "name": "Emilio Maniero",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116618,
-      "name": "Mario Bonamici",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116891,
-      "name": "Francesco Mattioli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117287,
-      "name": "Riccardo Bizzotto",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117409,
-      "name": "Paolo Ingrosso",
-      "dob": "1988-02-12",
-      "height": 192,
-      "weight": 74,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 117410,
-      "name": "Matteo Ingrosso",
-      "dob": "1988-02-12",
-      "height": 190,
-      "weight": 75,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 117423,
-      "name": "Antonio De Paola",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117430,
-      "name": "Francesco Giontella",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117462,
-      "name": "Mirco Guidolin",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117912,
-      "name": "Ivan Francescato",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117983,
-      "name": "Daniele Rossi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118194,
-      "name": "Paolo Nicolai",
-      "dob": "1988-08-06",
-      "height": 203,
-      "weight": 91,
-      "olympics": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "tour": {
-        "gold": 4,
-        "silver": 11,
-        "bronze": 13
-      }
-    },
-    {
-      "id": 118195,
-      "name": "Belcecchi Filippo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118241,
-      "name": "Giorgio Zauli",
-      "dob": "1984-04-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118650,
-      "name": "Christian Sacco",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118651,
-      "name": "Samuele Fioretta",
-      "dob": "1983-08-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118652,
-      "name": "Davide Dal Molin",
-      "dob": "1978-01-21",
-      "height": 195,
-      "weight": 90
-    },
-    {
-      "id": 118655,
-      "name": "Riccardo Giumelli",
-      "dob": "1980-12-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118662,
-      "name": "Lorenzo Passoni",
-      "dob": "1979-12-17",
-      "height": 184,
-      "weight": 74
-    },
-    {
-      "id": 119326,
-      "name": "Luca Gottardo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119327,
-      "name": "Jakov Maniero",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119330,
-      "name": "Benito Marinucci",
-      "dob": "1989-06-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119333,
-      "name": "Davide Guido",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120020,
-      "name": "Andrea Carmè",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120058,
-      "name": "Matteo La Rocca",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120107,
-      "name": "Matteo Bertoli",
-      "dob": "1988-07-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120108,
-      "name": "Matteo Lancellotti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120124,
-      "name": "Ottavio Ucci",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120127,
-      "name": "Massimiliano Falaschetti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120426,
-      "name": "Cosimo Vestita",
-      "dob": "1973-09-03",
-      "height": 183,
-      "weight": 72
-    },
-    {
-      "id": 120427,
-      "name": "Aldo Tallone",
-      "dob": "1973-09-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120511,
-      "name": "Ivan Zaytsev",
-      "dob": "1988-10-02",
-      "height": 204,
-      "weight": 100,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 120774,
-      "name": "Daniele Lupo",
-      "dob": "1991-05-06",
-      "height": 195,
-      "weight": 80,
-      "olympics": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "tour": {
-        "gold": 4,
-        "silver": 8,
-        "bronze": 10
-      }
-    },
-    {
-      "id": 120775,
-      "name": "Alberto Bigarelli",
-      "dob": "1990-06-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120776,
-      "name": "Francesco Montinaro",
-      "dob": "1990-05-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120866,
-      "name": "Rossano Bertocco",
-      "dob": "1969-11-21",
-      "height": 170,
-      "weight": 72
-    },
-    {
-      "id": 120867,
-      "name": "Francesco Sposato",
-      "dob": "1977-06-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 122381,
-      "name": "Alberto Casadei",
-      "dob": "1984-09-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 122419,
-      "name": "Mauro Montanari",
-      "dob": "1977-08-28",
-      "height": 196,
-      "weight": 88
-    },
-    {
-      "id": 122471,
-      "name": "Luca Colaberardino",
-      "dob": "1979-06-29",
-      "height": 185,
-      "weight": 82
-    },
-    {
-      "id": 124711,
-      "name": "Michele Baratto",
-      "dob": "1992-11-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124712,
-      "name": "Tiziano Andreatta",
-      "dob": "1992-01-28",
-      "height": 193,
-      "weight": 85,
-      "tour": {
-        "gold": 3,
-        "silver": 1,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 124850,
-      "name": "Pasquale Gabriele",
-      "dob": "1991-01-05",
-      "height": 201,
-      "weight": 87
-    },
-    {
-      "id": 124863,
-      "name": "Alessandro Preti",
-      "dob": "1992-08-07",
-      "height": 205,
-      "weight": 100
-    },
-    {
-      "id": 125259,
-      "name": "Alessandro Bondi",
-      "dob": "1991-12-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125397,
-      "name": "Gabriele Ghiga",
-      "dob": "1988-05-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125445,
-      "name": "Giuseppe Ottaviani",
-      "dob": "1991-12-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 131979,
-      "name": "Francesco Vanni",
-      "dob": "1987-03-05",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 132141,
-      "name": "Alex Ranghieri",
-      "dob": "1987-06-18",
-      "height": 198,
-      "weight": 88,
-      "tour": {
-        "gold": 4,
-        "silver": 4,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 132142,
-      "name": "Emanuele Monduzzi",
-      "dob": "1970-12-28",
-      "height": 190,
-      "weight": 98
-    },
-    {
-      "id": 132349,
-      "name": "Mauricio Mugnaini",
-      "dob": "1983-08-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132781,
-      "name": "Nicola Tiozzo",
-      "dob": "1993-05-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132782,
-      "name": "Gregorio Vanin",
-      "dob": "1993-03-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132845,
-      "name": "Fabrizio Venditti",
-      "dob": "1986-07-03",
-      "height": 198,
-      "weight": 95
-    },
-    {
-      "id": 132883,
-      "name": "Matteo Martino",
-      "dob": "1987-01-28",
-      "height": 198,
-      "weight": 98
-    },
-    {
-      "id": 133359,
-      "name": "Raffaele Cionna",
-      "dob": "1991-01-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135525,
-      "name": "Gianluca Oligeri",
-      "dob": "1973-03-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135624,
-      "name": "Nicola Boldrini",
-      "dob": "1993-02-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135625,
-      "name": "Matteo Romiti",
-      "dob": "1993-02-27",
-      "height": 186,
-      "weight": 75
-    },
-    {
-      "id": 135919,
-      "name": "Matteo Cecchini",
-      "dob": "1990-10-14",
-      "height": 188,
-      "weight": 76
-    },
-    {
-      "id": 136787,
-      "name": "Francesco De Luca",
-      "dob": "1986-10-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 138308,
-      "name": "Roberto Papagna",
-      "dob": "1963-03-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 138631,
-      "name": "Sergio Seregni",
-      "dob": "1987-01-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 138637,
-      "name": "Marco Sordelli",
-      "dob": "1985-03-08",
-      "height": 180,
-      "weight": 74
-    },
-    {
-      "id": 138638,
-      "name": "Filippo Cecchini",
-      "dob": "1987-11-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 138664,
-      "name": "Andrea D'Avanzo",
-      "dob": "1982-02-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139561,
-      "name": "Giacomo De Fabritiis",
-      "dob": "1995-09-23",
-      "height": 192,
-      "weight": 82
-    },
-    {
-      "id": 139735,
-      "name": "Javier Facundo Martinez",
-      "dob": "1995-02-27",
-      "height": 191,
-      "weight": null
-    },
-    {
-      "id": 142043,
-      "name": "Federico Morichelli",
-      "dob": "1990-01-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143692,
-      "name": "Luca Spirito",
-      "dob": "1993-10-30",
-      "height": 199,
-      "weight": 95
-    },
-    {
-      "id": 143730,
-      "name": "Manuel Alfieri",
-      "dob": "1998-05-20",
-      "height": 189,
-      "weight": 80,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 143731,
-      "name": "Paolo Di Silvestre",
-      "dob": "1998-01-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 144114,
-      "name": "Enrico Rossi",
-      "dob": "1993-06-27",
-      "height": 195,
-      "weight": 93,
-      "tour": {
-        "gold": 3,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 145118,
-      "name": "Fabrizio Manni",
-      "dob": "1986-12-20",
-      "height": 194,
-      "weight": 96,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 146353,
-      "name": "Marco Caminati",
-      "dob": "1992-09-23",
-      "height": 192,
-      "weight": 87,
-      "tour": {
-        "gold": 3,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 146514,
-      "name": "Davide Michienzi",
-      "dob": "1987-07-10",
-      "height": 193,
-      "weight": 90
-    },
-    {
-      "id": 146733,
-      "name": "Felice Sette",
-      "dob": "1996-02-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 147027,
-      "name": "Riccardo Mazzon",
-      "dob": "1996-01-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 147887,
-      "name": "Alessandro Carucci",
-      "dob": "1994-04-19",
-      "height": 194,
-      "weight": 86
-    },
-    {
-      "id": 149100,
-      "name": "Oleg Antonov",
-      "dob": "1988-07-28",
-      "height": 198,
-      "weight": 88,
-      "away": [
-        {
-          "id": 100114,
-          "name": "Andrei Gorbenko",
-          "fed": "RUS",
-          "gender": "M",
-          "t": 2,
-          "f": 1992,
-          "l": 1999,
-          "s": [
-            [
-              1992,
-              1,
-              224
-            ],
-            [
-              1999,
-              1,
-              175
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 149300,
-      "name": "Fabio Matteoni",
-      "dob": "1987-10-24",
-      "height": 185,
-      "weight": 82
-    },
-    {
-      "id": 150379,
-      "name": "Adrian Ignacio Carambula Raurich",
-      "dob": "1988-03-16",
-      "height": null,
-      "weight": 84,
-      "tour": {
-        "gold": 2,
-        "silver": 2,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 150389,
-      "name": "Francesco Cottarelli",
-      "dob": "1996-10-16",
-      "height": 196,
-      "weight": null
-    },
-    {
-      "id": 151113,
-      "name": "Andrea Abbiati",
-      "dob": "1986-02-05",
-      "height": 189,
-      "weight": 90,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 151165,
-      "name": "Nicolò Conti",
-      "dob": "1992-02-04",
-      "height": 185,
-      "weight": 85
-    },
-    {
-      "id": 151199,
-      "name": "daniele Di Stefano",
-      "dob": "1993-04-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 151252,
-      "name": "Carlo Bonifazi",
-      "dob": "1992-11-16",
-      "height": 190,
-      "weight": 90,
-      "tour": {
-        "gold": 2,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 151263,
-      "name": "Valerio Del Carpio",
-      "dob": "1984-09-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 151504,
-      "name": "Michele Crusca",
-      "dob": "1994-09-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 153207,
-      "name": "Paolo Cappio",
-      "dob": "1999-10-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 153808,
-      "name": "Jakob Windisch",
-      "dob": "1999-03-20",
-      "height": 200,
-      "weight": 90,
-      "tour": {
-        "gold": 6,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 155625,
-      "name": "Davide Boncompagni",
-      "dob": "1991-09-25",
-      "height": 195,
-      "weight": 86
-    },
-    {
-      "id": 155954,
-      "name": "Camozzi Matteo",
-      "dob": "1996-03-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156288,
-      "name": "Davide Acconci",
-      "dob": "1997-05-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157066,
-      "name": "Davis Krumins",
-      "dob": "1990-06-28",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 158171,
-      "name": "omar Bartoli",
-      "dob": "1991-08-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 160606,
-      "name": "Davide Benzi",
-      "dob": "1993-09-24",
-      "height": 181,
-      "weight": 77,
-      "tour": {
-        "gold": 3,
-        "silver": 3,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 161170,
-      "name": "Andrea Storari",
-      "dob": "1990-12-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 161702,
-      "name": "Marco Raisa",
-      "dob": "1987-02-20",
-      "height": 187,
-      "weight": 95
-    },
-    {
-      "id": 163448,
-      "name": "Alberto Di Silvestre",
-      "dob": "2000-07-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 163923,
-      "name": "Samuele Cottafava",
-      "dob": "1998-11-01",
-      "height": 194,
-      "weight": 82,
-      "tour": {
-        "gold": 5,
-        "silver": 4,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 164186,
-      "name": "Franco Arezzo Di Trifiletto",
-      "dob": "1993-01-13",
-      "height": 190,
-      "weight": 87
-    },
-    {
-      "id": 164781,
-      "name": "Mauro Sacripanti",
-      "dob": "1998-05-15",
-      "height": 190,
-      "weight": 78
-    },
-    {
-      "id": 164787,
-      "name": "Antonio Basti",
-      "dob": "1977-02-25",
-      "height": 187,
-      "weight": 85
-    },
-    {
-      "id": 165099,
-      "name": "Luca Cravera",
-      "dob": "1997-07-27",
-      "height": 187,
-      "weight": 77
-    },
-    {
-      "id": 165100,
-      "name": "Tobia Marchetto",
-      "dob": "2000-11-05",
-      "height": 192,
-      "weight": 87,
-      "tour": {
-        "gold": 4,
-        "silver": 2,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 167208,
-      "name": "Filippo Boesso",
-      "dob": "1993-08-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 167642,
-      "name": "MARCO MAGINI",
-      "dob": "1998-01-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 167671,
-      "name": "Theo Hanni",
-      "dob": "2003-05-19",
-      "height": 196,
-      "weight": 99
-    },
-    {
-      "id": 169374,
-      "name": "Emanuele LABATE",
-      "dob": "1984-12-05",
-      "height": 178,
-      "weight": 75
-    },
-    {
-      "id": 169375,
-      "name": "Omar LOUZA",
-      "dob": "1999-01-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169569,
-      "name": "Luca Bigarelli",
-      "dob": "1991-12-28",
-      "height": 199,
-      "weight": 90
-    },
-    {
-      "id": 169572,
-      "name": "Nicolò Siccardi",
-      "dob": "1995-05-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169575,
-      "name": "Marco Viscovich",
-      "dob": "2001-06-20",
-      "height": 191,
-      "weight": 80,
-      "tour": {
-        "gold": 4,
-        "silver": 1,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 169579,
-      "name": "Gianluca Dal Corso",
-      "dob": "2001-01-09",
-      "height": 203,
-      "weight": 95,
-      "tour": {
-        "gold": 4,
-        "silver": 4,
-        "bronze": 7
-      }
-    },
-    {
-      "id": 169854,
-      "name": "Lorenzo PANERATI",
-      "dob": "1999-04-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 170441,
-      "name": "Federico Geromin",
-      "dob": "1996-06-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 170507,
-      "name": "Giosuè Andronico",
-      "dob": "1996-06-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 174835,
-      "name": "Andrea Lancianese",
-      "dob": "2002-07-09",
-      "height": 203,
-      "weight": null
-    },
-    {
-      "id": 175341,
-      "name": "Giacomo Titta",
-      "dob": "1996-10-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 175566,
-      "name": "Giacomo Spadoni",
-      "dob": "2001-05-03",
-      "height": 180,
-      "weight": 77,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 179038,
-      "name": "Alberto Moro",
-      "dob": "2003-03-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179520,
-      "name": "Riccardo Iervolino",
-      "dob": "2003-01-22",
-      "height": 196,
-      "weight": 98,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 180718,
-      "name": "Michael Burgmann",
-      "dob": "2004-03-06",
-      "height": 196,
-      "weight": 92
-    },
-    {
-      "id": 181232,
-      "name": "Michele Luisetto",
-      "dob": "1996-02-23",
-      "height": 191,
-      "weight": null
-    },
-    {
-      "id": 182437,
-      "name": "Gaetano Penna",
-      "dob": "2004-12-20",
-      "height": 205,
-      "weight": 77
-    },
-    {
-      "id": 182776,
-      "name": "Raoul Acerbi",
-      "dob": "2004-11-18",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 183129,
-      "name": "Matteo Camerani",
-      "dob": "2002-06-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 183814,
-      "name": "Andrea Armellini",
-      "dob": "2004-01-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 183815,
-      "name": "Filippo Mancini",
-      "dob": "2004-09-07",
-      "height": 190,
-      "weight": 83
-    },
-    {
-      "id": 184212,
-      "name": "Edoardo Gilardoni",
-      "dob": "1991-10-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 185249,
-      "name": "Federico Fazari",
-      "dob": "1984-07-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 187260,
-      "name": "Federico Andronico",
-      "dob": "1996-06-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 190160,
-      "name": "Giosuè Andronico",
-      "dob": "1996-06-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191359,
-      "name": "Marco Ulisse",
-      "dob": "2001-06-28",
-      "height": 191,
-      "weight": 85,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 192138,
-      "name": "Matteo Bellucci",
-      "dob": "1995-12-18",
-      "height": 186,
-      "weight": null
-    },
-    {
-      "id": 192140,
-      "name": "Simone Podestà",
-      "dob": "2001-07-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192141,
-      "name": "Riccardo Copelli",
-      "dob": "1996-03-16",
-      "height": 198,
-      "weight": 95
-    },
-    {
-      "id": 192395,
-      "name": "Marco Zoli",
-      "dob": "2003-10-07",
-      "height": 188,
-      "weight": 84
-    },
-    {
-      "id": 192396,
-      "name": "Lorenzo Monti",
-      "dob": "2003-04-17",
-      "height": 193,
-      "weight": 81
-    },
-    {
-      "id": 193084,
-      "name": "Felix Emilio Ludwig Arpino",
-      "dob": "1993-08-16",
-      "height": 182,
-      "weight": 65
-    },
-    {
-      "id": 194477,
-      "name": "Andrea Pizziolo",
-      "dob": "2001-06-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 197902,
-      "name": "Bryan Argilagos",
-      "dob": "2007-01-26",
-      "height": 200,
-      "weight": 84
-    },
-    {
-      "id": 197905,
-      "name": "Simone Porro",
-      "dob": "2007-09-21",
-      "height": 189,
-      "weight": 71
-    },
-    {
-      "id": 200338,
-      "name": "Federico Guidi",
-      "dob": "1991-05-29",
-      "height": 194,
-      "weight": 82
-    },
-    {
-      "id": 200339,
-      "name": "Matteo Giorgi",
-      "dob": "2003-02-08",
-      "height": 183,
-      "weight": 69
-    },
-    {
-      "id": 201164,
-      "name": "Gerald Ndrecaj",
-      "dob": "1999-12-16",
-      "height": 200,
-      "weight": 96
-    },
-    {
-      "id": 201225,
-      "name": "Filippo Garra",
-      "dob": "2005-08-12",
-      "height": 198,
-      "weight": 85
-    },
-    {
-      "id": 203308,
-      "name": "Dario Spolverini",
-      "dob": "1998-01-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204985,
-      "name": "Nico Fontana",
-      "dob": "1999-12-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 209193,
-      "name": "Laurin Zoeschg",
-      "dob": "2007-12-25",
-      "height": 188,
-      "weight": 86
-    },
-    {
-      "id": 212360,
-      "name": "Matteo Iurisci",
-      "dob": "2007-05-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 213074,
-      "name": "Nicolas Brucini",
-      "dob": "2004-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 213104,
-      "name": "Riccardo Santomassimo",
-      "dob": "2008-04-10",
-      "height": 195,
-      "weight": 75
-    },
-    {
-      "id": 215688,
-      "name": "Matteo Marchesan",
-      "dob": "2006-02-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 215690,
-      "name": "Marco Di Felice",
-      "dob": "2008-08-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 220132,
-      "name": "Mattia Perini",
-      "dob": "1989-01-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 221402,
-      "name": "Andrea Sanguanini",
-      "dob": "2006-10-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 221499,
-      "name": "Francesco Peri",
-      "dob": "2005-10-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 221566,
-      "name": "Oleksandr Siedykh",
-      "dob": "1983-09-15",
-      "height": 196,
-      "weight": 90
-    },
-    {
-      "id": 223923,
-      "name": "Davide Borraccino",
-      "dob": "1997-07-01",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 224744,
-      "name": "Jack Bernardini",
-      "dob": "2009-03-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 227130,
-      "name": "Federico Viscuso",
-      "dob": "2009-02-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 239605,
-      "name": "Leonardo Milani",
-      "dob": "2004-10-01",
-      "height": null,
-      "weight": null
-    }
+    {"id":100006,"name":"Andrea Ghiurghi","dob":"1966-12-15","height":199,"weight":91,"tour":{"gold":0,"silver":3,"bronze":1}},
+    {"id":100008,"name":"Nicola \"Grigolinho\" Grigolo","dob":"1967-11-08","height":188,"weight":85,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":100017,"name":"Dionisio \"Dio\" Lequaglie","dob":"1963-10-12","height":185,"weight":75,"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":100032,"name":"Marco \"Sollu\" Solustri","dob":"1959-09-14","height":188,"weight":74,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":100106,"name":"Ennio \"Jordan\" Giordani","dob":null,"height":192,"weight":null},
+    {"id":100107,"name":"Riccardo \"Richie\" Marchiori","dob":"1963-09-27","height":184,"weight":76},
+    {"id":100168,"name":"Gianni Mascagna","dob":"1967-04-08","height":192,"weight":82,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":100171,"name":"Franco \"Mano di Pietra\" Bertoli","dob":null,"height":null,"weight":null},
+    {"id":100175,"name":"Alessandro Rigo","dob":"1966-07-29","height":192,"weight":92,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":100176,"name":"Giovanni Errichiello","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":100177,"name":"Stefano \"Scozz\" Pascucci","dob":"1969-12-01","height":null,"weight":null},
+    {"id":100178,"name":"Mirko Castagnoli","dob":"1971-06-01","height":195,"weight":80},
+    {"id":100179,"name":"Davide Sanguanins","dob":"1963-04-14","height":190,"weight":80},
+    {"id":100200,"name":"Fulvio Di Prinzio","dob":null,"height":null,"weight":null},
+    {"id":100221,"name":"Massimo Rossato","dob":null,"height":null,"weight":null},
+    {"id":100585,"name":"Claudio \"Gallo\" Galli","dob":"1965-07-12","height":null,"weight":92},
+    {"id":100591,"name":"Antonio Babini","dob":"1961-06-23","height":187,"weight":80},
+    {"id":100726,"name":"Giorgio Pallotta","dob":"1966-06-13","height":186,"weight":80},
+    {"id":100786,"name":"Roberto \"Mascia\" Masciarelli","dob":"1963-09-05","height":null,"weight":null},
+    {"id":100850,"name":"Piero Antonini","dob":"1968-08-18","height":188,"weight":80},
+    {"id":100897,"name":"Andrea \"Berna\" Bernabè","dob":"1969-09-12","height":192,"weight":82},
+    {"id":100898,"name":"Emanuele or Lele Fracascia","dob":"1966-11-15","height":198,"weight":88},
+    {"id":100899,"name":"Fabio Galli","dob":"1969-12-10","height":191,"weight":82,"tour":{"gold":1,"silver":1,"bronze":2}},
+    {"id":100900,"name":"Riccardo \"Riccardino\" Lione","dob":"1972-04-13","height":197,"weight":97,"tour":{"gold":0,"silver":2,"bronze":1}},
+    {"id":100901,"name":"Marco \"Piri\" Malavolta","dob":"1971-06-26","height":186,"weight":73},
+    {"id":100902,"name":"Marco \"Mattè\" Pallottelli","dob":"1971-01-10","height":190,"weight":78},
+    {"id":100903,"name":"Andrea \"Raffa\" Raffaelli","dob":"1969-12-19","height":187,"weight":92,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":100904,"name":"Massimo Ridi","dob":"1966-05-15","height":null,"weight":null},
+    {"id":101017,"name":"Fabio Vullo","dob":"1964-09-01","height":null,"weight":null},
+    {"id":101041,"name":"Fabrizio \"Basti\" Bastianelli","dob":null,"height":null,"weight":null},
+    {"id":101050,"name":"Mauro \"Mauretto\" Budani","dob":null,"height":null,"weight":null},
+    {"id":101053,"name":"Enrico Corsetti","dob":null,"height":null,"weight":null},
+    {"id":101059,"name":"Alejandro Diz","dob":null,"height":null,"weight":null,"away":[{"id":101099,"name":"Raul Quiroga","fed":"ARG","gender":"M","t":1,"f":1987,"l":1987,"s":[[1987,1,936]],"at":[[1987,"ARG"]]}]},
+    {"id":101085,"name":"Fabio Pulita","dob":null,"height":null,"weight":null},
+    {"id":101086,"name":"Maurizio Giannini","dob":null,"height":null,"weight":null},
+    {"id":101097,"name":"Carlo \"Pezza\" Pezzullo","dob":null,"height":null,"weight":null},
+    {"id":101101,"name":"Stefano Recine","dob":null,"height":null,"weight":null},
+    {"id":101160,"name":"Massimo Penteriani","dob":null,"height":null,"weight":null},
+    {"id":101168,"name":"Marco De Zolt","dob":null,"height":null,"weight":null},
+    {"id":101238,"name":"... Padoan","dob":null,"height":null,"weight":null},
+    {"id":101257,"name":"Andrea Fusco","dob":null,"height":null,"weight":null},
+    {"id":101258,"name":"Leonzio Menon","dob":null,"height":null,"weight":null},
+    {"id":101260,"name":"Alessandro Lorenzoni","dob":null,"height":null,"weight":null},
+    {"id":101357,"name":"Carlo Viberti","dob":"1963-04-22","height":null,"weight":null,"away":[{"id":101671,"name":"Emanuele \"Bada\" Monduzzi","fed":"SMR","gender":"M","t":1,"f":1996,"l":1996,"s":[[1996,1,347]],"at":[[1996,"ITA"]]}]},
+    {"id":101389,"name":"Liano Petrelli","dob":"1965-03-24","height":195,"weight":91},
+    {"id":101498,"name":"Giorgio Colombo","dob":"1963-05-21","height":196,"weight":85},
+    {"id":101529,"name":"Maurizio \"Pimpo\" Pimponi","dob":"1970-09-01","height":190,"weight":89},
+    {"id":101714,"name":"Diego Caielli","dob":"1977-09-04","height":198,"weight":100},
+    {"id":101783,"name":"Marcello Abbondanza","dob":"1970-08-24","height":null,"weight":null},
+    {"id":101784,"name":"Enrico Maccagni","dob":"1968-05-07","height":null,"weight":null},
+    {"id":101885,"name":"Pietro Salvi","dob":null,"height":null,"weight":null},
+    {"id":101886,"name":"Cristiano Rubini","dob":null,"height":null,"weight":null},
+    {"id":101887,"name":"Claudio Maurelli","dob":null,"height":null,"weight":null},
+    {"id":101889,"name":"Filippo Orsatti","dob":null,"height":null,"weight":null},
+    {"id":101912,"name":"Paolo \"Crazy Paul\" Bina","dob":"1964-05-17","height":null,"weight":null},
+    {"id":101926,"name":"Maurizio Carletti","dob":"1969-01-09","height":196,"weight":96},
+    {"id":101933,"name":"Massimo Marino","dob":"1969-10-11","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":101937,"name":"Massimo Bedino","dob":null,"height":null,"weight":null},
+    {"id":101938,"name":"Fosco Cicola","dob":"1974-07-02","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":102021,"name":"Andrea Toni","dob":"1962-10-23","height":null,"weight":null},
+    {"id":102089,"name":"Angelo Caso","dob":"1970-05-03","height":190,"weight":87},
+    {"id":102131,"name":"Matteo 'Il Teo' De Cecco","dob":"1969-01-23","height":194,"weight":90},
+    {"id":102307,"name":"Sandro \"Giogio\" Cordovana","dob":"1973-05-17","height":null,"weight":null},
+    {"id":102309,"name":"Giovanni \"Dupon\" Tarantini","dob":"1976-08-12","height":null,"weight":null},
+    {"id":102310,"name":"Luca \"Dupon\" Tarantini","dob":"1976-08-12","height":null,"weight":null},
+    {"id":102311,"name":"Luigi \"Japo\" Martini","dob":"1971-11-26","height":191,"weight":94},
+    {"id":102312,"name":"Piero Simoni","dob":null,"height":null,"weight":null},
+    {"id":102313,"name":"Gianluca Pozzato","dob":"1969-04-05","height":190,"weight":89},
+    {"id":102315,"name":"Mauro \"Devil\" Mercanti","dob":"1976-06-01","height":null,"weight":null},
+    {"id":102376,"name":"Fabrizio Rolando","dob":null,"height":null,"weight":null},
+    {"id":102402,"name":"Gianluca Casadei","dob":"1978-06-13","height":null,"weight":null},
+    {"id":102515,"name":"Antonio Scardino","dob":null,"height":null,"weight":null},
+    {"id":102555,"name":"Giorgio Giordano","dob":"1970-12-07","height":null,"weight":null},
+    {"id":102556,"name":"Alessandro Abba","dob":"1961-12-28","height":null,"weight":null},
+    {"id":102557,"name":"Giulio Mosci","dob":"1971-09-23","height":186,"weight":78},
+    {"id":102558,"name":"Eugenio Amore","dob":"1972-02-17","height":193,"weight":91,"tour":{"gold":3,"silver":2,"bronze":1}},
+    {"id":102605,"name":"Simone Bendandi","dob":"1976-08-07","height":null,"weight":null},
+    {"id":102622,"name":"Roberto Mosca","dob":null,"height":null,"weight":null},
+    {"id":102635,"name":"Massimiliano Piccinetti","dob":null,"height":null,"weight":null},
+    {"id":102648,"name":"Matteo Varnier","dob":"1979-10-16","height":null,"weight":null,"tour":{"gold":0,"silver":3,"bronze":0}},
+    {"id":102661,"name":"Mario Marolda","dob":"1976-12-05","height":188,"weight":84},
+    {"id":102667,"name":"Marcello Canzian","dob":"1974-08-29","height":192,"weight":94,"away":[{"id":102666,"name":"Enzo Gerotto","fed":"SMR","gender":"M","t":3,"f":1999,"l":2005,"s":[[1999,2,210],[2005,1,223]],"at":[[1999,"SMR"],[2005,"ITA"]]}]},
+    {"id":102670,"name":"Giorgio Cicchelli","dob":"1970-07-16","height":null,"weight":null},
+    {"id":103100,"name":"Lorenzo Simeon","dob":"1975-10-30","height":193,"weight":83},
+    {"id":103101,"name":"Giancarlo \"Jack\" Salvador","dob":"1975-05-05","height":196,"weight":87},
+    {"id":103103,"name":"Riccardo Fenili","dob":"1975-10-06","height":193,"weight":96,"tour":{"gold":4,"silver":2,"bronze":1}},
+    {"id":103104,"name":"Marco Martinelli","dob":"1965-10-09","height":null,"weight":null},
+    {"id":103105,"name":"Vittorio Bortini","dob":null,"height":null,"weight":null},
+    {"id":103106,"name":"Roberto Marini","dob":"1974-03-07","height":192,"weight":86},
+    {"id":103278,"name":"Wout Wijsmans","dob":"1977-10-30","height":201,"weight":98,"away":[{"id":102604,"name":"Frederik \"Fredo\" Delanghe","fed":"BEL","gender":"M","t":5,"f":2001,"l":2002,"s":[[2001,4,199],[2002,1,206]],"at":[[2001,"ITA"],[2002,"ITA"]]},{"id":100765,"name":"Jacques Kempenaers","fed":"BEL","gender":"M","t":3,"f":2003,"l":2003,"s":[[2003,3,205]],"at":[[2003,"BEL"]]}]},
+    {"id":103506,"name":"Matteo Cherubin","dob":null,"height":null,"weight":null},
+    {"id":103507,"name":"Paolo Amari","dob":null,"height":null,"weight":null},
+    {"id":103508,"name":"Maurizio Latelli","dob":null,"height":null,"weight":null},
+    {"id":103620,"name":"Andrea Tomatis","dob":"1978-04-09","height":197,"weight":80,"tour":{"gold":0,"silver":1,"bronze":1}},
+    {"id":103743,"name":"Diego Nota","dob":"1979-08-10","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":103936,"name":"Claudio Carletti","dob":"1982-02-18","height":null,"weight":null},
+    {"id":103938,"name":"Massimiliano Zunino","dob":"1984-06-28","height":null,"weight":null},
+    {"id":103939,"name":"Alessio Marri","dob":"1982-09-15","height":null,"weight":null},
+    {"id":103972,"name":"Danilo Lorenzini","dob":"1983-03-06","height":null,"weight":null},
+    {"id":103973,"name":"Davide Giuffrida","dob":"1982-11-12","height":null,"weight":null},
+    {"id":103998,"name":"Alessandro Spanakis","dob":"1978-08-01","height":null,"weight":null},
+    {"id":104256,"name":"Erardo Meggiolaro","dob":"1977-10-04","height":null,"weight":null},
+    {"id":104301,"name":"Daniele Desiderio","dob":"1979-01-06","height":null,"weight":null},
+    {"id":104302,"name":"Giuseppe Patriarca","dob":"1977-03-23","height":null,"weight":null},
+    {"id":104401,"name":"Riccardo Garofalo","dob":"1986-07-26","height":null,"weight":null},
+    {"id":104402,"name":"Fabio Giorlando","dob":"1984-06-12","height":null,"weight":null},
+    {"id":104403,"name":"Stefano Duraute","dob":"1984-01-06","height":null,"weight":null},
+    {"id":104404,"name":"Paolo Fiore","dob":"1985-02-01","height":null,"weight":null},
+    {"id":104822,"name":"Domenico Apicella","dob":null,"height":null,"weight":null},
+    {"id":104824,"name":"Fabio Casali","dob":null,"height":null,"weight":null},
+    {"id":104825,"name":"Thomas Casali","dob":"1972-03-20","height":182,"weight":85},
+    {"id":104826,"name":"Matteo Targhini","dob":null,"height":null,"weight":null},
+    {"id":104828,"name":"Simone Baldessoei","dob":null,"height":null,"weight":null},
+    {"id":104830,"name":"Masimiliano Otgianu","dob":null,"height":null,"weight":null},
+    {"id":104878,"name":"Giorgio Domenghini","dob":"1977-03-17","height":190,"weight":90,"tour":{"gold":2,"silver":0,"bronze":2}},
+    {"id":104879,"name":"Paolo Ficosecco","dob":"1979-09-22","height":198,"weight":92,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":104880,"name":"Matteo Galli","dob":"1983-06-21","height":180,"weight":72},
+    {"id":104888,"name":"Simone Maggioli","dob":null,"height":null,"weight":null},
+    {"id":104889,"name":"Mattia Filanti","dob":null,"height":null,"weight":null},
+    {"id":104890,"name":"Riccardo Grassini","dob":null,"height":null,"weight":null},
+    {"id":104904,"name":"Marco Tasca","dob":null,"height":null,"weight":null},
+    {"id":104905,"name":"Gianluca Ugolini","dob":null,"height":null,"weight":null},
+    {"id":104927,"name":"Fabrizio Migliosi","dob":null,"height":null,"weight":null},
+    {"id":104932,"name":"Andrea Petri","dob":null,"height":null,"weight":null},
+    {"id":104933,"name":"Robert Torello","dob":"1976-04-23","height":186,"weight":90},
+    {"id":104996,"name":"Enrico Balletto","dob":null,"height":null,"weight":null},
+    {"id":105077,"name":"Andrea Collini","dob":null,"height":null,"weight":null},
+    {"id":105078,"name":"Pietro Pezzi","dob":null,"height":null,"weight":null},
+    {"id":105079,"name":"Gabriele E. Parisi","dob":null,"height":null,"weight":null},
+    {"id":105080,"name":"Andrea Russo","dob":null,"height":null,"weight":null},
+    {"id":105122,"name":"Stefano Paolo Provenzano","dob":null,"height":null,"weight":null},
+    {"id":105161,"name":"Luca De Gennaro","dob":null,"height":null,"weight":null},
+    {"id":105162,"name":"Michele De Prisco","dob":null,"height":null,"weight":null},
+    {"id":112158,"name":"Matteo Paoletti","dob":"1982-05-27","height":205,"weight":95},
+    {"id":113220,"name":"Alberto Cisolla","dob":"1977-10-10","height":197,"weight":86},
+    {"id":113306,"name":"Andrea Anastasi","dob":"1960-10-08","height":null,"weight":null},
+    {"id":115726,"name":"Tchernichov Vladimir","dob":null,"height":null,"weight":null},
+    {"id":116331,"name":"Giuseppe Bua","dob":null,"height":null,"weight":null},
+    {"id":116394,"name":"Monopoli Natale","dob":null,"height":null,"weight":null},
+    {"id":116407,"name":"Simone Di Tommaso","dob":null,"height":null,"weight":null},
+    {"id":116531,"name":"Balsamo Yuri","dob":null,"height":null,"weight":null},
+    {"id":116532,"name":"Cavaliere Rodolfo","dob":"1974-11-10","height":194,"weight":92},
+    {"id":116540,"name":"Giorgio Pizzolotto","dob":null,"height":null,"weight":null},
+    {"id":116541,"name":"Pietro Ioppi","dob":"2011-08-22","height":null,"weight":null},
+    {"id":116542,"name":"Nicola Daldello","dob":"1983-05-06","height":180,"weight":75},
+    {"id":116549,"name":"Emilio Maniero","dob":null,"height":null,"weight":null},
+    {"id":116618,"name":"Mario Bonamici","dob":null,"height":null,"weight":null},
+    {"id":116891,"name":"Francesco Mattioli","dob":null,"height":null,"weight":null},
+    {"id":117287,"name":"Riccardo Bizzotto","dob":null,"height":null,"weight":null},
+    {"id":117409,"name":"Paolo Ingrosso","dob":"1988-02-12","height":192,"weight":74,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":117410,"name":"Matteo Ingrosso","dob":"1988-02-12","height":190,"weight":75,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":117423,"name":"Antonio De Paola","dob":null,"height":null,"weight":null},
+    {"id":117430,"name":"Francesco Giontella","dob":null,"height":null,"weight":null},
+    {"id":117462,"name":"Mirco Guidolin","dob":null,"height":null,"weight":null},
+    {"id":117912,"name":"Ivan Francescato","dob":null,"height":null,"weight":null},
+    {"id":117983,"name":"Daniele Rossi","dob":null,"height":null,"weight":null},
+    {"id":118194,"name":"Paolo Nicolai","dob":"1988-08-06","height":203,"weight":91,"olympics":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":4,"silver":11,"bronze":13}},
+    {"id":118195,"name":"Belcecchi Filippo","dob":null,"height":null,"weight":null},
+    {"id":118241,"name":"Giorgio Zauli","dob":"1984-04-09","height":null,"weight":null},
+    {"id":118650,"name":"Christian Sacco","dob":null,"height":null,"weight":null},
+    {"id":118651,"name":"Samuele Fioretta","dob":"1983-08-03","height":null,"weight":null},
+    {"id":118652,"name":"Davide Dal Molin","dob":"1978-01-21","height":195,"weight":90},
+    {"id":118655,"name":"Riccardo Giumelli","dob":"1980-12-01","height":null,"weight":null},
+    {"id":118662,"name":"Lorenzo Passoni","dob":"1979-12-17","height":184,"weight":74},
+    {"id":119326,"name":"Luca Gottardo","dob":null,"height":null,"weight":null},
+    {"id":119327,"name":"Jakov Maniero","dob":null,"height":null,"weight":null},
+    {"id":119330,"name":"Benito Marinucci","dob":"1989-06-02","height":null,"weight":null},
+    {"id":119333,"name":"Davide Guido","dob":null,"height":null,"weight":null},
+    {"id":120020,"name":"Andrea Carmè","dob":null,"height":null,"weight":null},
+    {"id":120058,"name":"Matteo La Rocca","dob":null,"height":null,"weight":null},
+    {"id":120107,"name":"Matteo Bertoli","dob":"1988-07-28","height":null,"weight":null},
+    {"id":120108,"name":"Matteo Lancellotti","dob":null,"height":null,"weight":null},
+    {"id":120124,"name":"Ottavio Ucci","dob":null,"height":null,"weight":null},
+    {"id":120127,"name":"Massimiliano Falaschetti","dob":null,"height":null,"weight":null},
+    {"id":120426,"name":"Cosimo Vestita","dob":"1973-09-03","height":183,"weight":72},
+    {"id":120427,"name":"Aldo Tallone","dob":"1973-09-04","height":null,"weight":null},
+    {"id":120511,"name":"Ivan Zaytsev","dob":"1988-10-02","height":204,"weight":100,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":120774,"name":"Daniele Lupo","dob":"1991-05-06","height":195,"weight":80,"olympics":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":4,"silver":8,"bronze":10}},
+    {"id":120775,"name":"Alberto Bigarelli","dob":"1990-06-05","height":null,"weight":null},
+    {"id":120776,"name":"Francesco Montinaro","dob":"1990-05-14","height":null,"weight":null},
+    {"id":120866,"name":"Rossano Bertocco","dob":"1969-11-21","height":170,"weight":72},
+    {"id":120867,"name":"Francesco Sposato","dob":"1977-06-27","height":null,"weight":null},
+    {"id":122381,"name":"Alberto Casadei","dob":"1984-09-15","height":null,"weight":null},
+    {"id":122419,"name":"Mauro Montanari","dob":"1977-08-28","height":196,"weight":88},
+    {"id":122471,"name":"Luca Colaberardino","dob":"1979-06-29","height":185,"weight":82},
+    {"id":124711,"name":"Michele Baratto","dob":"1992-11-04","height":null,"weight":null},
+    {"id":124712,"name":"Tiziano Andreatta","dob":"1992-01-28","height":193,"weight":85,"tour":{"gold":3,"silver":1,"bronze":3}},
+    {"id":124850,"name":"Pasquale Gabriele","dob":"1991-01-05","height":201,"weight":87},
+    {"id":124863,"name":"Alessandro Preti","dob":"1992-08-07","height":205,"weight":100},
+    {"id":125259,"name":"Alessandro Bondi","dob":"1991-12-24","height":null,"weight":null},
+    {"id":125397,"name":"Gabriele Ghiga","dob":"1988-05-05","height":null,"weight":null},
+    {"id":125445,"name":"Giuseppe Ottaviani","dob":"1991-12-12","height":null,"weight":null},
+    {"id":131979,"name":"Francesco Vanni","dob":"1987-03-05","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":132141,"name":"Alex Ranghieri","dob":"1987-06-18","height":198,"weight":88,"tour":{"gold":4,"silver":4,"bronze":5}},
+    {"id":132142,"name":"Emanuele Monduzzi","dob":"1970-12-28","height":190,"weight":98},
+    {"id":132349,"name":"Mauricio Mugnaini","dob":"1983-08-23","height":null,"weight":null},
+    {"id":132781,"name":"Nicola Tiozzo","dob":"1993-05-26","height":null,"weight":null},
+    {"id":132782,"name":"Gregorio Vanin","dob":"1993-03-06","height":null,"weight":null},
+    {"id":132845,"name":"Fabrizio Venditti","dob":"1986-07-03","height":198,"weight":95},
+    {"id":132883,"name":"Matteo Martino","dob":"1987-01-28","height":198,"weight":98},
+    {"id":133359,"name":"Raffaele Cionna","dob":"1991-01-28","height":null,"weight":null},
+    {"id":135525,"name":"Gianluca Oligeri","dob":"1973-03-04","height":null,"weight":null},
+    {"id":135624,"name":"Nicola Boldrini","dob":"1993-02-10","height":null,"weight":null},
+    {"id":135625,"name":"Matteo Romiti","dob":"1993-02-27","height":186,"weight":75},
+    {"id":135919,"name":"Matteo Cecchini","dob":"1990-10-14","height":188,"weight":76},
+    {"id":136787,"name":"Francesco De Luca","dob":"1986-10-26","height":null,"weight":null},
+    {"id":138308,"name":"Roberto Papagna","dob":"1963-03-05","height":null,"weight":null},
+    {"id":138631,"name":"Sergio Seregni","dob":"1987-01-18","height":null,"weight":null},
+    {"id":138637,"name":"Marco Sordelli","dob":"1985-03-08","height":180,"weight":74},
+    {"id":138638,"name":"Filippo Cecchini","dob":"1987-11-23","height":null,"weight":null},
+    {"id":138664,"name":"Andrea D'Avanzo","dob":"1982-02-25","height":null,"weight":null},
+    {"id":139561,"name":"Giacomo De Fabritiis","dob":"1995-09-23","height":192,"weight":82},
+    {"id":139735,"name":"Javier Facundo Martinez","dob":"1995-02-27","height":191,"weight":null},
+    {"id":142043,"name":"Federico Morichelli","dob":"1990-01-15","height":null,"weight":null},
+    {"id":143692,"name":"Luca Spirito","dob":"1993-10-30","height":199,"weight":95},
+    {"id":143730,"name":"Manuel Alfieri","dob":"1998-05-20","height":189,"weight":80,"tour":{"gold":1,"silver":2,"bronze":1}},
+    {"id":143731,"name":"Paolo Di Silvestre","dob":"1998-01-31","height":null,"weight":null},
+    {"id":144114,"name":"Enrico Rossi","dob":"1993-06-27","height":195,"weight":93,"tour":{"gold":3,"silver":2,"bronze":0}},
+    {"id":145118,"name":"Fabrizio Manni","dob":"1986-12-20","height":194,"weight":96,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":146353,"name":"Marco Caminati","dob":"1992-09-23","height":192,"weight":87,"tour":{"gold":3,"silver":2,"bronze":0}},
+    {"id":146514,"name":"Davide Michienzi","dob":"1987-07-10","height":193,"weight":90},
+    {"id":146733,"name":"Felice Sette","dob":"1996-02-27","height":null,"weight":null},
+    {"id":147027,"name":"Riccardo Mazzon","dob":"1996-01-31","height":null,"weight":null},
+    {"id":147887,"name":"Alessandro Carucci","dob":"1994-04-19","height":194,"weight":86},
+    {"id":149100,"name":"Oleg Antonov","dob":"1988-07-28","height":198,"weight":88,"away":[{"id":100114,"name":"Andrei Gorbenko","fed":"RUS","gender":"M","t":2,"f":1992,"l":1999,"s":[[1992,1,224],[1999,1,175]],"at":[[1992,"RUS"],[1999,"RUS"]]}]},
+    {"id":149300,"name":"Fabio Matteoni","dob":"1987-10-24","height":185,"weight":82},
+    {"id":150379,"name":"Adrian Ignacio Carambula Raurich","dob":"1988-03-16","height":null,"weight":84,"tour":{"gold":2,"silver":2,"bronze":4}},
+    {"id":150389,"name":"Francesco Cottarelli","dob":"1996-10-16","height":196,"weight":null},
+    {"id":151113,"name":"Andrea Abbiati","dob":"1986-02-05","height":189,"weight":90,"tour":{"gold":1,"silver":0,"bronze":2}},
+    {"id":151165,"name":"Nicolò Conti","dob":"1992-02-04","height":185,"weight":85},
+    {"id":151199,"name":"daniele Di Stefano","dob":"1993-04-20","height":null,"weight":null},
+    {"id":151252,"name":"Carlo Bonifazi","dob":"1992-11-16","height":190,"weight":90,"tour":{"gold":2,"silver":2,"bronze":0}},
+    {"id":151263,"name":"Valerio Del Carpio","dob":"1984-09-08","height":null,"weight":null},
+    {"id":151504,"name":"Michele Crusca","dob":"1994-09-26","height":null,"weight":null},
+    {"id":153207,"name":"Paolo Cappio","dob":"1999-10-23","height":null,"weight":null},
+    {"id":153808,"name":"Jakob Windisch","dob":"1999-03-20","height":200,"weight":90,"tour":{"gold":6,"silver":0,"bronze":2}},
+    {"id":155625,"name":"Davide Boncompagni","dob":"1991-09-25","height":195,"weight":86},
+    {"id":155954,"name":"Camozzi Matteo","dob":"1996-03-28","height":null,"weight":null},
+    {"id":156288,"name":"Davide Acconci","dob":"1997-05-24","height":null,"weight":null},
+    {"id":157066,"name":"Davis Krumins","dob":"1990-06-28","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":158171,"name":"omar Bartoli","dob":"1991-08-11","height":null,"weight":null},
+    {"id":160606,"name":"Davide Benzi","dob":"1993-09-24","height":181,"weight":77,"tour":{"gold":3,"silver":3,"bronze":0}},
+    {"id":161170,"name":"Andrea Storari","dob":"1990-12-11","height":null,"weight":null},
+    {"id":161702,"name":"Marco Raisa","dob":"1987-02-20","height":187,"weight":95},
+    {"id":163448,"name":"Alberto Di Silvestre","dob":"2000-07-12","height":null,"weight":null},
+    {"id":163923,"name":"Samuele Cottafava","dob":"1998-11-01","height":194,"weight":82,"tour":{"gold":5,"silver":4,"bronze":5}},
+    {"id":164186,"name":"Franco Arezzo Di Trifiletto","dob":"1993-01-13","height":190,"weight":87},
+    {"id":164781,"name":"Mauro Sacripanti","dob":"1998-05-15","height":190,"weight":78},
+    {"id":164787,"name":"Antonio Basti","dob":"1977-02-25","height":187,"weight":85},
+    {"id":165099,"name":"Luca Cravera","dob":"1997-07-27","height":187,"weight":77},
+    {"id":165100,"name":"Tobia Marchetto","dob":"2000-11-05","height":192,"weight":87,"tour":{"gold":4,"silver":2,"bronze":1}},
+    {"id":167208,"name":"Filippo Boesso","dob":"1993-08-02","height":null,"weight":null},
+    {"id":167642,"name":"MARCO MAGINI","dob":"1998-01-29","height":null,"weight":null},
+    {"id":167671,"name":"Theo Hanni","dob":"2003-05-19","height":196,"weight":99},
+    {"id":169374,"name":"Emanuele LABATE","dob":"1984-12-05","height":178,"weight":75},
+    {"id":169375,"name":"Omar LOUZA","dob":"1999-01-15","height":null,"weight":null},
+    {"id":169569,"name":"Luca Bigarelli","dob":"1991-12-28","height":199,"weight":90},
+    {"id":169572,"name":"Nicolò Siccardi","dob":"1995-05-09","height":null,"weight":null},
+    {"id":169575,"name":"Marco Viscovich","dob":"2001-06-20","height":191,"weight":80,"tour":{"gold":4,"silver":1,"bronze":4}},
+    {"id":169579,"name":"Gianluca Dal Corso","dob":"2001-01-09","height":203,"weight":95,"tour":{"gold":4,"silver":4,"bronze":7}},
+    {"id":169854,"name":"Lorenzo PANERATI","dob":"1999-04-15","height":null,"weight":null},
+    {"id":170441,"name":"Federico Geromin","dob":"1996-06-08","height":null,"weight":null},
+    {"id":170507,"name":"Giosuè Andronico","dob":"1996-06-08","height":null,"weight":null},
+    {"id":174835,"name":"Andrea Lancianese","dob":"2002-07-09","height":203,"weight":null},
+    {"id":175341,"name":"Giacomo Titta","dob":"1996-10-16","height":null,"weight":null},
+    {"id":175566,"name":"Giacomo Spadoni","dob":"2001-05-03","height":180,"weight":77,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":179038,"name":"Alberto Moro","dob":"2003-03-02","height":null,"weight":null},
+    {"id":179520,"name":"Riccardo Iervolino","dob":"2003-01-22","height":196,"weight":98,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":180718,"name":"Michael Burgmann","dob":"2004-03-06","height":196,"weight":92},
+    {"id":181232,"name":"Michele Luisetto","dob":"1996-02-23","height":191,"weight":null},
+    {"id":182437,"name":"Gaetano Penna","dob":"2004-12-20","height":205,"weight":77},
+    {"id":182776,"name":"Raoul Acerbi","dob":"2004-11-18","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":183129,"name":"Matteo Camerani","dob":"2002-06-25","height":null,"weight":null},
+    {"id":183814,"name":"Andrea Armellini","dob":"2004-01-10","height":null,"weight":null},
+    {"id":183815,"name":"Filippo Mancini","dob":"2004-09-07","height":190,"weight":83},
+    {"id":184212,"name":"Edoardo Gilardoni","dob":"1991-10-22","height":null,"weight":null},
+    {"id":185249,"name":"Federico Fazari","dob":"1984-07-23","height":null,"weight":null},
+    {"id":187260,"name":"Federico Andronico","dob":"1996-06-24","height":null,"weight":null},
+    {"id":190160,"name":"Giosuè Andronico","dob":"1996-06-24","height":null,"weight":null},
+    {"id":191359,"name":"Marco Ulisse","dob":"2001-06-28","height":191,"weight":85,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":192138,"name":"Matteo Bellucci","dob":"1995-12-18","height":186,"weight":null},
+    {"id":192140,"name":"Simone Podestà","dob":"2001-07-27","height":null,"weight":null},
+    {"id":192141,"name":"Riccardo Copelli","dob":"1996-03-16","height":198,"weight":95},
+    {"id":192395,"name":"Marco Zoli","dob":"2003-10-07","height":188,"weight":84},
+    {"id":192396,"name":"Lorenzo Monti","dob":"2003-04-17","height":193,"weight":81},
+    {"id":193084,"name":"Felix Emilio Ludwig Arpino","dob":"1993-08-16","height":182,"weight":65},
+    {"id":194477,"name":"Andrea Pizziolo","dob":"2001-06-27","height":null,"weight":null},
+    {"id":197902,"name":"Bryan Argilagos","dob":"2007-01-26","height":200,"weight":84},
+    {"id":197905,"name":"Simone Porro","dob":"2007-09-21","height":189,"weight":71},
+    {"id":200338,"name":"Federico Guidi","dob":"1991-05-29","height":194,"weight":82},
+    {"id":200339,"name":"Matteo Giorgi","dob":"2003-02-08","height":183,"weight":69},
+    {"id":201164,"name":"Gerald Ndrecaj","dob":"1999-12-16","height":200,"weight":96},
+    {"id":201225,"name":"Filippo Garra","dob":"2005-08-12","height":198,"weight":85},
+    {"id":203308,"name":"Dario Spolverini","dob":"1998-01-20","height":null,"weight":null},
+    {"id":204985,"name":"Nico Fontana","dob":"1999-12-13","height":null,"weight":null},
+    {"id":209193,"name":"Laurin Zoeschg","dob":"2007-12-25","height":188,"weight":86},
+    {"id":212360,"name":"Matteo Iurisci","dob":"2007-05-29","height":null,"weight":null},
+    {"id":213074,"name":"Nicolas Brucini","dob":"2004-07-05","height":null,"weight":null},
+    {"id":213104,"name":"Riccardo Santomassimo","dob":"2008-04-10","height":195,"weight":75},
+    {"id":215688,"name":"Matteo Marchesan","dob":"2006-02-21","height":null,"weight":null},
+    {"id":215690,"name":"Marco Di Felice","dob":"2008-08-24","height":null,"weight":null},
+    {"id":220132,"name":"Mattia Perini","dob":"1989-01-26","height":null,"weight":null},
+    {"id":221402,"name":"Andrea Sanguanini","dob":"2006-10-30","height":null,"weight":null},
+    {"id":221499,"name":"Francesco Peri","dob":"2005-10-11","height":null,"weight":null},
+    {"id":221566,"name":"Oleksandr Siedykh","dob":"1983-09-15","height":196,"weight":90},
+    {"id":223923,"name":"Davide Borraccino","dob":"1997-07-01","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":224744,"name":"Jack Bernardini","dob":"2009-03-29","height":null,"weight":null},
+    {"id":227130,"name":"Federico Viscuso","dob":"2009-02-09","height":null,"weight":null},
+    {"id":239605,"name":"Leonardo Milani","dob":"2004-10-01","height":null,"weight":null}
   ]
 }

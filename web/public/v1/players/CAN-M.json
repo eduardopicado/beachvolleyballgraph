@@ -2,1909 +2,235 @@
   "country": "CAN",
   "gender": "M",
   "players": [
-    {
-      "id": 100002,
-      "name": "John Child",
-      "dob": "1967-05-04",
-      "height": 189,
-      "weight": 93,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 1,
-        "silver": 5,
-        "bronze": 8
-      }
-    },
-    {
-      "id": 100005,
-      "name": "Edward Drakich",
-      "dob": "1962-09-30",
-      "height": 192,
-      "weight": 90
-    },
-    {
-      "id": 100088,
-      "name": "Mark Heese",
-      "dob": "1969-08-15",
-      "height": 184,
-      "weight": 85,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 1,
-        "silver": 5,
-        "bronze": 8
-      }
-    },
-    {
-      "id": 100089,
-      "name": "Mike Chaloupka",
-      "dob": "1971-06-27",
-      "height": 199,
-      "weight": 98
-    },
-    {
-      "id": 100144,
-      "name": "John Canjar",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100203,
-      "name": "Brian \"Gatz\" Gatzke",
-      "dob": "1964-11-21",
-      "height": 197,
-      "weight": 93
-    },
-    {
-      "id": 100289,
-      "name": "Frank Blasi",
-      "dob": "1966-02-05",
-      "height": 190,
-      "weight": 87,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100637,
-      "name": "Paul Cox",
-      "dob": "1963-03-03",
-      "height": 181,
-      "weight": 80
-    },
-    {
-      "id": 100638,
-      "name": "Marc \"Sparky\" Dunn",
-      "dob": "1965-09-09",
-      "height": 183,
-      "weight": 86
-    },
-    {
-      "id": 100639,
-      "name": "James Olejnik",
-      "dob": "1967-03-23",
-      "height": 195,
-      "weight": 100
-    },
-    {
-      "id": 100722,
-      "name": "Jody Allan Holden",
-      "dob": "1968-08-20",
-      "height": 195,
-      "weight": 95,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 100723,
-      "name": "David Holmes",
-      "dob": "1969-05-18",
-      "height": 188,
-      "weight": 84,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 101066,
-      "name": "James Helmer",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101071,
-      "name": "Stephen Joseph",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101280,
-      "name": "Conrad Leinemann",
-      "dob": "1971-04-02",
-      "height": 193,
-      "weight": 89,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 101333,
-      "name": "Jason Kruger",
-      "dob": "1978-05-16",
-      "height": 193,
-      "weight": 82,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 3
-      },
-      "away": [
-        {
-          "id": 101687,
-          "name": "Louw Franken",
-          "fed": "RSA",
-          "gender": "M",
-          "t": 1,
-          "f": 1996,
-          "l": 1996,
-          "s": [
-            [
-              1996,
-              1,
-              347
-            ]
-          ]
-        },
-        {
-          "id": 101332,
-          "name": "Steven Kruger",
-          "fed": "RSA",
-          "gender": "M",
-          "t": 1,
-          "f": 1995,
-          "l": 1995,
-          "s": [
-            [
-              1995,
-              1,
-              354
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 101634,
-      "name": "Ahren Cadieux",
-      "dob": "1976-04-06",
-      "height": 193,
-      "weight": 85
-    },
-    {
-      "id": 102072,
-      "name": "Michael \"Mike\" Slean",
-      "dob": "1975-08-07",
-      "height": 185,
-      "weight": 79
-    },
-    {
-      "id": 102073,
-      "name": "Djordje Ljubicic",
-      "dob": "1972-03-01",
-      "height": 188,
-      "weight": 85
-    },
-    {
-      "id": 102074,
-      "name": "Christopher Torr",
-      "dob": "1974-11-22",
-      "height": 186,
-      "weight": 84
-    },
-    {
-      "id": 102075,
-      "name": "Shaun Furneaux",
-      "dob": "1976-10-15",
-      "height": 185,
-      "weight": 83
-    },
-    {
-      "id": 102231,
-      "name": "Marc \"Roops\" Roberts",
-      "dob": "1969-04-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102232,
-      "name": "Steve Delaney",
-      "dob": "1976-03-08",
-      "height": 195,
-      "weight": 98
-    },
-    {
-      "id": 102233,
-      "name": "Emmanuel Loeub",
-      "dob": "1973-06-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102234,
-      "name": "Pierre Chamberland",
-      "dob": "1976-12-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102237,
-      "name": "Abraham \"Neil\" Mason",
-      "dob": "1977-03-09",
-      "height": 198,
-      "weight": 95
-    },
-    {
-      "id": 102238,
-      "name": "Jasper Egan",
-      "dob": "1972-05-03",
-      "height": 192,
-      "weight": 85
-    },
-    {
-      "id": 102239,
-      "name": "Cesar Bayan",
-      "dob": "1975-04-08",
-      "height": 173,
-      "weight": 72
-    },
-    {
-      "id": 102240,
-      "name": "John Barrett",
-      "dob": "1962-08-11",
-      "height": 198,
-      "weight": 105
-    },
-    {
-      "id": 102241,
-      "name": "Ed \"Fast Eddie\" Richardson",
-      "dob": "1968-06-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102508,
-      "name": "Everett \"Evie\" Matthews",
-      "dob": "1977-03-29",
-      "height": 173,
-      "weight": 84
-    },
-    {
-      "id": 102510,
-      "name": "James Alexander \"Jamie\" Mackay",
-      "dob": "1975-08-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102511,
-      "name": "Eric Masson",
-      "dob": "1973-11-08",
-      "height": 191,
-      "weight": 95
-    },
-    {
-      "id": 102538,
-      "name": "Vincent Larivée",
-      "dob": "1970-09-18",
-      "height": 165,
-      "weight": 64
-    },
-    {
-      "id": 102541,
-      "name": "Steven John \"Steve\" Smith",
-      "dob": "1967-03-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102634,
-      "name": "Anton Hauser",
-      "dob": "1976-09-05",
-      "height": 190,
-      "weight": 82
-    },
-    {
-      "id": 102910,
-      "name": "Mark Reilly",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102911,
-      "name": "Mike Griffin",
-      "dob": "1975-06-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102985,
-      "name": "Chris Jedlovcnik",
-      "dob": "1968-07-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103062,
-      "name": "Kevin Benn",
-      "dob": "1974-05-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103205,
-      "name": "James Gravelle",
-      "dob": "1975-03-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103266,
-      "name": "Andrew Pelletier",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103371,
-      "name": "Eddie Coleman",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103635,
-      "name": "Brian John Hiebert",
-      "dob": "1979-11-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103682,
-      "name": "Lukas Porosa",
-      "dob": "1982-10-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103683,
-      "name": "Chris Simek",
-      "dob": "1983-01-11",
-      "height": 191,
-      "weight": 84,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 103749,
-      "name": "Alain Arseneau",
-      "dob": "1976-12-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103866,
-      "name": "Patrick Poissant",
-      "dob": "1974-08-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103883,
-      "name": "Darren Goss",
-      "dob": null,
-      "height": 194,
-      "weight": 86
-    },
-    {
-      "id": 103884,
-      "name": "Miguel Domingo",
-      "dob": "1980-06-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103918,
-      "name": "Christian Redmann",
-      "dob": "1982-03-16",
-      "height": 188,
-      "weight": 86,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 104098,
-      "name": "Paul Podstawka",
-      "dob": "1985-05-28",
-      "height": 198,
-      "weight": 86
-    },
-    {
-      "id": 104099,
-      "name": "Adam Podstawka",
-      "dob": "1987-04-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104220,
-      "name": "Josh Binstock",
-      "dob": "1981-01-12",
-      "height": 196,
-      "weight": 98,
-      "tour": {
-        "gold": 1,
-        "silver": 4,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 104221,
-      "name": "Pascal Cloutier",
-      "dob": "1974-05-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104222,
-      "name": "Dany Côté",
-      "dob": "1974-04-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104388,
-      "name": "Matthew David Carere",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104480,
-      "name": "Spencer Holowachuk",
-      "dob": "1986-06-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104481,
-      "name": "Mischa Harris",
-      "dob": "1986-01-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104575,
-      "name": "Richard Van Huizen",
-      "dob": "1975-11-25",
-      "height": 205,
-      "weight": 105
-    },
-    {
-      "id": 104630,
-      "name": "Wes Montgomery",
-      "dob": "1977-10-28",
-      "height": 194,
-      "weight": 92,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104725,
-      "name": "Mark Ellingson",
-      "dob": "1978-05-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104993,
-      "name": "Reid Hall",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104994,
-      "name": "Ben Saxton",
-      "dob": "1988-11-21",
-      "height": 200,
-      "weight": 92,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 4
-      },
-      "away": [
-        {
-          "id": 131994,
-          "name": "Chaim Schalk",
-          "fed": "USA",
-          "gender": "M",
-          "t": 55,
-          "f": 2013,
-          "l": 2017,
-          "s": [
-            [
-              2013,
-              11,
-              295
-            ],
-            [
-              2014,
-              11,
-              301
-            ],
-            [
-              2015,
-              11,
-              271
-            ],
-            [
-              2016,
-              15,
-              257
-            ],
-            [
-              2017,
-              7,
-              233
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 104995,
-      "name": "Bill Pasieka",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105096,
-      "name": "Geordie Glumac",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105097,
-      "name": "Martin Reader",
-      "dob": "1984-05-02",
-      "height": 199,
-      "weight": 96,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      },
-      "away": [
-        {
-          "id": 131994,
-          "name": "Chaim Schalk",
-          "fed": "USA",
-          "gender": "M",
-          "t": 9,
-          "f": 2010,
-          "l": 2011,
-          "s": [
-            [
-              2010,
-              5,
-              230
-            ],
-            [
-              2011,
-              4,
-              201
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 105140,
-      "name": "Adrian Weglo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105141,
-      "name": "Jake Magalon",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105142,
-      "name": "Ryan Cawsey",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 113791,
-      "name": "Daniel Lewis",
-      "dob": "1976-04-03",
-      "height": 189,
-      "weight": 86
-    },
-    {
-      "id": 115222,
-      "name": "Ray Sewell",
-      "dob": "1981-11-24",
-      "height": 182,
-      "weight": 75
-    },
-    {
-      "id": 115223,
-      "name": "Scott Lahey",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116054,
-      "name": "Dan Casey",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116055,
-      "name": "Adam Parkes",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117113,
-      "name": "Jessi Lelliott",
-      "dob": "1979-03-05",
-      "height": 188,
-      "weight": 81,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 117258,
-      "name": "Kyle Bryce",
-      "dob": "1987-05-13",
-      "height": 200,
-      "weight": 85
-    },
-    {
-      "id": 117403,
-      "name": "Kevin Lewis",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117404,
-      "name": "Rob Dyba",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117405,
-      "name": "Sholan Trivedi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117888,
-      "name": "Jon Bain",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117891,
-      "name": "Jason Hofer",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117919,
-      "name": "Anthony Deutscher",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117994,
-      "name": "Ryan DeBruyn",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118000,
-      "name": "Stuart Hamilton",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118153,
-      "name": "Kyle Bryce",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118231,
-      "name": "Duncan Cairns",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118234,
-      "name": "Tom Podstawka",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119085,
-      "name": "Josh Lichty",
-      "dob": "1989-02-12",
-      "height": 189,
-      "weight": 87
-    },
-    {
-      "id": 119086,
-      "name": "Daniel Rosenbaum",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119087,
-      "name": "Riley Mcfarland",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120043,
-      "name": "Sam Pedlow",
-      "dob": "1987-06-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120218,
-      "name": "Tyler Fraser",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120465,
-      "name": "Steve Gotch",
-      "dob": "1985-10-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120514,
-      "name": "Matt Zbyszewski",
-      "dob": "1981-08-21",
-      "height": 192,
-      "weight": 86,
-      "away": [
-        {
-          "id": 131994,
-          "name": "Chaim Schalk",
-          "fed": "USA",
-          "gender": "M",
-          "t": 2,
-          "f": 2012,
-          "l": 2012,
-          "s": [
-            [
-              2012,
-              2,
-              116
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 120716,
-      "name": "Rex Fenton",
-      "dob": "1990-09-12",
-      "height": 192,
-      "weight": null
-    },
-    {
-      "id": 120717,
-      "name": "Samuel Schachter",
-      "dob": "1990-05-08",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 3,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 120780,
-      "name": "Josh Chisholm",
-      "dob": "1984-10-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120910,
-      "name": "Jeremy Groenveld",
-      "dob": "1988-04-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 121934,
-      "name": "Ben Feist",
-      "dob": "1979-10-05",
-      "height": 190,
-      "weight": 85
-    },
-    {
-      "id": 122210,
-      "name": "Steve Corothers",
-      "dob": "1981-03-29",
-      "height": 193,
-      "weight": 95
-    },
-    {
-      "id": 122264,
-      "name": "Dave Quinn",
-      "dob": "1982-05-25",
-      "height": 198,
-      "weight": 95
-    },
-    {
-      "id": 122530,
-      "name": "Matthew Fugard",
-      "dob": "1983-06-11",
-      "height": 201,
-      "weight": 94
-    },
-    {
-      "id": 124973,
-      "name": "Ben Chow",
-      "dob": "1992-03-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124976,
-      "name": "Nick Del Bianco",
-      "dob": "1992-02-06",
-      "height": 195,
-      "weight": 88
-    },
-    {
-      "id": 124977,
-      "name": "William Sidgwick",
-      "dob": "1991-07-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124978,
-      "name": "Garrett May",
-      "dob": "1992-04-14",
-      "height": 191,
-      "weight": null
-    },
-    {
-      "id": 125480,
-      "name": "Daniel Dearing",
-      "dob": "1990-01-13",
-      "height": 197,
-      "weight": 87,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 131606,
-      "name": "Jasmin Cull",
-      "dob": "1983-09-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132699,
-      "name": "Aaron Nusbaum",
-      "dob": "1993-01-13",
-      "height": 187,
-      "weight": 82
-    },
-    {
-      "id": 132700,
-      "name": "Grant O'Gorman",
-      "dob": "1993-11-02",
-      "height": 188,
-      "weight": 88,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 133310,
-      "name": "Michael Plantinga",
-      "dob": "1990-05-23",
-      "height": 199,
-      "weight": 88
-    },
-    {
-      "id": 135226,
-      "name": "Maverick Hatch",
-      "dob": "1987-03-20",
-      "height": 201,
-      "weight": 92
-    },
-    {
-      "id": 135344,
-      "name": "Francois-Guy Allaire",
-      "dob": "1987-12-06",
-      "height": 185,
-      "weight": 86
-    },
-    {
-      "id": 135345,
-      "name": "Andrew Hinchey",
-      "dob": "1985-06-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135346,
-      "name": "Ryan Vandenburg",
-      "dob": "1983-09-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135347,
-      "name": "Cameron Wheelan",
-      "dob": "1988-09-19",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 135385,
-      "name": "Simon Fecteau-Boutin",
-      "dob": "1987-12-17",
-      "height": 190,
-      "weight": 98
-    },
-    {
-      "id": 135516,
-      "name": "Andrew Kocur",
-      "dob": "1994-07-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136283,
-      "name": "Francis Cuillerier",
-      "dob": "1979-12-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136304,
-      "name": "Dominique Lague",
-      "dob": "1984-09-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136350,
-      "name": "Charles-Antoine Séguin",
-      "dob": "1991-12-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136371,
-      "name": "Samuel Surprenant",
-      "dob": "1991-05-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136498,
-      "name": "Fiodar Kazhamiaka",
-      "dob": "1992-02-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 137035,
-      "name": "Felipe Humana-Paredes",
-      "dob": "1989-02-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139264,
-      "name": "Liam Kopp",
-      "dob": "1995-01-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139265,
-      "name": "William Hoey",
-      "dob": "1994-11-24",
-      "height": 209,
-      "weight": 106
-    },
-    {
-      "id": 139429,
-      "name": "Steven Marshall",
-      "dob": "1989-11-23",
-      "height": 191,
-      "weight": 85,
-      "away": [
-        {
-          "id": 131994,
-          "name": "Chaim Schalk",
-          "fed": "USA",
-          "gender": "M",
-          "t": 1,
-          "f": 2011,
-          "l": 2011,
-          "s": [
-            [
-              2011,
-              1,
-              229
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 139820,
-      "name": "Dallas Keith",
-      "dob": "1992-12-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139822,
-      "name": "Greg Simone",
-      "dob": "1993-06-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 140042,
-      "name": "Danny Demyanenko",
-      "dob": "1994-07-13",
-      "height": 196,
-      "weight": 101
-    },
-    {
-      "id": 140044,
-      "name": "Alexander William Russell",
-      "dob": "1993-06-25",
-      "height": 210,
-      "weight": 100,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 141595,
-      "name": "Jake MacNeil",
-      "dob": "1996-05-01",
-      "height": 183,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 141598,
-      "name": "Gabriel Burlacu",
-      "dob": "1994-02-13",
-      "height": 196,
-      "weight": 92
-    },
-    {
-      "id": 142100,
-      "name": "Alex Corsi Caya",
-      "dob": "1989-02-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 142770,
-      "name": "Devon Dunn",
-      "dob": "1995-04-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 142771,
-      "name": "Kris McCrea",
-      "dob": "1995-07-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145817,
-      "name": "Sergiy Grabovskyy",
-      "dob": "1994-08-19",
-      "height": 187,
-      "weight": 84,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 145818,
-      "name": "Chris Towe",
-      "dob": "1996-01-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145882,
-      "name": "Parvir Jhajj",
-      "dob": "1998-01-26",
-      "height": 185,
-      "weight": 72
-    },
-    {
-      "id": 145883,
-      "name": "Taryq Sani",
-      "dob": "1998-11-06",
-      "height": 182,
-      "weight": 81
-    },
-    {
-      "id": 145892,
-      "name": "Zachery Albert",
-      "dob": "1997-04-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145893,
-      "name": "Craig Ireland",
-      "dob": "1997-10-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 146484,
-      "name": "Lucas Palmer",
-      "dob": "1995-05-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 146485,
-      "name": "Liam Palmer",
-      "dob": "1995-05-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 148399,
-      "name": "Blake Scheerhoorn",
-      "dob": "1995-01-06",
-      "height": 202,
-      "weight": 90
-    },
-    {
-      "id": 148400,
-      "name": "Lucas Coleman",
-      "dob": "1995-01-14",
-      "height": 190,
-      "weight": 82
-    },
-    {
-      "id": 151875,
-      "name": "Arran Chambers",
-      "dob": "1995-04-12",
-      "height": 202,
-      "weight": 93
-    },
-    {
-      "id": 154905,
-      "name": "Adam Thompson",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156181,
-      "name": "Robbie Abrams",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156182,
-      "name": "Aidan Saladana",
-      "dob": "1996-08-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157321,
-      "name": "Sharone Vernon-Evans",
-      "dob": "1998-08-28",
-      "height": 206,
-      "weight": 108
-    },
-    {
-      "id": 157334,
-      "name": "Jordan Pereira",
-      "dob": "1998-03-08",
-      "height": 185,
-      "weight": 85
-    },
-    {
-      "id": 157558,
-      "name": "Hugo Rosso-Bonneau",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157810,
-      "name": "Tomas Sorra",
-      "dob": "1999-01-19",
-      "height": 189,
-      "weight": 81
-    },
-    {
-      "id": 157811,
-      "name": "Dylan Devecseri",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 160668,
-      "name": "Ivan Reka",
-      "dob": "1993-11-08",
-      "height": 190,
-      "weight": 90
-    },
-    {
-      "id": 161788,
-      "name": "Logan Mend",
-      "dob": "1997-05-10",
-      "height": 196,
-      "weight": 102
-    },
-    {
-      "id": 161789,
-      "name": "Austin Valjas",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 161790,
-      "name": "Andrew Kos",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 162006,
-      "name": "Aleksandar Zdravkov Borisov",
-      "dob": "1995-07-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 162256,
-      "name": "Jordan Deshane",
-      "dob": "1997-09-03",
-      "height": 197,
-      "weight": 90
-    },
-    {
-      "id": 166905,
-      "name": "Robert Kemp",
-      "dob": "2000-06-15",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 166906,
-      "name": "Cole Irwin",
-      "dob": "2001-06-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 168711,
-      "name": "Max Losier",
-      "dob": "2001-10-29",
-      "height": 192,
-      "weight": 90
-    },
-    {
-      "id": 168712,
-      "name": "Judah Verbeek",
-      "dob": "2001-10-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 168774,
-      "name": "Steven Abrams",
-      "dob": "2001-01-10",
-      "height": 187,
-      "weight": 74,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 168915,
-      "name": "Coltyn Liu",
-      "dob": "1999-06-07",
-      "height": 193,
-      "weight": 95
-    },
-    {
-      "id": 169057,
-      "name": "Matthew Donovan",
-      "dob": "1995-05-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169387,
-      "name": "Tim Ryan",
-      "dob": "1978-08-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169747,
-      "name": "Roland Bouchard",
-      "dob": "1997-04-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 171519,
-      "name": "Eric Girard",
-      "dob": "1994-09-09",
-      "height": 190,
-      "weight": null
-    },
-    {
-      "id": 172785,
-      "name": "Jonathan Pickett",
-      "dob": "2001-06-11",
-      "height": 198,
-      "weight": 88,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 172998,
-      "name": "Joshua Timukas",
-      "dob": "2001-07-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 172999,
-      "name": "Ben Kerkhoff",
-      "dob": "2000-12-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 174750,
-      "name": "Mark Spehr",
-      "dob": "1985-03-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 177082,
-      "name": "Zeid Hamadeh",
-      "dob": "1996-09-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 178449,
-      "name": "Jérémie Doyon",
-      "dob": "2000-04-05",
-      "height": 194,
-      "weight": 82
-    },
-    {
-      "id": 178483,
-      "name": "Guillaume Rivest",
-      "dob": "1999-03-07",
-      "height": 190,
-      "weight": 90
-    },
-    {
-      "id": 178688,
-      "name": "Yoan David",
-      "dob": "1999-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 178710,
-      "name": "Anthony De Girolamo",
-      "dob": "1999-05-22",
-      "height": 185,
-      "weight": 79
-    },
-    {
-      "id": 182538,
-      "name": "Daniil Hershtynovich",
-      "dob": "2005-03-21",
-      "height": 206,
-      "weight": 101
-    },
-    {
-      "id": 182539,
-      "name": "Luke de Greeff",
-      "dob": "2001-09-02",
-      "height": 194,
-      "weight": 92
-    },
-    {
-      "id": 182581,
-      "name": "Kaden Schmidt",
-      "dob": "2004-10-01",
-      "height": 196,
-      "weight": 99
-    },
-    {
-      "id": 182625,
-      "name": "Joshua Gagnon",
-      "dob": "2002-04-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182626,
-      "name": "Colby Nemeth",
-      "dob": "2002-09-06",
-      "height": 196,
-      "weight": 84
-    },
-    {
-      "id": 182654,
-      "name": "Martin Licht",
-      "dob": "2002-01-19",
-      "height": 195,
-      "weight": 90
-    },
-    {
-      "id": 183440,
-      "name": "Jacob Van Geel",
-      "dob": "2001-08-09",
-      "height": 198,
-      "weight": 96,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 185582,
-      "name": "Cameron Chadwick",
-      "dob": "2002-02-09",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 185977,
-      "name": "Mikaël Dagenais",
-      "dob": "1992-03-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191673,
-      "name": "Jack Svendsen",
-      "dob": "2005-12-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191674,
-      "name": "Cameron McGregor",
-      "dob": "2004-09-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191675,
-      "name": "Charlie Winser",
-      "dob": "2004-02-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191902,
-      "name": "Andon Kiriakou",
-      "dob": "2005-08-04",
-      "height": 184,
-      "weight": 77
-    },
-    {
-      "id": 193939,
-      "name": "Rouzbeh Rahnavard",
-      "dob": "2000-04-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 194201,
-      "name": "Brendan Mills",
-      "dob": "2003-03-22",
-      "height": 200,
-      "weight": 90
-    },
-    {
-      "id": 198925,
-      "name": "Tynan Gannett",
-      "dob": "2002-07-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201259,
-      "name": "Grégoire Mercier-Noël",
-      "dob": "2002-10-02",
-      "height": 189,
-      "weight": 88
-    },
-    {
-      "id": 201260,
-      "name": "Marc-Antoine Durocher",
-      "dob": "2001-11-02",
-      "height": 198,
-      "weight": 94
-    },
-    {
-      "id": 201305,
-      "name": "Zachary van Geel",
-      "dob": "2003-07-22",
-      "height": 193,
-      "weight": 98,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 201877,
-      "name": "Ben Moffat",
-      "dob": "2002-11-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 202083,
-      "name": "Reed Venning",
-      "dob": "2003-11-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204185,
-      "name": "Zechariah Johnson",
-      "dob": "1999-08-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204215,
-      "name": "Gabriel Arpin",
-      "dob": "1993-12-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204852,
-      "name": "Colin Lash",
-      "dob": "2003-05-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204853,
-      "name": "Brandon Burnside",
-      "dob": "2006-06-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 204885,
-      "name": "Charles Ellinas",
-      "dob": "2003-11-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 205274,
-      "name": "Louis Charbonneau",
-      "dob": "2006-02-10",
-      "height": 200,
-      "weight": 90
-    },
-    {
-      "id": 208694,
-      "name": "Tyler Brossard",
-      "dob": "2003-11-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 210570,
-      "name": "Blake Armstrong",
-      "dob": "2001-02-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211027,
-      "name": "Aiden Hilkowitz",
-      "dob": "2005-02-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211028,
-      "name": "Connor Dorsey",
-      "dob": "2005-10-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211971,
-      "name": "Elliot Collard",
-      "dob": "2000-09-08",
-      "height": 201,
-      "weight": 104
-    },
-    {
-      "id": 212435,
-      "name": "Mason Doering",
-      "dob": "2006-09-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 212440,
-      "name": "Brecken Morrison",
-      "dob": "2006-06-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 212656,
-      "name": "Chris Tautrims",
-      "dob": "2006-01-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 213297,
-      "name": "Henry Heider",
-      "dob": "2007-04-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 215088,
-      "name": "Conaires Taub",
-      "dob": "2004-03-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 222089,
-      "name": "Jaxson Thys",
-      "dob": "1999-03-22",
-      "height": 190,
-      "weight": 86
-    },
-    {
-      "id": 225356,
-      "name": "Bryce Kim",
-      "dob": "2008-01-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 225358,
-      "name": "Misha Panasiouk",
-      "dob": "2008-03-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 227183,
-      "name": "Brock Reinsch",
-      "dob": "2008-12-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 227184,
-      "name": "Chase Walker",
-      "dob": "2008-09-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 227930,
-      "name": "Gavin Deep",
-      "dob": "2005-03-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 228566,
-      "name": "Mateo Rodriguez Abello",
-      "dob": "2009-03-07",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 209015,
-          "name": "Martin Gaviria Romero",
-          "fed": "COL",
-          "gender": "M",
-          "t": 2,
-          "f": 2025,
-          "l": 2026,
-          "s": [
-            [
-              2025,
-              1,
-              280
-            ],
-            [
-              2026,
-              1,
-              189
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 233594,
-      "name": "Zachary McGrath",
-      "dob": "2009-05-29",
-      "height": 188,
-      "weight": 78
-    },
-    {
-      "id": 233727,
-      "name": "Joaquin Lopez",
-      "dob": "2009-10-22",
-      "height": 157,
-      "weight": 57
-    },
-    {
-      "id": 234030,
-      "name": "Cameron Gibson",
-      "dob": "2009-01-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 234397,
-      "name": "Bruno Azevedo",
-      "dob": "2009-04-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 236101,
-      "name": "Brendon Lord",
-      "dob": "2003-11-18",
-      "height": 194,
-      "weight": 97
-    }
+    {"id":100002,"name":"John Child","dob":"1967-05-04","height":189,"weight":93,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":1,"silver":5,"bronze":8}},
+    {"id":100005,"name":"Edward Drakich","dob":"1962-09-30","height":192,"weight":90},
+    {"id":100088,"name":"Mark Heese","dob":"1969-08-15","height":184,"weight":85,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":1,"silver":5,"bronze":8}},
+    {"id":100089,"name":"Mike Chaloupka","dob":"1971-06-27","height":199,"weight":98},
+    {"id":100144,"name":"John Canjar","dob":null,"height":null,"weight":null},
+    {"id":100203,"name":"Brian \"Gatz\" Gatzke","dob":"1964-11-21","height":197,"weight":93},
+    {"id":100289,"name":"Frank Blasi","dob":"1966-02-05","height":190,"weight":87,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":100637,"name":"Paul Cox","dob":"1963-03-03","height":181,"weight":80},
+    {"id":100638,"name":"Marc \"Sparky\" Dunn","dob":"1965-09-09","height":183,"weight":86},
+    {"id":100639,"name":"James Olejnik","dob":"1967-03-23","height":195,"weight":100},
+    {"id":100722,"name":"Jody Allan Holden","dob":"1968-08-20","height":195,"weight":95,"tour":{"gold":1,"silver":1,"bronze":1}},
+    {"id":100723,"name":"David Holmes","dob":"1969-05-18","height":188,"weight":84,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":101066,"name":"James Helmer","dob":null,"height":null,"weight":null},
+    {"id":101071,"name":"Stephen Joseph","dob":null,"height":null,"weight":null},
+    {"id":101280,"name":"Conrad Leinemann","dob":"1971-04-02","height":193,"weight":89,"tour":{"gold":1,"silver":1,"bronze":1}},
+    {"id":101333,"name":"Jason Kruger","dob":"1978-05-16","height":193,"weight":82,"tour":{"gold":0,"silver":2,"bronze":3},"away":[{"id":101687,"name":"Louw Franken","fed":"RSA","gender":"M","t":1,"f":1996,"l":1996,"s":[[1996,1,347]],"at":[[1996,"RSA"]]},{"id":101332,"name":"Steven Kruger","fed":"RSA","gender":"M","t":1,"f":1995,"l":1995,"s":[[1995,1,354]],"at":[[1995,"CAN"]]}]},
+    {"id":101634,"name":"Ahren Cadieux","dob":"1976-04-06","height":193,"weight":85},
+    {"id":102072,"name":"Michael \"Mike\" Slean","dob":"1975-08-07","height":185,"weight":79},
+    {"id":102073,"name":"Djordje Ljubicic","dob":"1972-03-01","height":188,"weight":85},
+    {"id":102074,"name":"Christopher Torr","dob":"1974-11-22","height":186,"weight":84},
+    {"id":102075,"name":"Shaun Furneaux","dob":"1976-10-15","height":185,"weight":83},
+    {"id":102231,"name":"Marc \"Roops\" Roberts","dob":"1969-04-12","height":null,"weight":null},
+    {"id":102232,"name":"Steve Delaney","dob":"1976-03-08","height":195,"weight":98},
+    {"id":102233,"name":"Emmanuel Loeub","dob":"1973-06-15","height":null,"weight":null},
+    {"id":102234,"name":"Pierre Chamberland","dob":"1976-12-31","height":null,"weight":null},
+    {"id":102237,"name":"Abraham \"Neil\" Mason","dob":"1977-03-09","height":198,"weight":95},
+    {"id":102238,"name":"Jasper Egan","dob":"1972-05-03","height":192,"weight":85},
+    {"id":102239,"name":"Cesar Bayan","dob":"1975-04-08","height":173,"weight":72},
+    {"id":102240,"name":"John Barrett","dob":"1962-08-11","height":198,"weight":105},
+    {"id":102241,"name":"Ed \"Fast Eddie\" Richardson","dob":"1968-06-06","height":null,"weight":null},
+    {"id":102508,"name":"Everett \"Evie\" Matthews","dob":"1977-03-29","height":173,"weight":84},
+    {"id":102510,"name":"James Alexander \"Jamie\" Mackay","dob":"1975-08-15","height":null,"weight":null},
+    {"id":102511,"name":"Eric Masson","dob":"1973-11-08","height":191,"weight":95},
+    {"id":102538,"name":"Vincent Larivée","dob":"1970-09-18","height":165,"weight":64},
+    {"id":102541,"name":"Steven John \"Steve\" Smith","dob":"1967-03-29","height":null,"weight":null},
+    {"id":102634,"name":"Anton Hauser","dob":"1976-09-05","height":190,"weight":82},
+    {"id":102910,"name":"Mark Reilly","dob":null,"height":null,"weight":null},
+    {"id":102911,"name":"Mike Griffin","dob":"1975-06-12","height":null,"weight":null},
+    {"id":102985,"name":"Chris Jedlovcnik","dob":"1968-07-12","height":null,"weight":null},
+    {"id":103062,"name":"Kevin Benn","dob":"1974-05-06","height":null,"weight":null},
+    {"id":103205,"name":"James Gravelle","dob":"1975-03-09","height":null,"weight":null},
+    {"id":103266,"name":"Andrew Pelletier","dob":null,"height":null,"weight":null},
+    {"id":103371,"name":"Eddie Coleman","dob":null,"height":null,"weight":null},
+    {"id":103635,"name":"Brian John Hiebert","dob":"1979-11-01","height":null,"weight":null},
+    {"id":103682,"name":"Lukas Porosa","dob":"1982-10-05","height":null,"weight":null},
+    {"id":103683,"name":"Chris Simek","dob":"1983-01-11","height":191,"weight":84,"tour":{"gold":0,"silver":0,"bronze":2}},
+    {"id":103749,"name":"Alain Arseneau","dob":"1976-12-02","height":null,"weight":null},
+    {"id":103866,"name":"Patrick Poissant","dob":"1974-08-02","height":null,"weight":null},
+    {"id":103883,"name":"Darren Goss","dob":null,"height":194,"weight":86},
+    {"id":103884,"name":"Miguel Domingo","dob":"1980-06-22","height":null,"weight":null},
+    {"id":103918,"name":"Christian Redmann","dob":"1982-03-16","height":188,"weight":86,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":104098,"name":"Paul Podstawka","dob":"1985-05-28","height":198,"weight":86},
+    {"id":104099,"name":"Adam Podstawka","dob":"1987-04-04","height":null,"weight":null},
+    {"id":104220,"name":"Josh Binstock","dob":"1981-01-12","height":196,"weight":98,"tour":{"gold":1,"silver":4,"bronze":3}},
+    {"id":104221,"name":"Pascal Cloutier","dob":"1974-05-04","height":null,"weight":null},
+    {"id":104222,"name":"Dany Côté","dob":"1974-04-12","height":null,"weight":null},
+    {"id":104388,"name":"Matthew David Carere","dob":null,"height":null,"weight":null},
+    {"id":104480,"name":"Spencer Holowachuk","dob":"1986-06-17","height":null,"weight":null},
+    {"id":104481,"name":"Mischa Harris","dob":"1986-01-21","height":null,"weight":null},
+    {"id":104575,"name":"Richard Van Huizen","dob":"1975-11-25","height":205,"weight":105},
+    {"id":104630,"name":"Wes Montgomery","dob":"1977-10-28","height":194,"weight":92,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":104725,"name":"Mark Ellingson","dob":"1978-05-04","height":null,"weight":null},
+    {"id":104993,"name":"Reid Hall","dob":null,"height":null,"weight":null},
+    {"id":104994,"name":"Ben Saxton","dob":"1988-11-21","height":200,"weight":92,"tour":{"gold":1,"silver":2,"bronze":4},"away":[{"id":131994,"name":"Chaim Schalk","fed":"USA","gender":"M","t":55,"f":2013,"l":2017,"s":[[2013,11,295],[2014,11,301],[2015,11,271],[2016,15,257],[2017,7,233]],"at":[[2013,"CAN"],[2014,"CAN"],[2015,"CAN"],[2016,"CAN"],[2017,"CAN"]]}]},
+    {"id":104995,"name":"Bill Pasieka","dob":null,"height":null,"weight":null},
+    {"id":105096,"name":"Geordie Glumac","dob":null,"height":null,"weight":null},
+    {"id":105097,"name":"Martin Reader","dob":"1984-05-02","height":199,"weight":96,"tour":{"gold":0,"silver":1,"bronze":2},"away":[{"id":131994,"name":"Chaim Schalk","fed":"USA","gender":"M","t":9,"f":2010,"l":2011,"s":[[2010,5,230],[2011,4,201]],"at":[[2010,"CAN"],[2011,"CAN"]]}]},
+    {"id":105140,"name":"Adrian Weglo","dob":null,"height":null,"weight":null},
+    {"id":105141,"name":"Jake Magalon","dob":null,"height":null,"weight":null},
+    {"id":105142,"name":"Ryan Cawsey","dob":null,"height":null,"weight":null},
+    {"id":113791,"name":"Daniel Lewis","dob":"1976-04-03","height":189,"weight":86},
+    {"id":115222,"name":"Ray Sewell","dob":"1981-11-24","height":182,"weight":75},
+    {"id":115223,"name":"Scott Lahey","dob":null,"height":null,"weight":null},
+    {"id":116054,"name":"Dan Casey","dob":null,"height":null,"weight":null},
+    {"id":116055,"name":"Adam Parkes","dob":null,"height":null,"weight":null},
+    {"id":117113,"name":"Jessi Lelliott","dob":"1979-03-05","height":188,"weight":81,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":117258,"name":"Kyle Bryce","dob":"1987-05-13","height":200,"weight":85},
+    {"id":117403,"name":"Kevin Lewis","dob":null,"height":null,"weight":null},
+    {"id":117404,"name":"Rob Dyba","dob":null,"height":null,"weight":null},
+    {"id":117405,"name":"Sholan Trivedi","dob":null,"height":null,"weight":null},
+    {"id":117888,"name":"Jon Bain","dob":null,"height":null,"weight":null},
+    {"id":117891,"name":"Jason Hofer","dob":null,"height":null,"weight":null},
+    {"id":117919,"name":"Anthony Deutscher","dob":null,"height":null,"weight":null},
+    {"id":117994,"name":"Ryan DeBruyn","dob":null,"height":null,"weight":null},
+    {"id":118000,"name":"Stuart Hamilton","dob":null,"height":null,"weight":null},
+    {"id":118153,"name":"Kyle Bryce","dob":null,"height":null,"weight":null},
+    {"id":118231,"name":"Duncan Cairns","dob":null,"height":null,"weight":null},
+    {"id":118234,"name":"Tom Podstawka","dob":null,"height":null,"weight":null},
+    {"id":119085,"name":"Josh Lichty","dob":"1989-02-12","height":189,"weight":87},
+    {"id":119086,"name":"Daniel Rosenbaum","dob":null,"height":null,"weight":null},
+    {"id":119087,"name":"Riley Mcfarland","dob":null,"height":null,"weight":null},
+    {"id":120043,"name":"Sam Pedlow","dob":"1987-06-14","height":null,"weight":null},
+    {"id":120218,"name":"Tyler Fraser","dob":null,"height":null,"weight":null},
+    {"id":120465,"name":"Steve Gotch","dob":"1985-10-18","height":null,"weight":null},
+    {"id":120514,"name":"Matt Zbyszewski","dob":"1981-08-21","height":192,"weight":86,"away":[{"id":131994,"name":"Chaim Schalk","fed":"USA","gender":"M","t":2,"f":2012,"l":2012,"s":[[2012,2,116]],"at":[[2012,"CAN"]]}]},
+    {"id":120716,"name":"Rex Fenton","dob":"1990-09-12","height":192,"weight":null},
+    {"id":120717,"name":"Samuel Schachter","dob":"1990-05-08","height":null,"weight":null,"tour":{"gold":2,"silver":3,"bronze":1}},
+    {"id":120780,"name":"Josh Chisholm","dob":"1984-10-08","height":null,"weight":null},
+    {"id":120910,"name":"Jeremy Groenveld","dob":"1988-04-17","height":null,"weight":null},
+    {"id":121934,"name":"Ben Feist","dob":"1979-10-05","height":190,"weight":85},
+    {"id":122210,"name":"Steve Corothers","dob":"1981-03-29","height":193,"weight":95},
+    {"id":122264,"name":"Dave Quinn","dob":"1982-05-25","height":198,"weight":95},
+    {"id":122530,"name":"Matthew Fugard","dob":"1983-06-11","height":201,"weight":94},
+    {"id":124973,"name":"Ben Chow","dob":"1992-03-16","height":null,"weight":null},
+    {"id":124976,"name":"Nick Del Bianco","dob":"1992-02-06","height":195,"weight":88},
+    {"id":124977,"name":"William Sidgwick","dob":"1991-07-19","height":null,"weight":null},
+    {"id":124978,"name":"Garrett May","dob":"1992-04-14","height":191,"weight":null},
+    {"id":125480,"name":"Daniel Dearing","dob":"1990-01-13","height":197,"weight":87,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":131606,"name":"Jasmin Cull","dob":"1983-09-01","height":null,"weight":null},
+    {"id":132699,"name":"Aaron Nusbaum","dob":"1993-01-13","height":187,"weight":82},
+    {"id":132700,"name":"Grant O'Gorman","dob":"1993-11-02","height":188,"weight":88,"tour":{"gold":1,"silver":1,"bronze":0}},
+    {"id":133310,"name":"Michael Plantinga","dob":"1990-05-23","height":199,"weight":88},
+    {"id":135226,"name":"Maverick Hatch","dob":"1987-03-20","height":201,"weight":92},
+    {"id":135344,"name":"Francois-Guy Allaire","dob":"1987-12-06","height":185,"weight":86},
+    {"id":135345,"name":"Andrew Hinchey","dob":"1985-06-08","height":null,"weight":null},
+    {"id":135346,"name":"Ryan Vandenburg","dob":"1983-09-12","height":null,"weight":null},
+    {"id":135347,"name":"Cameron Wheelan","dob":"1988-09-19","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":135385,"name":"Simon Fecteau-Boutin","dob":"1987-12-17","height":190,"weight":98},
+    {"id":135516,"name":"Andrew Kocur","dob":"1994-07-31","height":null,"weight":null},
+    {"id":136283,"name":"Francis Cuillerier","dob":"1979-12-29","height":null,"weight":null},
+    {"id":136304,"name":"Dominique Lague","dob":"1984-09-18","height":null,"weight":null},
+    {"id":136350,"name":"Charles-Antoine Séguin","dob":"1991-12-15","height":null,"weight":null},
+    {"id":136371,"name":"Samuel Surprenant","dob":"1991-05-04","height":null,"weight":null},
+    {"id":136498,"name":"Fiodar Kazhamiaka","dob":"1992-02-18","height":null,"weight":null},
+    {"id":137035,"name":"Felipe Humana-Paredes","dob":"1989-02-20","height":null,"weight":null},
+    {"id":139264,"name":"Liam Kopp","dob":"1995-01-30","height":null,"weight":null},
+    {"id":139265,"name":"William Hoey","dob":"1994-11-24","height":209,"weight":106},
+    {"id":139429,"name":"Steven Marshall","dob":"1989-11-23","height":191,"weight":85,"away":[{"id":131994,"name":"Chaim Schalk","fed":"USA","gender":"M","t":1,"f":2011,"l":2011,"s":[[2011,1,229]],"at":[[2011,"CAN"]]}]},
+    {"id":139820,"name":"Dallas Keith","dob":"1992-12-13","height":null,"weight":null},
+    {"id":139822,"name":"Greg Simone","dob":"1993-06-09","height":null,"weight":null},
+    {"id":140042,"name":"Danny Demyanenko","dob":"1994-07-13","height":196,"weight":101},
+    {"id":140044,"name":"Alexander William Russell","dob":"1993-06-25","height":210,"weight":100,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":141595,"name":"Jake MacNeil","dob":"1996-05-01","height":183,"weight":null,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":141598,"name":"Gabriel Burlacu","dob":"1994-02-13","height":196,"weight":92},
+    {"id":142100,"name":"Alex Corsi Caya","dob":"1989-02-03","height":null,"weight":null},
+    {"id":142770,"name":"Devon Dunn","dob":"1995-04-19","height":null,"weight":null},
+    {"id":142771,"name":"Kris McCrea","dob":"1995-07-03","height":null,"weight":null},
+    {"id":145817,"name":"Sergiy Grabovskyy","dob":"1994-08-19","height":187,"weight":84,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":145818,"name":"Chris Towe","dob":"1996-01-10","height":null,"weight":null},
+    {"id":145882,"name":"Parvir Jhajj","dob":"1998-01-26","height":185,"weight":72},
+    {"id":145883,"name":"Taryq Sani","dob":"1998-11-06","height":182,"weight":81},
+    {"id":145892,"name":"Zachery Albert","dob":"1997-04-18","height":null,"weight":null},
+    {"id":145893,"name":"Craig Ireland","dob":"1997-10-22","height":null,"weight":null},
+    {"id":146484,"name":"Lucas Palmer","dob":"1995-05-26","height":null,"weight":null},
+    {"id":146485,"name":"Liam Palmer","dob":"1995-05-26","height":null,"weight":null},
+    {"id":148399,"name":"Blake Scheerhoorn","dob":"1995-01-06","height":202,"weight":90},
+    {"id":148400,"name":"Lucas Coleman","dob":"1995-01-14","height":190,"weight":82},
+    {"id":151875,"name":"Arran Chambers","dob":"1995-04-12","height":202,"weight":93},
+    {"id":154905,"name":"Adam Thompson","dob":null,"height":null,"weight":null},
+    {"id":156181,"name":"Robbie Abrams","dob":null,"height":null,"weight":null},
+    {"id":156182,"name":"Aidan Saladana","dob":"1996-08-01","height":null,"weight":null},
+    {"id":157321,"name":"Sharone Vernon-Evans","dob":"1998-08-28","height":206,"weight":108},
+    {"id":157334,"name":"Jordan Pereira","dob":"1998-03-08","height":185,"weight":85},
+    {"id":157558,"name":"Hugo Rosso-Bonneau","dob":null,"height":null,"weight":null},
+    {"id":157810,"name":"Tomas Sorra","dob":"1999-01-19","height":189,"weight":81},
+    {"id":157811,"name":"Dylan Devecseri","dob":null,"height":null,"weight":null},
+    {"id":160668,"name":"Ivan Reka","dob":"1993-11-08","height":190,"weight":90},
+    {"id":161788,"name":"Logan Mend","dob":"1997-05-10","height":196,"weight":102},
+    {"id":161789,"name":"Austin Valjas","dob":null,"height":null,"weight":null},
+    {"id":161790,"name":"Andrew Kos","dob":null,"height":null,"weight":null},
+    {"id":162006,"name":"Aleksandar Zdravkov Borisov","dob":"1995-07-13","height":null,"weight":null},
+    {"id":162256,"name":"Jordan Deshane","dob":"1997-09-03","height":197,"weight":90},
+    {"id":166905,"name":"Robert Kemp","dob":"2000-06-15","height":190,"weight":80},
+    {"id":166906,"name":"Cole Irwin","dob":"2001-06-19","height":null,"weight":null},
+    {"id":168711,"name":"Max Losier","dob":"2001-10-29","height":192,"weight":90},
+    {"id":168712,"name":"Judah Verbeek","dob":"2001-10-19","height":null,"weight":null},
+    {"id":168774,"name":"Steven Abrams","dob":"2001-01-10","height":187,"weight":74,"tour":{"gold":0,"silver":1,"bronze":1}},
+    {"id":168915,"name":"Coltyn Liu","dob":"1999-06-07","height":193,"weight":95},
+    {"id":169057,"name":"Matthew Donovan","dob":"1995-05-21","height":null,"weight":null},
+    {"id":169387,"name":"Tim Ryan","dob":"1978-08-26","height":null,"weight":null},
+    {"id":169747,"name":"Roland Bouchard","dob":"1997-04-15","height":null,"weight":null},
+    {"id":171519,"name":"Eric Girard","dob":"1994-09-09","height":190,"weight":null},
+    {"id":172785,"name":"Jonathan Pickett","dob":"2001-06-11","height":198,"weight":88,"tour":{"gold":0,"silver":1,"bronze":1}},
+    {"id":172998,"name":"Joshua Timukas","dob":"2001-07-13","height":null,"weight":null},
+    {"id":172999,"name":"Ben Kerkhoff","dob":"2000-12-14","height":null,"weight":null},
+    {"id":174750,"name":"Mark Spehr","dob":"1985-03-27","height":null,"weight":null},
+    {"id":177082,"name":"Zeid Hamadeh","dob":"1996-09-19","height":null,"weight":null},
+    {"id":178449,"name":"Jérémie Doyon","dob":"2000-04-05","height":194,"weight":82},
+    {"id":178483,"name":"Guillaume Rivest","dob":"1999-03-07","height":190,"weight":90},
+    {"id":178688,"name":"Yoan David","dob":"1999-07-05","height":null,"weight":null},
+    {"id":178710,"name":"Anthony De Girolamo","dob":"1999-05-22","height":185,"weight":79},
+    {"id":182538,"name":"Daniil Hershtynovich","dob":"2005-03-21","height":206,"weight":101},
+    {"id":182539,"name":"Luke de Greeff","dob":"2001-09-02","height":194,"weight":92},
+    {"id":182581,"name":"Kaden Schmidt","dob":"2004-10-01","height":196,"weight":99},
+    {"id":182625,"name":"Joshua Gagnon","dob":"2002-04-24","height":null,"weight":null},
+    {"id":182626,"name":"Colby Nemeth","dob":"2002-09-06","height":196,"weight":84},
+    {"id":182654,"name":"Martin Licht","dob":"2002-01-19","height":195,"weight":90},
+    {"id":183440,"name":"Jacob Van Geel","dob":"2001-08-09","height":198,"weight":96,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":185582,"name":"Cameron Chadwick","dob":"2002-02-09","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":185977,"name":"Mikaël Dagenais","dob":"1992-03-17","height":null,"weight":null},
+    {"id":191673,"name":"Jack Svendsen","dob":"2005-12-04","height":null,"weight":null},
+    {"id":191674,"name":"Cameron McGregor","dob":"2004-09-29","height":null,"weight":null},
+    {"id":191675,"name":"Charlie Winser","dob":"2004-02-05","height":null,"weight":null},
+    {"id":191902,"name":"Andon Kiriakou","dob":"2005-08-04","height":184,"weight":77},
+    {"id":193939,"name":"Rouzbeh Rahnavard","dob":"2000-04-16","height":null,"weight":null},
+    {"id":194201,"name":"Brendan Mills","dob":"2003-03-22","height":200,"weight":90},
+    {"id":198925,"name":"Tynan Gannett","dob":"2002-07-24","height":null,"weight":null},
+    {"id":201259,"name":"Grégoire Mercier-Noël","dob":"2002-10-02","height":189,"weight":88},
+    {"id":201260,"name":"Marc-Antoine Durocher","dob":"2001-11-02","height":198,"weight":94},
+    {"id":201305,"name":"Zachary van Geel","dob":"2003-07-22","height":193,"weight":98,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":201877,"name":"Ben Moffat","dob":"2002-11-12","height":null,"weight":null},
+    {"id":202083,"name":"Reed Venning","dob":"2003-11-06","height":null,"weight":null},
+    {"id":204185,"name":"Zechariah Johnson","dob":"1999-08-29","height":null,"weight":null},
+    {"id":204215,"name":"Gabriel Arpin","dob":"1993-12-12","height":null,"weight":null},
+    {"id":204852,"name":"Colin Lash","dob":"2003-05-06","height":null,"weight":null},
+    {"id":204853,"name":"Brandon Burnside","dob":"2006-06-22","height":null,"weight":null},
+    {"id":204885,"name":"Charles Ellinas","dob":"2003-11-17","height":null,"weight":null},
+    {"id":205274,"name":"Louis Charbonneau","dob":"2006-02-10","height":200,"weight":90},
+    {"id":208694,"name":"Tyler Brossard","dob":"2003-11-23","height":null,"weight":null},
+    {"id":210570,"name":"Blake Armstrong","dob":"2001-02-06","height":null,"weight":null},
+    {"id":211027,"name":"Aiden Hilkowitz","dob":"2005-02-14","height":null,"weight":null},
+    {"id":211028,"name":"Connor Dorsey","dob":"2005-10-18","height":null,"weight":null},
+    {"id":211971,"name":"Elliot Collard","dob":"2000-09-08","height":201,"weight":104},
+    {"id":212435,"name":"Mason Doering","dob":"2006-09-12","height":null,"weight":null},
+    {"id":212440,"name":"Brecken Morrison","dob":"2006-06-15","height":null,"weight":null},
+    {"id":212656,"name":"Chris Tautrims","dob":"2006-01-31","height":null,"weight":null},
+    {"id":213297,"name":"Henry Heider","dob":"2007-04-24","height":null,"weight":null},
+    {"id":215088,"name":"Conaires Taub","dob":"2004-03-24","height":null,"weight":null},
+    {"id":222089,"name":"Jaxson Thys","dob":"1999-03-22","height":190,"weight":86},
+    {"id":225356,"name":"Bryce Kim","dob":"2008-01-20","height":null,"weight":null},
+    {"id":225358,"name":"Misha Panasiouk","dob":"2008-03-23","height":null,"weight":null},
+    {"id":227183,"name":"Brock Reinsch","dob":"2008-12-03","height":null,"weight":null},
+    {"id":227184,"name":"Chase Walker","dob":"2008-09-22","height":null,"weight":null},
+    {"id":227930,"name":"Gavin Deep","dob":"2005-03-24","height":null,"weight":null},
+    {"id":228566,"name":"Mateo Rodriguez Abello","dob":"2009-03-07","height":null,"weight":null,"away":[{"id":209015,"name":"Martin Gaviria Romero","fed":"COL","gender":"M","t":2,"f":2025,"l":2026,"s":[[2025,1,280],[2026,1,189]],"at":[[2025,"COL"],[2026,"COL"]]}]},
+    {"id":233594,"name":"Zachary McGrath","dob":"2009-05-29","height":188,"weight":78},
+    {"id":233727,"name":"Joaquin Lopez","dob":"2009-10-22","height":157,"weight":57},
+    {"id":234030,"name":"Cameron Gibson","dob":"2009-01-22","height":null,"weight":null},
+    {"id":234397,"name":"Bruno Azevedo","dob":"2009-04-02","height":null,"weight":null},
+    {"id":236101,"name":"Brendon Lord","dob":"2003-11-18","height":194,"weight":97}
   ]
 }

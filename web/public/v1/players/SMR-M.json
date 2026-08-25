@@ -2,217 +2,28 @@
   "country": "SMR",
   "gender": "M",
   "players": [
-    {
-      "id": 101671,
-      "name": "Emanuele \"Bada\" Monduzzi",
-      "dob": "1970-12-28",
-      "height": 189,
-      "weight": 90,
-      "away": [
-        {
-          "id": 101357,
-          "name": "Carlo Viberti",
-          "fed": "ITA",
-          "gender": "M",
-          "t": 1,
-          "f": 1996,
-          "l": 1996,
-          "s": [
-            [
-              1996,
-              1,
-              347
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 101720,
-      "name": "Emilio \"Milo\" Ravaglia",
-      "dob": "1970-07-04",
-      "height": 186,
-      "weight": 83
-    },
-    {
-      "id": 101934,
-      "name": "Paolo De Angeli",
-      "dob": "1966-12-12",
-      "height": 184,
-      "weight": 78
-    },
-    {
-      "id": 102407,
-      "name": "Alessandro Paolini",
-      "dob": "1974-10-14",
-      "height": 183,
-      "weight": 78
-    },
-    {
-      "id": 102595,
-      "name": "Alfredo \"Alfre\" Tabarini",
-      "dob": "1981-03-19",
-      "height": 190,
-      "weight": 88,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 102596,
-      "name": "Francesco \"Franci\" Tabarini",
-      "dob": "1981-03-19",
-      "height": 190,
-      "weight": 91,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 102644,
-      "name": "Roberto \"Bobby\" De  Marco",
-      "dob": "1972-08-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102666,
-      "name": "Enzo Gerotto",
-      "dob": "1967-01-05",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 102667,
-          "name": "Marcello Canzian",
-          "fed": "ITA",
-          "gender": "M",
-          "t": 3,
-          "f": 1999,
-          "l": 2005,
-          "s": [
-            [
-              1999,
-              2,
-              210
-            ],
-            [
-              2005,
-              1,
-              223
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 103199,
-      "name": "Simone \"Simo\" Giorgetti",
-      "dob": "1975-08-14",
-      "height": 197,
-      "weight": 90
-    },
-    {
-      "id": 103607,
-      "name": "Alessandro Della Balda",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104818,
-      "name": "Ivan Stefanelli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104892,
-      "name": "Marco Arcidiacono",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104893,
-      "name": "Nicola Romani",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104894,
-      "name": "Francesco Antonioli",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104966,
-      "name": "Luca De Luigi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104967,
-      "name": "Alessandro Gennari",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120817,
-      "name": "Lazzarini Andrea",
-      "dob": "1990-05-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120818,
-      "name": "Valentini Ivo Mattia",
-      "dob": "1990-06-30",
-      "height": 191,
-      "weight": null
-    },
-    {
-      "id": 120832,
-      "name": "Gennari Alessandro",
-      "dob": "1988-02-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120873,
-      "name": "Elia Lazzarini",
-      "dob": "1988-06-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124347,
-      "name": "Matteo Lombardi",
-      "dob": "1990-07-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135619,
-      "name": "Lorenzo Benvenuti",
-      "dob": "1994-07-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135626,
-      "name": "Francesco De Luigi",
-      "dob": "1995-05-27",
-      "height": null,
-      "weight": null
-    }
+    {"id":101671,"name":"Emanuele \"Bada\" Monduzzi","dob":"1970-12-28","height":189,"weight":90,"away":[{"id":101357,"name":"Carlo Viberti","fed":"ITA","gender":"M","t":1,"f":1996,"l":1996,"s":[[1996,1,347]],"at":[[1996,"ITA"]]}]},
+    {"id":101720,"name":"Emilio \"Milo\" Ravaglia","dob":"1970-07-04","height":186,"weight":83},
+    {"id":101934,"name":"Paolo De Angeli","dob":"1966-12-12","height":184,"weight":78},
+    {"id":102407,"name":"Alessandro Paolini","dob":"1974-10-14","height":183,"weight":78},
+    {"id":102595,"name":"Alfredo \"Alfre\" Tabarini","dob":"1981-03-19","height":190,"weight":88,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":102596,"name":"Francesco \"Franci\" Tabarini","dob":"1981-03-19","height":190,"weight":91,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":102644,"name":"Roberto \"Bobby\" De  Marco","dob":"1972-08-06","height":null,"weight":null},
+    {"id":102666,"name":"Enzo Gerotto","dob":"1967-01-05","height":null,"weight":null,"away":[{"id":102667,"name":"Marcello Canzian","fed":"ITA","gender":"M","t":3,"f":1999,"l":2005,"s":[[1999,2,210],[2005,1,223]],"at":[[1999,"SMR"],[2005,"ITA"]]}]},
+    {"id":103199,"name":"Simone \"Simo\" Giorgetti","dob":"1975-08-14","height":197,"weight":90},
+    {"id":103607,"name":"Alessandro Della Balda","dob":null,"height":null,"weight":null},
+    {"id":104818,"name":"Ivan Stefanelli","dob":null,"height":null,"weight":null},
+    {"id":104892,"name":"Marco Arcidiacono","dob":null,"height":null,"weight":null},
+    {"id":104893,"name":"Nicola Romani","dob":null,"height":null,"weight":null},
+    {"id":104894,"name":"Francesco Antonioli","dob":null,"height":null,"weight":null},
+    {"id":104966,"name":"Luca De Luigi","dob":null,"height":null,"weight":null},
+    {"id":104967,"name":"Alessandro Gennari","dob":null,"height":null,"weight":null},
+    {"id":120817,"name":"Lazzarini Andrea","dob":"1990-05-28","height":null,"weight":null},
+    {"id":120818,"name":"Valentini Ivo Mattia","dob":"1990-06-30","height":191,"weight":null},
+    {"id":120832,"name":"Gennari Alessandro","dob":"1988-02-16","height":null,"weight":null},
+    {"id":120873,"name":"Elia Lazzarini","dob":"1988-06-10","height":null,"weight":null},
+    {"id":124347,"name":"Matteo Lombardi","dob":"1990-07-04","height":null,"weight":null},
+    {"id":135619,"name":"Lorenzo Benvenuti","dob":"1994-07-08","height":null,"weight":null},
+    {"id":135626,"name":"Francesco De Luigi","dob":"1995-05-27","height":null,"weight":null}
   ]
 }

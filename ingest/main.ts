@@ -49,6 +49,7 @@ import {
   sliceByCountryAndGender,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
+import type { FederationConflict } from './federations.js';
 import type {
   Manifest,
   ManifestCountry,
@@ -269,7 +270,31 @@ async function main() {
   // Partnerships split across federations, which the slicing drops from both
   // countries. Carried on the player instead, so a career built with foreign
   // partners still shows on the card.
-  const awayPartners = awayPartnersByPlayer(partnerships, players, tournaments);
+  /**
+   * Every event where VIS gave one pair two different federations, and what
+   * was chosen.
+   *
+   * Printed rather than swallowed because the rule that resolves them is a
+   * judgement, and a wrong one puts a player in a country they never
+   * represented: Taiana Lima has two 2010 rows tagged AZE that were written
+   * years later, and only the season evidence keeps her Brazilian. Four events
+   * reach this in the current archive; a fifth is something to look at.
+   */
+  const federationConflicts: FederationConflict[] = [];
+  const awayPartners = awayPartnersByPlayer(
+    partnerships,
+    players,
+    tournaments,
+    federationConflicts,
+  );
+  if (federationConflicts.length > 0) {
+    console.log(`\n  federation conflicts on team entries: ${federationConflicts.length}`);
+    for (const c of federationConflicts) {
+      const names = `${players.get(c.a)?.name ?? c.a} / ${players.get(c.b)?.name ?? c.b}`;
+      const where = tournaments.get(c.tournament)?.name ?? `tournament ${c.tournament}`;
+      console.log(`    ${c.season} ${where} — ${names} — saw ${c.saw.join(' vs ')}, chose ${c.chose} (${c.why})`);
+    }
+  }
 
   // How many players are left with nothing visible in their own slice — they
   // competed, they have partners, and every one of those partners is filed

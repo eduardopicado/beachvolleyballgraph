@@ -2,1306 +2,164 @@
   "country": "CZE",
   "gender": "W",
   "players": [
-    {
-      "id": 100601,
-      "name": "Martina Hudcova",
-      "dob": "1966-03-26",
-      "height": 173,
-      "weight": 65
-    },
-    {
-      "id": 100602,
-      "name": "Dolores Storkova",
-      "dob": "1960-04-12",
-      "height": 178,
-      "weight": 70
-    },
-    {
-      "id": 100687,
-      "name": "Michaela Curinova",
-      "dob": "1969-01-08",
-      "height": 178,
-      "weight": 68
-    },
-    {
-      "id": 100688,
-      "name": "Eva Krcova",
-      "dob": "1965-03-06",
-      "height": 176,
-      "weight": 65
-    },
-    {
-      "id": 101442,
-      "name": "Zdenka Mocova",
-      "dob": "1974-10-17",
-      "height": 184,
-      "weight": 71
-    },
-    {
-      "id": 101443,
-      "name": "Radana Foltynova",
-      "dob": "1976-11-10",
-      "height": 178,
-      "weight": 69
-    },
-    {
-      "id": 101444,
-      "name": "Jaroslava \"Boira\" Bajerova",
-      "dob": "1971-04-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101445,
-      "name": "Jana Mrstikova",
-      "dob": "1972-07-04",
-      "height": 178,
-      "weight": 64
-    },
-    {
-      "id": 101546,
-      "name": "Eva Celbova",
-      "dob": "1975-03-08",
-      "height": 186,
-      "weight": 80,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 101547,
-      "name": "Sona Novakova Dosoudilova",
-      "dob": "1975-10-06",
-      "height": 186,
-      "weight": 74,
-      "worldChamps": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 101821,
-      "name": "Tereza Tobiasova",
-      "dob": "1974-04-10",
-      "height": 177,
-      "weight": 64
-    },
-    {
-      "id": 101822,
-      "name": "Alena  \"Bobina\" Horackova",
-      "dob": "1979-04-25",
-      "height": 176,
-      "weight": 68
-    },
-    {
-      "id": 101823,
-      "name": "Lenka Urbanova",
-      "dob": "1978-07-30",
-      "height": 181,
-      "weight": 71
-    },
-    {
-      "id": 101904,
-      "name": "Zuzana Horackova",
-      "dob": "1981-05-25",
-      "height": 172,
-      "weight": 65
-    },
-    {
-      "id": 102208,
-      "name": "Irena Stovickova",
-      "dob": "1978-11-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102209,
-      "name": "Lenka Felbabova",
-      "dob": "1978-04-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102244,
-      "name": "Romana Jedlickova",
-      "dob": "1966-06-09",
-      "height": 172,
-      "weight": 58
-    },
-    {
-      "id": 102245,
-      "name": "Katerina Moudra",
-      "dob": "1975-07-16",
-      "height": 186,
-      "weight": 76
-    },
-    {
-      "id": 102247,
-      "name": "Lucie Ruzkova",
-      "dob": "1967-06-20",
-      "height": 184,
-      "weight": 72
-    },
-    {
-      "id": 102681,
-      "name": "Marketa Tychnova",
-      "dob": "1981-04-10",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 102713,
-      "name": "Ilona Sotkovska",
-      "dob": "1972-03-14",
-      "height": 176,
-      "weight": 70
-    },
-    {
-      "id": 103016,
-      "name": "Marika Teknedzjanova",
-      "dob": "1979-01-03",
-      "height": 180,
-      "weight": 70
-    },
-    {
-      "id": 103334,
-      "name": "Jitka Stehnova",
-      "dob": "1981-05-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103385,
-      "name": "Sylva Schlosser",
-      "dob": "1979-01-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103423,
-      "name": "Katerina Tychnova",
-      "dob": "1983-03-10",
-      "height": 179,
-      "weight": 63,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 103788,
-      "name": "Kristyna Nemcova",
-      "dob": "1980-07-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103789,
-      "name": "Tereza Petrova",
-      "dob": "1982-03-25",
-      "height": 175,
-      "weight": 64,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 103790,
-      "name": "Alexandra Valova",
-      "dob": "1982-06-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103819,
-      "name": "Michaela Maixnerova",
-      "dob": "1983-09-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103823,
-      "name": "Ludmila Chuatalova",
-      "dob": "1981-12-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103908,
-      "name": "Michaela Blahova",
-      "dob": "1982-10-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103909,
-      "name": "Veronika Pokorna",
-      "dob": "1983-06-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104080,
-      "name": "Eva Weissova",
-      "dob": "1986-01-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104081,
-      "name": "Petra Eliasova",
-      "dob": "1985-05-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104226,
-      "name": "Barbora Novakova",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104264,
-      "name": "Hana Skalnikova",
-      "dob": "1982-03-29",
-      "height": 182,
-      "weight": 75,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104385,
-      "name": "Lucie Pakova",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104898,
-      "name": "Sarka Nakladalova",
-      "dob": "1985-06-28",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 104980,
-      "name": "Veronika Opravilova",
-      "dob": "1987-07-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104981,
-      "name": "Eva Krystova",
-      "dob": "1987-01-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 112446,
-      "name": "Petra Chalcarzova",
-      "dob": "1983-05-15",
-      "height": 177,
-      "weight": 67
-    },
-    {
-      "id": 113420,
-      "name": "Eva Stepancikova",
-      "dob": "1972-12-11",
-      "height": 176,
-      "weight": 71
-    },
-    {
-      "id": 113423,
-      "name": "Marcela Ritschelova",
-      "dob": "1972-10-09",
-      "height": 192,
-      "weight": 82
-    },
-    {
-      "id": 113428,
-      "name": "Petra Novotna",
-      "dob": "1981-04-10",
-      "height": 187,
-      "weight": 70
-    },
-    {
-      "id": 113436,
-      "name": "Lucie Svarcova",
-      "dob": "1978-05-22",
-      "height": 174,
-      "weight": 62
-    },
-    {
-      "id": 116659,
-      "name": "Marketa Slukova",
-      "dob": "1988-06-28",
-      "height": 180,
-      "weight": 68,
-      "tour": {
-        "gold": 6,
-        "silver": 4,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 116967,
-      "name": "Jana Goliasova",
-      "dob": "1986-09-02",
-      "height": 183,
-      "weight": 75
-    },
-    {
-      "id": 118054,
-      "name": "Kristyna Kolocova",
-      "dob": "1988-04-01",
-      "height": 170,
-      "weight": 62,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 118196,
-      "name": "Kristyna Hejlova",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118197,
-      "name": "Elizabeth Adenubiova",
-      "dob": "1988-06-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118198,
-      "name": "Katerina Korhonova",
-      "dob": "1988-07-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118244,
-      "name": "Iva Storkova",
-      "dob": "1986-07-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119307,
-      "name": "Barbora Jerábková",
-      "dob": "1989-12-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119308,
-      "name": "Michaela Voláková",
-      "dob": "1989-10-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119638,
-      "name": "Karolina Rehácková",
-      "dob": "1987-08-09",
-      "height": 176,
-      "weight": 58
-    },
-    {
-      "id": 119639,
-      "name": "Michaela Vorlová",
-      "dob": "1987-04-16",
-      "height": 177,
-      "weight": 62
-    },
-    {
-      "id": 120745,
-      "name": "Michala Frank",
-      "dob": "1990-02-08",
-      "height": 183,
-      "weight": 70,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 120746,
-      "name": "Barbora Hermannová",
-      "dob": "1990-11-07",
-      "height": 180,
-      "weight": 78,
-      "tour": {
-        "gold": 7,
-        "silver": 4,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 120748,
-      "name": "Šárka Melichárková",
-      "dob": "1990-06-08",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 120747,
-          "name": "Marie Reiterova",
-          "fed": "LUX",
-          "gender": "W",
-          "t": 1,
-          "f": 2008,
-          "l": 2008,
-          "s": [
-            [
-              2008,
-              1,
-              212
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 120821,
-      "name": "Štepánka Štastná",
-      "dob": "1991-09-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120822,
-      "name": "Lenka Hajeckova",
-      "dob": "1978-04-18",
-      "height": 173,
-      "weight": 64
-    },
-    {
-      "id": 122391,
-      "name": "Helena Grozer",
-      "dob": "1988-07-25",
-      "height": 188,
-      "weight": 70
-    },
-    {
-      "id": 123385,
-      "name": "Lenka Grygarova",
-      "dob": "1991-04-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124236,
-      "name": "Anna Siruckova",
-      "dob": "1991-08-27",
-      "height": 183,
-      "weight": 74
-    },
-    {
-      "id": 124399,
-      "name": "Sarka Zidova",
-      "dob": "1981-02-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124790,
-      "name": "Gabriela Kotvová",
-      "dob": "1992-01-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124925,
-      "name": "Eliška Davidova",
-      "dob": "1992-06-12",
-      "height": 168,
-      "weight": null
-    },
-    {
-      "id": 125192,
-      "name": "Adéla Machová",
-      "dob": "1991-11-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125444,
-      "name": "Martina Williams",
-      "dob": "1991-07-22",
-      "height": 173,
-      "weight": 68,
-      "tour": {
-        "gold": 3,
-        "silver": 3,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 131103,
-      "name": "Romana Elblova",
-      "dob": "1977-04-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 131272,
-      "name": "Vendula Haragova",
-      "dob": "1981-07-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132683,
-      "name": "Tereza Vanková",
-      "dob": "1993-10-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135489,
-      "name": "Lenka Grycová",
-      "dob": "1987-04-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135490,
-      "name": "Miroslava Lisková",
-      "dob": "1981-06-11",
-      "height": 175,
-      "weight": 66
-    },
-    {
-      "id": 135550,
-      "name": "Šárka Vodenková",
-      "dob": "1994-05-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135551,
-      "name": "Patricia Missottenová",
-      "dob": "1994-07-05",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 135552,
-      "name": "Barbora Pilátová",
-      "dob": "1995-07-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135553,
-      "name": "Hana Tresnáková",
-      "dob": "1995-04-13",
-      "height": 180,
-      "weight": 68
-    },
-    {
-      "id": 139890,
-      "name": "Magdalena Černá",
-      "dob": "1995-02-18",
-      "height": 181,
-      "weight": null
-    },
-    {
-      "id": 142295,
-      "name": "Michaela Kubickova",
-      "dob": "1994-04-12",
-      "height": 177,
-      "weight": 64,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 142304,
-      "name": "Katerina Valkova",
-      "dob": "1996-02-06",
-      "height": 177,
-      "weight": 59,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 143018,
-      "name": "Marketa Bendikova",
-      "dob": "1995-09-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143420,
-      "name": "Veronika Dostalova",
-      "dob": "1992-04-07",
-      "height": 170,
-      "weight": 66
-    },
-    {
-      "id": 144033,
-      "name": "Nicole Dostalova",
-      "dob": "1995-08-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 144060,
-      "name": "Diana Jamborova",
-      "dob": "1989-11-15",
-      "height": 180,
-      "weight": 68,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 144193,
-      "name": "Kristyna Adamcikova",
-      "dob": "1997-07-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 144197,
-      "name": "Anna Komarkova",
-      "dob": "1996-02-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145197,
-      "name": "Barbora Cidlikova",
-      "dob": "1989-09-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145514,
-      "name": "Martina Jakubsova",
-      "dob": "1988-06-14",
-      "height": 186,
-      "weight": 77
-    },
-    {
-      "id": 146065,
-      "name": "Eliska Novakova",
-      "dob": "1982-02-04",
-      "height": 180,
-      "weight": 65
-    },
-    {
-      "id": 146536,
-      "name": "Tereza Ostranska",
-      "dob": "1984-01-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 146887,
-      "name": "Tereza Kotlasova",
-      "dob": "1998-05-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 147099,
-      "name": "Natalie Honzovicova",
-      "dob": "1998-09-04",
-      "height": 179,
-      "weight": null
-    },
-    {
-      "id": 147100,
-      "name": "Tereza Pluharova",
-      "dob": "1998-08-03",
-      "height": 180,
-      "weight": 64
-    },
-    {
-      "id": 147392,
-      "name": "Iveta Halbichova",
-      "dob": "1989-12-19",
-      "height": 178,
-      "weight": 67
-    },
-    {
-      "id": 148474,
-      "name": "Marie-Sara Stochlova",
-      "dob": "1999-03-11",
-      "height": 182,
-      "weight": 72,
-      "tour": {
-        "gold": 4,
-        "silver": 3,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 148656,
-      "name": "Anna Sotkovska",
-      "dob": "1997-04-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 148657,
-      "name": "Sara Olivova",
-      "dob": "1993-05-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 153347,
-      "name": "Justyna Frommova",
-      "dob": "1998-05-14",
-      "height": 180,
-      "weight": 75
-    },
-    {
-      "id": 154127,
-      "name": "Sarlota Svobodova",
-      "dob": "2000-09-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 154128,
-      "name": "Julie Honzovicova",
-      "dob": "2001-11-04",
-      "height": 181,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 154129,
-      "name": "Karin Zolnercikova",
-      "dob": "2001-09-06",
-      "height": 179,
-      "weight": 68,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 154812,
-      "name": "Daniela Mokrá",
-      "dob": "1998-02-12",
-      "height": 180,
-      "weight": 68,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 154904,
-      "name": "Martina Maixnerova",
-      "dob": "1999-01-24",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 155035,
-      "name": "Lucie Robeau",
-      "dob": "1982-04-27",
-      "height": 193,
-      "weight": null
-    },
-    {
-      "id": 155224,
-      "name": "Anna Dostalova",
-      "dob": "1991-01-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156016,
-      "name": "Michaela Knoblochová",
-      "dob": "1991-03-08",
-      "height": 183,
-      "weight": 65
-    },
-    {
-      "id": 157647,
-      "name": "Miroslava Dunarova",
-      "dob": "1999-07-23",
-      "height": 169,
-      "weight": 64,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 161299,
-      "name": "Eva Klimesova",
-      "dob": "1995-09-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 164297,
-      "name": "Barbora Adamcikova",
-      "dob": "1994-11-28",
-      "height": 175,
-      "weight": null
-    },
-    {
-      "id": 164298,
-      "name": "Michaela Kulhankova",
-      "dob": "1995-09-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 164299,
-      "name": "Ivana Cebakova",
-      "dob": "1986-08-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 164576,
-      "name": "Marketa Svozilova",
-      "dob": "2002-08-27",
-      "height": 180,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 165822,
-      "name": "Michaela Kopecka",
-      "dob": "1986-06-18",
-      "height": 173,
-      "weight": 61
-    },
-    {
-      "id": 166811,
-      "name": "Amalie Tonova",
-      "dob": "1999-12-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 168487,
-      "name": "Michaela Brinkova",
-      "dob": "2002-07-16",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 168656,
-      "name": "Anna Pospisilova",
-      "dob": "1995-03-22",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 169499,
-      "name": "Kylie Neuschaeferova",
-      "dob": "2002-07-22",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 169560,
-      "name": "Zuzana Markova",
-      "dob": "1989-11-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 173629,
-      "name": "Andrea Lorenzova",
-      "dob": "1999-10-04",
-      "height": 169,
-      "weight": 66,
-      "tour": {
-        "gold": 2,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 174327,
-      "name": "Tereza Francova",
-      "dob": "1999-12-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179026,
-      "name": "Jaroslava Marcelova",
-      "dob": "1997-09-10",
-      "height": 178,
-      "weight": 73
-    },
-    {
-      "id": 179117,
-      "name": "Radka Veselá",
-      "dob": "2004-11-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179123,
-      "name": "Marketa Prihodova",
-      "dob": "2005-05-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179124,
-      "name": "Beata Rockova",
-      "dob": "2003-09-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179132,
-      "name": "Eliska Trnena",
-      "dob": "2002-01-19",
-      "height": 163,
-      "weight": 60
-    },
-    {
-      "id": 179214,
-      "name": "Kristyna Koblizkova",
-      "dob": "2005-01-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179327,
-      "name": "Alzbeta Tomasova",
-      "dob": "2004-12-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 181913,
-      "name": "Lucie Knoblochova",
-      "dob": "2007-12-14",
-      "height": 182,
-      "weight": 70
-    },
-    {
-      "id": 181914,
-      "name": "Adela Petrikova",
-      "dob": "2007-09-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182237,
-      "name": "Tereza Lajkebová",
-      "dob": "2006-04-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182239,
-      "name": "Anna Pavelková",
-      "dob": "2005-10-02",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 182240,
-      "name": "Katerina Pavelková",
-      "dob": "2005-10-02",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 182609,
-      "name": "Anna Krizova",
-      "dob": "1991-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182613,
-      "name": "Tereza Novotna",
-      "dob": "2005-05-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182658,
-      "name": "Valerie Dvorníková",
-      "dob": "2003-03-10",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 182814,
-      "name": "Lucie Grancaiova",
-      "dob": "2005-08-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 190776,
-      "name": "Mariana Tomasova",
-      "dob": "2005-12-30",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 190777,
-      "name": "Adela Necesana",
-      "dob": "2005-03-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 190782,
-      "name": "Elena Svobodova",
-      "dob": "2007-10-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191283,
-      "name": "Anna Simickova",
-      "dob": "2005-03-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 191284,
-      "name": "Veronika Kleiblova",
-      "dob": "2006-02-21",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 192337,
-      "name": "Amalie Ebertova",
-      "dob": "2008-04-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192733,
-      "name": "Michaela Cyrani",
-      "dob": "2006-08-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192736,
-      "name": "Veronika Grancaiova",
-      "dob": "2002-02-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192868,
-      "name": "Laura Kubistova",
-      "dob": "2004-01-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201901,
-      "name": "Lucie Nosálková",
-      "dob": "2006-06-12",
-      "height": 181,
-      "weight": null
-    },
-    {
-      "id": 201911,
-      "name": "Adéla Šimíčková",
-      "dob": "2007-10-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201912,
-      "name": "Viktorie Šestáková",
-      "dob": "2006-03-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 209533,
-      "name": "Johana Stiburkova",
-      "dob": "2005-10-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 210227,
-      "name": "Anika Dundackova",
-      "dob": "2007-08-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211509,
-      "name": "Karolina Michajlikova",
-      "dob": "2004-04-10",
-      "height": 179,
-      "weight": null
-    },
-    {
-      "id": 212660,
-      "name": "Lea Mifkova",
-      "dob": "2009-09-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 212664,
-      "name": "Ema Sebova",
-      "dob": "2009-01-02",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 214027,
-      "name": "Stela Hummelova",
-      "dob": "2008-04-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 214405,
-      "name": "Adela Vorasicka",
-      "dob": "2007-10-16",
-      "height": 174,
-      "weight": 65
-    },
-    {
-      "id": 222741,
-      "name": "Barbora Rudicka",
-      "dob": "2005-06-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 223620,
-      "name": "Marie Vlckova",
-      "dob": "2008-11-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 234198,
-      "name": "Tereza Lieblova",
-      "dob": "2006-07-09",
-      "height": null,
-      "weight": null
-    }
+    {"id":100601,"name":"Martina Hudcova","dob":"1966-03-26","height":173,"weight":65},
+    {"id":100602,"name":"Dolores Storkova","dob":"1960-04-12","height":178,"weight":70},
+    {"id":100687,"name":"Michaela Curinova","dob":"1969-01-08","height":178,"weight":68},
+    {"id":100688,"name":"Eva Krcova","dob":"1965-03-06","height":176,"weight":65},
+    {"id":101442,"name":"Zdenka Mocova","dob":"1974-10-17","height":184,"weight":71},
+    {"id":101443,"name":"Radana Foltynova","dob":"1976-11-10","height":178,"weight":69},
+    {"id":101444,"name":"Jaroslava \"Boira\" Bajerova","dob":"1971-04-20","height":null,"weight":null},
+    {"id":101445,"name":"Jana Mrstikova","dob":"1972-07-04","height":178,"weight":64},
+    {"id":101546,"name":"Eva Celbova","dob":"1975-03-08","height":186,"weight":80,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":0,"silver":0,"bronze":3}},
+    {"id":101547,"name":"Sona Novakova Dosoudilova","dob":"1975-10-06","height":186,"weight":74,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":0,"silver":0,"bronze":3}},
+    {"id":101821,"name":"Tereza Tobiasova","dob":"1974-04-10","height":177,"weight":64},
+    {"id":101822,"name":"Alena  \"Bobina\" Horackova","dob":"1979-04-25","height":176,"weight":68},
+    {"id":101823,"name":"Lenka Urbanova","dob":"1978-07-30","height":181,"weight":71},
+    {"id":101904,"name":"Zuzana Horackova","dob":"1981-05-25","height":172,"weight":65},
+    {"id":102208,"name":"Irena Stovickova","dob":"1978-11-17","height":null,"weight":null},
+    {"id":102209,"name":"Lenka Felbabova","dob":"1978-04-18","height":null,"weight":null},
+    {"id":102244,"name":"Romana Jedlickova","dob":"1966-06-09","height":172,"weight":58},
+    {"id":102245,"name":"Katerina Moudra","dob":"1975-07-16","height":186,"weight":76},
+    {"id":102247,"name":"Lucie Ruzkova","dob":"1967-06-20","height":184,"weight":72},
+    {"id":102681,"name":"Marketa Tychnova","dob":"1981-04-10","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":102713,"name":"Ilona Sotkovska","dob":"1972-03-14","height":176,"weight":70},
+    {"id":103016,"name":"Marika Teknedzjanova","dob":"1979-01-03","height":180,"weight":70},
+    {"id":103334,"name":"Jitka Stehnova","dob":"1981-05-03","height":null,"weight":null},
+    {"id":103385,"name":"Sylva Schlosser","dob":"1979-01-08","height":null,"weight":null},
+    {"id":103423,"name":"Katerina Tychnova","dob":"1983-03-10","height":179,"weight":63,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":103788,"name":"Kristyna Nemcova","dob":"1980-07-17","height":null,"weight":null},
+    {"id":103789,"name":"Tereza Petrova","dob":"1982-03-25","height":175,"weight":64,"tour":{"gold":2,"silver":0,"bronze":0}},
+    {"id":103790,"name":"Alexandra Valova","dob":"1982-06-19","height":null,"weight":null},
+    {"id":103819,"name":"Michaela Maixnerova","dob":"1983-09-18","height":null,"weight":null},
+    {"id":103823,"name":"Ludmila Chuatalova","dob":"1981-12-12","height":null,"weight":null},
+    {"id":103908,"name":"Michaela Blahova","dob":"1982-10-05","height":null,"weight":null},
+    {"id":103909,"name":"Veronika Pokorna","dob":"1983-06-03","height":null,"weight":null},
+    {"id":104080,"name":"Eva Weissova","dob":"1986-01-26","height":null,"weight":null},
+    {"id":104081,"name":"Petra Eliasova","dob":"1985-05-02","height":null,"weight":null},
+    {"id":104226,"name":"Barbora Novakova","dob":null,"height":null,"weight":null},
+    {"id":104264,"name":"Hana Skalnikova","dob":"1982-03-29","height":182,"weight":75,"tour":{"gold":2,"silver":1,"bronze":0}},
+    {"id":104385,"name":"Lucie Pakova","dob":null,"height":null,"weight":null},
+    {"id":104898,"name":"Sarka Nakladalova","dob":"1985-06-28","height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":104980,"name":"Veronika Opravilova","dob":"1987-07-22","height":null,"weight":null},
+    {"id":104981,"name":"Eva Krystova","dob":"1987-01-04","height":null,"weight":null},
+    {"id":112446,"name":"Petra Chalcarzova","dob":"1983-05-15","height":177,"weight":67},
+    {"id":113420,"name":"Eva Stepancikova","dob":"1972-12-11","height":176,"weight":71},
+    {"id":113423,"name":"Marcela Ritschelova","dob":"1972-10-09","height":192,"weight":82},
+    {"id":113428,"name":"Petra Novotna","dob":"1981-04-10","height":187,"weight":70},
+    {"id":113436,"name":"Lucie Svarcova","dob":"1978-05-22","height":174,"weight":62},
+    {"id":116659,"name":"Marketa Slukova","dob":"1988-06-28","height":180,"weight":68,"tour":{"gold":6,"silver":4,"bronze":2}},
+    {"id":116967,"name":"Jana Goliasova","dob":"1986-09-02","height":183,"weight":75},
+    {"id":118054,"name":"Kristyna Kolocova","dob":"1988-04-01","height":170,"weight":62,"tour":{"gold":2,"silver":0,"bronze":1}},
+    {"id":118196,"name":"Kristyna Hejlova","dob":null,"height":null,"weight":null},
+    {"id":118197,"name":"Elizabeth Adenubiova","dob":"1988-06-19","height":null,"weight":null},
+    {"id":118198,"name":"Katerina Korhonova","dob":"1988-07-20","height":null,"weight":null},
+    {"id":118244,"name":"Iva Storkova","dob":"1986-07-01","height":null,"weight":null},
+    {"id":119307,"name":"Barbora Jerábková","dob":"1989-12-26","height":null,"weight":null},
+    {"id":119308,"name":"Michaela Voláková","dob":"1989-10-05","height":null,"weight":null},
+    {"id":119638,"name":"Karolina Rehácková","dob":"1987-08-09","height":176,"weight":58},
+    {"id":119639,"name":"Michaela Vorlová","dob":"1987-04-16","height":177,"weight":62},
+    {"id":120745,"name":"Michala Frank","dob":"1990-02-08","height":183,"weight":70,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":120746,"name":"Barbora Hermannová","dob":"1990-11-07","height":180,"weight":78,"tour":{"gold":7,"silver":4,"bronze":3}},
+    {"id":120748,"name":"Šárka Melichárková","dob":"1990-06-08","height":null,"weight":null,"away":[{"id":120747,"name":"Marie Reiterova","fed":"LUX","gender":"W","t":1,"f":2008,"l":2008,"s":[[2008,1,212]],"at":[[2008,"CZE"]]}]},
+    {"id":120821,"name":"Štepánka Štastná","dob":"1991-09-28","height":null,"weight":null},
+    {"id":120822,"name":"Lenka Hajeckova","dob":"1978-04-18","height":173,"weight":64},
+    {"id":122391,"name":"Helena Grozer","dob":"1988-07-25","height":188,"weight":70},
+    {"id":123385,"name":"Lenka Grygarova","dob":"1991-04-09","height":null,"weight":null},
+    {"id":124236,"name":"Anna Siruckova","dob":"1991-08-27","height":183,"weight":74},
+    {"id":124399,"name":"Sarka Zidova","dob":"1981-02-08","height":null,"weight":null},
+    {"id":124790,"name":"Gabriela Kotvová","dob":"1992-01-25","height":null,"weight":null},
+    {"id":124925,"name":"Eliška Davidova","dob":"1992-06-12","height":168,"weight":null},
+    {"id":125192,"name":"Adéla Machová","dob":"1991-11-24","height":null,"weight":null},
+    {"id":125444,"name":"Martina Williams","dob":"1991-07-22","height":173,"weight":68,"tour":{"gold":3,"silver":3,"bronze":0}},
+    {"id":131103,"name":"Romana Elblova","dob":"1977-04-21","height":null,"weight":null},
+    {"id":131272,"name":"Vendula Haragova","dob":"1981-07-22","height":null,"weight":null},
+    {"id":132683,"name":"Tereza Vanková","dob":"1993-10-02","height":null,"weight":null},
+    {"id":135489,"name":"Lenka Grycová","dob":"1987-04-10","height":null,"weight":null},
+    {"id":135490,"name":"Miroslava Lisková","dob":"1981-06-11","height":175,"weight":66},
+    {"id":135550,"name":"Šárka Vodenková","dob":"1994-05-21","height":null,"weight":null},
+    {"id":135551,"name":"Patricia Missottenová","dob":"1994-07-05","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":135552,"name":"Barbora Pilátová","dob":"1995-07-25","height":null,"weight":null},
+    {"id":135553,"name":"Hana Tresnáková","dob":"1995-04-13","height":180,"weight":68},
+    {"id":139890,"name":"Magdalena Černá","dob":"1995-02-18","height":181,"weight":null},
+    {"id":142295,"name":"Michaela Kubickova","dob":"1994-04-12","height":177,"weight":64,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":142304,"name":"Katerina Valkova","dob":"1996-02-06","height":177,"weight":59,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":143018,"name":"Marketa Bendikova","dob":"1995-09-12","height":null,"weight":null},
+    {"id":143420,"name":"Veronika Dostalova","dob":"1992-04-07","height":170,"weight":66},
+    {"id":144033,"name":"Nicole Dostalova","dob":"1995-08-11","height":null,"weight":null},
+    {"id":144060,"name":"Diana Jamborova","dob":"1989-11-15","height":180,"weight":68,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":144193,"name":"Kristyna Adamcikova","dob":"1997-07-02","height":null,"weight":null},
+    {"id":144197,"name":"Anna Komarkova","dob":"1996-02-20","height":null,"weight":null},
+    {"id":145197,"name":"Barbora Cidlikova","dob":"1989-09-24","height":null,"weight":null},
+    {"id":145514,"name":"Martina Jakubsova","dob":"1988-06-14","height":186,"weight":77},
+    {"id":146065,"name":"Eliska Novakova","dob":"1982-02-04","height":180,"weight":65},
+    {"id":146536,"name":"Tereza Ostranska","dob":"1984-01-14","height":null,"weight":null},
+    {"id":146887,"name":"Tereza Kotlasova","dob":"1998-05-13","height":null,"weight":null},
+    {"id":147099,"name":"Natalie Honzovicova","dob":"1998-09-04","height":179,"weight":null},
+    {"id":147100,"name":"Tereza Pluharova","dob":"1998-08-03","height":180,"weight":64},
+    {"id":147392,"name":"Iveta Halbichova","dob":"1989-12-19","height":178,"weight":67},
+    {"id":148474,"name":"Marie-Sara Stochlova","dob":"1999-03-11","height":182,"weight":72,"tour":{"gold":4,"silver":3,"bronze":2}},
+    {"id":148656,"name":"Anna Sotkovska","dob":"1997-04-18","height":null,"weight":null},
+    {"id":148657,"name":"Sara Olivova","dob":"1993-05-22","height":null,"weight":null},
+    {"id":153347,"name":"Justyna Frommova","dob":"1998-05-14","height":180,"weight":75},
+    {"id":154127,"name":"Sarlota Svobodova","dob":"2000-09-27","height":null,"weight":null},
+    {"id":154128,"name":"Julie Honzovicova","dob":"2001-11-04","height":181,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":154129,"name":"Karin Zolnercikova","dob":"2001-09-06","height":179,"weight":68,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":154812,"name":"Daniela Mokrá","dob":"1998-02-12","height":180,"weight":68,"tour":{"gold":0,"silver":0,"bronze":2}},
+    {"id":154904,"name":"Martina Maixnerova","dob":"1999-01-24","height":null,"weight":null,"tour":{"gold":2,"silver":0,"bronze":1}},
+    {"id":155035,"name":"Lucie Robeau","dob":"1982-04-27","height":193,"weight":null},
+    {"id":155224,"name":"Anna Dostalova","dob":"1991-01-19","height":null,"weight":null},
+    {"id":156016,"name":"Michaela Knoblochová","dob":"1991-03-08","height":183,"weight":65},
+    {"id":157647,"name":"Miroslava Dunarova","dob":"1999-07-23","height":169,"weight":64,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":161299,"name":"Eva Klimesova","dob":"1995-09-26","height":null,"weight":null},
+    {"id":164297,"name":"Barbora Adamcikova","dob":"1994-11-28","height":175,"weight":null},
+    {"id":164298,"name":"Michaela Kulhankova","dob":"1995-09-11","height":null,"weight":null},
+    {"id":164299,"name":"Ivana Cebakova","dob":"1986-08-07","height":null,"weight":null},
+    {"id":164576,"name":"Marketa Svozilova","dob":"2002-08-27","height":180,"weight":null,"tour":{"gold":2,"silver":1,"bronze":0}},
+    {"id":165822,"name":"Michaela Kopecka","dob":"1986-06-18","height":173,"weight":61},
+    {"id":166811,"name":"Amalie Tonova","dob":"1999-12-29","height":null,"weight":null},
+    {"id":168487,"name":"Michaela Brinkova","dob":"2002-07-16","height":null,"weight":null,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":168656,"name":"Anna Pospisilova","dob":"1995-03-22","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":3}},
+    {"id":169499,"name":"Kylie Neuschaeferova","dob":"2002-07-22","height":null,"weight":null,"tour":{"gold":2,"silver":0,"bronze":1}},
+    {"id":169560,"name":"Zuzana Markova","dob":"1989-11-03","height":null,"weight":null},
+    {"id":173629,"name":"Andrea Lorenzova","dob":"1999-10-04","height":169,"weight":66,"tour":{"gold":2,"silver":2,"bronze":0}},
+    {"id":174327,"name":"Tereza Francova","dob":"1999-12-30","height":null,"weight":null},
+    {"id":179026,"name":"Jaroslava Marcelova","dob":"1997-09-10","height":178,"weight":73},
+    {"id":179117,"name":"Radka Veselá","dob":"2004-11-22","height":null,"weight":null},
+    {"id":179123,"name":"Marketa Prihodova","dob":"2005-05-10","height":null,"weight":null},
+    {"id":179124,"name":"Beata Rockova","dob":"2003-09-07","height":null,"weight":null},
+    {"id":179132,"name":"Eliska Trnena","dob":"2002-01-19","height":163,"weight":60},
+    {"id":179214,"name":"Kristyna Koblizkova","dob":"2005-01-06","height":null,"weight":null},
+    {"id":179327,"name":"Alzbeta Tomasova","dob":"2004-12-29","height":null,"weight":null},
+    {"id":181913,"name":"Lucie Knoblochova","dob":"2007-12-14","height":182,"weight":70},
+    {"id":181914,"name":"Adela Petrikova","dob":"2007-09-05","height":null,"weight":null},
+    {"id":182237,"name":"Tereza Lajkebová","dob":"2006-04-07","height":null,"weight":null},
+    {"id":182239,"name":"Anna Pavelková","dob":"2005-10-02","height":null,"weight":null,"tour":{"gold":2,"silver":1,"bronze":1}},
+    {"id":182240,"name":"Katerina Pavelková","dob":"2005-10-02","height":null,"weight":null,"tour":{"gold":2,"silver":1,"bronze":1}},
+    {"id":182609,"name":"Anna Krizova","dob":"1991-07-05","height":null,"weight":null},
+    {"id":182613,"name":"Tereza Novotna","dob":"2005-05-07","height":null,"weight":null},
+    {"id":182658,"name":"Valerie Dvorníková","dob":"2003-03-10","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":182814,"name":"Lucie Grancaiova","dob":"2005-08-13","height":null,"weight":null},
+    {"id":190776,"name":"Mariana Tomasova","dob":"2005-12-30","height":null,"weight":null,"tour":{"gold":1,"silver":2,"bronze":0}},
+    {"id":190777,"name":"Adela Necesana","dob":"2005-03-25","height":null,"weight":null},
+    {"id":190782,"name":"Elena Svobodova","dob":"2007-10-29","height":null,"weight":null},
+    {"id":191283,"name":"Anna Simickova","dob":"2005-03-27","height":null,"weight":null},
+    {"id":191284,"name":"Veronika Kleiblova","dob":"2006-02-21","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":192337,"name":"Amalie Ebertova","dob":"2008-04-27","height":null,"weight":null},
+    {"id":192733,"name":"Michaela Cyrani","dob":"2006-08-07","height":null,"weight":null},
+    {"id":192736,"name":"Veronika Grancaiova","dob":"2002-02-20","height":null,"weight":null},
+    {"id":192868,"name":"Laura Kubistova","dob":"2004-01-14","height":null,"weight":null},
+    {"id":201901,"name":"Lucie Nosálková","dob":"2006-06-12","height":181,"weight":null},
+    {"id":201911,"name":"Adéla Šimíčková","dob":"2007-10-12","height":null,"weight":null},
+    {"id":201912,"name":"Viktorie Šestáková","dob":"2006-03-24","height":null,"weight":null},
+    {"id":209533,"name":"Johana Stiburkova","dob":"2005-10-23","height":null,"weight":null},
+    {"id":210227,"name":"Anika Dundackova","dob":"2007-08-21","height":null,"weight":null},
+    {"id":211509,"name":"Karolina Michajlikova","dob":"2004-04-10","height":179,"weight":null},
+    {"id":212660,"name":"Lea Mifkova","dob":"2009-09-23","height":null,"weight":null},
+    {"id":212664,"name":"Ema Sebova","dob":"2009-01-02","height":null,"weight":null},
+    {"id":214027,"name":"Stela Hummelova","dob":"2008-04-15","height":null,"weight":null},
+    {"id":214405,"name":"Adela Vorasicka","dob":"2007-10-16","height":174,"weight":65},
+    {"id":222741,"name":"Barbora Rudicka","dob":"2005-06-03","height":null,"weight":null},
+    {"id":223620,"name":"Marie Vlckova","dob":"2008-11-19","height":null,"weight":null},
+    {"id":234198,"name":"Tereza Lieblova","dob":"2006-07-09","height":null,"weight":null}
   ]
 }
