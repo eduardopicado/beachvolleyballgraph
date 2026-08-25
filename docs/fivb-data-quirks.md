@@ -214,15 +214,107 @@ says `QAT`. The snapshot is not even reliably the *latest* federation.
 
 **Worth knowing.** `BeachTeam` rows carry their own `FederationCode` — the
 federation the pair actually represented at that tournament, which is where
-every figure above came from. The pipeline fetches it but does not use it. That
-field is the raw material for a proper fix if this ever becomes worth doing,
-and it would fix both directions at once: Schalk's dropped edges and Solberg's
+every figure above came from. That field is the raw material for a proper fix,
+and it fixes both directions at once: Schalk's dropped edges and Solberg's
 relabelled one.
 
 **Scale.** 157 players have at least one partner in another federation and 49
 have no partner in their own, so for those 49 the *Other federations* block is
 the whole career rather than a footnote — which is also why it is worth being
 precise about what that heading means. It means "other federations **today**".
+
+### 6a. Don't be fooled into thinking the team code is a snapshot too
+
+`BeachTeam.FederationCode` agrees with player 1's *current* federation on
+203,273 of 204,263 comparable rows — 99.5%. (§6a–6c count a full team dump
+taken 2026-08-25, 206,325 rows, rather than the archive date at the top.)
+That number reads like proof the
+field is just today's value stamped backwards onto old entries, and it is not.
+It is the base rate of never transferring. Of 7,138 players with five or more
+rows as player 1, **58** carry more than one code at all:
+
+| | players |
+|---|---|
+| one code for the whole career | 7,080 |
+| clean chronological split (a transfer) | 27 |
+| mixed or non-contiguous | 31 |
+
+The 27 are unmistakable, and the seasons line up with real moves:
+
+```
+120495  BRA 2008-2014 → QAT 2016-2019      145124  BRA 2006-2008 → QAT 2013-2019
+103670  FIN 2001-2017 → CYP 2021-2024      147368  RUS 2006-2013 → AZE 2014-2017
+120577  UKR 2008-2013 → RUS 2018-2020
+```
+
+The 31 that don't split cleanly are mostly not transfers either. Federation
+*renames* account for most of them — `GBR`↔`ENG`/`SCO`, `LIB`↔`LBN`,
+`MLD`↔`MDA`, `CUR`↔`AHO` (§8 covers those) — plus `RUS`↔`ROC` for 2021, which
+is historically correct rather than an error. Four are genuine round trips:
+`AUS`→`DEN`→`AUS`, `AZE`→`BRA`→`AZE`, `BUL`→`NED`→`BUL`, `ESP`→`GER`→`ESP`.
+
+**The trap.** A `BeachTeam` row also carries `Player1FederationCode` and
+`Player2FederationCode`. Those *are* live joins to the player record, and they
+are worth nothing as history: Tiago's 2005 entry says
+`Player2FederationCode="QAT"` for a move he made in 2013. The team's own
+`FederationCode` on that same row says `BRA`. Two fields on one row, one true
+at the time and one true today — take the team's.
+
+### 6b. VIS has no transfer record at all
+
+There is no request type for one. Probed and rejected with
+`BadParameter id="1002">Type`: `GetPlayerTransferList`, `GetTransferList`,
+`GetBeachTransferList`, `GetPlayerHistoryList`, `GetPlayerFederationList`,
+`GetPlayerNationalityList`, `GetPlayerCareerList`, `GetVolleyTransferList`,
+`GetPlayerRegistrationList`, `GetLicenseList`, `GetBeachTeamPlayerList`,
+`GetPlayerVersionList`. `GetFederationList`, `GetConfederationList`,
+`GetBeachTeam` and `GetBeachRoundList` do exist.
+
+The full player record (below) has no history field either — `PreviousNames`
+tracks name changes, and nothing tracks federation changes. Reconstructing a
+transfer from the team rows, as §6a does, is the only route there is.
+
+**How to enumerate fields at all.** VIS silently ignores a `Fields` name it
+doesn't recognise — asking for `ZzzNotAField` returns rows without it rather
+than an error — so a bad field name teaches you nothing. The singular
+`Get<Thing> No="…"` requests take no `Fields` and return every attribute, which
+makes them the field list:
+
+```
+<Requests><Request Type="GetPlayer" No="102285"/></Requests>
+<Requests><Request Type="GetBeachTeam" No="884126"/></Requests>
+```
+
+`GetPlayer` returns ~90 attributes. Beyond what the pipeline already uses:
+`ConfederationCode`, `PreviousNames`, `PopularName`, `BeachYearBegin`,
+`BirthPlace`, `BirthCountryCode`, `Languages`, `Sponsors`, `Handedness`,
+`NoPerson`, `NoCev`. `GetBeachTeam` returns ~80, including `EarningsTeam`,
+`EntryPoints`, `MainDrawSeed`, `TechnicalPoints` and the two player joins above.
+
+### 6c. A mixed-nationality pair is filed under player 1
+
+When the two players represent different federations, FIVB does not record
+both. The team gets one `FederationCode`, and it is **player 1's**: on the
+2,216 rows where the two players' federations-at-the-time differ, the team code
+matches player 1 on 2,207 of them (99.6%), player 2 on 7, and neither on 2.
+
+**The worked example.** Giseli "Gisi" Gavio Farinazzo (`102285`) is Brazilian,
+played her whole career in Italy, and is player 1 on all fifteen of her teams —
+so all fifteen are registered `BRA` while her Italian partners keep `ITA`. A
+same-federation edge rule drops every one of them and she stands alone on the
+Brazil women's graph with five partners and no edges. Her partners show the
+other half of the same split: Annamaria Solazzi has 91 Italian entries and
+exactly one Brazilian, the Fortaleza event with Gisi; Gaia Cicola has 15
+Italian and 8 Brazilian, and all eight are with Gisi.
+
+This is not the §6 problem wearing a different hat. §6 is about *time* — a pair
+who were compatriots and stopped being one. This is about a pair who were never
+compatriots at all, and no amount of historical accuracy makes them one. The
+team code is correct here; it just isn't symmetric, so which player's graph the
+partnership lands on depends on which of them FIVB happened to list first.
+
+**Scale.** 1,074 partnerships are mixed-nationality at every event they played,
+and 200 of those played three or more events together.
 
 ---
 

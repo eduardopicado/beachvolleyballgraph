@@ -11,6 +11,16 @@
  * always unambiguous: a team row exists per pair *per tournament*, a pair can
  * be entered twice for one event (qualification and main draw, or an entry
  * withdrawn and re-made), and those duplicate rows occasionally disagree.
+ *
+ * Do not be talked out of this by the obvious statistic. `BeachTeam`'s code
+ * matches player 1's *current* federation on 99.5% of rows, which looks like
+ * proof it is just today's value stamped backwards — it is the base rate of
+ * never transferring. Only 58 of 7,138 players with five or more rows as
+ * player 1 carry more than one code, and 27 of those split cleanly at a real
+ * move. The row's `Player1FederationCode` / `Player2FederationCode` *are* the
+ * live snapshot and are worth nothing here: Tiago's 2005 entry stamps him QAT
+ * for a transfer he made in 2013, on a row whose team code correctly says BRA.
+ * `docs/fivb-data-quirks.md` §6a has the full working.
  */
 
 /**
