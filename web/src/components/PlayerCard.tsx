@@ -219,6 +219,8 @@ interface Props {
   names: ReadonlyMap<number, string>;
   onSelectPartner: (id: number) => void;
   onSelectAway: (partner: AwayPartner) => void;
+  /** Opens the partnership path panel with this player as the near end. */
+  onFindPath: () => void;
   onClose: () => void;
 }
 
@@ -244,6 +246,7 @@ export function PlayerCard({
   names,
   onSelectPartner,
   onSelectAway,
+  onFindPath,
   onClose,
 }: Props) {
   const cardRef = useRef<HTMLElement>(null);
@@ -638,14 +641,22 @@ export function PlayerCard({
         )}
       </section>
 
-      <a
-        className="profile-link"
-        href={playerProfileUrl(node.id)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        FIVB profile ↗
-      </a>
+      <div className="card-foot">
+        {/* The way into the path panel, and the only one: the question is
+            "how does this player reach someone else", so it belongs on a
+            player rather than on the graph's toolbar. */}
+        <button type="button" className="find-path" onClick={onFindPath}>
+          Path to another player
+        </button>
+        <a
+          className="profile-link"
+          href={playerProfileUrl(node.id)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          FIVB profile ↗
+        </a>
+      </div>
     </aside>
   );
 }

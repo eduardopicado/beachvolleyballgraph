@@ -34,6 +34,7 @@ import {
   type SearchablePlayer,
   type Slice,
 } from '../web/src/lib/search.js';
+import { findPath, indexPartnerships } from '../web/src/lib/path.js';
 import { parseSliceKey } from '../web/src/schema.js';
 import { CONTACT_EMAIL } from '../web/src/site.js';
 
@@ -1037,4 +1038,149 @@ test('the Olympics keep their tier badge rather than gaining a level', async ({ 
   await season.locator('.season').click();
   const row = season.locator('.events > li').filter({ hasText: found!.name }).first();
   await expect(row.locator('.badge')).toHaveText('Olympics');
+});
+
+/**
+ * The partnership path.
+ *
+ * Every expectation is computed from the published graph with the same walk
+ * the page uses, so these stay true as the archive changes rather than
+ * asserting a chain someone typed in.
+ */
+test.describe('partnership path', () => {
+  const slice = () => graph(COUNTRY, GENDER);
+  const index = () => indexPartnerships(slice().nodes, slice().edges);
+
+  /** The most prominent player, and someone a known number of steps away. */
+  const subjects = (steps: number) => {
+    const idx = index();
+    const from = [...slice().nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    const to = [...slice().nodes]
+      .filter((n) => {
+        const r = findPath(idx, from.id, n.id);
+        return r?.kind === 'path' && r.links.length - 1 === steps;
+      })
+      .sort((a, b) => b.tournaments - a.tournaments)[0];
+    return { from, to };
+  };
+
+  test('opens from a card and asks for a second player', async ({ page }) => {
+    const { from } = subjects(2);
+    await page.goto(`./${slicePath()}?player=${from.id}`);
+    await page.getByRole('button', { name: 'Path to another player' }).click();
+
+    const panel = page.locator('.path-panel');
+    await expect(panel).toBeVisible();
+    // The card gave up the slot rather than the panel appearing beside it.
+    await expect(page.locator('.player-card')).toHaveCount(0);
+    await expect(panel).toContainText(from.name);
+  });
+
+  test('draws the chain, with what each pair did on every step', async ({ page }) => {
+    const { from, to } = subjects(3);
+    test.skip(!to, 'no player exactly three steps from the most prominent one');
+    const expected = findPath(index(), from.id, to!.id);
+    expect(expected?.kind).toBe('path');
+    if (expected?.kind !== 'path') return;
+
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${to!.id}`);
+    const panel = page.locator('.path-panel');
+    await expect(panel).toBeVisible();
+
+    // Same people, in the same order, as the walk over the published file.
+    const names = await panel.locator('.chain .who .nm').evaluateAll((els) =>
+      els.map((e) => e.textContent),
+    );
+    expect(names).toEqual(expected.links.map((l) => l.node.name));
+
+    // And every step says what the pair actually did — the counts are what
+    // make the chain a claim you can check rather than trivia.
+    const counts = await panel.locator('.chain .link b').evaluateAll((els) =>
+      els.map((e) => Number(e.textContent)),
+    );
+    expect(counts).toEqual(expected.links.slice(1).map((l) => l.t));
+  });
+
+  test('lights the chain on the graph and dims everything else', async ({ page }) => {
+    const { from, to } = subjects(3);
+    test.skip(!to, 'no player exactly three steps from the most prominent one');
+    const expected = findPath(index(), from.id, to!.id);
+    if (expected?.kind !== 'path') return;
+
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${to!.id}`);
+    await expect(page.locator('.path-panel')).toBeVisible();
+
+    // Exactly the players on the chain are lit; the rest of the slice is not.
+    await expect
+      .poll(() => page.locator('svg.graph .node.is-active').count())
+      .toBe(expected.links.length);
+    const dimmed = await page.locator('svg.graph .node.is-dimmed').count();
+    expect(dimmed).toBe(slice().nodes.length - expected.links.length);
+  });
+
+  test('says so plainly when no chain connects the two', async ({ page }) => {
+    // The common answer archive-wide, so it has to be a real one. Found by
+    // scanning for someone the most prominent player genuinely cannot reach.
+    const idx = index();
+    const from = [...slice().nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    const stranded = slice().nodes.find((n) => findPath(idx, from.id, n.id)?.kind === 'unconnected');
+    test.skip(!stranded, 'every player in this slice is reachable from the busiest one');
+
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${stranded!.id}`);
+    const panel = page.locator('.path-panel');
+    await expect(panel).toContainText('No chain connects them');
+    // No chain means no chain — not a half-drawn one.
+    await expect(panel.locator('.chain')).toHaveCount(0);
+    // The graph goes back to ordinary selection highlighting rather than
+    // staying dimmed as though a route were being shown: the only lit node is
+    // the player whose card this started from.
+    await expect.poll(() => page.locator('svg.graph .node.is-active').count()).toBe(1);
+  });
+
+  test('a path survives being shared as a link', async ({ page }) => {
+    const { from, to } = subjects(2);
+    test.skip(!to, 'no player exactly two steps from the most prominent one');
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${to!.id}`);
+    await expect(page.locator('.path-panel')).toBeVisible();
+    await expect
+      .poll(() => new URL(page.url()).searchParams.get('path'))
+      .toBe(String(to!.id));
+  });
+
+  test('closing the path returns to the card it came from', async ({ page }) => {
+    const { from, to } = subjects(2);
+    test.skip(!to, 'no player exactly two steps from the most prominent one');
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${to!.id}`);
+    await page.getByRole('button', { name: 'Close path' }).click();
+
+    await expect(page.locator('.path-panel')).toHaveCount(0);
+    await expect(page.locator('.player-card h2')).toHaveText(from.name);
+    // And the link is clean again, so it is not silently re-shared.
+    await expect.poll(() => new URL(page.url()).searchParams.get('path')).toBeNull();
+  });
+
+  /**
+   * The filter and the path have to agree. A chain running through a
+   * partnership the reader has hidden would be a route they cannot see.
+   */
+  test('will not route through a partnership the filter has hidden', async ({ page }) => {
+    const idx = index();
+    const from = [...slice().nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    // Someone reachable now, whose route leans on a one-event partnership.
+    const target = slice().nodes.find((n) => {
+      const r = findPath(idx, from.id, n.id);
+      return r?.kind === 'path' && r.links.length > 2 && r.weakest === 1;
+    });
+    test.skip(!target, 'no route in this slice depends on a single-event pair');
+
+    await page.goto(`./${slicePath()}?player=${from.id}&path=${target!.id}&min=3`);
+    const panel = page.locator('.path-panel');
+    await expect(panel).toBeVisible();
+    // Either a different, stronger route or none — but never a chain whose
+    // steps are missing from the graph beside it.
+    const counts = await panel.locator('.chain .link b').evaluateAll((els) =>
+      els.map((e) => Number(e.textContent)),
+    );
+    for (const c of counts) expect(c).toBeGreaterThanOrEqual(3);
+  });
 });

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetail, PlayersFile } from './schema';
 import { GENDERS } from './schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
@@ -11,6 +11,8 @@ import type { SearchablePlayer } from './lib/search';
 import { GENDER_LABEL } from './schema';
 import { sliceSlug, slugFromPath } from './lib/slug';
 import { PartnershipGraph } from './components/PartnershipGraph';
+import { PathPanel } from './components/PathPanel';
+import { indexPartnerships, pathEdgeKeys, pathNodeIds, findPath } from './lib/path';
 import { PlayerCard, type AwayRow, type PartnerRow } from './components/PlayerCard';
 import { StatTiles, type Stat } from './components/StatTiles';
 import { TableView, type TableRow } from './components/TableView';
@@ -27,10 +29,12 @@ function readUrl(): {
   gender: Gender | null;
   player: number | null;
   min: number | null;
+  pathTo: number | null;
 } {
   const params = new URLSearchParams(location.search);
   const gender = params.get('gender');
   const player = Number(params.get('player'));
+  const pathTo = Number(params.get('path'));
   return {
     // The prerendered path ("/brazil-men/") is the canonical form; the query
     // parameters stay supported so older links keep working.
@@ -39,6 +43,7 @@ function readUrl(): {
     gender: gender === 'M' || gender === 'W' ? gender : null,
     player: Number.isFinite(player) && player > 0 ? player : null,
     min: parseMinTogether(params.get('min'), MIN_TOGETHER_OPTIONS),
+    pathTo: Number.isFinite(pathTo) && pathTo > 0 ? pathTo : null,
   };
 }
 
@@ -61,6 +66,18 @@ export default function App() {
   const [layoutKey, setLayoutKey] = useState(0);
   /** Hide partnerships below this many shared tournaments. 1 = show all. */
   const [minTogether, setMinTogether] = useState(initial.min ?? 1);
+  /**
+   * The far end of an open partnership path, or null when the panel is closed.
+   * The near end is always the selected player, so the panel is a mode of the
+   * card rather than a thing of its own.
+   */
+  const [pathTo, setPathTo] = useState<number | null>(initial.pathTo);
+  /**
+   * Whether the path panel has the card's slot. Kept apart from `pathTo`
+   * because the panel is open for a while before a second player is picked,
+   * and "open with nobody chosen" is a real state rather than a missing value.
+   */
+  const [pathOpen, setPathOpen] = useState(initial.pathTo !== null);
 
   // --- manifest ------------------------------------------------------------
   useEffect(() => {
@@ -128,6 +145,21 @@ export default function App() {
     };
   }, [manifest, country, gender]);
 
+  // A path is a statement about one slice, so changing country or gender ends
+  // it rather than leaving a far end pointing at somebody who is no longer here.
+  //
+  // Compares against the slice it last ran for rather than just depending on
+  // the two values, because an effect also fires on mount — which cleared the
+  // path a shared link had just opened, before anything was rendered.
+  const pathSlice = useRef(`${country}-${gender}`);
+  useEffect(() => {
+    const key = `${country}-${gender}`;
+    if (pathSlice.current === key) return;
+    pathSlice.current = key;
+    setPathTo(null);
+    setPathOpen(false);
+  }, [country, gender]);
+
   // --- URL and document head sync -----------------------------------------
   useEffect(() => {
     if (!manifest) return;
@@ -140,6 +172,8 @@ export default function App() {
     const params = new URLSearchParams();
     if (minTogether > 1) params.set('min', String(minTogether));
     if (selectedId) params.set('player', String(selectedId));
+    // Only a finished path is worth linking to.
+    if (selectedId && pathOpen && pathTo) params.set('path', String(pathTo));
     const query = params.toString();
     const url = `${base}${sliceSlug(entry.name, gender)}/${query ? `?${query}` : ''}`;
     history.replaceState(null, '', url);
@@ -155,7 +189,7 @@ export default function App() {
     setHeadTag('meta[property="og:title"]', 'content', title);
     setHeadTag('meta[property="og:description"]', 'content', description);
     setHeadTag('meta[property="og:url"]', 'content', new URL(url, location.origin).toString());
-  }, [manifest, country, gender, selectedId, minTogether]);
+  }, [manifest, country, gender, selectedId, minTogether, pathTo, pathOpen]);
 
   // --- derived -------------------------------------------------------------
   /** See lib/filter.ts for why an orphaned player leaves with their edges. */
@@ -168,6 +202,28 @@ export default function App() {
     () => new Map(visibleNodes.map((n) => [n.id, n])),
     [visibleNodes],
   );
+
+  /**
+   * Adjacency for the partnership path, built from the *filtered* slice.
+   *
+   * A route through a partnership the reader has hidden with "min. events
+   * together" is a route they cannot see on the graph, which reads as a bug
+   * rather than as an answer — so the walk and the picture share one source.
+   */
+  const partnerships = useMemo(
+    () => indexPartnerships(visibleNodes, visibleEdges),
+    [visibleNodes, visibleEdges],
+  );
+
+  const pathResult = useMemo(
+    () =>
+      selectedId !== null && pathOpen && pathTo !== null
+        ? findPath(partnerships, selectedId, pathTo)
+        : null,
+    [partnerships, selectedId, pathTo, pathOpen],
+  );
+  const litNodes = useMemo(() => pathNodeIds(pathResult), [pathResult]);
+  const litEdges = useMemo(() => pathEdgeKeys(pathResult), [pathResult]);
 
   const partnersByPlayer = useMemo(() => {
     const map = new Map<number, PartnerRow[]>();
@@ -481,6 +537,8 @@ export default function App() {
               onSelect={selectPlayer}
               layoutKey={layoutKey}
               onSize={onGraphSize}
+              pathIds={litNodes}
+              pathEdges={litEdges}
             />
           ) : (
             <div className="graph-empty">
@@ -490,7 +548,30 @@ export default function App() {
             </div>
           )}
 
-          {selectedNode && (
+          {selectedNode && pathOpen && (
+            <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
+              <PathPanel
+                index={partnerships}
+                nodes={visibleNodes}
+                from={selectedNode}
+                toId={pathTo}
+                onPick={setPathTo}
+                onSelectPlayer={(id) => {
+                  setPathTo(null);
+                  setPathOpen(false);
+                  setSelectedId(id);
+                }}
+                onClose={() => {
+                  setPathTo(null);
+                  setPathOpen(false);
+                }}
+                country={graph?.country ?? country}
+                gender={graph?.gender ?? gender}
+              />
+            </div>
+          )}
+
+          {selectedNode && !pathOpen && (
             <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
               <PlayerCard
                 node={selectedNode}
@@ -506,6 +587,7 @@ export default function App() {
                 names={namesById}
                 onSelectPartner={selectPlayer}
                 onSelectAway={selectAwayPartner}
+                onFindPath={() => setPathOpen(true)}
                 onClose={() => setSelectedId(null)}
               />
             </div>
