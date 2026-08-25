@@ -2,19 +2,128 @@
   "country": "NAM",
   "gender": "M",
   "players": [
-    {"id":101303,"name":"Deon Heinrich \"Stokes\" Cloete","dob":"1970-02-20","height":183,"weight":78,"away":[{"id":101304,"name":"Bevin \"B.Boy\" Zealand","fed":"RSA","gender":"M","t":1,"f":1995,"l":1995,"s":[[1995,1,354]],"at":[[1995,"RSA"]]}]},
-    {"id":101690,"name":"Hannes W. Uys","dob":"1972-10-08","height":190,"weight":90},
-    {"id":101692,"name":"Dean Eric \"Wimpy\" Louw","dob":"1968-07-04","height":191,"weight":92},
-    {"id":104639,"name":"Joël N. Mateus","dob":"1978-12-23","height":null,"weight":null},
-    {"id":104640,"name":"Achim F Lück","dob":null,"height":null,"weight":null},
-    {"id":139286,"name":"Gerard Fischer","dob":"1994-11-10","height":188,"weight":85},
-    {"id":139288,"name":"Tin Hlupic","dob":"1994-06-21","height":null,"weight":null},
-    {"id":146117,"name":"Jan-Eric Sack","dob":"1997-08-21","height":null,"weight":null},
-    {"id":146118,"name":"roman york Von Ludwiger","dob":"1997-08-24","height":null,"weight":null},
-    {"id":157094,"name":"Daniel Pfeifer","dob":"1998-08-10","height":179,"weight":73},
-    {"id":157095,"name":"Fabian Pfeifer","dob":"1998-08-10","height":178,"weight":70},
-    {"id":188209,"name":"Luca Kesselmann","dob":"2006-01-30","height":182,"weight":70},
-    {"id":188238,"name":"Max Krafft","dob":"2006-04-28","height":189,"weight":78},
-    {"id":200273,"name":"Jura Krafft","dob":"2008-09-16","height":192,"weight":75}
+    {
+      "id": 101303,
+      "name": "Deon Heinrich \"Stokes\" Cloete",
+      "dob": "1970-02-20",
+      "height": 183,
+      "weight": 78,
+      "away": [
+        {
+          "id": 101304,
+          "name": "Bevin \"B.Boy\" Zealand",
+          "fed": "RSA",
+          "gender": "M",
+          "t": 1,
+          "f": 1995,
+          "l": 1995,
+          "s": [
+            [
+              1995,
+              1,
+              354
+            ]
+          ],
+          "at": [
+            [
+              1995,
+              "RSA"
+            ]
+          ],
+          "r": 37
+        }
+      ]
+    },
+    {
+      "id": 101690,
+      "name": "Hannes W. Uys",
+      "dob": "1972-10-08",
+      "height": 190,
+      "weight": 90
+    },
+    {
+      "id": 101692,
+      "name": "Dean Eric \"Wimpy\" Louw",
+      "dob": "1968-07-04",
+      "height": 191,
+      "weight": 92
+    },
+    {
+      "id": 104639,
+      "name": "Joël N. Mateus",
+      "dob": "1978-12-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104640,
+      "name": "Achim F Lück",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139286,
+      "name": "Gerard Fischer",
+      "dob": "1994-11-10",
+      "height": 188,
+      "weight": 85
+    },
+    {
+      "id": 139288,
+      "name": "Tin Hlupic",
+      "dob": "1994-06-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146117,
+      "name": "Jan-Eric Sack",
+      "dob": "1997-08-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146118,
+      "name": "roman york Von Ludwiger",
+      "dob": "1997-08-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157094,
+      "name": "Daniel Pfeifer",
+      "dob": "1998-08-10",
+      "height": 179,
+      "weight": 73
+    },
+    {
+      "id": 157095,
+      "name": "Fabian Pfeifer",
+      "dob": "1998-08-10",
+      "height": 178,
+      "weight": 70
+    },
+    {
+      "id": 188209,
+      "name": "Luca Kesselmann",
+      "dob": "2006-01-30",
+      "height": 182,
+      "weight": 70
+    },
+    {
+      "id": 188238,
+      "name": "Max Krafft",
+      "dob": "2006-04-28",
+      "height": 189,
+      "weight": 78
+    },
+    {
+      "id": 200273,
+      "name": "Jura Krafft",
+      "dob": "2008-09-16",
+      "height": 192,
+      "weight": 75
+    }
   ]
 }

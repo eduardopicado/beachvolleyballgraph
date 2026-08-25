@@ -2,180 +2,1410 @@
   "country": "CZE",
   "gender": "M",
   "players": [
-    {"id":100583,"name":"Marek   \"Marco\"  \"Pako\" Pakosta","dob":"1969-04-21","height":202,"weight":93},
-    {"id":100584,"name":"Michal \"Palda\" Palinek","dob":"1967-08-10","height":190,"weight":80},
-    {"id":100650,"name":"Igor Stejskal","dob":"1968-10-14","height":200,"weight":95,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":100651,"name":"Petr Chromy","dob":"1970-04-07","height":190,"weight":77,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":100782,"name":"Milan Dzavoronok","dob":"1961-11-01","height":191,"weight":88},
-    {"id":100783,"name":"Vaclav Fikar","dob":"1967-03-14","height":197,"weight":86},
-    {"id":101183,"name":"Frantisek Barton","dob":"1972-06-02","height":null,"weight":null},
-    {"id":101184,"name":"Ondrej \"Koci\" Koudelka","dob":"1971-11-29","height":187,"weight":78},
-    {"id":101285,"name":"Vojtech \"Koudy\" Koudelka","dob":"1974-02-14","height":190,"weight":87},
-    {"id":101340,"name":"Jan Bijecek","dob":"1965-06-04","height":195,"weight":87},
-    {"id":101341,"name":"Lubomir \"Lubosch\" Kuchta","dob":"1965-07-28","height":187,"weight":80},
-    {"id":101430,"name":"Premysl Kubala","dob":"1973-12-16","height":202,"weight":98,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":101431,"name":"Mikulas Latecka","dob":"1973-02-28","height":195,"weight":99},
-    {"id":101561,"name":"Pavel Lipa","dob":"1965-05-09","height":195,"weight":92},
-    {"id":101562,"name":"Jindrich \"Silber\" Silbernagl","dob":"1968-02-18","height":197,"weight":86},
-    {"id":101777,"name":"Josef Benes","dob":"1970-04-29","height":194,"weight":85},
-    {"id":101778,"name":"Petr Benes","dob":"1974-11-27","height":197,"weight":90},
-    {"id":101779,"name":"Jan Benes","dob":"1968-10-28","height":196,"weight":85},
-    {"id":101780,"name":"Petr Safar","dob":"1957-05-14","height":177,"weight":72},
-    {"id":101781,"name":"Dalibor \"Otik\" Luska","dob":"1974-03-28","height":198,"weight":85},
-    {"id":101899,"name":"Milan \"Pepa\" Bican","dob":"1973-06-07","height":198,"weight":92},
-    {"id":101900,"name":"Oldrich Koza","dob":"1965-01-07","height":193,"weight":82},
-    {"id":101914,"name":"Marek Vratny","dob":"1977-04-22","height":191,"weight":85},
-    {"id":102279,"name":"Marek \"Kibo\" Simko","dob":"1972-10-12","height":199,"weight":101},
-    {"id":102280,"name":"Petr \"Sob\" Sobola","dob":"1976-09-16","height":194,"weight":80},
-    {"id":102514,"name":"Martin \"Tony\" Lebl","dob":"1980-04-12","height":201,"weight":105,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":102721,"name":"Richard \"Musa\" Muselik","dob":"1976-03-02","height":193,"weight":86},
-    {"id":102722,"name":"Vratislav \"Ziza\" Stanek","dob":"1976-11-07","height":188,"weight":84},
-    {"id":102906,"name":"Pavel \" Bojda\" Novak","dob":"1972-12-09","height":187,"weight":92},
-    {"id":103295,"name":"Stanislav Pochop","dob":"1966-09-19","height":null,"weight":null},
-    {"id":103337,"name":"Vaclav Koran","dob":"1973-07-03","height":null,"weight":null},
-    {"id":103339,"name":"Tomas Bozek","dob":"1983-09-29","height":null,"weight":null},
-    {"id":103340,"name":"Jan Vaclavik","dob":"1985-04-15","height":null,"weight":null},
-    {"id":103341,"name":"Michal Biza","dob":"1978-05-15","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":103395,"name":"Robert Plaga","dob":"1978-07-21","height":null,"weight":null},
-    {"id":103396,"name":"Hubert Smekal","dob":"1979-02-19","height":null,"weight":null},
-    {"id":103552,"name":"Miroslav Svoboda","dob":"1979-09-11","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":103555,"name":"Jiri Koubek","dob":"1979-03-31","height":null,"weight":null},
-    {"id":103556,"name":"Jaroslav Pavlas","dob":"1979-01-01","height":188,"weight":92,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":103806,"name":"Stepan Smrcka","dob":"1981-08-03","height":null,"weight":null},
-    {"id":103914,"name":"Pavel Kolar","dob":"1985-02-03","height":null,"weight":null,"away":[{"id":103915,"name":"Pavel Kotrekl","fed":"SUI","gender":"M","t":1,"f":2002,"l":2002,"s":[[2002,1,191]],"at":[[2002,"CZE"]]}]},
-    {"id":103916,"name":"Martin Klapal","dob":"1984-02-24","height":null,"weight":null},
-    {"id":103917,"name":"Petr Nezdaril","dob":"1985-04-08","height":null,"weight":null},
-    {"id":104212,"name":"Pavel Rotrekl","dob":"1983-12-23","height":198,"weight":85},
-    {"id":104772,"name":"Jindrich Weiss","dob":"1984-05-17","height":188,"weight":93,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":104977,"name":"Robert Kufa","dob":"1987-08-28","height":193,"weight":84,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":104978,"name":"Petr Minarik","dob":"1987-04-24","height":null,"weight":null},
-    {"id":104984,"name":"Martin Tichy","dob":"1986-06-07","height":190,"weight":95,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":104985,"name":"Zbynek Parkan","dob":"1986-06-04","height":null,"weight":null},
-    {"id":113832,"name":"Peter Platenik","dob":"1981-03-16","height":196,"weight":88},
-    {"id":117898,"name":"Viktor Pak","dob":"1986-11-07","height":null,"weight":null},
-    {"id":117899,"name":"Jan Dumek","dob":"1986-04-13","height":186,"weight":75},
-    {"id":117900,"name":"David Kufa","dob":"1982-08-21","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":117904,"name":"Pavel Krc","dob":"1975-03-02","height":null,"weight":null},
-    {"id":117948,"name":"Radek Barta","dob":"1978-05-03","height":null,"weight":null},
-    {"id":117949,"name":"Jiri Plachy","dob":"1977-10-24","height":190,"weight":90},
-    {"id":118990,"name":"Michal Rucka","dob":"1987-01-14","height":176,"weight":75},
-    {"id":119310,"name":"Jirí Korínek","dob":"1990-06-17","height":null,"weight":null},
-    {"id":119311,"name":"Jan Rodek","dob":"1990-01-14","height":196,"weight":89},
-    {"id":119312,"name":"Jirí Chochlík","dob":"1990-01-21","height":null,"weight":null},
-    {"id":119313,"name":"Richard Rohrl","dob":null,"height":null,"weight":null},
-    {"id":119989,"name":"Tomáš Havelka","dob":"1986-05-06","height":193,"weight":86},
-    {"id":119990,"name":"Andrej Takác","dob":"1984-01-10","height":null,"weight":null},
-    {"id":120029,"name":"Miroslav Mooz","dob":"1988-07-18","height":null,"weight":null},
-    {"id":120030,"name":"Martin Cupa","dob":"1989-02-26","height":null,"weight":null},
-    {"id":120289,"name":"Petr Sedlacek","dob":"1984-01-24","height":null,"weight":null},
-    {"id":120291,"name":"Filip Hanak","dob":"1976-07-17","height":188,"weight":98},
-    {"id":120295,"name":"Michal Provaznik","dob":"1975-04-11","height":null,"weight":null},
-    {"id":120519,"name":"Jaroslav Pešták","dob":"1979-06-23","height":null,"weight":null},
-    {"id":120520,"name":"Jan Holakovský","dob":"1986-10-27","height":null,"weight":null},
-    {"id":120743,"name":"Robert Božek","dob":"1990-08-05","height":null,"weight":null},
-    {"id":123365,"name":"David Borovec","dob":"1990-04-29","height":null,"weight":null},
-    {"id":123366,"name":"Richard Mauler","dob":"1989-09-28","height":null,"weight":null},
-    {"id":124791,"name":"Petr Doubravský","dob":"1992-03-17","height":null,"weight":null},
-    {"id":125083,"name":"Tomas Salava","dob":"1983-04-17","height":185,"weight":86},
-    {"id":125084,"name":"Ondrej Hromádko","dob":"1987-08-19","height":null,"weight":null},
-    {"id":125195,"name":"Jan Hadrava","dob":"1991-06-03","height":198,"weight":102},
-    {"id":129097,"name":"Vladek Pavelka","dob":"1974-04-24","height":null,"weight":null},
-    {"id":131531,"name":"Jakub Vesely","dob":"1986-09-02","height":207,"weight":100},
-    {"id":132678,"name":"Pavel Matejka","dob":"1992-05-13","height":null,"weight":null},
-    {"id":132679,"name":"Tomáš Hakl","dob":"1992-01-30","height":null,"weight":null},
-    {"id":132680,"name":"Tomáš Bijecek","dob":"1992-02-08","height":null,"weight":null},
-    {"id":132798,"name":"David Lenc","dob":"1990-10-23","height":187,"weight":81,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":132861,"name":"Michael Placek","dob":"1982-10-23","height":null,"weight":null},
-    {"id":133332,"name":"Jirí Pribyl","dob":"1991-04-20","height":null,"weight":null},
-    {"id":135464,"name":"Filip Kramar","dob":"1984-04-15","height":null,"weight":null},
-    {"id":135546,"name":"Michal Finger","dob":"1993-09-02","height":202,"weight":92},
-    {"id":135547,"name":"Št?pán Trojan","dob":"1994-01-03","height":194,"weight":85},
-    {"id":135548,"name":"Tomás Vána","dob":"1994-04-16","height":null,"weight":null},
-    {"id":135549,"name":"Martin Havlín","dob":"1993-04-06","height":null,"weight":null},
-    {"id":137346,"name":"Ondrej Perusic","dob":"1994-09-26","height":190,"weight":90,"worldChamps":{"gold":1,"silver":0,"bronze":0},"tour":{"gold":8,"silver":8,"bronze":3}},
-    {"id":137347,"name":"Ondrej Benes","dob":"1995-10-24","height":null,"weight":null},
-    {"id":138669,"name":"Martin David","dob":"1982-11-29","height":201,"weight":90},
-    {"id":138670,"name":"Ondrej Kolder","dob":"1988-02-26","height":null,"weight":null},
-    {"id":138819,"name":"Michal Studnicny","dob":"1983-11-20","height":null,"weight":null},
-    {"id":138836,"name":"Libor Leikep","dob":"1988-03-30","height":null,"weight":null},
-    {"id":139014,"name":"Filip Habr","dob":"1988-04-27","height":202,"weight":93,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":139582,"name":"Michael Hadrava","dob":"1995-01-10","height":null,"weight":null},
-    {"id":139869,"name":"Martin Pihera","dob":"1994-05-06","height":190,"weight":72,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":142008,"name":"Marcel Myslivecek","dob":"1985-08-06","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":147876,"name":"Vaclav Bercik","dob":"1996-09-22","height":190,"weight":80,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":147877,"name":"Jakub Gala","dob":"1997-08-28","height":null,"weight":null},
-    {"id":148440,"name":"Jakub Vala","dob":"1997-07-09","height":193,"weight":86},
-    {"id":148902,"name":"Dominik Samec","dob":"1994-02-27","height":null,"weight":null},
-    {"id":149583,"name":"Tomas Pala","dob":"1985-07-29","height":184,"weight":80},
-    {"id":150633,"name":"Donovan Dzavoronok","dob":"1997-07-23","height":202,"weight":98,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":153201,"name":"Daniel Sedlák","dob":"1998-01-29","height":null,"weight":null},
-    {"id":153202,"name":"David Pavlovský","dob":"1998-06-19","height":null,"weight":null},
-    {"id":153790,"name":"David Schweiner","dob":"1994-06-01","height":200,"weight":90,"worldChamps":{"gold":1,"silver":0,"bronze":0},"tour":{"gold":8,"silver":7,"bronze":3}},
-    {"id":154123,"name":"Jiri Sedlak","dob":"2000-01-19","height":193,"weight":85,"tour":{"gold":2,"silver":2,"bronze":0}},
-    {"id":156061,"name":"Dominik Pavoucek","dob":"1995-11-03","height":null,"weight":null},
-    {"id":156293,"name":"Filip Stastny","dob":"1997-09-22","height":null,"weight":null},
-    {"id":156966,"name":"Ondrej Pridal","dob":"1988-03-04","height":null,"weight":null},
-    {"id":157877,"name":"Patrik Manas","dob":"2000-09-17","height":195,"weight":82},
-    {"id":157878,"name":"Tadeas Tezzele","dob":"1999-12-02","height":null,"weight":null},
-    {"id":157956,"name":"Matyas Dzavoronok","dob":"2001-09-05","height":198,"weight":87,"tour":{"gold":2,"silver":2,"bronze":2}},
-    {"id":158972,"name":"Martin Sramek","dob":"1986-10-23","height":null,"weight":null},
-    {"id":160834,"name":"Frantisek Knobloch","dob":"2000-06-14","height":193,"weight":85},
-    {"id":162704,"name":"Martin Melmuka","dob":"1999-08-18","height":null,"weight":null},
-    {"id":164296,"name":"Ondrej Sotola","dob":"1995-04-12","height":195,"weight":95},
-    {"id":166881,"name":"Vit Beneš","dob":"2001-12-30","height":null,"weight":null},
-    {"id":168597,"name":"Adam Miroslav Stocek","dob":"2001-12-16","height":190,"weight":85},
-    {"id":168598,"name":"Tomas Maixner","dob":"2001-07-25","height":null,"weight":null},
-    {"id":168606,"name":"Jakub Sepka","dob":"2002-03-05","height":190,"weight":81,"tour":{"gold":2,"silver":2,"bronze":0}},
-    {"id":168821,"name":"Milan Monik","dob":"1988-03-15","height":190,"weight":92},
-    {"id":169586,"name":"Tadeas Trousil","dob":"2001-07-24","height":187,"weight":85,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":169596,"name":"Matyas Jachnicki","dob":"1999-05-16","height":null,"weight":null},
-    {"id":169597,"name":"Frantisek Pihera","dob":"1999-01-30","height":null,"weight":null},
-    {"id":173414,"name":"Ondrej Herman","dob":"2002-04-07","height":null,"weight":null},
-    {"id":173415,"name":"Tomas Semerad","dob":"2002-11-18","height":203,"weight":94},
-    {"id":173575,"name":"Jan Bercik","dob":"2002-03-26","height":189,"weight":83},
-    {"id":173576,"name":"Matej Ruml","dob":"2002-05-07","height":null,"weight":null},
-    {"id":174032,"name":"Matyas Jezek","dob":"2000-01-30","height":184,"weight":79,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":175537,"name":"Martin Pavlovsky","dob":"1998-06-19","height":187,"weight":80},
-    {"id":177292,"name":"Jan Stefko","dob":"1996-11-26","height":null,"weight":null},
-    {"id":178227,"name":"Jan Mrkous","dob":"1997-04-11","height":null,"weight":null},
-    {"id":178308,"name":"Adam Waber","dob":"2000-12-04","height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":178311,"name":"Vojtech Polednik","dob":"2003-08-26","height":null,"weight":null},
-    {"id":179007,"name":"Ondrej Pohl","dob":"2003-03-01","height":null,"weight":null},
-    {"id":179008,"name":"Martin Vaclavik","dob":"1996-10-02","height":null,"weight":null},
-    {"id":179063,"name":"Lukas Kittel","dob":"1997-08-07","height":null,"weight":null},
-    {"id":179528,"name":"Krystof Nemec","dob":"2003-10-14","height":null,"weight":null},
-    {"id":179529,"name":"Vaclav Kurka","dob":"2003-08-16","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":179910,"name":"Jakub Malik","dob":"2003-10-30","height":null,"weight":null},
-    {"id":181632,"name":"Richard Struska","dob":"2004-07-09","height":185,"weight":81},
-    {"id":181633,"name":"Krystof Jan Oliva","dob":"2004-06-09","height":197,"weight":90,"tour":{"gold":1,"silver":2,"bronze":0}},
-    {"id":182198,"name":"Vojtech Pavlusek","dob":"2007-02-04","height":null,"weight":null},
-    {"id":182375,"name":"Michal Pribyl","dob":"2004-04-27","height":null,"weight":null},
-    {"id":182377,"name":"Daniel Fabikovic","dob":"2004-08-23","height":null,"weight":null},
-    {"id":190440,"name":"Jiri Dostal","dob":"2003-07-23","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":190771,"name":"David Westphal","dob":"2005-10-28","height":200,"weight":75},
-    {"id":190772,"name":"Filip Rydval","dob":"2005-08-15","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":191893,"name":"Theodor Vasut","dob":"2008-09-10","height":null,"weight":null},
-    {"id":192341,"name":"Martin Toufar","dob":"2005-02-22","height":149,"weight":108},
-    {"id":192786,"name":"Teodor Schinko","dob":"2004-08-04","height":null,"weight":null},
-    {"id":192787,"name":"Ondrej Kulis","dob":"2004-03-01","height":149,"weight":108},
-    {"id":203268,"name":"Vojtěch Votava","dob":"2007-02-08","height":null,"weight":null},
-    {"id":209236,"name":"Tadeas Milichovsky","dob":"2005-05-13","height":195,"weight":80},
-    {"id":209570,"name":"Lukas Olsansky","dob":"2004-04-02","height":null,"weight":null},
-    {"id":209572,"name":"Vitezslav Simek","dob":"2002-04-22","height":null,"weight":null},
-    {"id":209643,"name":"Tobias Brnak","dob":"2005-12-15","height":null,"weight":null},
-    {"id":211212,"name":"Jan Kodidek","dob":"2003-12-25","height":null,"weight":null},
-    {"id":211213,"name":"Karel Tusek","dob":"2006-08-24","height":192,"weight":null},
-    {"id":211214,"name":"Martin Schuma","dob":"2006-08-09","height":195,"weight":82},
-    {"id":212650,"name":"Jan Kuthan","dob":"2009-05-15","height":null,"weight":null},
-    {"id":212651,"name":"Lukas Novotny","dob":"2010-08-26","height":null,"weight":null},
-    {"id":212652,"name":"Jaroslav Votava","dob":"2009-07-30","height":null,"weight":null},
-    {"id":214025,"name":"Josef Havelka","dob":"2008-09-21","height":null,"weight":null},
-    {"id":215432,"name":"Martin Koupset","dob":"2008-06-26","height":null,"weight":null},
-    {"id":219582,"name":"Vojtěch Kudrnovský","dob":"2007-08-04","height":null,"weight":null},
-    {"id":224208,"name":"Jakub Vaculik","dob":"2007-10-16","height":null,"weight":null},
-    {"id":224209,"name":"Bartolomej Simek","dob":"2008-04-17","height":null,"weight":null},
-    {"id":225338,"name":"Kaspar Strnad","dob":"2008-07-29","height":null,"weight":null},
-    {"id":225720,"name":"Viktor Korbas","dob":"2009-09-28","height":null,"weight":null},
-    {"id":227244,"name":"Filip Richter","dob":"2007-02-26","height":null,"weight":null}
+    {
+      "id": 100583,
+      "name": "Marek   \"Marco\"  \"Pako\" Pakosta",
+      "dob": "1969-04-21",
+      "height": 202,
+      "weight": 93
+    },
+    {
+      "id": 100584,
+      "name": "Michal \"Palda\" Palinek",
+      "dob": "1967-08-10",
+      "height": 190,
+      "weight": 80
+    },
+    {
+      "id": 100650,
+      "name": "Igor Stejskal",
+      "dob": "1968-10-14",
+      "height": 200,
+      "weight": 95,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100651,
+      "name": "Petr Chromy",
+      "dob": "1970-04-07",
+      "height": 190,
+      "weight": 77,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100782,
+      "name": "Milan Dzavoronok",
+      "dob": "1961-11-01",
+      "height": 191,
+      "weight": 88
+    },
+    {
+      "id": 100783,
+      "name": "Vaclav Fikar",
+      "dob": "1967-03-14",
+      "height": 197,
+      "weight": 86
+    },
+    {
+      "id": 101183,
+      "name": "Frantisek Barton",
+      "dob": "1972-06-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101184,
+      "name": "Ondrej \"Koci\" Koudelka",
+      "dob": "1971-11-29",
+      "height": 187,
+      "weight": 78
+    },
+    {
+      "id": 101285,
+      "name": "Vojtech \"Koudy\" Koudelka",
+      "dob": "1974-02-14",
+      "height": 190,
+      "weight": 87
+    },
+    {
+      "id": 101340,
+      "name": "Jan Bijecek",
+      "dob": "1965-06-04",
+      "height": 195,
+      "weight": 87
+    },
+    {
+      "id": 101341,
+      "name": "Lubomir \"Lubosch\" Kuchta",
+      "dob": "1965-07-28",
+      "height": 187,
+      "weight": 80
+    },
+    {
+      "id": 101430,
+      "name": "Premysl Kubala",
+      "dob": "1973-12-16",
+      "height": 202,
+      "weight": 98,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 101431,
+      "name": "Mikulas Latecka",
+      "dob": "1973-02-28",
+      "height": 195,
+      "weight": 99
+    },
+    {
+      "id": 101561,
+      "name": "Pavel Lipa",
+      "dob": "1965-05-09",
+      "height": 195,
+      "weight": 92
+    },
+    {
+      "id": 101562,
+      "name": "Jindrich \"Silber\" Silbernagl",
+      "dob": "1968-02-18",
+      "height": 197,
+      "weight": 86
+    },
+    {
+      "id": 101777,
+      "name": "Josef Benes",
+      "dob": "1970-04-29",
+      "height": 194,
+      "weight": 85
+    },
+    {
+      "id": 101778,
+      "name": "Petr Benes",
+      "dob": "1974-11-27",
+      "height": 197,
+      "weight": 90
+    },
+    {
+      "id": 101779,
+      "name": "Jan Benes",
+      "dob": "1968-10-28",
+      "height": 196,
+      "weight": 85
+    },
+    {
+      "id": 101780,
+      "name": "Petr Safar",
+      "dob": "1957-05-14",
+      "height": 177,
+      "weight": 72
+    },
+    {
+      "id": 101781,
+      "name": "Dalibor \"Otik\" Luska",
+      "dob": "1974-03-28",
+      "height": 198,
+      "weight": 85
+    },
+    {
+      "id": 101899,
+      "name": "Milan \"Pepa\" Bican",
+      "dob": "1973-06-07",
+      "height": 198,
+      "weight": 92
+    },
+    {
+      "id": 101900,
+      "name": "Oldrich Koza",
+      "dob": "1965-01-07",
+      "height": 193,
+      "weight": 82
+    },
+    {
+      "id": 101914,
+      "name": "Marek Vratny",
+      "dob": "1977-04-22",
+      "height": 191,
+      "weight": 85
+    },
+    {
+      "id": 102279,
+      "name": "Marek \"Kibo\" Simko",
+      "dob": "1972-10-12",
+      "height": 199,
+      "weight": 101
+    },
+    {
+      "id": 102280,
+      "name": "Petr \"Sob\" Sobola",
+      "dob": "1976-09-16",
+      "height": 194,
+      "weight": 80
+    },
+    {
+      "id": 102514,
+      "name": "Martin \"Tony\" Lebl",
+      "dob": "1980-04-12",
+      "height": 201,
+      "weight": 105,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102721,
+      "name": "Richard \"Musa\" Muselik",
+      "dob": "1976-03-02",
+      "height": 193,
+      "weight": 86
+    },
+    {
+      "id": 102722,
+      "name": "Vratislav \"Ziza\" Stanek",
+      "dob": "1976-11-07",
+      "height": 188,
+      "weight": 84
+    },
+    {
+      "id": 102906,
+      "name": "Pavel \" Bojda\" Novak",
+      "dob": "1972-12-09",
+      "height": 187,
+      "weight": 92
+    },
+    {
+      "id": 103295,
+      "name": "Stanislav Pochop",
+      "dob": "1966-09-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103337,
+      "name": "Vaclav Koran",
+      "dob": "1973-07-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103339,
+      "name": "Tomas Bozek",
+      "dob": "1983-09-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103340,
+      "name": "Jan Vaclavik",
+      "dob": "1985-04-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103341,
+      "name": "Michal Biza",
+      "dob": "1978-05-15",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103395,
+      "name": "Robert Plaga",
+      "dob": "1978-07-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103396,
+      "name": "Hubert Smekal",
+      "dob": "1979-02-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103552,
+      "name": "Miroslav Svoboda",
+      "dob": "1979-09-11",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 103555,
+      "name": "Jiri Koubek",
+      "dob": "1979-03-31",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103556,
+      "name": "Jaroslav Pavlas",
+      "dob": "1979-01-01",
+      "height": 188,
+      "weight": 92,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 103806,
+      "name": "Stepan Smrcka",
+      "dob": "1981-08-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103914,
+      "name": "Pavel Kolar",
+      "dob": "1985-02-03",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 103915,
+          "name": "Pavel Kotrekl",
+          "fed": "SUI",
+          "gender": "M",
+          "t": 1,
+          "f": 2002,
+          "l": 2002,
+          "s": [
+            [
+              2002,
+              1,
+              191
+            ]
+          ],
+          "at": [
+            [
+              2002,
+              "CZE"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    },
+    {
+      "id": 103916,
+      "name": "Martin Klapal",
+      "dob": "1984-02-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103917,
+      "name": "Petr Nezdaril",
+      "dob": "1985-04-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104212,
+      "name": "Pavel Rotrekl",
+      "dob": "1983-12-23",
+      "height": 198,
+      "weight": 85
+    },
+    {
+      "id": 104772,
+      "name": "Jindrich Weiss",
+      "dob": "1984-05-17",
+      "height": 188,
+      "weight": 93,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104977,
+      "name": "Robert Kufa",
+      "dob": "1987-08-28",
+      "height": 193,
+      "weight": 84,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104978,
+      "name": "Petr Minarik",
+      "dob": "1987-04-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104984,
+      "name": "Martin Tichy",
+      "dob": "1986-06-07",
+      "height": 190,
+      "weight": 95,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104985,
+      "name": "Zbynek Parkan",
+      "dob": "1986-06-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 113832,
+      "name": "Peter Platenik",
+      "dob": "1981-03-16",
+      "height": 196,
+      "weight": 88
+    },
+    {
+      "id": 117898,
+      "name": "Viktor Pak",
+      "dob": "1986-11-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117899,
+      "name": "Jan Dumek",
+      "dob": "1986-04-13",
+      "height": 186,
+      "weight": 75
+    },
+    {
+      "id": 117900,
+      "name": "David Kufa",
+      "dob": "1982-08-21",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 117904,
+      "name": "Pavel Krc",
+      "dob": "1975-03-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117948,
+      "name": "Radek Barta",
+      "dob": "1978-05-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117949,
+      "name": "Jiri Plachy",
+      "dob": "1977-10-24",
+      "height": 190,
+      "weight": 90
+    },
+    {
+      "id": 118990,
+      "name": "Michal Rucka",
+      "dob": "1987-01-14",
+      "height": 176,
+      "weight": 75
+    },
+    {
+      "id": 119310,
+      "name": "Jirí Korínek",
+      "dob": "1990-06-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119311,
+      "name": "Jan Rodek",
+      "dob": "1990-01-14",
+      "height": 196,
+      "weight": 89
+    },
+    {
+      "id": 119312,
+      "name": "Jirí Chochlík",
+      "dob": "1990-01-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119313,
+      "name": "Richard Rohrl",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119989,
+      "name": "Tomáš Havelka",
+      "dob": "1986-05-06",
+      "height": 193,
+      "weight": 86
+    },
+    {
+      "id": 119990,
+      "name": "Andrej Takác",
+      "dob": "1984-01-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120029,
+      "name": "Miroslav Mooz",
+      "dob": "1988-07-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120030,
+      "name": "Martin Cupa",
+      "dob": "1989-02-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120289,
+      "name": "Petr Sedlacek",
+      "dob": "1984-01-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120291,
+      "name": "Filip Hanak",
+      "dob": "1976-07-17",
+      "height": 188,
+      "weight": 98
+    },
+    {
+      "id": 120295,
+      "name": "Michal Provaznik",
+      "dob": "1975-04-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120519,
+      "name": "Jaroslav Pešták",
+      "dob": "1979-06-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120520,
+      "name": "Jan Holakovský",
+      "dob": "1986-10-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120743,
+      "name": "Robert Božek",
+      "dob": "1990-08-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 123365,
+      "name": "David Borovec",
+      "dob": "1990-04-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 123366,
+      "name": "Richard Mauler",
+      "dob": "1989-09-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124791,
+      "name": "Petr Doubravský",
+      "dob": "1992-03-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125083,
+      "name": "Tomas Salava",
+      "dob": "1983-04-17",
+      "height": 185,
+      "weight": 86
+    },
+    {
+      "id": 125084,
+      "name": "Ondrej Hromádko",
+      "dob": "1987-08-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125195,
+      "name": "Jan Hadrava",
+      "dob": "1991-06-03",
+      "height": 198,
+      "weight": 102
+    },
+    {
+      "id": 129097,
+      "name": "Vladek Pavelka",
+      "dob": "1974-04-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 131531,
+      "name": "Jakub Vesely",
+      "dob": "1986-09-02",
+      "height": 207,
+      "weight": 100
+    },
+    {
+      "id": 132678,
+      "name": "Pavel Matejka",
+      "dob": "1992-05-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132679,
+      "name": "Tomáš Hakl",
+      "dob": "1992-01-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132680,
+      "name": "Tomáš Bijecek",
+      "dob": "1992-02-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132798,
+      "name": "David Lenc",
+      "dob": "1990-10-23",
+      "height": 187,
+      "weight": 81,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 132861,
+      "name": "Michael Placek",
+      "dob": "1982-10-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 133332,
+      "name": "Jirí Pribyl",
+      "dob": "1991-04-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135464,
+      "name": "Filip Kramar",
+      "dob": "1984-04-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135546,
+      "name": "Michal Finger",
+      "dob": "1993-09-02",
+      "height": 202,
+      "weight": 92
+    },
+    {
+      "id": 135547,
+      "name": "Št?pán Trojan",
+      "dob": "1994-01-03",
+      "height": 194,
+      "weight": 85
+    },
+    {
+      "id": 135548,
+      "name": "Tomás Vána",
+      "dob": "1994-04-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135549,
+      "name": "Martin Havlín",
+      "dob": "1993-04-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 137346,
+      "name": "Ondrej Perusic",
+      "dob": "1994-09-26",
+      "height": 190,
+      "weight": 90,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 8,
+        "silver": 8,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 137347,
+      "name": "Ondrej Benes",
+      "dob": "1995-10-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 138669,
+      "name": "Martin David",
+      "dob": "1982-11-29",
+      "height": 201,
+      "weight": 90
+    },
+    {
+      "id": 138670,
+      "name": "Ondrej Kolder",
+      "dob": "1988-02-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 138819,
+      "name": "Michal Studnicny",
+      "dob": "1983-11-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 138836,
+      "name": "Libor Leikep",
+      "dob": "1988-03-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139014,
+      "name": "Filip Habr",
+      "dob": "1988-04-27",
+      "height": 202,
+      "weight": 93,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 139582,
+      "name": "Michael Hadrava",
+      "dob": "1995-01-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139869,
+      "name": "Martin Pihera",
+      "dob": "1994-05-06",
+      "height": 190,
+      "weight": 72,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 142008,
+      "name": "Marcel Myslivecek",
+      "dob": "1985-08-06",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 147876,
+      "name": "Vaclav Bercik",
+      "dob": "1996-09-22",
+      "height": 190,
+      "weight": 80,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 147877,
+      "name": "Jakub Gala",
+      "dob": "1997-08-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 148440,
+      "name": "Jakub Vala",
+      "dob": "1997-07-09",
+      "height": 193,
+      "weight": 86
+    },
+    {
+      "id": 148902,
+      "name": "Dominik Samec",
+      "dob": "1994-02-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 149583,
+      "name": "Tomas Pala",
+      "dob": "1985-07-29",
+      "height": 184,
+      "weight": 80
+    },
+    {
+      "id": 150633,
+      "name": "Donovan Dzavoronok",
+      "dob": "1997-07-23",
+      "height": 202,
+      "weight": 98,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 153201,
+      "name": "Daniel Sedlák",
+      "dob": "1998-01-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 153202,
+      "name": "David Pavlovský",
+      "dob": "1998-06-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 153790,
+      "name": "David Schweiner",
+      "dob": "1994-06-01",
+      "height": 200,
+      "weight": 90,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 8,
+        "silver": 7,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 154123,
+      "name": "Jiri Sedlak",
+      "dob": "2000-01-19",
+      "height": 193,
+      "weight": 85,
+      "tour": {
+        "gold": 2,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 156061,
+      "name": "Dominik Pavoucek",
+      "dob": "1995-11-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 156293,
+      "name": "Filip Stastny",
+      "dob": "1997-09-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 156966,
+      "name": "Ondrej Pridal",
+      "dob": "1988-03-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157877,
+      "name": "Patrik Manas",
+      "dob": "2000-09-17",
+      "height": 195,
+      "weight": 82
+    },
+    {
+      "id": 157878,
+      "name": "Tadeas Tezzele",
+      "dob": "1999-12-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157956,
+      "name": "Matyas Dzavoronok",
+      "dob": "2001-09-05",
+      "height": 198,
+      "weight": 87,
+      "tour": {
+        "gold": 2,
+        "silver": 2,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 158972,
+      "name": "Martin Sramek",
+      "dob": "1986-10-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 160834,
+      "name": "Frantisek Knobloch",
+      "dob": "2000-06-14",
+      "height": 193,
+      "weight": 85
+    },
+    {
+      "id": 162704,
+      "name": "Martin Melmuka",
+      "dob": "1999-08-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 164296,
+      "name": "Ondrej Sotola",
+      "dob": "1995-04-12",
+      "height": 195,
+      "weight": 95
+    },
+    {
+      "id": 166881,
+      "name": "Vit Beneš",
+      "dob": "2001-12-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 168597,
+      "name": "Adam Miroslav Stocek",
+      "dob": "2001-12-16",
+      "height": 190,
+      "weight": 85
+    },
+    {
+      "id": 168598,
+      "name": "Tomas Maixner",
+      "dob": "2001-07-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 168606,
+      "name": "Jakub Sepka",
+      "dob": "2002-03-05",
+      "height": 190,
+      "weight": 81,
+      "tour": {
+        "gold": 2,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 168821,
+      "name": "Milan Monik",
+      "dob": "1988-03-15",
+      "height": 190,
+      "weight": 92
+    },
+    {
+      "id": 169586,
+      "name": "Tadeas Trousil",
+      "dob": "2001-07-24",
+      "height": 187,
+      "weight": 85,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 169596,
+      "name": "Matyas Jachnicki",
+      "dob": "1999-05-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 169597,
+      "name": "Frantisek Pihera",
+      "dob": "1999-01-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 173414,
+      "name": "Ondrej Herman",
+      "dob": "2002-04-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 173415,
+      "name": "Tomas Semerad",
+      "dob": "2002-11-18",
+      "height": 203,
+      "weight": 94
+    },
+    {
+      "id": 173575,
+      "name": "Jan Bercik",
+      "dob": "2002-03-26",
+      "height": 189,
+      "weight": 83
+    },
+    {
+      "id": 173576,
+      "name": "Matej Ruml",
+      "dob": "2002-05-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 174032,
+      "name": "Matyas Jezek",
+      "dob": "2000-01-30",
+      "height": 184,
+      "weight": 79,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 175537,
+      "name": "Martin Pavlovsky",
+      "dob": "1998-06-19",
+      "height": 187,
+      "weight": 80
+    },
+    {
+      "id": 177292,
+      "name": "Jan Stefko",
+      "dob": "1996-11-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 178227,
+      "name": "Jan Mrkous",
+      "dob": "1997-04-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 178308,
+      "name": "Adam Waber",
+      "dob": "2000-12-04",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 178311,
+      "name": "Vojtech Polednik",
+      "dob": "2003-08-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179007,
+      "name": "Ondrej Pohl",
+      "dob": "2003-03-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179008,
+      "name": "Martin Vaclavik",
+      "dob": "1996-10-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179063,
+      "name": "Lukas Kittel",
+      "dob": "1997-08-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179528,
+      "name": "Krystof Nemec",
+      "dob": "2003-10-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179529,
+      "name": "Vaclav Kurka",
+      "dob": "2003-08-16",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 179910,
+      "name": "Jakub Malik",
+      "dob": "2003-10-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 181632,
+      "name": "Richard Struska",
+      "dob": "2004-07-09",
+      "height": 185,
+      "weight": 81
+    },
+    {
+      "id": 181633,
+      "name": "Krystof Jan Oliva",
+      "dob": "2004-06-09",
+      "height": 197,
+      "weight": 90,
+      "tour": {
+        "gold": 1,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 182198,
+      "name": "Vojtech Pavlusek",
+      "dob": "2007-02-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182375,
+      "name": "Michal Pribyl",
+      "dob": "2004-04-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182377,
+      "name": "Daniel Fabikovic",
+      "dob": "2004-08-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190440,
+      "name": "Jiri Dostal",
+      "dob": "2003-07-23",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 190771,
+      "name": "David Westphal",
+      "dob": "2005-10-28",
+      "height": 200,
+      "weight": 75
+    },
+    {
+      "id": 190772,
+      "name": "Filip Rydval",
+      "dob": "2005-08-15",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 191893,
+      "name": "Theodor Vasut",
+      "dob": "2008-09-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192341,
+      "name": "Martin Toufar",
+      "dob": "2005-02-22",
+      "height": 149,
+      "weight": 108
+    },
+    {
+      "id": 192786,
+      "name": "Teodor Schinko",
+      "dob": "2004-08-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192787,
+      "name": "Ondrej Kulis",
+      "dob": "2004-03-01",
+      "height": 149,
+      "weight": 108
+    },
+    {
+      "id": 203268,
+      "name": "Vojtěch Votava",
+      "dob": "2007-02-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 209236,
+      "name": "Tadeas Milichovsky",
+      "dob": "2005-05-13",
+      "height": 195,
+      "weight": 80
+    },
+    {
+      "id": 209570,
+      "name": "Lukas Olsansky",
+      "dob": "2004-04-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 209572,
+      "name": "Vitezslav Simek",
+      "dob": "2002-04-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 209643,
+      "name": "Tobias Brnak",
+      "dob": "2005-12-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 211212,
+      "name": "Jan Kodidek",
+      "dob": "2003-12-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 211213,
+      "name": "Karel Tusek",
+      "dob": "2006-08-24",
+      "height": 192,
+      "weight": null
+    },
+    {
+      "id": 211214,
+      "name": "Martin Schuma",
+      "dob": "2006-08-09",
+      "height": 195,
+      "weight": 82
+    },
+    {
+      "id": 212650,
+      "name": "Jan Kuthan",
+      "dob": "2009-05-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 212651,
+      "name": "Lukas Novotny",
+      "dob": "2010-08-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 212652,
+      "name": "Jaroslav Votava",
+      "dob": "2009-07-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 214025,
+      "name": "Josef Havelka",
+      "dob": "2008-09-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 215432,
+      "name": "Martin Koupset",
+      "dob": "2008-06-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 219582,
+      "name": "Vojtěch Kudrnovský",
+      "dob": "2007-08-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 224208,
+      "name": "Jakub Vaculik",
+      "dob": "2007-10-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 224209,
+      "name": "Bartolomej Simek",
+      "dob": "2008-04-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 225338,
+      "name": "Kaspar Strnad",
+      "dob": "2008-07-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 225720,
+      "name": "Viktor Korbas",
+      "dob": "2009-09-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 227244,
+      "name": "Filip Richter",
+      "dob": "2007-02-26",
+      "height": null,
+      "weight": null
+    }
   ]
 }

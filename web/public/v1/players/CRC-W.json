@@ -2,34 +2,233 @@
   "country": "CRC",
   "gender": "W",
   "players": [
-    {"id":117513,"name":"Natalia Alfaro","dob":"1987-04-08","height":165,"weight":59},
-    {"id":117514,"name":"Ingrid Morales","dob":"1975-05-29","height":170,"weight":62},
-    {"id":124384,"name":"Karen Cope Charles","dob":"1985-11-06","height":173,"weight":75},
-    {"id":132212,"name":"Gabriela Arias Salazar","dob":"1994-04-15","height":170,"weight":54},
-    {"id":136128,"name":"Yuliana Gonzalez Alfaro","dob":"1995-06-07","height":172,"weight":58},
-    {"id":137511,"name":"Flores Garita Andres Felipe","dob":"1993-11-03","height":170,"weight":58,"away":[{"id":139047,"name":"Josue Flores Garita","fed":"CRC","gender":"M","t":1,"f":2012,"l":2012,"s":[[2012,1,241]],"at":[[2012,"CRC"]]}]},
-    {"id":138169,"name":"Angie Montero Alfaro","dob":"1996-11-10","height":171,"weight":55},
-    {"id":139044,"name":"Valeria Valenciano Gonzalez","dob":"1993-10-29","height":null,"weight":null},
-    {"id":139045,"name":"Francine Morales Bolaños","dob":"1992-11-29","height":null,"weight":null},
-    {"id":142126,"name":"Catalina Zuñiga","dob":"1991-08-21","height":null,"weight":null},
-    {"id":142129,"name":"Cristina Monterrey","dob":"1991-04-22","height":null,"weight":null},
-    {"id":142976,"name":"Diana Sanchez","dob":"1995-04-02","height":null,"weight":null},
-    {"id":142977,"name":"Kimberly Arguedas","dob":"1996-08-16","height":null,"weight":null},
-    {"id":144615,"name":"Allison Font","dob":"1998-07-04","height":178,"weight":65},
-    {"id":146086,"name":"Irene Gomez","dob":"1999-01-20","height":null,"weight":null},
-    {"id":146121,"name":"Pamela Zumbado","dob":"1997-11-06","height":null,"weight":null},
-    {"id":146897,"name":"Lucia Gomez Arguedas","dob":"1999-01-20","height":155,"weight":55},
-    {"id":156081,"name":"Susan Apizar Campos","dob":"2000-01-27","height":null,"weight":null},
-    {"id":157015,"name":"Angel Williams Paniagua","dob":"2002-02-14","height":170,"weight":64},
-    {"id":158704,"name":"Lucia Matarrita Soto","dob":"2001-01-27","height":157,"weight":52},
-    {"id":162552,"name":"Valeria maria Matarrita Soto","dob":"1999-05-14","height":163,"weight":54},
-    {"id":182011,"name":"Ximena Núñez Muñoz","dob":"2003-10-16","height":null,"weight":null},
-    {"id":182690,"name":"Isabela Rodríguez Fernández","dob":"2004-03-06","height":171,"weight":63},
-    {"id":182821,"name":"Kianny María Araya Quesada","dob":"2002-10-31","height":173,"weight":70},
-    {"id":183083,"name":"Sofía Vega Barrantes","dob":"2006-01-05","height":173,"weight":63},
-    {"id":192032,"name":"Aliza Aguilar Delgado","dob":"2005-07-25","height":null,"weight":null},
-    {"id":201056,"name":"Laura Valentina Molina Alvarado","dob":"2006-10-06","height":null,"weight":null},
-    {"id":233862,"name":"Ingrid Verónica Núñez Alvarado","dob":"2010-07-29","height":null,"weight":null},
-    {"id":233864,"name":"Keila Vanessa Moreno Alpizar","dob":"2009-12-07","height":null,"weight":null}
+    {
+      "id": 117513,
+      "name": "Natalia Alfaro",
+      "dob": "1987-04-08",
+      "height": 165,
+      "weight": 59
+    },
+    {
+      "id": 117514,
+      "name": "Ingrid Morales",
+      "dob": "1975-05-29",
+      "height": 170,
+      "weight": 62
+    },
+    {
+      "id": 124384,
+      "name": "Karen Cope Charles",
+      "dob": "1985-11-06",
+      "height": 173,
+      "weight": 75
+    },
+    {
+      "id": 132212,
+      "name": "Gabriela Arias Salazar",
+      "dob": "1994-04-15",
+      "height": 170,
+      "weight": 54
+    },
+    {
+      "id": 136128,
+      "name": "Yuliana Gonzalez Alfaro",
+      "dob": "1995-06-07",
+      "height": 172,
+      "weight": 58
+    },
+    {
+      "id": 137511,
+      "name": "Flores Garita Andres Felipe",
+      "dob": "1993-11-03",
+      "height": 170,
+      "weight": 58,
+      "away": [
+        {
+          "id": 139047,
+          "name": "Josue Flores Garita",
+          "fed": "CRC",
+          "gender": "M",
+          "t": 1,
+          "f": 2012,
+          "l": 2012,
+          "s": [
+            [
+              2012,
+              1,
+              241
+            ]
+          ],
+          "at": [
+            [
+              2012,
+              "CRC"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 138169,
+      "name": "Angie Montero Alfaro",
+      "dob": "1996-11-10",
+      "height": 171,
+      "weight": 55
+    },
+    {
+      "id": 139044,
+      "name": "Valeria Valenciano Gonzalez",
+      "dob": "1993-10-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139045,
+      "name": "Francine Morales Bolaños",
+      "dob": "1992-11-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142126,
+      "name": "Catalina Zuñiga",
+      "dob": "1991-08-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142129,
+      "name": "Cristina Monterrey",
+      "dob": "1991-04-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142976,
+      "name": "Diana Sanchez",
+      "dob": "1995-04-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142977,
+      "name": "Kimberly Arguedas",
+      "dob": "1996-08-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 144615,
+      "name": "Allison Font",
+      "dob": "1998-07-04",
+      "height": 178,
+      "weight": 65
+    },
+    {
+      "id": 146086,
+      "name": "Irene Gomez",
+      "dob": "1999-01-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146121,
+      "name": "Pamela Zumbado",
+      "dob": "1997-11-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146897,
+      "name": "Lucia Gomez Arguedas",
+      "dob": "1999-01-20",
+      "height": 155,
+      "weight": 55
+    },
+    {
+      "id": 156081,
+      "name": "Susan Apizar Campos",
+      "dob": "2000-01-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157015,
+      "name": "Angel Williams Paniagua",
+      "dob": "2002-02-14",
+      "height": 170,
+      "weight": 64
+    },
+    {
+      "id": 158704,
+      "name": "Lucia Matarrita Soto",
+      "dob": "2001-01-27",
+      "height": 157,
+      "weight": 52
+    },
+    {
+      "id": 162552,
+      "name": "Valeria maria Matarrita Soto",
+      "dob": "1999-05-14",
+      "height": 163,
+      "weight": 54
+    },
+    {
+      "id": 182011,
+      "name": "Ximena Núñez Muñoz",
+      "dob": "2003-10-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182690,
+      "name": "Isabela Rodríguez Fernández",
+      "dob": "2004-03-06",
+      "height": 171,
+      "weight": 63
+    },
+    {
+      "id": 182821,
+      "name": "Kianny María Araya Quesada",
+      "dob": "2002-10-31",
+      "height": 173,
+      "weight": 70
+    },
+    {
+      "id": 183083,
+      "name": "Sofía Vega Barrantes",
+      "dob": "2006-01-05",
+      "height": 173,
+      "weight": 63
+    },
+    {
+      "id": 192032,
+      "name": "Aliza Aguilar Delgado",
+      "dob": "2005-07-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 201056,
+      "name": "Laura Valentina Molina Alvarado",
+      "dob": "2006-10-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 233862,
+      "name": "Ingrid Verónica Núñez Alvarado",
+      "dob": "2010-07-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 233864,
+      "name": "Keila Vanessa Moreno Alpizar",
+      "dob": "2009-12-07",
+      "height": null,
+      "weight": null
+    }
   ]
 }

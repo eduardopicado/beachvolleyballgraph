@@ -2,121 +2,1057 @@
   "country": "UKR",
   "gender": "M",
   "players": [
-    {"id":101428,"name":"Alexander Sorokolet","dob":"1959-03-27","height":194,"weight":null},
-    {"id":101429,"name":"Alexander Mouraviov","dob":"1964-02-12","height":193,"weight":null},
-    {"id":101802,"name":"Vyacheslav Nirka","dob":"1970-07-28","height":192,"weight":88},
-    {"id":101803,"name":"Evgueni Nirka","dob":"1975-08-24","height":185,"weight":80},
-    {"id":101804,"name":"Sergiy Lazurkin","dob":"1958-12-27","height":192,"weight":84},
-    {"id":101805,"name":"Anatoly Yanushchyk","dob":"1963-08-06","height":183,"weight":78},
-    {"id":101978,"name":"Arkadiy Fedorov","dob":"1974-08-03","height":192,"weight":80},
-    {"id":101979,"name":"Vitali Borisov Aleksandrovich","dob":"1974-04-08","height":192,"weight":81},
-    {"id":101980,"name":"Sergey Shchekoldin Anatolevich","dob":"1974-11-16","height":192,"weight":77},
-    {"id":101981,"name":"Andrey Sofronov","dob":"1965-05-08","height":194,"weight":86},
-    {"id":101983,"name":"Igor Olefir","dob":"1961-08-23","height":206,"weight":94},
-    {"id":101984,"name":"Yuriy Pavlov","dob":"1966-07-10","height":196,"weight":88},
-    {"id":102171,"name":"Roman Klimenkov Vladimirovich","dob":"1978-09-17","height":183,"weight":78},
-    {"id":102293,"name":"Andriy Bukin","dob":"1975-10-21","height":186,"weight":80},
-    {"id":102294,"name":"Yuriy Simonenko","dob":"1960-07-23","height":193,"weight":96},
-    {"id":102399,"name":"Oleksiy Ababilov","dob":"1976-10-14","height":194,"weight":82},
-    {"id":102400,"name":"Sergii Lotoha","dob":"1976-03-24","height":189,"weight":79},
-    {"id":102401,"name":"Vitaliy Stadnikov","dob":"1975-02-02","height":189,"weight":88,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":102730,"name":"Oleg \"Evoenyovieh\" Rak","dob":"1978-05-28","height":183,"weight":75},
-    {"id":102731,"name":"Oleg Bilynskyy","dob":"1973-05-05","height":201,"weight":90},
-    {"id":102732,"name":"Danylo Konstantinov","dob":"1971-12-07","height":198,"weight":92},
-    {"id":102733,"name":"Oleksandr \"Klim\" Klymenko","dob":"1972-04-18","height":193,"weight":86},
-    {"id":102734,"name":"Oleksandr \"Odessa\" Yefimov","dob":"1977-06-16","height":184,"weight":72},
-    {"id":102735,"name":"Oleksandr Panin","dob":"1973-04-30","height":183,"weight":72},
-    {"id":102783,"name":"Yevgeniy Moroz","dob":"1978-05-19","height":196,"weight":80},
-    {"id":102995,"name":"Mykola Babich","dob":"1980-10-16","height":198,"weight":88,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":103530,"name":"Sergiy Rasputniy","dob":"1980-06-03","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":103531,"name":"Dmytro Khudoley","dob":"1982-01-30","height":194,"weight":88,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":103532,"name":"Oleg Nikolayev","dob":"1982-05-27","height":186,"weight":86,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":103533,"name":"Andriy Volik","dob":"1973-10-05","height":null,"weight":null},
-    {"id":103534,"name":"Yuriy Yermakov","dob":"1981-05-13","height":null,"weight":null},
-    {"id":103535,"name":"Oleg Gavaleshko","dob":null,"height":null,"weight":null},
-    {"id":103536,"name":"Yuriy Gorchanyuck","dob":null,"height":null,"weight":null},
-    {"id":103537,"name":"Oleksiy Volodin","dob":null,"height":null,"weight":null},
-    {"id":103538,"name":"Ihor Shlyakhtichenko","dob":null,"height":null,"weight":null},
-    {"id":103539,"name":"Oleksander Bandura","dob":null,"height":null,"weight":null},
-    {"id":103540,"name":"Oleksiy Kulinich","dob":"1980-05-18","height":193,"weight":85,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":103541,"name":"Oleksandr Dyachenko","dob":"1980-10-23","height":196,"weight":82,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":103987,"name":"Roman Lopa","dob":"1981-01-01","height":null,"weight":null},
-    {"id":103988,"name":"Andriy Chayka","dob":"1980-07-27","height":null,"weight":null},
-    {"id":104344,"name":"Gennadiy Kryshen","dob":"1983-05-07","height":null,"weight":null},
-    {"id":104347,"name":"Kostyantyn Medyanyk","dob":"1983-09-07","height":null,"weight":null},
-    {"id":104795,"name":"Sergiy Mykhayldv","dob":"1984-12-19","height":192,"weight":76},
-    {"id":104796,"name":"Leonid Syrovetnik","dob":null,"height":null,"weight":null},
-    {"id":104797,"name":"Vitaliy Syrovetnik","dob":null,"height":null,"weight":null},
-    {"id":104798,"name":"Oleksiy Klyamar","dob":"1987-04-11","height":null,"weight":null,"away":[{"id":120577,"name":"Valeriy Samoday","fed":"RUS","gender":"M","t":2,"f":2009,"l":2009,"s":[[2009,2,217]],"at":[[2009,"UKR"]]}]},
-    {"id":104799,"name":"Andrii Kutsmus","dob":"1986-12-05","height":null,"weight":null},
-    {"id":104800,"name":"Oleksandr Ioisher","dob":"1986-06-26","height":192,"weight":88,"away":[{"id":120577,"name":"Valeriy Samoday","fed":"RUS","gender":"M","t":1,"f":2013,"l":2013,"s":[[2013,1,281]],"at":[[2013,"UKR"]]}]},
-    {"id":104801,"name":"Oleksandr Gorbachov","dob":null,"height":null,"weight":null},
-    {"id":104803,"name":"Vadim Tolubayev","dob":null,"height":null,"weight":null},
-    {"id":104804,"name":"Oleksandr Sedykh","dob":null,"height":null,"weight":null},
-    {"id":116454,"name":"Volodymyr Borysenko","dob":"1988-02-06","height":187,"weight":73},
-    {"id":116455,"name":"Pavlo Ostapenko","dob":"1989-11-25","height":191,"weight":78},
-    {"id":116456,"name":"Oleksandr Beloblodsky","dob":"1975-03-19","height":186,"weight":76},
-    {"id":116457,"name":"Oleksandr Poltorazky","dob":"1986-10-20","height":186,"weight":73},
-    {"id":116458,"name":"Oleksiy Rudenko","dob":"1984-02-16","height":185,"weight":89},
-    {"id":116459,"name":"Mykhaylo Zelenko","dob":"1971-02-07","height":183,"weight":80},
-    {"id":116596,"name":"Sergiy Revenko","dob":null,"height":null,"weight":null},
-    {"id":116597,"name":"Sergiy Yaroshenko","dob":null,"height":null,"weight":null},
-    {"id":116598,"name":"Bohdan Sereda","dob":"1983-03-26","height":null,"weight":null},
-    {"id":117885,"name":"Oleksandr Dergunov","dob":"1984-04-07","height":201,"weight":96},
-    {"id":117886,"name":"Sergiy Mykhaylov","dob":"1984-12-19","height":193,"weight":80},
-    {"id":119075,"name":"Vitalii Didukh","dob":null,"height":null,"weight":null},
-    {"id":119076,"name":"Pavlo Ostapenko","dob":"1989-11-25","height":null,"weight":null},
-    {"id":120481,"name":"Pronin Mykhailo","dob":"1989-01-20","height":null,"weight":null},
-    {"id":120492,"name":"Mykhailo Pronin","dob":"1989-01-20","height":null,"weight":null},
-    {"id":120578,"name":"Sergiy Popov","dob":"1991-08-06","height":187,"weight":85,"tour":{"gold":1,"silver":3,"bronze":1},"away":[{"id":120577,"name":"Valeriy Samoday","fed":"RUS","gender":"M","t":15,"f":2008,"l":2013,"s":[[2008,1,212],[2009,1,231],[2010,2,258],[2011,1,243],[2012,2,228],[2013,8,218]],"at":[[2008,"UKR"],[2009,"UKR"],[2010,"UKR"],[2011,"UKR"],[2012,"UKR"],[2013,"UKR"]]}]},
-    {"id":120579,"name":"Yaroshchuk Vyacheslav","dob":"1991-02-26","height":null,"weight":null},
-    {"id":124425,"name":"Remezov Pavlo","dob":"1992-02-10","height":null,"weight":null},
-    {"id":124426,"name":"Kobernyk Artem","dob":"1992-02-02","height":null,"weight":null},
-    {"id":125087,"name":"Kostiuk Oleksandr","dob":"1991-11-16","height":null,"weight":null},
-    {"id":132065,"name":"Iaroslav Gordieiev","dob":"1992-06-15","height":207,"weight":94},
-    {"id":132066,"name":"Vladyslav Iemelianchyk","dob":"1992-12-21","height":205,"weight":85,"tour":{"gold":2,"silver":1,"bronze":2},"away":[{"id":120577,"name":"Valeriy Samoday","fed":"RUS","gender":"M","t":1,"f":2013,"l":2013,"s":[[2013,1,233]],"at":[[2013,"UKR"]]}]},
-    {"id":132658,"name":"Vladyslav Didenko","dob":"1992-09-29","height":190,"weight":84},
-    {"id":132659,"name":"Oleksandr Shcholokov","dob":"1992-08-23","height":null,"weight":null},
-    {"id":132849,"name":"Anton Artemchuk","dob":"1993-07-29","height":null,"weight":null},
-    {"id":132850,"name":"Andriy Levchenko","dob":"1985-01-01","height":null,"weight":null},
-    {"id":134837,"name":"Viktor Popovych","dob":"1973-10-12","height":null,"weight":null},
-    {"id":134838,"name":"Ruslan Baranov","dob":"1990-10-01","height":194,"weight":80},
-    {"id":135530,"name":"Maksym Cherpak","dob":"1995-01-28","height":null,"weight":null},
-    {"id":141524,"name":"Eduard Reznik","dob":"1989-06-14","height":207,"weight":115,"tour":{"gold":0,"silver":3,"bronze":0}},
-    {"id":142220,"name":"Illa Kovalov","dob":"1996-08-31","height":190,"weight":82},
-    {"id":143285,"name":"Evgen Zhuravel","dob":"1991-10-23","height":193,"weight":80},
-    {"id":143286,"name":"Denys Denysenko","dob":"1996-10-15","height":190,"weight":87,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":143287,"name":"Andriy Kravets","dob":"1997-06-09","height":null,"weight":null},
-    {"id":143290,"name":"Yurii Bokshan","dob":"1994-03-08","height":null,"weight":null},
-    {"id":143922,"name":"Mykola Khomyn","dob":"1995-03-08","height":197,"weight":95},
-    {"id":143996,"name":"Oleh Plotnytskyi","dob":"1997-06-05","height":190,"weight":80},
-    {"id":148447,"name":"Tymofii Poluian","dob":"1998-01-10","height":198,"weight":101},
-    {"id":148548,"name":"Oleksii Denin","dob":"1992-03-02","height":196,"weight":104,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":148853,"name":"Vladyslav Pavliuk","dob":"2000-03-29","height":193,"weight":92},
-    {"id":149370,"name":"Anton Didyk","dob":"1997-02-21","height":203,"weight":98},
-    {"id":151362,"name":"Dmytro Viietskyi","dob":"1998-02-19","height":201,"weight":82},
-    {"id":157052,"name":"Ihor Sviridov","dob":"2000-07-26","height":null,"weight":null},
-    {"id":157074,"name":"Serhii Stasenko","dob":"1998-06-15","height":null,"weight":null},
-    {"id":157145,"name":"Vladyslav Khrystov","dob":"1995-08-05","height":null,"weight":null},
-    {"id":162955,"name":"Arkadii Arkhipov","dob":"1998-03-13","height":null,"weight":null},
-    {"id":167004,"name":"Sviatoslav Karvatskyi","dob":"1999-04-10","height":null,"weight":null},
-    {"id":169631,"name":"Oleksandr Boiko","dob":"2002-12-17","height":180,"weight":76},
-    {"id":169895,"name":"Richard Likhatskyi","dob":"1996-06-02","height":190,"weight":86,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":171672,"name":"Maksym Gladun","dob":"1989-10-11","height":194,"weight":93},
-    {"id":173481,"name":"Oleksii Bublyk","dob":"2002-01-11","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":179524,"name":"Kyrylo Tereshchenko","dob":"2004-05-10","height":null,"weight":null},
-    {"id":179527,"name":"Yevhenii Boiko","dob":"2005-02-28","height":185,"weight":76},
-    {"id":181126,"name":"Ivan Datsiuk","dob":"2000-10-12","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":3}},
-    {"id":182775,"name":"Vitalii Savvin","dob":"2004-02-10","height":null,"weight":null,"tour":{"gold":0,"silver":3,"bronze":0}},
-    {"id":187007,"name":"Ivan Likhatskyi","dob":"1998-07-26","height":197,"weight":95,"tour":{"gold":0,"silver":0,"bronze":3}},
-    {"id":188626,"name":"Dmytro Hladyr","dob":"2003-01-28","height":null,"weight":null},
-    {"id":192246,"name":"Yaroslav Tymchenko","dob":"2004-03-13","height":null,"weight":null},
-    {"id":192781,"name":"Dmytro Kozii","dob":"2006-06-30","height":196,"weight":93,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":200610,"name":"Anton Moiseiev","dob":"2004-10-16","height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":203692,"name":"Yehor Skrypnychenko","dob":"2008-04-12","height":null,"weight":null},
-    {"id":203855,"name":"Andrii Lunkan","dob":"2008-01-26","height":null,"weight":null},
-    {"id":211595,"name":"Sviatoslav Nahornyi","dob":"2006-09-03","height":null,"weight":null},
-    {"id":217817,"name":"ANDRII MERKULOV","dob":"2010-07-02","height":192,"weight":86},
-    {"id":239929,"name":"Oleksandr Khomenko","dob":"2009-02-15","height":null,"weight":null}
+    {
+      "id": 101428,
+      "name": "Alexander Sorokolet",
+      "dob": "1959-03-27",
+      "height": 194,
+      "weight": null
+    },
+    {
+      "id": 101429,
+      "name": "Alexander Mouraviov",
+      "dob": "1964-02-12",
+      "height": 193,
+      "weight": null
+    },
+    {
+      "id": 101802,
+      "name": "Vyacheslav Nirka",
+      "dob": "1970-07-28",
+      "height": 192,
+      "weight": 88
+    },
+    {
+      "id": 101803,
+      "name": "Evgueni Nirka",
+      "dob": "1975-08-24",
+      "height": 185,
+      "weight": 80
+    },
+    {
+      "id": 101804,
+      "name": "Sergiy Lazurkin",
+      "dob": "1958-12-27",
+      "height": 192,
+      "weight": 84
+    },
+    {
+      "id": 101805,
+      "name": "Anatoly Yanushchyk",
+      "dob": "1963-08-06",
+      "height": 183,
+      "weight": 78
+    },
+    {
+      "id": 101978,
+      "name": "Arkadiy Fedorov",
+      "dob": "1974-08-03",
+      "height": 192,
+      "weight": 80
+    },
+    {
+      "id": 101979,
+      "name": "Vitali Borisov Aleksandrovich",
+      "dob": "1974-04-08",
+      "height": 192,
+      "weight": 81
+    },
+    {
+      "id": 101980,
+      "name": "Sergey Shchekoldin Anatolevich",
+      "dob": "1974-11-16",
+      "height": 192,
+      "weight": 77
+    },
+    {
+      "id": 101981,
+      "name": "Andrey Sofronov",
+      "dob": "1965-05-08",
+      "height": 194,
+      "weight": 86
+    },
+    {
+      "id": 101983,
+      "name": "Igor Olefir",
+      "dob": "1961-08-23",
+      "height": 206,
+      "weight": 94
+    },
+    {
+      "id": 101984,
+      "name": "Yuriy Pavlov",
+      "dob": "1966-07-10",
+      "height": 196,
+      "weight": 88
+    },
+    {
+      "id": 102171,
+      "name": "Roman Klimenkov Vladimirovich",
+      "dob": "1978-09-17",
+      "height": 183,
+      "weight": 78
+    },
+    {
+      "id": 102293,
+      "name": "Andriy Bukin",
+      "dob": "1975-10-21",
+      "height": 186,
+      "weight": 80
+    },
+    {
+      "id": 102294,
+      "name": "Yuriy Simonenko",
+      "dob": "1960-07-23",
+      "height": 193,
+      "weight": 96
+    },
+    {
+      "id": 102399,
+      "name": "Oleksiy Ababilov",
+      "dob": "1976-10-14",
+      "height": 194,
+      "weight": 82
+    },
+    {
+      "id": 102400,
+      "name": "Sergii Lotoha",
+      "dob": "1976-03-24",
+      "height": 189,
+      "weight": 79
+    },
+    {
+      "id": 102401,
+      "name": "Vitaliy Stadnikov",
+      "dob": "1975-02-02",
+      "height": 189,
+      "weight": 88,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102730,
+      "name": "Oleg \"Evoenyovieh\" Rak",
+      "dob": "1978-05-28",
+      "height": 183,
+      "weight": 75
+    },
+    {
+      "id": 102731,
+      "name": "Oleg Bilynskyy",
+      "dob": "1973-05-05",
+      "height": 201,
+      "weight": 90
+    },
+    {
+      "id": 102732,
+      "name": "Danylo Konstantinov",
+      "dob": "1971-12-07",
+      "height": 198,
+      "weight": 92
+    },
+    {
+      "id": 102733,
+      "name": "Oleksandr \"Klim\" Klymenko",
+      "dob": "1972-04-18",
+      "height": 193,
+      "weight": 86
+    },
+    {
+      "id": 102734,
+      "name": "Oleksandr \"Odessa\" Yefimov",
+      "dob": "1977-06-16",
+      "height": 184,
+      "weight": 72
+    },
+    {
+      "id": 102735,
+      "name": "Oleksandr Panin",
+      "dob": "1973-04-30",
+      "height": 183,
+      "weight": 72
+    },
+    {
+      "id": 102783,
+      "name": "Yevgeniy Moroz",
+      "dob": "1978-05-19",
+      "height": 196,
+      "weight": 80
+    },
+    {
+      "id": 102995,
+      "name": "Mykola Babich",
+      "dob": "1980-10-16",
+      "height": 198,
+      "weight": 88,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103530,
+      "name": "Sergiy Rasputniy",
+      "dob": "1980-06-03",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103531,
+      "name": "Dmytro Khudoley",
+      "dob": "1982-01-30",
+      "height": 194,
+      "weight": 88,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103532,
+      "name": "Oleg Nikolayev",
+      "dob": "1982-05-27",
+      "height": 186,
+      "weight": 86,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103533,
+      "name": "Andriy Volik",
+      "dob": "1973-10-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103534,
+      "name": "Yuriy Yermakov",
+      "dob": "1981-05-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103535,
+      "name": "Oleg Gavaleshko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103536,
+      "name": "Yuriy Gorchanyuck",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103537,
+      "name": "Oleksiy Volodin",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103538,
+      "name": "Ihor Shlyakhtichenko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103539,
+      "name": "Oleksander Bandura",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103540,
+      "name": "Oleksiy Kulinich",
+      "dob": "1980-05-18",
+      "height": 193,
+      "weight": 85,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 103541,
+      "name": "Oleksandr Dyachenko",
+      "dob": "1980-10-23",
+      "height": 196,
+      "weight": 82,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 103987,
+      "name": "Roman Lopa",
+      "dob": "1981-01-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103988,
+      "name": "Andriy Chayka",
+      "dob": "1980-07-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104344,
+      "name": "Gennadiy Kryshen",
+      "dob": "1983-05-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104347,
+      "name": "Kostyantyn Medyanyk",
+      "dob": "1983-09-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104795,
+      "name": "Sergiy Mykhayldv",
+      "dob": "1984-12-19",
+      "height": 192,
+      "weight": 76
+    },
+    {
+      "id": 104796,
+      "name": "Leonid Syrovetnik",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104797,
+      "name": "Vitaliy Syrovetnik",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104798,
+      "name": "Oleksiy Klyamar",
+      "dob": "1987-04-11",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 120577,
+          "name": "Valeriy Samoday",
+          "fed": "RUS",
+          "gender": "M",
+          "t": 2,
+          "f": 2009,
+          "l": 2009,
+          "s": [
+            [
+              2009,
+              2,
+              217
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "UKR"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 104799,
+      "name": "Andrii Kutsmus",
+      "dob": "1986-12-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104800,
+      "name": "Oleksandr Ioisher",
+      "dob": "1986-06-26",
+      "height": 192,
+      "weight": 88,
+      "away": [
+        {
+          "id": 120577,
+          "name": "Valeriy Samoday",
+          "fed": "RUS",
+          "gender": "M",
+          "t": 1,
+          "f": 2013,
+          "l": 2013,
+          "s": [
+            [
+              2013,
+              1,
+              281
+            ]
+          ],
+          "at": [
+            [
+              2013,
+              "UKR"
+            ]
+          ],
+          "r": 33
+        }
+      ]
+    },
+    {
+      "id": 104801,
+      "name": "Oleksandr Gorbachov",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104803,
+      "name": "Vadim Tolubayev",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104804,
+      "name": "Oleksandr Sedykh",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116454,
+      "name": "Volodymyr Borysenko",
+      "dob": "1988-02-06",
+      "height": 187,
+      "weight": 73
+    },
+    {
+      "id": 116455,
+      "name": "Pavlo Ostapenko",
+      "dob": "1989-11-25",
+      "height": 191,
+      "weight": 78
+    },
+    {
+      "id": 116456,
+      "name": "Oleksandr Beloblodsky",
+      "dob": "1975-03-19",
+      "height": 186,
+      "weight": 76
+    },
+    {
+      "id": 116457,
+      "name": "Oleksandr Poltorazky",
+      "dob": "1986-10-20",
+      "height": 186,
+      "weight": 73
+    },
+    {
+      "id": 116458,
+      "name": "Oleksiy Rudenko",
+      "dob": "1984-02-16",
+      "height": 185,
+      "weight": 89
+    },
+    {
+      "id": 116459,
+      "name": "Mykhaylo Zelenko",
+      "dob": "1971-02-07",
+      "height": 183,
+      "weight": 80
+    },
+    {
+      "id": 116596,
+      "name": "Sergiy Revenko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116597,
+      "name": "Sergiy Yaroshenko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116598,
+      "name": "Bohdan Sereda",
+      "dob": "1983-03-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117885,
+      "name": "Oleksandr Dergunov",
+      "dob": "1984-04-07",
+      "height": 201,
+      "weight": 96
+    },
+    {
+      "id": 117886,
+      "name": "Sergiy Mykhaylov",
+      "dob": "1984-12-19",
+      "height": 193,
+      "weight": 80
+    },
+    {
+      "id": 119075,
+      "name": "Vitalii Didukh",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119076,
+      "name": "Pavlo Ostapenko",
+      "dob": "1989-11-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120481,
+      "name": "Pronin Mykhailo",
+      "dob": "1989-01-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120492,
+      "name": "Mykhailo Pronin",
+      "dob": "1989-01-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120578,
+      "name": "Sergiy Popov",
+      "dob": "1991-08-06",
+      "height": 187,
+      "weight": 85,
+      "tour": {
+        "gold": 1,
+        "silver": 3,
+        "bronze": 1
+      },
+      "away": [
+        {
+          "id": 120577,
+          "name": "Valeriy Samoday",
+          "fed": "RUS",
+          "gender": "M",
+          "t": 15,
+          "f": 2008,
+          "l": 2013,
+          "s": [
+            [
+              2008,
+              1,
+              212
+            ],
+            [
+              2009,
+              1,
+              231
+            ],
+            [
+              2010,
+              2,
+              258
+            ],
+            [
+              2011,
+              1,
+              243
+            ],
+            [
+              2012,
+              2,
+              228
+            ],
+            [
+              2013,
+              8,
+              218
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "UKR"
+            ],
+            [
+              2009,
+              "UKR"
+            ],
+            [
+              2010,
+              "UKR"
+            ],
+            [
+              2011,
+              "UKR"
+            ],
+            [
+              2012,
+              "UKR"
+            ],
+            [
+              2013,
+              "UKR"
+            ]
+          ],
+          "r": 1
+        }
+      ]
+    },
+    {
+      "id": 120579,
+      "name": "Yaroshchuk Vyacheslav",
+      "dob": "1991-02-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124425,
+      "name": "Remezov Pavlo",
+      "dob": "1992-02-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124426,
+      "name": "Kobernyk Artem",
+      "dob": "1992-02-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125087,
+      "name": "Kostiuk Oleksandr",
+      "dob": "1991-11-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132065,
+      "name": "Iaroslav Gordieiev",
+      "dob": "1992-06-15",
+      "height": 207,
+      "weight": 94
+    },
+    {
+      "id": 132066,
+      "name": "Vladyslav Iemelianchyk",
+      "dob": "1992-12-21",
+      "height": 205,
+      "weight": 85,
+      "tour": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 2
+      },
+      "away": [
+        {
+          "id": 120577,
+          "name": "Valeriy Samoday",
+          "fed": "RUS",
+          "gender": "M",
+          "t": 1,
+          "f": 2013,
+          "l": 2013,
+          "s": [
+            [
+              2013,
+              1,
+              233
+            ]
+          ],
+          "at": [
+            [
+              2013,
+              "UKR"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 132658,
+      "name": "Vladyslav Didenko",
+      "dob": "1992-09-29",
+      "height": 190,
+      "weight": 84
+    },
+    {
+      "id": 132659,
+      "name": "Oleksandr Shcholokov",
+      "dob": "1992-08-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132849,
+      "name": "Anton Artemchuk",
+      "dob": "1993-07-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132850,
+      "name": "Andriy Levchenko",
+      "dob": "1985-01-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 134837,
+      "name": "Viktor Popovych",
+      "dob": "1973-10-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 134838,
+      "name": "Ruslan Baranov",
+      "dob": "1990-10-01",
+      "height": 194,
+      "weight": 80
+    },
+    {
+      "id": 135530,
+      "name": "Maksym Cherpak",
+      "dob": "1995-01-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 141524,
+      "name": "Eduard Reznik",
+      "dob": "1989-06-14",
+      "height": 207,
+      "weight": 115,
+      "tour": {
+        "gold": 0,
+        "silver": 3,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 142220,
+      "name": "Illa Kovalov",
+      "dob": "1996-08-31",
+      "height": 190,
+      "weight": 82
+    },
+    {
+      "id": 143285,
+      "name": "Evgen Zhuravel",
+      "dob": "1991-10-23",
+      "height": 193,
+      "weight": 80
+    },
+    {
+      "id": 143286,
+      "name": "Denys Denysenko",
+      "dob": "1996-10-15",
+      "height": 190,
+      "weight": 87,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 143287,
+      "name": "Andriy Kravets",
+      "dob": "1997-06-09",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143290,
+      "name": "Yurii Bokshan",
+      "dob": "1994-03-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143922,
+      "name": "Mykola Khomyn",
+      "dob": "1995-03-08",
+      "height": 197,
+      "weight": 95
+    },
+    {
+      "id": 143996,
+      "name": "Oleh Plotnytskyi",
+      "dob": "1997-06-05",
+      "height": 190,
+      "weight": 80
+    },
+    {
+      "id": 148447,
+      "name": "Tymofii Poluian",
+      "dob": "1998-01-10",
+      "height": 198,
+      "weight": 101
+    },
+    {
+      "id": 148548,
+      "name": "Oleksii Denin",
+      "dob": "1992-03-02",
+      "height": 196,
+      "weight": 104,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 148853,
+      "name": "Vladyslav Pavliuk",
+      "dob": "2000-03-29",
+      "height": 193,
+      "weight": 92
+    },
+    {
+      "id": 149370,
+      "name": "Anton Didyk",
+      "dob": "1997-02-21",
+      "height": 203,
+      "weight": 98
+    },
+    {
+      "id": 151362,
+      "name": "Dmytro Viietskyi",
+      "dob": "1998-02-19",
+      "height": 201,
+      "weight": 82
+    },
+    {
+      "id": 157052,
+      "name": "Ihor Sviridov",
+      "dob": "2000-07-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157074,
+      "name": "Serhii Stasenko",
+      "dob": "1998-06-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157145,
+      "name": "Vladyslav Khrystov",
+      "dob": "1995-08-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 162955,
+      "name": "Arkadii Arkhipov",
+      "dob": "1998-03-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 167004,
+      "name": "Sviatoslav Karvatskyi",
+      "dob": "1999-04-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 169631,
+      "name": "Oleksandr Boiko",
+      "dob": "2002-12-17",
+      "height": 180,
+      "weight": 76
+    },
+    {
+      "id": 169895,
+      "name": "Richard Likhatskyi",
+      "dob": "1996-06-02",
+      "height": 190,
+      "weight": 86,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 171672,
+      "name": "Maksym Gladun",
+      "dob": "1989-10-11",
+      "height": 194,
+      "weight": 93
+    },
+    {
+      "id": 173481,
+      "name": "Oleksii Bublyk",
+      "dob": "2002-01-11",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 179524,
+      "name": "Kyrylo Tereshchenko",
+      "dob": "2004-05-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179527,
+      "name": "Yevhenii Boiko",
+      "dob": "2005-02-28",
+      "height": 185,
+      "weight": 76
+    },
+    {
+      "id": 181126,
+      "name": "Ivan Datsiuk",
+      "dob": "2000-10-12",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 182775,
+      "name": "Vitalii Savvin",
+      "dob": "2004-02-10",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 3,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 187007,
+      "name": "Ivan Likhatskyi",
+      "dob": "1998-07-26",
+      "height": 197,
+      "weight": 95,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 188626,
+      "name": "Dmytro Hladyr",
+      "dob": "2003-01-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192246,
+      "name": "Yaroslav Tymchenko",
+      "dob": "2004-03-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192781,
+      "name": "Dmytro Kozii",
+      "dob": "2006-06-30",
+      "height": 196,
+      "weight": 93,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 200610,
+      "name": "Anton Moiseiev",
+      "dob": "2004-10-16",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 203692,
+      "name": "Yehor Skrypnychenko",
+      "dob": "2008-04-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 203855,
+      "name": "Andrii Lunkan",
+      "dob": "2008-01-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 211595,
+      "name": "Sviatoslav Nahornyi",
+      "dob": "2006-09-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 217817,
+      "name": "ANDRII MERKULOV",
+      "dob": "2010-07-02",
+      "height": 192,
+      "weight": 86
+    },
+    {
+      "id": 239929,
+      "name": "Oleksandr Khomenko",
+      "dob": "2009-02-15",
+      "height": null,
+      "weight": null
+    }
   ]
 }

@@ -2,164 +2,1288 @@
   "country": "NOR",
   "gender": "M",
   "players": [
-    {"id":100016,"name":"Jan Kvalheim","dob":"1963-02-05","height":200,"weight":95,"tour":{"gold":7,"silver":2,"bronze":9},"away":[{"id":100166,"name":"Thierry  \"The Glove\" Glowacz","fed":"FRA","gender":"M","t":1,"f":1987,"l":1987,"s":[[1987,1,1303]],"at":[[1987,"FRA"]]}]},
-    {"id":100110,"name":"Björn Maaseide","dob":"1968-03-07","height":198,"weight":94,"tour":{"gold":7,"silver":2,"bronze":9}},
-    {"id":100301,"name":"Are Kristofer \"Kris\" Hjeltnes","dob":"1972-03-22","height":193,"weight":88},
-    {"id":100302,"name":"Jorre André Kjemperud","dob":"1968-08-31","height":189,"weight":86,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":2,"silver":5,"bronze":2}},
-    {"id":100561,"name":"Terje Kolsvik","dob":"1971-04-25","height":194,"weight":85},
-    {"id":100739,"name":"Kjell Arne Goranson","dob":"1970-12-13","height":193,"weight":90,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":100740,"name":"Jon Grydeland","dob":"1974-11-12","height":178,"weight":70},
-    {"id":100844,"name":"Vegard Hoidalen","dob":"1971-05-10","height":193,"weight":92,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":1,"silver":5,"bronze":2}},
-    {"id":100845,"name":"Jarle Huseby","dob":"1973-11-11","height":192,"weight":85},
-    {"id":101703,"name":"Ivan Solbakken","dob":"1972-12-17","height":172,"weight":70},
-    {"id":101710,"name":"Ian Thorsen","dob":"1975-01-29","height":186,"weight":81},
-    {"id":101794,"name":"Jetmund Berntsen","dob":"1973-03-09","height":187,"weight":78},
-    {"id":101795,"name":"Jostein Olimstad","dob":"1973-07-22","height":201,"weight":103},
-    {"id":102138,"name":"Iver Andreas Horrem","dob":"1977-01-01","height":190,"weight":88,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":102187,"name":"Ronny Berntsen","dob":"1966-02-04","height":187,"weight":80},
-    {"id":102188,"name":"Paul Otterdal","dob":"1973-03-06","height":193,"weight":null},
-    {"id":102249,"name":"Lars Garder","dob":"1962-08-20","height":189,"weight":95},
-    {"id":102364,"name":"Espen \"Broren\" Goranson","dob":"1968-07-15","height":198,"weight":91},
-    {"id":102373,"name":"Kjell-Oue Raheim","dob":"1977-05-16","height":181,"weight":76},
-    {"id":102374,"name":"Tarjei Skarlund","dob":"1978-11-06","height":191,"weight":87,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":102545,"name":"Lars Jacob \"Laas\" Boe","dob":"1974-09-28","height":194,"weight":84},
-    {"id":102546,"name":"Bard-Inge \"E.P.\" Pettersen","dob":"1973-01-24","height":191,"weight":87},
-    {"id":102639,"name":"Martin Berntsen","dob":"1977-08-12","height":null,"weight":null},
-    {"id":102654,"name":"Martin Hjeltnes","dob":"1975-03-11","height":null,"weight":null},
-    {"id":102655,"name":"Martin Engvik","dob":"1978-07-02","height":null,"weight":null},
-    {"id":102656,"name":"Ragnar Wisloff","dob":"1973-06-14","height":null,"weight":null},
-    {"id":102658,"name":"Eivind Pettersen","dob":"1969-09-03","height":null,"weight":null},
-    {"id":102679,"name":"Mats Bentsen","dob":"1972-12-11","height":null,"weight":null},
-    {"id":102761,"name":"Magne Kobbevik","dob":"1972-11-23","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":102865,"name":"Ben Roger Nordas","dob":"1978-08-02","height":185,"weight":80},
-    {"id":102866,"name":"Geir H. Ingeborgrud","dob":"1975-05-04","height":191,"weight":87},
-    {"id":102868,"name":"Sigurd Ringstad","dob":"1974-07-24","height":184,"weight":74},
-    {"id":102879,"name":"Helge Storoy","dob":"1968-11-04","height":182,"weight":77},
-    {"id":103013,"name":"Imran Khan","dob":"1976-11-16","height":null,"weight":null},
-    {"id":103092,"name":"Morten Draegebo","dob":"1977-10-15","height":180,"weight":67},
-    {"id":103093,"name":"Oystein Hjellset","dob":"1973-05-14","height":190,"weight":75},
-    {"id":103189,"name":"Torstein Karner-Semd","dob":"1982-02-16","height":null,"weight":null},
-    {"id":103317,"name":"Rasmus Helgebostad","dob":"1981-06-13","height":null,"weight":null},
-    {"id":103318,"name":"Pierre Quarré","dob":"1981-06-08","height":null,"weight":null},
-    {"id":103323,"name":"Dag Tannes-fjeld","dob":"1979-06-30","height":null,"weight":null},
-    {"id":103362,"name":"Kenneth Jelsa","dob":null,"height":null,"weight":null},
-    {"id":103363,"name":"Olav Helland","dob":"1974-08-27","height":null,"weight":null},
-    {"id":103364,"name":"Frank Jakobsen","dob":null,"height":null,"weight":null},
-    {"id":103365,"name":"Eskil Holtan","dob":"1982-11-30","height":null,"weight":null},
-    {"id":103366,"name":"Christian Rom","dob":"1982-04-15","height":null,"weight":null},
-    {"id":103367,"name":"Erlend Damon Stokke","dob":"1981-03-02","height":null,"weight":null},
-    {"id":103368,"name":"Oyvind Wergeland","dob":null,"height":null,"weight":null},
-    {"id":103369,"name":"Bjorn F. Ingeborgrud","dob":"1979-10-28","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":103370,"name":"Alexander Loberg","dob":"1977-09-25","height":null,"weight":null},
-    {"id":103569,"name":"Sturla Notvedt","dob":"1981-08-08","height":null,"weight":null},
-    {"id":103570,"name":"Trygve Leite","dob":"1979-04-18","height":null,"weight":null},
-    {"id":104084,"name":"Emil Rommetueit","dob":"1985-12-16","height":null,"weight":null},
-    {"id":104085,"name":"Einar Fuhr Heggheim","dob":"1985-11-08","height":180,"weight":82},
-    {"id":104245,"name":"Ole Martin Kleivenes","dob":"1973-12-05","height":null,"weight":null},
-    {"id":104303,"name":"Kim Hellum","dob":"1974-08-28","height":null,"weight":null},
-    {"id":104304,"name":"Nils Stensa","dob":"1975-12-20","height":null,"weight":null},
-    {"id":104305,"name":"Vegard Lyng","dob":"1980-05-17","height":189,"weight":80},
-    {"id":104370,"name":"Dag Stromsuag","dob":"1984-02-15","height":null,"weight":null},
-    {"id":104371,"name":"Bjornar Gjedrem","dob":"1983-07-15","height":null,"weight":null},
-    {"id":104759,"name":"Geir Eithun","dob":"1979-11-12","height":199,"weight":91},
-    {"id":104794,"name":"Nils Edvin Numme","dob":null,"height":null,"weight":null},
-    {"id":105057,"name":"Kjetil Storeboe","dob":null,"height":null,"weight":null},
-    {"id":105058,"name":"Sigmund Wergeland","dob":null,"height":null,"weight":null},
-    {"id":105178,"name":"Terje Oevergaard","dob":null,"height":null,"weight":null},
-    {"id":115625,"name":"Åsgeir Holstad","dob":null,"height":null,"weight":null},
-    {"id":116076,"name":"Håkon Kronstad","dob":"1983-09-04","height":198,"weight":95},
-    {"id":117466,"name":"Paal Martin Oxaal","dob":null,"height":null,"weight":null},
-    {"id":117467,"name":"Lars Kluken","dob":null,"height":null,"weight":null},
-    {"id":117468,"name":"Dan Inge Dale","dob":null,"height":null,"weight":null},
-    {"id":117469,"name":"Espen Nesse","dob":"1986-09-12","height":194,"weight":90},
-    {"id":117956,"name":"Magnus Borge Johansen","dob":"1982-07-13","height":null,"weight":null},
-    {"id":118121,"name":"Lars Erik Engebretsen","dob":null,"height":null,"weight":null},
-    {"id":118122,"name":"Yngve Are Antonsen","dob":"1990-09-20","height":187,"weight":73},
-    {"id":118355,"name":"Aslak Lenhard Johansen","dob":null,"height":null,"weight":null},
-    {"id":118356,"name":"Eivind Lenhard Johansen","dob":null,"height":null,"weight":null},
-    {"id":118561,"name":"Oivind Hordvik","dob":"1985-06-02","height":201,"weight":101},
-    {"id":118938,"name":"Petter Bjorbak","dob":"1974-02-18","height":198,"weight":90},
-    {"id":118942,"name":"Martin Spinnangr","dob":"1987-05-05","height":197,"weight":86,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":118943,"name":"Stian Sagstad","dob":null,"height":null,"weight":null},
-    {"id":118944,"name":"Cedric Aubry","dob":"1989-09-23","height":null,"weight":null},
-    {"id":118945,"name":"Aleksander Eriksen","dob":null,"height":null,"weight":null},
-    {"id":118975,"name":"Oystein Holstad","dob":null,"height":null,"weight":null},
-    {"id":120132,"name":"Jon Magnus Jørstad Jørstad","dob":null,"height":null,"weight":null},
-    {"id":120469,"name":"Anders Strømsvåg","dob":"1989-01-27","height":null,"weight":null},
-    {"id":120470,"name":"Gøran Rønneberg","dob":"1990-10-26","height":null,"weight":null},
-    {"id":120834,"name":"Bjarte Usken","dob":"1989-08-31","height":null,"weight":null},
-    {"id":120858,"name":"Kvamsdal Morten","dob":"1989-09-10","height":null,"weight":null},
-    {"id":120860,"name":"Henning Kjemperud Olsen","dob":"1989-09-25","height":null,"weight":null},
-    {"id":124665,"name":"Sigurd Van Dijk Festøy","dob":"1992-01-04","height":null,"weight":null},
-    {"id":124666,"name":"Jonas Kvalen","dob":"1992-06-06","height":195,"weight":95},
-    {"id":124762,"name":"Jørn Olav Gamlemoen","dob":"1990-02-21","height":188,"weight":88},
-    {"id":124988,"name":"Fredrik Pe Ingebrigtsen","dob":"1991-08-19","height":186,"weight":null},
-    {"id":125064,"name":"Svein Oddmund Solhaug","dob":"1991-08-30","height":188,"weight":85},
-    {"id":132165,"name":"Jonas Tomter","dob":"1991-01-06","height":null,"weight":null},
-    {"id":132257,"name":"Lars Fredrik Tvinde","dob":"1992-06-17","height":186,"weight":83},
-    {"id":132519,"name":"Andreas Takvam","dob":"1993-06-04","height":null,"weight":null},
-    {"id":132523,"name":"Runar Torsvik Sannarnes","dob":"1994-04-07","height":188,"weight":null},
-    {"id":132763,"name":"Robin Bergheim","dob":"1991-11-28","height":null,"weight":null},
-    {"id":132764,"name":"Lars Tveit Retterholt","dob":"1991-01-08","height":188,"weight":84,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":132790,"name":"Eivind Eikeland Andersen","dob":"1993-09-12","height":null,"weight":null},
-    {"id":132791,"name":"Einar Øglænd Torjusen","dob":"1993-06-18","height":null,"weight":null},
-    {"id":137127,"name":"Christian Sandlie Sørum","dob":"1995-12-03","height":192,"weight":89,"olympics":{"gold":1,"silver":0,"bronze":1},"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":28,"silver":9,"bronze":7}},
-    {"id":137129,"name":"Hendrik Nikolai Mol","dob":"1994-03-10","height":183,"weight":115,"tour":{"gold":0,"silver":2,"bronze":3}},
-    {"id":138642,"name":"Stian Opsahl","dob":"1988-05-04","height":null,"weight":null},
-    {"id":138725,"name":"Jarle Fornes","dob":"1995-11-12","height":null,"weight":null},
-    {"id":139384,"name":"Bjarne Nikolai Huus","dob":"1995-01-05","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":139766,"name":"Daniel Bergerud","dob":"1991-12-14","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":141982,"name":"Sadegh Mohajer","dob":"1993-09-20","height":178,"weight":null},
-    {"id":142141,"name":"Henrik Aase Hole","dob":"1996-03-19","height":null,"weight":null},
-    {"id":142401,"name":"Aleksander Sandlie Sørum","dob":"1997-10-14","height":null,"weight":null},
-    {"id":142402,"name":"Martin Kløvfjell Olimstad","dob":"1997-09-06","height":null,"weight":null},
-    {"id":143189,"name":"Mathias Berntsen","dob":"1996-02-05","height":188,"weight":83,"tour":{"gold":0,"silver":2,"bronze":4}},
-    {"id":143190,"name":"Håvard Aarrestad","dob":"1996-05-01","height":null,"weight":null},
-    {"id":143192,"name":"Anders Berntsen Mol","dob":"1997-07-02","height":201,"weight":96,"olympics":{"gold":1,"silver":0,"bronze":1},"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":29,"silver":8,"bronze":9}},
-    {"id":144493,"name":"Christian Helland","dob":"1988-11-01","height":190,"weight":null},
-    {"id":144510,"name":"Jan Erik Moen","dob":"1990-12-10","height":null,"weight":null},
-    {"id":144511,"name":"Ole Bastian Nordstrand","dob":"1986-11-17","height":null,"weight":null},
-    {"id":148463,"name":"Markus Hansen","dob":"1998-04-04","height":null,"weight":null},
-    {"id":148655,"name":"Erlend Henriksveen","dob":"1995-09-19","height":185,"weight":80},
-    {"id":148730,"name":"Ruben Olai Lund Løvli","dob":"1992-08-12","height":184,"weight":null},
-    {"id":149989,"name":"Christian Jørgensen Ruud","dob":"1998-12-31","height":193,"weight":97},
-    {"id":151319,"name":"Vegard Løkken","dob":"1994-04-20","height":null,"weight":null},
-    {"id":151334,"name":"Magnus Helgerud","dob":"1995-07-13","height":186,"weight":80},
-    {"id":151469,"name":"Jakob Solgaard Thelle","dob":"1999-12-10","height":198,"weight":85},
-    {"id":151472,"name":"Karl Jørgen Mosvold","dob":"1999-11-22","height":null,"weight":null},
-    {"id":151473,"name":"Stefan Ilic","dob":"1998-03-22","height":184,"weight":76},
-    {"id":151474,"name":"Emil Øfstaas","dob":"1998-02-01","height":195,"weight":93},
-    {"id":152938,"name":"Kjetil Tellnes","dob":"1995-06-29","height":null,"weight":null},
-    {"id":156952,"name":"Eivind Brekke","dob":"2001-08-09","height":190,"weight":70},
-    {"id":157029,"name":"Nils Gunnar Ringøen","dob":"2001-02-26","height":194,"weight":87,"tour":{"gold":2,"silver":1,"bronze":1}},
-    {"id":157219,"name":"Ragnar Marius Iversen","dob":"1979-08-06","height":190,"weight":86},
-    {"id":160624,"name":"Åsmund Lyngve Vingen Sunde","dob":"1999-04-15","height":null,"weight":null},
-    {"id":164819,"name":"Hans Erik Dybfest","dob":"1976-09-07","height":null,"weight":null},
-    {"id":172410,"name":"Torje Thorkildsen","dob":"1998-06-08","height":182,"weight":78},
-    {"id":172619,"name":"Markus Mol","dob":"2002-04-03","height":197,"weight":88,"tour":{"gold":4,"silver":1,"bronze":1}},
-    {"id":173419,"name":"Jo Gladsøy Sunde","dob":"2003-04-27","height":null,"weight":null,"tour":{"gold":4,"silver":0,"bronze":2}},
-    {"id":179497,"name":"Syver Drolsum Klungsøyr","dob":"2003-03-18","height":197,"weight":90},
-    {"id":179513,"name":"Håvard Solheim","dob":"2003-04-03","height":186,"weight":76},
-    {"id":182771,"name":"Oscar Majak Gundersen","dob":"2004-08-03","height":196,"weight":90},
-    {"id":182780,"name":"Adrian Mol","dob":"2004-11-04","height":196,"weight":99},
-    {"id":182797,"name":"Even Stray Aas","dob":"2005-09-09","height":197,"weight":95,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":182803,"name":"Jens Aasgard","dob":"2004-06-23","height":null,"weight":null},
-    {"id":190490,"name":"Marius Pande","dob":"1995-04-20","height":189,"weight":88},
-    {"id":190549,"name":"Jørgen Nylund Nilsen","dob":"1999-06-08","height":201,"weight":90},
-    {"id":190640,"name":"Jonah Utvik","dob":"2005-10-11","height":190,"weight":78},
-    {"id":192770,"name":"Tobias Kawika Kauffman Pedersen","dob":"2006-08-21","height":185,"weight":80},
-    {"id":193426,"name":"Leon Lauvland","dob":"2004-02-16","height":null,"weight":null},
-    {"id":201399,"name":"Jonah Andre Lyngaas Kjemperud","dob":"2005-11-10","height":null,"weight":null,"tour":{"gold":2,"silver":0,"bronze":1}},
-    {"id":203656,"name":"Ludvig Sødal Ringøen","dob":"2009-06-17","height":197,"weight":82},
-    {"id":206047,"name":"Johannes Ringøen","dob":"2007-01-20","height":196,"weight":null},
-    {"id":209530,"name":"Håvard Kjærheim Fredwall","dob":"2001-12-10","height":189,"weight":null},
-    {"id":210034,"name":"Mathias Damian Smørholm","dob":"2008-01-02","height":193,"weight":null},
-    {"id":210037,"name":"Sebastian Lyngaas Kjemperud","dob":"2008-02-09","height":200,"weight":90,"tour":{"gold":2,"silver":0,"bronze":1}},
-    {"id":222685,"name":"Torjussen Armand Torp","dob":"2008-06-11","height":191,"weight":78},
-    {"id":222813,"name":"Mon Mathys","dob":"2005-07-18","height":null,"weight":null},
-    {"id":228127,"name":"Pavle Cetkovic","dob":"2002-08-27","height":186,"weight":79},
-    {"id":232806,"name":"Mikael Beckman Dos Santos","dob":"2008-12-26","height":187,"weight":82},
-    {"id":239603,"name":"Lars Ragnar Vollan","dob":"1994-03-19","height":185,"weight":83},
-    {"id":239773,"name":"Liam Karlsen","dob":"2009-03-14","height":191,"weight":83}
+    {
+      "id": 100016,
+      "name": "Jan Kvalheim",
+      "dob": "1963-02-05",
+      "height": 200,
+      "weight": 95,
+      "tour": {
+        "gold": 7,
+        "silver": 2,
+        "bronze": 9
+      },
+      "away": [
+        {
+          "id": 100166,
+          "name": "Thierry  \"The Glove\" Glowacz",
+          "fed": "FRA",
+          "gender": "M",
+          "t": 1,
+          "f": 1987,
+          "l": 1987,
+          "s": [
+            [
+              1987,
+              1,
+              1303
+            ]
+          ],
+          "at": [
+            [
+              1987,
+              "FRA"
+            ]
+          ],
+          "r": 6
+        }
+      ]
+    },
+    {
+      "id": 100110,
+      "name": "Björn Maaseide",
+      "dob": "1968-03-07",
+      "height": 198,
+      "weight": 94,
+      "tour": {
+        "gold": 7,
+        "silver": 2,
+        "bronze": 9
+      }
+    },
+    {
+      "id": 100301,
+      "name": "Are Kristofer \"Kris\" Hjeltnes",
+      "dob": "1972-03-22",
+      "height": 193,
+      "weight": 88
+    },
+    {
+      "id": 100302,
+      "name": "Jorre André Kjemperud",
+      "dob": "1968-08-31",
+      "height": 189,
+      "weight": 86,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 2,
+        "silver": 5,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100561,
+      "name": "Terje Kolsvik",
+      "dob": "1971-04-25",
+      "height": 194,
+      "weight": 85
+    },
+    {
+      "id": 100739,
+      "name": "Kjell Arne Goranson",
+      "dob": "1970-12-13",
+      "height": 193,
+      "weight": 90,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100740,
+      "name": "Jon Grydeland",
+      "dob": "1974-11-12",
+      "height": 178,
+      "weight": 70
+    },
+    {
+      "id": 100844,
+      "name": "Vegard Hoidalen",
+      "dob": "1971-05-10",
+      "height": 193,
+      "weight": 92,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 1,
+        "silver": 5,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100845,
+      "name": "Jarle Huseby",
+      "dob": "1973-11-11",
+      "height": 192,
+      "weight": 85
+    },
+    {
+      "id": 101703,
+      "name": "Ivan Solbakken",
+      "dob": "1972-12-17",
+      "height": 172,
+      "weight": 70
+    },
+    {
+      "id": 101710,
+      "name": "Ian Thorsen",
+      "dob": "1975-01-29",
+      "height": 186,
+      "weight": 81
+    },
+    {
+      "id": 101794,
+      "name": "Jetmund Berntsen",
+      "dob": "1973-03-09",
+      "height": 187,
+      "weight": 78
+    },
+    {
+      "id": 101795,
+      "name": "Jostein Olimstad",
+      "dob": "1973-07-22",
+      "height": 201,
+      "weight": 103
+    },
+    {
+      "id": 102138,
+      "name": "Iver Andreas Horrem",
+      "dob": "1977-01-01",
+      "height": 190,
+      "weight": 88,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102187,
+      "name": "Ronny Berntsen",
+      "dob": "1966-02-04",
+      "height": 187,
+      "weight": 80
+    },
+    {
+      "id": 102188,
+      "name": "Paul Otterdal",
+      "dob": "1973-03-06",
+      "height": 193,
+      "weight": null
+    },
+    {
+      "id": 102249,
+      "name": "Lars Garder",
+      "dob": "1962-08-20",
+      "height": 189,
+      "weight": 95
+    },
+    {
+      "id": 102364,
+      "name": "Espen \"Broren\" Goranson",
+      "dob": "1968-07-15",
+      "height": 198,
+      "weight": 91
+    },
+    {
+      "id": 102373,
+      "name": "Kjell-Oue Raheim",
+      "dob": "1977-05-16",
+      "height": 181,
+      "weight": 76
+    },
+    {
+      "id": 102374,
+      "name": "Tarjei Skarlund",
+      "dob": "1978-11-06",
+      "height": 191,
+      "weight": 87,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102545,
+      "name": "Lars Jacob \"Laas\" Boe",
+      "dob": "1974-09-28",
+      "height": 194,
+      "weight": 84
+    },
+    {
+      "id": 102546,
+      "name": "Bard-Inge \"E.P.\" Pettersen",
+      "dob": "1973-01-24",
+      "height": 191,
+      "weight": 87
+    },
+    {
+      "id": 102639,
+      "name": "Martin Berntsen",
+      "dob": "1977-08-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102654,
+      "name": "Martin Hjeltnes",
+      "dob": "1975-03-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102655,
+      "name": "Martin Engvik",
+      "dob": "1978-07-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102656,
+      "name": "Ragnar Wisloff",
+      "dob": "1973-06-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102658,
+      "name": "Eivind Pettersen",
+      "dob": "1969-09-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102679,
+      "name": "Mats Bentsen",
+      "dob": "1972-12-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102761,
+      "name": "Magne Kobbevik",
+      "dob": "1972-11-23",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102865,
+      "name": "Ben Roger Nordas",
+      "dob": "1978-08-02",
+      "height": 185,
+      "weight": 80
+    },
+    {
+      "id": 102866,
+      "name": "Geir H. Ingeborgrud",
+      "dob": "1975-05-04",
+      "height": 191,
+      "weight": 87
+    },
+    {
+      "id": 102868,
+      "name": "Sigurd Ringstad",
+      "dob": "1974-07-24",
+      "height": 184,
+      "weight": 74
+    },
+    {
+      "id": 102879,
+      "name": "Helge Storoy",
+      "dob": "1968-11-04",
+      "height": 182,
+      "weight": 77
+    },
+    {
+      "id": 103013,
+      "name": "Imran Khan",
+      "dob": "1976-11-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103092,
+      "name": "Morten Draegebo",
+      "dob": "1977-10-15",
+      "height": 180,
+      "weight": 67
+    },
+    {
+      "id": 103093,
+      "name": "Oystein Hjellset",
+      "dob": "1973-05-14",
+      "height": 190,
+      "weight": 75
+    },
+    {
+      "id": 103189,
+      "name": "Torstein Karner-Semd",
+      "dob": "1982-02-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103317,
+      "name": "Rasmus Helgebostad",
+      "dob": "1981-06-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103318,
+      "name": "Pierre Quarré",
+      "dob": "1981-06-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103323,
+      "name": "Dag Tannes-fjeld",
+      "dob": "1979-06-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103362,
+      "name": "Kenneth Jelsa",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103363,
+      "name": "Olav Helland",
+      "dob": "1974-08-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103364,
+      "name": "Frank Jakobsen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103365,
+      "name": "Eskil Holtan",
+      "dob": "1982-11-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103366,
+      "name": "Christian Rom",
+      "dob": "1982-04-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103367,
+      "name": "Erlend Damon Stokke",
+      "dob": "1981-03-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103368,
+      "name": "Oyvind Wergeland",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103369,
+      "name": "Bjorn F. Ingeborgrud",
+      "dob": "1979-10-28",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103370,
+      "name": "Alexander Loberg",
+      "dob": "1977-09-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103569,
+      "name": "Sturla Notvedt",
+      "dob": "1981-08-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103570,
+      "name": "Trygve Leite",
+      "dob": "1979-04-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104084,
+      "name": "Emil Rommetueit",
+      "dob": "1985-12-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104085,
+      "name": "Einar Fuhr Heggheim",
+      "dob": "1985-11-08",
+      "height": 180,
+      "weight": 82
+    },
+    {
+      "id": 104245,
+      "name": "Ole Martin Kleivenes",
+      "dob": "1973-12-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104303,
+      "name": "Kim Hellum",
+      "dob": "1974-08-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104304,
+      "name": "Nils Stensa",
+      "dob": "1975-12-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104305,
+      "name": "Vegard Lyng",
+      "dob": "1980-05-17",
+      "height": 189,
+      "weight": 80
+    },
+    {
+      "id": 104370,
+      "name": "Dag Stromsuag",
+      "dob": "1984-02-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104371,
+      "name": "Bjornar Gjedrem",
+      "dob": "1983-07-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104759,
+      "name": "Geir Eithun",
+      "dob": "1979-11-12",
+      "height": 199,
+      "weight": 91
+    },
+    {
+      "id": 104794,
+      "name": "Nils Edvin Numme",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105057,
+      "name": "Kjetil Storeboe",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105058,
+      "name": "Sigmund Wergeland",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105178,
+      "name": "Terje Oevergaard",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 115625,
+      "name": "Åsgeir Holstad",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116076,
+      "name": "Håkon Kronstad",
+      "dob": "1983-09-04",
+      "height": 198,
+      "weight": 95
+    },
+    {
+      "id": 117466,
+      "name": "Paal Martin Oxaal",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117467,
+      "name": "Lars Kluken",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117468,
+      "name": "Dan Inge Dale",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117469,
+      "name": "Espen Nesse",
+      "dob": "1986-09-12",
+      "height": 194,
+      "weight": 90
+    },
+    {
+      "id": 117956,
+      "name": "Magnus Borge Johansen",
+      "dob": "1982-07-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118121,
+      "name": "Lars Erik Engebretsen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118122,
+      "name": "Yngve Are Antonsen",
+      "dob": "1990-09-20",
+      "height": 187,
+      "weight": 73
+    },
+    {
+      "id": 118355,
+      "name": "Aslak Lenhard Johansen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118356,
+      "name": "Eivind Lenhard Johansen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118561,
+      "name": "Oivind Hordvik",
+      "dob": "1985-06-02",
+      "height": 201,
+      "weight": 101
+    },
+    {
+      "id": 118938,
+      "name": "Petter Bjorbak",
+      "dob": "1974-02-18",
+      "height": 198,
+      "weight": 90
+    },
+    {
+      "id": 118942,
+      "name": "Martin Spinnangr",
+      "dob": "1987-05-05",
+      "height": 197,
+      "weight": 86,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 118943,
+      "name": "Stian Sagstad",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118944,
+      "name": "Cedric Aubry",
+      "dob": "1989-09-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118945,
+      "name": "Aleksander Eriksen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118975,
+      "name": "Oystein Holstad",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120132,
+      "name": "Jon Magnus Jørstad Jørstad",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120469,
+      "name": "Anders Strømsvåg",
+      "dob": "1989-01-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120470,
+      "name": "Gøran Rønneberg",
+      "dob": "1990-10-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120834,
+      "name": "Bjarte Usken",
+      "dob": "1989-08-31",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120858,
+      "name": "Kvamsdal Morten",
+      "dob": "1989-09-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120860,
+      "name": "Henning Kjemperud Olsen",
+      "dob": "1989-09-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124665,
+      "name": "Sigurd Van Dijk Festøy",
+      "dob": "1992-01-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124666,
+      "name": "Jonas Kvalen",
+      "dob": "1992-06-06",
+      "height": 195,
+      "weight": 95
+    },
+    {
+      "id": 124762,
+      "name": "Jørn Olav Gamlemoen",
+      "dob": "1990-02-21",
+      "height": 188,
+      "weight": 88
+    },
+    {
+      "id": 124988,
+      "name": "Fredrik Pe Ingebrigtsen",
+      "dob": "1991-08-19",
+      "height": 186,
+      "weight": null
+    },
+    {
+      "id": 125064,
+      "name": "Svein Oddmund Solhaug",
+      "dob": "1991-08-30",
+      "height": 188,
+      "weight": 85
+    },
+    {
+      "id": 132165,
+      "name": "Jonas Tomter",
+      "dob": "1991-01-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132257,
+      "name": "Lars Fredrik Tvinde",
+      "dob": "1992-06-17",
+      "height": 186,
+      "weight": 83
+    },
+    {
+      "id": 132519,
+      "name": "Andreas Takvam",
+      "dob": "1993-06-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132523,
+      "name": "Runar Torsvik Sannarnes",
+      "dob": "1994-04-07",
+      "height": 188,
+      "weight": null
+    },
+    {
+      "id": 132763,
+      "name": "Robin Bergheim",
+      "dob": "1991-11-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132764,
+      "name": "Lars Tveit Retterholt",
+      "dob": "1991-01-08",
+      "height": 188,
+      "weight": 84,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 132790,
+      "name": "Eivind Eikeland Andersen",
+      "dob": "1993-09-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132791,
+      "name": "Einar Øglænd Torjusen",
+      "dob": "1993-06-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 137127,
+      "name": "Christian Sandlie Sørum",
+      "dob": "1995-12-03",
+      "height": 192,
+      "weight": 89,
+      "olympics": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 28,
+        "silver": 9,
+        "bronze": 7
+      }
+    },
+    {
+      "id": 137129,
+      "name": "Hendrik Nikolai Mol",
+      "dob": "1994-03-10",
+      "height": 183,
+      "weight": 115,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 138642,
+      "name": "Stian Opsahl",
+      "dob": "1988-05-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 138725,
+      "name": "Jarle Fornes",
+      "dob": "1995-11-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139384,
+      "name": "Bjarne Nikolai Huus",
+      "dob": "1995-01-05",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 139766,
+      "name": "Daniel Bergerud",
+      "dob": "1991-12-14",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 141982,
+      "name": "Sadegh Mohajer",
+      "dob": "1993-09-20",
+      "height": 178,
+      "weight": null
+    },
+    {
+      "id": 142141,
+      "name": "Henrik Aase Hole",
+      "dob": "1996-03-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142401,
+      "name": "Aleksander Sandlie Sørum",
+      "dob": "1997-10-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142402,
+      "name": "Martin Kløvfjell Olimstad",
+      "dob": "1997-09-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143189,
+      "name": "Mathias Berntsen",
+      "dob": "1996-02-05",
+      "height": 188,
+      "weight": 83,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 4
+      }
+    },
+    {
+      "id": 143190,
+      "name": "Håvard Aarrestad",
+      "dob": "1996-05-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143192,
+      "name": "Anders Berntsen Mol",
+      "dob": "1997-07-02",
+      "height": 201,
+      "weight": 96,
+      "olympics": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 29,
+        "silver": 8,
+        "bronze": 9
+      }
+    },
+    {
+      "id": 144493,
+      "name": "Christian Helland",
+      "dob": "1988-11-01",
+      "height": 190,
+      "weight": null
+    },
+    {
+      "id": 144510,
+      "name": "Jan Erik Moen",
+      "dob": "1990-12-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 144511,
+      "name": "Ole Bastian Nordstrand",
+      "dob": "1986-11-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 148463,
+      "name": "Markus Hansen",
+      "dob": "1998-04-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 148655,
+      "name": "Erlend Henriksveen",
+      "dob": "1995-09-19",
+      "height": 185,
+      "weight": 80
+    },
+    {
+      "id": 148730,
+      "name": "Ruben Olai Lund Løvli",
+      "dob": "1992-08-12",
+      "height": 184,
+      "weight": null
+    },
+    {
+      "id": 149989,
+      "name": "Christian Jørgensen Ruud",
+      "dob": "1998-12-31",
+      "height": 193,
+      "weight": 97
+    },
+    {
+      "id": 151319,
+      "name": "Vegard Løkken",
+      "dob": "1994-04-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 151334,
+      "name": "Magnus Helgerud",
+      "dob": "1995-07-13",
+      "height": 186,
+      "weight": 80
+    },
+    {
+      "id": 151469,
+      "name": "Jakob Solgaard Thelle",
+      "dob": "1999-12-10",
+      "height": 198,
+      "weight": 85
+    },
+    {
+      "id": 151472,
+      "name": "Karl Jørgen Mosvold",
+      "dob": "1999-11-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 151473,
+      "name": "Stefan Ilic",
+      "dob": "1998-03-22",
+      "height": 184,
+      "weight": 76
+    },
+    {
+      "id": 151474,
+      "name": "Emil Øfstaas",
+      "dob": "1998-02-01",
+      "height": 195,
+      "weight": 93
+    },
+    {
+      "id": 152938,
+      "name": "Kjetil Tellnes",
+      "dob": "1995-06-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 156952,
+      "name": "Eivind Brekke",
+      "dob": "2001-08-09",
+      "height": 190,
+      "weight": 70
+    },
+    {
+      "id": 157029,
+      "name": "Nils Gunnar Ringøen",
+      "dob": "2001-02-26",
+      "height": 194,
+      "weight": 87,
+      "tour": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 157219,
+      "name": "Ragnar Marius Iversen",
+      "dob": "1979-08-06",
+      "height": 190,
+      "weight": 86
+    },
+    {
+      "id": 160624,
+      "name": "Åsmund Lyngve Vingen Sunde",
+      "dob": "1999-04-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 164819,
+      "name": "Hans Erik Dybfest",
+      "dob": "1976-09-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 172410,
+      "name": "Torje Thorkildsen",
+      "dob": "1998-06-08",
+      "height": 182,
+      "weight": 78
+    },
+    {
+      "id": 172619,
+      "name": "Markus Mol",
+      "dob": "2002-04-03",
+      "height": 197,
+      "weight": 88,
+      "tour": {
+        "gold": 4,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 173419,
+      "name": "Jo Gladsøy Sunde",
+      "dob": "2003-04-27",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 4,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 179497,
+      "name": "Syver Drolsum Klungsøyr",
+      "dob": "2003-03-18",
+      "height": 197,
+      "weight": 90
+    },
+    {
+      "id": 179513,
+      "name": "Håvard Solheim",
+      "dob": "2003-04-03",
+      "height": 186,
+      "weight": 76
+    },
+    {
+      "id": 182771,
+      "name": "Oscar Majak Gundersen",
+      "dob": "2004-08-03",
+      "height": 196,
+      "weight": 90
+    },
+    {
+      "id": 182780,
+      "name": "Adrian Mol",
+      "dob": "2004-11-04",
+      "height": 196,
+      "weight": 99
+    },
+    {
+      "id": 182797,
+      "name": "Even Stray Aas",
+      "dob": "2005-09-09",
+      "height": 197,
+      "weight": 95,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 182803,
+      "name": "Jens Aasgard",
+      "dob": "2004-06-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190490,
+      "name": "Marius Pande",
+      "dob": "1995-04-20",
+      "height": 189,
+      "weight": 88
+    },
+    {
+      "id": 190549,
+      "name": "Jørgen Nylund Nilsen",
+      "dob": "1999-06-08",
+      "height": 201,
+      "weight": 90
+    },
+    {
+      "id": 190640,
+      "name": "Jonah Utvik",
+      "dob": "2005-10-11",
+      "height": 190,
+      "weight": 78
+    },
+    {
+      "id": 192770,
+      "name": "Tobias Kawika Kauffman Pedersen",
+      "dob": "2006-08-21",
+      "height": 185,
+      "weight": 80
+    },
+    {
+      "id": 193426,
+      "name": "Leon Lauvland",
+      "dob": "2004-02-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 201399,
+      "name": "Jonah Andre Lyngaas Kjemperud",
+      "dob": "2005-11-10",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 203656,
+      "name": "Ludvig Sødal Ringøen",
+      "dob": "2009-06-17",
+      "height": 197,
+      "weight": 82
+    },
+    {
+      "id": 206047,
+      "name": "Johannes Ringøen",
+      "dob": "2007-01-20",
+      "height": 196,
+      "weight": null
+    },
+    {
+      "id": 209530,
+      "name": "Håvard Kjærheim Fredwall",
+      "dob": "2001-12-10",
+      "height": 189,
+      "weight": null
+    },
+    {
+      "id": 210034,
+      "name": "Mathias Damian Smørholm",
+      "dob": "2008-01-02",
+      "height": 193,
+      "weight": null
+    },
+    {
+      "id": 210037,
+      "name": "Sebastian Lyngaas Kjemperud",
+      "dob": "2008-02-09",
+      "height": 200,
+      "weight": 90,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 222685,
+      "name": "Torjussen Armand Torp",
+      "dob": "2008-06-11",
+      "height": 191,
+      "weight": 78
+    },
+    {
+      "id": 222813,
+      "name": "Mon Mathys",
+      "dob": "2005-07-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 228127,
+      "name": "Pavle Cetkovic",
+      "dob": "2002-08-27",
+      "height": 186,
+      "weight": 79
+    },
+    {
+      "id": 232806,
+      "name": "Mikael Beckman Dos Santos",
+      "dob": "2008-12-26",
+      "height": 187,
+      "weight": 82
+    },
+    {
+      "id": 239603,
+      "name": "Lars Ragnar Vollan",
+      "dob": "1994-03-19",
+      "height": 185,
+      "weight": 83
+    },
+    {
+      "id": 239773,
+      "name": "Liam Karlsen",
+      "dob": "2009-03-14",
+      "height": 191,
+      "weight": 83
+    }
   ]
 }

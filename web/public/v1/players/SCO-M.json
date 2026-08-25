@@ -2,16 +2,258 @@
   "country": "SCO",
   "gender": "M",
   "players": [
-    {"id":118584,"name":"Robin Miedzybrodzki","dob":"1985-01-27","height":null,"weight":null,"away":[{"id":120535,"name":"Tom Lord","fed":"GBR","gender":"M","t":17,"f":2009,"l":2012,"s":[[2009,4,147],[2011,6,278],[2012,7,228]],"at":[[2009,"GBR"],[2011,"GBR"],[2012,"GBR"]]},{"id":103717,"name":"Jody Gooding","fed":"ENG","gender":"M","t":8,"f":2008,"l":2008,"s":[[2008,8,281]],"at":[[2008,"GBR"]]},{"id":103720,"name":"Gregg Weaver","fed":"ENG","gender":"M","t":7,"f":2009,"l":2010,"s":[[2009,1,300],[2010,6,167]],"at":[[2009,"GBR"],[2010,"GBR"]]},{"id":124005,"name":"John Garcia-Thompson","fed":"GBR","gender":"M","t":5,"f":2009,"l":2010,"s":[[2009,3,231],[2010,2,230]],"at":[[2009,"GBR"],[2010,"GBR"]]},{"id":118718,"name":"Imornefe Bowes","fed":"GBR","gender":"M","t":4,"f":2007,"l":2007,"s":[[2007,4,248]],"at":[[2007,"GBR"]]},{"id":118585,"name":"Luke Sheaf","fed":"GBR","gender":"M","t":1,"f":2007,"l":2007,"s":[[2007,1,221]],"at":[[2007,"GBR"]]}]},
-    {"id":139712,"name":"Seain Cook","dob":"1991-11-19","height":193,"weight":90},
-    {"id":139716,"name":"James McHardy","dob":"1992-04-21","height":193,"weight":93},
-    {"id":146880,"name":"Barry McGuigan","dob":"1979-02-14","height":188,"weight":87},
-    {"id":151775,"name":"Ben McHardy","dob":"1999-03-22","height":null,"weight":null},
-    {"id":152440,"name":"Connor Boyle","dob":"1993-07-30","height":195,"weight":95},
-    {"id":156674,"name":"Ross McKelvie","dob":"1995-01-15","height":null,"weight":null},
-    {"id":163686,"name":"Callum Stewart","dob":"1990-08-15","height":193,"weight":87},
-    {"id":176411,"name":"Euan Mackenzie Fraser","dob":"2001-08-29","height":null,"weight":null},
-    {"id":181582,"name":"Murray Paterson","dob":"2003-11-26","height":null,"weight":null},
-    {"id":203403,"name":"Keir Paterson","dob":"2006-07-21","height":null,"weight":null}
+    {
+      "id": 118584,
+      "name": "Robin Miedzybrodzki",
+      "dob": "1985-01-27",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 120535,
+          "name": "Tom Lord",
+          "fed": "GBR",
+          "gender": "M",
+          "t": 17,
+          "f": 2009,
+          "l": 2012,
+          "s": [
+            [
+              2009,
+              4,
+              147
+            ],
+            [
+              2011,
+              6,
+              278
+            ],
+            [
+              2012,
+              7,
+              228
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ],
+            [
+              2011,
+              "GBR"
+            ],
+            [
+              2012,
+              "GBR"
+            ]
+          ],
+          "r": 33
+        },
+        {
+          "id": 103717,
+          "name": "Jody Gooding",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 8,
+          "f": 2008,
+          "l": 2008,
+          "s": [
+            [
+              2008,
+              8,
+              281
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        },
+        {
+          "id": 103720,
+          "name": "Gregg Weaver",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 7,
+          "f": 2009,
+          "l": 2010,
+          "s": [
+            [
+              2009,
+              1,
+              300
+            ],
+            [
+              2010,
+              6,
+              167
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ],
+            [
+              2010,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        },
+        {
+          "id": 124005,
+          "name": "John Garcia-Thompson",
+          "fed": "GBR",
+          "gender": "M",
+          "t": 5,
+          "f": 2009,
+          "l": 2010,
+          "s": [
+            [
+              2009,
+              3,
+              231
+            ],
+            [
+              2010,
+              2,
+              230
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ],
+            [
+              2010,
+              "GBR"
+            ]
+          ],
+          "r": 33
+        },
+        {
+          "id": 118718,
+          "name": "Imornefe Bowes",
+          "fed": "GBR",
+          "gender": "M",
+          "t": 4,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              4,
+              248
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 29
+        },
+        {
+          "id": 118585,
+          "name": "Luke Sheaf",
+          "fed": "GBR",
+          "gender": "M",
+          "t": 1,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              1,
+              221
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 139712,
+      "name": "Seain Cook",
+      "dob": "1991-11-19",
+      "height": 193,
+      "weight": 90
+    },
+    {
+      "id": 139716,
+      "name": "James McHardy",
+      "dob": "1992-04-21",
+      "height": 193,
+      "weight": 93
+    },
+    {
+      "id": 146880,
+      "name": "Barry McGuigan",
+      "dob": "1979-02-14",
+      "height": 188,
+      "weight": 87
+    },
+    {
+      "id": 151775,
+      "name": "Ben McHardy",
+      "dob": "1999-03-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 152440,
+      "name": "Connor Boyle",
+      "dob": "1993-07-30",
+      "height": 195,
+      "weight": 95
+    },
+    {
+      "id": 156674,
+      "name": "Ross McKelvie",
+      "dob": "1995-01-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 163686,
+      "name": "Callum Stewart",
+      "dob": "1990-08-15",
+      "height": 193,
+      "weight": 87
+    },
+    {
+      "id": 176411,
+      "name": "Euan Mackenzie Fraser",
+      "dob": "2001-08-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 181582,
+      "name": "Murray Paterson",
+      "dob": "2003-11-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 203403,
+      "name": "Keir Paterson",
+      "dob": "2006-07-21",
+      "height": null,
+      "weight": null
+    }
   ]
 }

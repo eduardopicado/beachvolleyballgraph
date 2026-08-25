@@ -34,6 +34,8 @@ export interface PartnerRow {
   l: number;
   /** Per-season breakdown, ascending. Absent on data published before it existed. */
   s?: SeasonTally[];
+  /** Best finish together. Absent when the pair never reached a main draw. */
+  r?: number;
 }
 
 
@@ -184,6 +186,37 @@ function SeasonList({
               );
             })}
           </ol>
+  );
+}
+
+/**
+ * The pair's best finish together, as a chip beside their tournament count.
+ *
+ * One component for both the in-slice list and the away list below it, so the
+ * two cannot drift into describing the same number differently.
+ *
+ * Renders nothing at all when there is no best finish rather than a dash or a
+ * zero: 2% of partnerships never reached a main draw together, and every way
+ * of drawing that absence as a value reads as a bad result instead of no
+ * result. The tournament count beside it already says they competed.
+ *
+ * The visible text is the bare placement, because the row is four chips wide
+ * on a 320px card and "best 5th" does not fit. What that placement *means* is
+ * carried in the tooltip and the screen-reader label, including FIVB's
+ * bracketing — 5th is a bracket shared with other teams, not a position
+ * (docs/fivb-data-quirks.md §15).
+ */
+function BestFinish({ rank }: { rank: number | undefined }) {
+  if (rank === undefined) return null;
+  const { text, label } = formatFinish(rank);
+  return (
+    <span
+      className={`best${rank <= 3 ? ' is-podium' : ''}`}
+      title={`Best finish together: ${label.toLowerCase()}`}
+    >
+      <span aria-hidden="true">{text}</span>
+      <span className="sr-only">Best finish together: {label}</span>
+    </span>
   );
 }
 
@@ -603,6 +636,7 @@ export function PlayerCard({
                   <span className="name">{p.node.name}</span>
                   <span className="meta">
                     <span className="tally">{p.t}</span>
+                    <BestFinish rank={p.r} />
                     <span className="span">{seasonSpan(p.f, p.l)}</span>
                   </span>
                 </button>
@@ -654,6 +688,7 @@ export function PlayerCard({
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
+                        <BestFinish rank={partner.r} />
                         <span className="span">{seasonSpan(partner.f, partner.l)}</span>
                       </span>
                     </button>
@@ -668,6 +703,7 @@ export function PlayerCard({
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
+                        <BestFinish rank={partner.r} />
                         <span className="span">{seasonSpan(partner.f, partner.l)}</span>
                       </span>
                     </span>

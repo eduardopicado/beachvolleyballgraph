@@ -114,6 +114,14 @@ export interface Partnership {
    * ingest/federations.ts, which turns this into one answer per event.
    */
   fedCodes: Map<string, Set<string>>;
+  /**
+   * The pair's best main-draw placement, or `null` if they never reached one.
+   *
+   * Filled in after the aggregation loop rather than during it — see
+   * `bestFinishByPair`, which reads the *deduplicated* results so this number
+   * is always the minimum of what expanding the seasons below it shows.
+   */
+  best: number | null;
 }
 
 export interface RejectCounts {
@@ -573,6 +581,7 @@ export function aggregatePartnerships(
           firstSeason: tournament.season,
           lastSeason: tournament.season,
           fedCodes: new Map(),
+          best: null,
         }),
       );
     }
@@ -590,14 +599,51 @@ export function aggregatePartnerships(
     }
   }
 
-  return {
-    partnerships,
-    appearances,
-    results: new Map(
-      [...results].map(([id, byKey]) => [id, orderResults([...byKey.values()], tournaments)]),
-    ),
-    rejects,
-  };
+  const ordered = new Map(
+    [...results].map(([id, byKey]) => [id, orderResults([...byKey.values()], tournaments)]),
+  );
+  for (const [key, best] of bestFinishByPair(ordered)) {
+    const pair = partnerships.get(key);
+    if (pair) pair.best = best;
+  }
+
+  return { partnerships, appearances, results: ordered, rejects };
+}
+
+/**
+ * Each pair's best main-draw placement, keyed by `pairKey`.
+ *
+ * Deliberately derived from the finished result rows rather than accumulated
+ * in the loop above, so that "best 5th" is provably the minimum of the rows a
+ * reader sees when they expand the seasons underneath it. The loop's own
+ * `noteResult` collapses a pair entered twice for one event and keeps the
+ * *higher* rank — the main draw over the qualification it came through — and a
+ * best-so-far tracked alongside it would have already banked the discarded
+ * number. Two events in the archive are in that position.
+ *
+ * Only positive ranks count. Zero never arrives (§3 rejects it upstream), and
+ * negatives are eliminations before the main draw rather than placements
+ * within it — a pair whose every entry ended in qualification has no best
+ * finish, which is a different statement from "finished last" and is published
+ * as absent rather than as a number.
+ *
+ * `Number.isFinite` rather than the `rank > 0` that reads as sufficient: a row
+ * with no `Rank` attribute at all parses to `NaN`, every comparison against it
+ * is false, and `NaN <= 0` being false is enough to walk a missing rank
+ * straight past a `continue` and publish it as this pair's best result. The
+ * §3 filter upstream does not catch it either, because it tests `=== 0`.
+ */
+export function bestFinishByPair(results: Map<number, ResultEntry[]>): Map<string, number> {
+  const best = new Map<string, number>();
+  for (const [self, entries] of results) {
+    for (const [, partner, rank] of entries) {
+      if (!Number.isFinite(rank) || rank <= 0) continue;
+      const key = pairKey(self, partner);
+      const current = best.get(key);
+      if (current === undefined || rank < current) best.set(key, rank);
+    }
+  }
+  return best;
 }
 
 // --- Stage 4 slicing -------------------------------------------------------
@@ -757,6 +803,7 @@ export function awayPartnersByPlayer(
         l: pair.lastSeason,
         s: seasonTallies(pair.tournaments, tournaments),
         at: spans.length > 0 ? spans : undefined,
+        ...(pair.best === null ? {} : { r: pair.best }),
       });
       out.set(self.id, list);
     }
@@ -833,6 +880,7 @@ export function sliceByCountryAndGender(
       f: pair.firstSeason,
       l: pair.lastSeason,
       s: seasonTallies(pair.tournaments, tournaments),
+      ...(pair.best === null ? {} : { r: pair.best }),
     });
   }
 

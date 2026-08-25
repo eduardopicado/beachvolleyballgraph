@@ -233,8 +233,8 @@ export default function App() {
       if (!a || !b) continue;
       if (!map.has(edge.a)) map.set(edge.a, []);
       if (!map.has(edge.b)) map.set(edge.b, []);
-      map.get(edge.a)!.push({ node: b, t: edge.t, f: edge.f, l: edge.l, s: edge.s });
-      map.get(edge.b)!.push({ node: a, t: edge.t, f: edge.f, l: edge.l, s: edge.s });
+      map.get(edge.a)!.push({ node: b, t: edge.t, f: edge.f, l: edge.l, s: edge.s, r: edge.r });
+      map.get(edge.b)!.push({ node: a, t: edge.t, f: edge.f, l: edge.l, s: edge.s, r: edge.r });
     }
     for (const list of map.values()) list.sort((x, y) => y.t - x.t || x.node.name.localeCompare(y.node.name));
     return map;
