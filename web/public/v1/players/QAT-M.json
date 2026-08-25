@@ -2,327 +2,36 @@
   "country": "QAT",
   "gender": "M",
   "players": [
-    {
-      "id": 103460,
-      "name": "Hassan Marzoug El-Salaiti",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103491,
-      "name": "Mubarak Rashid Al-Adullah",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103492,
-      "name": "Nasser Mehana Al-Salati",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104728,
-      "name": "Mohammed Al-Kuwari",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104788,
-      "name": "Ali Eshagh Bairami",
-      "dob": "1979-02-13",
-      "height": 188,
-      "weight": 80
-    },
-    {
-      "id": 104789,
-      "name": "Mohammed Al-Nasser",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116317,
-      "name": "Denis Messelmani",
-      "dob": "1986-03-19",
-      "height": 192,
-      "weight": 95
-    },
-    {
-      "id": 117892,
-      "name": "Saeed Al-Jamaani",
-      "dob": "1973-01-11",
-      "height": 186,
-      "weight": 75
-    },
-    {
-      "id": 117908,
-      "name": "Saed Al-Hetmi",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120103,
-      "name": "Nabeel M. Ali Naser",
-      "dob": "1988-04-22",
-      "height": 194,
-      "weight": 80
-    },
-    {
-      "id": 120113,
-      "name": "Asif Malik Sultan",
-      "dob": "1987-04-04",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 120495,
-      "name": "Júlio César Do Nascimento Júnior",
-      "dob": "1986-03-07",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 122792,
-      "name": "Ziad Abdelmajid Benlouaer",
-      "dob": "1986-10-31",
-      "height": 197,
-      "weight": 86
-    },
-    {
-      "id": 123898,
-      "name": "Mahdi Badreddin Sammoud",
-      "dob": "1991-03-22",
-      "height": 188,
-      "weight": 85
-    },
-    {
-      "id": 132808,
-      "name": "Saifeddine Binaziz Elmajid",
-      "dob": "1984-09-10",
-      "height": 200,
-      "weight": 91
-    },
-    {
-      "id": 138996,
-      "name": "Sultan Asif",
-      "dob": "1987-04-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145121,
-      "name": "Assam Ahmed Mahmoud",
-      "dob": "1987-02-20",
-      "height": 195,
-      "weight": 80
-    },
-    {
-      "id": 145123,
-      "name": "Tamer Abdelrasoul",
-      "dob": "1983-07-01",
-      "height": 181,
-      "weight": 84,
-      "away": [
-        {
-          "id": 115975,
-          "name": "Abdelaziz Khallouf",
-          "fed": "MAR",
-          "gender": "M",
-          "t": 2,
-          "f": 2014,
-          "l": 2015,
-          "s": [
-            [
-              2014,
-              1,
-              308
-            ],
-            [
-              2015,
-              1,
-              111
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 145124,
-      "name": "Jefferson Santos Pereira",
-      "dob": "1989-06-08",
-      "height": 182,
-      "weight": 87,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      },
-      "away": [
-        {
-          "id": 120895,
-          "name": "Gabriel Silva Francisco Pereira",
-          "fed": "BRA",
-          "gender": "M",
-          "t": 1,
-          "f": 2008,
-          "l": 2008,
-          "s": [
-            [
-              2008,
-              1,
-              247
-            ]
-          ]
-        },
-        {
-          "id": 118286,
-          "name": "Vinícius Silveira Rosa",
-          "fed": "BRA",
-          "gender": "M",
-          "t": 1,
-          "f": 2006,
-          "l": 2006,
-          "s": [
-            [
-              2006,
-              1,
-              248
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 145125,
-      "name": "Tiago De J Santos",
-      "dob": "1985-11-11",
-      "height": 192,
-      "weight": 84,
-      "away": [
-        {
-          "id": 104073,
-          "name": "Pedro Solberg",
-          "fed": "BRA",
-          "gender": "M",
-          "t": 1,
-          "f": 2005,
-          "l": 2005,
-          "s": [
-            [
-              2005,
-              1,
-              249
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 146481,
-      "name": "Ahmed Tijan",
-      "dob": "1995-04-28",
-      "height": null,
-      "weight": null,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 7,
-        "silver": 9,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 146488,
-      "name": "Cherif Younousse",
-      "dob": "1995-05-22",
-      "height": 194,
-      "weight": 85,
-      "olympics": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      },
-      "tour": {
-        "gold": 8,
-        "silver": 7,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 147562,
-      "name": "João Gusson Neto",
-      "dob": "1992-04-29",
-      "height": 190,
-      "weight": 80
-    },
-    {
-      "id": 159909,
-      "name": "Mohamed Ihab Zaki",
-      "dob": "2000-01-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 161462,
-      "name": "Ahmed M A Ali Nassir",
-      "dob": "1987-08-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 161615,
-      "name": "Abdallah Ibrahim Nassim",
-      "dob": "2001-01-20",
-      "height": 210,
-      "weight": 95
-    },
-    {
-      "id": 182403,
-      "name": "Yousef Alyafeai",
-      "dob": "2002-05-15",
-      "height": 190,
-      "weight": 65
-    },
-    {
-      "id": 222229,
-      "name": "Musa Alkeer Mou",
-      "dob": "2011-01-01",
-      "height": 201,
-      "weight": 90
-    },
-    {
-      "id": 226638,
-      "name": "Ahmed zyad Betioui",
-      "dob": "2010-04-19",
-      "height": 193,
-      "weight": 70
-    },
-    {
-      "id": 227951,
-      "name": "Jassim Mahmoud Al-Tamimi",
-      "dob": "2010-07-17",
-      "height": 174,
-      "weight": 55
-    },
-    {
-      "id": 227953,
-      "name": "Saad Nasser Alawad",
-      "dob": "2010-09-23",
-      "height": 167,
-      "weight": 55
-    }
+    {"id":103460,"name":"Hassan Marzoug El-Salaiti","dob":null,"height":null,"weight":null},
+    {"id":103491,"name":"Mubarak Rashid Al-Adullah","dob":null,"height":null,"weight":null},
+    {"id":103492,"name":"Nasser Mehana Al-Salati","dob":null,"height":null,"weight":null},
+    {"id":104728,"name":"Mohammed Al-Kuwari","dob":null,"height":null,"weight":null},
+    {"id":104788,"name":"Ali Eshagh Bairami","dob":"1979-02-13","height":188,"weight":80},
+    {"id":104789,"name":"Mohammed Al-Nasser","dob":null,"height":null,"weight":null},
+    {"id":116317,"name":"Denis Messelmani","dob":"1986-03-19","height":192,"weight":95},
+    {"id":117892,"name":"Saeed Al-Jamaani","dob":"1973-01-11","height":186,"weight":75},
+    {"id":117908,"name":"Saed Al-Hetmi","dob":null,"height":null,"weight":null},
+    {"id":120103,"name":"Nabeel M. Ali Naser","dob":"1988-04-22","height":194,"weight":80},
+    {"id":120113,"name":"Asif Malik Sultan","dob":"1987-04-04","height":190,"weight":80},
+    {"id":120495,"name":"Júlio César Do Nascimento Júnior","dob":"1986-03-07","height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":122792,"name":"Ziad Abdelmajid Benlouaer","dob":"1986-10-31","height":197,"weight":86},
+    {"id":123898,"name":"Mahdi Badreddin Sammoud","dob":"1991-03-22","height":188,"weight":85},
+    {"id":132808,"name":"Saifeddine Binaziz Elmajid","dob":"1984-09-10","height":200,"weight":91},
+    {"id":138996,"name":"Sultan Asif","dob":"1987-04-04","height":null,"weight":null},
+    {"id":145121,"name":"Assam Ahmed Mahmoud","dob":"1987-02-20","height":195,"weight":80},
+    {"id":145123,"name":"Tamer Abdelrasoul","dob":"1983-07-01","height":181,"weight":84,"away":[{"id":115975,"name":"Abdelaziz Khallouf","fed":"MAR","gender":"M","t":2,"f":2014,"l":2015,"s":[[2014,1,308],[2015,1,111]],"at":[[2014,"QAT"],[2015,"QAT"]]}]},
+    {"id":145124,"name":"Jefferson Santos Pereira","dob":"1989-06-08","height":182,"weight":87,"tour":{"gold":1,"silver":0,"bronze":0},"away":[{"id":120895,"name":"Gabriel Silva Francisco Pereira","fed":"BRA","gender":"M","t":1,"f":2008,"l":2008,"s":[[2008,1,247]],"at":[[2008,"BRA"]]},{"id":118286,"name":"Vinícius Silveira Rosa","fed":"BRA","gender":"M","t":1,"f":2006,"l":2006,"s":[[2006,1,248]],"at":[[2006,"BRA"]]}]},
+    {"id":145125,"name":"Tiago De J Santos","dob":"1985-11-11","height":192,"weight":84,"away":[{"id":104073,"name":"Pedro Solberg","fed":"BRA","gender":"M","t":1,"f":2005,"l":2005,"s":[[2005,1,249]],"at":[[2005,"BRA"]]}]},
+    {"id":146481,"name":"Ahmed Tijan","dob":"1995-04-28","height":null,"weight":null,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":7,"silver":9,"bronze":5}},
+    {"id":146488,"name":"Cherif Younousse","dob":"1995-05-22","height":194,"weight":85,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":8,"silver":7,"bronze":5}},
+    {"id":147562,"name":"João Gusson Neto","dob":"1992-04-29","height":190,"weight":80},
+    {"id":159909,"name":"Mohamed Ihab Zaki","dob":"2000-01-13","height":null,"weight":null},
+    {"id":161462,"name":"Ahmed M A Ali Nassir","dob":"1987-08-19","height":null,"weight":null},
+    {"id":161615,"name":"Abdallah Ibrahim Nassim","dob":"2001-01-20","height":210,"weight":95},
+    {"id":182403,"name":"Yousef Alyafeai","dob":"2002-05-15","height":190,"weight":65},
+    {"id":222229,"name":"Musa Alkeer Mou","dob":"2011-01-01","height":201,"weight":90},
+    {"id":226638,"name":"Ahmed zyad Betioui","dob":"2010-04-19","height":193,"weight":70},
+    {"id":227951,"name":"Jassim Mahmoud Al-Tamimi","dob":"2010-07-17","height":174,"weight":55},
+    {"id":227953,"name":"Saad Nasser Alawad","dob":"2010-09-23","height":167,"weight":55}
   ]
 }

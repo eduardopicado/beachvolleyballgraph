@@ -2,112 +2,17 @@
   "country": "COL",
   "gender": "M",
   "players": [
-    {
-      "id": 138762,
-      "name": "Alex Yhan Cuesta Murillo",
-      "dob": "1976-06-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 141686,
-      "name": "Johan Murray",
-      "dob": "1992-10-11",
-      "height": null,
-      "weight": 82
-    },
-    {
-      "id": 156070,
-      "name": "Khaleb Nadim Tellez Soleiman",
-      "dob": "1998-11-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156084,
-      "name": "Edgardo Cuello",
-      "dob": "1993-10-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156085,
-      "name": "Sebastian Denis Silgado",
-      "dob": "1995-01-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156086,
-      "name": "Sneider Rivas",
-      "dob": "1995-12-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 161855,
-      "name": "Yeferson De La Hoz Rodriguez",
-      "dob": "2000-09-28",
-      "height": 198,
-      "weight": 93
-    },
-    {
-      "id": 182169,
-      "name": "Andres Felipe Castillo Zambrano",
-      "dob": "2002-01-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182170,
-      "name": "Wilder Mosquera Caicedo",
-      "dob": "2002-11-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 187338,
-      "name": "Camilo Rivera Gomez",
-      "dob": "1996-06-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 209015,
-      "name": "Martin Gaviria Romero",
-      "dob": "2009-07-08",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 228566,
-          "name": "Mateo Rodriguez Abello",
-          "fed": "CAN",
-          "gender": "M",
-          "t": 2,
-          "f": 2025,
-          "l": 2026,
-          "s": [
-            [
-              2025,
-              1,
-              280
-            ],
-            [
-              2026,
-              1,
-              189
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 209016,
-      "name": "Juan Felipe Uribe Delgado",
-      "dob": "2006-11-22",
-      "height": null,
-      "weight": null
-    }
+    {"id":138762,"name":"Alex Yhan Cuesta Murillo","dob":"1976-06-19","height":null,"weight":null},
+    {"id":141686,"name":"Johan Murray","dob":"1992-10-11","height":null,"weight":82},
+    {"id":156070,"name":"Khaleb Nadim Tellez Soleiman","dob":"1998-11-29","height":null,"weight":null},
+    {"id":156084,"name":"Edgardo Cuello","dob":"1993-10-17","height":null,"weight":null},
+    {"id":156085,"name":"Sebastian Denis Silgado","dob":"1995-01-17","height":null,"weight":null},
+    {"id":156086,"name":"Sneider Rivas","dob":"1995-12-24","height":null,"weight":null},
+    {"id":161855,"name":"Yeferson De La Hoz Rodriguez","dob":"2000-09-28","height":198,"weight":93},
+    {"id":182169,"name":"Andres Felipe Castillo Zambrano","dob":"2002-01-14","height":null,"weight":null},
+    {"id":182170,"name":"Wilder Mosquera Caicedo","dob":"2002-11-18","height":null,"weight":null},
+    {"id":187338,"name":"Camilo Rivera Gomez","dob":"1996-06-15","height":null,"weight":null},
+    {"id":209015,"name":"Martin Gaviria Romero","dob":"2009-07-08","height":null,"weight":null,"away":[{"id":228566,"name":"Mateo Rodriguez Abello","fed":"CAN","gender":"M","t":2,"f":2025,"l":2026,"s":[[2025,1,280],[2026,1,189]],"at":[[2025,"COL"],[2026,"COL"]]}]},
+    {"id":209016,"name":"Juan Felipe Uribe Delgado","dob":"2006-11-22","height":null,"weight":null}
   ]
 }

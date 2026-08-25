@@ -19,6 +19,11 @@ import type {
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
+import {
+  federationSpans,
+  resolveFederation,
+  type FederationConflict,
+} from './federations.js';
 
 export interface Tournament {
   no: string;
@@ -101,6 +106,14 @@ export interface Partnership {
   tournaments: Set<string>;
   firstSeason: number;
   lastSeason: number;
+  /**
+   * Every federation code VIS stamped on this pair's team rows, by tournament.
+   *
+   * A set rather than a value because a pair can be entered twice for one
+   * event and the duplicate rows occasionally disagree — see
+   * ingest/federations.ts, which turns this into one answer per event.
+   */
+  fedCodes: Map<string, Set<string>>;
 }
 
 export interface RejectCounts {
@@ -455,6 +468,19 @@ export function aggregatePartnerships(
    * season's expanded rows short of the tallies above them.
    */
   const results = new Map<number, Map<string, ResultEntry>>();
+  /**
+   * Federation codes seen on a pair's team rows, keyed `pair@tournament`.
+   *
+   * Collected *before* the Rank filter below, which is the whole point. VIS
+   * keeps superseded registrations, and when a pair is entered twice for one
+   * event the surviving row is not always the one telling the truth about the
+   * federation: Taiana Lima's 2010 Gstaad and Stare Jablonki entries exist
+   * twice each, once BRA with a blank Rank and once AZE with a real one. The
+   * blank-Rank rows are rejected as "did not play" — so before this, the only
+   * federation the resolver ever saw for those events was AZE, and a Brazilian
+   * legend was published as Azerbaijani with nothing to disagree with.
+   */
+  const fedCodesByPair = new Map<string, Set<string>>();
   const rejects: RejectCounts = {
     missingPlayer: 0,
     selfPair: 0,
@@ -514,6 +540,16 @@ export function aggregatePartnerships(
     // Rank values (qualification/quota eliminations) are real participation
     // and are kept; `Number('')` also happens to be 0, which is exactly right
     // for a blank Rank on a row that was never played.
+    // Before the Rank filter: a rejected row is still evidence about which
+    // federation the entry was made under. See fedCodesByPair.
+    const stamped = (row.FederationCode ?? '').trim().toUpperCase();
+    if (stamped) {
+      const fedKey = `${pairKey(a, b)}@${tournamentNo}`;
+      let codes = fedCodesByPair.get(fedKey);
+      if (!codes) fedCodesByPair.set(fedKey, (codes = new Set()));
+      codes.add(stamped);
+    }
+
     const rank = Number(row.Rank);
     if (rank === 0) {
       rejects.didNotPlay++;
@@ -536,6 +572,7 @@ export function aggregatePartnerships(
           tournaments: new Set(),
           firstSeason: tournament.season,
           lastSeason: tournament.season,
+          fedCodes: new Map(),
         }),
       );
     }
@@ -543,6 +580,14 @@ export function aggregatePartnerships(
     pair.tournaments.add(tournamentNo);
     pair.firstSeason = Math.min(pair.firstSeason, tournament.season);
     pair.lastSeason = Math.max(pair.lastSeason, tournament.season);
+  }
+
+  // Hand each partnership the codes gathered above, for the events it kept.
+  for (const [key, pair] of partnerships) {
+    for (const no of pair.tournaments) {
+      const codes = fedCodesByPair.get(`${key}@${no}`);
+      if (codes) pair.fedCodes.set(no, codes);
+    }
   }
 
   return {
@@ -628,15 +673,74 @@ export function awayPartnersByPlayer(
   partnerships: Map<string, Partnership>,
   players: Map<number, Player>,
   tournaments: Map<string, Tournament>,
+  conflicts: FederationConflict[] = [],
 ): Map<number, AwayPartner[]> {
   const out = new Map<number, AwayPartner[]>();
   const sliceKey = (p: Player) => `${p.federation}-${p.gender}`;
+
+  /**
+   * How often each code appears across a pair's *unambiguous* entries in one
+   * season — the evidence that settles a disagreeing duplicate. Built from
+   * every partnership, not just the away ones, so a pair's own record can vouch
+   * for them even when the conflicting event is their only cross-federation
+   * one.
+   */
+  const seasonEvidence = new Map<string, Map<string, number>>();
+  for (const pair of partnerships.values()) {
+    for (const [no, codes] of pair.fedCodes) {
+      if (codes.size !== 1) continue;
+      const season = tournaments.get(no)?.season;
+      if (!season) continue;
+      for (const id of [pair.a, pair.b]) {
+        const key = `${id}:${season}`;
+        let tally = seasonEvidence.get(key);
+        if (!tally) seasonEvidence.set(key, (tally = new Map()));
+        const code = [...codes][0]!;
+        tally.set(code, (tally.get(code) ?? 0) + 1);
+      }
+    }
+  }
+
+  /** The federation a pair represented, season by season. */
+  const spansFor = (pair: Partnership): [number, string][] => {
+    const bySeason = new Map<number, string>();
+    for (const [no, codes] of pair.fedCodes) {
+      const season = tournaments.get(no)?.season;
+      if (!season) continue;
+      const evidence = new Map<string, number>();
+      for (const id of [pair.a, pair.b]) {
+        for (const [code, n] of seasonEvidence.get(`${id}:${season}`) ?? []) {
+          evidence.set(code, (evidence.get(code) ?? 0) + n);
+        }
+      }
+      const resolved = resolveFederation([...codes], evidence);
+      if (!resolved) continue;
+      if (resolved.why !== 'only') {
+        conflicts.push({
+          tournament: no,
+          a: pair.a,
+          b: pair.b,
+          season,
+          saw: [...codes].sort(),
+          chose: resolved.code,
+          why: resolved.why,
+        });
+      }
+      // Seasons hold one code: a pair does not change federation mid-season
+      // in this data, and where two events in one season disagree the later
+      // read wins, which is the same order the spans are read in.
+      bySeason.set(season, resolved.code);
+    }
+    return federationSpans(bySeason);
+  };
 
   for (const pair of partnerships.values()) {
     const a = players.get(pair.a);
     const b = players.get(pair.b);
     if (!a || !b || !a.federation || !b.federation) continue;
     if (sliceKey(a) === sliceKey(b)) continue; // in-slice: the graph has it
+
+    const spans = spansFor(pair);
 
     for (const [self, other] of [
       [a, b],
@@ -652,6 +756,7 @@ export function awayPartnersByPlayer(
         f: pair.firstSeason,
         l: pair.lastSeason,
         s: seasonTallies(pair.tournaments, tournaments),
+        at: spans.length > 0 ? spans : undefined,
       });
       out.set(self.id, list);
     }

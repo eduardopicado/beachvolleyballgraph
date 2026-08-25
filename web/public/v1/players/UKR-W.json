@@ -2,547 +2,60 @@
   "country": "UKR",
   "gender": "W",
   "players": [
-    {
-      "id": 103672,
-      "name": "Ganna Sergeyeva",
-      "dob": "1981-07-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103673,
-      "name": "Viktoriia Polishchuk",
-      "dob": "1981-03-29",
-      "height": 180,
-      "weight": 64
-    },
-    {
-      "id": 103822,
-      "name": "Tetyana Budko",
-      "dob": "1984-05-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104232,
-      "name": "Galyna Osheyko",
-      "dob": "1979-03-23",
-      "height": 174,
-      "weight": 64,
-      "tour": {
-        "gold": 1,
-        "silver": 3,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 104233,
-      "name": "Svitlana Baburina",
-      "dob": "1985-03-18",
-      "height": 182,
-      "weight": 69,
-      "tour": {
-        "gold": 1,
-        "silver": 3,
-        "bronze": 2
-      },
-      "away": [
-        {
-          "id": 122369,
-          "name": "Viktoria Aghakishiyeva (Smetaniuk)",
-          "fed": "AZE",
-          "gender": "W",
-          "t": 12,
-          "f": 2009,
-          "l": 2011,
-          "s": [
-            [
-              2009,
-              1,
-              230
-            ],
-            [
-              2010,
-              8,
-              307
-            ],
-            [
-              2011,
-              3,
-              138
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 104234,
-      "name": "Ol'ga Drobyshevs'ka",
-      "dob": "1985-09-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104235,
-      "name": "Anastasiya Rayeva",
-      "dob": "1984-06-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104236,
-      "name": "Iryna Nikolayeva",
-      "dob": "1985-02-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104654,
-      "name": "Natalia Shumeiko",
-      "dob": "1975-10-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117721,
-      "name": "Viktoriya Tarasova",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117882,
-      "name": "Valentyna Davidova",
-      "dob": "1987-08-25",
-      "height": 181,
-      "weight": 66,
-      "tour": {
-        "gold": 1,
-        "silver": 4,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 118035,
-      "name": "Yuliya Nozhyna",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118036,
-      "name": "Myroslava Gryban",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118238,
-      "name": "Zinayida Lyubymova",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118239,
-      "name": "Zhanna Khmel",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119073,
-      "name": "Kseniia Sukach",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119074,
-      "name": "Tetyana Sukach",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119077,
-      "name": "Olena Basanova",
-      "dob": "1992-07-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119078,
-      "name": "Valentyna Hrytsyuk",
-      "dob": "1992-01-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120555,
-      "name": "Alona Malysheva",
-      "dob": "1984-12-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120581,
-      "name": "Maryna Hladun",
-      "dob": "1992-09-18",
-      "height": 182,
-      "weight": 69,
-      "tour": {
-        "gold": 3,
-        "silver": 3,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 120582,
-      "name": "Chekmaryova Ksenia",
-      "dob": "1990-12-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 122367,
-      "name": "Viktoriia Lavrenchenko",
-      "dob": "1990-09-22",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 122369,
-          "name": "Viktoria Aghakishiyeva (Smetaniuk)",
-          "fed": "AZE",
-          "gender": "W",
-          "t": 2,
-          "f": 2010,
-          "l": 2010,
-          "s": [
-            [
-              2010,
-              2,
-              208
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 125092,
-      "name": "Kosiak Anna",
-      "dob": "1991-08-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 131694,
-      "name": "Iuliia Zhernova",
-      "dob": "1985-02-15",
-      "height": 180,
-      "weight": 62,
-      "away": [
-        {
-          "id": 147672,
-          "name": "Raquel Goncalves Ferreira",
-          "fed": "AZE",
-          "gender": "W",
-          "t": 5,
-          "f": 2014,
-          "l": 2015,
-          "s": [
-            [
-              2014,
-              2,
-              309
-            ],
-            [
-              2015,
-              3,
-              146
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 132320,
-      "name": "Yelyzaveta Sulima",
-      "dob": "1995-10-10",
-      "height": 180,
-      "weight": null
-    },
-    {
-      "id": 132574,
-      "name": "Iryna Makhno",
-      "dob": "1994-10-15",
-      "height": 178,
-      "weight": 59,
-      "tour": {
-        "gold": 4,
-        "silver": 3,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 132575,
-      "name": "Inna Makhno",
-      "dob": "1994-10-15",
-      "height": 179,
-      "weight": 66,
-      "tour": {
-        "gold": 4,
-        "silver": 3,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 133302,
-      "name": "Daria Kovalova",
-      "dob": "1996-06-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135528,
-      "name": "Angelina Lesunenko",
-      "dob": "1994-09-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135529,
-      "name": "Meri Khmaladze",
-      "dob": "1994-10-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 136980,
-      "name": "Diana Lunina",
-      "dob": "1992-10-28",
-      "height": 190,
-      "weight": 71,
-      "tour": {
-        "gold": 2,
-        "silver": 4,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 142241,
-      "name": "Anastasia Lysenko",
-      "dob": "1997-11-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145206,
-      "name": "Ievgeniia Baieva",
-      "dob": "1987-08-15",
-      "height": 184,
-      "weight": 68
-    },
-    {
-      "id": 147381,
-      "name": "Zinaida Liubymova",
-      "dob": "1988-02-16",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 119620,
-          "name": "Vivian Danielle da Conceição Cunha",
-          "fed": "AZE",
-          "gender": "W",
-          "t": 4,
-          "f": 2014,
-          "l": 2015,
-          "s": [
-            [
-              2014,
-              2,
-              309
-            ],
-            [
-              2015,
-              2,
-              132
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 156818,
-      "name": "Sofiia Rylova",
-      "dob": "2001-09-25",
-      "height": 180,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 156819,
-      "name": "Anna Shumeiko",
-      "dob": "2001-02-14",
-      "height": 184,
-      "weight": 63
-    },
-    {
-      "id": 157200,
-      "name": "Kateryna Dashevska",
-      "dob": "2001-07-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157201,
-      "name": "Viktoria Lysytsia",
-      "dob": "2000-08-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 162402,
-      "name": "Anastasiya Nagorna",
-      "dob": "2002-03-13",
-      "height": 180,
-      "weight": 60
-    },
-    {
-      "id": 162408,
-      "name": "Anna Chechelnytska",
-      "dob": "2003-02-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 162409,
-      "name": "Daria Romaniuk",
-      "dob": "2004-08-12",
-      "height": 183,
-      "weight": 64,
-      "tour": {
-        "gold": 3,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 162410,
-      "name": "Yeva Serdiuk",
-      "dob": "2004-01-05",
-      "height": 180,
-      "weight": null,
-      "tour": {
-        "gold": 3,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 169905,
-      "name": "Veronika Zhukova",
-      "dob": "2002-02-13",
-      "height": 180,
-      "weight": 60
-    },
-    {
-      "id": 170281,
-      "name": "Tetiana Lazarenko",
-      "dob": "2003-08-18",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 8,
-        "silver": 3,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 173480,
-      "name": "Anhelina Khmil",
-      "dob": "2003-06-27",
-      "height": 183,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 4,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 182699,
-      "name": "Kateryna Udovenko",
-      "dob": "2004-05-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182804,
-      "name": "Anastasiia Prykhodko",
-      "dob": "1987-11-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182805,
-      "name": "Tetiana Grashchenko",
-      "dob": "1988-03-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 192247,
-      "name": "Taisiia Kalchenko",
-      "dob": "2005-11-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 193223,
-      "name": "Mariia Shkurat",
-      "dob": "2009-04-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201612,
-      "name": "Sofiia Kurnikova",
-      "dob": "2006-06-06",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 211976,
-      "name": "Uliana Kovalchuk",
-      "dob": "2008-08-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211977,
-      "name": "Marharyta Vapniar",
-      "dob": "2009-02-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 212653,
-      "name": "Iryna Nikitchuk",
-      "dob": "2006-10-01",
-      "height": null,
-      "weight": null
-    }
+    {"id":103672,"name":"Ganna Sergeyeva","dob":"1981-07-07","height":null,"weight":null},
+    {"id":103673,"name":"Viktoriia Polishchuk","dob":"1981-03-29","height":180,"weight":64},
+    {"id":103822,"name":"Tetyana Budko","dob":"1984-05-16","height":null,"weight":null},
+    {"id":104232,"name":"Galyna Osheyko","dob":"1979-03-23","height":174,"weight":64,"tour":{"gold":1,"silver":3,"bronze":2}},
+    {"id":104233,"name":"Svitlana Baburina","dob":"1985-03-18","height":182,"weight":69,"tour":{"gold":1,"silver":3,"bronze":2},"away":[{"id":122369,"name":"Viktoria Aghakishiyeva (Smetaniuk)","fed":"AZE","gender":"W","t":12,"f":2009,"l":2011,"s":[[2009,1,230],[2010,8,307],[2011,3,138]],"at":[[2009,"UKR"],[2010,"UKR"],[2011,"UKR"]]}]},
+    {"id":104234,"name":"Ol'ga Drobyshevs'ka","dob":"1985-09-22","height":null,"weight":null},
+    {"id":104235,"name":"Anastasiya Rayeva","dob":"1984-06-30","height":null,"weight":null},
+    {"id":104236,"name":"Iryna Nikolayeva","dob":"1985-02-11","height":null,"weight":null},
+    {"id":104654,"name":"Natalia Shumeiko","dob":"1975-10-21","height":null,"weight":null},
+    {"id":117721,"name":"Viktoriya Tarasova","dob":null,"height":null,"weight":null},
+    {"id":117882,"name":"Valentyna Davidova","dob":"1987-08-25","height":181,"weight":66,"tour":{"gold":1,"silver":4,"bronze":1}},
+    {"id":118035,"name":"Yuliya Nozhyna","dob":null,"height":null,"weight":null},
+    {"id":118036,"name":"Myroslava Gryban","dob":null,"height":null,"weight":null},
+    {"id":118238,"name":"Zinayida Lyubymova","dob":null,"height":null,"weight":null},
+    {"id":118239,"name":"Zhanna Khmel","dob":null,"height":null,"weight":null},
+    {"id":119073,"name":"Kseniia Sukach","dob":null,"height":null,"weight":null},
+    {"id":119074,"name":"Tetyana Sukach","dob":null,"height":null,"weight":null},
+    {"id":119077,"name":"Olena Basanova","dob":"1992-07-16","height":null,"weight":null},
+    {"id":119078,"name":"Valentyna Hrytsyuk","dob":"1992-01-06","height":null,"weight":null},
+    {"id":120555,"name":"Alona Malysheva","dob":"1984-12-13","height":null,"weight":null},
+    {"id":120581,"name":"Maryna Hladun","dob":"1992-09-18","height":182,"weight":69,"tour":{"gold":3,"silver":3,"bronze":4}},
+    {"id":120582,"name":"Chekmaryova Ksenia","dob":"1990-12-10","height":null,"weight":null},
+    {"id":122367,"name":"Viktoriia Lavrenchenko","dob":"1990-09-22","height":null,"weight":null,"away":[{"id":122369,"name":"Viktoria Aghakishiyeva (Smetaniuk)","fed":"AZE","gender":"W","t":2,"f":2010,"l":2010,"s":[[2010,2,208]],"at":[[2010,"UKR"]]}]},
+    {"id":125092,"name":"Kosiak Anna","dob":"1991-08-11","height":null,"weight":null},
+    {"id":131694,"name":"Iuliia Zhernova","dob":"1985-02-15","height":180,"weight":62,"away":[{"id":147672,"name":"Raquel Goncalves Ferreira","fed":"AZE","gender":"W","t":5,"f":2014,"l":2015,"s":[[2014,2,309],[2015,3,146]],"at":[[2014,"AZE"],[2015,"AZE"]]}]},
+    {"id":132320,"name":"Yelyzaveta Sulima","dob":"1995-10-10","height":180,"weight":null},
+    {"id":132574,"name":"Iryna Makhno","dob":"1994-10-15","height":178,"weight":59,"tour":{"gold":4,"silver":3,"bronze":0}},
+    {"id":132575,"name":"Inna Makhno","dob":"1994-10-15","height":179,"weight":66,"tour":{"gold":4,"silver":3,"bronze":1}},
+    {"id":133302,"name":"Daria Kovalova","dob":"1996-06-19","height":null,"weight":null},
+    {"id":135528,"name":"Angelina Lesunenko","dob":"1994-09-14","height":null,"weight":null},
+    {"id":135529,"name":"Meri Khmaladze","dob":"1994-10-28","height":null,"weight":null},
+    {"id":136980,"name":"Diana Lunina","dob":"1992-10-28","height":190,"weight":71,"tour":{"gold":2,"silver":4,"bronze":2}},
+    {"id":142241,"name":"Anastasia Lysenko","dob":"1997-11-28","height":null,"weight":null},
+    {"id":145206,"name":"Ievgeniia Baieva","dob":"1987-08-15","height":184,"weight":68},
+    {"id":147381,"name":"Zinaida Liubymova","dob":"1988-02-16","height":null,"weight":null,"away":[{"id":119620,"name":"Vivian Danielle da Conceição Cunha","fed":"AZE","gender":"W","t":4,"f":2014,"l":2015,"s":[[2014,2,309],[2015,2,132]],"at":[[2014,"AZE"],[2015,"AZE"]]}]},
+    {"id":156818,"name":"Sofiia Rylova","dob":"2001-09-25","height":180,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":156819,"name":"Anna Shumeiko","dob":"2001-02-14","height":184,"weight":63},
+    {"id":157200,"name":"Kateryna Dashevska","dob":"2001-07-23","height":null,"weight":null},
+    {"id":157201,"name":"Viktoria Lysytsia","dob":"2000-08-26","height":null,"weight":null},
+    {"id":162402,"name":"Anastasiya Nagorna","dob":"2002-03-13","height":180,"weight":60},
+    {"id":162408,"name":"Anna Chechelnytska","dob":"2003-02-07","height":null,"weight":null},
+    {"id":162409,"name":"Daria Romaniuk","dob":"2004-08-12","height":183,"weight":64,"tour":{"gold":3,"silver":0,"bronze":1}},
+    {"id":162410,"name":"Yeva Serdiuk","dob":"2004-01-05","height":180,"weight":null,"tour":{"gold":3,"silver":0,"bronze":1}},
+    {"id":169905,"name":"Veronika Zhukova","dob":"2002-02-13","height":180,"weight":60},
+    {"id":170281,"name":"Tetiana Lazarenko","dob":"2003-08-18","height":null,"weight":null,"tour":{"gold":8,"silver":3,"bronze":5}},
+    {"id":173480,"name":"Anhelina Khmil","dob":"2003-06-27","height":183,"weight":null,"tour":{"gold":2,"silver":4,"bronze":4}},
+    {"id":182699,"name":"Kateryna Udovenko","dob":"2004-05-22","height":null,"weight":null},
+    {"id":182804,"name":"Anastasiia Prykhodko","dob":"1987-11-04","height":null,"weight":null},
+    {"id":182805,"name":"Tetiana Grashchenko","dob":"1988-03-24","height":null,"weight":null},
+    {"id":192247,"name":"Taisiia Kalchenko","dob":"2005-11-12","height":null,"weight":null},
+    {"id":193223,"name":"Mariia Shkurat","dob":"2009-04-01","height":null,"weight":null},
+    {"id":201612,"name":"Sofiia Kurnikova","dob":"2006-06-06","height":null,"weight":null,"tour":{"gold":2,"silver":0,"bronze":0}},
+    {"id":211976,"name":"Uliana Kovalchuk","dob":"2008-08-22","height":null,"weight":null},
+    {"id":211977,"name":"Marharyta Vapniar","dob":"2009-02-20","height":null,"weight":null},
+    {"id":212653,"name":"Iryna Nikitchuk","dob":"2006-10-01","height":null,"weight":null}
   ]
 }

@@ -2,243 +2,35 @@
   "country": "VEN",
   "gender": "W",
   "players": [
-    {
-      "id": 101736,
-      "name": "Nelitza Carolina Zambrano Garcia",
-      "dob": "1973-02-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102521,
-      "name": "Yadeizi Abreu",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104288,
-      "name": "Frankelina Rodriguez",
-      "dob": "1978-10-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104612,
-      "name": "Alejandra Garcia",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118138,
-      "name": "Lisbeth Villegas",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118139,
-      "name": "Willmerys Muñoz",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118140,
-      "name": "Karelys Mosquera",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118141,
-      "name": "Joslen Pedrozo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119148,
-      "name": "Paola Saldaña",
-      "dob": "1988-10-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119149,
-      "name": "Yulimar Herrera",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132731,
-      "name": "Norisbeth Isais Agudo Gonzalez",
-      "dob": "1992-05-22",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 132732,
-      "name": "Carmen Roxana Salazar Malave",
-      "dob": "1993-01-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 133297,
-      "name": "Gloriangel Iriarte",
-      "dob": "1993-05-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 134740,
-      "name": "Orquidea Vera",
-      "dob": "1985-09-22",
-      "height": 181,
-      "weight": 70
-    },
-    {
-      "id": 139797,
-      "name": "Cristel Veronica Gonzalez Garcia",
-      "dob": "1993-07-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139798,
-      "name": "Gonzalez Camacho Guadalupe Paola",
-      "dob": "1994-06-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139799,
-      "name": "Vivas Andrade Gina Pahola",
-      "dob": "1993-04-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 141189,
-      "name": "Milagros Hernandez",
-      "dob": "1990-04-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 141874,
-      "name": "Valeria De Los Angeles Ramirez Caldera",
-      "dob": "1995-06-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143058,
-      "name": "Celeinis Bernal",
-      "dob": "1996-06-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143059,
-      "name": "Gabriela Brito",
-      "dob": "1993-11-26",
-      "height": 173,
-      "weight": 60,
-      "tour": {
-        "gold": 0,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 143083,
-      "name": "Valeria Rodriguez",
-      "dob": "1996-05-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 143119,
-      "name": "Sharon Elaine De La  Rosa Cohen",
-      "dob": "1996-02-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 144332,
-      "name": "Yetzi Rosalia Lezama García",
-      "dob": "1985-09-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145942,
-      "name": "Olaya Perez Pazo",
-      "dob": "1983-06-07",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 105127,
-          "name": "Alejandra Simon",
-          "fed": "ESP",
-          "gender": "W",
-          "t": 7,
-          "f": 2010,
-          "l": 2010,
-          "s": [
-            [
-              2010,
-              7,
-              237
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 149771,
-      "name": "Juliennis Regalado Bravo",
-      "dob": "1998-02-07",
-      "height": 184,
-      "weight": 70
-    },
-    {
-      "id": 149847,
-      "name": "Rebeca Pazo Perez",
-      "dob": "1983-06-07",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 209527,
-      "name": "Aidana Alejandra Mejias Ramirez",
-      "dob": "2008-04-01",
-      "height": 180,
-      "weight": 67
-    },
-    {
-      "id": 211451,
-      "name": "Valeria Valentina Moreno Figueredo",
-      "dob": "2009-09-19",
-      "height": 160,
-      "weight": 58
-    },
-    {
-      "id": 238032,
-      "name": "Mariana Anais Chacin Esteves",
-      "dob": "2013-02-22",
-      "height": null,
-      "weight": null
-    }
+    {"id":101736,"name":"Nelitza Carolina Zambrano Garcia","dob":"1973-02-18","height":null,"weight":null},
+    {"id":102521,"name":"Yadeizi Abreu","dob":null,"height":null,"weight":null},
+    {"id":104288,"name":"Frankelina Rodriguez","dob":"1978-10-25","height":null,"weight":null},
+    {"id":104612,"name":"Alejandra Garcia","dob":null,"height":null,"weight":null},
+    {"id":118138,"name":"Lisbeth Villegas","dob":null,"height":null,"weight":null},
+    {"id":118139,"name":"Willmerys Muñoz","dob":null,"height":null,"weight":null},
+    {"id":118140,"name":"Karelys Mosquera","dob":null,"height":null,"weight":null},
+    {"id":118141,"name":"Joslen Pedrozo","dob":null,"height":null,"weight":null},
+    {"id":119148,"name":"Paola Saldaña","dob":"1988-10-04","height":null,"weight":null},
+    {"id":119149,"name":"Yulimar Herrera","dob":null,"height":null,"weight":null},
+    {"id":132731,"name":"Norisbeth Isais Agudo Gonzalez","dob":"1992-05-22","height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":132732,"name":"Carmen Roxana Salazar Malave","dob":"1993-01-04","height":null,"weight":null},
+    {"id":133297,"name":"Gloriangel Iriarte","dob":"1993-05-23","height":null,"weight":null},
+    {"id":134740,"name":"Orquidea Vera","dob":"1985-09-22","height":181,"weight":70},
+    {"id":139797,"name":"Cristel Veronica Gonzalez Garcia","dob":"1993-07-06","height":null,"weight":null},
+    {"id":139798,"name":"Gonzalez Camacho Guadalupe Paola","dob":"1994-06-24","height":null,"weight":null},
+    {"id":139799,"name":"Vivas Andrade Gina Pahola","dob":"1993-04-18","height":null,"weight":null},
+    {"id":141189,"name":"Milagros Hernandez","dob":"1990-04-09","height":null,"weight":null},
+    {"id":141874,"name":"Valeria De Los Angeles Ramirez Caldera","dob":"1995-06-05","height":null,"weight":null},
+    {"id":143058,"name":"Celeinis Bernal","dob":"1996-06-14","height":null,"weight":null},
+    {"id":143059,"name":"Gabriela Brito","dob":"1993-11-26","height":173,"weight":60,"tour":{"gold":0,"silver":2,"bronze":0}},
+    {"id":143083,"name":"Valeria Rodriguez","dob":"1996-05-31","height":null,"weight":null},
+    {"id":143119,"name":"Sharon Elaine De La  Rosa Cohen","dob":"1996-02-09","height":null,"weight":null},
+    {"id":144332,"name":"Yetzi Rosalia Lezama García","dob":"1985-09-27","height":null,"weight":null},
+    {"id":145942,"name":"Olaya Perez Pazo","dob":"1983-06-07","height":null,"weight":null,"away":[{"id":105127,"name":"Alejandra Simon","fed":"ESP","gender":"W","t":7,"f":2010,"l":2010,"s":[[2010,7,237]],"at":[[2010,"ESP"]]}]},
+    {"id":149771,"name":"Juliennis Regalado Bravo","dob":"1998-02-07","height":184,"weight":70},
+    {"id":149847,"name":"Rebeca Pazo Perez","dob":"1983-06-07","height":null,"weight":null},
+    {"id":209527,"name":"Aidana Alejandra Mejias Ramirez","dob":"2008-04-01","height":180,"weight":67},
+    {"id":211451,"name":"Valeria Valentina Moreno Figueredo","dob":"2009-09-19","height":160,"weight":58},
+    {"id":238032,"name":"Mariana Anais Chacin Esteves","dob":"2013-02-22","height":null,"weight":null}
   ]
 }

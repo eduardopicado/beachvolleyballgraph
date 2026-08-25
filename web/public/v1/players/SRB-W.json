@@ -2,86 +2,14 @@
   "country": "SRB",
   "gender": "W",
   "players": [
-    {
-      "id": 133720,
-      "name": "Milena Matic",
-      "dob": "1992-04-13",
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 170677,
-          "name": "Kathryn Hogan",
-          "fed": "USA",
-          "gender": "W",
-          "t": 1,
-          "f": 2018,
-          "l": 2018,
-          "s": [
-            [
-              2018,
-              1,
-              290
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 136815,
-      "name": "Katarina Raicevic",
-      "dob": "1994-07-25",
-      "height": 184,
-      "weight": 62
-    },
-    {
-      "id": 146757,
-      "name": "Tijana Basic",
-      "dob": "1999-09-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 146758,
-      "name": "Irena Drobnjak",
-      "dob": "1999-05-09",
-      "height": 169,
-      "weight": 50
-    },
-    {
-      "id": 147367,
-      "name": "Natasa Masulovic",
-      "dob": "1994-02-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 148877,
-      "name": "Marija Milosevic",
-      "dob": "1986-03-15",
-      "height": 182,
-      "weight": 68
-    },
-    {
-      "id": 170715,
-      "name": "Marija Vojnovic",
-      "dob": "1987-02-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 194207,
-      "name": "Milena Gavric",
-      "dob": "1997-02-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 194244,
-      "name": "Ana Marija Mitrovic",
-      "dob": "1995-02-24",
-      "height": 184,
-      "weight": 66
-    }
+    {"id":133720,"name":"Milena Matic","dob":"1992-04-13","height":null,"weight":null,"away":[{"id":170677,"name":"Kathryn Hogan","fed":"USA","gender":"W","t":1,"f":2018,"l":2018,"s":[[2018,1,290]],"at":[[2018,"SRB"]]}]},
+    {"id":136815,"name":"Katarina Raicevic","dob":"1994-07-25","height":184,"weight":62},
+    {"id":146757,"name":"Tijana Basic","dob":"1999-09-25","height":null,"weight":null},
+    {"id":146758,"name":"Irena Drobnjak","dob":"1999-05-09","height":169,"weight":50},
+    {"id":147367,"name":"Natasa Masulovic","dob":"1994-02-11","height":null,"weight":null},
+    {"id":148877,"name":"Marija Milosevic","dob":"1986-03-15","height":182,"weight":68},
+    {"id":170715,"name":"Marija Vojnovic","dob":"1987-02-09","height":null,"weight":null},
+    {"id":194207,"name":"Milena Gavric","dob":"1997-02-18","height":null,"weight":null},
+    {"id":194244,"name":"Ana Marija Mitrovic","dob":"1995-02-24","height":184,"weight":66}
   ]
 }

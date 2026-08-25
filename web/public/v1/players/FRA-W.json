@@ -2,1190 +2,156 @@
   "country": "FRA",
   "gender": "W",
   "players": [
-    {
-      "id": 100944,
-      "name": "Brigitte Lesage",
-      "dob": "1964-06-18",
-      "height": 192,
-      "weight": 78
-    },
-    {
-      "id": 100945,
-      "name": "Anabelle Prawerman",
-      "dob": "1963-01-13",
-      "height": 176,
-      "weight": 66
-    },
-    {
-      "id": 101084,
-      "name": "Marion Marquet",
-      "dob": "1981-01-28",
-      "height": 170,
-      "weight": 58,
-      "away": [
-        {
-          "id": 100156,
-          "name": "Jean C. Gaston",
-          "fed": "FRA",
-          "gender": "M",
-          "t": 1,
-          "f": 1987,
-          "l": 1987,
-          "s": [
-            [
-              1987,
-              1,
-              779
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 101655,
-      "name": "Cécile \"Cilou\" Rigaux",
-      "dob": "1969-04-20",
-      "height": 182,
-      "weight": 70
-    },
-    {
-      "id": 101656,
-      "name": "Arcadia Berjonneau",
-      "dob": "1970-06-03",
-      "height": 179,
-      "weight": 65
-    },
-    {
-      "id": 101750,
-      "name": "Christine Cordinnier",
-      "dob": "1972-04-11",
-      "height": 168,
-      "weight": 55
-    },
-    {
-      "id": 101824,
-      "name": "Brigitte Gros",
-      "dob": "1971-06-26",
-      "height": 174,
-      "weight": 61
-    },
-    {
-      "id": 101825,
-      "name": "Marie Tari",
-      "dob": "1970-05-10",
-      "height": 173,
-      "weight": 66
-    },
-    {
-      "id": 101826,
-      "name": "Sandrine Filisetti",
-      "dob": "1975-04-13",
-      "height": 177,
-      "weight": 61
-    },
-    {
-      "id": 101827,
-      "name": "Laurence Perettoni",
-      "dob": "1970-03-23",
-      "height": 175,
-      "weight": 60
-    },
-    {
-      "id": 101874,
-      "name": "Marion Picard",
-      "dob": "1978-09-28",
-      "height": 170,
-      "weight": 56
-    },
-    {
-      "id": 101892,
-      "name": "Aurélie Cachou",
-      "dob": "1978-02-19",
-      "height": 165,
-      "weight": 68
-    },
-    {
-      "id": 101893,
-      "name": "Natacha Gally",
-      "dob": "1978-10-11",
-      "height": 180,
-      "weight": 67
-    },
-    {
-      "id": 101894,
-      "name": "Magali Magail",
-      "dob": "1978-02-24",
-      "height": 170,
-      "weight": 60
-    },
-    {
-      "id": 101906,
-      "name": "Violaine Scalabre",
-      "dob": "1971-07-05",
-      "height": 177,
-      "weight": null
-    },
-    {
-      "id": 101907,
-      "name": "Sabine Tetuanui",
-      "dob": "1972-03-01",
-      "height": 172,
-      "weight": null
-    },
-    {
-      "id": 101923,
-      "name": "Hortense Speno",
-      "dob": "1976-04-22",
-      "height": 181,
-      "weight": 64
-    },
-    {
-      "id": 101963,
-      "name": "Evelyne Frugier",
-      "dob": "1964-05-31",
-      "height": 162,
-      "weight": 52
-    },
-    {
-      "id": 101964,
-      "name": "Claire Jaouen",
-      "dob": "1979-02-13",
-      "height": 184,
-      "weight": 70
-    },
-    {
-      "id": 101965,
-      "name": "Séverine Lienard",
-      "dob": "1979-02-19",
-      "height": 178,
-      "weight": 65
-    },
-    {
-      "id": 101966,
-      "name": "Laure Boyer",
-      "dob": "1981-03-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101967,
-      "name": "Carole Cordinier",
-      "dob": "1980-02-26",
-      "height": 163,
-      "weight": 56,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 101968,
-      "name": "Mélanie Debant",
-      "dob": "1978-01-20",
-      "height": 178,
-      "weight": 60
-    },
-    {
-      "id": 101969,
-      "name": "Carine Verney",
-      "dob": "1974-06-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 101970,
-      "name": "Florence \"Flo\" Moinard",
-      "dob": "1968-01-02",
-      "height": 173,
-      "weight": 55
-    },
-    {
-      "id": 101971,
-      "name": "Gaëlle Lopez",
-      "dob": "1973-09-14",
-      "height": 180,
-      "weight": 69
-    },
-    {
-      "id": 102158,
-      "name": "Dominique Lefort",
-      "dob": "1972-08-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102213,
-      "name": "Karine Salinas",
-      "dob": "1973-03-05",
-      "height": 175,
-      "weight": 69
-    },
-    {
-      "id": 102292,
-      "name": "Muriel Benazeth",
-      "dob": "1966-02-02",
-      "height": 177,
-      "weight": 63
-    },
-    {
-      "id": 102351,
-      "name": "Célia Martinez",
-      "dob": "1978-07-08",
-      "height": 168,
-      "weight": 53
-    },
-    {
-      "id": 102352,
-      "name": "Bérénice Corlay",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102353,
-      "name": "Audrey Viguier",
-      "dob": "1980-11-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102354,
-      "name": "Sophie Jung",
-      "dob": "1977-03-14",
-      "height": 170,
-      "weight": 58
-    },
-    {
-      "id": 102355,
-      "name": "Laurence Salette",
-      "dob": "1972-04-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102356,
-      "name": "Ethel-Julie Arjona",
-      "dob": "1981-06-12",
-      "height": 176,
-      "weight": 62,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 102357,
-      "name": "Tatiana \"Tat\" Barrera",
-      "dob": "1981-05-09",
-      "height": 177,
-      "weight": 64,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 102358,
-      "name": "Marion Castelli",
-      "dob": "1984-03-28",
-      "height": 180,
-      "weight": 54
-    },
-    {
-      "id": 102359,
-      "name": "Caroline \"Caro\" Reb",
-      "dob": "1983-11-03",
-      "height": 165,
-      "weight": 53
-    },
-    {
-      "id": 102767,
-      "name": "Anne-marie Lacherie",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102768,
-      "name": "Frédérique Chervet",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102769,
-      "name": "Aurélie Monteanu",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102770,
-      "name": "Loréna Indrémilla",
-      "dob": "1980-04-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102771,
-      "name": "Pascale Rossignol",
-      "dob": "1976-10-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102772,
-      "name": "Marjorie Molina",
-      "dob": "1980-11-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 102773,
-      "name": "Tiffany Jaboulin",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103122,
-      "name": "Emilie \"Em\" Burte",
-      "dob": "1983-11-18",
-      "height": 175,
-      "weight": 60
-    },
-    {
-      "id": 103123,
-      "name": "Solenne \"Sol\" Frey",
-      "dob": "1983-04-29",
-      "height": 171,
-      "weight": 56
-    },
-    {
-      "id": 103124,
-      "name": "Natacha Reb",
-      "dob": "1980-03-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103125,
-      "name": "Nadege Belle Perat",
-      "dob": "1977-05-27",
-      "height": 172,
-      "weight": 70
-    },
-    {
-      "id": 103126,
-      "name": "Morgane Faure",
-      "dob": "1984-12-17",
-      "height": 174,
-      "weight": 61,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 103127,
-      "name": "Stephanie Dehant",
-      "dob": "1978-08-19",
-      "height": null,
-      "weight": 65
-    },
-    {
-      "id": 103128,
-      "name": "Aurélie Barlier",
-      "dob": "1984-02-01",
-      "height": 171,
-      "weight": 63
-    },
-    {
-      "id": 103129,
-      "name": "Céline Gemise Fareau",
-      "dob": "1984-09-16",
-      "height": 176,
-      "weight": 54
-    },
-    {
-      "id": 103290,
-      "name": "Audrey \"Syssy\" Syren",
-      "dob": "1983-09-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103332,
-      "name": "Andrea Luge",
-      "dob": "1965-07-14",
-      "height": 184,
-      "weight": 70
-    },
-    {
-      "id": 103549,
-      "name": "Zoé Chater",
-      "dob": "1976-07-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 103778,
-      "name": "Virginie Kadjo",
-      "dob": "1973-05-03",
-      "height": 178,
-      "weight": 64,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 103779,
-      "name": "Mathilde Giordano",
-      "dob": "1979-07-02",
-      "height": 177,
-      "weight": 61,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 103801,
-      "name": "Kevine Etienne",
-      "dob": "1980-04-07",
-      "height": 178,
-      "weight": 70
-    },
-    {
-      "id": 103802,
-      "name": "Hélène Yahiel",
-      "dob": "1978-09-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104154,
-      "name": "Laure Gregoire",
-      "dob": "1985-08-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104155,
-      "name": "Armelle Irabé",
-      "dob": "1985-07-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104419,
-      "name": "Eva Hamzaoui",
-      "dob": "1985-02-04",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104420,
-      "name": "Perrine Royannais",
-      "dob": "1978-05-04",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104467,
-      "name": "Deborah Giaoui",
-      "dob": "1980-05-13",
-      "height": 182,
-      "weight": 70
-    },
-    {
-      "id": 104527,
-      "name": "Aurelie Beaucé",
-      "dob": null,
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104658,
-      "name": "Natacha Nelson",
-      "dob": null,
-      "height": 180,
-      "weight": 75
-    },
-    {
-      "id": 104867,
-      "name": "Mallorie Langlet",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105002,
-      "name": "Lydie Vacaresse",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105003,
-      "name": "Laura Longuet",
-      "dob": "1988-01-22",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105004,
-      "name": "Emma Larche",
-      "dob": "1988-02-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 105005,
-      "name": "Anais Fort",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 114756,
-      "name": "Virginie Sarpaux",
-      "dob": "1977-06-12",
-      "height": 193,
-      "weight": 73,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 115659,
-      "name": "Saha Murielle",
-      "dob": "1982-03-19",
-      "height": 181,
-      "weight": 63
-    },
-    {
-      "id": 116688,
-      "name": "Aurélie Pause",
-      "dob": "1989-12-09",
-      "height": 172,
-      "weight": 60
-    },
-    {
-      "id": 116689,
-      "name": "Camille Clavreul",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116690,
-      "name": "Elise Weiler",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116887,
-      "name": "Aurélie Astié",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116888,
-      "name": "Emmanuelle Astié",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116956,
-      "name": "Michaela Formankova",
-      "dob": "1985-11-21",
-      "height": 170,
-      "weight": 75
-    },
-    {
-      "id": 117080,
-      "name": "Nathalie Bouisset",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117081,
-      "name": "Janie Bernard",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117082,
-      "name": "Marie Leuge Maillet",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117084,
-      "name": "Lucie Macquigneau",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117085,
-      "name": "Patricia Villant",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117087,
-      "name": "Vanessa Claro",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117088,
-      "name": "Erika Cazes",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 117089,
-      "name": "Blondine Ricco",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119254,
-      "name": "Camille Crousillat",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119255,
-      "name": "Julie Mollinger",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119256,
-      "name": "Aurélie Konhu",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120463,
-      "name": "Aurélie Goux",
-      "dob": "1986-12-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120730,
-      "name": "Tiffany Aubrun",
-      "dob": "1992-04-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120733,
-      "name": "Flavia Weiler",
-      "dob": "1992-03-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120805,
-      "name": "Hélèna Wierre",
-      "dob": "1989-10-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 122757,
-      "name": "Justine Astruc",
-      "dob": "1983-04-22",
-      "height": 185,
-      "weight": 72
-    },
-    {
-      "id": 124780,
-      "name": "Tiphaine Le Guiader",
-      "dob": "1993-10-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124782,
-      "name": "Anne-Sophie Bauer",
-      "dob": "1993-07-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132254,
-      "name": "Mélody Benhamou",
-      "dob": "1983-03-31",
-      "height": 188,
-      "weight": 73
-    },
-    {
-      "id": 132672,
-      "name": "Zoé Cazalet",
-      "dob": "1991-10-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132673,
-      "name": "Joanna Mano",
-      "dob": "1991-07-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132713,
-      "name": "Clémentine Druenne",
-      "dob": "1993-12-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132714,
-      "name": "Lucie Dekeukelaire",
-      "dob": "1993-05-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 135620,
-      "name": "Pauline Martin",
-      "dob": "1995-10-20",
-      "height": 188,
-      "weight": 63
-    },
-    {
-      "id": 135621,
-      "name": "Lisa Menet-Haure",
-      "dob": "1994-05-16",
-      "height": 168,
-      "weight": 54
-    },
-    {
-      "id": 138986,
-      "name": "Adèle Bardouillet",
-      "dob": "1987-02-28",
-      "height": 172,
-      "weight": 56
-    },
-    {
-      "id": 138987,
-      "name": "Fanny Menissier",
-      "dob": "1978-02-11",
-      "height": 178,
-      "weight": 65
-    },
-    {
-      "id": 140023,
-      "name": "Naty Molinos",
-      "dob": "1994-03-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 141549,
-      "name": "Alexandra Jupiter",
-      "dob": "1990-03-11",
-      "height": 188,
-      "weight": 83,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 141889,
-      "name": "Melinda Adelin",
-      "dob": "1987-05-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 142085,
-      "name": "Ophélie Lusson",
-      "dob": "1995-09-15",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 142086,
-      "name": "Margaux Carrere",
-      "dob": "1995-09-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 142110,
-      "name": "Vanessa Bonacossi",
-      "dob": "1986-01-19",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 142507,
-      "name": "Aline Chamereau",
-      "dob": "1996-03-06",
-      "height": 184,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 5
-      }
-    },
-    {
-      "id": 142936,
-      "name": "Manon Rebuffel",
-      "dob": "1995-04-04",
-      "height": 175,
-      "weight": 62
-    },
-    {
-      "id": 144318,
-      "name": "Florine Gosselin",
-      "dob": "1997-02-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 145563,
-      "name": "Alexia Richard",
-      "dob": "1996-04-03",
-      "height": 183,
-      "weight": 76,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 146848,
-      "name": "Coralie Viale",
-      "dob": "1998-01-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 147109,
-      "name": "Inès Ben Jaddi",
-      "dob": "1998-03-02",
-      "height": 168,
-      "weight": 55
-    },
-    {
-      "id": 147741,
-      "name": "Lézana Placette",
-      "dob": "1997-12-11",
-      "height": 180,
-      "weight": 69,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 153717,
-      "name": "Marie Nevot",
-      "dob": "2000-12-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157191,
-      "name": "Mia Severine Guyot Polverini",
-      "dob": "1999-06-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157192,
-      "name": "Pia Szewczyk",
-      "dob": "1999-03-27",
-      "height": 188,
-      "weight": 69
-    },
-    {
-      "id": 157362,
-      "name": "Alexandra Ferreira",
-      "dob": "1985-02-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 157364,
-      "name": "Marion Bernard",
-      "dob": "1990-05-26",
-      "height": 174,
-      "weight": 68
-    },
-    {
-      "id": 163834,
-      "name": "Clémence Vieira",
-      "dob": "2000-11-01",
-      "height": 176,
-      "weight": 67,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 4
-      }
-    },
-    {
-      "id": 171777,
-      "name": "Emere Maau-Boutry",
-      "dob": "1986-06-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 171781,
-      "name": "Aurore Fareura",
-      "dob": "1990-02-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179179,
-      "name": "Maëva Guignan",
-      "dob": "1994-12-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179313,
-      "name": "Anouk Dupin",
-      "dob": "2002-09-29",
-      "height": 174,
-      "weight": 70,
-      "tour": {
-        "gold": 2,
-        "silver": 5,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 179491,
-      "name": "Saofé Duval",
-      "dob": "2006-01-27",
-      "height": 173,
-      "weight": 67,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 181264,
-      "name": "Marine Kinna",
-      "dob": "1999-08-11",
-      "height": 180,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 181376,
-      "name": "Elsa Descamps",
-      "dob": "1996-09-06",
-      "height": 185,
-      "weight": 75,
-      "tour": {
-        "gold": 0,
-        "silver": 3,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 181671,
-      "name": "Célia Molinos",
-      "dob": "1994-03-14",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 181976,
-      "name": "Anastasia Teikihuavanaka",
-      "dob": "2001-09-28",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182157,
-      "name": "Alex Merle",
-      "dob": "2000-08-10",
-      "height": 175,
-      "weight": 60,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 186307,
-      "name": "Romane Sobezalz",
-      "dob": "2006-10-29",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 3,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 194470,
-      "name": "Céline Collette",
-      "dob": "1989-02-06",
-      "height": 175,
-      "weight": 64
-    },
-    {
-      "id": 197805,
-      "name": "Maelyss Hallart",
-      "dob": "2008-03-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 200495,
-      "name": "Izzie Delporte",
-      "dob": "2009-02-18",
-      "height": 188,
-      "weight": 72
-    },
-    {
-      "id": 200625,
-      "name": "Lucile Colin",
-      "dob": "1991-12-11",
-      "height": 178,
-      "weight": 61
-    },
-    {
-      "id": 204414,
-      "name": "Laura Arteil",
-      "dob": "1993-10-09",
-      "height": 170,
-      "weight": 60
-    },
-    {
-      "id": 209753,
-      "name": "Kumuhei Heitaa",
-      "dob": "2004-02-11",
-      "height": null,
-      "weight": 70
-    },
-    {
-      "id": 209754,
-      "name": "Taiana Tere",
-      "dob": "1986-05-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 209756,
-      "name": "Lokelani Vero",
-      "dob": "1985-01-29",
-      "height": 179,
-      "weight": 82
-    },
-    {
-      "id": 209828,
-      "name": "Eléonore Johansen",
-      "dob": "2000-01-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 210071,
-      "name": "Marilu Pally",
-      "dob": "2003-12-18",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 211551,
-      "name": "Kyara Rouer",
-      "dob": "2007-02-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 221167,
-      "name": "Joséphine Candela",
-      "dob": "2008-05-03",
-      "height": 176,
-      "weight": 58
-    },
-    {
-      "id": 223437,
-      "name": "Malo Mir",
-      "dob": "2009-09-12",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 227138,
-      "name": "Mathilde Berthaudeau",
-      "dob": "2009-06-12",
-      "height": null,
-      "weight": null
-    }
+    {"id":100944,"name":"Brigitte Lesage","dob":"1964-06-18","height":192,"weight":78},
+    {"id":100945,"name":"Anabelle Prawerman","dob":"1963-01-13","height":176,"weight":66},
+    {"id":101084,"name":"Marion Marquet","dob":"1981-01-28","height":170,"weight":58,"away":[{"id":100156,"name":"Jean C. Gaston","fed":"FRA","gender":"M","t":1,"f":1987,"l":1987,"s":[[1987,1,779]],"at":[[1987,"FRA"]]}]},
+    {"id":101655,"name":"Cécile \"Cilou\" Rigaux","dob":"1969-04-20","height":182,"weight":70},
+    {"id":101656,"name":"Arcadia Berjonneau","dob":"1970-06-03","height":179,"weight":65},
+    {"id":101750,"name":"Christine Cordinnier","dob":"1972-04-11","height":168,"weight":55},
+    {"id":101824,"name":"Brigitte Gros","dob":"1971-06-26","height":174,"weight":61},
+    {"id":101825,"name":"Marie Tari","dob":"1970-05-10","height":173,"weight":66},
+    {"id":101826,"name":"Sandrine Filisetti","dob":"1975-04-13","height":177,"weight":61},
+    {"id":101827,"name":"Laurence Perettoni","dob":"1970-03-23","height":175,"weight":60},
+    {"id":101874,"name":"Marion Picard","dob":"1978-09-28","height":170,"weight":56},
+    {"id":101892,"name":"Aurélie Cachou","dob":"1978-02-19","height":165,"weight":68},
+    {"id":101893,"name":"Natacha Gally","dob":"1978-10-11","height":180,"weight":67},
+    {"id":101894,"name":"Magali Magail","dob":"1978-02-24","height":170,"weight":60},
+    {"id":101906,"name":"Violaine Scalabre","dob":"1971-07-05","height":177,"weight":null},
+    {"id":101907,"name":"Sabine Tetuanui","dob":"1972-03-01","height":172,"weight":null},
+    {"id":101923,"name":"Hortense Speno","dob":"1976-04-22","height":181,"weight":64},
+    {"id":101963,"name":"Evelyne Frugier","dob":"1964-05-31","height":162,"weight":52},
+    {"id":101964,"name":"Claire Jaouen","dob":"1979-02-13","height":184,"weight":70},
+    {"id":101965,"name":"Séverine Lienard","dob":"1979-02-19","height":178,"weight":65},
+    {"id":101966,"name":"Laure Boyer","dob":"1981-03-23","height":null,"weight":null},
+    {"id":101967,"name":"Carole Cordinier","dob":"1980-02-26","height":163,"weight":56,"tour":{"gold":0,"silver":1,"bronze":1}},
+    {"id":101968,"name":"Mélanie Debant","dob":"1978-01-20","height":178,"weight":60},
+    {"id":101969,"name":"Carine Verney","dob":"1974-06-24","height":null,"weight":null},
+    {"id":101970,"name":"Florence \"Flo\" Moinard","dob":"1968-01-02","height":173,"weight":55},
+    {"id":101971,"name":"Gaëlle Lopez","dob":"1973-09-14","height":180,"weight":69},
+    {"id":102158,"name":"Dominique Lefort","dob":"1972-08-11","height":null,"weight":null},
+    {"id":102213,"name":"Karine Salinas","dob":"1973-03-05","height":175,"weight":69},
+    {"id":102292,"name":"Muriel Benazeth","dob":"1966-02-02","height":177,"weight":63},
+    {"id":102351,"name":"Célia Martinez","dob":"1978-07-08","height":168,"weight":53},
+    {"id":102352,"name":"Bérénice Corlay","dob":null,"height":null,"weight":null},
+    {"id":102353,"name":"Audrey Viguier","dob":"1980-11-11","height":null,"weight":null},
+    {"id":102354,"name":"Sophie Jung","dob":"1977-03-14","height":170,"weight":58},
+    {"id":102355,"name":"Laurence Salette","dob":"1972-04-04","height":null,"weight":null},
+    {"id":102356,"name":"Ethel-Julie Arjona","dob":"1981-06-12","height":176,"weight":62,"tour":{"gold":2,"silver":1,"bronze":0}},
+    {"id":102357,"name":"Tatiana \"Tat\" Barrera","dob":"1981-05-09","height":177,"weight":64,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":102358,"name":"Marion Castelli","dob":"1984-03-28","height":180,"weight":54},
+    {"id":102359,"name":"Caroline \"Caro\" Reb","dob":"1983-11-03","height":165,"weight":53},
+    {"id":102767,"name":"Anne-marie Lacherie","dob":null,"height":null,"weight":null},
+    {"id":102768,"name":"Frédérique Chervet","dob":null,"height":null,"weight":null},
+    {"id":102769,"name":"Aurélie Monteanu","dob":null,"height":null,"weight":null},
+    {"id":102770,"name":"Loréna Indrémilla","dob":"1980-04-29","height":null,"weight":null},
+    {"id":102771,"name":"Pascale Rossignol","dob":"1976-10-06","height":null,"weight":null},
+    {"id":102772,"name":"Marjorie Molina","dob":"1980-11-20","height":null,"weight":null},
+    {"id":102773,"name":"Tiffany Jaboulin","dob":null,"height":null,"weight":null},
+    {"id":103122,"name":"Emilie \"Em\" Burte","dob":"1983-11-18","height":175,"weight":60},
+    {"id":103123,"name":"Solenne \"Sol\" Frey","dob":"1983-04-29","height":171,"weight":56},
+    {"id":103124,"name":"Natacha Reb","dob":"1980-03-15","height":null,"weight":null},
+    {"id":103125,"name":"Nadege Belle Perat","dob":"1977-05-27","height":172,"weight":70},
+    {"id":103126,"name":"Morgane Faure","dob":"1984-12-17","height":174,"weight":61,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":103127,"name":"Stephanie Dehant","dob":"1978-08-19","height":null,"weight":65},
+    {"id":103128,"name":"Aurélie Barlier","dob":"1984-02-01","height":171,"weight":63},
+    {"id":103129,"name":"Céline Gemise Fareau","dob":"1984-09-16","height":176,"weight":54},
+    {"id":103290,"name":"Audrey \"Syssy\" Syren","dob":"1983-09-04","height":null,"weight":null},
+    {"id":103332,"name":"Andrea Luge","dob":"1965-07-14","height":184,"weight":70},
+    {"id":103549,"name":"Zoé Chater","dob":"1976-07-12","height":null,"weight":null},
+    {"id":103778,"name":"Virginie Kadjo","dob":"1973-05-03","height":178,"weight":64,"tour":{"gold":2,"silver":1,"bronze":0}},
+    {"id":103779,"name":"Mathilde Giordano","dob":"1979-07-02","height":177,"weight":61,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":103801,"name":"Kevine Etienne","dob":"1980-04-07","height":178,"weight":70},
+    {"id":103802,"name":"Hélène Yahiel","dob":"1978-09-05","height":null,"weight":null},
+    {"id":104154,"name":"Laure Gregoire","dob":"1985-08-30","height":null,"weight":null},
+    {"id":104155,"name":"Armelle Irabé","dob":"1985-07-18","height":null,"weight":null},
+    {"id":104419,"name":"Eva Hamzaoui","dob":"1985-02-04","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":104420,"name":"Perrine Royannais","dob":"1978-05-04","height":null,"weight":null},
+    {"id":104467,"name":"Deborah Giaoui","dob":"1980-05-13","height":182,"weight":70},
+    {"id":104527,"name":"Aurelie Beaucé","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":104658,"name":"Natacha Nelson","dob":null,"height":180,"weight":75},
+    {"id":104867,"name":"Mallorie Langlet","dob":null,"height":null,"weight":null},
+    {"id":105002,"name":"Lydie Vacaresse","dob":null,"height":null,"weight":null},
+    {"id":105003,"name":"Laura Longuet","dob":"1988-01-22","height":null,"weight":null},
+    {"id":105004,"name":"Emma Larche","dob":"1988-02-28","height":null,"weight":null},
+    {"id":105005,"name":"Anais Fort","dob":null,"height":null,"weight":null},
+    {"id":114756,"name":"Virginie Sarpaux","dob":"1977-06-12","height":193,"weight":73,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":115659,"name":"Saha Murielle","dob":"1982-03-19","height":181,"weight":63},
+    {"id":116688,"name":"Aurélie Pause","dob":"1989-12-09","height":172,"weight":60},
+    {"id":116689,"name":"Camille Clavreul","dob":null,"height":null,"weight":null},
+    {"id":116690,"name":"Elise Weiler","dob":null,"height":null,"weight":null},
+    {"id":116887,"name":"Aurélie Astié","dob":null,"height":null,"weight":null},
+    {"id":116888,"name":"Emmanuelle Astié","dob":null,"height":null,"weight":null},
+    {"id":116956,"name":"Michaela Formankova","dob":"1985-11-21","height":170,"weight":75},
+    {"id":117080,"name":"Nathalie Bouisset","dob":null,"height":null,"weight":null},
+    {"id":117081,"name":"Janie Bernard","dob":null,"height":null,"weight":null},
+    {"id":117082,"name":"Marie Leuge Maillet","dob":null,"height":null,"weight":null},
+    {"id":117084,"name":"Lucie Macquigneau","dob":null,"height":null,"weight":null},
+    {"id":117085,"name":"Patricia Villant","dob":null,"height":null,"weight":null},
+    {"id":117087,"name":"Vanessa Claro","dob":null,"height":null,"weight":null},
+    {"id":117088,"name":"Erika Cazes","dob":null,"height":null,"weight":null},
+    {"id":117089,"name":"Blondine Ricco","dob":null,"height":null,"weight":null},
+    {"id":119254,"name":"Camille Crousillat","dob":null,"height":null,"weight":null},
+    {"id":119255,"name":"Julie Mollinger","dob":null,"height":null,"weight":null},
+    {"id":119256,"name":"Aurélie Konhu","dob":null,"height":null,"weight":null},
+    {"id":120463,"name":"Aurélie Goux","dob":"1986-12-05","height":null,"weight":null},
+    {"id":120730,"name":"Tiffany Aubrun","dob":"1992-04-11","height":null,"weight":null},
+    {"id":120733,"name":"Flavia Weiler","dob":"1992-03-12","height":null,"weight":null},
+    {"id":120805,"name":"Hélèna Wierre","dob":"1989-10-23","height":null,"weight":null},
+    {"id":122757,"name":"Justine Astruc","dob":"1983-04-22","height":185,"weight":72},
+    {"id":124780,"name":"Tiphaine Le Guiader","dob":"1993-10-01","height":null,"weight":null},
+    {"id":124782,"name":"Anne-Sophie Bauer","dob":"1993-07-01","height":null,"weight":null},
+    {"id":132254,"name":"Mélody Benhamou","dob":"1983-03-31","height":188,"weight":73},
+    {"id":132672,"name":"Zoé Cazalet","dob":"1991-10-17","height":null,"weight":null},
+    {"id":132673,"name":"Joanna Mano","dob":"1991-07-06","height":null,"weight":null},
+    {"id":132713,"name":"Clémentine Druenne","dob":"1993-12-05","height":null,"weight":null},
+    {"id":132714,"name":"Lucie Dekeukelaire","dob":"1993-05-26","height":null,"weight":null},
+    {"id":135620,"name":"Pauline Martin","dob":"1995-10-20","height":188,"weight":63},
+    {"id":135621,"name":"Lisa Menet-Haure","dob":"1994-05-16","height":168,"weight":54},
+    {"id":138986,"name":"Adèle Bardouillet","dob":"1987-02-28","height":172,"weight":56},
+    {"id":138987,"name":"Fanny Menissier","dob":"1978-02-11","height":178,"weight":65},
+    {"id":140023,"name":"Naty Molinos","dob":"1994-03-14","height":null,"weight":null},
+    {"id":141549,"name":"Alexandra Jupiter","dob":"1990-03-11","height":188,"weight":83,"tour":{"gold":1,"silver":0,"bronze":0}},
+    {"id":141889,"name":"Melinda Adelin","dob":"1987-05-12","height":null,"weight":null},
+    {"id":142085,"name":"Ophélie Lusson","dob":"1995-09-15","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":3}},
+    {"id":142086,"name":"Margaux Carrere","dob":"1995-09-21","height":null,"weight":null},
+    {"id":142110,"name":"Vanessa Bonacossi","dob":"1986-01-19","height":null,"weight":null},
+    {"id":142507,"name":"Aline Chamereau","dob":"1996-03-06","height":184,"weight":null,"tour":{"gold":0,"silver":1,"bronze":5}},
+    {"id":142936,"name":"Manon Rebuffel","dob":"1995-04-04","height":175,"weight":62},
+    {"id":144318,"name":"Florine Gosselin","dob":"1997-02-27","height":null,"weight":null},
+    {"id":145563,"name":"Alexia Richard","dob":"1996-04-03","height":183,"weight":76,"tour":{"gold":0,"silver":0,"bronze":2}},
+    {"id":146848,"name":"Coralie Viale","dob":"1998-01-08","height":null,"weight":null},
+    {"id":147109,"name":"Inès Ben Jaddi","dob":"1998-03-02","height":168,"weight":55},
+    {"id":147741,"name":"Lézana Placette","dob":"1997-12-11","height":180,"weight":69,"tour":{"gold":1,"silver":0,"bronze":3}},
+    {"id":153717,"name":"Marie Nevot","dob":"2000-12-14","height":null,"weight":null},
+    {"id":157191,"name":"Mia Severine Guyot Polverini","dob":"1999-06-16","height":null,"weight":null},
+    {"id":157192,"name":"Pia Szewczyk","dob":"1999-03-27","height":188,"weight":69},
+    {"id":157362,"name":"Alexandra Ferreira","dob":"1985-02-25","height":null,"weight":null},
+    {"id":157364,"name":"Marion Bernard","dob":"1990-05-26","height":174,"weight":68},
+    {"id":163834,"name":"Clémence Vieira","dob":"2000-11-01","height":176,"weight":67,"tour":{"gold":0,"silver":1,"bronze":4}},
+    {"id":171777,"name":"Emere Maau-Boutry","dob":"1986-06-17","height":null,"weight":null},
+    {"id":171781,"name":"Aurore Fareura","dob":"1990-02-28","height":null,"weight":null},
+    {"id":179179,"name":"Maëva Guignan","dob":"1994-12-26","height":null,"weight":null},
+    {"id":179313,"name":"Anouk Dupin","dob":"2002-09-29","height":174,"weight":70,"tour":{"gold":2,"silver":5,"bronze":2}},
+    {"id":179491,"name":"Saofé Duval","dob":"2006-01-27","height":173,"weight":67,"tour":{"gold":1,"silver":1,"bronze":2}},
+    {"id":181264,"name":"Marine Kinna","dob":"1999-08-11","height":180,"weight":null,"tour":{"gold":1,"silver":1,"bronze":1}},
+    {"id":181376,"name":"Elsa Descamps","dob":"1996-09-06","height":185,"weight":75,"tour":{"gold":0,"silver":3,"bronze":1}},
+    {"id":181671,"name":"Célia Molinos","dob":"1994-03-14","height":null,"weight":null},
+    {"id":181976,"name":"Anastasia Teikihuavanaka","dob":"2001-09-28","height":null,"weight":null},
+    {"id":182157,"name":"Alex Merle","dob":"2000-08-10","height":175,"weight":60,"tour":{"gold":0,"silver":1,"bronze":2}},
+    {"id":186307,"name":"Romane Sobezalz","dob":"2006-10-29","height":null,"weight":null,"tour":{"gold":0,"silver":3,"bronze":1}},
+    {"id":194470,"name":"Céline Collette","dob":"1989-02-06","height":175,"weight":64},
+    {"id":197805,"name":"Maelyss Hallart","dob":"2008-03-15","height":null,"weight":null},
+    {"id":200495,"name":"Izzie Delporte","dob":"2009-02-18","height":188,"weight":72},
+    {"id":200625,"name":"Lucile Colin","dob":"1991-12-11","height":178,"weight":61},
+    {"id":204414,"name":"Laura Arteil","dob":"1993-10-09","height":170,"weight":60},
+    {"id":209753,"name":"Kumuhei Heitaa","dob":"2004-02-11","height":null,"weight":70},
+    {"id":209754,"name":"Taiana Tere","dob":"1986-05-27","height":null,"weight":null},
+    {"id":209756,"name":"Lokelani Vero","dob":"1985-01-29","height":179,"weight":82},
+    {"id":209828,"name":"Eléonore Johansen","dob":"2000-01-29","height":null,"weight":null},
+    {"id":210071,"name":"Marilu Pally","dob":"2003-12-18","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":2}},
+    {"id":211551,"name":"Kyara Rouer","dob":"2007-02-23","height":null,"weight":null},
+    {"id":221167,"name":"Joséphine Candela","dob":"2008-05-03","height":176,"weight":58},
+    {"id":223437,"name":"Malo Mir","dob":"2009-09-12","height":null,"weight":null},
+    {"id":227138,"name":"Mathilde Berthaudeau","dob":"2009-06-12","height":null,"weight":null}
   ]
 }

@@ -266,13 +266,26 @@ export default function App() {
    */
   const awayRows: AwayRow[] = useMemo(() => {
     const list = selectedId ? (detailsById.get(selectedId)?.away ?? []) : [];
+    const named = (code: string) => {
+      const entry = manifest?.countries.find((c) => c.code === code);
+      return { countryName: entry?.name ?? code, flag: flagEmoji(entry?.iso2, code), entry };
+    };
     return list.map((partner) => {
-      const entry = manifest?.countries.find((c) => c.code === partner.fed);
+      const now = named(partner.fed);
+      // What the pair actually represented, oldest first — one entry for
+      // almost all of them, more for a pair who kept playing through a
+      // transfer.
+      const then = (partner.at ?? []).map(([season, code]) => ({
+        season,
+        fed: code,
+        ...named(code),
+      }));
       return {
         partner,
-        countryName: entry?.name ?? partner.fed,
-        flag: flagEmoji(entry?.iso2, partner.fed),
-        linkable: Boolean(entry?.genders[partner.gender]),
+        countryName: now.countryName,
+        flag: now.flag,
+        then,
+        linkable: Boolean(now.entry?.genders[partner.gender]),
       };
     });
   }, [selectedId, detailsById, manifest]);

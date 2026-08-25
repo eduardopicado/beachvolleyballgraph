@@ -2,286 +2,38 @@
   "country": "CHI",
   "gender": "W",
   "players": [
-    {
-      "id": 100326,
-      "name": "Marcela Becerra",
-      "dob": "1968-03-12",
-      "height": 175,
-      "weight": 63
-    },
-    {
-      "id": 100480,
-      "name": "Lia Karmelic",
-      "dob": "1974-11-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100481,
-      "name": "Sandra Solis Hunt",
-      "dob": "1967-02-28",
-      "height": 177,
-      "weight": 68
-    },
-    {
-      "id": 100482,
-      "name": "Carolina Coddou Silva",
-      "dob": "1975-06-30",
-      "height": 171,
-      "weight": 62
-    },
-    {
-      "id": 100483,
-      "name": "Sandra Vallejo",
-      "dob": "1971-11-25",
-      "height": 174,
-      "weight": 70
-    },
-    {
-      "id": 100484,
-      "name": "Vorena Contreras",
-      "dob": "1971-11-29",
-      "height": 180,
-      "weight": 73
-    },
-    {
-      "id": 100485,
-      "name": "Patricia Sofia \"Echavarria\" Lopez",
-      "dob": "1969-06-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100486,
-      "name": "Cecilia Filliol",
-      "dob": "1974-04-28",
-      "height": 174,
-      "weight": 60
-    },
-    {
-      "id": 100622,
-      "name": "Monica Micolich Figueroa",
-      "dob": "1958-12-13",
-      "height": 168,
-      "weight": 58
-    },
-    {
-      "id": 100623,
-      "name": "Ericka Munoz Vasquez",
-      "dob": "1973-08-31",
-      "height": 164,
-      "weight": 65
-    },
-    {
-      "id": 100625,
-      "name": "Pamela Durruty",
-      "dob": "1970-11-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100626,
-      "name": "Mireya Solange Duarte",
-      "dob": "1969-07-24",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 100627,
-      "name": "Licelotte Uteau",
-      "dob": "1967-11-23",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 120112,
-      "name": "Fabiane Aires Boogaerdt",
-      "dob": null,
-      "height": null,
-      "weight": null,
-      "away": [
-        {
-          "id": 118291,
-          "name": "Júlia Beatriz Schmidt",
-          "fed": "BRA",
-          "gender": "W",
-          "t": 2,
-          "f": 2010,
-          "l": 2010,
-          "s": [
-            [
-              2010,
-              2,
-              271
-            ]
-          ]
-        },
-        {
-          "id": 105053,
-          "name": "Carolina Aragao",
-          "fed": "BRA",
-          "gender": "W",
-          "t": 1,
-          "f": 2007,
-          "l": 2007,
-          "s": [
-            [
-              2007,
-              1,
-              247
-            ]
-          ]
-        },
-        {
-          "id": 125527,
-          "name": "Marcella Alves Cavallero Colnago",
-          "fed": "BRA",
-          "gender": "W",
-          "t": 1,
-          "f": 2009,
-          "l": 2009,
-          "s": [
-            [
-              2009,
-              1,
-              259
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 123341,
-      "name": "Maria del Pilar Mardones",
-      "dob": "1989-11-16",
-      "height": 174,
-      "weight": 55
-    },
-    {
-      "id": 134715,
-      "name": "Maria Francisca Rivas Zapata",
-      "dob": "1988-01-11",
-      "height": 175,
-      "weight": 68
-    },
-    {
-      "id": 135093,
-      "name": "Chris Vorpahl Villablanca",
-      "dob": "1990-10-04",
-      "height": 174,
-      "weight": 58
-    },
-    {
-      "id": 135189,
-      "name": "Camila Pazdirek Peteri",
-      "dob": "1984-10-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 141187,
-      "name": "Natalia Del Carmen Depasiser Montecinos",
-      "dob": "1987-04-11",
-      "height": 178,
-      "weight": 72
-    },
-    {
-      "id": 142308,
-      "name": "Daniela Bravo",
-      "dob": "1989-01-20",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 156215,
-      "name": "Paula Ignacia Vallejos",
-      "dob": "1994-09-13",
-      "height": 180,
-      "weight": 70
-    },
-    {
-      "id": 168566,
-      "name": "Antonella Mori",
-      "dob": "2001-11-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 169972,
-      "name": "Sofia Maret Ohlsson Lopez",
-      "dob": "2001-06-22",
-      "height": 179,
-      "weight": 71
-    },
-    {
-      "id": 182193,
-      "name": "Danae Robert",
-      "dob": "2004-06-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182194,
-      "name": "Marcela Robert",
-      "dob": "2004-06-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182882,
-      "name": "Viviana Urretaviscaya",
-      "dob": "2003-11-29",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 186829,
-      "name": "Karen Vania Santander Pasten",
-      "dob": "1999-10-10",
-      "height": 173,
-      "weight": 66
-    },
-    {
-      "id": 194457,
-      "name": "Amanda Recart",
-      "dob": "2001-04-05",
-      "height": 182,
-      "weight": 66
-    },
-    {
-      "id": 208852,
-      "name": "Valentina Vasquez Silva",
-      "dob": "2009-06-17",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 210830,
-      "name": "Mariana Guerrero",
-      "dob": "2008-11-11",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 217309,
-      "name": "Gabriela Copier",
-      "dob": "2002-11-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 220026,
-      "name": "Alejandra Dubost Orrico",
-      "dob": "2003-02-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 220284,
-      "name": "Josefa Dawson Vargas",
-      "dob": "2010-09-29",
-      "height": 173,
-      "weight": null
-    }
+    {"id":100326,"name":"Marcela Becerra","dob":"1968-03-12","height":175,"weight":63},
+    {"id":100480,"name":"Lia Karmelic","dob":"1974-11-08","height":null,"weight":null},
+    {"id":100481,"name":"Sandra Solis Hunt","dob":"1967-02-28","height":177,"weight":68},
+    {"id":100482,"name":"Carolina Coddou Silva","dob":"1975-06-30","height":171,"weight":62},
+    {"id":100483,"name":"Sandra Vallejo","dob":"1971-11-25","height":174,"weight":70},
+    {"id":100484,"name":"Vorena Contreras","dob":"1971-11-29","height":180,"weight":73},
+    {"id":100485,"name":"Patricia Sofia \"Echavarria\" Lopez","dob":"1969-06-23","height":null,"weight":null},
+    {"id":100486,"name":"Cecilia Filliol","dob":"1974-04-28","height":174,"weight":60},
+    {"id":100622,"name":"Monica Micolich Figueroa","dob":"1958-12-13","height":168,"weight":58},
+    {"id":100623,"name":"Ericka Munoz Vasquez","dob":"1973-08-31","height":164,"weight":65},
+    {"id":100625,"name":"Pamela Durruty","dob":"1970-11-23","height":null,"weight":null},
+    {"id":100626,"name":"Mireya Solange Duarte","dob":"1969-07-24","height":null,"weight":null},
+    {"id":100627,"name":"Licelotte Uteau","dob":"1967-11-23","height":null,"weight":null},
+    {"id":120112,"name":"Fabiane Aires Boogaerdt","dob":null,"height":null,"weight":null,"away":[{"id":118291,"name":"Júlia Beatriz Schmidt","fed":"BRA","gender":"W","t":2,"f":2010,"l":2010,"s":[[2010,2,271]],"at":[[2010,"BRA"]]},{"id":105053,"name":"Carolina Aragao","fed":"BRA","gender":"W","t":1,"f":2007,"l":2007,"s":[[2007,1,247]],"at":[[2007,"BRA"]]},{"id":125527,"name":"Marcella Alves Cavallero Colnago","fed":"BRA","gender":"W","t":1,"f":2009,"l":2009,"s":[[2009,1,259]],"at":[[2009,"BRA"]]}]},
+    {"id":123341,"name":"Maria del Pilar Mardones","dob":"1989-11-16","height":174,"weight":55},
+    {"id":134715,"name":"Maria Francisca Rivas Zapata","dob":"1988-01-11","height":175,"weight":68},
+    {"id":135093,"name":"Chris Vorpahl Villablanca","dob":"1990-10-04","height":174,"weight":58},
+    {"id":135189,"name":"Camila Pazdirek Peteri","dob":"1984-10-05","height":null,"weight":null},
+    {"id":141187,"name":"Natalia Del Carmen Depasiser Montecinos","dob":"1987-04-11","height":178,"weight":72},
+    {"id":142308,"name":"Daniela Bravo","dob":"1989-01-20","height":null,"weight":null},
+    {"id":156215,"name":"Paula Ignacia Vallejos","dob":"1994-09-13","height":180,"weight":70},
+    {"id":168566,"name":"Antonella Mori","dob":"2001-11-11","height":null,"weight":null},
+    {"id":169972,"name":"Sofia Maret Ohlsson Lopez","dob":"2001-06-22","height":179,"weight":71},
+    {"id":182193,"name":"Danae Robert","dob":"2004-06-21","height":null,"weight":null},
+    {"id":182194,"name":"Marcela Robert","dob":"2004-06-21","height":null,"weight":null},
+    {"id":182882,"name":"Viviana Urretaviscaya","dob":"2003-11-29","height":null,"weight":null},
+    {"id":186829,"name":"Karen Vania Santander Pasten","dob":"1999-10-10","height":173,"weight":66},
+    {"id":194457,"name":"Amanda Recart","dob":"2001-04-05","height":182,"weight":66},
+    {"id":208852,"name":"Valentina Vasquez Silva","dob":"2009-06-17","height":null,"weight":null},
+    {"id":210830,"name":"Mariana Guerrero","dob":"2008-11-11","height":null,"weight":null},
+    {"id":217309,"name":"Gabriela Copier","dob":"2002-11-26","height":null,"weight":null},
+    {"id":220026,"name":"Alejandra Dubost Orrico","dob":"2003-02-15","height":null,"weight":null},
+    {"id":220284,"name":"Josefa Dawson Vargas","dob":"2010-09-29","height":173,"weight":null}
   ]
 }

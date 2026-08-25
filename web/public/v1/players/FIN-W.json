@@ -2,585 +2,67 @@
   "country": "FIN",
   "gender": "W",
   "players": [
-    {
-      "id": 103671,
-      "name": "Emilia Nyström",
-      "dob": "1983-09-13",
-      "height": 177,
-      "weight": 64,
-      "tour": {
-        "gold": 1,
-        "silver": 1,
-        "bronze": 1
-      },
-      "away": [
-        {
-          "id": 103670,
-          "name": "Erika Nyström",
-          "fed": "CYP",
-          "gender": "W",
-          "t": 157,
-          "f": 2001,
-          "l": 2015,
-          "s": [
-            [
-              2001,
-              1,
-              235
-            ],
-            [
-              2002,
-              3,
-              247
-            ],
-            [
-              2003,
-              9,
-              247
-            ],
-            [
-              2004,
-              12,
-              265
-            ],
-            [
-              2005,
-              17,
-              320
-            ],
-            [
-              2006,
-              13,
-              298
-            ],
-            [
-              2007,
-              17,
-              304
-            ],
-            [
-              2008,
-              16,
-              310
-            ],
-            [
-              2009,
-              12,
-              252
-            ],
-            [
-              2010,
-              13,
-              307
-            ],
-            [
-              2011,
-              14,
-              306
-            ],
-            [
-              2012,
-              9,
-              227
-            ],
-            [
-              2013,
-              7,
-              219
-            ],
-            [
-              2014,
-              10,
-              231
-            ],
-            [
-              2015,
-              4,
-              160
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 104284,
-      "name": "Saila Huhtiranta",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104285,
-      "name": "Saara Loikkanen",
-      "dob": "1980-05-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104781,
-      "name": "Taru Lahti-Liukkonen",
-      "dob": "1992-12-09",
-      "height": 178,
-      "weight": 69,
-      "tour": {
-        "gold": 3,
-        "silver": 4,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 104855,
-      "name": "Nora Isomaki",
-      "dob": "1978-01-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 104856,
-      "name": "Kirsi Hyttinen",
-      "dob": "1986-01-16",
-      "height": 170,
-      "weight": 58
-    },
-    {
-      "id": 114627,
-      "name": "Riikka Lehtonen",
-      "dob": "1979-07-24",
-      "height": 183,
-      "weight": 70,
-      "tour": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 114633,
-      "name": "Hanna-Mari Arminen",
-      "dob": "1980-05-16",
-      "height": 178,
-      "weight": 67
-    },
-    {
-      "id": 115001,
-      "name": "Annika Hurtamo",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116335,
-      "name": "Katri Korpisaari",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 116336,
-      "name": "Taru Pokki",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118125,
-      "name": "Annikki Laine",
-      "dob": "1980-05-12",
-      "height": 174,
-      "weight": null
-    },
-    {
-      "id": 118126,
-      "name": "Tia Pråhl",
-      "dob": "1978-04-16",
-      "height": 172,
-      "weight": null
-    },
-    {
-      "id": 118129,
-      "name": "Jennamiia Ripatti",
-      "dob": "1990-09-07",
-      "height": 174,
-      "weight": 58
-    },
-    {
-      "id": 118209,
-      "name": "Essi Hasu",
-      "dob": "1987-08-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 118210,
-      "name": "Noora Tikka",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 119104,
-      "name": "Milla Tikkanen",
-      "dob": "1990-11-19",
-      "height": 181,
-      "weight": 69
-    },
-    {
-      "id": 119431,
-      "name": "Tanja Eteläaho",
-      "dob": "1979-08-23",
-      "height": 178,
-      "weight": 65
-    },
-    {
-      "id": 119988,
-      "name": "Laura Lahtela",
-      "dob": null,
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 121694,
-      "name": "Nette Tuominen",
-      "dob": "1990-01-23",
-      "height": 180,
-      "weight": null
-    },
-    {
-      "id": 122834,
-      "name": "Eveliina Koljonen",
-      "dob": "1989-10-23",
-      "height": 172,
-      "weight": 68
-    },
-    {
-      "id": 122835,
-      "name": "Taija Pekkarinen",
-      "dob": "1989-05-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 124629,
-      "name": "Merja Korhonen",
-      "dob": "1986-01-16",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 125061,
-      "name": "Paulina Heikura",
-      "dob": "1980-11-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132109,
-      "name": "Pauliina Vilponen",
-      "dob": "1992-02-20",
-      "height": 190,
-      "weight": 76
-    },
-    {
-      "id": 132778,
-      "name": "Kaisa Alanko",
-      "dob": "1993-01-03",
-      "height": 173,
-      "weight": 65
-    },
-    {
-      "id": 132779,
-      "name": "Marika Niemi",
-      "dob": "1993-06-10",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 132788,
-      "name": "Riikka Arminen",
-      "dob": "1982-07-15",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 137416,
-      "name": "Anniina Parkkinen",
-      "dob": "1996-07-30",
-      "height": 174,
-      "weight": null,
-      "tour": {
-        "gold": 2,
-        "silver": 1,
-        "bronze": 3
-      }
-    },
-    {
-      "id": 139287,
-      "name": "Henna Pollari",
-      "dob": "1987-05-31",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 139764,
-      "name": "Niina Ahtiainen",
-      "dob": "1997-04-11",
-      "height": 182,
-      "weight": 71,
-      "tour": {
-        "gold": 3,
-        "silver": 2,
-        "bronze": 0
-      }
-    },
-    {
-      "id": 139765,
-      "name": "Ida Sinisalo",
-      "dob": "1997-05-09",
-      "height": 177,
-      "weight": 70
-    },
-    {
-      "id": 140406,
-      "name": "Saana Koljonen",
-      "dob": "1988-08-22",
-      "height": 165,
-      "weight": 59,
-      "away": [
-        {
-          "id": 103670,
-          "name": "Erika Nyström",
-          "fed": "CYP",
-          "gender": "W",
-          "t": 1,
-          "f": 2012,
-          "l": 2012,
-          "s": [
-            [
-              2012,
-              1,
-              242
-            ]
-          ]
-        }
-      ]
-    },
-    {
-      "id": 158105,
-      "name": "Sara Tiihonen",
-      "dob": "1999-08-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 159972,
-      "name": "Aliisa Vuorinen",
-      "dob": "2000-05-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 164526,
-      "name": "Valma Vilhelmiina Prihti",
-      "dob": "2001-04-26",
-      "height": null,
-      "weight": null,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 169504,
-      "name": "Katja Metsäkoivu",
-      "dob": "1994-09-01",
-      "height": 181,
-      "weight": 68
-    },
-    {
-      "id": 169505,
-      "name": "Tuuli Metsäkoivu",
-      "dob": "1996-07-26",
-      "height": 177,
-      "weight": 62
-    },
-    {
-      "id": 169604,
-      "name": "Mira Järveläinen",
-      "dob": "1992-09-09",
-      "height": 175,
-      "weight": 65
-    },
-    {
-      "id": 173488,
-      "name": "Sara Sinisalo",
-      "dob": "2004-06-23",
-      "height": 182,
-      "weight": 66,
-      "tour": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 2
-      }
-    },
-    {
-      "id": 173496,
-      "name": "Anniina Muukka",
-      "dob": "2003-11-06",
-      "height": 179,
-      "weight": 67,
-      "tour": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 1
-      }
-    },
-    {
-      "id": 173839,
-      "name": "Anna Rantala",
-      "dob": "1996-11-06",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 179441,
-      "name": "Sofia Mäkitalo",
-      "dob": "2004-11-03",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182213,
-      "name": "Linnea Hautala",
-      "dob": "2004-08-09",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 182674,
-      "name": "Pinja Jokela",
-      "dob": "2005-04-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 185534,
-      "name": "Ester Hirvonen",
-      "dob": "2006-11-25",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 185535,
-      "name": "Peppiina Mäenpää",
-      "dob": "2006-02-13",
-      "height": 175,
-      "weight": 67
-    },
-    {
-      "id": 191058,
-      "name": "Venla Väärälä",
-      "dob": "1995-04-26",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 198053,
-      "name": "Milja Henriksson",
-      "dob": "2007-01-01",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 200346,
-      "name": "Elina Pirttimäki",
-      "dob": "1996-09-08",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 200792,
-      "name": "Kirsi Aaltola",
-      "dob": "1986-01-16",
-      "height": 170,
-      "weight": 60
-    },
-    {
-      "id": 201032,
-      "name": "Ida-Maria Mämmi",
-      "dob": "1998-02-28",
-      "height": 181,
-      "weight": null
-    },
-    {
-      "id": 201254,
-      "name": "Essi Nirhamo",
-      "dob": "1988-06-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201445,
-      "name": "Noora Huhtala",
-      "dob": "1995-01-30",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 201500,
-      "name": "Annika Waris",
-      "dob": "1998-08-21",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 206059,
-      "name": "Eeva Johansson",
-      "dob": "1998-10-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 206313,
-      "name": "Anni Viitala",
-      "dob": "1995-07-05",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 211367,
-      "name": "Sara Tuominen",
-      "dob": "2007-02-02",
-      "height": 173,
-      "weight": null
-    },
-    {
-      "id": 211507,
-      "name": "Jutta Tavaila",
-      "dob": "1997-04-27",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 223138,
-      "name": "Anna Laaksonen",
-      "dob": "2008-06-18",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 223144,
-      "name": "Maisa Kyröläinen",
-      "dob": "2009-08-13",
-      "height": null,
-      "weight": null
-    },
-    {
-      "id": 223145,
-      "name": "Nelli Waldén",
-      "dob": "2009-10-26",
-      "height": null,
-      "weight": null
-    }
+    {"id":103671,"name":"Emilia Nyström","dob":"1983-09-13","height":177,"weight":64,"tour":{"gold":1,"silver":1,"bronze":1},"away":[{"id":103670,"name":"Erika Nyström","fed":"CYP","gender":"W","t":157,"f":2001,"l":2015,"s":[[2001,1,235],[2002,3,247],[2003,9,247],[2004,12,265],[2005,17,320],[2006,13,298],[2007,17,304],[2008,16,310],[2009,12,252],[2010,13,307],[2011,14,306],[2012,9,227],[2013,7,219],[2014,10,231],[2015,4,160]],"at":[[2001,"FIN"],[2002,"FIN"],[2003,"FIN"],[2004,"FIN"],[2005,"FIN"],[2006,"FIN"],[2007,"FIN"],[2008,"FIN"],[2009,"FIN"],[2010,"FIN"],[2011,"FIN"],[2012,"FIN"],[2013,"FIN"],[2014,"FIN"],[2015,"FIN"]]}]},
+    {"id":104284,"name":"Saila Huhtiranta","dob":null,"height":null,"weight":null},
+    {"id":104285,"name":"Saara Loikkanen","dob":"1980-05-31","height":null,"weight":null},
+    {"id":104781,"name":"Taru Lahti-Liukkonen","dob":"1992-12-09","height":178,"weight":69,"tour":{"gold":3,"silver":4,"bronze":1}},
+    {"id":104855,"name":"Nora Isomaki","dob":"1978-01-31","height":null,"weight":null},
+    {"id":104856,"name":"Kirsi Hyttinen","dob":"1986-01-16","height":170,"weight":58},
+    {"id":114627,"name":"Riikka Lehtonen","dob":"1979-07-24","height":183,"weight":70,"tour":{"gold":0,"silver":1,"bronze":0}},
+    {"id":114633,"name":"Hanna-Mari Arminen","dob":"1980-05-16","height":178,"weight":67},
+    {"id":115001,"name":"Annika Hurtamo","dob":null,"height":null,"weight":null},
+    {"id":116335,"name":"Katri Korpisaari","dob":null,"height":null,"weight":null},
+    {"id":116336,"name":"Taru Pokki","dob":null,"height":null,"weight":null},
+    {"id":118125,"name":"Annikki Laine","dob":"1980-05-12","height":174,"weight":null},
+    {"id":118126,"name":"Tia Pråhl","dob":"1978-04-16","height":172,"weight":null},
+    {"id":118129,"name":"Jennamiia Ripatti","dob":"1990-09-07","height":174,"weight":58},
+    {"id":118209,"name":"Essi Hasu","dob":"1987-08-10","height":null,"weight":null},
+    {"id":118210,"name":"Noora Tikka","dob":null,"height":null,"weight":null},
+    {"id":119104,"name":"Milla Tikkanen","dob":"1990-11-19","height":181,"weight":69},
+    {"id":119431,"name":"Tanja Eteläaho","dob":"1979-08-23","height":178,"weight":65},
+    {"id":119988,"name":"Laura Lahtela","dob":null,"height":null,"weight":null},
+    {"id":121694,"name":"Nette Tuominen","dob":"1990-01-23","height":180,"weight":null},
+    {"id":122834,"name":"Eveliina Koljonen","dob":"1989-10-23","height":172,"weight":68},
+    {"id":122835,"name":"Taija Pekkarinen","dob":"1989-05-16","height":null,"weight":null},
+    {"id":124629,"name":"Merja Korhonen","dob":"1986-01-16","height":null,"weight":null},
+    {"id":125061,"name":"Paulina Heikura","dob":"1980-11-10","height":null,"weight":null},
+    {"id":132109,"name":"Pauliina Vilponen","dob":"1992-02-20","height":190,"weight":76},
+    {"id":132778,"name":"Kaisa Alanko","dob":"1993-01-03","height":173,"weight":65},
+    {"id":132779,"name":"Marika Niemi","dob":"1993-06-10","height":null,"weight":null},
+    {"id":132788,"name":"Riikka Arminen","dob":"1982-07-15","height":null,"weight":null},
+    {"id":137416,"name":"Anniina Parkkinen","dob":"1996-07-30","height":174,"weight":null,"tour":{"gold":2,"silver":1,"bronze":3}},
+    {"id":139287,"name":"Henna Pollari","dob":"1987-05-31","height":null,"weight":null},
+    {"id":139764,"name":"Niina Ahtiainen","dob":"1997-04-11","height":182,"weight":71,"tour":{"gold":3,"silver":2,"bronze":0}},
+    {"id":139765,"name":"Ida Sinisalo","dob":"1997-05-09","height":177,"weight":70},
+    {"id":140406,"name":"Saana Koljonen","dob":"1988-08-22","height":165,"weight":59,"away":[{"id":103670,"name":"Erika Nyström","fed":"CYP","gender":"W","t":1,"f":2012,"l":2012,"s":[[2012,1,242]],"at":[[2012,"FIN"]]}]},
+    {"id":158105,"name":"Sara Tiihonen","dob":"1999-08-26","height":null,"weight":null},
+    {"id":159972,"name":"Aliisa Vuorinen","dob":"2000-05-05","height":null,"weight":null},
+    {"id":164526,"name":"Valma Vilhelmiina Prihti","dob":"2001-04-26","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":1}},
+    {"id":169504,"name":"Katja Metsäkoivu","dob":"1994-09-01","height":181,"weight":68},
+    {"id":169505,"name":"Tuuli Metsäkoivu","dob":"1996-07-26","height":177,"weight":62},
+    {"id":169604,"name":"Mira Järveläinen","dob":"1992-09-09","height":175,"weight":65},
+    {"id":173488,"name":"Sara Sinisalo","dob":"2004-06-23","height":182,"weight":66,"tour":{"gold":1,"silver":0,"bronze":2}},
+    {"id":173496,"name":"Anniina Muukka","dob":"2003-11-06","height":179,"weight":67,"tour":{"gold":0,"silver":0,"bronze":1}},
+    {"id":173839,"name":"Anna Rantala","dob":"1996-11-06","height":null,"weight":null},
+    {"id":179441,"name":"Sofia Mäkitalo","dob":"2004-11-03","height":null,"weight":null},
+    {"id":182213,"name":"Linnea Hautala","dob":"2004-08-09","height":null,"weight":null},
+    {"id":182674,"name":"Pinja Jokela","dob":"2005-04-05","height":null,"weight":null},
+    {"id":185534,"name":"Ester Hirvonen","dob":"2006-11-25","height":null,"weight":null},
+    {"id":185535,"name":"Peppiina Mäenpää","dob":"2006-02-13","height":175,"weight":67},
+    {"id":191058,"name":"Venla Väärälä","dob":"1995-04-26","height":null,"weight":null},
+    {"id":198053,"name":"Milja Henriksson","dob":"2007-01-01","height":null,"weight":null},
+    {"id":200346,"name":"Elina Pirttimäki","dob":"1996-09-08","height":null,"weight":null},
+    {"id":200792,"name":"Kirsi Aaltola","dob":"1986-01-16","height":170,"weight":60},
+    {"id":201032,"name":"Ida-Maria Mämmi","dob":"1998-02-28","height":181,"weight":null},
+    {"id":201254,"name":"Essi Nirhamo","dob":"1988-06-13","height":null,"weight":null},
+    {"id":201445,"name":"Noora Huhtala","dob":"1995-01-30","height":null,"weight":null},
+    {"id":201500,"name":"Annika Waris","dob":"1998-08-21","height":null,"weight":null},
+    {"id":206059,"name":"Eeva Johansson","dob":"1998-10-27","height":null,"weight":null},
+    {"id":206313,"name":"Anni Viitala","dob":"1995-07-05","height":null,"weight":null},
+    {"id":211367,"name":"Sara Tuominen","dob":"2007-02-02","height":173,"weight":null},
+    {"id":211507,"name":"Jutta Tavaila","dob":"1997-04-27","height":null,"weight":null},
+    {"id":223138,"name":"Anna Laaksonen","dob":"2008-06-18","height":null,"weight":null},
+    {"id":223144,"name":"Maisa Kyröläinen","dob":"2009-08-13","height":null,"weight":null},
+    {"id":223145,"name":"Nelli Waldén","dob":"2009-10-26","height":null,"weight":null}
   ]
 }
