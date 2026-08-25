@@ -354,6 +354,20 @@
 .away .fed {
   font-size: 12px;
   line-height: 1;
+  /* The two flags and the arrow are one unit; without this a narrow card can
+     wrap between "was there" and "is here now", which reads as two separate
+     facts rather than one transfer. */
+  white-space: nowrap;
+}
+
+/* Where the partner is today, when that is not where the partnership was.
+   Dimmed and a size down, because the row is primarily about the partnership
+   and this is the footnote that explains why the row is in this block at all
+   — and where selecting it will take you. */
+.away .moved-to {
+  margin-left: 1px;
+  color: var(--text-muted);
+  font-size: 10px;
 }
 
 /* --- Partners / Timeline switch ----------------------------------------- */

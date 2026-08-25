@@ -148,7 +148,10 @@ test.describe('partners from other federations', () => {
     await expect(card.locator('.partners > ul > li')).toHaveCount(0);
     // ...and without this feature that was the whole story. Now it is not.
     await expect(card.locator('.away li')).toHaveCount(target!.away);
-    await expect(card.locator('.partners .empty')).toContainText('same federation');
+    // "today" is the load-bearing word: these pairs were very often compatriots
+    // at the time, and the old copy claimed the graph "only links players from
+    // the same federation" directly above a list of same-federation rows.
+    await expect(card.locator('.partners .empty')).toContainText('federation they are in today');
 
     // The vitals describe the player, not the graph. Counting only the edges
     // put "0 partners" directly above a list of them.
@@ -1128,6 +1131,97 @@ test.describe('without JavaScript', () => {
  * second `.timeline` in the card, which is why every selector above had to say
  * which one it meant.
  */
+test.describe('the away block says "now"', () => {
+  const sliceFor = (code: string, gender: 'M' | 'W') => {
+    const entry = manifest().countries.find((c) => c.code === code);
+    if (!entry) throw new Error(`${code} missing from the manifest`);
+    return `${sliceSlug(entry.name, gender)}/`;
+  };
+
+  /**
+   * A published away row whose federation-at-the-time is this slice's *own*
+   * country — the case that made the heading read "Other federations: Brazil".
+   * Found by scanning the data rather than pinned to a player, so it survives
+   * the weekly ingest.
+   */
+  const homeFlagRow = () => {
+    for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length > 0 && at.every(([, fed]) => fed === country.code) && a.fed !== country.code) {
+              return { code: country.code, gender, id: p.id, partner: a.name, now: a.fed };
+            }
+          }
+        }
+      }
+    }
+    return null;
+  };
+
+  test('names the block for where partners are now, not where they were', async ({ page }) => {
+    const row = homeFlagRow();
+    expect(row, 'no away row carries this slice\u2019s own federation').not.toBeNull();
+
+    await page.goto(`./${sliceFor(row!.code, row!.gender)}?player=${row!.id}`);
+    const card = page.locator('.player-card');
+    await expect(card).toBeVisible();
+
+    // The heading has to be about today, because the flags under it are not.
+    await expect(card.locator('.away h4')).toHaveText('Now with other federations');
+  });
+
+  test('a partner who moved shows both flags, not just the one', async ({ page }) => {
+    const row = homeFlagRow();
+    await page.goto(`./${sliceFor(row!.code, row!.gender)}?player=${row!.id}`);
+
+    const fed = page.locator('.away li', { hasText: row!.partner }).locator('.fed');
+    await expect(fed).toBeVisible();
+    // Where they are today had become invisible once the flag started telling
+    // the truth about then — including the fact that this row navigates there.
+    await expect(fed.locator('.moved-to')).toHaveCount(1);
+    await expect(fed).toHaveAttribute('title', /· now /);
+  });
+
+  test('a partner who never left gets one flag and no arrow', async ({ page }) => {
+    // Guards the guard: without this, rendering the arrow unconditionally
+    // would pass every assertion above.
+    let found: { code: string; gender: 'M' | 'W'; id: number; partner: string } | null = null;
+    outer: for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length > 0 && at.every(([, fed]) => fed === a.fed)) {
+              found = { code: country.code, gender, id: p.id, partner: a.name };
+              break outer;
+            }
+          }
+        }
+      }
+    }
+    expect(found, 'no away partnership stayed in one federation').not.toBeNull();
+
+    await page.goto(`./${sliceFor(found!.code, found!.gender)}?player=${found!.id}`);
+    const fed = page.locator('.away li', { hasText: found!.partner }).locator('.fed');
+    await expect(fed).toBeVisible();
+    await expect(fed.locator('.moved-to')).toHaveCount(0);
+  });
+});
+
 test.describe('other federations', () => {
   const tab = (page: import('@playwright/test').Page, name: 'Partners' | 'Timeline') =>
     page.getByRole('group', { name: 'Partner view' }).getByRole('button', { name, exact: true });
