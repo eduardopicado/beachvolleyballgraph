@@ -291,30 +291,96 @@ makes them the field list:
 `NoPerson`, `NoCev`. `GetBeachTeam` returns ~80, including `EarningsTeam`,
 `EntryPoints`, `MainDrawSeed`, `TechnicalPoints` and the two player joins above.
 
-### 6c. A mixed-nationality pair is filed under player 1
+### 6c. A "mixed-nationality pair" is usually a transfer we failed to detect
 
-When the two players represent different federations, FIVB does not record
-both. The team gets one `FederationCode`, and it is **player 1's**: on the
-2,216 rows where the two players' federations-at-the-time differ, the team code
-matches player 1 on 2,207 of them (99.6%), player 2 on 7, and neither on 2.
+A team row carries one `FederationCode`. When the two players appear to belong
+to different federations, the obvious reading is that FIVB filed the pair under
+one of them. That reading is mostly wrong, and the number that seemed to
+support it has now been measured three times, wrongly twice.
 
-**The worked example.** Giseli "Gisi" Gavio Farinazzo (`102285`) is Brazilian,
-played her whole career in Italy, and is player 1 on all fifteen of her teams —
-so all fifteen are registered `BRA` while her Italian partners keep `ITA`. A
-same-federation edge rule drops every one of them and she stands alone on the
-Brazil women's graph with five partners and no edges. Her partners show the
-other half of the same split: Annamaria Solazzi has 91 Italian entries and
-exactly one Brazilian, the Fortaleza event with Gisi; Gaia Cicola has 15
-Italian and 8 Brazilian, and all eight are with Gisi.
+**Restrict to the events this pipeline actually publishes.** Counted over every
+row VIS returns, mixed teams look common and *rising* — 1.22% overall, 2.3% by
+2026. Almost all of that is `Type` 15 (National Tour, §1), which we exclude:
+687 of the 700 mixed rows in 2025–26 are domestic. Over qualifying tournaments
+only, mixed teams have all but disappeared:
 
-This is not the §6 problem wearing a different hat. §6 is about *time* — a pair
-who were compatriots and stopped being one. This is about a pair who were never
-compatriots at all, and no amount of historical accuracy makes them one. The
-team code is correct here; it just isn't symmetric, so which player's graph the
-partnership lands on depends on which of them FIVB happened to list first.
+| Seasons | Mixed share of qualifying entries |
+|---|---|
+| 1996–2003 | 0.67 – 1.30% |
+| 2004–2015 | 0.04 – 0.52% |
+| 2016–2026 | **0.00 – 0.10%** |
 
-**Scale.** 1,074 partnerships are mixed-nationality at every event they played,
-and 200 of those played three or more events together.
+296 rows in the whole archive. 2016, 2018 and 2024 have **none at all**.
+
+**What the survivors actually are.** Half the recent ones are one person:
+
+```
+2023 WBDI2023   Karen Noppen [NED] + Emmanuelie Ndayikengurukiye [BDI]
+2025 WBDI2025   Karen Noppen [NED] + Gynette Kamwemwe [BDI]
+2026 WBUJ2026   Karen Noppen [NED] + Gynette Kamwemwe [BDI]
+```
+
+Noppen moved BDI to NED. She was Burundian at all three events; her record says
+Netherlands today. These are not mixed pairs — they are a transfer the
+detection missed, wearing a mixed pair's clothes.
+
+**Why the detection misses them, and will keep missing them.** A transfer is
+inferred from a player's `FederationCode` varying across seasons on rows where
+they are **player 1** — the only rows whose code is reliably theirs. But
+**4,517 of 14,340 players (31.5%) never appear as player 1 at all**, so any
+move they make is structurally invisible. Noppen is one of them.
+
+**So how often does the team code follow player 1?** On qualifying events,
+**207 of 296 (69.9%)**, with 89 (30.1%) following player 2. Two earlier figures
+in this section were higher and both were artefacts:
+
+- *99.6%* came from deriving each player's federation from their player-1 rows
+  — a set that **contains the row being tested**, so the code vouched for
+  itself and the answer was fixed in advance.
+- *93.8%* fixed that but counted domestic events, where mixed entries are
+  ordinary and behave differently.
+
+A third shortcut is wrong the other way and worth naming: keeping only players
+whose codes *never* vary excludes anyone who ever played a mixed pair, since
+such a player picks up their partner's code. That reports mixed teams at
+0.0–0.6% by construction.
+
+**The worked example, and why it stays unresolved.** Giseli "Gisi" Gavio
+Farinazzo (`102285`) is player 1 on all fifteen of her teams, every one
+registered `BRA`, every partner otherwise `ITA`. So she stands alone on the
+Brazil women's graph with five partners and no edges.
+
+Her events are real: `WGST2002` Gstaad, `WKLA2003` Klagenfurt, `WBER2003`
+Berlin, `WMRS1998` Marseille — `Type` 0 and 1, organiser FIVB. Not §1 domestic
+events.
+
+But we cannot say which of two things she is. Either she was Brazilian and
+played the World Tour with Italians — one of roughly a dozen such entries in
+2002 — or she was Italian-registered then and later became Brazilian, and every
+one of her rows says `BRA` because of it. **No evidence available to us
+separates the two**, because all fifteen of her rows are the rows in dispute:
+there is no independent row of hers for the variation test to read. The same
+blindness that hides Noppen hides Gisi, for a different reason.
+
+**Do not report this upstream without resolving it first.** FIVB's records may
+be entirely correct; the ambiguity is ours, and it comes from having no
+federation history to check against (§6b).
+
+---|---|
+| 1996–2003 | 0.7 – 1.3% |
+| 2004–2012 | 0.3 – 0.5% |
+| 2013–2022 | 0.9 – 1.2% |
+| 2023–2026 | 1.4 – **2.3%** |
+
+2,436 of 198,147 comparable entries overall (1.22%). **1,267 partnerships are
+mixed at every event they played, and 206 of those played three or more events
+together.**
+
+The rarity is the point rather than a reason to ignore it: Gisi's fifteen
+entries at Gstaad, Klagenfurt, Marseille and Berlin are genuine FIVB World Tour
+results (Type 0 and 1, organiser FIVB), not domestic events that slipped
+through §1's filter. A mixed pair is unusual, allowed, and correctly recorded —
+the graph simply has nowhere to put one.
 
 ---
 
