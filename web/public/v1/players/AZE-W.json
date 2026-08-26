@@ -2,9 +2,481 @@
   "country": "AZE",
   "gender": "W",
   "players": [
-    {"id":119620,"name":"Vivian Danielle da Conceição Cunha","dob":"1980-06-14","height":179,"weight":65,"tour":{"gold":2,"silver":1,"bronze":3},"away":[{"id":103997,"name":"Taiana Lima","fed":"BRA","gender":"W","t":28,"f":2010,"l":2012,"s":[[2010,9,237],[2011,11,306],[2012,8,199]],"at":[[2010,"BRA"],[2011,"BRA"],[2012,"BRA"]]},{"id":104574,"name":"Angela Lavalle","fed":"BRA","gender":"W","t":13,"f":2007,"l":2009,"s":[[2007,3,268],[2009,10,252]],"at":[[2007,"BRA"],[2009,"BRA"]]},{"id":147381,"name":"Zinaida Liubymova","fed":"UKR","gender":"W","t":4,"f":2014,"l":2015,"s":[[2014,2,309],[2015,2,132]],"at":[[2014,"AZE"],[2015,"AZE"]]},{"id":103903,"name":"Larissa França Maestrini","fed":"BRA","gender":"W","t":1,"f":2008,"l":2008,"s":[[2008,1,260]],"at":[[2008,"BRA"]]}]},
-    {"id":122369,"name":"Viktoria Aghakishiyeva (Smetaniuk)","dob":"1989-07-12","height":null,"weight":null,"away":[{"id":104233,"name":"Svitlana Baburina","fed":"UKR","gender":"W","t":12,"f":2009,"l":2011,"s":[[2009,1,230],[2010,8,307],[2011,3,138]],"at":[[2009,"UKR"],[2010,"UKR"],[2011,"UKR"]]},{"id":122367,"name":"Viktoriia Lavrenchenko","fed":"UKR","gender":"W","t":2,"f":2010,"l":2010,"s":[[2010,2,208]],"at":[[2010,"UKR"]]}]},
-    {"id":147368,"name":"Irina Abbaszade","dob":"1991-01-13","height":182,"weight":66,"away":[{"id":118023,"name":"Ekaterina Karapischenko","fed":"RUS","gender":"W","t":4,"f":2007,"l":2009,"s":[[2007,2,247],[2008,1,212],[2009,1,231]],"at":[[2007,"RUS"],[2008,"RUS"],[2009,"RUS"]]},{"id":134964,"name":"Ekaterina Syrtseva","fed":"RUS","gender":"W","t":4,"f":2013,"l":2013,"s":[[2013,4,204]],"at":[[2013,"RUS"]]},{"id":120468,"name":"Ekaterina Birlova","fed":"RUS","gender":"W","t":2,"f":2010,"l":2010,"s":[[2010,2,307]],"at":[[2010,"RUS"]]},{"id":132140,"name":"Yulia Abalakina","fed":"RUS","gender":"W","t":2,"f":2010,"l":2013,"s":[[2010,1,258],[2013,1,156]],"at":[[2010,"RUS"],[2013,"RUS"]]},{"id":120559,"name":"Anna Vozakova","fed":"RUS","gender":"W","t":1,"f":2009,"l":2009,"s":[[2009,1,259]],"at":[[2009,"RUS"]]},{"id":118019,"name":"Daria Yarzutkina","fed":"RUS","gender":"W","t":1,"f":2009,"l":2009,"s":[[2009,1,195]],"at":[[2009,"RUS"]]},{"id":117997,"name":"Evgenia Ukolova","fed":"RUS","gender":"W","t":1,"f":2013,"l":2013,"s":[[2013,1,121]],"at":[[2013,"RUS"]]},{"id":103960,"name":"Maria Prokopeva","fed":"RUS","gender":"W","t":1,"f":2013,"l":2013,"s":[[2013,1,142]],"at":[[2013,"RUS"]]}]},
-    {"id":147672,"name":"Raquel Goncalves Ferreira","dob":"1982-10-08","height":null,"weight":null,"away":[{"id":131694,"name":"Iuliia Zhernova","fed":"UKR","gender":"W","t":5,"f":2014,"l":2015,"s":[[2014,2,309],[2015,3,146]],"at":[[2014,"AZE"],[2015,"AZE"]]}]}
+    {
+      "id": 119620,
+      "name": "Vivian Danielle da Conceição Cunha",
+      "dob": "1980-06-14",
+      "height": 179,
+      "weight": 65,
+      "tour": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 3
+      },
+      "away": [
+        {
+          "id": 103997,
+          "name": "Taiana Lima",
+          "fed": "BRA",
+          "gender": "W",
+          "t": 28,
+          "f": 2010,
+          "l": 2012,
+          "s": [
+            [
+              2010,
+              9,
+              237
+            ],
+            [
+              2011,
+              11,
+              306
+            ],
+            [
+              2012,
+              8,
+              199
+            ]
+          ],
+          "at": [
+            [
+              2010,
+              "BRA"
+            ],
+            [
+              2011,
+              "BRA"
+            ],
+            [
+              2012,
+              "BRA"
+            ]
+          ],
+          "r": 2
+        },
+        {
+          "id": 104574,
+          "name": "Angela Lavalle",
+          "fed": "BRA",
+          "gender": "W",
+          "t": 13,
+          "f": 2007,
+          "l": 2009,
+          "s": [
+            [
+              2007,
+              3,
+              268
+            ],
+            [
+              2009,
+              10,
+              252
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "BRA"
+            ],
+            [
+              2009,
+              "BRA"
+            ]
+          ],
+          "r": 1
+        },
+        {
+          "id": 147381,
+          "name": "Zinaida Liubymova",
+          "fed": "UKR",
+          "gender": "W",
+          "t": 4,
+          "f": 2014,
+          "l": 2015,
+          "s": [
+            [
+              2014,
+              2,
+              309
+            ],
+            [
+              2015,
+              2,
+              132
+            ]
+          ],
+          "at": [
+            [
+              2014,
+              "AZE"
+            ],
+            [
+              2015,
+              "AZE"
+            ]
+          ],
+          "r": 4
+        },
+        {
+          "id": 103903,
+          "name": "Larissa França Maestrini",
+          "fed": "BRA",
+          "gender": "W",
+          "t": 1,
+          "f": 2008,
+          "l": 2008,
+          "s": [
+            [
+              2008,
+              1,
+              260
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "BRA"
+            ]
+          ],
+          "r": 1
+        }
+      ]
+    },
+    {
+      "id": 122369,
+      "name": "Viktoria Aghakishiyeva (Smetaniuk)",
+      "dob": "1989-07-12",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 104233,
+          "name": "Svitlana Baburina",
+          "fed": "UKR",
+          "gender": "W",
+          "t": 12,
+          "f": 2009,
+          "l": 2011,
+          "s": [
+            [
+              2009,
+              1,
+              230
+            ],
+            [
+              2010,
+              8,
+              307
+            ],
+            [
+              2011,
+              3,
+              138
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "UKR"
+            ],
+            [
+              2010,
+              "UKR"
+            ],
+            [
+              2011,
+              "UKR"
+            ]
+          ],
+          "r": 13
+        },
+        {
+          "id": 122367,
+          "name": "Viktoriia Lavrenchenko",
+          "fed": "UKR",
+          "gender": "W",
+          "t": 2,
+          "f": 2010,
+          "l": 2010,
+          "s": [
+            [
+              2010,
+              2,
+              208
+            ]
+          ],
+          "at": [
+            [
+              2010,
+              "UKR"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 147368,
+      "name": "Irina Abbaszade",
+      "dob": "1991-01-13",
+      "height": 182,
+      "weight": 66,
+      "away": [
+        {
+          "id": 118023,
+          "name": "Ekaterina Karapischenko",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 4,
+          "f": 2007,
+          "l": 2009,
+          "s": [
+            [
+              2007,
+              2,
+              247
+            ],
+            [
+              2008,
+              1,
+              212
+            ],
+            [
+              2009,
+              1,
+              231
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "RUS"
+            ],
+            [
+              2008,
+              "RUS"
+            ],
+            [
+              2009,
+              "RUS"
+            ]
+          ],
+          "r": 2
+        },
+        {
+          "id": 134964,
+          "name": "Ekaterina Syrtseva",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 4,
+          "f": 2013,
+          "l": 2013,
+          "s": [
+            [
+              2013,
+              4,
+              204
+            ]
+          ],
+          "at": [
+            [
+              2013,
+              "RUS"
+            ]
+          ],
+          "r": 5
+        },
+        {
+          "id": 120468,
+          "name": "Ekaterina Birlova",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 2,
+          "f": 2010,
+          "l": 2010,
+          "s": [
+            [
+              2010,
+              2,
+              307
+            ]
+          ],
+          "at": [
+            [
+              2010,
+              "RUS"
+            ]
+          ],
+          "r": 17
+        },
+        {
+          "id": 132140,
+          "name": "Yulia Abalakina",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 2,
+          "f": 2010,
+          "l": 2013,
+          "s": [
+            [
+              2010,
+              1,
+              258
+            ],
+            [
+              2013,
+              1,
+              156
+            ]
+          ],
+          "at": [
+            [
+              2010,
+              "RUS"
+            ],
+            [
+              2013,
+              "RUS"
+            ]
+          ],
+          "r": 5
+        },
+        {
+          "id": 120559,
+          "name": "Anna Vozakova",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 1,
+          "f": 2009,
+          "l": 2009,
+          "s": [
+            [
+              2009,
+              1,
+              259
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "RUS"
+            ]
+          ],
+          "r": 3
+        },
+        {
+          "id": 118019,
+          "name": "Daria Yarzutkina",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 1,
+          "f": 2009,
+          "l": 2009,
+          "s": [
+            [
+              2009,
+              1,
+              195
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "RUS"
+            ]
+          ],
+          "r": 41
+        },
+        {
+          "id": 117997,
+          "name": "Evgenia Ukolova",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 1,
+          "f": 2013,
+          "l": 2013,
+          "s": [
+            [
+              2013,
+              1,
+              121
+            ]
+          ],
+          "at": [
+            [
+              2013,
+              "RUS"
+            ]
+          ],
+          "r": 25
+        },
+        {
+          "id": 103960,
+          "name": "Maria Prokopeva",
+          "fed": "RUS",
+          "gender": "W",
+          "t": 1,
+          "f": 2013,
+          "l": 2013,
+          "s": [
+            [
+              2013,
+              1,
+              142
+            ]
+          ],
+          "at": [
+            [
+              2013,
+              "RUS"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    },
+    {
+      "id": 147672,
+      "name": "Raquel Goncalves Ferreira",
+      "dob": "1982-10-08",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 131694,
+          "name": "Iuliia Zhernova",
+          "fed": "UKR",
+          "gender": "W",
+          "t": 5,
+          "f": 2014,
+          "l": 2015,
+          "s": [
+            [
+              2014,
+              2,
+              309
+            ],
+            [
+              2015,
+              3,
+              146
+            ]
+          ],
+          "at": [
+            [
+              2014,
+              "AZE"
+            ],
+            [
+              2015,
+              "AZE"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    }
   ]
 }

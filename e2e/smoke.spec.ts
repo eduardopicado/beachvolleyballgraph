@@ -198,6 +198,77 @@ test.describe('partners from other federations', () => {
   });
 });
 
+test.describe('best finish together', () => {
+  /**
+   * The player in this slice whose partnerships have the widest spread of best
+   * finishes, so one card exercises a title, a mid-table result and a long
+   * placement rather than three rows that happen to read alike.
+   */
+  const spread = () => {
+    const data = graph(COUNTRY, GENDER);
+    const byPlayer = new Map<number, number[]>();
+    for (const e of data.edges) {
+      if (e.r === undefined) continue;
+      for (const id of [e.a, e.b]) byPlayer.set(id, [...(byPlayer.get(id) ?? []), e.r]);
+    }
+    let best = { id: 0, ranks: [] as number[] };
+    for (const [id, ranks] of byPlayer) {
+      if (new Set(ranks).size > new Set(best.ranks).size) best = { id, ranks };
+    }
+    return best;
+  };
+
+  test('shows each partnership\u2019s best placement, matching the graph file', async ({ page }) => {
+    const target = spread();
+    // Guards the guard: without this the assertions below would pass happily
+    // against a card that renders no best finishes at all.
+    expect(new Set(target.ranks).size, 'no player has more than one distinct best finish').toBeGreaterThan(2);
+
+    await page.goto(`./${slicePath()}?player=${target.id}`);
+    // `allInnerTexts` does not auto-wait, so without settling the list first it
+    // reads an empty DOM and the length assertion below fails against zero
+    // rather than against a wrong number.
+    await expect(page.locator('.partners > ul > li').first()).toBeVisible();
+    const cells = page.locator('.partners > ul > li .best [aria-hidden="true"]');
+    await expect(cells).toHaveCount(target.ranks.length);
+    const shown = await cells.allInnerTexts();
+
+    // The numbers are the graph file's, read back through the ordinal the card
+    // renders — so a wrong field, or an off-by-one, fails here rather than
+    // looking plausible.
+    const ordinal = (n: number) => {
+      const tens = n % 100;
+      if (tens >= 11 && tens <= 13) return `${n}th`;
+      return `${n}${({ 1: 'st', 2: 'nd', 3: 'rd' } as Record<number, string>)[n % 10] ?? 'th'}`;
+    };
+    expect([...shown].sort()).toEqual([...target.ranks.map(ordinal)].sort());
+  });
+
+  test('says what the placement means, for a reader who cannot see the column', async ({ page }) => {
+    const target = spread();
+    await page.goto(`./${slicePath()}?player=${target.id}`);
+    // The visible text is a bare "5th"; the row has to carry what that is.
+    const first = page.locator('.partners > ul > li .best').first();
+    await expect(first).toContainText('Best finish together');
+    await expect(first).toHaveAttribute('title', /^Best finish together: /);
+  });
+
+  test('renders nothing at all for a pair who never reached a main draw', async ({ page }) => {
+    const data = graph(COUNTRY, GENDER);
+    const edge = data.edges.find((e) => e.r === undefined);
+    test.skip(!edge, 'every partnership in this slice reached a main draw');
+
+    await page.goto(`./${slicePath()}?player=${edge!.a}`);
+    const rows = page.locator('.partners > ul > li');
+    await expect(rows.first()).toBeVisible();
+    // A dash or a zero would read as a bad result rather than no result, so
+    // the element must be absent — not empty.
+    const withBest = await page.locator('.partners > ul > li .best').count();
+    const total = await rows.count();
+    expect(withBest).toBeLessThan(total);
+  });
+});
+
 test.describe('timeline view', () => {
   // Scoped to the switch: the sortable table below the graph has its own
   // "Partners" column-header button, so an unscoped role query is ambiguous.

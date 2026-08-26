@@ -2,135 +2,1060 @@
   "country": "LAT",
   "gender": "M",
   "players": [
-    {"id":100475,"name":"Ugis Krastins","dob":"1970-05-16","height":190,"weight":80},
-    {"id":100476,"name":"Aivis Eida","dob":"1970-09-07","height":195,"weight":91},
-    {"id":100515,"name":"Ainar Vanags","dob":"1967-01-27","height":196,"weight":100},
-    {"id":100666,"name":"Jurijs Vlasovs","dob":"1964-12-05","height":180,"weight":78},
-    {"id":100826,"name":"Janis Grinbergs","dob":"1971-03-18","height":192,"weight":81,"tour":{"gold":1,"silver":0,"bronze":3}},
-    {"id":100851,"name":"Normunds Linkevicz","dob":"1972-02-13","height":188,"weight":83},
-    {"id":101350,"name":"Viktor Artamonov","dob":"1959-07-05","height":null,"weight":null,"away":[{"id":101227,"name":"Valts Mihelsons","fed":"RUS","gender":"M","t":1,"f":1987,"l":1987,"s":[[1987,1,936]],"at":[[1987,"LAT"]]}]},
-    {"id":101785,"name":"Andris Alksnis","dob":"1975-04-25","height":198,"weight":94},
-    {"id":101786,"name":"Ventis Didrihsons","dob":"1971-11-24","height":193,"weight":88},
-    {"id":101787,"name":"Andris Krumins","dob":"1976-07-27","height":186,"weight":78,"tour":{"gold":1,"silver":2,"bronze":1}},
-    {"id":101788,"name":"Austris Stals","dob":"1977-10-08","height":188,"weight":82,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":101789,"name":"Ringolds Stals","dob":"1976-02-22","height":188,"weight":81},
-    {"id":102076,"name":"Juris Murnieks","dob":"1956-05-19","height":null,"weight":null},
-    {"id":102135,"name":"Amrins 'Zany' Vensbergs","dob":"1978-07-11","height":null,"weight":null},
-    {"id":102325,"name":"Edgars Sebezs","dob":"1979-04-14","height":192,"weight":79},
-    {"id":102326,"name":"Klavs Zalkalns","dob":"1979-02-19","height":185,"weight":78},
-    {"id":102392,"name":"Igors Zarigins","dob":"1962-03-01","height":null,"weight":null},
-    {"id":102626,"name":"Juris Gendelis","dob":"1972-04-04","height":null,"weight":null},
-    {"id":103480,"name":"Kristians Marnics","dob":"1981-02-13","height":null,"weight":null},
-    {"id":103481,"name":"Tomass Marnics","dob":"1982-12-25","height":183,"weight":75},
-    {"id":103523,"name":"Ruslans Sorokins","dob":"1982-03-11","height":196,"weight":96,"tour":{"gold":0,"silver":4,"bronze":0}},
-    {"id":103982,"name":"Lauris Iecelnieks","dob":"1982-11-07","height":null,"weight":null},
-    {"id":104139,"name":"Artis Caics","dob":"1985-10-13","height":190,"weight":83},
-    {"id":104140,"name":"Toms Smedins","dob":"1986-04-25","height":190,"weight":83,"tour":{"gold":0,"silver":1,"bronze":2}},
-    {"id":104141,"name":"Valters Vensbergs","dob":null,"height":null,"weight":null},
-    {"id":104142,"name":"Martins Plavins","dob":"1985-05-08","height":190,"weight":92,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":7,"silver":4,"bronze":8}},
-    {"id":104356,"name":"Valters Ramma","dob":"1985-04-08","height":null,"weight":null},
-    {"id":104357,"name":"Aleksandrs Samoilovs","dob":"1985-04-06","height":196,"weight":96,"tour":{"gold":14,"silver":8,"bronze":8}},
-    {"id":104449,"name":"Janis Smedins","dob":"1987-07-31","height":191,"weight":84,"olympics":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":14,"silver":7,"bronze":8}},
-    {"id":104450,"name":"Janis Straume","dob":"1986-08-17","height":null,"weight":null},
-    {"id":104451,"name":"Rolands Ozolins","dob":"1986-05-20","height":null,"weight":null},
-    {"id":104805,"name":"Aigars Brivna","dob":null,"height":null,"weight":null},
-    {"id":104806,"name":"Janis Rudzitis","dob":null,"height":null,"weight":null},
-    {"id":105065,"name":"Arnis Mileiko","dob":null,"height":null,"weight":null},
-    {"id":105070,"name":"Ingars Ivanovs","dob":"1987-04-02","height":null,"weight":null},
-    {"id":105071,"name":"Girts GlÃ¤zers","dob":null,"height":null,"weight":null},
-    {"id":114982,"name":"Janis Peda","dob":"1985-05-18","height":198,"weight":102},
-    {"id":115736,"name":"Berzins Janis","dob":null,"height":null,"weight":null},
-    {"id":116534,"name":"Andris Laizans","dob":null,"height":null,"weight":null},
-    {"id":116536,"name":"Janis Freidenfelds","dob":"1983-09-14","height":null,"weight":null},
-    {"id":116829,"name":"Martins Freidenfelds","dob":"1987-08-10","height":null,"weight":null},
-    {"id":118049,"name":"Janis Jeskevics","dob":null,"height":null,"weight":null},
-    {"id":119320,"name":"Hermans Egleskalns","dob":"1990-12-08","height":203,"weight":93},
-    {"id":119323,"name":"Kristaps Birzulis","dob":null,"height":null,"weight":null},
-    {"id":119324,"name":"Eriks Voronko","dob":null,"height":null,"weight":null},
-    {"id":120075,"name":"Vanags Toms","dob":null,"height":null,"weight":null},
-    {"id":120767,"name":"Gatis Brokans","dob":"1991-05-23","height":null,"weight":null},
-    {"id":120768,"name":"Viktors Korzenevics","dob":"1986-07-09","height":203,"weight":92},
-    {"id":120777,"name":"Andrejs Jekimovs","dob":"1990-11-14","height":null,"weight":null},
-    {"id":120889,"name":"Ralfs Ozolins","dob":"1989-10-06","height":null,"weight":null},
-    {"id":121453,"name":"Romans Sauss","dob":"1989-06-27","height":193,"weight":85},
-    {"id":124796,"name":"Haralds Regza","dob":"1992-07-06","height":197,"weight":88,"tour":{"gold":0,"silver":1,"bronze":3}},
-    {"id":124810,"name":"Benjavs Toms","dob":"1989-09-24","height":null,"weight":null},
-    {"id":124842,"name":"Andis Cimoska","dob":"1991-07-10","height":null,"weight":null},
-    {"id":124843,"name":"Martins Jansons","dob":"1991-03-10","height":null,"weight":null},
-    {"id":124844,"name":"Matiss Petersons","dob":"1991-01-31","height":null,"weight":null},
-    {"id":132668,"name":"Aleksandrs Solovejs","dob":"1991-01-11","height":203,"weight":108,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":132669,"name":"Rihards Finsters","dob":"1991-05-21","height":191,"weight":87},
-    {"id":132685,"name":"Armands Abolins","dob":"1992-04-04","height":null,"weight":null},
-    {"id":132691,"name":"Reinis Pekmans","dob":"1993-06-06","height":null,"weight":null},
-    {"id":132692,"name":"Natrins Daniels","dob":"1993-04-12","height":192,"weight":90},
-    {"id":133228,"name":"Edgars Tocs","dob":"1988-11-29","height":196,"weight":94,"tour":{"gold":3,"silver":1,"bronze":3}},
-    {"id":136117,"name":"Natrins Davis","dob":"1986-12-18","height":null,"weight":null},
-    {"id":137284,"name":"Toms Prokofjevs","dob":"1994-04-18","height":null,"weight":null},
-    {"id":137286,"name":"Maris Lancmanis","dob":"1995-02-19","height":null,"weight":null},
-    {"id":139421,"name":"Pavels Jemeljanovs","dob":"1997-03-13","height":196,"weight":93},
-    {"id":139598,"name":"Raimonds Linins","dob":"1996-02-01","height":null,"weight":null},
-    {"id":139665,"name":"Ricards Ziedins","dob":"1996-01-03","height":null,"weight":null},
-    {"id":140038,"name":"Edvarts Buivids","dob":"1993-12-04","height":200,"weight":100},
-    {"id":142516,"name":"Reinis Pridans","dob":"1996-01-01","height":null,"weight":null},
-    {"id":142517,"name":"Edgars Potasovs","dob":"1995-11-11","height":null,"weight":null},
-    {"id":142518,"name":"Vlads Smirnovs","dob":"1995-07-20","height":null,"weight":null},
-    {"id":142970,"name":"Pauls Alberts van der Beks","dob":"1995-11-03","height":null,"weight":null},
-    {"id":143933,"name":"Janis Kuprasovs","dob":"1986-02-10","height":null,"weight":null},
-    {"id":143938,"name":"Gints Antoms","dob":"1985-10-26","height":null,"weight":null},
-    {"id":143947,"name":"Oskars Puga","dob":"1988-08-12","height":null,"weight":null},
-    {"id":143948,"name":"Kristaps Punculis","dob":"1987-10-06","height":null,"weight":null},
-    {"id":144274,"name":"Karlis Kliemans","dob":"1997-03-31","height":null,"weight":null},
-    {"id":146862,"name":"Mihails Samoilovs","dob":"1998-02-20","height":201,"weight":101,"tour":{"gold":0,"silver":2,"bronze":1}},
-    {"id":147143,"name":"Rihards Lazdins","dob":"1999-05-14","height":193,"weight":92},
-    {"id":147144,"name":"Atvars Ozolins","dob":"1998-12-17","height":null,"weight":null},
-    {"id":149767,"name":"Martins Dauburs","dob":"1988-04-28","height":193,"weight":82},
-    {"id":151386,"name":"Arnis Relins","dob":"1989-06-04","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":151406,"name":"Olegs Holodnuks","dob":"1991-02-10","height":null,"weight":null},
-    {"id":151605,"name":"Marcis Jirgensons","dob":"1990-12-24","height":null,"weight":null},
-    {"id":153263,"name":"Kristaps Smits","dob":"1998-03-31","height":184,"weight":82},
-    {"id":156967,"name":"Aleks Kulesevics","dob":"1993-02-01","height":null,"weight":null},
-    {"id":158193,"name":"Janis Jansons","dob":"2000-08-31","height":195,"weight":93},
-    {"id":158194,"name":"Roberts Klavins","dob":"2000-03-09","height":null,"weight":null},
-    {"id":158418,"name":"Ardis Bedritis","dob":"2000-07-10","height":194,"weight":null,"tour":{"gold":1,"silver":3,"bronze":3}},
-    {"id":159414,"name":"Matiss Gabdullins","dob":"1992-11-15","height":null,"weight":null},
-    {"id":162778,"name":"Rinalds Belerts","dob":"1999-02-16","height":178,"weight":79},
-    {"id":162779,"name":"Toms Bergans Bergis","dob":"1999-04-30","height":null,"weight":null},
-    {"id":163474,"name":"Arturs Rinkevics","dob":"2001-01-11","height":190,"weight":84,"tour":{"gold":1,"silver":3,"bronze":3}},
-    {"id":163589,"name":"Rudolfs Stankevics","dob":"2001-04-23","height":194,"weight":87},
-    {"id":163590,"name":"Rinalds Aišpurs","dob":"1999-07-13","height":null,"weight":null},
-    {"id":166848,"name":"Mārtiņš Birze","dob":"1997-03-18","height":null,"weight":null},
-    {"id":169366,"name":"Ralfs Namikis","dob":"2002-07-16","height":null,"weight":null},
-    {"id":169574,"name":"Aivars Sviklis","dob":"1987-06-28","height":null,"weight":null},
-    {"id":173506,"name":"Markuss Graudins","dob":"2003-08-02","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":173607,"name":"Olivers Bulgacs","dob":"2004-02-11","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":3}},
-    {"id":173608,"name":"Davis Teteris","dob":"2004-03-05","height":null,"weight":null},
-    {"id":179113,"name":"Sandis Berzins","dob":"2003-05-29","height":null,"weight":null},
-    {"id":179122,"name":"Kristians Fokerots","dob":"2005-01-31","height":null,"weight":null,"tour":{"gold":4,"silver":2,"bronze":6}},
-    {"id":179133,"name":"Ernests Puskundzis","dob":"2004-12-26","height":196,"weight":83,"tour":{"gold":1,"silver":0,"bronze":2}},
-    {"id":179136,"name":"Karlis Abelitis","dob":"2003-06-21","height":197,"weight":89},
-    {"id":181719,"name":"Toms Liepa","dob":"2004-12-21","height":200,"weight":92,"tour":{"gold":1,"silver":0,"bronze":1}},
-    {"id":181726,"name":"Bruno Bulgačs","dob":"2005-11-09","height":null,"weight":null},
-    {"id":181727,"name":"Reinis Rorbaks","dob":"2003-04-15","height":null,"weight":null},
-    {"id":182026,"name":"Oskars Kilks","dob":"2006-02-03","height":null,"weight":null},
-    {"id":182249,"name":"Markuss Maculēvičs","dob":"2006-06-01","height":null,"weight":null},
-    {"id":182786,"name":"Gustavs Auzins","dob":"2005-03-29","height":null,"weight":null,"tour":{"gold":3,"silver":2,"bronze":1}},
-    {"id":184409,"name":"Miloss Donavans","dob":"1999-05-04","height":null,"weight":null},
-    {"id":190317,"name":"Ansis Dobelis","dob":"2005-07-18","height":null,"weight":null},
-    {"id":190325,"name":"Ernests Gūtmanis","dob":"2005-06-02","height":null,"weight":null},
-    {"id":190909,"name":"Matīss Šalkovskis","dob":"2006-04-20","height":null,"weight":null},
-    {"id":190910,"name":"Aivis Blekte","dob":"2006-08-26","height":186,"weight":79},
-    {"id":192501,"name":"Ralfs Andrejevs","dob":"2007-07-24","height":null,"weight":null},
-    {"id":192792,"name":"Karlis Jaundžeikars","dob":"2006-09-23","height":null,"weight":null},
-    {"id":200599,"name":"Eduards Dūdens","dob":"2007-11-01","height":null,"weight":null},
-    {"id":201541,"name":"Martins Pope","dob":"2007-09-23","height":null,"weight":null},
-    {"id":201543,"name":"Gustavs Druska","dob":"2007-01-22","height":null,"weight":null},
-    {"id":208106,"name":"Tomass Silavs","dob":"2009-10-20","height":195,"weight":85},
-    {"id":211966,"name":"Mārcis Bērziņš","dob":"2006-07-08","height":194,"weight":78,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":211968,"name":"Rīčards Kārlis Zemītis","dob":"2008-08-24","height":188,"weight":77},
-    {"id":211992,"name":"Kārlis Arturs Mičulis","dob":"2007-07-20","height":null,"weight":null},
-    {"id":211993,"name":"Bruno Liepiņš","dob":"2008-08-29","height":190,"weight":null},
-    {"id":212793,"name":"Renārs Augusts","dob":"2008-11-04","height":190,"weight":77},
-    {"id":214071,"name":"Renārs Lasmanis","dob":"2009-12-11","height":192,"weight":85},
-    {"id":218022,"name":"Ernests Pastars","dob":"2010-10-30","height":null,"weight":null}
+    {
+      "id": 100475,
+      "name": "Ugis Krastins",
+      "dob": "1970-05-16",
+      "height": 190,
+      "weight": 80
+    },
+    {
+      "id": 100476,
+      "name": "Aivis Eida",
+      "dob": "1970-09-07",
+      "height": 195,
+      "weight": 91
+    },
+    {
+      "id": 100515,
+      "name": "Ainar Vanags",
+      "dob": "1967-01-27",
+      "height": 196,
+      "weight": 100
+    },
+    {
+      "id": 100666,
+      "name": "Jurijs Vlasovs",
+      "dob": "1964-12-05",
+      "height": 180,
+      "weight": 78
+    },
+    {
+      "id": 100826,
+      "name": "Janis Grinbergs",
+      "dob": "1971-03-18",
+      "height": 192,
+      "weight": 81,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 100851,
+      "name": "Normunds Linkevicz",
+      "dob": "1972-02-13",
+      "height": 188,
+      "weight": 83
+    },
+    {
+      "id": 101350,
+      "name": "Viktor Artamonov",
+      "dob": "1959-07-05",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 101227,
+          "name": "Valts Mihelsons",
+          "fed": "RUS",
+          "gender": "M",
+          "t": 1,
+          "f": 1987,
+          "l": 1987,
+          "s": [
+            [
+              1987,
+              1,
+              936
+            ]
+          ],
+          "at": [
+            [
+              1987,
+              "LAT"
+            ]
+          ],
+          "r": 12
+        }
+      ]
+    },
+    {
+      "id": 101785,
+      "name": "Andris Alksnis",
+      "dob": "1975-04-25",
+      "height": 198,
+      "weight": 94
+    },
+    {
+      "id": 101786,
+      "name": "Ventis Didrihsons",
+      "dob": "1971-11-24",
+      "height": 193,
+      "weight": 88
+    },
+    {
+      "id": 101787,
+      "name": "Andris Krumins",
+      "dob": "1976-07-27",
+      "height": 186,
+      "weight": 78,
+      "tour": {
+        "gold": 1,
+        "silver": 2,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 101788,
+      "name": "Austris Stals",
+      "dob": "1977-10-08",
+      "height": 188,
+      "weight": 82,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 101789,
+      "name": "Ringolds Stals",
+      "dob": "1976-02-22",
+      "height": 188,
+      "weight": 81
+    },
+    {
+      "id": 102076,
+      "name": "Juris Murnieks",
+      "dob": "1956-05-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102135,
+      "name": "Amrins 'Zany' Vensbergs",
+      "dob": "1978-07-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102325,
+      "name": "Edgars Sebezs",
+      "dob": "1979-04-14",
+      "height": 192,
+      "weight": 79
+    },
+    {
+      "id": 102326,
+      "name": "Klavs Zalkalns",
+      "dob": "1979-02-19",
+      "height": 185,
+      "weight": 78
+    },
+    {
+      "id": 102392,
+      "name": "Igors Zarigins",
+      "dob": "1962-03-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102626,
+      "name": "Juris Gendelis",
+      "dob": "1972-04-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103480,
+      "name": "Kristians Marnics",
+      "dob": "1981-02-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103481,
+      "name": "Tomass Marnics",
+      "dob": "1982-12-25",
+      "height": 183,
+      "weight": 75
+    },
+    {
+      "id": 103523,
+      "name": "Ruslans Sorokins",
+      "dob": "1982-03-11",
+      "height": 196,
+      "weight": 96,
+      "tour": {
+        "gold": 0,
+        "silver": 4,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 103982,
+      "name": "Lauris Iecelnieks",
+      "dob": "1982-11-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104139,
+      "name": "Artis Caics",
+      "dob": "1985-10-13",
+      "height": 190,
+      "weight": 83
+    },
+    {
+      "id": 104140,
+      "name": "Toms Smedins",
+      "dob": "1986-04-25",
+      "height": 190,
+      "weight": 83,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 104141,
+      "name": "Valters Vensbergs",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104142,
+      "name": "Martins Plavins",
+      "dob": "1985-05-08",
+      "height": 190,
+      "weight": 92,
+      "olympics": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 7,
+        "silver": 4,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 104356,
+      "name": "Valters Ramma",
+      "dob": "1985-04-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104357,
+      "name": "Aleksandrs Samoilovs",
+      "dob": "1985-04-06",
+      "height": 196,
+      "weight": 96,
+      "tour": {
+        "gold": 14,
+        "silver": 8,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 104449,
+      "name": "Janis Smedins",
+      "dob": "1987-07-31",
+      "height": 191,
+      "weight": 84,
+      "olympics": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 14,
+        "silver": 7,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 104450,
+      "name": "Janis Straume",
+      "dob": "1986-08-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104451,
+      "name": "Rolands Ozolins",
+      "dob": "1986-05-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104805,
+      "name": "Aigars Brivna",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104806,
+      "name": "Janis Rudzitis",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105065,
+      "name": "Arnis Mileiko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105070,
+      "name": "Ingars Ivanovs",
+      "dob": "1987-04-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105071,
+      "name": "Girts GlÃ¤zers",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 114982,
+      "name": "Janis Peda",
+      "dob": "1985-05-18",
+      "height": 198,
+      "weight": 102
+    },
+    {
+      "id": 115736,
+      "name": "Berzins Janis",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116534,
+      "name": "Andris Laizans",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116536,
+      "name": "Janis Freidenfelds",
+      "dob": "1983-09-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 116829,
+      "name": "Martins Freidenfelds",
+      "dob": "1987-08-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118049,
+      "name": "Janis Jeskevics",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119320,
+      "name": "Hermans Egleskalns",
+      "dob": "1990-12-08",
+      "height": 203,
+      "weight": 93
+    },
+    {
+      "id": 119323,
+      "name": "Kristaps Birzulis",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 119324,
+      "name": "Eriks Voronko",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120075,
+      "name": "Vanags Toms",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120767,
+      "name": "Gatis Brokans",
+      "dob": "1991-05-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120768,
+      "name": "Viktors Korzenevics",
+      "dob": "1986-07-09",
+      "height": 203,
+      "weight": 92
+    },
+    {
+      "id": 120777,
+      "name": "Andrejs Jekimovs",
+      "dob": "1990-11-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120889,
+      "name": "Ralfs Ozolins",
+      "dob": "1989-10-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 121453,
+      "name": "Romans Sauss",
+      "dob": "1989-06-27",
+      "height": 193,
+      "weight": 85
+    },
+    {
+      "id": 124796,
+      "name": "Haralds Regza",
+      "dob": "1992-07-06",
+      "height": 197,
+      "weight": 88,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 124810,
+      "name": "Benjavs Toms",
+      "dob": "1989-09-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124842,
+      "name": "Andis Cimoska",
+      "dob": "1991-07-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124843,
+      "name": "Martins Jansons",
+      "dob": "1991-03-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124844,
+      "name": "Matiss Petersons",
+      "dob": "1991-01-31",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132668,
+      "name": "Aleksandrs Solovejs",
+      "dob": "1991-01-11",
+      "height": 203,
+      "weight": 108,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 132669,
+      "name": "Rihards Finsters",
+      "dob": "1991-05-21",
+      "height": 191,
+      "weight": 87
+    },
+    {
+      "id": 132685,
+      "name": "Armands Abolins",
+      "dob": "1992-04-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132691,
+      "name": "Reinis Pekmans",
+      "dob": "1993-06-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132692,
+      "name": "Natrins Daniels",
+      "dob": "1993-04-12",
+      "height": 192,
+      "weight": 90
+    },
+    {
+      "id": 133228,
+      "name": "Edgars Tocs",
+      "dob": "1988-11-29",
+      "height": 196,
+      "weight": 94,
+      "tour": {
+        "gold": 3,
+        "silver": 1,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 136117,
+      "name": "Natrins Davis",
+      "dob": "1986-12-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 137284,
+      "name": "Toms Prokofjevs",
+      "dob": "1994-04-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 137286,
+      "name": "Maris Lancmanis",
+      "dob": "1995-02-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139421,
+      "name": "Pavels Jemeljanovs",
+      "dob": "1997-03-13",
+      "height": 196,
+      "weight": 93
+    },
+    {
+      "id": 139598,
+      "name": "Raimonds Linins",
+      "dob": "1996-02-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139665,
+      "name": "Ricards Ziedins",
+      "dob": "1996-01-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 140038,
+      "name": "Edvarts Buivids",
+      "dob": "1993-12-04",
+      "height": 200,
+      "weight": 100
+    },
+    {
+      "id": 142516,
+      "name": "Reinis Pridans",
+      "dob": "1996-01-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142517,
+      "name": "Edgars Potasovs",
+      "dob": "1995-11-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142518,
+      "name": "Vlads Smirnovs",
+      "dob": "1995-07-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142970,
+      "name": "Pauls Alberts van der Beks",
+      "dob": "1995-11-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143933,
+      "name": "Janis Kuprasovs",
+      "dob": "1986-02-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143938,
+      "name": "Gints Antoms",
+      "dob": "1985-10-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143947,
+      "name": "Oskars Puga",
+      "dob": "1988-08-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143948,
+      "name": "Kristaps Punculis",
+      "dob": "1987-10-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 144274,
+      "name": "Karlis Kliemans",
+      "dob": "1997-03-31",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146862,
+      "name": "Mihails Samoilovs",
+      "dob": "1998-02-20",
+      "height": 201,
+      "weight": 101,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 147143,
+      "name": "Rihards Lazdins",
+      "dob": "1999-05-14",
+      "height": 193,
+      "weight": 92
+    },
+    {
+      "id": 147144,
+      "name": "Atvars Ozolins",
+      "dob": "1998-12-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 149767,
+      "name": "Martins Dauburs",
+      "dob": "1988-04-28",
+      "height": 193,
+      "weight": 82
+    },
+    {
+      "id": 151386,
+      "name": "Arnis Relins",
+      "dob": "1989-06-04",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 151406,
+      "name": "Olegs Holodnuks",
+      "dob": "1991-02-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 151605,
+      "name": "Marcis Jirgensons",
+      "dob": "1990-12-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 153263,
+      "name": "Kristaps Smits",
+      "dob": "1998-03-31",
+      "height": 184,
+      "weight": 82
+    },
+    {
+      "id": 156967,
+      "name": "Aleks Kulesevics",
+      "dob": "1993-02-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 158193,
+      "name": "Janis Jansons",
+      "dob": "2000-08-31",
+      "height": 195,
+      "weight": 93
+    },
+    {
+      "id": 158194,
+      "name": "Roberts Klavins",
+      "dob": "2000-03-09",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 158418,
+      "name": "Ardis Bedritis",
+      "dob": "2000-07-10",
+      "height": 194,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 3,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 159414,
+      "name": "Matiss Gabdullins",
+      "dob": "1992-11-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 162778,
+      "name": "Rinalds Belerts",
+      "dob": "1999-02-16",
+      "height": 178,
+      "weight": 79
+    },
+    {
+      "id": 162779,
+      "name": "Toms Bergans Bergis",
+      "dob": "1999-04-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 163474,
+      "name": "Arturs Rinkevics",
+      "dob": "2001-01-11",
+      "height": 190,
+      "weight": 84,
+      "tour": {
+        "gold": 1,
+        "silver": 3,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 163589,
+      "name": "Rudolfs Stankevics",
+      "dob": "2001-04-23",
+      "height": 194,
+      "weight": 87
+    },
+    {
+      "id": 163590,
+      "name": "Rinalds Aišpurs",
+      "dob": "1999-07-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 166848,
+      "name": "Mārtiņš Birze",
+      "dob": "1997-03-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 169366,
+      "name": "Ralfs Namikis",
+      "dob": "2002-07-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 169574,
+      "name": "Aivars Sviklis",
+      "dob": "1987-06-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 173506,
+      "name": "Markuss Graudins",
+      "dob": "2003-08-02",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 173607,
+      "name": "Olivers Bulgacs",
+      "dob": "2004-02-11",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 173608,
+      "name": "Davis Teteris",
+      "dob": "2004-03-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179113,
+      "name": "Sandis Berzins",
+      "dob": "2003-05-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 179122,
+      "name": "Kristians Fokerots",
+      "dob": "2005-01-31",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 4,
+        "silver": 2,
+        "bronze": 6
+      }
+    },
+    {
+      "id": 179133,
+      "name": "Ernests Puskundzis",
+      "dob": "2004-12-26",
+      "height": 196,
+      "weight": 83,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 179136,
+      "name": "Karlis Abelitis",
+      "dob": "2003-06-21",
+      "height": 197,
+      "weight": 89
+    },
+    {
+      "id": 181719,
+      "name": "Toms Liepa",
+      "dob": "2004-12-21",
+      "height": 200,
+      "weight": 92,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 181726,
+      "name": "Bruno Bulgačs",
+      "dob": "2005-11-09",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 181727,
+      "name": "Reinis Rorbaks",
+      "dob": "2003-04-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182026,
+      "name": "Oskars Kilks",
+      "dob": "2006-02-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182249,
+      "name": "Markuss Maculēvičs",
+      "dob": "2006-06-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 182786,
+      "name": "Gustavs Auzins",
+      "dob": "2005-03-29",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 3,
+        "silver": 2,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 184409,
+      "name": "Miloss Donavans",
+      "dob": "1999-05-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190317,
+      "name": "Ansis Dobelis",
+      "dob": "2005-07-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190325,
+      "name": "Ernests Gūtmanis",
+      "dob": "2005-06-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190909,
+      "name": "Matīss Šalkovskis",
+      "dob": "2006-04-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190910,
+      "name": "Aivis Blekte",
+      "dob": "2006-08-26",
+      "height": 186,
+      "weight": 79
+    },
+    {
+      "id": 192501,
+      "name": "Ralfs Andrejevs",
+      "dob": "2007-07-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192792,
+      "name": "Karlis Jaundžeikars",
+      "dob": "2006-09-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 200599,
+      "name": "Eduards Dūdens",
+      "dob": "2007-11-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 201541,
+      "name": "Martins Pope",
+      "dob": "2007-09-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 201543,
+      "name": "Gustavs Druska",
+      "dob": "2007-01-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 208106,
+      "name": "Tomass Silavs",
+      "dob": "2009-10-20",
+      "height": 195,
+      "weight": 85
+    },
+    {
+      "id": 211966,
+      "name": "Mārcis Bērziņš",
+      "dob": "2006-07-08",
+      "height": 194,
+      "weight": 78,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 211968,
+      "name": "Rīčards Kārlis Zemītis",
+      "dob": "2008-08-24",
+      "height": 188,
+      "weight": 77
+    },
+    {
+      "id": 211992,
+      "name": "Kārlis Arturs Mičulis",
+      "dob": "2007-07-20",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 211993,
+      "name": "Bruno Liepiņš",
+      "dob": "2008-08-29",
+      "height": 190,
+      "weight": null
+    },
+    {
+      "id": 212793,
+      "name": "Renārs Augusts",
+      "dob": "2008-11-04",
+      "height": 190,
+      "weight": 77
+    },
+    {
+      "id": 214071,
+      "name": "Renārs Lasmanis",
+      "dob": "2009-12-11",
+      "height": 192,
+      "weight": 85
+    },
+    {
+      "id": 218022,
+      "name": "Ernests Pastars",
+      "dob": "2010-10-30",
+      "height": null,
+      "weight": null
+    }
   ]
 }

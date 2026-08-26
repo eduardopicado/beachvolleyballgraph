@@ -2,56 +2,602 @@
   "country": "DEN",
   "gender": "M",
   "players": [
-    {"id":100009,"name":"Glen Hytoft","dob":"1968-06-24","height":187,"weight":80},
-    {"id":100094,"name":"Kim Kaszas","dob":"1964-12-23","height":190,"weight":91},
-    {"id":100290,"name":"Ole Lachenmeier","dob":"1963-07-30","height":202,"weight":102},
-    {"id":100497,"name":"Lars  Christian Lunde","dob":"1973-07-11","height":198,"weight":81},
-    {"id":100784,"name":"Jes Barkler","dob":"1973-03-07","height":191,"weight":85},
-    {"id":100849,"name":"Peter Lyo","dob":"1964-11-30","height":190,"weight":85},
-    {"id":100892,"name":"Jakob Martens","dob":"1973-06-07","height":184,"weight":78,"away":[{"id":102786,"name":"Bo Soderberg","fed":"AUS","gender":"M","t":1,"f":2001,"l":2001,"s":[[2001,1,179]],"at":[[2001,"AUS"]]}]},
-    {"id":102168,"name":"Jens 'Hassing' Larsen","dob":"1969-08-22","height":null,"weight":null},
-    {"id":102180,"name":"Mikkel \"Bosse\" Herslov","dob":"1971-01-19","height":184,"weight":76},
-    {"id":102181,"name":"Thomas Lyo","dob":"1970-09-18","height":189,"weight":85},
-    {"id":102589,"name":"Jesper Hansen","dob":"1975-10-02","height":193,"weight":78},
-    {"id":102646,"name":"Andreas Olesen","dob":"1977-03-20","height":186,"weight":82,"away":[{"id":102786,"name":"Bo Soderberg","fed":"AUS","gender":"M","t":9,"f":1999,"l":2003,"s":[[1999,1,224],[2000,1,188],[2001,1,186],[2002,3,248],[2003,3,247]],"at":[[1999,"AUS"],[2000,"AUS"],[2001,"DEN"],[2002,"AUS"],[2003,"AUS"]]}]},
-    {"id":102647,"name":"Henrik Berthelsen","dob":"1976-12-23","height":203,"weight":92},
-    {"id":103358,"name":"Lars Kietzer","dob":"1975-05-03","height":null,"weight":null},
-    {"id":103859,"name":"Lars Mayland","dob":"1976-06-27","height":188,"weight":84},
-    {"id":103860,"name":"Rasmus Funder","dob":"1976-04-14","height":null,"weight":null},
-    {"id":104337,"name":"Jakob Moeller Soerensen","dob":"1984-01-17","height":null,"weight":null},
-    {"id":104338,"name":"Anders Lund Hoyer","dob":"1983-09-04","height":198,"weight":85,"tour":{"gold":1,"silver":0,"bronze":0},"away":[{"id":102786,"name":"Bo Soderberg","fed":"AUS","gender":"M","t":70,"f":2006,"l":2012,"s":[[2006,8,270],[2007,13,243],[2008,12,281],[2009,8,238],[2010,14,237],[2011,10,236],[2012,5,165]],"at":[[2006,"AUS"],[2007,"DEN"],[2008,"DEN"],[2009,"DEN"],[2010,"DEN"],[2011,"DEN"],[2012,"DEN"]]}]},
-    {"id":104508,"name":"Jakob Due","dob":"1977-01-24","height":null,"weight":null},
-    {"id":104739,"name":"Jeppe Stig Haugaard Nielsen","dob":null,"height":null,"weight":null},
-    {"id":105093,"name":"Jeppe Berger","dob":null,"height":null,"weight":null},
-    {"id":105094,"name":"Jes Hansen","dob":null,"height":null,"weight":null},
-    {"id":114703,"name":"Kristian F. Knudsen","dob":"1979-08-01","height":199,"weight":98},
-    {"id":117463,"name":"Teis Corneliussen","dob":"1976-01-03","height":null,"weight":null},
-    {"id":117464,"name":"Martin Simonsen","dob":null,"height":null,"weight":null},
-    {"id":118625,"name":"Soeren Svane Hoyer","dob":"1989-09-21","height":202,"weight":90},
-    {"id":118702,"name":"Jacob Oppenheim","dob":"1987-05-07","height":null,"weight":null},
-    {"id":120722,"name":"Oliver Venndt Kaszas","dob":"1991-07-27","height":191,"weight":78},
-    {"id":120726,"name":"Sebastian Venndt Kaszas","dob":"1993-04-14","height":null,"weight":null},
-    {"id":120962,"name":"Peter Michael Keldsen","dob":"1977-07-14","height":null,"weight":null},
-    {"id":124735,"name":"Daniel Jonassen","dob":"1989-04-07","height":null,"weight":null},
-    {"id":132148,"name":"Dennis Spile Hansen","dob":"1977-11-28","height":null,"weight":null},
-    {"id":134836,"name":"Daniel Thomsen","dob":"1985-02-04","height":201,"weight":103,"tour":{"gold":1,"silver":2,"bronze":0}},
-    {"id":136993,"name":"Morten Overgaard","dob":"1992-12-23","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":138281,"name":"Lior Koren","dob":"1986-01-16","height":null,"weight":null,"away":[{"id":102786,"name":"Bo Soderberg","fed":"AUS","gender":"M","t":2,"f":2012,"l":2012,"s":[[2012,2,228]],"at":[[2012,"DEN"]]}]},
-    {"id":138988,"name":"Martin Olesen","dob":"1987-03-24","height":195,"weight":94},
-    {"id":144472,"name":"Kristoffer Abell","dob":"1994-11-10","height":203,"weight":95,"tour":{"gold":0,"silver":1,"bronze":1}},
-    {"id":144474,"name":"Mads Rosager","dob":"1991-03-15","height":204,"weight":94,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":144515,"name":"Jacob Cordua Stormly","dob":"1990-03-17","height":190,"weight":89,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":144953,"name":"Peter Dilling Kildegaard Andersen","dob":"1990-08-06","height":198,"weight":90},
-    {"id":146567,"name":"Sigurd Varming","dob":"1994-02-19","height":null,"weight":null},
-    {"id":147555,"name":"Martin Trans Hansen","dob":"1996-04-23","height":188,"weight":80,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":157019,"name":"Jacob Stein Brinck","dob":"1999-02-24","height":193,"weight":85,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":159981,"name":"Mads Møllgaard","dob":"1995-05-07","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":3}},
-    {"id":173509,"name":"Jacob Hejlsvig Petersen","dob":"2003-08-05","height":null,"weight":null},
-    {"id":174994,"name":"Nicolai Hovmann Overgaard","dob":"1994-07-22","height":205,"weight":100,"tour":{"gold":0,"silver":2,"bronze":3}},
-    {"id":179489,"name":"Christian Lundby Andersen","dob":"2004-09-12","height":193,"weight":80},
-    {"id":181124,"name":"Marius Stenmann Hansen","dob":"2004-07-31","height":195,"weight":87},
-    {"id":187549,"name":"Villads Flügge Napier","dob":"2006-01-17","height":191,"weight":92},
-    {"id":187554,"name":"Villads Lundby Andersen","dob":"2006-09-01","height":null,"weight":null},
-    {"id":187558,"name":"Hjalmer Elmbæk Madsen","dob":"2005-11-04","height":null,"weight":null}
+    {
+      "id": 100009,
+      "name": "Glen Hytoft",
+      "dob": "1968-06-24",
+      "height": 187,
+      "weight": 80
+    },
+    {
+      "id": 100094,
+      "name": "Kim Kaszas",
+      "dob": "1964-12-23",
+      "height": 190,
+      "weight": 91
+    },
+    {
+      "id": 100290,
+      "name": "Ole Lachenmeier",
+      "dob": "1963-07-30",
+      "height": 202,
+      "weight": 102
+    },
+    {
+      "id": 100497,
+      "name": "Lars  Christian Lunde",
+      "dob": "1973-07-11",
+      "height": 198,
+      "weight": 81
+    },
+    {
+      "id": 100784,
+      "name": "Jes Barkler",
+      "dob": "1973-03-07",
+      "height": 191,
+      "weight": 85
+    },
+    {
+      "id": 100849,
+      "name": "Peter Lyo",
+      "dob": "1964-11-30",
+      "height": 190,
+      "weight": 85
+    },
+    {
+      "id": 100892,
+      "name": "Jakob Martens",
+      "dob": "1973-06-07",
+      "height": 184,
+      "weight": 78,
+      "away": [
+        {
+          "id": 102786,
+          "name": "Bo Soderberg",
+          "fed": "AUS",
+          "gender": "M",
+          "t": 1,
+          "f": 2001,
+          "l": 2001,
+          "s": [
+            [
+              2001,
+              1,
+              179
+            ]
+          ],
+          "at": [
+            [
+              2001,
+              "AUS"
+            ]
+          ],
+          "r": 89
+        }
+      ]
+    },
+    {
+      "id": 102168,
+      "name": "Jens 'Hassing' Larsen",
+      "dob": "1969-08-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102180,
+      "name": "Mikkel \"Bosse\" Herslov",
+      "dob": "1971-01-19",
+      "height": 184,
+      "weight": 76
+    },
+    {
+      "id": 102181,
+      "name": "Thomas Lyo",
+      "dob": "1970-09-18",
+      "height": 189,
+      "weight": 85
+    },
+    {
+      "id": 102589,
+      "name": "Jesper Hansen",
+      "dob": "1975-10-02",
+      "height": 193,
+      "weight": 78
+    },
+    {
+      "id": 102646,
+      "name": "Andreas Olesen",
+      "dob": "1977-03-20",
+      "height": 186,
+      "weight": 82,
+      "away": [
+        {
+          "id": 102786,
+          "name": "Bo Soderberg",
+          "fed": "AUS",
+          "gender": "M",
+          "t": 9,
+          "f": 1999,
+          "l": 2003,
+          "s": [
+            [
+              1999,
+              1,
+              224
+            ],
+            [
+              2000,
+              1,
+              188
+            ],
+            [
+              2001,
+              1,
+              186
+            ],
+            [
+              2002,
+              3,
+              248
+            ],
+            [
+              2003,
+              3,
+              247
+            ]
+          ],
+          "at": [
+            [
+              1999,
+              "AUS"
+            ],
+            [
+              2000,
+              "AUS"
+            ],
+            [
+              2001,
+              "DEN"
+            ],
+            [
+              2002,
+              "AUS"
+            ],
+            [
+              2003,
+              "AUS"
+            ]
+          ],
+          "r": 33
+        }
+      ]
+    },
+    {
+      "id": 102647,
+      "name": "Henrik Berthelsen",
+      "dob": "1976-12-23",
+      "height": 203,
+      "weight": 92
+    },
+    {
+      "id": 103358,
+      "name": "Lars Kietzer",
+      "dob": "1975-05-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103859,
+      "name": "Lars Mayland",
+      "dob": "1976-06-27",
+      "height": 188,
+      "weight": 84
+    },
+    {
+      "id": 103860,
+      "name": "Rasmus Funder",
+      "dob": "1976-04-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104337,
+      "name": "Jakob Moeller Soerensen",
+      "dob": "1984-01-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104338,
+      "name": "Anders Lund Hoyer",
+      "dob": "1983-09-04",
+      "height": 198,
+      "weight": 85,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "away": [
+        {
+          "id": 102786,
+          "name": "Bo Soderberg",
+          "fed": "AUS",
+          "gender": "M",
+          "t": 70,
+          "f": 2006,
+          "l": 2012,
+          "s": [
+            [
+              2006,
+              8,
+              270
+            ],
+            [
+              2007,
+              13,
+              243
+            ],
+            [
+              2008,
+              12,
+              281
+            ],
+            [
+              2009,
+              8,
+              238
+            ],
+            [
+              2010,
+              14,
+              237
+            ],
+            [
+              2011,
+              10,
+              236
+            ],
+            [
+              2012,
+              5,
+              165
+            ]
+          ],
+          "at": [
+            [
+              2006,
+              "AUS"
+            ],
+            [
+              2007,
+              "DEN"
+            ],
+            [
+              2008,
+              "DEN"
+            ],
+            [
+              2009,
+              "DEN"
+            ],
+            [
+              2010,
+              "DEN"
+            ],
+            [
+              2011,
+              "DEN"
+            ],
+            [
+              2012,
+              "DEN"
+            ]
+          ],
+          "r": 1
+        }
+      ]
+    },
+    {
+      "id": 104508,
+      "name": "Jakob Due",
+      "dob": "1977-01-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104739,
+      "name": "Jeppe Stig Haugaard Nielsen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105093,
+      "name": "Jeppe Berger",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105094,
+      "name": "Jes Hansen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 114703,
+      "name": "Kristian F. Knudsen",
+      "dob": "1979-08-01",
+      "height": 199,
+      "weight": 98
+    },
+    {
+      "id": 117463,
+      "name": "Teis Corneliussen",
+      "dob": "1976-01-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117464,
+      "name": "Martin Simonsen",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118625,
+      "name": "Soeren Svane Hoyer",
+      "dob": "1989-09-21",
+      "height": 202,
+      "weight": 90
+    },
+    {
+      "id": 118702,
+      "name": "Jacob Oppenheim",
+      "dob": "1987-05-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120722,
+      "name": "Oliver Venndt Kaszas",
+      "dob": "1991-07-27",
+      "height": 191,
+      "weight": 78
+    },
+    {
+      "id": 120726,
+      "name": "Sebastian Venndt Kaszas",
+      "dob": "1993-04-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120962,
+      "name": "Peter Michael Keldsen",
+      "dob": "1977-07-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124735,
+      "name": "Daniel Jonassen",
+      "dob": "1989-04-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132148,
+      "name": "Dennis Spile Hansen",
+      "dob": "1977-11-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 134836,
+      "name": "Daniel Thomsen",
+      "dob": "1985-02-04",
+      "height": 201,
+      "weight": 103,
+      "tour": {
+        "gold": 1,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 136993,
+      "name": "Morten Overgaard",
+      "dob": "1992-12-23",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 138281,
+      "name": "Lior Koren",
+      "dob": "1986-01-16",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 102786,
+          "name": "Bo Soderberg",
+          "fed": "AUS",
+          "gender": "M",
+          "t": 2,
+          "f": 2012,
+          "l": 2012,
+          "s": [
+            [
+              2012,
+              2,
+              228
+            ]
+          ],
+          "at": [
+            [
+              2012,
+              "DEN"
+            ]
+          ],
+          "r": 33
+        }
+      ]
+    },
+    {
+      "id": 138988,
+      "name": "Martin Olesen",
+      "dob": "1987-03-24",
+      "height": 195,
+      "weight": 94
+    },
+    {
+      "id": 144472,
+      "name": "Kristoffer Abell",
+      "dob": "1994-11-10",
+      "height": 203,
+      "weight": 95,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 144474,
+      "name": "Mads Rosager",
+      "dob": "1991-03-15",
+      "height": 204,
+      "weight": 94,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 144515,
+      "name": "Jacob Cordua Stormly",
+      "dob": "1990-03-17",
+      "height": 190,
+      "weight": 89,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 144953,
+      "name": "Peter Dilling Kildegaard Andersen",
+      "dob": "1990-08-06",
+      "height": 198,
+      "weight": 90
+    },
+    {
+      "id": 146567,
+      "name": "Sigurd Varming",
+      "dob": "1994-02-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 147555,
+      "name": "Martin Trans Hansen",
+      "dob": "1996-04-23",
+      "height": 188,
+      "weight": 80,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 157019,
+      "name": "Jacob Stein Brinck",
+      "dob": "1999-02-24",
+      "height": 193,
+      "weight": 85,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 159981,
+      "name": "Mads Møllgaard",
+      "dob": "1995-05-07",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 173509,
+      "name": "Jacob Hejlsvig Petersen",
+      "dob": "2003-08-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 174994,
+      "name": "Nicolai Hovmann Overgaard",
+      "dob": "1994-07-22",
+      "height": 205,
+      "weight": 100,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 3
+      }
+    },
+    {
+      "id": 179489,
+      "name": "Christian Lundby Andersen",
+      "dob": "2004-09-12",
+      "height": 193,
+      "weight": 80
+    },
+    {
+      "id": 181124,
+      "name": "Marius Stenmann Hansen",
+      "dob": "2004-07-31",
+      "height": 195,
+      "weight": 87
+    },
+    {
+      "id": 187549,
+      "name": "Villads Flügge Napier",
+      "dob": "2006-01-17",
+      "height": 191,
+      "weight": 92
+    },
+    {
+      "id": 187554,
+      "name": "Villads Lundby Andersen",
+      "dob": "2006-09-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 187558,
+      "name": "Hjalmer Elmbæk Madsen",
+      "dob": "2005-11-04",
+      "height": null,
+      "weight": null
+    }
   ]
 }

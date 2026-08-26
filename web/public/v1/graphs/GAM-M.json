@@ -30,7 +30,7 @@
     {
       "id": 189345,
       "name": "Laity Nyabally",
-      "short": "Nyabally",
+      "short": "Gambia",
       "tournaments": 1,
       "first": 2023,
       "last": 2023
@@ -38,7 +38,7 @@
     {
       "id": 193543,
       "name": "Mario Dampha",
-      "short": "Mario",
+      "short": "Gambia",
       "tournaments": 1,
       "first": 2023,
       "last": 2023
@@ -46,7 +46,7 @@
     {
       "id": 224007,
       "name": "Bakary Ensa Kanyi",
-      "short": "Bakary",
+      "short": "Gambia",
       "tournaments": 1,
       "first": 2025,
       "last": 2025
@@ -86,7 +86,8 @@
           2,
           137
         ]
-      ]
+      ],
+      "r": 5
     },
     {
       "a": 175142,
@@ -115,7 +116,8 @@
           4,
           305
         ]
-      ]
+      ],
+      "r": 5
     },
     {
       "a": 189345,
@@ -129,7 +131,8 @@
           1,
           311
         ]
-      ]
+      ],
+      "r": 25
     },
     {
       "a": 224007,
@@ -143,7 +146,8 @@
           1,
           280
         ]
-      ]
+      ],
+      "r": 9
     },
     {
       "a": 226293,
@@ -157,7 +161,8 @@
           1,
           189
         ]
-      ]
+      ],
+      "r": 17
     }
   ]
 }

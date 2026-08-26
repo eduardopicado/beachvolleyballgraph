@@ -2,16 +2,132 @@
   "country": "BDI",
   "gender": "W",
   "players": [
-    {"id":191910,"name":"Gynette Kamwemwe","dob":"2004-12-31","height":170,"weight":63,"away":[{"id":183952,"name":"Karen Noppen","fed":"NED","gender":"W","t":1,"f":2025,"l":2025,"s":[[2025,1,232]],"at":[[2025,"BDI"]]}]},
-    {"id":191914,"name":"Delly Drice Kaze","dob":"2002-07-16","height":null,"weight":null},
-    {"id":192200,"name":"Pamella Irakoze","dob":"2006-02-08","height":null,"weight":null},
-    {"id":192742,"name":"Emmanuelie Ndayikengurukiye","dob":"2005-12-13","height":null,"weight":null,"away":[{"id":183952,"name":"Karen Noppen","fed":"NED","gender":"W","t":1,"f":2023,"l":2023,"s":[[2023,1,229]],"at":[[2023,"BDI"]]}]},
-    {"id":193298,"name":"Emelyne Igiraneza","dob":"2006-01-01","height":null,"weight":null},
-    {"id":194227,"name":"Nadia Buntubwimana","dob":"2002-03-26","height":null,"weight":null},
-    {"id":223517,"name":"IGIRANEZA Emelyne","dob":"2003-01-01","height":174,"weight":70},
-    {"id":226571,"name":"MUTAMURIZA Carene","dob":"2009-07-05","height":null,"weight":null},
-    {"id":226572,"name":"NDAYISHIMIYE Ornella","dob":"2009-12-10","height":null,"weight":null},
-    {"id":226574,"name":"NSHIMIRIMANA Nasalette","dob":"2009-08-15","height":null,"weight":null},
-    {"id":226575,"name":"NIHORIMBERE Penelope","dob":"2009-07-16","height":null,"weight":null}
+    {
+      "id": 191910,
+      "name": "Gynette Kamwemwe",
+      "dob": "2004-12-31",
+      "height": 170,
+      "weight": 63,
+      "away": [
+        {
+          "id": 183952,
+          "name": "Karen Noppen",
+          "fed": "NED",
+          "gender": "W",
+          "t": 1,
+          "f": 2025,
+          "l": 2025,
+          "s": [
+            [
+              2025,
+              1,
+              232
+            ]
+          ],
+          "at": [
+            [
+              2025,
+              "BDI"
+            ]
+          ],
+          "r": 5
+        }
+      ]
+    },
+    {
+      "id": 191914,
+      "name": "Delly Drice Kaze",
+      "dob": "2002-07-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192200,
+      "name": "Pamella Irakoze",
+      "dob": "2006-02-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192742,
+      "name": "Emmanuelie Ndayikengurukiye",
+      "dob": "2005-12-13",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 183952,
+          "name": "Karen Noppen",
+          "fed": "NED",
+          "gender": "W",
+          "t": 1,
+          "f": 2023,
+          "l": 2023,
+          "s": [
+            [
+              2023,
+              1,
+              229
+            ]
+          ],
+          "at": [
+            [
+              2023,
+              "BDI"
+            ]
+          ],
+          "r": 5
+        }
+      ]
+    },
+    {
+      "id": 193298,
+      "name": "Emelyne Igiraneza",
+      "dob": "2006-01-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 194227,
+      "name": "Nadia Buntubwimana",
+      "dob": "2002-03-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 223517,
+      "name": "IGIRANEZA Emelyne",
+      "dob": "2003-01-01",
+      "height": 174,
+      "weight": 70
+    },
+    {
+      "id": 226571,
+      "name": "MUTAMURIZA Carene",
+      "dob": "2009-07-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 226572,
+      "name": "NDAYISHIMIYE Ornella",
+      "dob": "2009-12-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 226574,
+      "name": "NSHIMIRIMANA Nasalette",
+      "dob": "2009-08-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 226575,
+      "name": "NIHORIMBERE Penelope",
+      "dob": "2009-07-16",
+      "height": null,
+      "weight": null
+    }
   ]
 }

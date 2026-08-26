@@ -2,56 +2,402 @@
   "country": "TUR",
   "gender": "W",
   "players": [
-    {"id":115402,"name":"Güldeniz Önal","dob":"1986-03-25","height":183,"weight":75},
-    {"id":115409,"name":"Neriman Ozsoy","dob":"1988-07-13","height":188,"weight":70},
-    {"id":117934,"name":"Mariana Aydin","dob":"1986-08-19","height":188,"weight":69,"away":[{"id":117935,"name":"Ecaterina Lupu","fed":"MLD","gender":"W","t":1,"f":2006,"l":2006,"s":[[2006,1,235]],"at":[[2006,"MLD"]]}]},
-    {"id":119688,"name":"Fatma Yildirim","dob":"1990-01-03","height":180,"weight":64},
-    {"id":125204,"name":"Bahanur Gokalp","dob":"1991-03-06","height":178,"weight":64},
-    {"id":125205,"name":"Elif Kavrar","dob":"1992-06-11","height":null,"weight":null},
-    {"id":125206,"name":"Fatma Çimen","dob":"1991-01-10","height":null,"weight":null},
-    {"id":125207,"name":"Gamze Cansesli","dob":"1991-05-13","height":null,"weight":null},
-    {"id":125217,"name":"Özge Özkorul","dob":"1991-08-14","height":null,"weight":null},
-    {"id":125297,"name":"Sabriye Gönülkirmaz","dob":"1994-05-17","height":null,"weight":null},
-    {"id":132166,"name":"Hatice Can Tonbul","dob":"1979-09-01","height":null,"weight":null},
-    {"id":133315,"name":"Burcu Baser","dob":"1990-01-24","height":178,"weight":60},
-    {"id":133316,"name":"Neslisah Gülbitti Aktas","dob":"1991-01-24","height":null,"weight":null},
-    {"id":133318,"name":"Burcu Atasoy","dob":"1991-02-27","height":175,"weight":60},
-    {"id":133319,"name":"Gamze Türk","dob":"1990-02-03","height":null,"weight":null},
-    {"id":133320,"name":"Sezin Çelik","dob":"1990-10-09","height":null,"weight":null},
-    {"id":133321,"name":"Ceren Atila","dob":"1993-04-10","height":null,"weight":null},
-    {"id":141550,"name":"Esra Köksalan","dob":"1980-01-02","height":null,"weight":null},
-    {"id":142267,"name":"Esra Betul Cetin","dob":"1996-04-19","height":null,"weight":null},
-    {"id":144020,"name":"Merve Nezir","dob":"1997-12-16","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":144307,"name":"Selin Toy","dob":"1996-08-27","height":180,"weight":67},
-    {"id":146268,"name":"Merve Aktas","dob":"1996-01-10","height":null,"weight":null},
-    {"id":146278,"name":"Duygu Nur Dogan","dob":"1998-09-08","height":null,"weight":null},
-    {"id":146313,"name":"Resmiye Cakmak","dob":"1994-06-06","height":null,"weight":null},
-    {"id":146939,"name":"Pelin Ilgin","dob":"1999-05-01","height":null,"weight":null},
-    {"id":146979,"name":"Aleyna Vence","dob":"1998-10-05","height":183,"weight":65,"tour":{"gold":0,"silver":1,"bronze":2}},
-    {"id":147450,"name":"Bahar Toksoy Guidetti","dob":"1988-02-06","height":190,"weight":69},
-    {"id":148070,"name":"Meliha Diken","dob":"1993-09-17","height":182,"weight":74},
-    {"id":149020,"name":"Nursel Yaren Sencel","dob":"1997-06-19","height":180,"weight":65},
-    {"id":151283,"name":"Tugba Ozdemir","dob":"1990-05-05","height":180,"weight":60},
-    {"id":151699,"name":"Ebru Karayilan","dob":"1998-10-27","height":null,"weight":null},
-    {"id":151702,"name":"Merve Celebi","dob":"1993-07-16","height":180,"weight":64},
-    {"id":157485,"name":"Bugra Eryildiz","dob":"1982-12-08","height":178,"weight":60,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":157486,"name":"Yaren Cakmak","dob":"1997-05-28","height":null,"weight":null},
-    {"id":163374,"name":"Suzan Dilara Gedikoglu","dob":"2000-04-02","height":178,"weight":72},
-    {"id":163377,"name":"Aysun Suna Alan","dob":"2002-06-12","height":null,"weight":null},
-    {"id":163384,"name":"Basak Döner","dob":"1999-03-26","height":null,"weight":null},
-    {"id":163385,"name":"Belinay Sari","dob":"2003-08-30","height":176,"weight":55},
-    {"id":163388,"name":"Müge Ocakci","dob":"1991-02-23","height":null,"weight":null},
-    {"id":165222,"name":"Aysu Ceylan","dob":"2001-01-14","height":null,"weight":null},
-    {"id":167104,"name":"Kamuran Oyku Keskin","dob":"2000-06-17","height":null,"weight":null},
-    {"id":172494,"name":"Ayse Dil","dob":"1988-02-05","height":174,"weight":58},
-    {"id":179378,"name":"Doga Ocal","dob":"2004-08-11","height":null,"weight":null},
-    {"id":180534,"name":"Ilknur Melis Durasi","dob":"1989-10-12","height":null,"weight":null},
-    {"id":190939,"name":"Ecem Aksoy","dob":"2006-07-03","height":null,"weight":null},
-    {"id":192218,"name":"Su Simdim","dob":"2007-11-29","height":null,"weight":null},
-    {"id":192219,"name":"Ceylin Sayar","dob":"2007-12-03","height":null,"weight":null},
-    {"id":209232,"name":"Yasemin Yildirim","dob":"2008-02-23","height":null,"weight":null},
-    {"id":209233,"name":"Bahar Dogan","dob":"2008-05-06","height":null,"weight":null},
-    {"id":214361,"name":"Alisa Solak","dob":"2009-10-14","height":null,"weight":null},
-    {"id":220056,"name":"Irem Yener","dob":"2010-04-08","height":null,"weight":null}
+    {
+      "id": 115402,
+      "name": "Güldeniz Önal",
+      "dob": "1986-03-25",
+      "height": 183,
+      "weight": 75
+    },
+    {
+      "id": 115409,
+      "name": "Neriman Ozsoy",
+      "dob": "1988-07-13",
+      "height": 188,
+      "weight": 70
+    },
+    {
+      "id": 117934,
+      "name": "Mariana Aydin",
+      "dob": "1986-08-19",
+      "height": 188,
+      "weight": 69,
+      "away": [
+        {
+          "id": 117935,
+          "name": "Ecaterina Lupu",
+          "fed": "MLD",
+          "gender": "W",
+          "t": 1,
+          "f": 2006,
+          "l": 2006,
+          "s": [
+            [
+              2006,
+              1,
+              235
+            ]
+          ],
+          "at": [
+            [
+              2006,
+              "MLD"
+            ]
+          ],
+          "r": 25
+        }
+      ]
+    },
+    {
+      "id": 119688,
+      "name": "Fatma Yildirim",
+      "dob": "1990-01-03",
+      "height": 180,
+      "weight": 64
+    },
+    {
+      "id": 125204,
+      "name": "Bahanur Gokalp",
+      "dob": "1991-03-06",
+      "height": 178,
+      "weight": 64
+    },
+    {
+      "id": 125205,
+      "name": "Elif Kavrar",
+      "dob": "1992-06-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125206,
+      "name": "Fatma Çimen",
+      "dob": "1991-01-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125207,
+      "name": "Gamze Cansesli",
+      "dob": "1991-05-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125217,
+      "name": "Özge Özkorul",
+      "dob": "1991-08-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125297,
+      "name": "Sabriye Gönülkirmaz",
+      "dob": "1994-05-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 132166,
+      "name": "Hatice Can Tonbul",
+      "dob": "1979-09-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 133315,
+      "name": "Burcu Baser",
+      "dob": "1990-01-24",
+      "height": 178,
+      "weight": 60
+    },
+    {
+      "id": 133316,
+      "name": "Neslisah Gülbitti Aktas",
+      "dob": "1991-01-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 133318,
+      "name": "Burcu Atasoy",
+      "dob": "1991-02-27",
+      "height": 175,
+      "weight": 60
+    },
+    {
+      "id": 133319,
+      "name": "Gamze Türk",
+      "dob": "1990-02-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 133320,
+      "name": "Sezin Çelik",
+      "dob": "1990-10-09",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 133321,
+      "name": "Ceren Atila",
+      "dob": "1993-04-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 141550,
+      "name": "Esra Köksalan",
+      "dob": "1980-01-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142267,
+      "name": "Esra Betul Cetin",
+      "dob": "1996-04-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 144020,
+      "name": "Merve Nezir",
+      "dob": "1997-12-16",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 144307,
+      "name": "Selin Toy",
+      "dob": "1996-08-27",
+      "height": 180,
+      "weight": 67
+    },
+    {
+      "id": 146268,
+      "name": "Merve Aktas",
+      "dob": "1996-01-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146278,
+      "name": "Duygu Nur Dogan",
+      "dob": "1998-09-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146313,
+      "name": "Resmiye Cakmak",
+      "dob": "1994-06-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146939,
+      "name": "Pelin Ilgin",
+      "dob": "1999-05-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146979,
+      "name": "Aleyna Vence",
+      "dob": "1998-10-05",
+      "height": 183,
+      "weight": 65,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 147450,
+      "name": "Bahar Toksoy Guidetti",
+      "dob": "1988-02-06",
+      "height": 190,
+      "weight": 69
+    },
+    {
+      "id": 148070,
+      "name": "Meliha Diken",
+      "dob": "1993-09-17",
+      "height": 182,
+      "weight": 74
+    },
+    {
+      "id": 149020,
+      "name": "Nursel Yaren Sencel",
+      "dob": "1997-06-19",
+      "height": 180,
+      "weight": 65
+    },
+    {
+      "id": 151283,
+      "name": "Tugba Ozdemir",
+      "dob": "1990-05-05",
+      "height": 180,
+      "weight": 60
+    },
+    {
+      "id": 151699,
+      "name": "Ebru Karayilan",
+      "dob": "1998-10-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 151702,
+      "name": "Merve Celebi",
+      "dob": "1993-07-16",
+      "height": 180,
+      "weight": 64
+    },
+    {
+      "id": 157485,
+      "name": "Bugra Eryildiz",
+      "dob": "1982-12-08",
+      "height": 178,
+      "weight": 60,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 157486,
+      "name": "Yaren Cakmak",
+      "dob": "1997-05-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 163374,
+      "name": "Suzan Dilara Gedikoglu",
+      "dob": "2000-04-02",
+      "height": 178,
+      "weight": 72
+    },
+    {
+      "id": 163377,
+      "name": "Aysun Suna Alan",
+      "dob": "2002-06-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 163384,
+      "name": "Basak Döner",
+      "dob": "1999-03-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 163385,
+      "name": "Belinay Sari",
+      "dob": "2003-08-30",
+      "height": 176,
+      "weight": 55
+    },
+    {
+      "id": 163388,
+      "name": "Müge Ocakci",
+      "dob": "1991-02-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 165222,
+      "name": "Aysu Ceylan",
+      "dob": "2001-01-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 167104,
+      "name": "Kamuran Oyku Keskin",
+      "dob": "2000-06-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 172494,
+      "name": "Ayse Dil",
+      "dob": "1988-02-05",
+      "height": 174,
+      "weight": 58
+    },
+    {
+      "id": 179378,
+      "name": "Doga Ocal",
+      "dob": "2004-08-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 180534,
+      "name": "Ilknur Melis Durasi",
+      "dob": "1989-10-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 190939,
+      "name": "Ecem Aksoy",
+      "dob": "2006-07-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192218,
+      "name": "Su Simdim",
+      "dob": "2007-11-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 192219,
+      "name": "Ceylin Sayar",
+      "dob": "2007-12-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 209232,
+      "name": "Yasemin Yildirim",
+      "dob": "2008-02-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 209233,
+      "name": "Bahar Dogan",
+      "dob": "2008-05-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 214361,
+      "name": "Alisa Solak",
+      "dob": "2009-10-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 220056,
+      "name": "Irem Yener",
+      "dob": "2010-04-08",
+      "height": null,
+      "weight": null
+    }
   ]
 }

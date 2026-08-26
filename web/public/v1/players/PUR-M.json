@@ -2,65 +2,494 @@
   "country": "PUR",
   "gender": "M",
   "players": [
-    {"id":100151,"name":"Willie \"El Toro\" De Jesus Torres","dob":"1968-10-07","height":195,"weight":100,"tour":{"gold":0,"silver":1,"bronze":1}},
-    {"id":100191,"name":"Edwin Fernandez","dob":"1961-01-21","height":188,"weight":84},
-    {"id":100192,"name":"Rick Amon","dob":null,"height":null,"weight":null},
-    {"id":100303,"name":"Carlos \"Monkey\" Nieves","dob":"1968-01-21","height":181,"weight":75,"away":[{"id":100330,"name":"Luis \"Fenito\" Rodriguez","fed":"USA","gender":"M","t":3,"f":1993,"l":1994,"s":[[1993,1,382],[1994,2,243]],"at":[[1993,"USA"],[1994,"USA"]]}]},
-    {"id":100753,"name":"Joseph A. \"Pelito\" Gil Rivera","dob":"1971-01-15","height":193,"weight":77},
-    {"id":100754,"name":"David M. Quinonez Correa","dob":"1965-09-08","height":170,"weight":61},
-    {"id":100774,"name":"Robert or Bob Ramos Casanova","dob":"1966-01-21","height":183,"weight":86},
-    {"id":100827,"name":"Victor \"Cobra\" Aponte","dob":"1966-09-26","height":184,"weight":86},
-    {"id":100828,"name":"Ramon A. \"Moncho\" Hernandez Cruz","dob":"1972-07-16","height":190,"weight":93},
-    {"id":100829,"name":"Enrique \"Papolito\" Lopez","dob":"1971-06-21","height":194,"weight":null,"away":[{"id":100330,"name":"Luis \"Fenito\" Rodriguez","fed":"USA","gender":"M","t":1,"f":1995,"l":1995,"s":[[1995,1,313]],"at":[[1995,"PUR"]]}]},
-    {"id":100830,"name":"Joel Patria Perez Correa","dob":"1972-10-04","height":183,"weight":74},
-    {"id":100857,"name":"Hector \"Tito\" Nunez","dob":"1970-02-14","height":191,"weight":95},
-    {"id":100917,"name":"Rafael Del Valle Madamo","dob":"1954-09-12","height":185,"weight":77},
-    {"id":101025,"name":"Obin Mendez","dob":"1972-07-24","height":null,"weight":null},
-    {"id":101261,"name":"Angel \"Cholo\" Peña","dob":"1965-07-14","height":190,"weight":84},
-    {"id":101292,"name":"Leonardo or Leo Jimenez Soto","dob":"1968-11-12","height":188,"weight":85},
-    {"id":101293,"name":"Jorge L. Perez","dob":"1969-09-30","height":null,"weight":null},
-    {"id":101625,"name":"Luis \"Feñito\" Rodriguez","dob":"1969-07-13","height":null,"weight":null},
-    {"id":101626,"name":"Amaury Velasco","dob":"1972-03-06","height":195,"weight":90,"tour":{"gold":0,"silver":1,"bronze":1}},
-    {"id":101627,"name":"Raul E. Papaleo Pérez","dob":"1971-10-11","height":185,"weight":85},
-    {"id":101629,"name":"Jorge Gonzalez","dob":"1977-09-06","height":null,"weight":null},
-    {"id":101632,"name":"Angel L. \"Wicher\" Gonzalez Escobales","dob":"1972-02-01","height":null,"weight":null},
-    {"id":101633,"name":"Juan Zayas","dob":"1966-01-10","height":null,"weight":null},
-    {"id":101646,"name":"Jesus Anglero","dob":"1975-12-24","height":null,"weight":null},
-    {"id":101647,"name":"Hector  \"Eddie\" Galarza","dob":"1978-03-05","height":null,"weight":null},
-    {"id":102526,"name":"Antonio J. Rondon","dob":"1974-10-29","height":null,"weight":null},
-    {"id":103730,"name":"Javier Garcia","dob":"1982-03-04","height":null,"weight":null},
-    {"id":104661,"name":"Osualdo Barreras","dob":null,"height":null,"weight":null},
-    {"id":104715,"name":"Angel Ortiz","dob":null,"height":null,"weight":null},
-    {"id":104716,"name":"Joshua Ramirez","dob":null,"height":null,"weight":null},
-    {"id":104741,"name":"Anibal Martinez","dob":null,"height":null,"weight":null},
-    {"id":104742,"name":"Juan Rivera","dob":null,"height":null,"weight":null},
-    {"id":104743,"name":"Abdel Otero","dob":null,"height":null,"weight":null},
-    {"id":104744,"name":"Andres Ramos","dob":null,"height":null,"weight":null},
-    {"id":104765,"name":"José Mieles","dob":null,"height":null,"weight":null},
-    {"id":104766,"name":"Rick Stepanoff","dob":null,"height":null,"weight":null},
-    {"id":104767,"name":"Fernando Morales","dob":null,"height":null,"weight":null},
-    {"id":104768,"name":"Jospeh Neira","dob":null,"height":null,"weight":null},
-    {"id":104769,"name":"Ramon Diaz","dob":null,"height":null,"weight":null},
-    {"id":104770,"name":"Olivera Diaz","dob":null,"height":null,"weight":null},
-    {"id":104771,"name":"Cesar Plaza","dob":null,"height":null,"weight":null},
-    {"id":115288,"name":"Victor Rivera","dob":"1976-08-30","height":195,"weight":88},
-    {"id":116676,"name":"Hector Soto","dob":"1978-06-28","height":197,"weight":85},
-    {"id":117841,"name":"Christopher Underwood","dob":null,"height":null,"weight":null},
-    {"id":117842,"name":"Roberto Rodríguez - Bertrán","dob":"1986-08-08","height":190,"weight":89},
-    {"id":120052,"name":"Christopher Underwood","dob":"1987-08-03","height":null,"weight":null},
-    {"id":120053,"name":"Daniel Erazo","dob":"1987-08-16","height":null,"weight":null},
-    {"id":135419,"name":"Eric Haddock","dob":"1983-06-15","height":null,"weight":null},
-    {"id":135420,"name":"Orlando Irizarry","dob":"1985-09-27","height":null,"weight":null},
-    {"id":145643,"name":"Sergio Luis Figueroa Velez","dob":"1996-01-02","height":null,"weight":null},
-    {"id":146348,"name":"Daniel Rivera","dob":"1996-03-24","height":null,"weight":null},
-    {"id":146395,"name":"Arnel Cabrera Rivera","dob":"1994-10-11","height":189,"weight":79},
-    {"id":146397,"name":"Kevin Joel Rodriguez","dob":"1994-08-12","height":181,"weight":63},
-    {"id":146398,"name":"Cristian Encarnacion Melendez","dob":"1993-09-03","height":null,"weight":null},
-    {"id":146399,"name":"Ricardo Padilla Rivera","dob":"1996-02-05","height":null,"weight":null},
-    {"id":146713,"name":"Gustavo Buitrago Alemañy","dob":"1998-11-28","height":null,"weight":null},
-    {"id":146715,"name":"Ricardo Muratti","dob":"1999-01-25","height":178,"weight":81},
-    {"id":152836,"name":"Daniel Quinones - Maltes","dob":"1998-02-26","height":186,"weight":82},
-    {"id":189671,"name":"Daniel Timothy Henwood Rodriguez","dob":"2005-12-29","height":183,"weight":68},
-    {"id":192392,"name":"Franco Ignacio Roark De La Torre","dob":"2005-09-06","height":193,"weight":86}
+    {
+      "id": 100151,
+      "name": "Willie \"El Toro\" De Jesus Torres",
+      "dob": "1968-10-07",
+      "height": 195,
+      "weight": 100,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 100191,
+      "name": "Edwin Fernandez",
+      "dob": "1961-01-21",
+      "height": 188,
+      "weight": 84
+    },
+    {
+      "id": 100192,
+      "name": "Rick Amon",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100303,
+      "name": "Carlos \"Monkey\" Nieves",
+      "dob": "1968-01-21",
+      "height": 181,
+      "weight": 75,
+      "away": [
+        {
+          "id": 100330,
+          "name": "Luis \"Fenito\" Rodriguez",
+          "fed": "USA",
+          "gender": "M",
+          "t": 3,
+          "f": 1993,
+          "l": 1994,
+          "s": [
+            [
+              1993,
+              1,
+              382
+            ],
+            [
+              1994,
+              2,
+              243
+            ]
+          ],
+          "at": [
+            [
+              1993,
+              "USA"
+            ],
+            [
+              1994,
+              "USA"
+            ]
+          ],
+          "r": 13
+        }
+      ]
+    },
+    {
+      "id": 100753,
+      "name": "Joseph A. \"Pelito\" Gil Rivera",
+      "dob": "1971-01-15",
+      "height": 193,
+      "weight": 77
+    },
+    {
+      "id": 100754,
+      "name": "David M. Quinonez Correa",
+      "dob": "1965-09-08",
+      "height": 170,
+      "weight": 61
+    },
+    {
+      "id": 100774,
+      "name": "Robert or Bob Ramos Casanova",
+      "dob": "1966-01-21",
+      "height": 183,
+      "weight": 86
+    },
+    {
+      "id": 100827,
+      "name": "Victor \"Cobra\" Aponte",
+      "dob": "1966-09-26",
+      "height": 184,
+      "weight": 86
+    },
+    {
+      "id": 100828,
+      "name": "Ramon A. \"Moncho\" Hernandez Cruz",
+      "dob": "1972-07-16",
+      "height": 190,
+      "weight": 93
+    },
+    {
+      "id": 100829,
+      "name": "Enrique \"Papolito\" Lopez",
+      "dob": "1971-06-21",
+      "height": 194,
+      "weight": null,
+      "away": [
+        {
+          "id": 100330,
+          "name": "Luis \"Fenito\" Rodriguez",
+          "fed": "USA",
+          "gender": "M",
+          "t": 1,
+          "f": 1995,
+          "l": 1995,
+          "s": [
+            [
+              1995,
+              1,
+              313
+            ]
+          ],
+          "at": [
+            [
+              1995,
+              "PUR"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 100830,
+      "name": "Joel Patria Perez Correa",
+      "dob": "1972-10-04",
+      "height": 183,
+      "weight": 74
+    },
+    {
+      "id": 100857,
+      "name": "Hector \"Tito\" Nunez",
+      "dob": "1970-02-14",
+      "height": 191,
+      "weight": 95
+    },
+    {
+      "id": 100917,
+      "name": "Rafael Del Valle Madamo",
+      "dob": "1954-09-12",
+      "height": 185,
+      "weight": 77
+    },
+    {
+      "id": 101025,
+      "name": "Obin Mendez",
+      "dob": "1972-07-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101261,
+      "name": "Angel \"Cholo\" Peña",
+      "dob": "1965-07-14",
+      "height": 190,
+      "weight": 84
+    },
+    {
+      "id": 101292,
+      "name": "Leonardo or Leo Jimenez Soto",
+      "dob": "1968-11-12",
+      "height": 188,
+      "weight": 85
+    },
+    {
+      "id": 101293,
+      "name": "Jorge L. Perez",
+      "dob": "1969-09-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101625,
+      "name": "Luis \"Feñito\" Rodriguez",
+      "dob": "1969-07-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101626,
+      "name": "Amaury Velasco",
+      "dob": "1972-03-06",
+      "height": 195,
+      "weight": 90,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 101627,
+      "name": "Raul E. Papaleo Pérez",
+      "dob": "1971-10-11",
+      "height": 185,
+      "weight": 85
+    },
+    {
+      "id": 101629,
+      "name": "Jorge Gonzalez",
+      "dob": "1977-09-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101632,
+      "name": "Angel L. \"Wicher\" Gonzalez Escobales",
+      "dob": "1972-02-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101633,
+      "name": "Juan Zayas",
+      "dob": "1966-01-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101646,
+      "name": "Jesus Anglero",
+      "dob": "1975-12-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101647,
+      "name": "Hector  \"Eddie\" Galarza",
+      "dob": "1978-03-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102526,
+      "name": "Antonio J. Rondon",
+      "dob": "1974-10-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103730,
+      "name": "Javier Garcia",
+      "dob": "1982-03-04",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104661,
+      "name": "Osualdo Barreras",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104715,
+      "name": "Angel Ortiz",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104716,
+      "name": "Joshua Ramirez",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104741,
+      "name": "Anibal Martinez",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104742,
+      "name": "Juan Rivera",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104743,
+      "name": "Abdel Otero",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104744,
+      "name": "Andres Ramos",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104765,
+      "name": "José Mieles",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104766,
+      "name": "Rick Stepanoff",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104767,
+      "name": "Fernando Morales",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104768,
+      "name": "Jospeh Neira",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104769,
+      "name": "Ramon Diaz",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104770,
+      "name": "Olivera Diaz",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104771,
+      "name": "Cesar Plaza",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 115288,
+      "name": "Victor Rivera",
+      "dob": "1976-08-30",
+      "height": 195,
+      "weight": 88
+    },
+    {
+      "id": 116676,
+      "name": "Hector Soto",
+      "dob": "1978-06-28",
+      "height": 197,
+      "weight": 85
+    },
+    {
+      "id": 117841,
+      "name": "Christopher Underwood",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117842,
+      "name": "Roberto Rodríguez - Bertrán",
+      "dob": "1986-08-08",
+      "height": 190,
+      "weight": 89
+    },
+    {
+      "id": 120052,
+      "name": "Christopher Underwood",
+      "dob": "1987-08-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120053,
+      "name": "Daniel Erazo",
+      "dob": "1987-08-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135419,
+      "name": "Eric Haddock",
+      "dob": "1983-06-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135420,
+      "name": "Orlando Irizarry",
+      "dob": "1985-09-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 145643,
+      "name": "Sergio Luis Figueroa Velez",
+      "dob": "1996-01-02",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146348,
+      "name": "Daniel Rivera",
+      "dob": "1996-03-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146395,
+      "name": "Arnel Cabrera Rivera",
+      "dob": "1994-10-11",
+      "height": 189,
+      "weight": 79
+    },
+    {
+      "id": 146397,
+      "name": "Kevin Joel Rodriguez",
+      "dob": "1994-08-12",
+      "height": 181,
+      "weight": 63
+    },
+    {
+      "id": 146398,
+      "name": "Cristian Encarnacion Melendez",
+      "dob": "1993-09-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146399,
+      "name": "Ricardo Padilla Rivera",
+      "dob": "1996-02-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146713,
+      "name": "Gustavo Buitrago Alemañy",
+      "dob": "1998-11-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146715,
+      "name": "Ricardo Muratti",
+      "dob": "1999-01-25",
+      "height": 178,
+      "weight": 81
+    },
+    {
+      "id": 152836,
+      "name": "Daniel Quinones - Maltes",
+      "dob": "1998-02-26",
+      "height": 186,
+      "weight": 82
+    },
+    {
+      "id": 189671,
+      "name": "Daniel Timothy Henwood Rodriguez",
+      "dob": "2005-12-29",
+      "height": 183,
+      "weight": 68
+    },
+    {
+      "id": 192392,
+      "name": "Franco Ignacio Roark De La Torre",
+      "dob": "2005-09-06",
+      "height": 193,
+      "weight": 86
+    }
   ]
 }

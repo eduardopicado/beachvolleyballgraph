@@ -2,28 +2,191 @@
   "country": "CRC",
   "gender": "M",
   "players": [
-    {"id":100681,"name":"Alexander Villegas Gonzalez","dob":"1974-02-27","height":182,"weight":66},
-    {"id":100682,"name":"Zlatko Crespo Piskulich","dob":"1973-12-22","height":190,"weight":95},
-    {"id":117431,"name":"Alexánder Villegas","dob":"1974-02-27","height":187,"weight":81},
-    {"id":117517,"name":"Gilberto Villegas","dob":"1978-02-28","height":175,"weight":60},
-    {"id":120252,"name":"Espinoza Rojas Rooper","dob":"1989-10-05","height":null,"weight":null},
-    {"id":120253,"name":"Alvarez López Julio Cesar","dob":"1990-08-19","height":null,"weight":null},
-    {"id":120254,"name":"Sandoval Alfaro Luis Raul","dob":"1990-12-16","height":null,"weight":null},
-    {"id":137596,"name":"Andres Felipe Flores Garita","dob":"1993-11-03","height":170,"weight":58},
-    {"id":139047,"name":"Josue Flores Garita","dob":"1993-11-03","height":null,"weight":null,"away":[{"id":137511,"name":"Flores Garita Andres Felipe","fed":"CRC","gender":"W","t":1,"f":2012,"l":2012,"s":[[2012,1,241]],"at":[[2012,"CRC"]]}]},
-    {"id":139434,"name":"Victor Alpizar Campos","dob":"1995-04-21","height":180,"weight":70},
-    {"id":142978,"name":"Sebastian Valenciano","dob":"1996-04-09","height":187,"weight":85},
-    {"id":142979,"name":"Alejandro Gonzalez","dob":"1996-08-06","height":null,"weight":null},
-    {"id":145327,"name":"Valenciano Sebastian","dob":"1996-04-19","height":181,"weight":73},
-    {"id":146101,"name":"Johel Jimenez","dob":"1998-10-07","height":null,"weight":null},
-    {"id":146102,"name":"Josafath Vargas","dob":"1999-11-08","height":null,"weight":null},
-    {"id":154826,"name":"Fabian Guerra Esquivel","dob":"1997-12-11","height":null,"weight":null},
-    {"id":157468,"name":"Nicolas Velluti Morales","dob":"1999-02-06","height":184,"weight":77},
-    {"id":161512,"name":"Daniel Dyner Villa","dob":"2000-08-17","height":195,"weight":90},
-    {"id":183085,"name":"Jhostin Varela Guerrero","dob":"2004-10-22","height":192,"weight":77},
-    {"id":183088,"name":"Julián Araya Alas","dob":"2006-09-08","height":184,"weight":72},
-    {"id":189424,"name":"Stanley Grant Brown","dob":"2007-08-19","height":199,"weight":89},
-    {"id":202969,"name":"Victorio Esteban González Flores","dob":"2005-06-29","height":183,"weight":62},
-    {"id":220940,"name":"Jevan Santamaria Coronado Santamaria","dob":"1999-10-20","height":null,"weight":null}
+    {
+      "id": 100681,
+      "name": "Alexander Villegas Gonzalez",
+      "dob": "1974-02-27",
+      "height": 182,
+      "weight": 66
+    },
+    {
+      "id": 100682,
+      "name": "Zlatko Crespo Piskulich",
+      "dob": "1973-12-22",
+      "height": 190,
+      "weight": 95
+    },
+    {
+      "id": 117431,
+      "name": "Alexánder Villegas",
+      "dob": "1974-02-27",
+      "height": 187,
+      "weight": 81
+    },
+    {
+      "id": 117517,
+      "name": "Gilberto Villegas",
+      "dob": "1978-02-28",
+      "height": 175,
+      "weight": 60
+    },
+    {
+      "id": 120252,
+      "name": "Espinoza Rojas Rooper",
+      "dob": "1989-10-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120253,
+      "name": "Alvarez López Julio Cesar",
+      "dob": "1990-08-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120254,
+      "name": "Sandoval Alfaro Luis Raul",
+      "dob": "1990-12-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 137596,
+      "name": "Andres Felipe Flores Garita",
+      "dob": "1993-11-03",
+      "height": 170,
+      "weight": 58
+    },
+    {
+      "id": 139047,
+      "name": "Josue Flores Garita",
+      "dob": "1993-11-03",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 137511,
+          "name": "Flores Garita Andres Felipe",
+          "fed": "CRC",
+          "gender": "W",
+          "t": 1,
+          "f": 2012,
+          "l": 2012,
+          "s": [
+            [
+              2012,
+              1,
+              241
+            ]
+          ],
+          "at": [
+            [
+              2012,
+              "CRC"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 139434,
+      "name": "Victor Alpizar Campos",
+      "dob": "1995-04-21",
+      "height": 180,
+      "weight": 70
+    },
+    {
+      "id": 142978,
+      "name": "Sebastian Valenciano",
+      "dob": "1996-04-09",
+      "height": 187,
+      "weight": 85
+    },
+    {
+      "id": 142979,
+      "name": "Alejandro Gonzalez",
+      "dob": "1996-08-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 145327,
+      "name": "Valenciano Sebastian",
+      "dob": "1996-04-19",
+      "height": 181,
+      "weight": 73
+    },
+    {
+      "id": 146101,
+      "name": "Johel Jimenez",
+      "dob": "1998-10-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146102,
+      "name": "Josafath Vargas",
+      "dob": "1999-11-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 154826,
+      "name": "Fabian Guerra Esquivel",
+      "dob": "1997-12-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 157468,
+      "name": "Nicolas Velluti Morales",
+      "dob": "1999-02-06",
+      "height": 184,
+      "weight": 77
+    },
+    {
+      "id": 161512,
+      "name": "Daniel Dyner Villa",
+      "dob": "2000-08-17",
+      "height": 195,
+      "weight": 90
+    },
+    {
+      "id": 183085,
+      "name": "Jhostin Varela Guerrero",
+      "dob": "2004-10-22",
+      "height": 192,
+      "weight": 77
+    },
+    {
+      "id": 183088,
+      "name": "Julián Araya Alas",
+      "dob": "2006-09-08",
+      "height": 184,
+      "weight": 72
+    },
+    {
+      "id": 189424,
+      "name": "Stanley Grant Brown",
+      "dob": "2007-08-19",
+      "height": 199,
+      "weight": 89
+    },
+    {
+      "id": 202969,
+      "name": "Victorio Esteban González Flores",
+      "dob": "2005-06-29",
+      "height": 183,
+      "weight": 62
+    },
+    {
+      "id": 220940,
+      "name": "Jevan Santamaria Coronado Santamaria",
+      "dob": "1999-10-20",
+      "height": null,
+      "weight": null
+    }
   ]
 }

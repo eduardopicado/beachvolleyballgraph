@@ -2,8 +2,51 @@
   "country": "LUX",
   "gender": "W",
   "players": [
-    {"id":117023,"name":"Norma Zambon","dob":null,"height":null,"weight":null},
-    {"id":117024,"name":"Jeanne Schneider","dob":"1983-07-01","height":171,"weight":73},
-    {"id":120747,"name":"Marie Reiterova","dob":"1990-03-13","height":null,"weight":null,"away":[{"id":120748,"name":"Šárka Melichárková","fed":"CZE","gender":"W","t":1,"f":2008,"l":2008,"s":[[2008,1,212]],"at":[[2008,"CZE"]]}]}
+    {
+      "id": 117023,
+      "name": "Norma Zambon",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117024,
+      "name": "Jeanne Schneider",
+      "dob": "1983-07-01",
+      "height": 171,
+      "weight": 73
+    },
+    {
+      "id": 120747,
+      "name": "Marie Reiterova",
+      "dob": "1990-03-13",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 120748,
+          "name": "Šárka Melichárková",
+          "fed": "CZE",
+          "gender": "W",
+          "t": 1,
+          "f": 2008,
+          "l": 2008,
+          "s": [
+            [
+              2008,
+              1,
+              212
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "CZE"
+            ]
+          ],
+          "r": 19
+        }
+      ]
+    }
   ]
 }

@@ -251,6 +251,26 @@
   text-align: center;
 }
 
+/* The pair's best finish. Same colour language as a finish inside an expanded
+   season — muted by default, the selected-player ink for a podium — so the
+   summary row and the events behind it agree about what a good result looks
+   like. Quieter than the tournament count beside it on purpose: how often two
+   people played together is what the list is sorted and sized by, and the
+   placement is the detail you read second. */
+.partners .best {
+  flex-shrink: 0;
+  min-width: 24px;
+  text-align: right;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.partners .best.is-podium {
+  color: var(--series-1);
+}
+
 .partners .span {
   color: var(--text-muted);
   font-size: 11px;

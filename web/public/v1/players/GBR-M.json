@@ -2,15 +2,394 @@
   "country": "GBR",
   "gender": "M",
   "players": [
-    {"id":118585,"name":"Luke Sheaf","dob":null,"height":null,"weight":null,"away":[{"id":103717,"name":"Jody Gooding","fed":"ENG","gender":"M","t":4,"f":2007,"l":2009,"s":[[2007,2,207],[2009,2,202]],"at":[[2007,"GBR"],[2009,"GBR"]]},{"id":103720,"name":"Gregg Weaver","fed":"ENG","gender":"M","t":1,"f":2007,"l":2007,"s":[[2007,1,179]],"at":[[2007,"GBR"]]},{"id":118584,"name":"Robin Miedzybrodzki","fed":"SCO","gender":"M","t":1,"f":2007,"l":2007,"s":[[2007,1,221]],"at":[[2007,"GBR"]]}]},
-    {"id":118586,"name":"Jake Sheaf","dob":"1990-04-02","height":null,"weight":null,"away":[{"id":119906,"name":"Rob Flay","fed":"ENG","gender":"M","t":1,"f":2007,"l":2007,"s":[[2007,1,221]],"at":[[2007,"GBR"]]}]},
-    {"id":118718,"name":"Imornefe Bowes","dob":null,"height":null,"weight":null,"away":[{"id":118584,"name":"Robin Miedzybrodzki","fed":"SCO","gender":"M","t":4,"f":2007,"l":2007,"s":[[2007,4,248]],"at":[[2007,"GBR"]]},{"id":103717,"name":"Jody Gooding","fed":"ENG","gender":"M","t":2,"f":2007,"l":2007,"s":[[2007,2,227]],"at":[[2007,"GBR"]]}]},
-    {"id":118936,"name":"Barry McGuigan","dob":null,"height":null,"weight":null},
-    {"id":120535,"name":"Tom Lord","dob":"1986-08-20","height":null,"weight":null,"away":[{"id":118584,"name":"Robin Miedzybrodzki","fed":"SCO","gender":"M","t":17,"f":2009,"l":2012,"s":[[2009,4,147],[2011,6,278],[2012,7,228]],"at":[[2009,"GBR"],[2011,"GBR"],[2012,"GBR"]]},{"id":103717,"name":"Jody Gooding","fed":"ENG","gender":"M","t":6,"f":2008,"l":2010,"s":[[2008,1,316],[2010,5,237]],"at":[[2008,"GBR"],[2010,"GBR"]]}]},
-    {"id":120922,"name":"Josh Randall","dob":"1989-07-27","height":null,"weight":null},
-    {"id":120923,"name":"Adam Smith","dob":"1990-02-08","height":null,"weight":null},
-    {"id":124005,"name":"John Garcia-Thompson","dob":"1979-06-08","height":192,"weight":92,"away":[{"id":118567,"name":"Steven Grotowski","fed":"ENG","gender":"M","t":15,"f":2011,"l":2012,"s":[[2011,6,236],[2012,9,209]],"at":[[2011,"GBR"],[2012,"GBR"]]},{"id":118584,"name":"Robin Miedzybrodzki","fed":"SCO","gender":"M","t":5,"f":2009,"l":2010,"s":[[2009,3,231],[2010,2,230]],"at":[[2009,"GBR"],[2010,"GBR"]]}]},
-    {"id":125531,"name":"Seain Cook","dob":"1990-10-10","height":null,"weight":null},
-    {"id":125535,"name":"Patrick Crooks","dob":"1990-05-06","height":null,"weight":null,"away":[{"id":120918,"name":"Chris Gregory","fed":"ENG","gender":"M","t":1,"f":2009,"l":2009,"s":[[2009,1,259]],"at":[[2009,"GBR"]]}]}
+    {
+      "id": 118585,
+      "name": "Luke Sheaf",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 103717,
+          "name": "Jody Gooding",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 4,
+          "f": 2007,
+          "l": 2009,
+          "s": [
+            [
+              2007,
+              2,
+              207
+            ],
+            [
+              2009,
+              2,
+              202
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ],
+            [
+              2009,
+              "GBR"
+            ]
+          ],
+          "r": 21
+        },
+        {
+          "id": 103720,
+          "name": "Gregg Weaver",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 1,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              1,
+              179
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 37
+        },
+        {
+          "id": 118584,
+          "name": "Robin Miedzybrodzki",
+          "fed": "SCO",
+          "gender": "M",
+          "t": 1,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              1,
+              221
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 118586,
+      "name": "Jake Sheaf",
+      "dob": "1990-04-02",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 119906,
+          "name": "Rob Flay",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 1,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              1,
+              221
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 13
+        }
+      ]
+    },
+    {
+      "id": 118718,
+      "name": "Imornefe Bowes",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 118584,
+          "name": "Robin Miedzybrodzki",
+          "fed": "SCO",
+          "gender": "M",
+          "t": 4,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              4,
+              248
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 29
+        },
+        {
+          "id": 103717,
+          "name": "Jody Gooding",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 2,
+          "f": 2007,
+          "l": 2007,
+          "s": [
+            [
+              2007,
+              2,
+              227
+            ]
+          ],
+          "at": [
+            [
+              2007,
+              "GBR"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 118936,
+      "name": "Barry McGuigan",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120535,
+      "name": "Tom Lord",
+      "dob": "1986-08-20",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 118584,
+          "name": "Robin Miedzybrodzki",
+          "fed": "SCO",
+          "gender": "M",
+          "t": 17,
+          "f": 2009,
+          "l": 2012,
+          "s": [
+            [
+              2009,
+              4,
+              147
+            ],
+            [
+              2011,
+              6,
+              278
+            ],
+            [
+              2012,
+              7,
+              228
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ],
+            [
+              2011,
+              "GBR"
+            ],
+            [
+              2012,
+              "GBR"
+            ]
+          ],
+          "r": 33
+        },
+        {
+          "id": 103717,
+          "name": "Jody Gooding",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 6,
+          "f": 2008,
+          "l": 2010,
+          "s": [
+            [
+              2008,
+              1,
+              316
+            ],
+            [
+              2010,
+              5,
+              237
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "GBR"
+            ],
+            [
+              2010,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        }
+      ]
+    },
+    {
+      "id": 120922,
+      "name": "Josh Randall",
+      "dob": "1989-07-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120923,
+      "name": "Adam Smith",
+      "dob": "1990-02-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 124005,
+      "name": "John Garcia-Thompson",
+      "dob": "1979-06-08",
+      "height": 192,
+      "weight": 92,
+      "away": [
+        {
+          "id": 118567,
+          "name": "Steven Grotowski",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 15,
+          "f": 2011,
+          "l": 2012,
+          "s": [
+            [
+              2011,
+              6,
+              236
+            ],
+            [
+              2012,
+              9,
+              209
+            ]
+          ],
+          "at": [
+            [
+              2011,
+              "GBR"
+            ],
+            [
+              2012,
+              "GBR"
+            ]
+          ],
+          "r": 17
+        },
+        {
+          "id": 118584,
+          "name": "Robin Miedzybrodzki",
+          "fed": "SCO",
+          "gender": "M",
+          "t": 5,
+          "f": 2009,
+          "l": 2010,
+          "s": [
+            [
+              2009,
+              3,
+              231
+            ],
+            [
+              2010,
+              2,
+              230
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ],
+            [
+              2010,
+              "GBR"
+            ]
+          ],
+          "r": 33
+        }
+      ]
+    },
+    {
+      "id": 125531,
+      "name": "Seain Cook",
+      "dob": "1990-10-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 125535,
+      "name": "Patrick Crooks",
+      "dob": "1990-05-06",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 120918,
+          "name": "Chris Gregory",
+          "fed": "ENG",
+          "gender": "M",
+          "t": 1,
+          "f": 2009,
+          "l": 2009,
+          "s": [
+            [
+              2009,
+              1,
+              259
+            ]
+          ],
+          "at": [
+            [
+              2009,
+              "GBR"
+            ]
+          ],
+          "r": 19
+        }
+      ]
+    }
   ]
 }

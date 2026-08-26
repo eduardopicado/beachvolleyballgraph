@@ -2,239 +2,2588 @@
   "country": "BRA",
   "gender": "M",
   "players": [
-    {"id":100021,"name":"Paulo Roberto \"Paulão\" Moreira da Costa","dob":"1969-04-29","height":193,"weight":95,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":7,"silver":3,"bronze":3},"away":[{"id":122172,"name":"Jefferson Bellaguarda","fed":"SUI","gender":"M","t":18,"f":2000,"l":2001,"s":[[2000,7,332],[2001,11,332]],"at":[[2000,"BRA"],[2001,"BRA"]]}]},
-    {"id":100043,"name":"Carlos Eduardo Dias Garrido","dob":"1967-12-17","height":193,"weight":89,"tour":{"gold":0,"silver":4,"bronze":2}},
-    {"id":100044,"name":"Roberto Duarte Dias Moreira","dob":"1965-04-29","height":183,"weight":77,"tour":{"gold":0,"silver":3,"bronze":2}},
-    {"id":100059,"name":"Franco José Vieira Neto","dob":"1966-11-11","height":192,"weight":92,"tour":{"gold":16,"silver":15,"bronze":21}},
-    {"id":100060,"name":"Roberto Lopes da Costa","dob":"1966-10-06","height":185,"weight":87,"tour":{"gold":15,"silver":8,"bronze":12}},
-    {"id":100083,"name":"Andrè Lima Perlingeiro","dob":"1969-08-30","height":188,"weight":82,"tour":{"gold":1,"silver":3,"bronze":5}},
-    {"id":100135,"name":"Marlos Cogo de Almeida","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":100136,"name":"Marco Tullio Gomes Teixeira","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":100138,"name":"Atila Pereira de Souza","dob":null,"height":null,"weight":null},
-    {"id":100139,"name":"Clovis Antonio Freitas Baptista","dob":null,"height":null,"weight":null},
-    {"id":100140,"name":"Eduardo Jorge \"Anjinho\" Bacil Filho","dob":"1971-03-11","height":187,"weight":85,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":100182,"name":"Guilherme Luiz Marques","dob":"1969-06-26","height":193,"weight":90,"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":7,"silver":18,"bronze":11}},
-    {"id":100205,"name":"Gustavo Ciraldo Maximo","dob":null,"height":null,"weight":null},
-    {"id":100206,"name":"Nalbert Bitencourt","dob":null,"height":null,"weight":null},
-    {"id":100208,"name":"Otto Hofman Junior","dob":null,"height":null,"weight":null},
-    {"id":100218,"name":"José Geraldo Loiola","dob":"1970-03-28","height":194,"weight":87,"worldChamps":{"gold":1,"silver":1,"bronze":0},"tour":{"gold":18,"silver":11,"bronze":7}},
-    {"id":100280,"name":"Carlos Frederico \"Alemão\" Galletti","dob":"1970-12-29","height":189,"weight":92,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":100281,"name":"Andrè Faria Gomes","dob":"1970-11-18","height":192,"weight":85,"tour":{"gold":1,"silver":1,"bronze":2}},
-    {"id":100426,"name":"José Marco \"Zé Marco\" Nóbrega Ferreira de Melo","dob":"1971-03-19","height":191,"weight":82,"olympics":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":26,"silver":15,"bronze":14}},
-    {"id":100427,"name":"Emanuel Rego","dob":"1973-04-15","height":190,"weight":80,"olympics":{"gold":1,"silver":1,"bronze":1},"worldChamps":{"gold":3,"silver":0,"bronze":0},"tour":{"gold":73,"silver":36,"bronze":40}},
-    {"id":100428,"name":"Aloizio Claudino","dob":"1963-02-22","height":190,"weight":84},
-    {"id":100429,"name":"Dennys Paredes Gomes","dob":"1965-03-20","height":187,"weight":79,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":100430,"name":"Everaldo Alves Junior","dob":"1967-06-12","height":190,"weight":85},
-    {"id":100531,"name":"Federico \"Fred\" Doria de Souza","dob":"1972-05-13","height":200,"weight":94,"tour":{"gold":2,"silver":0,"bronze":0}},
-    {"id":100564,"name":"Rogério \"Pará\" de Souza Ferreira","dob":"1973-09-13","height":191,"weight":88,"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":9,"silver":14,"bronze":8}},
-    {"id":100565,"name":"Ernesto Jackson Vogado de Souza","dob":"1970-01-02","height":194,"weight":80,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":100566,"name":"Ninahua Bezerra de Oliveira","dob":"1966-08-26","height":184,"weight":80},
-    {"id":100780,"name":"Marcelo Camargo dos Santos","dob":"1970-09-27","height":192,"weight":90},
-    {"id":100781,"name":"Marcelo Candido de Moraes Machado","dob":"1967-07-15","height":185,"weight":87},
-    {"id":100848,"name":"Nilo Guliberto Martins Chavarry","dob":"1970-06-25","height":192,"weight":84},
-    {"id":100890,"name":"Luis Antonio \"Lula\" Barbosa da Silva","dob":"1970-03-13","height":189,"weight":84,"tour":{"gold":2,"silver":1,"bronze":0}},
-    {"id":100891,"name":"Francismar Adriano Dias Garrido","dob":"1972-11-30","height":null,"weight":null,"tour":{"gold":2,"silver":1,"bronze":0}},
-    {"id":100996,"name":"José Eduardo \"Duda\" Macedo Pinto de Abreu","dob":"1969-03-27","height":185,"weight":80,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":100997,"name":"Ricardo Alex Costa Santos","dob":"1975-01-06","height":200,"weight":103,"olympics":{"gold":1,"silver":1,"bronze":1},"worldChamps":{"gold":1,"silver":3,"bronze":0},"tour":{"gold":53,"silver":27,"bronze":22}},
-    {"id":101040,"name":"Antonio Carlos \"Badà\" Gueiros Ribeiro","dob":null,"height":null,"weight":null},
-    {"id":101042,"name":"Alexendre \"Baxinho\" Maestrini","dob":null,"height":null,"weight":null},
-    {"id":101043,"name":"Bernard Rajzman","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":101044,"name":"Bernardo \"Bernardinho\" Rocha de Rezende","dob":null,"height":null,"weight":null},
-    {"id":101056,"name":"Renan Dal Zotto","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":101087,"name":"Edmundo \"Edinho\" de Mattos Goncalves Ar","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":101096,"name":"Paulo Roberto \"Paulinho\" Veiga","dob":null,"height":null,"weight":null},
-    {"id":101102,"name":"Renato \"Renatinho\" Villarinho","dob":null,"height":null,"weight":null},
-    {"id":101106,"name":"Sergio \"Serginho\" Morais de Araujo","dob":null,"height":null,"weight":null},
-    {"id":101109,"name":"Eduardo Muniz Barreto Tinoco","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":101115,"name":"Marcus Vinicius Simoes de Freire","dob":null,"height":null,"weight":null},
-    {"id":101118,"name":"Andrè Zaccaron","dob":null,"height":null,"weight":null},
-    {"id":101145,"name":"Cid Cid","dob":null,"height":null,"weight":null},
-    {"id":101146,"name":"Paulo Maranhao","dob":null,"height":null,"weight":null},
-    {"id":101147,"name":"José \"Pelè\" Francisco Filho","dob":null,"height":null,"weight":null},
-    {"id":101149,"name":"Paulo Roese","dob":null,"height":null,"weight":null},
-    {"id":101154,"name":"Miguel Miguel","dob":null,"height":null,"weight":null},
-    {"id":101155,"name":"Ricardo \"Caveirinha\" Ricardo \"Caveirinha\"","dob":null,"height":null,"weight":null},
-    {"id":101156,"name":"Fernando Maranhao","dob":null,"height":null,"weight":null},
-    {"id":101157,"name":"William Carvalho da Silva","dob":null,"height":null,"weight":null},
-    {"id":101159,"name":"Josè Montanaro Filho","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":101165,"name":"Carlos \"Carlinhos\" de Assis","dob":null,"height":null,"weight":null},
-    {"id":101166,"name":"Mario Xandò","dob":null,"height":null,"weight":null},
-    {"id":101167,"name":"Raimundo Antonio \"Jaba\" Lima Filho","dob":null,"height":null,"weight":null},
-    {"id":101169,"name":"Fernando Fernando","dob":null,"height":null,"weight":null},
-    {"id":101170,"name":"Flavio Flavio","dob":null,"height":null,"weight":null},
-    {"id":101176,"name":"Marco Antonio Pina Barbosa","dob":null,"height":null,"weight":null},
-    {"id":101204,"name":"Paulo Emilio Silva Azevedo","dob":"1969-12-14","height":191,"weight":85,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":5,"silver":2,"bronze":5},"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":4,"f":2005,"l":2005,"s":[[2005,4,223]],"at":[[2005,"BRA"]]}]},
-    {"id":101224,"name":"Luis Amerigo","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":101360,"name":"Norman Guimaraes Costa","dob":"1965-07-01","height":185,"weight":85},
-    {"id":101361,"name":"Jorge Luiz Queiroz de Freitas","dob":"1971-08-25","height":185,"weight":80},
-    {"id":101362,"name":"Gilbert Guimaraes Monte","dob":"1969-04-12","height":190,"weight":80},
-    {"id":101363,"name":"Thomas Klepper Nascimento Feitosa","dob":"1975-10-07","height":190,"weight":85,"tour":{"gold":4,"silver":0,"bronze":0}},
-    {"id":101591,"name":"Marcio Henrique Barroso Araujo","dob":"1973-10-12","height":192,"weight":90,"olympics":{"gold":0,"silver":1,"bronze":0},"worldChamps":{"gold":1,"silver":1,"bronze":1},"tour":{"gold":20,"silver":17,"bronze":15}},
-    {"id":101592,"name":"Francisco Antonio \"Reis\" Rodrigues Castro","dob":"1970-01-06","height":191,"weight":82},
-    {"id":101593,"name":"Murilo Toscano Teixeira","dob":"1971-11-03","height":205,"weight":90,"tour":{"gold":3,"silver":0,"bronze":1}},
-    {"id":101669,"name":"Harley Marques Silva","dob":"1975-07-06","height":194,"weight":85,"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":16,"silver":6,"bronze":11}},
-    {"id":102070,"name":"Giovane Gavio","dob":"1970-09-07","height":194,"weight":100,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":102071,"name":"Ramos Alexandre \"Tande\" Samuel","dob":"1970-03-20","height":198,"weight":91,"tour":{"gold":7,"silver":4,"bronze":10}},
-    {"id":102079,"name":"Edson Luiz \"Alemão\" Guerra","dob":"1966-12-09","height":null,"weight":null},
-    {"id":102080,"name":"Luiz \"Luizão\" Correa De Jesus","dob":"1973-06-07","height":null,"weight":null,"tour":{"gold":2,"silver":2,"bronze":0}},
-    {"id":102082,"name":"Benjamin Insfran","dob":"1972-04-14","height":196,"weight":90,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":13,"silver":10,"bronze":9}},
-    {"id":102083,"name":"Antonio P. \"Toninho\" Urbanski","dob":"1975-03-24","height":null,"weight":null},
-    {"id":102122,"name":"Jan Ferreira De Souza","dob":"1975-05-22","height":null,"weight":null,"tour":{"gold":2,"silver":0,"bronze":0}},
-    {"id":102509,"name":"Antonio Carlos \"Carlão\" Gouveia","dob":"1965-04-20","height":197,"weight":91},
-    {"id":102649,"name":"Rodrigo Pietraroia","dob":"1971-12-30","height":186,"weight":84},
-    {"id":102860,"name":"Carlos Arruda","dob":"1971-12-27","height":null,"weight":90,"away":[{"id":122172,"name":"Jefferson Bellaguarda","fed":"SUI","gender":"M","t":1,"f":1999,"l":1999,"s":[[1999,1,335]],"at":[[1999,"BRA"]]}]},
-    {"id":102862,"name":"Marco Freitas","dob":null,"height":null,"weight":null},
-    {"id":102863,"name":"Amiraldo Magalhaes","dob":null,"height":null,"weight":null},
-    {"id":102864,"name":"Marcelo Carvalhaes","dob":"1971-04-30","height":null,"weight":92},
-    {"id":103215,"name":"Dagoberto \"Juca\" Dultra Jr.","dob":"1977-04-17","height":192,"weight":89,"tour":{"gold":1,"silver":0,"bronze":0},"away":[{"id":122172,"name":"Jefferson Bellaguarda","fed":"SUI","gender":"M","t":12,"f":2002,"l":2003,"s":[[2002,5,275],[2003,7,286]],"at":[[2002,"SUI"],[2003,"SUI"]]}]},
-    {"id":103216,"name":"Fabio \"Fabinho\" Araujo","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":103320,"name":"Pedro Grael Brazão","dob":null,"height":195,"weight":80,"tour":{"gold":1,"silver":0,"bronze":1}},
-    {"id":103679,"name":"Anselmo Sigoli","dob":"1983-02-09","height":190,"weight":81},
-    {"id":103680,"name":"Pedro Henrique Cunha","dob":"1983-06-10","height":189,"weight":91,"tour":{"gold":8,"silver":9,"bronze":8}},
-    {"id":103714,"name":"Adriano Fonseca","dob":"1982-02-03","height":null,"weight":null},
-    {"id":103751,"name":"Luiz Dulinski","dob":"1979-02-01","height":null,"weight":null},
-    {"id":103752,"name":"Celso V. Brunholi","dob":null,"height":null,"weight":null},
-    {"id":103900,"name":"Rodrigo De Souza Gomes","dob":"1984-02-10","height":null,"weight":null},
-    {"id":103901,"name":"Leandro Rocha Cavalcanti Araujo","dob":"1983-05-31","height":null,"weight":null},
-    {"id":104072,"name":"Ian Borges","dob":"1986-12-16","height":null,"weight":82,"tour":{"gold":0,"silver":0,"bronze":2}},
-    {"id":104073,"name":"Pedro Solberg","dob":"1986-03-27","height":194,"weight":95,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":18,"silver":12,"bronze":12},"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":1,"f":2004,"l":2004,"s":[[2004,1,259]],"at":[[2004,"BRA"]]},{"id":145125,"name":"Tiago De J Santos","fed":"QAT","gender":"M","t":1,"f":2005,"l":2005,"s":[[2005,1,249]],"at":[[2005,"BRA"]]}]},
-    {"id":104074,"name":"Oscar Brandão","dob":"1985-05-24","height":193,"weight":90,"tour":{"gold":2,"silver":0,"bronze":0}},
-    {"id":104075,"name":"Alexandre Peres","dob":null,"height":null,"weight":null},
-    {"id":104137,"name":"Tomas Knebelkamp","dob":"1985-03-01","height":null,"weight":null,"away":[{"id":104138,"name":"Oliver Schmäschke","fed":"GER","gender":"M","t":1,"f":2002,"l":2002,"s":[[2002,1,240]],"at":[[2002,"BRA"]]}]},
-    {"id":104206,"name":"Jorge Ferreira Terceiro","dob":null,"height":null,"weight":null},
-    {"id":104207,"name":"Fabio Luiz de Jesus Magalhães","dob":"1979-03-13","height":204,"weight":100,"olympics":{"gold":0,"silver":1,"bronze":0},"worldChamps":{"gold":1,"silver":0,"bronze":0},"tour":{"gold":10,"silver":7,"bronze":11}},
-    {"id":104436,"name":"Igor Hercowitz","dob":"1984-01-30","height":null,"weight":null,"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":1,"f":2003,"l":2003,"s":[[2003,1,218]],"at":[[2003,"AZE"]]}]},
-    {"id":104503,"name":"Vinicus Santana","dob":"1986-12-08","height":null,"weight":null},
-    {"id":104537,"name":"Rodrigo Vieira Bernat","dob":"1987-08-20","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":104590,"name":"Rodrigo Monteiro","dob":"1979-12-24","height":192,"weight":90,"tour":{"gold":3,"silver":1,"bronze":1}},
-    {"id":104591,"name":"Felipe Silva","dob":"1984-05-14","height":null,"weight":null},
-    {"id":104592,"name":"Danilo Vieira Dos Santos","dob":"1980-06-11","height":194,"weight":80},
-    {"id":104621,"name":"Alex Acco","dob":"1977-03-07","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":104882,"name":"Marcello Duarte","dob":null,"height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":1}},
-    {"id":104934,"name":"Bruno De Paula","dob":"1978-10-11","height":190,"weight":86,"tour":{"gold":3,"silver":1,"bronze":0}},
-    {"id":105050,"name":"Roberto Pitta","dob":"1987-06-15","height":190,"weight":90,"tour":{"gold":0,"silver":2,"bronze":2}},
-    {"id":105051,"name":"Guilherme Ferreira","dob":null,"height":null,"weight":null},
-    {"id":105052,"name":"Diogo Pontes","dob":null,"height":null,"weight":null},
-    {"id":105147,"name":"Ricardo Alessandro Brandao Sousa","dob":"1975-10-15","height":null,"weight":88,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":105149,"name":"Joao Luis Pianca Maciel","dob":"1978-05-28","height":197,"weight":90,"tour":{"gold":1,"silver":2,"bronze":0}},
-    {"id":105164,"name":"Fabiano Da Silva Melo","dob":"1975-09-22","height":null,"weight":92},
-    {"id":114195,"name":"Everaldo Lucena da Silva","dob":"1985-05-28","height":194,"weight":83},
-    {"id":116868,"name":"Fernando Magalhães","dob":"1987-01-28","height":210,"weight":105},
-    {"id":116869,"name":"Pedro Peixoto de Paula Marques","dob":"1987-03-19","height":null,"weight":83},
-    {"id":117473,"name":"Vinícius de Almeida Santos","dob":null,"height":null,"weight":null},
-    {"id":117474,"name":"Bruno Oscar Schmidt","dob":"1986-10-06","height":185,"weight":87,"olympics":{"gold":1,"silver":0,"bronze":0},"worldChamps":{"gold":1,"silver":0,"bronze":0},"tour":{"gold":14,"silver":10,"bronze":7}},
-    {"id":117537,"name":"Bernardo Romano","dob":"1980-07-03","height":198,"weight":89,"tour":{"gold":3,"silver":0,"bronze":1}},
-    {"id":117552,"name":"Yuri rodrigo ignacio","dob":null,"height":null,"weight":null},
-    {"id":117929,"name":"Hevaldo Sabino Moreira","dob":"1979-05-12","height":193,"weight":92,"tour":{"gold":1,"silver":0,"bronze":1}},
-    {"id":118267,"name":"Alison Cerutti","dob":"1985-12-07","height":203,"weight":110,"olympics":{"gold":1,"silver":1,"bronze":0},"worldChamps":{"gold":2,"silver":1,"bronze":0},"tour":{"gold":25,"silver":16,"bronze":15}},
-    {"id":118286,"name":"Vinícius Silveira Rosa","dob":null,"height":null,"weight":null,"away":[{"id":145124,"name":"Jefferson Santos Pereira","fed":"QAT","gender":"M","t":1,"f":2006,"l":2006,"s":[[2006,1,248]],"at":[[2006,"BRA"]]}]},
-    {"id":118288,"name":"Ícaro Gregório do Nascimento","dob":null,"height":null,"weight":null},
-    {"id":118289,"name":"Watson Trovati Matos","dob":null,"height":null,"weight":null},
-    {"id":118325,"name":"Thiago Dealtry Barbosa","dob":"1982-12-10","height":198,"weight":90,"tour":{"gold":0,"silver":2,"bronze":0}},
-    {"id":119675,"name":"Fabio Guerra","dob":null,"height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":120111,"name":"Rodrigo Ramos","dob":null,"height":null,"weight":null},
-    {"id":120198,"name":"José Írio Quevedo","dob":null,"height":null,"weight":null},
-    {"id":120477,"name":"Francisco Felipe Martins Rodrigues","dob":"1983-05-05","height":194,"weight":100,"tour":{"gold":0,"silver":1,"bronze":2}},
-    {"id":120550,"name":"Álvaro Morais Filho","dob":"1990-11-27","height":185,"weight":80,"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":5,"silver":3,"bronze":4},"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":3,"f":2011,"l":2011,"s":[[2011,3,236]],"at":[[2011,"BRA"]]}]},
-    {"id":120551,"name":"Vitor Gonçalves Felipe","dob":"1991-03-10","height":193,"weight":94,"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":3,"silver":2,"bronze":1},"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":7,"f":2012,"l":2012,"s":[[2012,7,200]],"at":[[2012,"BRA"]]}]},
-    {"id":120895,"name":"Gabriel Silva Francisco Pereira","dob":"1989-01-16","height":null,"weight":null,"away":[{"id":145124,"name":"Jefferson Santos Pereira","fed":"QAT","gender":"M","t":1,"f":2008,"l":2008,"s":[[2008,1,247]],"at":[[2008,"BRA"]]}]},
-    {"id":122121,"name":"Rhooney de Oliveira Ferramenta","dob":"1985-11-07","height":182,"weight":80,"tour":{"gold":0,"silver":0,"bronze":1},"away":[{"id":104434,"name":"Neilton Moises Santos Merces","fed":"AZE","gender":"M","t":6,"f":2010,"l":2011,"s":[[2010,4,237],[2011,2,138]],"at":[[2010,"BRA"],[2011,"BRA"]]}]},
-    {"id":125526,"name":"Marcus Carvalhaes","dob":"1992-05-12","height":null,"weight":null},
-    {"id":131997,"name":"Luciano Ferreira de Paula","dob":"1985-01-08","height":197,"weight":90,"tour":{"gold":2,"silver":0,"bronze":0}},
-    {"id":132703,"name":"Ramon Ferreira Gomes","dob":"1992-05-16","height":180,"weight":80,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":132705,"name":"Gustavo Albrecht Carvalhaes","dob":"1993-08-20","height":186,"weight":80,"tour":{"gold":2,"silver":3,"bronze":4}},
-    {"id":133285,"name":"Evandro Gonçalves Oliveira Júnior","dob":"1990-07-17","height":210,"weight":105,"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":10,"silver":13,"bronze":6}},
-    {"id":135298,"name":"Rhuan De Oliveira Ferramenta","dob":"1989-11-30","height":null,"weight":null},
-    {"id":135521,"name":"Paulo Victor Branco","dob":"1990-02-21","height":191,"weight":80},
-    {"id":138639,"name":"Edson Filipe H. Barros","dob":"1987-01-15","height":202,"weight":93},
-    {"id":138640,"name":"Gilmário Vidal Ferreira","dob":"1983-04-28","height":null,"weight":null},
-    {"id":138859,"name":"Márcio Tschaffon Gaudie Ley","dob":"1991-01-11","height":193,"weight":91},
-    {"id":139084,"name":"Iago Christianes de Oliveira","dob":"1994-02-18","height":null,"weight":null},
-    {"id":139085,"name":"Leonardo Renaux Morais","dob":"1994-08-01","height":null,"weight":null},
-    {"id":139278,"name":"Matheus Saisse Domingos","dob":"1995-02-26","height":null,"weight":null},
-    {"id":139549,"name":"Carlos Eduardo Barreto Silva","dob":"1994-08-08","height":200,"weight":94},
-    {"id":139965,"name":"Saymon Barbosa Santos","dob":"1993-09-08","height":202,"weight":98,"tour":{"gold":3,"silver":1,"bronze":6}},
-    {"id":141365,"name":"Leonardo Gomes","dob":"1989-01-27","height":null,"weight":null},
-    {"id":141395,"name":"Daniel Lazzari","dob":"1989-12-11","height":null,"weight":null},
-    {"id":141396,"name":"Daniel Lustosa","dob":"1989-08-07","height":null,"weight":null},
-    {"id":141871,"name":"Fábio Rodrigo Castro Bastos","dob":"1993-07-05","height":null,"weight":null},
-    {"id":142652,"name":"Allison Cittadin Francioni","dob":"1993-10-01","height":194,"weight":88},
-    {"id":142888,"name":"Renato Mendes Gervasio Junior","dob":"1995-05-09","height":197,"weight":90},
-    {"id":142889,"name":"George Souto Maior Wanderley","dob":"1996-09-12","height":190,"weight":96,"worldChamps":{"gold":0,"silver":0,"bronze":1},"tour":{"gold":7,"silver":5,"bronze":8}},
-    {"id":142890,"name":"Matheus Maia Terra de Faria","dob":"1996-07-23","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":142891,"name":"Pedro Henrique Resende Santos","dob":"1996-08-29","height":null,"weight":null},
-    {"id":143514,"name":"Eduardo Figueiredo Rocha","dob":"1992-08-18","height":null,"weight":null},
-    {"id":145393,"name":"Arthur Diego Mariano Lanci","dob":"1996-02-13","height":193,"weight":96,"tour":{"gold":4,"silver":4,"bronze":5}},
-    {"id":145795,"name":"Joalisson Laurindo Gomes","dob":"1990-08-13","height":null,"weight":null},
-    {"id":146800,"name":"Rafael José Mendonça de Queiroz","dob":"1998-03-19","height":null,"weight":null},
-    {"id":147009,"name":"Andre Loyola Stein","dob":"1994-08-19","height":201,"weight":94,"worldChamps":{"gold":1,"silver":0,"bronze":1},"tour":{"gold":7,"silver":9,"bronze":7}},
-    {"id":147010,"name":"Vinicius Rezende Costa Freitas","dob":"1995-06-05","height":198,"weight":94,"tour":{"gold":1,"silver":0,"bronze":2}},
-    {"id":147011,"name":"Eduardo Davi Marinho da Rocha","dob":"1994-08-19","height":null,"weight":null},
-    {"id":147070,"name":"Gabriel Mussi Fichter","dob":"1996-09-10","height":null,"weight":null},
-    {"id":147071,"name":"Jonas Paixão Fidélis","dob":"1996-10-17","height":null,"weight":null},
-    {"id":149492,"name":"Vinícius Gomes Cardoso de Araújo","dob":"1992-10-28","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":149494,"name":"Álvaro Marcelino Santos Andrade","dob":"1992-07-09","height":null,"weight":null,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":149495,"name":"Leonardo Gomes Vieira","dob":"1991-09-12","height":null,"weight":null},
-    {"id":149569,"name":"Luccas Alves de Lima","dob":"1991-06-02","height":195,"weight":93},
-    {"id":149700,"name":"Felipe Cavazin Numasawa","dob":"1987-10-21","height":190,"weight":88},
-    {"id":150083,"name":"Marcus Borlini De Oliveira","dob":"1991-04-30","height":197,"weight":97},
-    {"id":154095,"name":"Anderson Luiz Melo De Souza","dob":"1992-02-22","height":null,"weight":null},
-    {"id":154096,"name":"Nilton de Araújo Freire","dob":"1991-10-03","height":null,"weight":null},
-    {"id":154100,"name":"Averaldo Pereira Da Silva","dob":"1989-05-28","height":null,"weight":null},
-    {"id":155470,"name":"Gabriel Dos Reis Santiago","dob":"1997-10-28","height":189,"weight":90,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":156187,"name":"Gabriel Heilborn Gouveia","dob":"1997-10-07","height":null,"weight":null},
-    {"id":156188,"name":"Adrielson Dos Santos Silva","dob":"1997-06-12","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":156493,"name":"Renato Andrew Lima de Carvalho","dob":"1999-12-01","height":192,"weight":86,"worldChamps":{"gold":0,"silver":1,"bronze":0},"tour":{"gold":1,"silver":2,"bronze":1}},
-    {"id":156956,"name":"Gabriel De Abreu Lima Pisco","dob":"2000-03-23","height":null,"weight":null},
-    {"id":156957,"name":"Felipe De Oliveira Miranda","dob":"1998-10-15","height":null,"weight":null},
-    {"id":161846,"name":"Gabriel Zuliani","dob":"2001-12-03","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":162421,"name":"Igor De Carvalho Borges","dob":"1997-09-26","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":163915,"name":"Johann Ferdinand Dohmann","dob":"2001-01-16","height":null,"weight":null},
-    {"id":164720,"name":"Joao Pedro Camargo de Barros Moreira","dob":"2000-10-19","height":null,"weight":null},
-    {"id":164721,"name":"Lucas Coelho Fagundes Sampaio","dob":"2001-03-27","height":null,"weight":null},
-    {"id":166785,"name":"Adelmo Goncalves Folha Neto","dob":"1997-06-07","height":null,"weight":90},
-    {"id":167040,"name":"Rafael Andrew Lima de Carvalho","dob":"1999-12-01","height":null,"weight":null,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":169432,"name":"Patrick Mirando do Carmo","dob":"2001-05-12","height":null,"weight":null},
-    {"id":172628,"name":"Lazaro Lyan De Paulo","dob":"1999-10-10","height":null,"weight":null},
-    {"id":173069,"name":"Arthur Da Silva Mariano","dob":"1997-09-02","height":200,"weight":84},
-    {"id":174735,"name":"João Pedro Elbert Guimarães","dob":"2001-04-19","height":186,"weight":88},
-    {"id":178678,"name":"Nicolas Capretti Schosler","dob":"2002-02-06","height":184,"weight":79,"tour":{"gold":1,"silver":0,"bronze":0}},
-    {"id":180995,"name":"Isac Adolfo Farias Barbosa","dob":"2003-02-20","height":null,"weight":85},
-    {"id":181113,"name":"João Vitor Damasceno Lima","dob":"2003-02-06","height":null,"weight":null},
-    {"id":181207,"name":"Felipe Alves Pereira","dob":"1998-12-29","height":192,"weight":93,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":181458,"name":"Mateus De Paula Dultra","dob":"2001-07-24","height":193,"weight":91},
-    {"id":182142,"name":"Samuel Giacomo Oselame Bello","dob":"2002-09-24","height":null,"weight":null},
-    {"id":183548,"name":"Vilsomar Brito Bernardo Junior","dob":"2002-05-31","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":183549,"name":"Pedro Augusto Sousa De Oliveira","dob":"2004-03-02","height":200,"weight":97,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":187569,"name":"Henrique Camboim de Barros","dob":"2005-07-26","height":null,"weight":null,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":187571,"name":"Eduardo Henrique Barbosa da Silva","dob":"2005-10-11","height":199,"weight":89},
-    {"id":187572,"name":"Gabriel De Oliveira Brito Lira Felipe","dob":"2005-04-18","height":null,"weight":null},
-    {"id":187573,"name":"Lucas Elbert Guimaraes","dob":"2004-02-27","height":null,"weight":null},
-    {"id":188593,"name":"Luiz Felipe Meurer Bonilha","dob":"1998-05-14","height":195,"weight":94},
-    {"id":193427,"name":"Carlos Eduardo Dias de Miranda Vidal","dob":"2002-03-05","height":null,"weight":null},
-    {"id":193496,"name":"Anthony Fernandez Cáceres","dob":"2002-04-16","height":184,"weight":83},
-    {"id":198972,"name":"Heitor Benitto Frank Barbosa","dob":"2000-06-08","height":200,"weight":96,"tour":{"gold":0,"silver":0,"bronze":1}},
-    {"id":198973,"name":"Lucas Aguinelo de Sá","dob":"1999-11-26","height":null,"weight":null},
-    {"id":204202,"name":"Bruno Romano Cosendey Marques","dob":"2008-10-05","height":188,"weight":80},
-    {"id":204460,"name":"Denilson Loureiro Sobral","dob":"2002-05-23","height":null,"weight":null},
-    {"id":208607,"name":"Gabriel Teixeira Furquim Siqueira","dob":"2007-06-05","height":null,"weight":null},
-    {"id":208610,"name":"Pedro Joaquim Brandao Ribeiro","dob":"2007-03-21","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":209262,"name":"Arthur Apicelo Martins Costa","dob":"2005-12-26","height":199,"weight":98},
-    {"id":209480,"name":"Vinicius Henrique Zadi Gaiotto","dob":"2005-02-28","height":null,"weight":null},
-    {"id":213014,"name":"Erick Daniel Da Silva Monteiro","dob":"2007-12-25","height":null,"weight":null},
-    {"id":213015,"name":"Jose Eduardo Da Silva Soares","dob":"2006-11-14","height":null,"weight":null},
-    {"id":215473,"name":"Jose Jonathan Heleno De Menezes Magalhaes","dob":"2004-03-12","height":202,"weight":93},
-    {"id":217327,"name":"Mateus Costa Rodrigues","dob":"2001-04-25","height":192,"weight":90,"tour":{"gold":1,"silver":1,"bronze":0}},
-    {"id":218676,"name":"Joao Pedro Mares Nascimento","dob":"2005-08-22","height":null,"weight":null},
-    {"id":218687,"name":"Luiz Felipe Aragão de Sousa","dob":"2005-01-07","height":null,"weight":null},
-    {"id":225457,"name":"Thomas Mathias Endler","dob":"2008-11-23","height":193,"weight":84},
-    {"id":225459,"name":"Felippe Prudencio Arruda Barbiero","dob":"2008-11-03","height":null,"weight":null},
-    {"id":226840,"name":"George Henrique Sabeh Isernhagen","dob":"2008-06-26","height":null,"weight":null},
-    {"id":230445,"name":"Bruno Alexander Peiter","dob":"2002-06-03","height":null,"weight":null},
-    {"id":233406,"name":"Lucas Sotelle Silva","dob":"2007-03-16","height":null,"weight":null,"tour":{"gold":0,"silver":1,"bronze":0}},
-    {"id":234284,"name":"Gabriel Campos","dob":"2010-06-12","height":null,"weight":null},
-    {"id":234285,"name":"Bruno Fellipe Lobo Silva Souza","dob":"2010-04-24","height":null,"weight":null},
-    {"id":239877,"name":"Davi Schroeder Coimbra","dob":"2009-01-08","height":null,"weight":null},
-    {"id":239878,"name":"Diego Da Veiga de Oliveira","dob":"2009-05-15","height":191,"weight":74}
+    {
+      "id": 100021,
+      "name": "Paulo Roberto \"Paulão\" Moreira da Costa",
+      "dob": "1969-04-29",
+      "height": 193,
+      "weight": 95,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 7,
+        "silver": 3,
+        "bronze": 3
+      },
+      "away": [
+        {
+          "id": 122172,
+          "name": "Jefferson Bellaguarda",
+          "fed": "SUI",
+          "gender": "M",
+          "t": 18,
+          "f": 2000,
+          "l": 2001,
+          "s": [
+            [
+              2000,
+              7,
+              332
+            ],
+            [
+              2001,
+              11,
+              332
+            ]
+          ],
+          "at": [
+            [
+              2000,
+              "BRA"
+            ],
+            [
+              2001,
+              "BRA"
+            ]
+          ],
+          "r": 2
+        }
+      ]
+    },
+    {
+      "id": 100043,
+      "name": "Carlos Eduardo Dias Garrido",
+      "dob": "1967-12-17",
+      "height": 193,
+      "weight": 89,
+      "tour": {
+        "gold": 0,
+        "silver": 4,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100044,
+      "name": "Roberto Duarte Dias Moreira",
+      "dob": "1965-04-29",
+      "height": 183,
+      "weight": 77,
+      "tour": {
+        "gold": 0,
+        "silver": 3,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100059,
+      "name": "Franco José Vieira Neto",
+      "dob": "1966-11-11",
+      "height": 192,
+      "weight": 92,
+      "tour": {
+        "gold": 16,
+        "silver": 15,
+        "bronze": 21
+      }
+    },
+    {
+      "id": 100060,
+      "name": "Roberto Lopes da Costa",
+      "dob": "1966-10-06",
+      "height": 185,
+      "weight": 87,
+      "tour": {
+        "gold": 15,
+        "silver": 8,
+        "bronze": 12
+      }
+    },
+    {
+      "id": 100083,
+      "name": "Andrè Lima Perlingeiro",
+      "dob": "1969-08-30",
+      "height": 188,
+      "weight": 82,
+      "tour": {
+        "gold": 1,
+        "silver": 3,
+        "bronze": 5
+      }
+    },
+    {
+      "id": 100135,
+      "name": "Marlos Cogo de Almeida",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100136,
+      "name": "Marco Tullio Gomes Teixeira",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100138,
+      "name": "Atila Pereira de Souza",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100139,
+      "name": "Clovis Antonio Freitas Baptista",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100140,
+      "name": "Eduardo Jorge \"Anjinho\" Bacil Filho",
+      "dob": "1971-03-11",
+      "height": 187,
+      "weight": 85,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100182,
+      "name": "Guilherme Luiz Marques",
+      "dob": "1969-06-26",
+      "height": 193,
+      "weight": 90,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 7,
+        "silver": 18,
+        "bronze": 11
+      }
+    },
+    {
+      "id": 100205,
+      "name": "Gustavo Ciraldo Maximo",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100206,
+      "name": "Nalbert Bitencourt",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100208,
+      "name": "Otto Hofman Junior",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 100218,
+      "name": "José Geraldo Loiola",
+      "dob": "1970-03-28",
+      "height": 194,
+      "weight": 87,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 18,
+        "silver": 11,
+        "bronze": 7
+      }
+    },
+    {
+      "id": 100280,
+      "name": "Carlos Frederico \"Alemão\" Galletti",
+      "dob": "1970-12-29",
+      "height": 189,
+      "weight": 92,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100281,
+      "name": "Andrè Faria Gomes",
+      "dob": "1970-11-18",
+      "height": 192,
+      "weight": 85,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 100426,
+      "name": "José Marco \"Zé Marco\" Nóbrega Ferreira de Melo",
+      "dob": "1971-03-19",
+      "height": 191,
+      "weight": 82,
+      "olympics": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 26,
+        "silver": 15,
+        "bronze": 14
+      }
+    },
+    {
+      "id": 100427,
+      "name": "Emanuel Rego",
+      "dob": "1973-04-15",
+      "height": 190,
+      "weight": 80,
+      "olympics": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 1
+      },
+      "worldChamps": {
+        "gold": 3,
+        "silver": 0,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 73,
+        "silver": 36,
+        "bronze": 40
+      }
+    },
+    {
+      "id": 100428,
+      "name": "Aloizio Claudino",
+      "dob": "1963-02-22",
+      "height": 190,
+      "weight": 84
+    },
+    {
+      "id": 100429,
+      "name": "Dennys Paredes Gomes",
+      "dob": "1965-03-20",
+      "height": 187,
+      "weight": 79,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100430,
+      "name": "Everaldo Alves Junior",
+      "dob": "1967-06-12",
+      "height": 190,
+      "weight": 85
+    },
+    {
+      "id": 100531,
+      "name": "Federico \"Fred\" Doria de Souza",
+      "dob": "1972-05-13",
+      "height": 200,
+      "weight": 94,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100564,
+      "name": "Rogério \"Pará\" de Souza Ferreira",
+      "dob": "1973-09-13",
+      "height": 191,
+      "weight": 88,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 9,
+        "silver": 14,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 100565,
+      "name": "Ernesto Jackson Vogado de Souza",
+      "dob": "1970-01-02",
+      "height": 194,
+      "weight": 80,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 100566,
+      "name": "Ninahua Bezerra de Oliveira",
+      "dob": "1966-08-26",
+      "height": 184,
+      "weight": 80
+    },
+    {
+      "id": 100780,
+      "name": "Marcelo Camargo dos Santos",
+      "dob": "1970-09-27",
+      "height": 192,
+      "weight": 90
+    },
+    {
+      "id": 100781,
+      "name": "Marcelo Candido de Moraes Machado",
+      "dob": "1967-07-15",
+      "height": 185,
+      "weight": 87
+    },
+    {
+      "id": 100848,
+      "name": "Nilo Guliberto Martins Chavarry",
+      "dob": "1970-06-25",
+      "height": 192,
+      "weight": 84
+    },
+    {
+      "id": 100890,
+      "name": "Luis Antonio \"Lula\" Barbosa da Silva",
+      "dob": "1970-03-13",
+      "height": 189,
+      "weight": 84,
+      "tour": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100891,
+      "name": "Francismar Adriano Dias Garrido",
+      "dob": "1972-11-30",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 100996,
+      "name": "José Eduardo \"Duda\" Macedo Pinto de Abreu",
+      "dob": "1969-03-27",
+      "height": 185,
+      "weight": 80,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 100997,
+      "name": "Ricardo Alex Costa Santos",
+      "dob": "1975-01-06",
+      "height": 200,
+      "weight": 103,
+      "olympics": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 1
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 3,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 53,
+        "silver": 27,
+        "bronze": 22
+      }
+    },
+    {
+      "id": 101040,
+      "name": "Antonio Carlos \"Badà\" Gueiros Ribeiro",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101042,
+      "name": "Alexendre \"Baxinho\" Maestrini",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101043,
+      "name": "Bernard Rajzman",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 101044,
+      "name": "Bernardo \"Bernardinho\" Rocha de Rezende",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101056,
+      "name": "Renan Dal Zotto",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 101087,
+      "name": "Edmundo \"Edinho\" de Mattos Goncalves Ar",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 101096,
+      "name": "Paulo Roberto \"Paulinho\" Veiga",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101102,
+      "name": "Renato \"Renatinho\" Villarinho",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101106,
+      "name": "Sergio \"Serginho\" Morais de Araujo",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101109,
+      "name": "Eduardo Muniz Barreto Tinoco",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 101115,
+      "name": "Marcus Vinicius Simoes de Freire",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101118,
+      "name": "Andrè Zaccaron",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101145,
+      "name": "Cid Cid",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101146,
+      "name": "Paulo Maranhao",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101147,
+      "name": "José \"Pelè\" Francisco Filho",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101149,
+      "name": "Paulo Roese",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101154,
+      "name": "Miguel Miguel",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101155,
+      "name": "Ricardo \"Caveirinha\" Ricardo \"Caveirinha\"",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101156,
+      "name": "Fernando Maranhao",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101157,
+      "name": "William Carvalho da Silva",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101159,
+      "name": "Josè Montanaro Filho",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 101165,
+      "name": "Carlos \"Carlinhos\" de Assis",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101166,
+      "name": "Mario Xandò",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101167,
+      "name": "Raimundo Antonio \"Jaba\" Lima Filho",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101169,
+      "name": "Fernando Fernando",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101170,
+      "name": "Flavio Flavio",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101176,
+      "name": "Marco Antonio Pina Barbosa",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 101204,
+      "name": "Paulo Emilio Silva Azevedo",
+      "dob": "1969-12-14",
+      "height": 191,
+      "weight": 85,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 5,
+        "silver": 2,
+        "bronze": 5
+      },
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 4,
+          "f": 2005,
+          "l": 2005,
+          "s": [
+            [
+              2005,
+              4,
+              223
+            ]
+          ],
+          "at": [
+            [
+              2005,
+              "BRA"
+            ]
+          ],
+          "r": 3
+        }
+      ]
+    },
+    {
+      "id": 101224,
+      "name": "Luis Amerigo",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 101360,
+      "name": "Norman Guimaraes Costa",
+      "dob": "1965-07-01",
+      "height": 185,
+      "weight": 85
+    },
+    {
+      "id": 101361,
+      "name": "Jorge Luiz Queiroz de Freitas",
+      "dob": "1971-08-25",
+      "height": 185,
+      "weight": 80
+    },
+    {
+      "id": 101362,
+      "name": "Gilbert Guimaraes Monte",
+      "dob": "1969-04-12",
+      "height": 190,
+      "weight": 80
+    },
+    {
+      "id": 101363,
+      "name": "Thomas Klepper Nascimento Feitosa",
+      "dob": "1975-10-07",
+      "height": 190,
+      "weight": 85,
+      "tour": {
+        "gold": 4,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 101591,
+      "name": "Marcio Henrique Barroso Araujo",
+      "dob": "1973-10-12",
+      "height": 192,
+      "weight": 90,
+      "olympics": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 20,
+        "silver": 17,
+        "bronze": 15
+      }
+    },
+    {
+      "id": 101592,
+      "name": "Francisco Antonio \"Reis\" Rodrigues Castro",
+      "dob": "1970-01-06",
+      "height": 191,
+      "weight": 82
+    },
+    {
+      "id": 101593,
+      "name": "Murilo Toscano Teixeira",
+      "dob": "1971-11-03",
+      "height": 205,
+      "weight": 90,
+      "tour": {
+        "gold": 3,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 101669,
+      "name": "Harley Marques Silva",
+      "dob": "1975-07-06",
+      "height": 194,
+      "weight": 85,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 16,
+        "silver": 6,
+        "bronze": 11
+      }
+    },
+    {
+      "id": 102070,
+      "name": "Giovane Gavio",
+      "dob": "1970-09-07",
+      "height": 194,
+      "weight": 100,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 102071,
+      "name": "Ramos Alexandre \"Tande\" Samuel",
+      "dob": "1970-03-20",
+      "height": 198,
+      "weight": 91,
+      "tour": {
+        "gold": 7,
+        "silver": 4,
+        "bronze": 10
+      }
+    },
+    {
+      "id": 102079,
+      "name": "Edson Luiz \"Alemão\" Guerra",
+      "dob": "1966-12-09",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102080,
+      "name": "Luiz \"Luizão\" Correa De Jesus",
+      "dob": "1973-06-07",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 2,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102082,
+      "name": "Benjamin Insfran",
+      "dob": "1972-04-14",
+      "height": 196,
+      "weight": 90,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 13,
+        "silver": 10,
+        "bronze": 9
+      }
+    },
+    {
+      "id": 102083,
+      "name": "Antonio P. \"Toninho\" Urbanski",
+      "dob": "1975-03-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102122,
+      "name": "Jan Ferreira De Souza",
+      "dob": "1975-05-22",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 102509,
+      "name": "Antonio Carlos \"Carlão\" Gouveia",
+      "dob": "1965-04-20",
+      "height": 197,
+      "weight": 91
+    },
+    {
+      "id": 102649,
+      "name": "Rodrigo Pietraroia",
+      "dob": "1971-12-30",
+      "height": 186,
+      "weight": 84
+    },
+    {
+      "id": 102860,
+      "name": "Carlos Arruda",
+      "dob": "1971-12-27",
+      "height": null,
+      "weight": 90,
+      "away": [
+        {
+          "id": 122172,
+          "name": "Jefferson Bellaguarda",
+          "fed": "SUI",
+          "gender": "M",
+          "t": 1,
+          "f": 1999,
+          "l": 1999,
+          "s": [
+            [
+              1999,
+              1,
+              335
+            ]
+          ],
+          "at": [
+            [
+              1999,
+              "BRA"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 102862,
+      "name": "Marco Freitas",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102863,
+      "name": "Amiraldo Magalhaes",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 102864,
+      "name": "Marcelo Carvalhaes",
+      "dob": "1971-04-30",
+      "height": null,
+      "weight": 92
+    },
+    {
+      "id": 103215,
+      "name": "Dagoberto \"Juca\" Dultra Jr.",
+      "dob": "1977-04-17",
+      "height": 192,
+      "weight": 89,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "away": [
+        {
+          "id": 122172,
+          "name": "Jefferson Bellaguarda",
+          "fed": "SUI",
+          "gender": "M",
+          "t": 12,
+          "f": 2002,
+          "l": 2003,
+          "s": [
+            [
+              2002,
+              5,
+              275
+            ],
+            [
+              2003,
+              7,
+              286
+            ]
+          ],
+          "at": [
+            [
+              2002,
+              "SUI"
+            ],
+            [
+              2003,
+              "SUI"
+            ]
+          ],
+          "r": 1
+        }
+      ]
+    },
+    {
+      "id": 103216,
+      "name": "Fabio \"Fabinho\" Araujo",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 103320,
+      "name": "Pedro Grael Brazão",
+      "dob": null,
+      "height": 195,
+      "weight": 80,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 103679,
+      "name": "Anselmo Sigoli",
+      "dob": "1983-02-09",
+      "height": 190,
+      "weight": 81
+    },
+    {
+      "id": 103680,
+      "name": "Pedro Henrique Cunha",
+      "dob": "1983-06-10",
+      "height": 189,
+      "weight": 91,
+      "tour": {
+        "gold": 8,
+        "silver": 9,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 103714,
+      "name": "Adriano Fonseca",
+      "dob": "1982-02-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103751,
+      "name": "Luiz Dulinski",
+      "dob": "1979-02-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103752,
+      "name": "Celso V. Brunholi",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103900,
+      "name": "Rodrigo De Souza Gomes",
+      "dob": "1984-02-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 103901,
+      "name": "Leandro Rocha Cavalcanti Araujo",
+      "dob": "1983-05-31",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104072,
+      "name": "Ian Borges",
+      "dob": "1986-12-16",
+      "height": null,
+      "weight": 82,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 104073,
+      "name": "Pedro Solberg",
+      "dob": "1986-03-27",
+      "height": 194,
+      "weight": 95,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 18,
+        "silver": 12,
+        "bronze": 12
+      },
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 1,
+          "f": 2004,
+          "l": 2004,
+          "s": [
+            [
+              2004,
+              1,
+              259
+            ]
+          ],
+          "at": [
+            [
+              2004,
+              "BRA"
+            ]
+          ],
+          "r": 3
+        },
+        {
+          "id": 145125,
+          "name": "Tiago De J Santos",
+          "fed": "QAT",
+          "gender": "M",
+          "t": 1,
+          "f": 2005,
+          "l": 2005,
+          "s": [
+            [
+              2005,
+              1,
+              249
+            ]
+          ],
+          "at": [
+            [
+              2005,
+              "BRA"
+            ]
+          ],
+          "r": 4
+        }
+      ]
+    },
+    {
+      "id": 104074,
+      "name": "Oscar Brandão",
+      "dob": "1985-05-24",
+      "height": 193,
+      "weight": 90,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104075,
+      "name": "Alexandre Peres",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104137,
+      "name": "Tomas Knebelkamp",
+      "dob": "1985-03-01",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 104138,
+          "name": "Oliver Schmäschke",
+          "fed": "GER",
+          "gender": "M",
+          "t": 1,
+          "f": 2002,
+          "l": 2002,
+          "s": [
+            [
+              2002,
+              1,
+              240
+            ]
+          ],
+          "at": [
+            [
+              2002,
+              "BRA"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    },
+    {
+      "id": 104206,
+      "name": "Jorge Ferreira Terceiro",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104207,
+      "name": "Fabio Luiz de Jesus Magalhães",
+      "dob": "1979-03-13",
+      "height": 204,
+      "weight": 100,
+      "olympics": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 10,
+        "silver": 7,
+        "bronze": 11
+      }
+    },
+    {
+      "id": 104436,
+      "name": "Igor Hercowitz",
+      "dob": "1984-01-30",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 1,
+          "f": 2003,
+          "l": 2003,
+          "s": [
+            [
+              2003,
+              1,
+              218
+            ]
+          ],
+          "at": [
+            [
+              2003,
+              "AZE"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    },
+    {
+      "id": 104503,
+      "name": "Vinicus Santana",
+      "dob": "1986-12-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104537,
+      "name": "Rodrigo Vieira Bernat",
+      "dob": "1987-08-20",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104590,
+      "name": "Rodrigo Monteiro",
+      "dob": "1979-12-24",
+      "height": 192,
+      "weight": 90,
+      "tour": {
+        "gold": 3,
+        "silver": 1,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 104591,
+      "name": "Felipe Silva",
+      "dob": "1984-05-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 104592,
+      "name": "Danilo Vieira Dos Santos",
+      "dob": "1980-06-11",
+      "height": 194,
+      "weight": 80
+    },
+    {
+      "id": 104621,
+      "name": "Alex Acco",
+      "dob": "1977-03-07",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 104882,
+      "name": "Marcello Duarte",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 104934,
+      "name": "Bruno De Paula",
+      "dob": "1978-10-11",
+      "height": 190,
+      "weight": 86,
+      "tour": {
+        "gold": 3,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 105050,
+      "name": "Roberto Pitta",
+      "dob": "1987-06-15",
+      "height": 190,
+      "weight": 90,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 105051,
+      "name": "Guilherme Ferreira",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105052,
+      "name": "Diogo Pontes",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 105147,
+      "name": "Ricardo Alessandro Brandao Sousa",
+      "dob": "1975-10-15",
+      "height": null,
+      "weight": 88,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 105149,
+      "name": "Joao Luis Pianca Maciel",
+      "dob": "1978-05-28",
+      "height": 197,
+      "weight": 90,
+      "tour": {
+        "gold": 1,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 105164,
+      "name": "Fabiano Da Silva Melo",
+      "dob": "1975-09-22",
+      "height": null,
+      "weight": 92
+    },
+    {
+      "id": 114195,
+      "name": "Everaldo Lucena da Silva",
+      "dob": "1985-05-28",
+      "height": 194,
+      "weight": 83
+    },
+    {
+      "id": 116868,
+      "name": "Fernando Magalhães",
+      "dob": "1987-01-28",
+      "height": 210,
+      "weight": 105
+    },
+    {
+      "id": 116869,
+      "name": "Pedro Peixoto de Paula Marques",
+      "dob": "1987-03-19",
+      "height": null,
+      "weight": 83
+    },
+    {
+      "id": 117473,
+      "name": "Vinícius de Almeida Santos",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117474,
+      "name": "Bruno Oscar Schmidt",
+      "dob": "1986-10-06",
+      "height": 185,
+      "weight": 87,
+      "olympics": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 14,
+        "silver": 10,
+        "bronze": 7
+      }
+    },
+    {
+      "id": 117537,
+      "name": "Bernardo Romano",
+      "dob": "1980-07-03",
+      "height": 198,
+      "weight": 89,
+      "tour": {
+        "gold": 3,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 117552,
+      "name": "Yuri rodrigo ignacio",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 117929,
+      "name": "Hevaldo Sabino Moreira",
+      "dob": "1979-05-12",
+      "height": 193,
+      "weight": 92,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 118267,
+      "name": "Alison Cerutti",
+      "dob": "1985-12-07",
+      "height": 203,
+      "weight": 110,
+      "olympics": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      },
+      "worldChamps": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 25,
+        "silver": 16,
+        "bronze": 15
+      }
+    },
+    {
+      "id": 118286,
+      "name": "Vinícius Silveira Rosa",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 145124,
+          "name": "Jefferson Santos Pereira",
+          "fed": "QAT",
+          "gender": "M",
+          "t": 1,
+          "f": 2006,
+          "l": 2006,
+          "s": [
+            [
+              2006,
+              1,
+              248
+            ]
+          ],
+          "at": [
+            [
+              2006,
+              "BRA"
+            ]
+          ],
+          "r": 9
+        }
+      ]
+    },
+    {
+      "id": 118288,
+      "name": "Ícaro Gregório do Nascimento",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118289,
+      "name": "Watson Trovati Matos",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 118325,
+      "name": "Thiago Dealtry Barbosa",
+      "dob": "1982-12-10",
+      "height": 198,
+      "weight": 90,
+      "tour": {
+        "gold": 0,
+        "silver": 2,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 119675,
+      "name": "Fabio Guerra",
+      "dob": null,
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 120111,
+      "name": "Rodrigo Ramos",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120198,
+      "name": "José Írio Quevedo",
+      "dob": null,
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 120477,
+      "name": "Francisco Felipe Martins Rodrigues",
+      "dob": "1983-05-05",
+      "height": 194,
+      "weight": 100,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 120550,
+      "name": "Álvaro Morais Filho",
+      "dob": "1990-11-27",
+      "height": 185,
+      "weight": 80,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 5,
+        "silver": 3,
+        "bronze": 4
+      },
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 3,
+          "f": 2011,
+          "l": 2011,
+          "s": [
+            [
+              2011,
+              3,
+              236
+            ]
+          ],
+          "at": [
+            [
+              2011,
+              "BRA"
+            ]
+          ],
+          "r": 4
+        }
+      ]
+    },
+    {
+      "id": 120551,
+      "name": "Vitor Gonçalves Felipe",
+      "dob": "1991-03-10",
+      "height": 193,
+      "weight": 94,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 3,
+        "silver": 2,
+        "bronze": 1
+      },
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 7,
+          "f": 2012,
+          "l": 2012,
+          "s": [
+            [
+              2012,
+              7,
+              200
+            ]
+          ],
+          "at": [
+            [
+              2012,
+              "BRA"
+            ]
+          ],
+          "r": 7
+        }
+      ]
+    },
+    {
+      "id": 120895,
+      "name": "Gabriel Silva Francisco Pereira",
+      "dob": "1989-01-16",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 145124,
+          "name": "Jefferson Santos Pereira",
+          "fed": "QAT",
+          "gender": "M",
+          "t": 1,
+          "f": 2008,
+          "l": 2008,
+          "s": [
+            [
+              2008,
+              1,
+              247
+            ]
+          ],
+          "at": [
+            [
+              2008,
+              "BRA"
+            ]
+          ],
+          "r": 19
+        }
+      ]
+    },
+    {
+      "id": 122121,
+      "name": "Rhooney de Oliveira Ferramenta",
+      "dob": "1985-11-07",
+      "height": 182,
+      "weight": 80,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "away": [
+        {
+          "id": 104434,
+          "name": "Neilton Moises Santos Merces",
+          "fed": "AZE",
+          "gender": "M",
+          "t": 6,
+          "f": 2010,
+          "l": 2011,
+          "s": [
+            [
+              2010,
+              4,
+              237
+            ],
+            [
+              2011,
+              2,
+              138
+            ]
+          ],
+          "at": [
+            [
+              2010,
+              "BRA"
+            ],
+            [
+              2011,
+              "BRA"
+            ]
+          ],
+          "r": 25
+        }
+      ]
+    },
+    {
+      "id": 125526,
+      "name": "Marcus Carvalhaes",
+      "dob": "1992-05-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 131997,
+      "name": "Luciano Ferreira de Paula",
+      "dob": "1985-01-08",
+      "height": 197,
+      "weight": 90,
+      "tour": {
+        "gold": 2,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 132703,
+      "name": "Ramon Ferreira Gomes",
+      "dob": "1992-05-16",
+      "height": 180,
+      "weight": 80,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 132705,
+      "name": "Gustavo Albrecht Carvalhaes",
+      "dob": "1993-08-20",
+      "height": 186,
+      "weight": 80,
+      "tour": {
+        "gold": 2,
+        "silver": 3,
+        "bronze": 4
+      }
+    },
+    {
+      "id": 133285,
+      "name": "Evandro Gonçalves Oliveira Júnior",
+      "dob": "1990-07-17",
+      "height": 210,
+      "weight": 105,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 10,
+        "silver": 13,
+        "bronze": 6
+      }
+    },
+    {
+      "id": 135298,
+      "name": "Rhuan De Oliveira Ferramenta",
+      "dob": "1989-11-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 135521,
+      "name": "Paulo Victor Branco",
+      "dob": "1990-02-21",
+      "height": 191,
+      "weight": 80
+    },
+    {
+      "id": 138639,
+      "name": "Edson Filipe H. Barros",
+      "dob": "1987-01-15",
+      "height": 202,
+      "weight": 93
+    },
+    {
+      "id": 138640,
+      "name": "Gilmário Vidal Ferreira",
+      "dob": "1983-04-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 138859,
+      "name": "Márcio Tschaffon Gaudie Ley",
+      "dob": "1991-01-11",
+      "height": 193,
+      "weight": 91
+    },
+    {
+      "id": 139084,
+      "name": "Iago Christianes de Oliveira",
+      "dob": "1994-02-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139085,
+      "name": "Leonardo Renaux Morais",
+      "dob": "1994-08-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139278,
+      "name": "Matheus Saisse Domingos",
+      "dob": "1995-02-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 139549,
+      "name": "Carlos Eduardo Barreto Silva",
+      "dob": "1994-08-08",
+      "height": 200,
+      "weight": 94
+    },
+    {
+      "id": 139965,
+      "name": "Saymon Barbosa Santos",
+      "dob": "1993-09-08",
+      "height": 202,
+      "weight": 98,
+      "tour": {
+        "gold": 3,
+        "silver": 1,
+        "bronze": 6
+      }
+    },
+    {
+      "id": 141365,
+      "name": "Leonardo Gomes",
+      "dob": "1989-01-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 141395,
+      "name": "Daniel Lazzari",
+      "dob": "1989-12-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 141396,
+      "name": "Daniel Lustosa",
+      "dob": "1989-08-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 141871,
+      "name": "Fábio Rodrigo Castro Bastos",
+      "dob": "1993-07-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 142652,
+      "name": "Allison Cittadin Francioni",
+      "dob": "1993-10-01",
+      "height": 194,
+      "weight": 88
+    },
+    {
+      "id": 142888,
+      "name": "Renato Mendes Gervasio Junior",
+      "dob": "1995-05-09",
+      "height": 197,
+      "weight": 90
+    },
+    {
+      "id": 142889,
+      "name": "George Souto Maior Wanderley",
+      "dob": "1996-09-12",
+      "height": 190,
+      "weight": 96,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 7,
+        "silver": 5,
+        "bronze": 8
+      }
+    },
+    {
+      "id": 142890,
+      "name": "Matheus Maia Terra de Faria",
+      "dob": "1996-07-23",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 142891,
+      "name": "Pedro Henrique Resende Santos",
+      "dob": "1996-08-29",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 143514,
+      "name": "Eduardo Figueiredo Rocha",
+      "dob": "1992-08-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 145393,
+      "name": "Arthur Diego Mariano Lanci",
+      "dob": "1996-02-13",
+      "height": 193,
+      "weight": 96,
+      "tour": {
+        "gold": 4,
+        "silver": 4,
+        "bronze": 5
+      }
+    },
+    {
+      "id": 145795,
+      "name": "Joalisson Laurindo Gomes",
+      "dob": "1990-08-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 146800,
+      "name": "Rafael José Mendonça de Queiroz",
+      "dob": "1998-03-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 147009,
+      "name": "Andre Loyola Stein",
+      "dob": "1994-08-19",
+      "height": 201,
+      "weight": 94,
+      "worldChamps": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 1
+      },
+      "tour": {
+        "gold": 7,
+        "silver": 9,
+        "bronze": 7
+      }
+    },
+    {
+      "id": 147010,
+      "name": "Vinicius Rezende Costa Freitas",
+      "dob": "1995-06-05",
+      "height": 198,
+      "weight": 94,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 2
+      }
+    },
+    {
+      "id": 147011,
+      "name": "Eduardo Davi Marinho da Rocha",
+      "dob": "1994-08-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 147070,
+      "name": "Gabriel Mussi Fichter",
+      "dob": "1996-09-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 147071,
+      "name": "Jonas Paixão Fidélis",
+      "dob": "1996-10-17",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 149492,
+      "name": "Vinícius Gomes Cardoso de Araújo",
+      "dob": "1992-10-28",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 149494,
+      "name": "Álvaro Marcelino Santos Andrade",
+      "dob": "1992-07-09",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 149495,
+      "name": "Leonardo Gomes Vieira",
+      "dob": "1991-09-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 149569,
+      "name": "Luccas Alves de Lima",
+      "dob": "1991-06-02",
+      "height": 195,
+      "weight": 93
+    },
+    {
+      "id": 149700,
+      "name": "Felipe Cavazin Numasawa",
+      "dob": "1987-10-21",
+      "height": 190,
+      "weight": 88
+    },
+    {
+      "id": 150083,
+      "name": "Marcus Borlini De Oliveira",
+      "dob": "1991-04-30",
+      "height": 197,
+      "weight": 97
+    },
+    {
+      "id": 154095,
+      "name": "Anderson Luiz Melo De Souza",
+      "dob": "1992-02-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 154096,
+      "name": "Nilton de Araújo Freire",
+      "dob": "1991-10-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 154100,
+      "name": "Averaldo Pereira Da Silva",
+      "dob": "1989-05-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 155470,
+      "name": "Gabriel Dos Reis Santiago",
+      "dob": "1997-10-28",
+      "height": 189,
+      "weight": 90,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 156187,
+      "name": "Gabriel Heilborn Gouveia",
+      "dob": "1997-10-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 156188,
+      "name": "Adrielson Dos Santos Silva",
+      "dob": "1997-06-12",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 156493,
+      "name": "Renato Andrew Lima de Carvalho",
+      "dob": "1999-12-01",
+      "height": 192,
+      "weight": 86,
+      "worldChamps": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "tour": {
+        "gold": 1,
+        "silver": 2,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 156956,
+      "name": "Gabriel De Abreu Lima Pisco",
+      "dob": "2000-03-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 156957,
+      "name": "Felipe De Oliveira Miranda",
+      "dob": "1998-10-15",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 161846,
+      "name": "Gabriel Zuliani",
+      "dob": "2001-12-03",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 162421,
+      "name": "Igor De Carvalho Borges",
+      "dob": "1997-09-26",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 163915,
+      "name": "Johann Ferdinand Dohmann",
+      "dob": "2001-01-16",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 164720,
+      "name": "Joao Pedro Camargo de Barros Moreira",
+      "dob": "2000-10-19",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 164721,
+      "name": "Lucas Coelho Fagundes Sampaio",
+      "dob": "2001-03-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 166785,
+      "name": "Adelmo Goncalves Folha Neto",
+      "dob": "1997-06-07",
+      "height": null,
+      "weight": 90
+    },
+    {
+      "id": 167040,
+      "name": "Rafael Andrew Lima de Carvalho",
+      "dob": "1999-12-01",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 169432,
+      "name": "Patrick Mirando do Carmo",
+      "dob": "2001-05-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 172628,
+      "name": "Lazaro Lyan De Paulo",
+      "dob": "1999-10-10",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 173069,
+      "name": "Arthur Da Silva Mariano",
+      "dob": "1997-09-02",
+      "height": 200,
+      "weight": 84
+    },
+    {
+      "id": 174735,
+      "name": "João Pedro Elbert Guimarães",
+      "dob": "2001-04-19",
+      "height": 186,
+      "weight": 88
+    },
+    {
+      "id": 178678,
+      "name": "Nicolas Capretti Schosler",
+      "dob": "2002-02-06",
+      "height": 184,
+      "weight": 79,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 180995,
+      "name": "Isac Adolfo Farias Barbosa",
+      "dob": "2003-02-20",
+      "height": null,
+      "weight": 85
+    },
+    {
+      "id": 181113,
+      "name": "João Vitor Damasceno Lima",
+      "dob": "2003-02-06",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 181207,
+      "name": "Felipe Alves Pereira",
+      "dob": "1998-12-29",
+      "height": 192,
+      "weight": 93,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 181458,
+      "name": "Mateus De Paula Dultra",
+      "dob": "2001-07-24",
+      "height": 193,
+      "weight": 91
+    },
+    {
+      "id": 182142,
+      "name": "Samuel Giacomo Oselame Bello",
+      "dob": "2002-09-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 183548,
+      "name": "Vilsomar Brito Bernardo Junior",
+      "dob": "2002-05-31",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 183549,
+      "name": "Pedro Augusto Sousa De Oliveira",
+      "dob": "2004-03-02",
+      "height": 200,
+      "weight": 97,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 187569,
+      "name": "Henrique Camboim de Barros",
+      "dob": "2005-07-26",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 187571,
+      "name": "Eduardo Henrique Barbosa da Silva",
+      "dob": "2005-10-11",
+      "height": 199,
+      "weight": 89
+    },
+    {
+      "id": 187572,
+      "name": "Gabriel De Oliveira Brito Lira Felipe",
+      "dob": "2005-04-18",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 187573,
+      "name": "Lucas Elbert Guimaraes",
+      "dob": "2004-02-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 188593,
+      "name": "Luiz Felipe Meurer Bonilha",
+      "dob": "1998-05-14",
+      "height": 195,
+      "weight": 94
+    },
+    {
+      "id": 193427,
+      "name": "Carlos Eduardo Dias de Miranda Vidal",
+      "dob": "2002-03-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 193496,
+      "name": "Anthony Fernandez Cáceres",
+      "dob": "2002-04-16",
+      "height": 184,
+      "weight": 83
+    },
+    {
+      "id": 198972,
+      "name": "Heitor Benitto Frank Barbosa",
+      "dob": "2000-06-08",
+      "height": 200,
+      "weight": 96,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      }
+    },
+    {
+      "id": 198973,
+      "name": "Lucas Aguinelo de Sá",
+      "dob": "1999-11-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 204202,
+      "name": "Bruno Romano Cosendey Marques",
+      "dob": "2008-10-05",
+      "height": 188,
+      "weight": 80
+    },
+    {
+      "id": 204460,
+      "name": "Denilson Loureiro Sobral",
+      "dob": "2002-05-23",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 208607,
+      "name": "Gabriel Teixeira Furquim Siqueira",
+      "dob": "2007-06-05",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 208610,
+      "name": "Pedro Joaquim Brandao Ribeiro",
+      "dob": "2007-03-21",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 209262,
+      "name": "Arthur Apicelo Martins Costa",
+      "dob": "2005-12-26",
+      "height": 199,
+      "weight": 98
+    },
+    {
+      "id": 209480,
+      "name": "Vinicius Henrique Zadi Gaiotto",
+      "dob": "2005-02-28",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 213014,
+      "name": "Erick Daniel Da Silva Monteiro",
+      "dob": "2007-12-25",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 213015,
+      "name": "Jose Eduardo Da Silva Soares",
+      "dob": "2006-11-14",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 215473,
+      "name": "Jose Jonathan Heleno De Menezes Magalhaes",
+      "dob": "2004-03-12",
+      "height": 202,
+      "weight": 93
+    },
+    {
+      "id": 217327,
+      "name": "Mateus Costa Rodrigues",
+      "dob": "2001-04-25",
+      "height": 192,
+      "weight": 90,
+      "tour": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 218676,
+      "name": "Joao Pedro Mares Nascimento",
+      "dob": "2005-08-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 218687,
+      "name": "Luiz Felipe Aragão de Sousa",
+      "dob": "2005-01-07",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 225457,
+      "name": "Thomas Mathias Endler",
+      "dob": "2008-11-23",
+      "height": 193,
+      "weight": 84
+    },
+    {
+      "id": 225459,
+      "name": "Felippe Prudencio Arruda Barbiero",
+      "dob": "2008-11-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 226840,
+      "name": "George Henrique Sabeh Isernhagen",
+      "dob": "2008-06-26",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 230445,
+      "name": "Bruno Alexander Peiter",
+      "dob": "2002-06-03",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 233406,
+      "name": "Lucas Sotelle Silva",
+      "dob": "2007-03-16",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      }
+    },
+    {
+      "id": 234284,
+      "name": "Gabriel Campos",
+      "dob": "2010-06-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 234285,
+      "name": "Bruno Fellipe Lobo Silva Souza",
+      "dob": "2010-04-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 239877,
+      "name": "Davi Schroeder Coimbra",
+      "dob": "2009-01-08",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 239878,
+      "name": "Diego Da Veiga de Oliveira",
+      "dob": "2009-05-15",
+      "height": 191,
+      "weight": 74
+    }
   ]
 }

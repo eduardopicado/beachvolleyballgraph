@@ -2,26 +2,177 @@
   "country": "MAR",
   "gender": "W",
   "players": [
-    {"id":134301,"name":"Oumayma Codial","dob":"1994-07-05","height":185,"weight":68},
-    {"id":137685,"name":"Hafid Ouchrif","dob":"1984-01-21","height":null,"weight":null,"away":[{"id":137684,"name":"Anas Diouri","fed":"MAR","gender":"M","t":1,"f":2011,"l":2011,"s":[[2011,1,278]],"at":[[2011,"MAR"]]}]},
-    {"id":147002,"name":"Alexandra Erhart","dob":"1994-05-12","height":null,"weight":null},
-    {"id":150070,"name":"Mahassine Siad","dob":"1988-01-02","height":178,"weight":74},
-    {"id":150071,"name":"Ikram Ettayfi","dob":"1988-07-30","height":null,"weight":null},
-    {"id":150072,"name":"Imane Zeroual","dob":"1990-09-27","height":null,"weight":null},
-    {"id":154900,"name":"Dina Mellal","dob":"1994-03-17","height":165,"weight":52},
-    {"id":156055,"name":"Nora Nezha Jihane Darrhar","dob":"1992-08-21","height":null,"weight":null},
-    {"id":161544,"name":"Imane Yakki","dob":"1998-11-30","height":null,"weight":null},
-    {"id":161545,"name":"Kawtar Kabbabi","dob":"1998-11-11","height":null,"weight":null},
-    {"id":167999,"name":"Maryem Rachki","dob":"2000-04-01","height":null,"weight":null},
-    {"id":168109,"name":"AZIZA MALLAL","dob":"2001-07-22","height":null,"weight":null},
-    {"id":172001,"name":"SIHAM DEBBAB","dob":"2000-11-13","height":null,"weight":null},
-    {"id":172002,"name":"MAROUA EL AZHARY","dob":"2001-11-01","height":null,"weight":null},
-    {"id":193210,"name":"Karima Lamzaouak","dob":"2005-06-21","height":null,"weight":null},
-    {"id":193211,"name":"Aida Lamzaouak","dob":"2007-02-01","height":null,"weight":null},
-    {"id":204938,"name":"Fakhr Imane","dob":"2006-12-24","height":null,"weight":null},
-    {"id":204939,"name":"Bouysfi Fatima Zahra","dob":"2006-06-22","height":null,"weight":null},
-    {"id":213935,"name":"Hafsa Bouysfi","dob":"2010-11-02","height":171,"weight":55},
-    {"id":213939,"name":"Marwa Chalhaoui","dob":"2008-03-13","height":null,"weight":null},
-    {"id":227272,"name":"Ghita Melalka","dob":"2011-01-14","height":176,"weight":55}
+    {
+      "id": 134301,
+      "name": "Oumayma Codial",
+      "dob": "1994-07-05",
+      "height": 185,
+      "weight": 68
+    },
+    {
+      "id": 137685,
+      "name": "Hafid Ouchrif",
+      "dob": "1984-01-21",
+      "height": null,
+      "weight": null,
+      "away": [
+        {
+          "id": 137684,
+          "name": "Anas Diouri",
+          "fed": "MAR",
+          "gender": "M",
+          "t": 1,
+          "f": 2011,
+          "l": 2011,
+          "s": [
+            [
+              2011,
+              1,
+              278
+            ]
+          ],
+          "at": [
+            [
+              2011,
+              "MAR"
+            ]
+          ],
+          "r": 41
+        }
+      ]
+    },
+    {
+      "id": 147002,
+      "name": "Alexandra Erhart",
+      "dob": "1994-05-12",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 150070,
+      "name": "Mahassine Siad",
+      "dob": "1988-01-02",
+      "height": 178,
+      "weight": 74
+    },
+    {
+      "id": 150071,
+      "name": "Ikram Ettayfi",
+      "dob": "1988-07-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 150072,
+      "name": "Imane Zeroual",
+      "dob": "1990-09-27",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 154900,
+      "name": "Dina Mellal",
+      "dob": "1994-03-17",
+      "height": 165,
+      "weight": 52
+    },
+    {
+      "id": 156055,
+      "name": "Nora Nezha Jihane Darrhar",
+      "dob": "1992-08-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 161544,
+      "name": "Imane Yakki",
+      "dob": "1998-11-30",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 161545,
+      "name": "Kawtar Kabbabi",
+      "dob": "1998-11-11",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 167999,
+      "name": "Maryem Rachki",
+      "dob": "2000-04-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 168109,
+      "name": "AZIZA MALLAL",
+      "dob": "2001-07-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 172001,
+      "name": "SIHAM DEBBAB",
+      "dob": "2000-11-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 172002,
+      "name": "MAROUA EL AZHARY",
+      "dob": "2001-11-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 193210,
+      "name": "Karima Lamzaouak",
+      "dob": "2005-06-21",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 193211,
+      "name": "Aida Lamzaouak",
+      "dob": "2007-02-01",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 204938,
+      "name": "Fakhr Imane",
+      "dob": "2006-12-24",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 204939,
+      "name": "Bouysfi Fatima Zahra",
+      "dob": "2006-06-22",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 213935,
+      "name": "Hafsa Bouysfi",
+      "dob": "2010-11-02",
+      "height": 171,
+      "weight": 55
+    },
+    {
+      "id": 213939,
+      "name": "Marwa Chalhaoui",
+      "dob": "2008-03-13",
+      "height": null,
+      "weight": null
+    },
+    {
+      "id": 227272,
+      "name": "Ghita Melalka",
+      "dob": "2011-01-14",
+      "height": 176,
+      "weight": 55
+    }
   ]
 }

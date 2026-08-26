@@ -1,8 +1,10 @@
+import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   aggregateMedals,
   aggregatePartnerships,
   aggregateTourPodiums,
+  bestFinishByPair,
   medalTournaments,
   normalisePlayers,
   finishedWithoutResults,
@@ -35,6 +37,12 @@ const entry = (tour: string, a: number, b: number): VisRow => ({
   NoTournament: tour,
   NoPlayer1: String(a),
   NoPlayer2: String(b),
+});
+
+/** An entry that finished somewhere, for the best-finish tests. */
+const placed = (tour: string, a: number, b: number, rank: number): VisRow => ({
+  ...entry(tour, a, b),
+  Rank: String(rank),
 });
 
 describe('pairKey', () => {
@@ -439,6 +447,115 @@ describe('startOffsetFor', () => {
     expect(startOffsetFor(undefined, 2024)).toBeNull();
     expect(startOffsetFor('', 2024)).toBeNull();
     expect(startOffsetFor('not-a-date', 2024)).toBeNull();
+  });
+});
+
+describe('bestFinishByPair', () => {
+  const key = pairKey(1, 2);
+
+  it('keeps the lowest placement, not the latest or the first', () => {
+    const results = new Map([
+      [1, [[10, 2, 17] as const, [11, 2, 5] as const, [12, 2, 9] as const].map((e) => [...e] as [number, number, number])],
+    ]);
+    expect(bestFinishByPair(results).get(key)).toBe(5);
+  });
+
+  it('reads the pair the same way round whichever player it arrives on', () => {
+    const fromOne = bestFinishByPair(new Map([[1, [[10, 2, 3] as [number, number, number]]]]));
+    const fromTwo = bestFinishByPair(new Map([[2, [[10, 1, 3] as [number, number, number]]]]));
+    expect(fromOne.get(key)).toBe(3);
+    expect(fromTwo.get(key)).toBe(3);
+  });
+
+  it('ignores eliminations before the main draw', () => {
+    // -25 and below is qualification, -2 a confederation quota. Neither is a
+    // placement, and treating either as a number would rank a pair who never
+    // reached a main draw *above* one that finished 33rd.
+    const results = new Map([
+      [1, [[10, 2, -25] as [number, number, number], [11, 2, -2] as [number, number, number]]],
+    ]);
+    expect(bestFinishByPair(results).has(key)).toBe(false);
+  });
+
+  it('says nothing at all rather than picking a negative as the best of them', () => {
+    const results = new Map([
+      [1, [[10, 2, -25] as [number, number, number], [11, 2, 33] as [number, number, number]]],
+    ]);
+    expect(bestFinishByPair(results).get(key)).toBe(33);
+  });
+
+  it('does not let a missing rank become a result', () => {
+    // The trap this function was written around: a row with no `Rank` parses
+    // to NaN, and every comparison against NaN is false — so `rank <= 0` does
+    // not skip it and `NaN < undefined` on an empty slot is enough to store
+    // it. A pair would publish "best NaN".
+    const results = new Map([
+      [1, [[10, 2, Number.NaN] as [number, number, number]]],
+    ]);
+    expect(bestFinishByPair(results).has(key)).toBe(false);
+  });
+
+  it('keeps two partners of the same player apart', () => {
+    const results = new Map([
+      [1, [[10, 2, 5] as [number, number, number], [11, 3, 1] as [number, number, number]]],
+    ]);
+    const best = bestFinishByPair(results);
+    expect(best.get(pairKey(1, 2))).toBe(5);
+    expect(best.get(pairKey(1, 3))).toBe(1);
+  });
+});
+
+describe('a partnership\u2019s best finish, end to end', () => {
+  const tournaments = normaliseTournaments([tournament('t1', 2023), tournament('t2', 2024)]);
+
+  it('reaches the graph edge as `r`', () => {
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
+    const { partnerships, appearances } = aggregatePartnerships(
+      [placed('t1', 1, 2, 9), placed('t2', 1, 2, 2)],
+      tournaments,
+      people,
+    );
+    const [slice] = sliceByCountryAndGender(partnerships, appearances, people, tournaments);
+    expect(slice!.edges[0]!.r).toBe(2);
+  });
+
+  it('reaches an away partner as `r` too, so the two lists agree', () => {
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
+    const { partnerships } = aggregatePartnerships(
+      [placed('t1', 1, 2, 9), placed('t2', 1, 2, 2)],
+      tournaments,
+      people,
+    );
+    const away = awayPartnersByPlayer(partnerships, people, tournaments);
+    expect(away.get(1)![0]!.r).toBe(2);
+    expect(away.get(2)![0]!.r).toBe(2);
+  });
+
+  it('omits the field entirely when the pair never reached a main draw', () => {
+    // Not 0, and not -25: the card renders any number it is given, and a pair
+    // who only ever played qualification has no finish to render.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
+    const { partnerships, appearances } = aggregatePartnerships(
+      [placed('t1', 1, 2, -25)],
+      tournaments,
+      people,
+    );
+    const [slice] = sliceByCountryAndGender(partnerships, appearances, people, tournaments);
+    expect(slice!.edges[0]).not.toHaveProperty('r');
+  });
+
+  it('prefers the main draw over the qualification the pair came through', () => {
+    // One event, two rows: `noteResult` keeps the higher rank as the result,
+    // and the best finish has to be computed from what survives that. A
+    // best-so-far accumulated during the loop would have banked the -25.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
+    const { partnerships, appearances } = aggregatePartnerships(
+      [placed('t1', 1, 2, -25), placed('t1', 1, 2, 17)],
+      tournaments,
+      people,
+    );
+    const [slice] = sliceByCountryAndGender(partnerships, appearances, people, tournaments);
+    expect(slice!.edges[0]!.r).toBe(17);
   });
 });
 
@@ -1107,5 +1224,45 @@ describe('finishedWithoutResults', () => {
     ]);
     const rows: VisRow[] = ['1', '2', '3'].map((no) => ({ ...entry(no, 1, 2), Rank: '' }));
     expect(finishedWithoutResults(tournaments, rows, '2026-08-17').map((t) => t.no)).toEqual(['2', '3', '1']);
+  });
+});
+
+/**
+ * What actually got published, rather than what the rule does on a fixture.
+ *
+ * A best finish is the one number on the card a reader is most likely to check
+ * against FIVB, so it is worth asserting against the artifact: a field that
+ * silently stopped being written, or started carrying an elimination code,
+ * would still render a full and plausible-looking list.
+ */
+describe('the published best finishes', () => {
+  const dir = new URL('../web/public/v1/graphs', import.meta.url);
+  const edges: { r?: number; t: number }[] = [];
+  for (const f of readdirSync(dir)) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/graphs/${f}`, import.meta.url), 'utf8'));
+    edges.push(...file.edges);
+  }
+
+  it('is on nearly every edge', () => {
+    // Vacuity guard, and a floor: 98.0% of partnerships reached a main draw
+    // together at least once. A drop past 90% is the field breaking, not the
+    // archive changing.
+    const withBest = edges.filter((e) => e.r !== undefined);
+    expect(edges.length).toBeGreaterThan(10_000);
+    expect(withBest.length / edges.length).toBeGreaterThan(0.9);
+  });
+
+  it('is never an elimination code or a zero', () => {
+    // The failure that would look like a result: -25 is qualification and -2 a
+    // confederation quota, and either would render as a placement.
+    expect(edges.filter((e) => e.r !== undefined && e.r < 1)).toEqual([]);
+  });
+
+  it('is always a whole number', () => {
+    expect(edges.filter((e) => e.r !== undefined && !Number.isInteger(e.r))).toEqual([]);
+  });
+
+  it('has someone who won together', () => {
+    expect(edges.filter((e) => e.r === 1).length).toBeGreaterThan(100);
   });
 });

@@ -67,6 +67,24 @@ export interface GraphEdge {
    * slice predates it.
    */
   s?: SeasonTally[];
+  /**
+   * The pair's best main-draw placement — 1 is a title.
+   *
+   * Named `r` rather than the obvious `b` because `b` is already one of the
+   * two endpoints above.
+   *
+   * Absent, rather than zero or a sentinel, when the pair never reached a main
+   * draw together: 285 of 14,041 partnerships (2.0%) played only qualification
+   * rounds, and "no best finish" is a different statement from "finished last"
+   * — a sentinel would sort and render as the latter. Also absent on data
+   * published before the field existed, which the card treats the same way.
+   *
+   * Precomputed here rather than derived from `results/`, which holds the same
+   * ranks: that file is an order of magnitude larger and is fetched only when
+   * a reader expands a season, while this is on screen the moment a card
+   * opens. One number per edge is ~47KB across all slices, or 1.0%.
+   */
+  r?: number;
 }
 
 export interface GraphFile {
@@ -132,6 +150,8 @@ export interface AwayPartner {
    * Absent when no entry carried a usable code.
    */
   at?: [season: number, fed: string][];
+  /** Best main-draw placement, exactly as on a graph edge. */
+  r?: number;
 }
 
 /** Lazy-loaded detail for every player in one country x gender slice. */
