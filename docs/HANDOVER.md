@@ -51,7 +51,7 @@ Everything described here is shipped and live. No open pull requests.
 
 | | |
 |---|---|
-| #12 | Send the FIVB introduction email — ask for a VIS application identifier *and* whether a stable per-tournament URL exists |
+| #12 | Send the FIVB introduction email — drafted in [fivb-email.md](fivb-email.md): application identifier, read access to the four `BeachAgreement*` date fields, and whether a stable per-tournament URL exists |
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
 | #25 | "Six degrees": partnership path between two players — parked, needs design |
 | #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
