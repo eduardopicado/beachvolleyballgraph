@@ -87,6 +87,37 @@ async function postOnce(xml: string): Promise<string> {
 }
 
 /**
+ * POST one request document and return the raw response body, retrying
+ * transient failures with exponential backoff.
+ *
+ * Exposed because not every VIS response is a list of attribute-only elements.
+ * `GetBeachTeamMateList` answers with `<OK>101452 103034</OK>` — a bare string
+ * of player numbers — which `extractRows` cannot see at all, so the teammate
+ * cross-check needs the body itself. `label` only names the request in the
+ * retry warning and the exhausted-attempts error.
+ */
+export async function fetchRaw(xml: string, label = 'request'): Promise<string> {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      return await postOnce(xml);
+    } catch (err) {
+      lastError = err;
+      const retryable =
+        (err as { retryable?: boolean }).retryable !== false &&
+        (err instanceof TypeError ||
+          (err as Error).name === 'AbortError' ||
+          (err as { retryable?: boolean }).retryable === true);
+      if (!retryable || attempt === MAX_ATTEMPTS) break;
+      const wait = BASE_BACKOFF_MS * 2 ** (attempt - 1);
+      console.warn(`  ${label}: attempt ${attempt} failed (${(err as Error).message}); retrying in ${wait}ms`);
+      await sleep(wait);
+    }
+  }
+  throw new Error(`${label} failed after ${MAX_ATTEMPTS} attempts: ${(lastError as Error)?.message}`);
+}
+
+/**
  * Fetch one VIS list request, retrying transient failures with exponential
  * backoff. Throws once attempts are exhausted — callers should let that fail
  * the whole run rather than publish a partial graph.
