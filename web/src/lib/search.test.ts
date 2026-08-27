@@ -250,3 +250,62 @@ describe('foldAccents', () => {
     expect(foldAccents('Emanuel Rego')).toBe('emanuel rego');
   });
 });
+
+describe('former names', () => {
+  const player = (id: number, name: string, alsoKnownAs?: string[]) => ({
+    id,
+    name,
+    tournaments: 10,
+    slice: { country: 'USA', gender: 'W' as const },
+    alsoKnownAs,
+  });
+  const home = { country: 'USA', gender: 'W' as const };
+
+  it('finds a player by the name she used to compete under', () => {
+    // The case this exists for: fourteen titles won as Kloth, every one of them
+    // now recorded under Brasher, and "Kloth" finding nobody.
+    const index = indexPlayers([player(1, 'Taryn Brasher', ['Taryn Kloth'])]);
+    expect(searchPlayers(index, 'kloth', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('still shows the current name on the row', () => {
+    const index = indexPlayers([player(1, 'Taryn Brasher', ['Taryn Kloth'])]);
+    expect(searchPlayers(index, 'kloth', home).matches[0]!.name).toBe('Taryn Brasher');
+  });
+
+  /**
+   * A former name matches as a substring but never as a prefix.
+   *
+   * Someone typing "Kloth" should reach Taryn Brasher — but below anyone
+   * actually called Kloth today, because a reader typing a name is usually
+   * looking for the person who holds it. Ranking the two together would put a
+   * renamed player ahead of her own namesakes.
+   */
+  it('ranks a current name above a former one', () => {
+    const index = indexPlayers([
+      player(1, 'Taryn Brasher', ['Taryn Kloth']),
+      player(2, 'Mia Kloth-Jorgensen'),
+    ]);
+    expect(searchPlayers(index, 'kloth', home).matches.map((m) => m.id)).toEqual([2, 1]);
+  });
+
+  it('ignores an empty list rather than indexing an empty string', () => {
+    // An empty alias folded to '' and stored would make every query match,
+    // since ''.includes(q) is false but q.includes('') is not the test used.
+    const index = indexPlayers([player(1, 'Someone', [])]);
+    expect(index[0]!.foldedAka).toBeUndefined();
+    expect(searchPlayers(index, 'zzz', home).matches).toEqual([]);
+  });
+
+  it('folds accents on a former name, like any other', () => {
+    const index = indexPlayers([player(1, 'Helena Grozer', ['Helena Havelková'])]);
+    expect(searchPlayers(index, 'havelkova', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('cannot match across the seam of two separate former names', () => {
+    // They are joined with a space to build one folded string; a query must not
+    // be able to span the join and match a name that never existed.
+    const index = indexPlayers([player(1, 'A Player', ['First Name', 'Second Name'])]);
+    expect(searchPlayers(index, 'nameseconds', home).matches).toEqual([]);
+  });
+});

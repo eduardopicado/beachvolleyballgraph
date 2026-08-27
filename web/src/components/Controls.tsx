@@ -158,14 +158,29 @@ function PlayerSearch({
    * about needing to navigate anywhere.
    */
   const searchable = useMemo(() => {
+    // Former names live only in the search index, never in a graph file — so
+    // the players already on screen, which come from the graph, have to pick
+    // theirs back up from here or a reader on Taryn Brasher's own page would
+    // be the one person unable to find her by typing "Kloth".
+    const formerNames = new Map<number, string[]>();
+    for (const entries of Object.values(index?.slices ?? {})) {
+      for (const [id, , , , alsoKnownAs] of entries) {
+        if (alsoKnownAs?.length) formerNames.set(id, alsoKnownAs);
+      }
+    }
+
     // The slice on screen is named too, so every row carries a country.
-    const all: SearchablePlayer[] = players.map((p) => ({ ...p, slice: { country, gender } }));
+    const all: SearchablePlayer[] = players.map((p) => ({
+      ...p,
+      slice: { country, gender },
+      alsoKnownAs: formerNames.get(p.id),
+    }));
     for (const [key, entries] of Object.entries(index?.slices ?? {})) {
       const slice = parseSliceKey(key);
       if (!slice) continue;
-      for (const [id, name, tournaments, short] of entries) {
+      for (const [id, name, tournaments, short, alsoKnownAs] of entries) {
         if (onScreen.has(id)) continue;
-        all.push({ id, name, tournaments, slice, short });
+        all.push({ id, name, tournaments, slice, short, alsoKnownAs });
       }
     }
     return indexPlayers(all);
