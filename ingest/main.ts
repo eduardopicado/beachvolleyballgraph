@@ -49,6 +49,7 @@ import {
   sliceByCountryAndGender,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
+import { verifyTeammates } from './teammates.js';
 import type { FederationConflict } from './federations.js';
 import type {
   Manifest,
@@ -493,6 +494,61 @@ async function main() {
   // wired to a workflow_dispatch checkbox, not a default, and this run is
   // never silent about using it: the drop is logged either way, published or
   // not, so it is visible in the run output and in the commit this produces.
+  // Ask FIVB whether it agrees with the partnerships about to be published.
+  // Everything above this point is inference over team rows; this is the only
+  // check that consults a second, independent answer to the same question (see
+  // teammates.ts). It runs on a sample rather than all 12,074 players because
+  // the point is to catch a systemic aggregation bug, and a systemic bug shows
+  // up in 300 players as readily as in all of them — at three requests instead
+  // of a hundred and twenty.
+  //
+  // Never blocks on being unable to *reach* VIS. The archive is already
+  // fetched and built by now, so a network failure here would refuse to publish
+  // a dataset that is fine, over a check that could not run. A disagreement is
+  // a different matter and is treated as one.
+  const published = new Map<number, Set<number>>();
+  for (const slice of slices) {
+    for (const node of slice.nodes) if (!published.has(node.id)) published.set(node.id, new Set());
+    for (const edge of slice.edges) {
+      published.get(edge.a)?.add(edge.b);
+      published.get(edge.b)?.add(edge.a);
+    }
+  }
+  for (const [id, list] of awayPartners) {
+    if (!published.has(id)) published.set(id, new Set());
+    for (const partner of list) published.get(id)!.add(partner.id);
+  }
+
+  try {
+    const check = await verifyTeammates(published);
+    const detail =
+      `${check.agreed}/${check.checked} sampled players match FIVB's own teammate list` +
+      (check.unanswered ? `, ${check.unanswered} unanswered` : '');
+    if (check.mismatches.length === 0) {
+      log('teammates', detail);
+    } else {
+      // Measured at exactly zero across every published player, so any
+      // non-zero result is worth stopping for rather than logging past. The
+      // escape hatch mirrors ALLOW_DATA_REGRESSION: deliberate, explicit, and
+      // loud in the run output either way.
+      const rows = check.mismatches
+        .slice(0, 10)
+        .map((m) => `    player ${m.player} -> partners VIS does not list: ${m.missing.join(', ')}`)
+        .join('\n');
+      const more = check.mismatches.length > 10 ? `\n    ...and ${check.mismatches.length - 10} more` : '';
+      const message = `${check.mismatches.length} of ${check.checked} sampled players carry a partnership FIVB has no record of:\n${rows}${more}`;
+      if (process.env.ALLOW_TEAMMATE_MISMATCH === 'true') {
+        console.warn(`  ! teammate check bypassed (ALLOW_TEAMMATE_MISMATCH=true):\n  ${message}`);
+      } else {
+        throw new Error(`Refusing to publish — ${message}`);
+      }
+    }
+  } catch (err) {
+    // Rethrow the mismatch above; swallow only the "could not ask" case.
+    if (err instanceof Error && err.message.startsWith('Refusing to publish')) throw err;
+    console.warn(`  ! teammate cross-check skipped: ${(err as Error).message}`);
+  }
+
   const regressions = checkForRegression(previousTotals, manifest.totals);
   if (regressions.length > 0) {
     const detail = `  ${regressions.join('\n  ')}`;
