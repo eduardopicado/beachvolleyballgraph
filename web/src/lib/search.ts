@@ -27,6 +27,15 @@ export interface SearchablePlayer {
    * one word that found nobody.
    */
   short?: string;
+  /**
+   * Names this player used to compete under, which FIVB no longer holds —
+   * "Kloth" for Taryn Brasher, "Nuss" for Kristen Cruz.
+   *
+   * Searchable and nothing else: the row still shows the current name, because
+   * that is what FIVB is authoritative about. This only means the name a reader
+   * remembers from a broadcast still reaches the right person.
+   */
+  alsoKnownAs?: string[];
 }
 
 /**
@@ -53,6 +62,16 @@ export interface IndexedPlayer extends SearchablePlayer {
   folded: string;
   /** The folded label, absent when it would only repeat `folded`. */
   foldedShort?: string;
+  /**
+   * Former names, folded and joined into one string.
+   *
+   * One string rather than an array because the hot loop below runs over every
+   * player on every keystroke, and a nested loop over a field that 98% of
+   * players do not have is a cost paid by all of them to serve almost none.
+   * Joined with a space, so a query cannot match across the seam of two
+   * separate names.
+   */
+  foldedAka?: string;
 }
 
 export interface SearchMatch extends IndexedPlayer {
@@ -109,12 +128,14 @@ export function indexPlayers(players: readonly SearchablePlayer[]): IndexedPlaye
   return players.map((player) => {
     const folded = foldAccents(player.name);
     const short = player.short ? foldAccents(player.short) : '';
+    const aka = (player.alsoKnownAs ?? []).map(foldAccents).filter(Boolean).join(' ');
     return {
       ...player,
       folded,
       // Only when it reaches somewhere the name does not, so the hot loop below
       // skips a redundant second `includes` on almost every player.
       foldedShort: short && !folded.includes(short) ? short : undefined,
+      foldedAka: aka || undefined,
     };
   });
 }
@@ -159,10 +180,17 @@ export function searchPlayers(
     // Either name can match, and a prefix on either counts as a prefix: someone
     // typing "Duda" has typed the whole of what they saw.
     const short = player.foldedShort;
+    // A former name matches as a substring but never as a prefix. Someone
+    // typing "Kloth" should find Taryn Brasher — but above her should come
+    // anyone actually *called* Kloth today, because a reader typing a name is
+    // usually looking for the person who holds it. Ranking a former name level
+    // with a current one would put a renamed player ahead of her own
+    // namesakes.
+    const aka = player.foldedAka;
     const prefix =
       player.folded.startsWith(q) || short?.startsWith(q)
         ? 0
-        : player.folded.includes(q) || short?.includes(q)
+        : player.folded.includes(q) || short?.includes(q) || aka?.includes(q)
           ? 1
           : -1;
     if (prefix < 0) continue;

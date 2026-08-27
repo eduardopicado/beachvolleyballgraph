@@ -302,7 +302,26 @@ export interface ResultsFile {
  */
 export type SearchEntry =
   | [id: number, name: string, tournaments: number]
-  | [id: number, name: string, tournaments: number, short: string];
+  | [id: number, name: string, tournaments: number, short: string]
+  | [id: number, name: string, tournaments: number, short: string, alsoKnownAs: string[]];
+
+/**
+ * The fifth element: names this player has competed under that FIVB no longer
+ * holds, from Wikidata (see `ingest/aliases.ts`).
+ *
+ * Searchable only, never displayed. VIS renames in place and keeps no history,
+ * so Kristen Nuss's fourteen titles all read "Cruz" today and searching the
+ * name on every broadcast through 2024 finds nobody. Wikidata joins to us by
+ * FIVB player id, so these are matched by number rather than by name.
+ *
+ * Not shown on a card because the direction cannot be trusted: Wikidata is
+ * sometimes behind FIVB and sometimes ahead of it, and nothing in the data says
+ * which. Confined to search, the worst a wrong entry can do is make an extra
+ * string findable — it can never put a false name in front of a reader.
+ *
+ * Present on 274 of 12,075 players, so the fourth element carries `short`
+ * alone on almost every row.
+ */
 
 /**
  * Every published player, grouped by the slice they belong to.

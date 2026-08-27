@@ -492,6 +492,88 @@ test('the table lists the whole slice', async ({ page }) => {
   await expect.poll(() => page.locator('.table-view tbody tr').count()).toBe(expected);
 });
 
+test.describe('former names', () => {
+  const box = (page: Page) => page.getByPlaceholder('Start typing a name\u2026');
+  const rows = (page: Page) => page.locator('.player-search-results .result');
+
+  /**
+   * A published player carrying a former name, found by scanning the index
+   * rather than pinned to a person — Wikidata is edited by strangers and the
+   * archive is refetched weekly, so naming Taryn Brasher here would make this
+   * test a report on someone else's editing habits.
+   */
+  const renamed = () => {
+    for (const [key, entries] of Object.entries(searchIndex())) {
+      const slice = parseSliceKey(key);
+      if (!slice) continue;
+      for (const [id, name, , , alsoKnownAs] of entries) {
+        // A former name whose distinctive word is genuinely unreachable from
+        // the current one — otherwise the search would have found them anyway
+        // and the test proves nothing.
+        const former = (alsoKnownAs ?? []).find((a) =>
+          a
+            .toLowerCase()
+            .split(/\s+/)
+            .some((w) => w.length > 4 && !name.toLowerCase().includes(w)),
+        );
+        if (!former) continue;
+        const term = former
+          .toLowerCase()
+          .split(/\s+/)
+          .find((w) => w.length > 4 && !name.toLowerCase().includes(w))!;
+        return { id, name, slice, term };
+      }
+    }
+    return null;
+  };
+
+  test('a player is findable by the name she used to compete under', async ({ page }) => {
+    const target = renamed();
+    expect(target, 'no published player carries a former name').not.toBeNull();
+
+    const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
+    await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
+    await box(page).fill(target!.term);
+
+    // The row exists, and it shows the *current* name — the former name is a
+    // way in, never a label.
+    const row = rows(page).filter({ hasText: target!.name });
+    await expect(row).toHaveCount(1);
+    await expect(rows(page).first()).toBeVisible();
+  });
+
+  test('the former name is never rendered', async ({ page }) => {
+    const target = renamed();
+    const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
+    await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
+    await box(page).fill(target!.term);
+    await expect(rows(page).first()).toBeVisible();
+
+    // FIVB stays authoritative for what a player is called. Wikidata can be
+    // stale or simply wrong, and a wrong entry must not be able to put a false
+    // name in front of a reader — the worst it may do is make a string findable.
+    //
+    // Scoped to the matched row rather than the whole list, which is not
+    // pedantry: the first version asserted over every result and failed on a
+    // player whose former name contains "Santos" — a word that legitimately
+    // appears in half a dozen other Brazilians' *current* names. The claim is
+    // about what this row displays, not about which letters exist on screen.
+    const row = rows(page).filter({ hasText: target!.name });
+    const shown = (await row.innerText()).toLowerCase();
+    expect(shown).toContain(target!.name.toLowerCase());
+    expect(shown).not.toContain(target!.term);
+  });
+
+  test('selecting the row opens the right player', async ({ page }) => {
+    const target = renamed();
+    const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
+    await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
+    await box(page).fill(target!.term);
+    await rows(page).filter({ hasText: target!.name }).click();
+    await expect(page.locator('.player-card h2')).toHaveText(target!.name);
+  });
+});
+
 test.describe('cross-country search', () => {
   const box = (page: Page) => page.getByPlaceholder('Start typing a name…');
 
@@ -510,7 +592,15 @@ test.describe('cross-country search', () => {
     for (const [key, entries] of Object.entries(searchIndex())) {
       const slice = parseSliceKey(key);
       if (!slice) continue;
-      for (const [id, name, tournaments] of entries) all.push({ id, name, tournaments, slice });
+      // Every searchable field, not just the name. This used to take the first
+      // three elements and drop `short`, which made it a slightly different
+      // search from the app's — tolerable while the difference was one graph
+      // label, and not once former names were added: the helper predicted
+      // fewer matches than the page rendered, and two tests that pick a query
+      // by its predicted count started failing on the page's real answer.
+      for (const [id, name, tournaments, short, alsoKnownAs] of entries) {
+        all.push({ id, name, tournaments, slice, short, alsoKnownAs });
+      }
     }
     return indexPlayers(all);
   };

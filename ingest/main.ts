@@ -50,6 +50,7 @@ import {
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { verifyTeammates } from './teammates.js';
+import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
 import type {
   Manifest,
@@ -342,6 +343,38 @@ async function main() {
 
   const byCountry = new Map<string, ManifestCountry>();
   const searchIndex: Record<string, SearchEntry[]> = {};
+
+  // Former names, so a reader who remembers "Kloth" still reaches Taryn
+  // Brasher. Joined to Wikidata by FIVB player id rather than by name — see
+  // aliases.ts, including why none of this is allowed anywhere near a card.
+  //
+  // Never fails the run. Wikimedia rate-limits by IP and a shared CI address
+  // can be throttled by traffic that has nothing to do with us; refusing to
+  // publish a correct dataset over a missing search alias would be the wrong
+  // trade every time.
+  const aka = new Map<number, string[]>();
+  try {
+    const wikidata = await fetchWikidataNames();
+    let joined = 0;
+    for (const slice of slices) {
+      for (const node of slice.nodes) {
+        const found: WikidataNames | undefined = wikidata.get(node.id);
+        if (!found) continue;
+        joined++;
+        const extra = newNamesFor(
+          [node.name, node.short],
+          [...found.birthNames, ...found.aliases, found.label],
+        );
+        if (extra.length > 0) aka.set(node.id, extra);
+      }
+    }
+    log(
+      'aliases',
+      `${aka.size} players gain a former name (${joined} of ${wikidata.size} Wikidata items matched a published player)`,
+    );
+  } catch (err) {
+    console.warn(`  ! former-name lookup skipped: ${(err as Error).message}`);
+  }
   let resultRows = 0;
 
   for (const slice of slices) {
@@ -434,8 +467,14 @@ async function main() {
         // search already reaches.
         foldAccents(n.short).includes(foldAccents(n.name)) ||
         foldAccents(n.name).includes(foldAccents(n.short))
-          ? [n.id, n.name, n.tournaments]
-          : [n.id, n.name, n.tournaments, n.short],
+          ? aka.get(n.id)
+            // A former name still has to occupy the fifth slot, so `short`
+            // fills the fourth even where it says nothing new.
+            ? [n.id, n.name, n.tournaments, n.short, aka.get(n.id)!]
+            : [n.id, n.name, n.tournaments]
+          : aka.get(n.id)
+            ? [n.id, n.name, n.tournaments, n.short, aka.get(n.id)!]
+            : [n.id, n.name, n.tournaments, n.short],
       );
 
     let entry = byCountry.get(slice.country);
