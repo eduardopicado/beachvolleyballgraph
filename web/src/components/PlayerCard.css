@@ -622,8 +622,61 @@
   font-size: 12px;
 }
 
+/* The two ways out of the card, on one line: an action and a link away.
+   Nothing styled `.card-foot` or `.find-path` when the path panel was added, so
+   the button rendered at the browser default — grey, chunky, and the loudest
+   thing on a card whose every other control is quiet. */
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Sized against the row it sits on rather than as a call to action. The card is
+   already a page of controls, and this is one more of them — not the point of
+   the card. */
+.find-path {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+/* The arrow says "this leads somewhere" without spending a word on it, and is
+   hidden from screen readers, which already have the label. */
+.find-path::before {
+  content: '⇢';
+  font-size: 13px;
+  line-height: 1;
+  color: var(--series-1);
+}
+
+.find-path:hover {
+  background: var(--series-1-wash);
+  border-color: var(--series-1);
+  color: var(--text-primary);
+}
+
+.find-path:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+}
+
 .profile-link {
-  align-self: flex-start;
+  flex: none;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
