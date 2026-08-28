@@ -720,9 +720,16 @@ export function PlayerCard({
       <div className="card-foot">
         {/* The way into the path panel, and the only one: the question is
             "how does this player reach someone else", so it belongs on a
-            player rather than on the graph's toolbar. */}
+            player rather than on the graph's toolbar.
+
+            "a player" rather than "another player" to keep the foot on one
+            line. The card is 340px wide, which leaves 189px beside the FIVB
+            link; the longer label measured 200px and wrapped, this one 153px.
+            The word it drops was doing nothing — the button is on a player's
+            own card, so the other end of the path is another player by
+            construction. */}
         <button type="button" className="find-path" onClick={onFindPath}>
-          Path to another player
+          Path to a player
         </button>
         <a
           className="profile-link"

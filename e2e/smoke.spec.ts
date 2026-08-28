@@ -1228,7 +1228,7 @@ test.describe('partnership path', () => {
   test('opens from a card and asks for a second player', async ({ page }) => {
     const { from } = subjects(2);
     await page.goto(`./${slicePath()}?player=${from.id}`);
-    await page.getByRole('button', { name: 'Path to another player' }).click();
+    await page.getByRole('button', { name: 'Path to a player' }).click();
 
     const panel = page.locator('.path-panel');
     await expect(panel).toBeVisible();
