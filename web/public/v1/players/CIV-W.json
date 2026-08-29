@@ -7,28 +7,32 @@
       "name": "Kossia Audrey Fieny",
       "dob": "1992-10-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Koumassi ABJ"
     },
     {
       "id": 150291,
       "name": "Loyo Alice Miessan",
       "dob": "1995-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "marcory"
     },
     {
       "id": 150293,
       "name": "Benedicte Sam",
       "dob": "1995-03-16",
       "height": 168,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Marcory / Abidjan"
     },
     {
       "id": 163368,
       "name": "Bamba Aminata",
       "dob": "1992-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Koumassi"
     }
   ]
 }

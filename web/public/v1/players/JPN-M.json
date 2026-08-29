@@ -22,6 +22,7 @@
       "dob": "1967-05-12",
       "height": 180,
       "weight": 75,
+      "birthPlace": "Saga",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -45,14 +46,16 @@
       "name": "Shoji Setoyama",
       "dob": "1965-01-25",
       "height": 185,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Miyazaki"
     },
     {
       "id": 100056,
       "name": "Chikashi Kawai",
       "dob": "1965-12-17",
       "height": 189,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Niigata"
     },
     {
       "id": 100057,
@@ -171,7 +174,8 @@
       "name": "Takuya Noguchi",
       "dob": "1970-01-13",
       "height": 181,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Kanagawa (Yokohama)"
     },
     {
       "id": 100551,
@@ -220,7 +224,8 @@
       "name": "Yoshimichi Makabe Saito",
       "dob": "1972-08-12",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 100822,
@@ -234,7 +239,8 @@
       "name": "Tomohisa Yamamoto",
       "dob": "1969-12-12",
       "height": 170,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Fukuoka"
     },
     {
       "id": 101068,
@@ -284,6 +290,7 @@
       "dob": "1975-02-25",
       "height": 190,
       "weight": 76,
+      "birthPlace": "Kanagawa (Yokohama)",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -296,6 +303,7 @@
       "dob": "1971-08-04",
       "height": 184,
       "weight": 70,
+      "birthPlace": "Aomori (Hirosaki)",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -307,28 +315,32 @@
       "name": "Satoshi Watanabe",
       "dob": "1975-08-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gumma"
     },
     {
       "id": 102132,
       "name": "Takehito \"Hama\" Hamada",
       "dob": "1974-12-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Osaka"
     },
     {
       "id": 102133,
       "name": "Hideki Hatayama",
       "dob": "1965-09-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nagano"
     },
     {
       "id": 102134,
       "name": "Takeshi Ozawa",
       "dob": "1975-06-09",
       "height": 172,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 102544,
@@ -336,6 +348,7 @@
       "dob": "1976-10-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Saitama",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -347,14 +360,16 @@
       "name": "Masahiro \"Masa\" Hirano",
       "dob": "1977-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokyo"
     },
     {
       "id": 103251,
       "name": "Hayato Kirihara",
       "dob": "1971-09-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Yokohama, Kanagawa"
     },
     {
       "id": 103400,
@@ -389,42 +404,48 @@
       "name": "Tatsuo Yamamoto",
       "dob": "1976-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Osaka"
     },
     {
       "id": 103816,
       "name": "Takashi Ogawa",
       "dob": "1978-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nagasaki"
     },
     {
       "id": 103840,
       "name": "Koichi Nishimura",
       "dob": "1973-06-30",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Kyoto"
     },
     {
       "id": 103841,
       "name": "Kentaro Asahi",
       "dob": "1975-09-19",
       "height": 199,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kumamoto"
     },
     {
       "id": 103842,
       "name": "Shinya Azama",
       "dob": "1972-07-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Okinawa"
     },
     {
       "id": 103862,
       "name": "Shinya Hata",
       "dob": "1979-12-06",
       "height": 186,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokyo"
     },
     {
       "id": 104172,
@@ -445,14 +466,16 @@
       "name": "Shinpei Aoki",
       "dob": "1980-07-22",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "JPN"
     },
     {
       "id": 114263,
       "name": "Yu Koshikawa",
       "dob": "1984-06-30",
       "height": 189,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Ishikawa, Japan"
     },
     {
       "id": 118437,
@@ -480,7 +503,8 @@
       "name": "Shiro Furuta",
       "dob": "1988-01-29",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Hokkaido"
     },
     {
       "id": 119050,
@@ -555,7 +579,8 @@
       "name": "Takahiko Imamura",
       "dob": "1993-05-20",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Miyazaki"
     },
     {
       "id": 135250,
@@ -791,6 +816,7 @@
       "dob": "1984-01-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Kanagawa",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -802,7 +828,8 @@
       "name": "Taito Mizumachi",
       "dob": "2001-09-07",
       "height": 181,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Japan"
     },
     {
       "id": 164083,
@@ -850,6 +877,7 @@
       "dob": "1996-08-13",
       "height": 181,
       "weight": 78,
+      "birthPlace": "Japan",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -861,21 +889,24 @@
       "name": "Hiroki Dylan Kurokawa",
       "dob": "1998-11-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hiroshima"
     },
     {
       "id": 169063,
       "name": "Toshiharu Kojima",
       "dob": "1983-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aichi"
     },
     {
       "id": 172192,
       "name": "Rikuto Goto",
       "dob": "2001-05-13",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Iyo-gun, Ehime"
     },
     {
       "id": 175280,
@@ -917,7 +948,8 @@
       "name": "Kosuke Fukushima",
       "dob": "1999-12-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fukuoka"
     },
     {
       "id": 185923,
@@ -931,7 +963,8 @@
       "name": "Ryo Tatsumi",
       "dob": "1995-07-18",
       "height": 187,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Nara"
     },
     {
       "id": 189719,
@@ -980,7 +1013,8 @@
       "name": "Takuya Toda",
       "dob": "1996-10-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Japan"
     },
     {
       "id": 222564,
@@ -994,14 +1028,16 @@
       "name": "Sota Sugiura",
       "dob": "2009-04-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gifu"
     },
     {
       "id": 242058,
       "name": "Yuma Takasaki",
       "dob": "1999-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Japan"
     }
   ]
 }

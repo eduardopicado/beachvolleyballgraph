@@ -7,14 +7,16 @@
       "name": "Isaac Barnes",
       "dob": "1988-07-04",
       "height": null,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Mankessim"
     },
     {
       "id": 135605,
       "name": "Edward Seidu Ajanako",
       "dob": "1977-09-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Accra"
     },
     {
       "id": 145802,
@@ -28,7 +30,8 @@
       "name": "Shamsu Awudu",
       "dob": "1979-07-25",
       "height": 198,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Accra, Ghana"
     }
   ]
 }

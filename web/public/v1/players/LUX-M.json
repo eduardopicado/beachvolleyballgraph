@@ -7,7 +7,8 @@
       "name": "Laurent Schoder",
       "dob": "1984-04-18",
       "height": 189,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Luxembourg"
     },
     {
       "id": 117027,
@@ -35,21 +36,24 @@
       "name": "Jan Lux",
       "dob": "1984-06-21",
       "height": 203,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Essen (Ger)"
     },
     {
       "id": 158811,
       "name": "Steve Weber",
       "dob": "1997-02-18",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Luxembourg"
     },
     {
       "id": 189847,
       "name": "Colin Hilbert",
       "dob": "1998-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ettelbruck"
     }
   ]
 }

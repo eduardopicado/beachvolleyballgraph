@@ -28,21 +28,24 @@
       "name": "Jessica Enberg",
       "dob": "1975-03-28",
       "height": 175,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Skelleftea"
     },
     {
       "id": 102163,
       "name": "Annika Granström",
       "dob": "1971-03-24",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Hallstahammar"
     },
     {
       "id": 102550,
       "name": "Maria \"Mia\" Tvede",
       "dob": "1976-08-25",
       "height": 174,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Fredriksberg"
     },
     {
       "id": 102664,
@@ -57,6 +60,7 @@
       "dob": "1981-10-05",
       "height": 188,
       "weight": 75,
+      "birthPlace": "Stockholm",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -68,42 +72,48 @@
       "name": "Katrin Vink",
       "dob": "1971-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Uppsala"
     },
     {
       "id": 102964,
       "name": "Angelica Ljungquist",
       "dob": "1974-12-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taby"
     },
     {
       "id": 103257,
       "name": "Mirlinda \"Mirre\" Jonuzi",
       "dob": "1970-12-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lund"
     },
     {
       "id": 103258,
       "name": "Malin \"Mala\" Rabom",
       "dob": "1970-10-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hudiksvall"
     },
     {
       "id": 103328,
       "name": "Annika Svensson",
       "dob": "1975-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varberg"
     },
     {
       "id": 103329,
       "name": "Elin Warner",
       "dob": "2001-07-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stockholm"
     },
     {
       "id": 103330,
@@ -118,6 +128,7 @@
       "dob": "1976-05-17",
       "height": 171,
       "weight": 60,
+      "birthPlace": "Umea",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -129,49 +140,56 @@
       "name": "Lena Malm",
       "dob": "1968-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lund"
     },
     {
       "id": 103824,
       "name": "Viktoria Wallner",
       "dob": "1970-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gothenburg"
     },
     {
       "id": 103825,
       "name": "Emma Cederlund",
       "dob": "1975-05-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stockholm"
     },
     {
       "id": 104069,
       "name": "Anne Lie Rininsland",
       "dob": "1977-01-04",
       "height": 168,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Molndal"
     },
     {
       "id": 104257,
       "name": "Anna Ljungquist",
       "dob": "1971-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lund"
     },
     {
       "id": 104292,
       "name": "Linda Johansson",
       "dob": "1978-08-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ljung swe"
     },
     {
       "id": 104293,
       "name": "Malin Andersson",
       "dob": "1974-09-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Boris Suje"
     },
     {
       "id": 104295,
@@ -185,21 +203,24 @@
       "name": "Sofie Charlotte Andersson",
       "dob": "1977-01-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vayjo"
     },
     {
       "id": 104547,
       "name": "Kerstin Hegner",
       "dob": "1976-10-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ekerd"
     },
     {
       "id": 104548,
       "name": "Elisabet Aslund",
       "dob": "1973-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ovansjo"
     },
     {
       "id": 104730,
@@ -249,6 +270,7 @@
       "dob": "1984-04-30",
       "height": 174,
       "weight": null,
+      "birthPlace": "Söderala",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -282,6 +304,7 @@
       "dob": "1984-03-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Gislaved",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -300,7 +323,8 @@
       "name": "Nina Grawender",
       "dob": "1987-10-15",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Tölö"
     },
     {
       "id": 120882,
@@ -335,7 +359,8 @@
       "name": "Tadva Yoken",
       "dob": "1989-05-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Östertälje"
     },
     {
       "id": 125391,
@@ -349,14 +374,16 @@
       "name": "Åsa Gustavsson",
       "dob": "1976-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Älmhult"
     },
     {
       "id": 132498,
       "name": "Matilda Skagerberg",
       "dob": "1992-09-08",
       "height": 165,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Uppsala"
     },
     {
       "id": 132581,
@@ -391,7 +418,8 @@
       "name": "Sigrid Simonsson",
       "dob": "1988-04-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tomas"
     },
     {
       "id": 137181,
@@ -405,14 +433,16 @@
       "name": "Anniken Rådström",
       "dob": "1993-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 139776,
       "name": "Kristin Lind",
       "dob": "1993-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tolfta"
     },
     {
       "id": 139777,
@@ -420,6 +450,7 @@
       "dob": "1992-11-19",
       "height": 169,
       "weight": 60,
+      "birthPlace": "Sollentuna",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -432,6 +463,7 @@
       "dob": "1992-11-19",
       "height": 168,
       "weight": 55,
+      "birthPlace": "Sollentuna",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -443,7 +475,8 @@
       "name": "Malin Linde",
       "dob": "1988-12-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malmø"
     },
     {
       "id": 141864,
@@ -464,7 +497,8 @@
       "name": "Isabelle Påhlsson",
       "dob": "1984-08-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Örgryte"
     },
     {
       "id": 147001,
@@ -472,6 +506,7 @@
       "dob": "1990-03-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Ålidhem",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -483,84 +518,96 @@
       "name": "Fanny Lindström",
       "dob": "1988-10-08",
       "height": 184,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Nederkalix"
     },
     {
       "id": 149423,
       "name": "Louise Månesköld",
       "dob": "1993-05-25",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Vasa"
     },
     {
       "id": 149424,
       "name": "Talar Kirkor",
       "dob": "1984-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kamechli"
     },
     {
       "id": 149466,
       "name": "Elisa Niederhaus",
       "dob": "1990-06-14",
       "height": 167,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gothenburg"
     },
     {
       "id": 151107,
       "name": "Jenny Strålman",
       "dob": "1990-10-05",
       "height": 168,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nässjö"
     },
     {
       "id": 151144,
       "name": "Malin Bergholm",
       "dob": "1993-04-05",
       "height": 174,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Gothenburg"
     },
     {
       "id": 153169,
       "name": "Fanny Åhman",
       "dob": "1999-11-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Umeå"
     },
     {
       "id": 153170,
       "name": "Isabelle Haak",
       "dob": "1999-07-11",
       "height": 196,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Perstorp"
     },
     {
       "id": 153171,
       "name": "Felicia Granberg",
       "dob": "1998-08-23",
       "height": 170,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Umeå SF"
     },
     {
       "id": 158807,
       "name": "Therese Strålman",
       "dob": "1990-10-05",
       "height": 198,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nassjo"
     },
     {
       "id": 159648,
       "name": "Hanna Hellvig",
       "dob": "2000-02-03",
       "height": 189,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Lidingö"
     },
     {
       "id": 160099,
       "name": "Sara Malmström",
       "dob": "1995-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fässberg"
     },
     {
       "id": 160596,
@@ -568,6 +615,7 @@
       "dob": "2001-10-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Sollentuna",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -579,14 +627,16 @@
       "name": "Ellen Lindqvist",
       "dob": "2000-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sävedalen"
     },
     {
       "id": 164877,
       "name": "Johanna Wikberg",
       "dob": "1992-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arvidsjaur"
     },
     {
       "id": 164890,
@@ -594,6 +644,7 @@
       "dob": "1990-04-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Gällersta",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -605,35 +656,40 @@
       "name": "Rebecka Dahlgren",
       "dob": "2000-08-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Älvsborg"
     },
     {
       "id": 168388,
       "name": "Klara Ribom",
       "dob": "1995-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gottsunda"
     },
     {
       "id": 168905,
       "name": "Hulda Rudberg",
       "dob": "1999-07-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sävedalen"
     },
     {
       "id": 172787,
       "name": "Karin Backström",
       "dob": "1993-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "G Uppsala"
     },
     {
       "id": 173514,
       "name": "Victoria Sahlberg",
       "dob": "1994-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kungsäter"
     },
     {
       "id": 179472,
@@ -641,6 +697,7 @@
       "dob": "2003-08-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Råda",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -652,21 +709,24 @@
       "name": "Line Andersson",
       "dob": "2003-04-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 182702,
       "name": "Emilia Saxne",
       "dob": "2006-11-20",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Asmundtorp-T"
     },
     {
       "id": 187922,
       "name": "Sanna Madestam",
       "dob": "2006-01-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Söndrum-Vap"
     },
     {
       "id": 196008,
@@ -680,7 +740,8 @@
       "name": "Helene Jernbeck",
       "dob": "1995-06-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stockholm"
     },
     {
       "id": 196046,
@@ -694,28 +755,32 @@
       "name": "Lova Hägglund",
       "dob": "2009-03-13",
       "height": 175,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Sollentuna"
     },
     {
       "id": 229320,
       "name": "Irma Mtabingwa Demilo",
       "dob": "2010-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Exeter"
     },
     {
       "id": 232314,
       "name": "Sofia Russo",
       "dob": "2000-07-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Jersey"
     },
     {
       "id": 232315,
       "name": "Lina Russo",
       "dob": "2002-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vorhees, NJ"
     }
   ]
 }

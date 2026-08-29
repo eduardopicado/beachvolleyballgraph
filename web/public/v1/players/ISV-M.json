@@ -49,21 +49,24 @@
       "name": "Bryce Mayer",
       "dob": "1990-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 181835,
       "name": "Daniel Samuelson",
       "dob": "1982-07-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 208804,
       "name": "Tyler Penberthy",
       "dob": "1995-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New York"
     }
   ]
 }

@@ -93,6 +93,8 @@ export interface Player {
   dob: string | null;
   height: number | null;
   weight: number | null;
+  /** Free-text birth place, `null` when VIS has none worth showing. */
+  birthPlace: string | null;
 }
 
 /** A canonical unordered pair key: always "smaller:larger" by numeric id. */
@@ -401,15 +403,81 @@ export function tidyName(value: string): string {
   const substantial = shoutable.some((w) => w.replace(/[^\p{L}]/gu, '').length >= 4);
   if (!substantial || shoutable.length === 0 || !shoutable.every(isShouted)) return collapsed;
 
-  return words
-    .map((word) =>
-      word.includes('.')
-        ? word
-        : // A letter starts a new part of a name when it opens the word or
-          // follows a hyphen or apostrophe: Hsin-Tung, D'Almeida, O'Brien.
-          word.toLowerCase().replace(/(^|[-'’])(\p{L})/gu, (_, sep: string, letter: string) => sep + letter.toUpperCase()),
-    )
-    .join(' ');
+  return words.map((word) => (word.includes('.') ? word : titleCaseWord(word))).join(' ');
+}
+
+/**
+ * One word, lower-cased with each part capitalised.
+ *
+ * A letter starts a new part when it opens the word or follows a hyphen or
+ * apostrophe: Hsin-Tung, D'Almeida, O'Brien.
+ */
+function titleCaseWord(word: string): string {
+  return word
+    .toLowerCase()
+    .replace(/(^|[-'’])(\p{L})/gu, (_, sep: string, letter: string) => sep + letter.toUpperCase());
+}
+
+/**
+ * Where a player was born, when VIS holds something worth showing.
+ *
+ * `BirthPlace` is one free-text field with no separate city or country, filled
+ * in by hand at a couple of hundred federations, and it holds four conventions
+ * at once: "Curitiba, PR", "Berlin", "Juiz de Fora (BRA)",
+ * "Resende-Rio de Janeiro". None of that is fixable — nothing separates a city
+ * from a province, and nothing says which country a bare "Portland" is in — so
+ * the value is published verbatim apart from the tidying below.
+ *
+ * It is far cleaner than it first looks. Measured over the 6,496 published
+ * players who have one, **21 are unusable (0.32%)**, and most of those are only
+ * suspicious rather than wrong: "Paris 14e", "Praha 4", "Sèvres (92)" and
+ * "St Brieul (12)" are arrondissements and department numbers, which are real
+ * answers to where somebody was born. Rejecting anything containing a digit
+ * would throw all of those away to catch the seven records that are actually
+ * broken, so the rules are narrow and each one names its cases:
+ *
+ *  - a date in the birth *place* field — "21.08.77", "03/09/1988",
+ *    "06-05-1991", "17/01/1992" (4 records);
+ *  - a bare postcode with nothing else — "30019", "98278" (2);
+ *  - an internal note that should never have left the database —
+ *    "to be Merged with (#164181) as" (1).
+ *
+ * Capitals are normalised by the same rule as the names (§6.5): 444 published
+ * birth places shout, and "BUENOS AIRES" is no more correct than "MUKUNZI" was.
+ * Stray quotation marks are stripped, which is one record — `"9 de JULIO"` is a
+ * real Argentine town wearing the quotes FIVB stored it with.
+ */
+export function tidyBirthPlace(value: string | undefined): string | null {
+  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^["']+|["']+$/g, '').trim();
+  if (!raw) return null;
+
+  // A whole date, however it is punctuated. Anchored, so "Paris 14e" and
+  // "Sèvres (92)" — which merely contain digits — survive.
+  if (/^\d{1,4}[./-]\d{1,2}[./-]\d{1,4}$/.test(raw)) return null;
+  // Digits and separators only: a postcode, never a place name.
+  if (!/\p{L}/u.test(raw)) return null;
+  // An editing note aimed at whoever maintains the record, not at a reader.
+  if (/\bto be merged\b|\bmerge[dr]?\s+with\b|#\d{3,}|\bduplicate\b/i.test(raw)) return null;
+
+  // Capitals are normalised per *word* here, not per string as in `tidyName`.
+  // A name uses partial capitals to mark the family name (§6.5) and that has to
+  // survive; a place has no such convention, so "9 de JULIO" should become
+  // "9 de Julio" even though "de" is already lower case.
+  //
+  // The length gate is what makes per-word safe: a short upper-case token in a
+  // place name is a code, not a shout — the "PR" in "Curitiba, PR", the "BRA"
+  // in "Juiz de Fora (BRA)", the whole of "TN", the "N2" in "Auckland N2".
+  // Title-casing those would turn a province code into a word.
+  return (
+    raw
+      .split(' ')
+      .map((word) => {
+        const letters = word.replace(/[^\p{L}]/gu, '');
+        const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
+        return shouts ? titleCaseWord(word) : word;
+      })
+      .join(' ') || null
+  );
 }
 
 function fullName(row: VisRow): string {
@@ -457,6 +525,7 @@ export function normalisePlayers(rows: VisRow[]): Map<number, Player> {
       dob: /^\d{4}-\d{2}-\d{2}$/.test(dob) && !dob.startsWith('0001') ? dob : null,
       height: toCentimetres(row.Height),
       weight: toKilograms(row.Weight),
+      birthPlace: tidyBirthPlace(row.BirthPlace),
       // VIS also has an `IsActive` flag, deliberately not carried through: it is
       // not beach-specific (it tracks a player's overall FIVB registration
       // across beach/indoor/snow) and is not reliably updated for retired

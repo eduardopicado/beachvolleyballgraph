@@ -7,7 +7,8 @@
       "name": "Elizabeth Röttcher",
       "dob": "1969-11-07",
       "height": 162,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riversdale, RSA"
     },
     {
       "id": 134937,
@@ -28,7 +29,8 @@
       "name": "Saskia Henckert",
       "dob": "1994-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 146119,
@@ -49,14 +51,16 @@
       "name": "Kristin Schulz",
       "dob": "1998-09-24",
       "height": 172,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Namibia"
     },
     {
       "id": 157097,
       "name": "Michaela Boehringer",
       "dob": "1999-10-29",
       "height": 160,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Windhoek"
     }
   ]
 }

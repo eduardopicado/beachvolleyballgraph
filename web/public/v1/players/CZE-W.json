@@ -7,7 +7,8 @@
       "name": "Martina Hudcova",
       "dob": "1966-03-26",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Brno"
     },
     {
       "id": 100602,
@@ -42,14 +43,16 @@
       "name": "Radana Foltynova",
       "dob": "1976-11-10",
       "height": 178,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Frydek-Mistek"
     },
     {
       "id": 101444,
       "name": "Jaroslava \"Boira\" Bajerova",
       "dob": "1971-04-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novy Jiein"
     },
     {
       "id": 101445,
@@ -64,6 +67,7 @@
       "dob": "1975-03-08",
       "height": 186,
       "weight": 80,
+      "birthPlace": "Nachod",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -81,6 +85,7 @@
       "dob": "1975-10-06",
       "height": 186,
       "weight": 74,
+      "birthPlace": "Olomouc",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -97,63 +102,72 @@
       "name": "Tereza Tobiasova",
       "dob": "1974-04-10",
       "height": 177,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Brno"
     },
     {
       "id": 101822,
       "name": "Alena \"Bobina\" Horackova",
       "dob": "1979-04-25",
       "height": 176,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Praha"
     },
     {
       "id": 101823,
       "name": "Lenka Urbanova",
       "dob": "1978-07-30",
       "height": 181,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Praha"
     },
     {
       "id": 101904,
       "name": "Zuzana Horackova",
       "dob": "1981-05-25",
       "height": 172,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Praha"
     },
     {
       "id": 102208,
       "name": "Irena Stovickova",
       "dob": "1978-11-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 102209,
       "name": "Lenka Felbabova",
       "dob": "1978-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 102244,
       "name": "Romana Jedlickova",
       "dob": "1966-06-09",
       "height": 172,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Brno"
     },
     {
       "id": 102245,
       "name": "Katerina Moudra",
       "dob": "1975-07-16",
       "height": 186,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Usti nad Labem"
     },
     {
       "id": 102247,
       "name": "Lucie Ruzkova",
       "dob": "1967-06-20",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Trutnov"
     },
     {
       "id": 102681,
@@ -161,6 +175,7 @@
       "dob": "1981-04-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -172,28 +187,32 @@
       "name": "Ilona Sotkovska",
       "dob": "1972-03-14",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Praha"
     },
     {
       "id": 103016,
       "name": "Marika Teknedzjanova",
       "dob": "1979-01-03",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Znojmo"
     },
     {
       "id": 103334,
       "name": "Jitka Stehnova",
       "dob": "1981-05-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 103385,
       "name": "Sylva Schlosser",
       "dob": "1979-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ostrava"
     },
     {
       "id": 103423,
@@ -201,6 +220,7 @@
       "dob": "1983-03-10",
       "height": 179,
       "weight": 63,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -212,7 +232,8 @@
       "name": "Kristyna Nemcova",
       "dob": "1980-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 103789,
@@ -220,6 +241,7 @@
       "dob": "1982-03-25",
       "height": 175,
       "weight": 64,
+      "birthPlace": "Ostrava",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -231,35 +253,40 @@
       "name": "Alexandra Valova",
       "dob": "1982-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ostrava"
     },
     {
       "id": 103819,
       "name": "Michaela Maixnerova",
       "dob": "1983-09-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 103823,
       "name": "Ludmila Chuatalova",
       "dob": "1981-12-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Plezn"
     },
     {
       "id": 103908,
       "name": "Michaela Blahova",
       "dob": "1982-10-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Usti Nad Labem"
     },
     {
       "id": 103909,
       "name": "Veronika Pokorna",
       "dob": "1983-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Unit Nad Labem"
     },
     {
       "id": 104080,
@@ -280,7 +307,8 @@
       "name": "Barbora Novakova",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prag,CZE"
     },
     {
       "id": 104264,
@@ -288,6 +316,7 @@
       "dob": "1982-03-29",
       "height": 182,
       "weight": 75,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -307,6 +336,7 @@
       "dob": "1985-06-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Kromeriz",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -339,28 +369,32 @@
       "name": "Eva Stepancikova",
       "dob": "1972-12-11",
       "height": 176,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Prerov"
     },
     {
       "id": 113423,
       "name": "Marcela Ritschelova",
       "dob": "1972-10-09",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Usti nad Labem"
     },
     {
       "id": 113428,
       "name": "Petra Novotna",
       "dob": "1981-04-10",
       "height": 187,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Prague"
     },
     {
       "id": 113436,
       "name": "Lucie Svarcova",
       "dob": "1978-05-22",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Prague"
     },
     {
       "id": 116659,
@@ -368,6 +402,7 @@
       "dob": "1988-06-28",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 6,
         "silver": 4,
@@ -379,7 +414,8 @@
       "name": "Jana Goliasova",
       "dob": "1986-09-02",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Jesenik"
     },
     {
       "id": 118054,
@@ -387,6 +423,7 @@
       "dob": "1988-04-01",
       "height": 170,
       "weight": 62,
+      "birthPlace": "Nymburk",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -455,6 +492,7 @@
       "dob": "1990-02-08",
       "height": 183,
       "weight": 70,
+      "birthPlace": "Liberec",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -467,6 +505,7 @@
       "dob": "1990-11-07",
       "height": 180,
       "weight": 78,
+      "birthPlace": "Ostrava",
       "tour": {
         "gold": 7,
         "silver": 4,
@@ -511,14 +550,16 @@
       "name": "Lenka Hajeckova",
       "dob": "1978-04-18",
       "height": 173,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Prague"
     },
     {
       "id": 122391,
       "name": "Helena Grozer",
       "dob": "1988-07-25",
       "height": 188,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Frydlant"
     },
     {
       "id": 123385,
@@ -532,7 +573,8 @@
       "name": "Anna Siruckova",
       "dob": "1991-08-27",
       "height": 183,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Trebic"
     },
     {
       "id": 124399,
@@ -553,7 +595,8 @@
       "name": "Eliška Davidova",
       "dob": "1992-06-12",
       "height": 168,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kladno"
     },
     {
       "id": 125192,
@@ -568,6 +611,7 @@
       "dob": "1991-07-22",
       "height": 173,
       "weight": 68,
+      "birthPlace": "praha",
       "tour": {
         "gold": 3,
         "silver": 3,
@@ -586,7 +630,8 @@
       "name": "Vendula Haragova",
       "dob": "1981-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Slavicin"
     },
     {
       "id": 132683,
@@ -600,14 +645,16 @@
       "name": "Lenka Grycová",
       "dob": "1987-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ceske Budejovice"
     },
     {
       "id": 135490,
       "name": "Miroslava Lisková",
       "dob": "1981-06-11",
       "height": 175,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Cesky Krumlov"
     },
     {
       "id": 135550,
@@ -622,6 +669,7 @@
       "dob": "1994-07-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Chrudim",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -647,7 +695,8 @@
       "name": "Magdalena Černá",
       "dob": "1995-02-18",
       "height": 181,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 142295,
@@ -667,6 +716,7 @@
       "dob": "1996-02-06",
       "height": 177,
       "weight": 59,
+      "birthPlace": "Plzen",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -685,7 +735,8 @@
       "name": "Veronika Dostalova",
       "dob": "1992-04-07",
       "height": 170,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Praha"
     },
     {
       "id": 144033,
@@ -700,6 +751,7 @@
       "dob": "1989-11-15",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Karvina, Czech Republic",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -711,28 +763,32 @@
       "name": "Kristyna Adamcikova",
       "dob": "1997-07-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Opava"
     },
     {
       "id": 144197,
       "name": "Anna Komarkova",
       "dob": "1996-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 145197,
       "name": "Barbora Cidlikova",
       "dob": "1989-09-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Frydek-Mistek"
     },
     {
       "id": 145514,
       "name": "Martina Jakubsova",
       "dob": "1988-06-14",
       "height": 186,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Ostrava"
     },
     {
       "id": 146065,
@@ -753,28 +809,32 @@
       "name": "Tereza Kotlasova",
       "dob": "1998-05-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 147099,
       "name": "Natalie Honzovicova",
       "dob": "1998-09-04",
       "height": 179,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 147100,
       "name": "Tereza Pluharova",
       "dob": "1998-08-03",
       "height": 180,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Praha"
     },
     {
       "id": 147392,
       "name": "Iveta Halbichova",
       "dob": "1989-12-19",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Praha"
     },
     {
       "id": 148474,
@@ -793,21 +853,24 @@
       "name": "Anna Sotkovska",
       "dob": "1997-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 148657,
       "name": "Sara Olivova",
       "dob": "1993-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Czech Republic"
     },
     {
       "id": 153347,
       "name": "Justyna Frommova",
       "dob": "1998-05-14",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Prague, Czech Republic"
     },
     {
       "id": 154127,
@@ -822,6 +885,7 @@
       "dob": "2001-11-04",
       "height": 181,
       "weight": null,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -834,6 +898,7 @@
       "dob": "2001-09-06",
       "height": 179,
       "weight": 68,
+      "birthPlace": "Ostrava",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -846,6 +911,7 @@
       "dob": "1998-02-12",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -869,21 +935,24 @@
       "name": "Lucie Robeau",
       "dob": "1982-04-27",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 155224,
       "name": "Anna Dostalova",
       "dob": "1991-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague, Czech Republic"
     },
     {
       "id": 156016,
       "name": "Michaela Knoblochová",
       "dob": "1991-03-08",
       "height": 183,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Litomerice"
     },
     {
       "id": 157647,
@@ -891,6 +960,7 @@
       "dob": "1999-07-23",
       "height": 169,
       "weight": 64,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -931,6 +1001,7 @@
       "dob": "2002-08-27",
       "height": 180,
       "weight": null,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -942,7 +1013,8 @@
       "name": "Michaela Kopecka",
       "dob": "1986-06-18",
       "height": 173,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Decin"
     },
     {
       "id": 166811,
@@ -1046,7 +1118,8 @@
       "name": "Eliska Trnena",
       "dob": "2002-01-19",
       "height": 163,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Brno"
     },
     {
       "id": 179214,
@@ -1101,6 +1174,7 @@
       "dob": "2005-10-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -1260,14 +1334,16 @@
       "name": "Lea Mifkova",
       "dob": "2009-09-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 212664,
       "name": "Ema Sebova",
       "dob": "2009-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha 4"
     },
     {
       "id": 214027,
@@ -1281,28 +1357,32 @@
       "name": "Adela Vorasicka",
       "dob": "2007-10-16",
       "height": 174,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Praha"
     },
     {
       "id": 222741,
       "name": "Barbora Rudicka",
       "dob": "2005-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 223620,
       "name": "Marie Vlckova",
       "dob": "2008-11-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 234198,
       "name": "Tereza Lieblova",
       "dob": "2006-07-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Valašské Meziříčí"
     }
   ]
 }

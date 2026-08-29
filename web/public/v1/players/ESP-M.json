@@ -22,6 +22,7 @@
       "dob": "1969-11-06",
       "height": 190,
       "weight": 86,
+      "birthPlace": "Figueras",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -38,7 +39,8 @@
       "name": "Berenguel Segura",
       "dob": "1970-06-26",
       "height": 185,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Almeria"
     },
     {
       "id": 100098,
@@ -106,7 +108,8 @@
       "name": "David Llop",
       "dob": "1972-06-18",
       "height": 180,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 100663,
@@ -114,6 +117,7 @@
       "dob": "1971-02-17",
       "height": 185,
       "weight": 75,
+      "birthPlace": "Sta Cruz de Tenerife",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -160,7 +164,8 @@
       "name": "Hector \"Hector\" Lopez Izquierdo",
       "dob": "1971-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sig Tenerife"
     },
     {
       "id": 101127,
@@ -209,7 +214,8 @@
       "name": "Antonio \"Tomy\" Lopez Izquierdo",
       "dob": "1970-03-26",
       "height": 190,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "S/C Tenerife"
     },
     {
       "id": 101237,
@@ -307,7 +313,8 @@
       "name": "Francisco Luis Luque Suarez",
       "dob": "1973-07-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malaga"
     },
     {
       "id": 101355,
@@ -321,14 +328,16 @@
       "name": "Javier Pineda Luna",
       "dob": "1975-04-01",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Santa Cruz de Tenerife"
     },
     {
       "id": 101583,
       "name": "Sergio Miguel Camarero",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Las Palmas"
     },
     {
       "id": 101610,
@@ -336,6 +345,7 @@
       "dob": "1965-11-18",
       "height": 190,
       "weight": 84,
+      "birthPlace": "Santa Fe (ARG)",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -347,7 +357,8 @@
       "name": "Manuel \"Lolo\" Carrasco Saenz",
       "dob": "1972-10-17",
       "height": 195,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Sevilla"
     },
     {
       "id": 101613,
@@ -375,7 +386,8 @@
       "name": "Alejandro Luque Suarez",
       "dob": "1974-10-14",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Velez-Malaga"
     },
     {
       "id": 101619,
@@ -410,7 +422,8 @@
       "name": "Jesus Manuel Ruiz Nuñez",
       "dob": "1974-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cadiz"
     },
     {
       "id": 102086,
@@ -431,7 +444,8 @@
       "name": "Ruben Curbelo",
       "dob": "1977-11-13",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Las Palmas de Gran Canaria"
     },
     {
       "id": 102482,
@@ -445,7 +459,8 @@
       "name": "Agustin Correa",
       "dob": "1977-12-21",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Zaanstad"
     },
     {
       "id": 102484,
@@ -473,28 +488,32 @@
       "name": "Franco José Galindo",
       "dob": "1970-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mexico D.F"
     },
     {
       "id": 102833,
       "name": "Juan Manuel Lopez Martin",
       "dob": "1965-12-27",
       "height": 185,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Las Palmas de Gran Canaria"
     },
     {
       "id": 102834,
       "name": "Pablo Perez Bautista",
       "dob": "1971-09-08",
       "height": 192,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Sta Maria de Guia"
     },
     {
       "id": 102835,
       "name": "Raul Aro Perez",
       "dob": "1979-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tenerife"
     },
     {
       "id": 102836,
@@ -502,6 +521,7 @@
       "dob": "1980-09-25",
       "height": 189,
       "weight": 88,
+      "birthPlace": "Santa Cruz Tenerife",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -527,7 +547,8 @@
       "name": "Juan Claudio Garcia Thompson",
       "dob": "1979-06-08",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Palma de Mallorca"
     },
     {
       "id": 103038,
@@ -555,14 +576,16 @@
       "name": "Antonio Rojas Padron",
       "dob": "1975-06-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gran Canaria"
     },
     {
       "id": 103267,
       "name": "Antonio Cotrino Heras",
       "dob": "1976-11-25",
       "height": 200,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Malaga"
     },
     {
       "id": 103310,
@@ -570,6 +593,7 @@
       "dob": "1982-04-16",
       "height": 190,
       "weight": 89,
+      "birthPlace": "Zaragoza",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -582,6 +606,7 @@
       "dob": "1982-06-29",
       "height": 193,
       "weight": 88,
+      "birthPlace": "Castellon",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -626,63 +651,72 @@
       "name": "Artur Ramos",
       "dob": "1972-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcalona"
     },
     {
       "id": 103740,
       "name": "Sergio Martin Hernandez",
       "dob": "1974-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103741,
       "name": "Genildo Cassiano Prado da Silva",
       "dob": "1968-03-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Goinnia-Goiás"
     },
     {
       "id": 103742,
       "name": "Lluis Badosa",
       "dob": "1976-07-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelone"
     },
     {
       "id": 103922,
       "name": "Valentin Sollet",
       "dob": "1984-10-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santander (Torrelavega)"
     },
     {
       "id": 103994,
       "name": "Christian Ramos",
       "dob": "1983-06-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Las Palmas"
     },
     {
       "id": 103996,
       "name": "Pedro Miralles",
       "dob": "1978-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gartagena"
     },
     {
       "id": 104064,
       "name": "José Eugenio Ruiz Nuñez",
       "dob": "1978-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chiclana"
     },
     {
       "id": 104131,
       "name": "Miguel Angel De Amo",
       "dob": "1985-09-16",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Madrid"
     },
     {
       "id": 104132,
@@ -697,6 +731,7 @@
       "dob": "1986-10-04",
       "height": 180,
       "weight": 78,
+      "birthPlace": "Alicante",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -708,14 +743,16 @@
       "name": "Javier Alcaraz",
       "dob": "1986-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "cadiz"
     },
     {
       "id": 104181,
       "name": "Oriol Costa",
       "dob": "1981-09-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 104185,
@@ -750,14 +787,16 @@
       "name": "Sergio Vega",
       "dob": "1983-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Huelva"
     },
     {
       "id": 104400,
       "name": "German Lopez",
       "dob": "1984-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cadiz"
     },
     {
       "id": 104573,
@@ -786,6 +825,7 @@
       "dob": "1984-02-28",
       "height": 195,
       "weight": 89,
+      "birthPlace": "Lorca",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -797,28 +837,32 @@
       "name": "Raul Davila",
       "dob": "1978-02-28",
       "height": 194,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Vigo (ESP)"
     },
     {
       "id": 113278,
       "name": "Rubén Antequera",
       "dob": "1981-03-09",
       "height": 203,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Lleida"
     },
     {
       "id": 114260,
       "name": "Jose Luis Lobato",
       "dob": "1977-02-19",
       "height": 186,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Huelva"
     },
     {
       "id": 115198,
       "name": "Alex Ortiz Vargas",
       "dob": "1977-01-25",
       "height": 193,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Medellin"
     },
     {
       "id": 116710,
@@ -826,6 +870,7 @@
       "dob": "1987-09-17",
       "height": 193,
       "weight": 89,
+      "birthPlace": "San Roque",
       "tour": {
         "gold": 5,
         "silver": 12,
@@ -891,7 +936,8 @@
       "name": "Raúl Salguero Velasco",
       "dob": "1981-11-23",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 119051,
@@ -905,14 +951,16 @@
       "name": "Arseni Llenas Sabanés",
       "dob": "1979-02-16",
       "height": 186,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 119238,
       "name": "Francisco Tomás",
       "dob": "1989-06-21",
       "height": 192,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Lorca"
     },
     {
       "id": 120026,
@@ -933,7 +981,8 @@
       "name": "Yamil Yanes Rodríguez",
       "dob": "1981-10-22",
       "height": 183,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "cuba"
     },
     {
       "id": 120197,
@@ -1003,7 +1052,8 @@
       "name": "Víctor Bouza Ferreiro",
       "dob": "1990-06-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lugo"
     },
     {
       "id": 120799,
@@ -1032,6 +1082,7 @@
       "dob": "1991-10-25",
       "height": 195,
       "weight": 95,
+      "birthPlace": "Gijón",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1043,7 +1094,8 @@
       "name": "Abel Bernal",
       "dob": "1981-02-23",
       "height": 197,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Madrid"
     },
     {
       "id": 124884,
@@ -1064,21 +1116,24 @@
       "name": "Pablo Vidal Bouza",
       "dob": "1985-06-13",
       "height": 182,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Lugo"
     },
     {
       "id": 132609,
       "name": "Borja González Vicente",
       "dob": "1982-08-12",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Melilla"
     },
     {
       "id": 132772,
       "name": "Francesc Llenas",
       "dob": "1982-09-13",
       "height": 186,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Barcelona, Spain"
     },
     {
       "id": 132885,
@@ -1153,7 +1208,8 @@
       "name": "Vicente Monfort Minaya",
       "dob": "1988-01-05",
       "height": 185,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Valencia"
     },
     {
       "id": 145946,
@@ -1161,6 +1217,7 @@
       "dob": "1998-01-18",
       "height": 190,
       "weight": 85,
+      "birthPlace": "Santa cruz de Tenerife",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1173,6 +1230,7 @@
       "dob": "1998-02-11",
       "height": 191,
       "weight": 88,
+      "birthPlace": "Las Américas, Arona, Tenerife",
       "tour": {
         "gold": 3,
         "silver": 0,
@@ -1203,21 +1261,24 @@
       "name": "Nathan Matos",
       "dob": "1996-05-01",
       "height": 193,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Santos"
     },
     {
       "id": 153782,
       "name": "Pablo Pérez Suárez",
       "dob": "1999-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alicante"
     },
     {
       "id": 156668,
       "name": "Sergi Reñé Giralt",
       "dob": "1997-08-31",
       "height": 203,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Sabadell, Barcelona (ESP)"
     },
     {
       "id": 157250,
@@ -1262,7 +1323,8 @@
       "name": "Iván Rodríguez González",
       "dob": "1996-05-14",
       "height": 187,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Madrid"
     },
     {
       "id": 169835,
@@ -1276,7 +1338,8 @@
       "name": "Jorge Pascual",
       "dob": "2000-12-26",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Cantabria"
     },
     {
       "id": 173172,
@@ -1298,6 +1361,7 @@
       "dob": "2003-08-21",
       "height": 194,
       "weight": 92,
+      "birthPlace": "Granada",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1337,7 +1401,8 @@
       "name": "Hugo Marzo Suárez",
       "dob": "2005-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Palma de Mallorca"
     },
     {
       "id": 190706,
@@ -1351,7 +1416,8 @@
       "name": "José Aba Varela",
       "dob": "1999-09-29",
       "height": 188,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "A Coruña"
     },
     {
       "id": 202073,
@@ -1372,14 +1438,16 @@
       "name": "Mar Mañanes Picazo",
       "dob": "2007-07-17",
       "height": 190,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Valencia"
     },
     {
       "id": 214418,
       "name": "Leo Mañanes Picazo",
       "dob": "2007-07-17",
       "height": 190,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Valencia"
     },
     {
       "id": 215863,
@@ -1414,28 +1482,32 @@
       "name": "Johathan José De la Torre Monagas",
       "dob": "2009-05-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Spain"
     },
     {
       "id": 227733,
       "name": "Pere Andreu Martínez Ferrer",
       "dob": "2008-12-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Spain"
     },
     {
       "id": 228830,
       "name": "Salvador Gallardo Martinez",
       "dob": "2009-07-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Spain"
     },
     {
       "id": 233511,
       "name": "Gabriel Blasl",
       "dob": "2008-09-22",
       "height": 195,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Austria"
     }
   ]
 }

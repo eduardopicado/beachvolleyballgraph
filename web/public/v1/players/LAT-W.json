@@ -7,7 +7,8 @@
       "name": "Inga Vetra",
       "dob": "1981-02-14",
       "height": 182,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Kuldiga"
     },
     {
       "id": 102887,
@@ -15,6 +16,7 @@
       "dob": "1981-11-13",
       "height": 180,
       "weight": 75,
+      "birthPlace": "Limbazi",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -27,6 +29,7 @@
       "dob": "1977-08-17",
       "height": 175,
       "weight": 62,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -52,14 +55,16 @@
       "name": "Gunita Packajeva",
       "dob": "1985-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 104164,
       "name": "Anna Nikiforova",
       "dob": "1985-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Preilis"
     },
     {
       "id": 104359,
@@ -80,42 +85,48 @@
       "name": "Lana Sorokina",
       "dob": "1984-09-22",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 104433,
       "name": "Dace Grabovska",
       "dob": "1985-12-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 104452,
       "name": "Justine Zirne",
       "dob": "1986-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Valka"
     },
     {
       "id": 104453,
       "name": "Svetlana Dukule",
       "dob": "1986-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 104495,
       "name": "Liga Vaidere",
       "dob": "1986-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 104496,
       "name": "Unda Priedite",
       "dob": "1986-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riza"
     },
     {
       "id": 105066,
@@ -192,7 +203,8 @@
       "name": "Feldmane Agnese",
       "dob": "1988-04-01",
       "height": 180,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Riga"
     },
     {
       "id": 120425,
@@ -206,7 +218,8 @@
       "name": "Jana Jaudzema",
       "dob": "1990-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cesis"
     },
     {
       "id": 120765,
@@ -214,6 +227,7 @@
       "dob": "1991-05-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -258,7 +272,8 @@
       "name": "Inga Ikauniece",
       "dob": "1979-05-23",
       "height": 163,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Riga"
     },
     {
       "id": 135580,
@@ -272,7 +287,8 @@
       "name": "Marta Ozolina",
       "dob": "1994-12-27",
       "height": 172,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Riga"
     },
     {
       "id": 139535,
@@ -308,6 +324,7 @@
       "dob": "1998-03-09",
       "height": 184,
       "weight": 72,
+      "birthPlace": "Jurmala",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -325,6 +342,7 @@
       "dob": "1997-01-19",
       "height": 179,
       "weight": 68,
+      "birthPlace": "Daugavpils",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -341,35 +359,40 @@
       "name": "Alise Petersone",
       "dob": "1996-07-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 142971,
       "name": "Laine Cielena",
       "dob": "1993-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 145351,
       "name": "Agnese Caica",
       "dob": "1988-04-01",
       "height": 179,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Rīga"
     },
     {
       "id": 145698,
       "name": "Jekaterina Loheisa",
       "dob": "1989-03-19",
       "height": 187,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Riga"
     },
     {
       "id": 146415,
       "name": "Enija Bidzane",
       "dob": "1996-04-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 146538,
@@ -390,7 +413,8 @@
       "name": "Paula Neciporuka",
       "dob": "1998-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kuldīga"
     },
     {
       "id": 153270,
@@ -404,7 +428,8 @@
       "name": "Vanesa Grosberga",
       "dob": "2001-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 157012,
@@ -432,7 +457,8 @@
       "name": "Varvara Brailko",
       "dob": "2002-06-11",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Riga"
     },
     {
       "id": 168795,
@@ -474,14 +500,16 @@
       "name": "Anija Ozolina",
       "dob": "2003-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ventspils"
     },
     {
       "id": 179160,
       "name": "Luize Skrastina",
       "dob": "1995-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 182036,
@@ -489,6 +517,7 @@
       "dob": "2005-07-22",
       "height": 183,
       "weight": 64,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -501,6 +530,7 @@
       "dob": "2007-09-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Jelgava",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -512,7 +542,8 @@
       "name": "Marta Gintere",
       "dob": "2007-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limbaži"
     },
     {
       "id": 188963,
@@ -540,7 +571,8 @@
       "name": "Monika Mamaja",
       "dob": "2008-07-02",
       "height": 169,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Riga"
     },
     {
       "id": 190916,
@@ -568,21 +600,24 @@
       "name": "Marta Vildere",
       "dob": "2005-04-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 202386,
       "name": "Paula Krieva",
       "dob": "2010-03-29",
       "height": 173,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Riga"
     },
     {
       "id": 204793,
       "name": "Milana Tina Aleksejeva",
       "dob": "2010-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 209817,
@@ -596,7 +631,8 @@
       "name": "Karlīna Bērziņa",
       "dob": "2010-03-18",
       "height": 179,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 214095,
@@ -617,7 +653,8 @@
       "name": "Estere Zakite",
       "dob": "2009-05-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 223864,

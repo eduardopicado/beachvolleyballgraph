@@ -14,14 +14,16 @@
       "name": "Audruis Petrenas",
       "dob": "1969-10-28",
       "height": 189,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 100297,
       "name": "Vytautas Dailide",
       "dob": "1969-01-15",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 101070,
@@ -36,6 +38,7 @@
       "dob": "1972-09-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Siauliai",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -47,7 +50,8 @@
       "name": "Henrikas Cyvas",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Siauliai"
     },
     {
       "id": 101792,
@@ -55,6 +59,7 @@
       "dob": "1974-05-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -66,7 +71,8 @@
       "name": "Tadas Donela",
       "dob": "1975-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Klaipeda"
     },
     {
       "id": 102366,
@@ -80,28 +86,32 @@
       "name": "Justas Nikonovas",
       "dob": "1979-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 105104,
       "name": "Arvydas Miseikis",
       "dob": "1987-09-17",
       "height": 200,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Siauliai"
     },
     {
       "id": 105105,
       "name": "Arunas Kirsnys",
       "dob": "1987-12-08",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Siauliai"
     },
     {
       "id": 119540,
       "name": "Mantvydas Suklys",
       "dob": "1990-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lietuva"
     },
     {
       "id": 119542,
@@ -116,6 +126,7 @@
       "dob": "1992-05-12",
       "height": 191,
       "weight": 94,
+      "birthPlace": "Lithuania",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -127,7 +138,8 @@
       "name": "Andzej Savostenok",
       "dob": "1991-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 125395,
@@ -142,6 +154,7 @@
       "dob": "1994-07-27",
       "height": 192,
       "weight": 86,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -153,7 +166,8 @@
       "name": "Gilbertas Kerpe",
       "dob": "1994-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kelme"
     },
     {
       "id": 137392,
@@ -161,6 +175,7 @@
       "dob": "1995-06-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Raseiniai",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -172,14 +187,16 @@
       "name": "Lukas Kazdailis",
       "dob": "1995-08-15",
       "height": 197,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Kelme"
     },
     {
       "id": 143518,
       "name": "Edvinas Vaskelis",
       "dob": "1996-06-20",
       "height": 194,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Vilkaviskis"
     },
     {
       "id": 143522,
@@ -187,6 +204,7 @@
       "dob": "1997-03-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Marijampole",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -198,7 +216,8 @@
       "name": "Paulius Matulis",
       "dob": "1988-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 147629,
@@ -232,6 +251,7 @@
       "dob": "1998-10-16",
       "height": 189,
       "weight": 85,
+      "birthPlace": "Klaipėda",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -250,14 +270,16 @@
       "name": "Artur Vincelovic",
       "dob": "1997-05-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Salcininkai"
     },
     {
       "id": 157093,
       "name": "Linas Petravicius",
       "dob": "1994-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 158153,
@@ -265,6 +287,7 @@
       "dob": "1999-01-16",
       "height": 200,
       "weight": 95,
+      "birthPlace": "Kaunas",
       "tour": {
         "gold": 3,
         "silver": 2,
@@ -283,7 +306,8 @@
       "name": "Mantas Donela",
       "dob": "2002-05-03",
       "height": 183,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 175387,
@@ -298,6 +322,7 @@
       "dob": "2004-09-25",
       "height": null,
       "weight": null,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -310,6 +335,7 @@
       "dob": "2005-10-21",
       "height": 209,
       "weight": 100,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -321,35 +347,40 @@
       "name": "Dovydas Sinkevicius",
       "dob": "2007-08-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Klaipėda"
     },
     {
       "id": 201538,
       "name": "Raigardas Macionis",
       "dob": "2007-11-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lithuania"
     },
     {
       "id": 211969,
       "name": "Tomas Poplavskij",
       "dob": "2008-01-26",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 223905,
       "name": "Laimonas Alisauskas",
       "dob": "2009-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 241665,
       "name": "Lukas Gumbelevicius",
       "dob": "2009-10-19",
       "height": 191,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Lithuania"
     }
   ]
 }

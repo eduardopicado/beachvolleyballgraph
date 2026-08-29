@@ -7,14 +7,16 @@
       "name": "Ruben Alejandro Mora Romero",
       "dob": "1995-09-27",
       "height": 186,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "San Juan Del Sur"
     },
     {
       "id": 137536,
       "name": "Gerson David Contreras Lacayo",
       "dob": "1995-10-01",
       "height": 181,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "san juan del sur, Rivas"
     },
     {
       "id": 139668,
@@ -28,35 +30,40 @@
       "name": "Dany Antonio López Alvarado",
       "dob": "1989-09-01",
       "height": 178,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Nicaragua"
     },
     {
       "id": 146010,
       "name": "Denis José López Ruiz",
       "dob": "1999-07-31",
       "height": 178,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Rivas"
     },
     {
       "id": 167427,
       "name": "Jefferson De Jesus Cascante Herrera",
       "dob": "2001-09-28",
       "height": 188,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Rivas"
     },
     {
       "id": 212194,
       "name": "Matthew Eberhard Kempf Palacio",
       "dob": "2009-03-27",
       "height": 167,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rivas"
     },
     {
       "id": 217936,
       "name": "Justin Alfredo Barrios Dinarte",
       "dob": "2009-02-14",
       "height": 184,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Rivas"
     }
   ]
 }

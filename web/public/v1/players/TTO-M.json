@@ -7,21 +7,24 @@
       "name": "Kevin Edwards",
       "dob": "1980-12-12",
       "height": 174,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sangre Grande Hospital"
     },
     {
       "id": 117986,
       "name": "David Thomas",
       "dob": "1974-06-18",
       "height": 196,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "TTO"
     },
     {
       "id": 137062,
       "name": "Brandon Legall",
       "dob": "1993-07-08",
       "height": 180,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Trinidad AND Tobago"
     },
     {
       "id": 137065,
@@ -77,28 +80,32 @@
       "name": "Joel Issac Theodore",
       "dob": "1995-06-12",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "MT Hope General Hospital"
     },
     {
       "id": 170120,
       "name": "Stephen Enile",
       "dob": "1991-08-12",
       "height": 182,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Arima"
     },
     {
       "id": 191469,
       "name": "Jerome Morrison",
       "dob": "2006-01-24",
       "height": 167,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Trinidad"
     },
     {
       "id": 191477,
       "name": "Darion Sparks",
       "dob": "2009-01-31",
       "height": 176,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Trinidad"
     }
   ]
 }

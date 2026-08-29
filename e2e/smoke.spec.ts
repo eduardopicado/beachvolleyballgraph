@@ -455,6 +455,46 @@ test('the card renders vitals from the separate player detail file', async ({ pa
   await expect(height.locator('dd')).toHaveText(`${withHeight!.height} cm`);
 });
 
+/**
+ * The birth city, under the date in the Born tile.
+ *
+ * Subjects are scanned out of the published data rather than named: which
+ * players have a birth place changes as FIVB fills the field in, and 46% of
+ * them have none at all.
+ */
+test.describe('where a player was born', () => {
+  const bornTile = (page: Page) =>
+    page.locator('.player-card .vitals div', { has: page.getByText('Born', { exact: true }) });
+
+  test('sits under the date rather than in a tile of its own', async ({ page }) => {
+    const detail = players(COUNTRY, GENDER);
+    const subject = detail.players.find((p) => p.birthPlace && p.dob);
+    expect(subject, 'no player in this slice has both a birth place and a date').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    const tile = bornTile(page);
+    await expect(tile.locator('.birth-place')).toHaveText(subject!.birthPlace!);
+
+    // Under the date, in the same tile — not a seventh cell in the grid, which
+    // is what would displace Seasons.
+    await expect(tile.locator('dd')).toContainText(subject!.birthPlace!);
+    await expect(page.locator('.player-card .vitals .birth-place')).toHaveCount(1);
+  });
+
+  test('shows nothing at all for a player without one', async ({ page }) => {
+    // The reason it is folded into Born rather than given its own tile: the
+    // absent case has to render nothing, not an em dash next to the em dash
+    // that height already shows.
+    const detail = players(COUNTRY, GENDER);
+    const subject = detail.players.find((p) => !p.birthPlace);
+    expect(subject, 'every player in this slice has a birth place').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(bornTile(page).locator('dd')).toBeVisible();
+    await expect(page.locator('.player-card .vitals .birth-place')).toHaveCount(0);
+  });
+});
+
 test('the card counts tour podiums apart from Olympic and World Championships medals', async ({
   page,
 }) => {

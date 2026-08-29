@@ -21,21 +21,24 @@
       "name": "Adrian \"Priky\" Pricop",
       "dob": "1970-05-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Birlad"
     },
     {
       "id": 102424,
       "name": "Ion Ion",
       "dob": "1970-08-08",
       "height": 189,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Oradea"
     },
     {
       "id": 102425,
       "name": "Adrian Ion",
       "dob": "1970-08-08",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Oradea"
     },
     {
       "id": 132154,
@@ -49,21 +52,24 @@
       "name": "Lucian Badiceanu",
       "dob": "1996-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Timisoara"
     },
     {
       "id": 144117,
       "name": "Ioan Marius Rosu",
       "dob": "1996-02-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Timisoara"
     },
     {
       "id": 157189,
       "name": "Laurean-Andrei Crisan",
       "dob": "1998-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oradea"
     },
     {
       "id": 157190,
@@ -77,35 +83,40 @@
       "name": "Sergiu-Octavian Rodina",
       "dob": "1999-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arad"
     },
     {
       "id": 159635,
       "name": "Bogdan Necula",
       "dob": "1976-09-04",
       "height": 182,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Piatra Neamt"
     },
     {
       "id": 163432,
       "name": "Eduard Popa",
       "dob": "2000-11-13",
       "height": 191,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Constanta, Romania"
     },
     {
       "id": 173124,
       "name": "Cristian Maier",
       "dob": "1999-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oradea"
     },
     {
       "id": 173638,
       "name": "Andrei Grigore",
       "dob": "2002-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Constanta"
     }
   ]
 }

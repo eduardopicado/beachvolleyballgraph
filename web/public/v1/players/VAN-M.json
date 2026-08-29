@@ -14,7 +14,8 @@
       "name": "Hotel Maki",
       "dob": "1992-10-12",
       "height": null,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Port Vila, Vanuatu"
     },
     {
       "id": 162730,
@@ -28,7 +29,8 @@
       "name": "James Chilia",
       "dob": "2001-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Port Vila"
     },
     {
       "id": 162732,

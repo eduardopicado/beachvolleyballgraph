@@ -8,6 +8,7 @@
       "dob": "1969-04-29",
       "height": 193,
       "weight": 95,
+      "birthPlace": "Salvador",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -73,6 +74,7 @@
       "dob": "1966-11-11",
       "height": 192,
       "weight": 92,
+      "birthPlace": "Fortaleza",
       "tour": {
         "gold": 16,
         "silver": 15,
@@ -85,6 +87,7 @@
       "dob": "1966-10-06",
       "height": 185,
       "weight": 87,
+      "birthPlace": "Bacabal-MA",
       "tour": {
         "gold": 15,
         "silver": 8,
@@ -159,6 +162,7 @@
       "dob": "1969-06-26",
       "height": 193,
       "weight": 90,
+      "birthPlace": "Huiz de Fora (MG)",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -197,6 +201,7 @@
       "dob": "1970-03-28",
       "height": 194,
       "weight": 87,
+      "birthPlace": "Vitória",
       "worldChamps": {
         "gold": 1,
         "silver": 1,
@@ -238,6 +243,7 @@
       "dob": "1971-03-19",
       "height": 191,
       "weight": 82,
+      "birthPlace": "João Pessoa",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -255,6 +261,7 @@
       "dob": "1973-04-15",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Curitiba, PR",
       "olympics": {
         "gold": 1,
         "silver": 1,
@@ -284,6 +291,7 @@
       "dob": "1965-03-20",
       "height": 187,
       "weight": 79,
+      "birthPlace": "João Pessoa, PB",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -303,6 +311,7 @@
       "dob": "1972-05-13",
       "height": 200,
       "weight": 94,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -315,6 +324,7 @@
       "dob": "1973-09-13",
       "height": 191,
       "weight": 88,
+      "birthPlace": "Belém",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -372,6 +382,7 @@
       "dob": "1970-03-13",
       "height": 189,
       "weight": 84,
+      "birthPlace": "Recife",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -408,6 +419,7 @@
       "dob": "1975-01-06",
       "height": 200,
       "weight": 103,
+      "birthPlace": "Salvador",
       "olympics": {
         "gold": 1,
         "silver": 1,
@@ -644,6 +656,7 @@
       "dob": "1969-12-14",
       "height": 191,
       "weight": 85,
+      "birthPlace": "Salvador (BA)",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -725,6 +738,7 @@
       "dob": "1973-10-12",
       "height": 192,
       "weight": 90,
+      "birthPlace": "Fortaleza",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -766,6 +780,7 @@
       "dob": "1975-07-06",
       "height": 194,
       "weight": 85,
+      "birthPlace": "Brasilia",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -783,6 +798,7 @@
       "dob": "1970-09-07",
       "height": 194,
       "weight": 100,
+      "birthPlace": "Juiz de Fora",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -795,6 +811,7 @@
       "dob": "1970-03-20",
       "height": 198,
       "weight": 91,
+      "birthPlace": "Resende-Rio de Janeiro",
       "tour": {
         "gold": 7,
         "silver": 4,
@@ -806,7 +823,8 @@
       "name": "Edson Luiz \"Alemão\" Guerra",
       "dob": "1966-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sto Antonio do Sudeste"
     },
     {
       "id": 102080,
@@ -814,6 +832,7 @@
       "dob": "1973-06-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Manaus",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -826,6 +845,7 @@
       "dob": "1972-04-14",
       "height": 196,
       "weight": 90,
+      "birthPlace": "Porto Murtinho, MS",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -842,7 +862,8 @@
       "name": "Antonio P. \"Toninho\" Urbanski",
       "dob": "1975-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Campo Grande"
     },
     {
       "id": 102122,
@@ -850,6 +871,7 @@
       "dob": "1975-05-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Belem (PA)",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -861,14 +883,16 @@
       "name": "Antonio Carlos \"Carlão\" Gouveia",
       "dob": "1965-04-20",
       "height": 197,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Rio Branco (AC)"
     },
     {
       "id": 102649,
       "name": "Rodrigo Pietraroia",
       "dob": "1971-12-30",
       "height": 186,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "São Paulo"
     },
     {
       "id": 102860,
@@ -876,6 +900,7 @@
       "dob": "1971-12-27",
       "height": null,
       "weight": 90,
+      "birthPlace": "Sao Paulo",
       "away": [
         {
           "id": 122172,
@@ -915,7 +940,8 @@
       "name": "Marcelo Carvalhaes",
       "dob": "1971-04-30",
       "height": null,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 103215,
@@ -923,6 +949,7 @@
       "dob": "1977-04-17",
       "height": 192,
       "weight": 89,
+      "birthPlace": "Salvador",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -982,7 +1009,8 @@
       "name": "Anselmo Sigoli",
       "dob": "1983-02-09",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Novo Horizonte - SP"
     },
     {
       "id": 103680,
@@ -990,6 +1018,7 @@
       "dob": "1983-06-10",
       "height": 189,
       "weight": 91,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 8,
         "silver": 9,
@@ -1001,14 +1030,16 @@
       "name": "Adriano Fonseca",
       "dob": "1982-02-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vila Velha_Es"
     },
     {
       "id": 103751,
       "name": "Luiz Dulinski",
       "dob": "1979-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sao Paolo / SP"
     },
     {
       "id": 103752,
@@ -1022,14 +1053,16 @@
       "name": "Rodrigo De Souza Gomes",
       "dob": "1984-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 103901,
       "name": "Leandro Rocha Cavalcanti Araujo",
       "dob": "1983-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Recife - PE"
     },
     {
       "id": 104072,
@@ -1037,6 +1070,7 @@
       "dob": "1986-12-16",
       "height": null,
       "weight": 82,
+      "birthPlace": "Petropolis",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1049,6 +1083,7 @@
       "dob": "1986-03-27",
       "height": 194,
       "weight": 95,
+      "birthPlace": "Rio de Janeiro",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1108,6 +1143,7 @@
       "dob": "1985-05-24",
       "height": 193,
       "weight": 90,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -1127,6 +1163,7 @@
       "dob": "1985-03-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Corbélia",
       "away": [
         {
           "id": 104138,
@@ -1160,6 +1197,7 @@
       "dob": "1979-03-13",
       "height": 204,
       "weight": 100,
+      "birthPlace": "Cachoeiro DE Itapemirim",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1182,6 +1220,7 @@
       "dob": "1984-01-30",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio de Janeiro/ RJ",
       "away": [
         {
           "id": 104434,
@@ -1207,7 +1246,8 @@
       "name": "Vinicus Santana",
       "dob": "1986-12-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Salvador"
     },
     {
       "id": 104537,
@@ -1215,6 +1255,7 @@
       "dob": "1987-08-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1245,7 +1286,8 @@
       "name": "Danilo Vieira Dos Santos",
       "dob": "1980-06-11",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Salvador"
     },
     {
       "id": 104621,
@@ -1289,6 +1331,7 @@
       "dob": "1987-06-15",
       "height": 190,
       "weight": 90,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -1315,6 +1358,7 @@
       "dob": "1975-10-15",
       "height": null,
       "weight": 88,
+      "birthPlace": "Belem-PA",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1327,6 +1371,7 @@
       "dob": "1978-05-28",
       "height": 197,
       "weight": 90,
+      "birthPlace": "Vila Velha - ES",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1338,28 +1383,32 @@
       "name": "Fabiano Da Silva Melo",
       "dob": "1975-09-22",
       "height": null,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Recife -Petrnambuco"
     },
     {
       "id": 114195,
       "name": "Everaldo Lucena da Silva",
       "dob": "1985-05-28",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 116868,
       "name": "Fernando Magalhães",
       "dob": "1987-01-28",
       "height": 210,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Maratizes"
     },
     {
       "id": 116869,
       "name": "Pedro Peixoto de Paula Marques",
       "dob": "1987-03-19",
       "height": null,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "João Pessoa"
     },
     {
       "id": 117473,
@@ -1374,6 +1423,7 @@
       "dob": "1986-10-06",
       "height": 185,
       "weight": 87,
+      "birthPlace": "Brasilia",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -1396,6 +1446,7 @@
       "dob": "1980-07-03",
       "height": 198,
       "weight": 89,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 3,
         "silver": 0,
@@ -1427,6 +1478,7 @@
       "dob": "1985-12-07",
       "height": 203,
       "weight": 110,
+      "birthPlace": "Espirito Santo",
       "olympics": {
         "gold": 1,
         "silver": 1,
@@ -1527,6 +1579,7 @@
       "dob": "1983-05-05",
       "height": 194,
       "weight": 100,
+      "birthPlace": "Fortaleza - CE",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1581,6 +1634,7 @@
       "dob": "1991-03-10",
       "height": 193,
       "weight": 94,
+      "birthPlace": "João Pessoa PB",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -1649,6 +1703,7 @@
       "dob": "1985-11-07",
       "height": 182,
       "weight": 80,
+      "birthPlace": "RIO DE Janeiro",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1702,6 +1757,7 @@
       "dob": "1985-01-08",
       "height": 197,
       "weight": 90,
+      "birthPlace": "Vila Velha -ES",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -1714,6 +1770,7 @@
       "dob": "1992-05-16",
       "height": 180,
       "weight": 80,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1726,6 +1783,7 @@
       "dob": "1993-08-20",
       "height": 186,
       "weight": 80,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -1738,6 +1796,7 @@
       "dob": "1990-07-17",
       "height": 210,
       "weight": 105,
+      "birthPlace": "RIO DE Janeiro",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -1768,7 +1827,8 @@
       "name": "Edson Filipe H. Barros",
       "dob": "1987-01-15",
       "height": 202,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Vitoria - ES"
     },
     {
       "id": 138640,
@@ -1782,7 +1842,8 @@
       "name": "Márcio Tschaffon Gaudie Ley",
       "dob": "1991-01-11",
       "height": 193,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Niterói/RJ"
     },
     {
       "id": 139084,
@@ -1810,7 +1871,8 @@
       "name": "Carlos Eduardo Barreto Silva",
       "dob": "1994-08-08",
       "height": 200,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Valinhos/SP"
     },
     {
       "id": 139965,
@@ -1818,6 +1880,7 @@
       "dob": "1993-09-08",
       "height": 202,
       "weight": 98,
+      "birthPlace": "Campo Grande/MS",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -1843,7 +1906,8 @@
       "name": "Daniel Lustosa",
       "dob": "1989-08-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de janeiro"
     },
     {
       "id": 141871,
@@ -1857,14 +1921,16 @@
       "name": "Allison Cittadin Francioni",
       "dob": "1993-10-01",
       "height": 194,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Fortaleza"
     },
     {
       "id": 142888,
       "name": "Renato Mendes Gervasio Junior",
       "dob": "1995-05-09",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "São João de Meriti/RJ"
     },
     {
       "id": 142889,
@@ -1915,6 +1981,7 @@
       "dob": "1996-02-13",
       "height": 193,
       "weight": 96,
+      "birthPlace": "Paranavaí",
       "tour": {
         "gold": 4,
         "silver": 4,
@@ -1926,7 +1993,8 @@
       "name": "Joalisson Laurindo Gomes",
       "dob": "1990-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "João Pessoa"
     },
     {
       "id": 146800,
@@ -1941,6 +2009,7 @@
       "dob": "1994-08-19",
       "height": 201,
       "weight": 94,
+      "birthPlace": "Vila Velha",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -1983,7 +2052,8 @@
       "name": "Jonas Paixão Fidélis",
       "dob": "1996-10-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro/RJ"
     },
     {
       "id": 149492,
@@ -1991,6 +2061,7 @@
       "dob": "1992-10-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -2021,21 +2092,24 @@
       "name": "Luccas Alves de Lima",
       "dob": "1991-06-02",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Orlandia/SP"
     },
     {
       "id": 149700,
       "name": "Felipe Cavazin Numasawa",
       "dob": "1987-10-21",
       "height": 190,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Nova Londrina/PR"
     },
     {
       "id": 150083,
       "name": "Marcus Borlini De Oliveira",
       "dob": "1991-04-30",
       "height": 197,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Aracruz/ES"
     },
     {
       "id": 154095,
@@ -2056,7 +2130,8 @@
       "name": "Averaldo Pereira Da Silva",
       "dob": "1989-05-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto nacional"
     },
     {
       "id": 155470,
@@ -2064,6 +2139,7 @@
       "dob": "1997-10-28",
       "height": 189,
       "weight": 90,
+      "birthPlace": "Brasília",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -2095,6 +2171,7 @@
       "dob": "1999-12-01",
       "height": 192,
       "weight": 86,
+      "birthPlace": "Belém - Pará",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -2170,7 +2247,8 @@
       "name": "Adelmo Goncalves Folha Neto",
       "dob": "1997-06-07",
       "height": null,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Aracaju - SE"
     },
     {
       "id": 167040,
@@ -2218,6 +2296,7 @@
       "dob": "2002-02-06",
       "height": 184,
       "weight": 79,
+      "birthPlace": "Porto Alegre",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -2229,14 +2308,16 @@
       "name": "Isac Adolfo Farias Barbosa",
       "dob": "2003-02-20",
       "height": null,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "João Pessoa"
     },
     {
       "id": 181113,
       "name": "João Vitor Damasceno Lima",
       "dob": "2003-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brasilia"
     },
     {
       "id": 181207,
@@ -2244,6 +2325,7 @@
       "dob": "1998-12-29",
       "height": 192,
       "weight": 93,
+      "birthPlace": "Itabuna-BA",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -2255,14 +2337,16 @@
       "name": "Mateus De Paula Dultra",
       "dob": "2001-07-24",
       "height": 193,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Fortaleza"
     },
     {
       "id": 182142,
       "name": "Samuel Giacomo Oselame Bello",
       "dob": "2002-09-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Catarina"
     },
     {
       "id": 183548,
@@ -2270,6 +2354,7 @@
       "dob": "2002-05-31",
       "height": null,
       "weight": null,
+      "birthPlace": "Maringa",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -2282,6 +2367,7 @@
       "dob": "2004-03-02",
       "height": 200,
       "weight": 97,
+      "birthPlace": "Sergipe",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -2294,6 +2380,7 @@
       "dob": "2005-07-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Recife",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -2305,42 +2392,48 @@
       "name": "Eduardo Henrique Barbosa da Silva",
       "dob": "2005-10-11",
       "height": 199,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "João Pessoa/PB"
     },
     {
       "id": 187572,
       "name": "Gabriel De Oliveira Brito Lira Felipe",
       "dob": "2005-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Joao Pessoa"
     },
     {
       "id": 187573,
       "name": "Lucas Elbert Guimaraes",
       "dob": "2004-02-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 188593,
       "name": "Luiz Felipe Meurer Bonilha",
       "dob": "1998-05-14",
       "height": 195,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Jaraguá do Sul"
     },
     {
       "id": 193427,
       "name": "Carlos Eduardo Dias de Miranda Vidal",
       "dob": "2002-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Campo Grande/MS"
     },
     {
       "id": 193496,
       "name": "Anthony Fernandez Cáceres",
       "dob": "2002-04-16",
       "height": 184,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Bela Vista/MS"
     },
     {
       "id": 198972,
@@ -2348,6 +2441,7 @@
       "dob": "2000-06-08",
       "height": 200,
       "weight": 96,
+      "birthPlace": "Cuiabá, Mato Grosso",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -2359,14 +2453,16 @@
       "name": "Lucas Aguinelo de Sá",
       "dob": "1999-11-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 204202,
       "name": "Bruno Romano Cosendey Marques",
       "dob": "2008-10-05",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 204460,
@@ -2380,7 +2476,8 @@
       "name": "Gabriel Teixeira Furquim Siqueira",
       "dob": "2007-06-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "São Paulo"
     },
     {
       "id": 208610,
@@ -2388,6 +2485,7 @@
       "dob": "2007-03-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Salvador",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -2406,28 +2504,32 @@
       "name": "Vinicius Henrique Zadi Gaiotto",
       "dob": "2005-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sao Paulo"
     },
     {
       "id": 213014,
       "name": "Erick Daniel Da Silva Monteiro",
       "dob": "2007-12-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Joao Pessoa"
     },
     {
       "id": 213015,
       "name": "Jose Eduardo Da Silva Soares",
       "dob": "2006-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tabira"
     },
     {
       "id": 215473,
       "name": "Jose Jonathan Heleno De Menezes Magalhaes",
       "dob": "2004-03-12",
       "height": 202,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Sobral, Ceará"
     },
     {
       "id": 217327,
@@ -2435,6 +2537,7 @@
       "dob": "2001-04-25",
       "height": 192,
       "weight": 90,
+      "birthPlace": "Maua - SP",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -2446,42 +2549,48 @@
       "name": "Joao Pedro Mares Nascimento",
       "dob": "2005-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 218687,
       "name": "Luiz Felipe Aragão de Sousa",
       "dob": "2005-01-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 225457,
       "name": "Thomas Mathias Endler",
       "dob": "2008-11-23",
       "height": 193,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Santa Catarina"
     },
     {
       "id": 225459,
       "name": "Felippe Prudencio Arruda Barbiero",
       "dob": "2008-11-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cuiabá"
     },
     {
       "id": 226840,
       "name": "George Henrique Sabeh Isernhagen",
       "dob": "2008-06-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Curitiba"
     },
     {
       "id": 230445,
       "name": "Bruno Alexander Peiter",
       "dob": "2002-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Itapema - SC"
     },
     {
       "id": 233406,
@@ -2489,6 +2598,7 @@
       "dob": "2007-03-16",
       "height": null,
       "weight": null,
+      "birthPlace": "Vitoria",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -2500,28 +2610,32 @@
       "name": "Gabriel Campos",
       "dob": "2010-06-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Paraná"
     },
     {
       "id": 234285,
       "name": "Bruno Fellipe Lobo Silva Souza",
       "dob": "2010-04-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mato Grosso do Sul"
     },
     {
       "id": 239877,
       "name": "Davi Schroeder Coimbra",
       "dob": "2009-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cuiabá"
     },
     {
       "id": 239878,
       "name": "Diego Da Veiga de Oliveira",
       "dob": "2009-05-15",
       "height": 191,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Santa Catarina"
     }
   ]
 }

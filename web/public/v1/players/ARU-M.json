@@ -7,14 +7,16 @@
       "name": "Victor Antonio Mitchell",
       "dob": "2009-03-27",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Aruba"
     },
     {
       "id": 212414,
       "name": "Joshua Hoepelman",
       "dob": "2009-08-17",
       "height": 180,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Oranjestad"
     }
   ]
 }

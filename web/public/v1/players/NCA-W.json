@@ -7,14 +7,16 @@
       "name": "Lolette Eleonor Rodríguez Saunders",
       "dob": "1989-08-04",
       "height": 175,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Managua"
     },
     {
       "id": 138668,
       "name": "Mendoza Reyes Swan Valeria",
       "dob": "1986-08-25",
       "height": 175,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Managua"
     },
     {
       "id": 144707,
@@ -28,7 +30,8 @@
       "name": "Socorro Margarita Lopez Jalinas",
       "dob": "1995-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Masaya"
     },
     {
       "id": 147541,

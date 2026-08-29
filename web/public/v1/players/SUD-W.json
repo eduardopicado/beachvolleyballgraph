@@ -7,14 +7,16 @@
       "name": "Manask Abdalla",
       "dob": "1997-09-13",
       "height": 171,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Omdurman"
     },
     {
       "id": 163106,
       "name": "Ebtisam Rakhis",
       "dob": "1998-01-01",
       "height": 165,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Khartoum"
     }
   ]
 }

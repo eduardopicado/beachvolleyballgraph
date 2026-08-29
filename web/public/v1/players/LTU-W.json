@@ -14,21 +14,24 @@
       "name": "Audrone Baksyte",
       "dob": "1975-06-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 102226,
       "name": "Jolita Kontvainiene",
       "dob": "1969-09-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 102227,
       "name": "Greta Uleviciute",
       "dob": "1977-07-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 102689,
@@ -70,7 +73,8 @@
       "name": "Jurgita Dubakaite",
       "dob": "1981-11-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jonava"
     },
     {
       "id": 103425,
@@ -91,7 +95,8 @@
       "name": "Sandra Zmitreviciute",
       "dob": "1988-08-05",
       "height": 180,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 132824,
@@ -99,6 +104,7 @@
       "dob": "1994-09-07",
       "height": 183,
       "weight": 71,
+      "birthPlace": "Klaipeda",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -118,6 +124,7 @@
       "dob": "1985-01-13",
       "height": 188,
       "weight": 70,
+      "birthPlace": "Kaunas",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -130,6 +137,7 @@
       "dob": "1994-08-30",
       "height": 176,
       "weight": 62,
+      "birthPlace": "Kelme",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -142,6 +150,7 @@
       "dob": "1996-12-18",
       "height": 186,
       "weight": 72,
+      "birthPlace": "Kaunas",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -161,6 +170,7 @@
       "dob": "1993-07-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Kaunas",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -172,21 +182,24 @@
       "name": "Karole Virbickaite",
       "dob": "1991-12-05",
       "height": 185,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 146830,
       "name": "Irina Zobnina",
       "dob": "1997-03-22",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Vilnius"
     },
     {
       "id": 146863,
       "name": "Vlada Oganauskiene",
       "dob": "1986-08-05",
       "height": 182,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Vilnius, Lithuania"
     },
     {
       "id": 153206,
@@ -194,6 +207,7 @@
       "dob": "1999-12-09",
       "height": 176,
       "weight": 65,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -213,6 +227,7 @@
       "dob": "1999-12-13",
       "height": 179,
       "weight": 80,
+      "birthPlace": "Lietuva",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -224,7 +239,8 @@
       "name": "Lilija Firinovic",
       "dob": "1992-04-06",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Vilinus, Lithuania"
     },
     {
       "id": 162690,
@@ -232,6 +248,7 @@
       "dob": "1999-06-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -244,6 +261,7 @@
       "dob": "2000-09-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -287,6 +305,7 @@
       "dob": "2002-07-31",
       "height": 179,
       "weight": 68,
+      "birthPlace": "Vilnius",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -299,6 +318,7 @@
       "dob": "2002-05-29",
       "height": 187,
       "weight": 85,
+      "birthPlace": "Vilnius, Lithuania",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -310,7 +330,8 @@
       "name": "Marija Karaliute",
       "dob": "1994-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vilnius, Lithuania"
     },
     {
       "id": 214650,

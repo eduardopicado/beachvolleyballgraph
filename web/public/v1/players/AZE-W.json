@@ -8,6 +8,7 @@
       "dob": "1980-06-14",
       "height": 179,
       "weight": 65,
+      "birthPlace": "Belem/ BRA",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -140,6 +141,7 @@
       "dob": "1989-07-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Dnepropetrovsk",
       "away": [
         {
           "id": 104233,
@@ -213,6 +215,7 @@
       "dob": "1991-01-13",
       "height": 182,
       "weight": 66,
+      "birthPlace": "Russia",
       "away": [
         {
           "id": 118023,
@@ -433,6 +436,7 @@
       "dob": "1982-10-08",
       "height": null,
       "weight": null,
+      "birthPlace": "BRA",
       "away": [
         {
           "id": 131694,

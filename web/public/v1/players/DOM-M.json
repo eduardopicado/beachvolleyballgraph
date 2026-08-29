@@ -7,14 +7,16 @@
       "name": "Melvin Antonio de Jesus Albino",
       "dob": "2007-08-21",
       "height": 179,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "La Vega"
     },
     {
       "id": 210057,
       "name": "Ramon Francisco De Jesus Goris",
       "dob": "2007-09-05",
       "height": 176,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "La Vega"
     }
   ]
 }

@@ -7,14 +7,16 @@
       "name": "Dilshodbek Tolibaev",
       "dob": "2002-01-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karakalpakstan"
     },
     {
       "id": 216597,
       "name": "Nodirjon Alekseev",
       "dob": "2006-05-06",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Navoi Region"
     }
   ]
 }

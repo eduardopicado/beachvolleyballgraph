@@ -14,70 +14,80 @@
       "name": "Olivier Ntagengwa",
       "dob": "1992-08-08",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Ruhango"
     },
     {
       "id": 142107,
       "name": "Thiery Mugabo",
       "dob": "1991-07-27",
       "height": 184,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Karongi"
     },
     {
       "id": 143490,
       "name": "Alfred Muvunyi",
       "dob": "1995-11-01",
       "height": 195,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kirehe"
     },
     {
       "id": 143536,
       "name": "Yves Mutabazi",
       "dob": "1995-11-26",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Rwamagana-Mwulire"
     },
     {
       "id": 145193,
       "name": "Christophe Mukunzi",
       "dob": "1991-02-08",
       "height": null,
-      "weight": 199
+      "weight": 199,
+      "birthPlace": "Gashari - Karongi"
     },
     {
       "id": 155136,
       "name": "Akumunto Patrick Kavalo",
       "dob": "1992-03-30",
       "height": 198,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Gisagara"
     },
     {
       "id": 172779,
       "name": "Yves Niyonkuru",
       "dob": "1998-07-05",
       "height": 198,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Nhyanza"
     },
     {
       "id": 175288,
       "name": "Venuste Gatsinzi",
       "dob": "1998-01-01",
       "height": 200,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Gasabo"
     },
     {
       "id": 175289,
       "name": "Fils Habanzintwari",
       "dob": "1995-08-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nyarugenge"
     },
     {
       "id": 181190,
       "name": "Merci Gisubizo",
       "dob": "2004-12-23",
       "height": 200,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Ngoma"
     }
   ]
 }

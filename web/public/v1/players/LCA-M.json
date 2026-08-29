@@ -7,21 +7,24 @@
       "name": "Gillan Octave",
       "dob": "1991-11-07",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "St. Lucia"
     },
     {
       "id": 121912,
       "name": "Julian Bissette",
       "dob": "1991-02-06",
       "height": 199,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Castries"
     },
     {
       "id": 137538,
       "name": "Augustin Faulkner",
       "dob": "1995-11-04",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Castries"
     },
     {
       "id": 138854,
@@ -35,14 +38,16 @@
       "name": "Tevin St Jean",
       "dob": "1995-09-27",
       "height": 200,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "St Lucia"
     },
     {
       "id": 145940,
       "name": "Andre Marquis",
       "dob": "1997-03-29",
       "height": 188,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Castries"
     },
     {
       "id": 146908,
@@ -63,14 +68,16 @@
       "name": "Sheldon Descartes",
       "dob": "1994-10-02",
       "height": 188,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "St lucia"
     },
     {
       "id": 147291,
       "name": "Darnel Eudoxie",
       "dob": "1995-05-11",
       "height": 196,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Castries, St Lucia"
     },
     {
       "id": 147292,
@@ -84,14 +91,16 @@
       "name": "Rio Jaden Victor",
       "dob": "2006-07-05",
       "height": 195,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Saint Lucia"
     },
     {
       "id": 204376,
       "name": "Peter Emmanuel",
       "dob": "2007-01-21",
       "height": 187,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Castries"
     }
   ]
 }

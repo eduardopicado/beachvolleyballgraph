@@ -7,7 +7,8 @@
       "name": "Ebrahim Sansabli",
       "dob": "1972-03-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aghghala"
     },
     {
       "id": 104516,
@@ -28,7 +29,8 @@
       "name": "Seyed Yousef Doban Deh Rezaei",
       "dob": "1975-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roodsar"
     },
     {
       "id": 125331,
@@ -69,6 +71,7 @@
       "dob": "1978-04-09",
       "height": null,
       "weight": null,
+      "birthPlace": "GonbadeKavous",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -123,6 +126,7 @@
       "dob": "1989-01-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Gonbad",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -149,6 +153,7 @@
       "dob": "1989-02-01",
       "height": null,
       "weight": null,
+      "birthPlace": "AGH Ghala",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -173,6 +178,7 @@
       "dob": "1990-09-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Aghghala",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -213,6 +219,7 @@
       "dob": "1997-03-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Babol",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -224,7 +231,8 @@
       "name": "Ali Shahbazi",
       "dob": "1998-06-12",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Nahavand"
     },
     {
       "id": 156906,
@@ -250,7 +258,8 @@
       "name": "Mohammad Sadeghi Malati",
       "dob": "1994-08-28",
       "height": 204,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Astaneashrafieh"
     },
     {
       "id": 161259,
@@ -264,7 +273,8 @@
       "name": "Mohammadreza Hazratpourtalatappeh",
       "dob": "1999-03-31",
       "height": 187,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Urmia"
     },
     {
       "id": 163428,
@@ -348,7 +358,8 @@
       "name": "Ahad Emamgolipourahangar",
       "dob": "1994-11-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Babol"
     },
     {
       "id": 175760,
@@ -362,7 +373,8 @@
       "name": "Armin Kami",
       "dob": "2002-07-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandar Torkaman"
     },
     {
       "id": 176383,
@@ -376,84 +388,96 @@
       "name": "Mohammadreza Malekshahi",
       "dob": "2000-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandarabbas"
     },
     {
       "id": 177659,
       "name": "Zargham Mansouri",
       "dob": "2001-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lar"
     },
     {
       "id": 181484,
       "name": "Ali Ghorbanpasandi",
       "dob": "2003-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tonekabon"
     },
     {
       "id": 189176,
       "name": "Habib Naseri",
       "dob": "2005-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandarabbas"
     },
     {
       "id": 210147,
       "name": "Habib AkbarzadehKashani",
       "dob": "2006-11-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tehran"
     },
     {
       "id": 210148,
       "name": "AmirAli GhalehNovi",
       "dob": "2006-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sabzevar"
     },
     {
       "id": 227162,
       "name": "Amirreza Jamshidi Khalkiasari",
       "dob": "2010-03-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Langroud"
     },
     {
       "id": 227416,
       "name": "Mostafa Gholipoury",
       "dob": "2008-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandar Torkaman"
     },
     {
       "id": 227417,
       "name": "Aref Maleki",
       "dob": "2008-11-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tehran"
     },
     {
       "id": 227419,
       "name": "Aydin Nourouzikhah",
       "dob": "2008-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lahijan"
     },
     {
       "id": 227423,
       "name": "Hojatollah Mahboobi Shamili",
       "dob": "2008-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandarabbas"
     },
     {
       "id": 234083,
       "name": "Amin Vakili",
       "dob": "2010-07-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gorgan"
     }
   ]
 }

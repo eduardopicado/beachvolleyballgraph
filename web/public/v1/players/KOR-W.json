@@ -63,49 +63,56 @@
       "name": "Dan-A Choi",
       "dob": "1985-04-07",
       "height": 177,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Kyeongnam"
     },
     {
       "id": 114879,
       "name": "Hye-Suk Yoon",
       "dob": "1983-06-19",
       "height": 174,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Busan"
     },
     {
       "id": 118698,
       "name": "Meong-Hee Lee",
       "dob": "1978-04-07",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Hambaek, Kangwon-do, Korea"
     },
     {
       "id": 118699,
       "name": "Eun-Kyoung Lee",
       "dob": "1977-08-30",
       "height": 174,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Seoul, Korea"
     },
     {
       "id": 118700,
       "name": "Seol-Yi Kim",
       "dob": "1987-07-15",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Suwon"
     },
     {
       "id": 118701,
       "name": "Mi-Hwa Yu",
       "dob": "1988-03-14",
       "height": 177,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Suwon, Korea"
     },
     {
       "id": 119486,
       "name": "Eun-Mi Si",
       "dob": "1990-07-03",
       "height": 176,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Seoul"
     },
     {
       "id": 120312,
@@ -126,49 +133,56 @@
       "name": "Hyo-Jin Song",
       "dob": "1973-12-12",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Seoul"
     },
     {
       "id": 120411,
       "name": "Hyung-Soon Woo",
       "dob": "1978-10-20",
       "height": 178,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Namhae, Kyongnam"
     },
     {
       "id": 120428,
       "name": "Eun-A Lee",
       "dob": "1988-03-11",
       "height": 176,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Busan, Korea"
     },
     {
       "id": 122738,
       "name": "Hyo-Sil Jang",
       "dob": "1975-04-11",
       "height": 175,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Suwon"
     },
     {
       "id": 122739,
       "name": "Ka-Yeon Kim",
       "dob": "1976-02-08",
       "height": 179,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Suwon"
     },
     {
       "id": 132094,
       "name": "You-Jin Oh",
       "dob": "1985-09-21",
       "height": 183,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Seoul"
     },
     {
       "id": 132095,
       "name": "Mi-Ran Son",
       "dob": "1987-04-17",
       "height": 174,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Seoul"
     },
     {
       "id": 133086,
@@ -196,21 +210,24 @@
       "name": "Gahyun Kim",
       "dob": "1993-08-19",
       "height": 176,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Iksan"
     },
     {
       "id": 143063,
       "name": "Jihee Kim",
       "dob": "1986-06-18",
       "height": 176,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Busan"
     },
     {
       "id": 143381,
       "name": "Heewon Kim",
       "dob": "1994-03-15",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Suwon"
     },
     {
       "id": 163397,
@@ -273,7 +290,8 @@
       "name": "Jeonga Kim",
       "dob": "2002-02-08",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Gangneung"
     },
     {
       "id": 188539,
@@ -294,28 +312,32 @@
       "name": "Seohyun Ko",
       "dob": "2004-02-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Seoul"
     },
     {
       "id": 191026,
       "name": "Yeonghye Choi",
       "dob": "2005-06-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Seoul"
     },
     {
       "id": 191031,
       "name": "Hyunjoo Kim",
       "dob": "2007-03-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Seoul"
     },
     {
       "id": 192154,
       "name": "Inyoung Kim",
       "dob": "2002-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Seoul"
     },
     {
       "id": 196693,
@@ -336,35 +358,40 @@
       "name": "Gaeun SEO",
       "dob": "2004-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korea"
     },
     {
       "id": 225914,
       "name": "Seonhwa Moon",
       "dob": "2002-04-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korea"
     },
     {
       "id": 242555,
       "name": "Seojin Im",
       "dob": "2004-05-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korea"
     },
     {
       "id": 242556,
       "name": "Yewon Kim",
       "dob": "2006-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korea"
     },
     {
       "id": 242557,
       "name": "Eunhwan Kwon",
       "dob": "2006-07-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korea"
     }
   ]
 }

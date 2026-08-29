@@ -536,7 +536,21 @@ export function PlayerCard({
         </div>
         <div>
           <dt>Born</dt>
-          <dd>{formatDate(detail?.dob ?? null)}</dd>
+          {/* The city goes under the date rather than into a tile of its own.
+              A seventh tile would have displaced Seasons from the grid, and it
+              would have shown an em dash on the 46% of players VIS has no birth
+              place for — next to the em dash 60% of them already get for
+              height. Folded in, the absent case renders nothing at all.
+
+              Measured on the running card: 21px in the vitals block, which on
+              desktop the card absorbs entirely (it is height-matched to the
+              graph, so it stays 680px); a phone grows by 20px. The column is
+              97px, so 84.7% of birth places fit on one line and the rest wrap
+              to two, which reads fine and needs no truncation. */}
+          <dd>
+            {formatDate(detail?.dob ?? null)}
+            {detail?.birthPlace && <span className="birth-place">{detail.birthPlace}</span>}
+          </dd>
         </div>
         <div>
           <dt>Age</dt>

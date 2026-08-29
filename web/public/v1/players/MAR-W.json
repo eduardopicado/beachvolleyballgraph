@@ -7,7 +7,8 @@
       "name": "Oumayma Codial",
       "dob": "1994-07-05",
       "height": 185,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Casablanca"
     },
     {
       "id": 137685,
@@ -40,7 +41,8 @@
       "name": "Alexandra Erhart",
       "dob": "1994-05-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sainte foy les lyon"
     },
     {
       "id": 150070,
@@ -54,7 +56,8 @@
       "name": "Ikram Ettayfi",
       "dob": "1988-07-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oulad Amrane"
     },
     {
       "id": 150072,
@@ -68,21 +71,24 @@
       "name": "Dina Mellal",
       "dob": "1994-03-17",
       "height": 165,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Rabat"
     },
     {
       "id": 156055,
       "name": "Nora Nezha Jihane Darrhar",
       "dob": "1992-08-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "belgique"
     },
     {
       "id": 161544,
       "name": "Imane Yakki",
       "dob": "1998-11-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mers Sultan"
     },
     {
       "id": 161545,
@@ -124,35 +130,40 @@
       "name": "Karima Lamzaouak",
       "dob": "2005-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malaga"
     },
     {
       "id": 193211,
       "name": "Aida Lamzaouak",
       "dob": "2007-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malaga"
     },
     {
       "id": 204938,
       "name": "Fakhr Imane",
       "dob": "2006-12-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mers Sultan"
     },
     {
       "id": 204939,
       "name": "Bouysfi Fatima Zahra",
       "dob": "2006-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Casa blanca"
     },
     {
       "id": 213935,
       "name": "Hafsa Bouysfi",
       "dob": "2010-11-02",
       "height": 171,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Derb Soltane Al Fida"
     },
     {
       "id": 213939,
@@ -166,7 +177,8 @@
       "name": "Ghita Melalka",
       "dob": "2011-01-14",
       "height": 176,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Yacoub El Mansour"
     }
   ]
 }

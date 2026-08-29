@@ -7,14 +7,16 @@
       "name": "Moholo Lekomola",
       "dob": "1979-09-04",
       "height": 190,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Lesotho"
     },
     {
       "id": 195138,
       "name": "Toka Mosala",
       "dob": "2004-04-10",
       "height": 183,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Lesotho"
     }
   ]
 }

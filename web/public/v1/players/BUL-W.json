@@ -7,7 +7,8 @@
       "name": "Stefka Anguelova",
       "dob": "1964-12-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Silistra"
     },
     {
       "id": 102039,
@@ -15,6 +16,7 @@
       "dob": "1975-04-12",
       "height": 180,
       "weight": 65,
+      "birthPlace": "Sofia-BULGARIA",
       "tour": {
         "gold": 3,
         "silver": 0,
@@ -27,6 +29,7 @@
       "dob": "1978-07-03",
       "height": 178,
       "weight": 65,
+      "birthPlace": "Sofia, Bulgaria",
       "tour": {
         "gold": 3,
         "silver": 0,
@@ -38,28 +41,32 @@
       "name": "Guergana Stainova",
       "dob": "1974-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102207,
       "name": "Guergana Alexandrova",
       "dob": "1974-02-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 113554,
       "name": "Marina Kalaydjieva",
       "dob": "1979-01-24",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Sofia"
     },
     {
       "id": 118748,
       "name": "Evelina Tcholakova",
       "dob": "1979-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 120163,
@@ -73,7 +80,8 @@
       "name": "Desislava Nikolova",
       "dob": "1991-12-21",
       "height": 184,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Sofia"
     },
     {
       "id": 124818,
@@ -101,147 +109,168 @@
       "name": "Maria Todorova",
       "dob": "1979-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 134456,
       "name": "Asya Dinova",
       "dob": "1985-10-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 137970,
       "name": "Irena Mishonova",
       "dob": "1988-12-09",
       "height": 181,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Mezdra"
     },
     {
       "id": 143366,
       "name": "Slavina Koleva",
       "dob": "1986-11-22",
       "height": 184,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Sofia"
     },
     {
       "id": 144040,
       "name": "Stefani Kyoseva",
       "dob": "1997-02-26",
       "height": 177,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Varna"
     },
     {
       "id": 144133,
       "name": "Ivana Ivanova",
       "dob": "1992-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 144794,
       "name": "Iva Partaleva",
       "dob": "1990-05-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kyustendil"
     },
     {
       "id": 151859,
       "name": "Iveta Stanchulova",
       "dob": "1997-08-11",
       "height": 186,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Byala Slatina"
     },
     {
       "id": 153417,
       "name": "Emileta Racheva",
       "dob": "1998-11-26",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Sofia"
     },
     {
       "id": 153421,
       "name": "Simona Nikolova",
       "dob": "1997-07-29",
       "height": 189,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Varna"
     },
     {
       "id": 164805,
       "name": "Nikol Duleva",
       "dob": "2001-10-12",
       "height": 181,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Plovdiv"
     },
     {
       "id": 173372,
       "name": "Eva Petrova",
       "dob": "1999-07-03",
       "height": 173,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Varna"
     },
     {
       "id": 175809,
       "name": "Ekaterina Aleksandrova",
       "dob": "1997-03-20",
       "height": 172,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Varna"
     },
     {
       "id": 177993,
       "name": "Yoana Kalfinova",
       "dob": "1991-09-02",
       "height": 179,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Sofia"
     },
     {
       "id": 179403,
       "name": "Darina Kindova",
       "dob": "2003-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 179408,
       "name": "Desislava Todeva",
       "dob": "2001-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 181221,
       "name": "Vili Tsenova",
       "dob": "1996-12-14",
       "height": 174,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Sofia"
     },
     {
       "id": 181222,
       "name": "Raya Tsenova",
       "dob": "1996-12-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 181360,
       "name": "Roberta Di Romano",
       "dob": "1997-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 182770,
       "name": "Ivet Gavrailova",
       "dob": "2005-09-01",
       "height": 181,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Varna"
     },
     {
       "id": 191726,
       "name": "Elitsa Hristova",
       "dob": "1996-04-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 191727,
@@ -255,21 +284,24 @@
       "name": "Eleonora Gicheva",
       "dob": "2006-11-19",
       "height": 175,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Sofia"
     },
     {
       "id": 193054,
       "name": "Svilena Stoyanova",
       "dob": "2005-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 200716,
       "name": "Tsvetelina Ilieva",
       "dob": "2001-09-08",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Sofia"
     }
   ]
 }

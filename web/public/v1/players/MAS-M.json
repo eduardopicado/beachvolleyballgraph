@@ -28,7 +28,8 @@
       "name": "Elangovan Yogeswaran",
       "dob": "1990-06-09",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Pahang, Malaysia"
     },
     {
       "id": 141719,
@@ -42,7 +43,8 @@
       "name": "Raja Nazmi Saifuddin Bin Raja Hussin",
       "dob": "1994-09-17",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Terengganu"
     },
     {
       "id": 146017,
@@ -70,7 +72,8 @@
       "name": "Boon Kiat Lee",
       "dob": "1988-10-02",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Mentakab"
     },
     {
       "id": 161708,
@@ -105,28 +108,32 @@
       "name": "Chien Bin Tay",
       "dob": "1994-01-04",
       "height": 186,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Malacca"
     },
     {
       "id": 162277,
       "name": "Gee Jia Wei",
       "dob": "1998-06-26",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Selangor"
     },
     {
       "id": 166883,
       "name": "Kwan Young Kuck",
       "dob": "2000-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Selangor"
     },
     {
       "id": 166884,
       "name": "How Juen Ang",
       "dob": "2000-09-06",
       "height": 184,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Selangor"
     },
     {
       "id": 167966,
@@ -140,7 +147,8 @@
       "name": "Ting Jackson Kiet Sing",
       "dob": "1996-04-23",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Sarikei"
     },
     {
       "id": 173135,
@@ -154,7 +162,8 @@
       "name": "Khoo Chong Long",
       "dob": "1988-02-23",
       "height": 183,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Klang"
     },
     {
       "id": 177938,
@@ -203,70 +212,80 @@
       "name": "Ler Wei Chun",
       "dob": "2004-06-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "malaysia"
     },
     {
       "id": 199874,
       "name": "Low Jeng Yih",
       "dob": "2006-08-17",
       "height": 191,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Taiping Perak Malaysia"
     },
     {
       "id": 210000,
       "name": "Adnan Muhammad Adam",
       "dob": "2009-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Seberang Jaya"
     },
     {
       "id": 210012,
       "name": "Chong Yong Xuan",
       "dob": "2007-07-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiping"
     },
     {
       "id": 210013,
       "name": "Teh You Tat",
       "dob": "2007-03-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiping"
     },
     {
       "id": 210268,
       "name": "Teh You Hao",
       "dob": "2005-09-24",
       "height": 181,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Taiping"
     },
     {
       "id": 212768,
       "name": "Wong Jonathan,Hong Jie",
       "dob": "2008-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Selangor"
     },
     {
       "id": 222765,
       "name": "Yong jian Khor",
       "dob": "2005-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiping"
     },
     {
       "id": 227441,
       "name": "Tan Edwin, Yan Han",
       "dob": "2009-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pahang"
     },
     {
       "id": 227442,
       "name": "Ooi Tian Le",
       "dob": "2010-07-05",
       "height": 174,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Taiping"
     }
   ]
 }

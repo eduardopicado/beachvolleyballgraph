@@ -7,28 +7,32 @@
       "name": "Ludovic Palmaro",
       "dob": "2001-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Monaco"
     },
     {
       "id": 161737,
       "name": "Olivier Lanteri",
       "dob": "2001-11-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Monaco"
     },
     {
       "id": 167626,
       "name": "Pascal Ferry",
       "dob": "1988-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Monaco"
     },
     {
       "id": 167627,
       "name": "Vincent Ferry",
       "dob": "1990-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Monaco"
     }
   ]
 }

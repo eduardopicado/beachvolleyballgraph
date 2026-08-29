@@ -15,6 +15,7 @@ import {
   sliceByCountryAndGender,
   startOffsetFor,
   tidyName,
+  tidyBirthPlace,
 } from './build.js';
 import type { VisRow } from './vis.js';
 
@@ -177,6 +178,71 @@ describe('tidyName', () => {
   it('leaves an ordinary name untouched', () => {
     expect(tidyName('Alexandre Ramos Samuel')).toBe('Alexandre Ramos Samuel');
     expect(tidyName('')).toBe('');
+  });
+});
+
+describe('tidyBirthPlace', () => {
+  it('keeps a birth place as VIS wrote it', () => {
+    // Four conventions, none of them fixable, all of them shown verbatim:
+    // nothing separates a city from a province, and nothing says which country
+    // a bare "Berlin" is in.
+    expect(tidyBirthPlace('Curitiba, PR')).toBe('Curitiba, PR');
+    expect(tidyBirthPlace('Berlin')).toBe('Berlin');
+    expect(tidyBirthPlace('Juiz de Fora (BRA)')).toBe('Juiz de Fora (BRA)');
+    expect(tidyBirthPlace('Resende-Rio de Janeiro')).toBe('Resende-Rio de Janeiro');
+  });
+
+  it('keeps a district or department number, which is a real answer', () => {
+    // The reason the rules are narrow rather than "reject anything with a
+    // digit": these are 6 of the 16 published records containing one, and all
+    // of them say where somebody was born.
+    expect(tidyBirthPlace('Paris 14e')).toBe('Paris 14e');
+    expect(tidyBirthPlace('Praha 4')).toBe('Praha 4');
+    expect(tidyBirthPlace('Sèvres (92)')).toBe('Sèvres (92)');
+    expect(tidyBirthPlace('St Brieul (12)')).toBe('St Brieul (12)');
+    expect(tidyBirthPlace('Auckland N2')).toBe('Auckland N2');
+    expect(tidyBirthPlace('Steyr 1007')).toBe('Steyr 1007');
+  });
+
+  it('drops a date typed into the birth place field', () => {
+    // All four published cases, each punctuated differently.
+    expect(tidyBirthPlace('21.08.77')).toBeNull();
+    expect(tidyBirthPlace('03/09/1988')).toBeNull();
+    expect(tidyBirthPlace('06-05-1991')).toBeNull();
+    expect(tidyBirthPlace('17/01/1992')).toBeNull();
+  });
+
+  it('drops a date only when the whole value is one', () => {
+    // No published record tells the anchored rule from an unanchored one today
+    // — both drop the same four. The anchor is a guard against a value that
+    // mixes a real place with a date, which is exactly the shape this field
+    // keeps producing, so it is pinned here rather than left to be loosened by
+    // someone who checks only that the four still go.
+    expect(tidyBirthPlace('Sao Paulo 12/05/1990')).toBe('Sao Paulo 12/05/1990');
+    expect(tidyBirthPlace('12/05/1990')).toBeNull();
+  });
+
+  it('drops a bare postcode', () => {
+    expect(tidyBirthPlace('30019')).toBeNull();
+    expect(tidyBirthPlace('98278')).toBeNull();
+  });
+
+  it('drops an internal note that should never have left the database', () => {
+    expect(tidyBirthPlace('to be Merged with (#164181) as')).toBeNull();
+  });
+
+  it('normalises capitals and strips the quotes FIVB stored', () => {
+    // 444 published birth places shout; "9 de JULIO" is a real Argentine town
+    // wearing quotation marks.
+    expect(tidyBirthPlace('BUENOS AIRES')).toBe('Buenos Aires');
+    expect(tidyBirthPlace('"9 de JULIO"')).toBe('9 de Julio');
+    expect(tidyBirthPlace('  Roma  ')).toBe('Roma');
+  });
+
+  it('is null for the 46% who have nothing', () => {
+    expect(tidyBirthPlace('')).toBeNull();
+    expect(tidyBirthPlace(undefined)).toBeNull();
+    expect(tidyBirthPlace('   ')).toBeNull();
   });
 });
 
@@ -1470,5 +1536,65 @@ describe('corroborating a partnership\u2019s federation', () => {
     );
     const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
     expect(away.get(1)?.find((a) => a.id === 2)?.at).toEqual([[2003, 'ITA']]);
+  });
+});
+
+/**
+ * What actually got published, rather than what the rule does on a fixture.
+ *
+ * `tidyBirthPlace` is unit-tested above, but nothing there proves it is
+ * *reached*: the value travels through `normalisePlayers` and the publish step
+ * before it reaches a card, and a field that stopped being cleaned on the way
+ * would still publish perfectly plausible-looking places.
+ */
+describe('the published birth places', () => {
+  const dir = new URL('../web/public/v1/players', import.meta.url);
+  const places: string[] = [];
+  let players = 0;
+  for (const f of readdirSync(dir)) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/players/${f}`, import.meta.url), 'utf8'));
+    for (const p of file.players as { birthPlace?: string }[]) {
+      players++;
+      if (p.birthPlace !== undefined) places.push(p.birthPlace);
+    }
+  }
+
+  it('covers about half the archive', () => {
+    // Vacuity guard and a floor. 6,489 of 12,074 at the time of writing; a drop
+    // past 40% is the field breaking, not the archive changing.
+    expect(players).toBeGreaterThan(10_000);
+    expect(places.length / players).toBeGreaterThan(0.4);
+  });
+
+  it('never publishes an empty string', () => {
+    // The absent case must be an absent key, not a blank line under the date.
+    expect(places.filter((p) => !p.trim())).toEqual([]);
+  });
+
+  it('publishes no bare date and no bare postcode', () => {
+    expect(places.filter((p) => /^\d{1,4}[./-]\d{1,2}[./-]\d{1,4}$/.test(p))).toEqual([]);
+    expect(places.filter((p) => !/\p{L}/u.test(p))).toEqual([]);
+  });
+
+  it('publishes no internal note', () => {
+    expect(places.filter((p) => /\bto be merged\b|#\d{3,}/i.test(p))).toEqual([]);
+  });
+
+  it('publishes nothing that shouts a whole word', () => {
+    // 444 did before this. Short upper-case tokens are codes and stay — the
+    // "PR" in "Curitiba, PR" is not shouting.
+    const shouting = places.filter((p) =>
+      p.split(' ').some((w) => {
+        const letters = w.replace(/[^\p{L}]/gu, '');
+        return letters.length >= 4 && w === w.toUpperCase() && w !== w.toLowerCase();
+      }),
+    );
+    expect(shouting).toEqual([]);
+  });
+
+  it('still keeps the province and country codes', () => {
+    // The guard on the guard: a rule that simply title-cased everything would
+    // pass every assertion above and quietly turn "PR" into "Pr".
+    expect(places.filter((p) => /\b[A-Z]{2,3}\b/.test(p)).length).toBeGreaterThan(20);
   });
 });

@@ -165,6 +165,11 @@ export interface PlayerDetail {
   /** Kilograms, `null` when unknown. */
   weight: number | null;
   /**
+   * Where FIVB says they were born, as free text — "Curitiba, PR", "Berlin".
+   * Absent for the 46% of players VIS has no usable birth place for.
+   */
+  birthPlace?: string;
+  /**
    * Present only when the player won at least one medal at a real, senior
    * Olympic Games. Omitted (not zeroed) for the vast majority of players who
    * never medalled, to keep the common case free.

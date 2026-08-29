@@ -20,6 +20,7 @@
       "dob": "1962-02-13",
       "height": 170,
       "weight": 65,
+      "birthPlace": "Rio de Janeiro",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -42,6 +43,7 @@
       "dob": "1967-09-20",
       "height": 180,
       "weight": 75,
+      "birthPlace": "Rio de Janeiro",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -59,6 +61,7 @@
       "dob": "1966-04-12",
       "height": 178,
       "weight": 65,
+      "birthPlace": "Rezende",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -88,6 +91,7 @@
       "dob": "1968-11-06",
       "height": 168,
       "weight": 57,
+      "birthPlace": "Fortaleza",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -100,6 +104,7 @@
       "dob": "1969-02-14",
       "height": 180,
       "weight": 64,
+      "birthPlace": "Rio de Janeiro",
       "olympics": {
         "gold": 0,
         "silver": 2,
@@ -122,6 +127,7 @@
       "dob": "1966-07-30",
       "height": 178,
       "weight": 69,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -134,6 +140,7 @@
       "dob": "1973-06-16",
       "height": 174,
       "weight": 64,
+      "birthPlace": "Rio de Janeiro",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -209,7 +216,8 @@
       "name": "Ana Maria Richa Medeiros",
       "dob": "1966-12-03",
       "height": 175,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 100926,
@@ -217,6 +225,7 @@
       "dob": "1973-01-01",
       "height": 165,
       "weight": 59,
+      "birthPlace": "Fortaleza",
       "olympics": {
         "gold": 0,
         "silver": 2,
@@ -253,6 +262,7 @@
       "dob": "1970-04-20",
       "height": 172,
       "weight": 63,
+      "birthPlace": "São Paulo",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -363,6 +373,7 @@
       "dob": "1970-03-01",
       "height": 168,
       "weight": 60,
+      "birthPlace": "Santa Maria - R.S.",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -379,35 +390,40 @@
       "name": "Michele Brandalise Silveira",
       "dob": "1970-08-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Palhoca"
     },
     {
       "id": 102067,
       "name": "Monica Rocha Meideros",
       "dob": "1966-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sao Joao Nepomuceno"
     },
     {
       "id": 102068,
       "name": "Tania Souza",
       "dob": "1978-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Valenca"
     },
     {
       "id": 102069,
       "name": "Vanessa \"Nessa\" Lage",
       "dob": "1969-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Belo Horizonte"
     },
     {
       "id": 102117,
       "name": "Alexandra Fonseca Da Silva",
       "dob": "1970-10-07",
       "height": 170,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 102118,
@@ -421,14 +437,16 @@
       "name": "Faiza Costa Nacif Da",
       "dob": "1977-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 102120,
       "name": "Samira Costa Nacif Da",
       "dob": "1977-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 102285,
@@ -436,6 +454,7 @@
       "dob": "1967-09-06",
       "height": 175,
       "weight": 68,
+      "birthPlace": "Juiz de Fora (BRA)",
       "away": [
         {
           "id": 103034,
@@ -539,14 +558,16 @@
       "name": "Lorena Mascarenhas Ferreira",
       "dob": "1974-07-13",
       "height": 165,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Brasilia"
     },
     {
       "id": 102287,
       "name": "Claudia Oliveira Costa",
       "dob": "1970-01-25",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Brasilia"
     },
     {
       "id": 102501,
@@ -554,6 +575,7 @@
       "dob": "1973-10-19",
       "height": 175,
       "weight": 64,
+      "birthPlace": "Cuiapora (RS)",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -566,6 +588,7 @@
       "dob": "1972-02-13",
       "height": 183,
       "weight": 68,
+      "birthPlace": "Lavras (MG)",
       "tour": {
         "gold": 11,
         "silver": 8,
@@ -577,49 +600,56 @@
       "name": "Isabela Miranda Lopez",
       "dob": "1977-01-14",
       "height": null,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Belo Horizonte"
     },
     {
       "id": 102853,
       "name": "Camila Fonseca",
       "dob": "1978-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 102854,
       "name": "Tais Jesus",
       "dob": "1979-11-02",
       "height": null,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Maringa-PR"
     },
     {
       "id": 102855,
       "name": "Patricia Prates",
       "dob": "1978-07-09",
       "height": null,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Passo/Fundo RS"
     },
     {
       "id": 102856,
       "name": "Fernanda Mendes",
       "dob": "1977-02-09",
       "height": null,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Passo Fundo/RS"
     },
     {
       "id": 103202,
       "name": "Andreia Dantas",
       "dob": "1976-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sao Felix / BA"
     },
     {
       "id": 103203,
       "name": "Erika Alcione França do Nascimento",
       "dob": "1975-02-17",
       "height": null,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Joao Pessoa, PB"
     },
     {
       "id": 103212,
@@ -627,6 +657,7 @@
       "dob": "1983-05-06",
       "height": 176,
       "weight": 63,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -638,7 +669,8 @@
       "name": "Patricia Juliana Santos Melo",
       "dob": "1978-06-05",
       "height": null,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Aracaju, SE"
     },
     {
       "id": 103704,
@@ -646,6 +678,7 @@
       "dob": "1981-12-07",
       "height": 177,
       "weight": 64,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 5,
         "silver": 8,
@@ -658,6 +691,7 @@
       "dob": "1971-09-30",
       "height": 179,
       "weight": null,
+      "birthPlace": "Brasilia",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -670,6 +704,7 @@
       "dob": "1977-02-12",
       "height": 174,
       "weight": 58,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 3,
         "silver": 4,
@@ -682,6 +717,7 @@
       "dob": "1982-08-29",
       "height": 181,
       "weight": 65,
+      "birthPlace": "Aquidauana",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -699,6 +735,7 @@
       "dob": "1982-04-14",
       "height": 174,
       "weight": 70,
+      "birthPlace": "Cachoeiro de Itapemirim-Es",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -746,6 +783,7 @@
       "dob": "1983-07-22",
       "height": 177,
       "weight": 63,
+      "birthPlace": "Santos-SP",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -768,6 +806,7 @@
       "dob": "1984-05-27",
       "height": 175,
       "weight": 66,
+      "birthPlace": "Fortaleza",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -842,6 +881,7 @@
       "dob": "1987-08-06",
       "height": 178,
       "weight": 67,
+      "birthPlace": "Rio de Janeiro",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -858,7 +898,8 @@
       "name": "Rachel Nunes",
       "dob": "1985-03-18",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Niterói - RJ"
     },
     {
       "id": 104192,
@@ -917,6 +958,7 @@
       "dob": "1987-08-03",
       "height": 178,
       "weight": 70,
+      "birthPlace": "Rio de Janeiro",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -938,14 +980,16 @@
       "name": "Bia Rocha",
       "dob": "1986-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nizerai RJ"
     },
     {
       "id": 104507,
       "name": "Carla Barreto",
       "dob": "1988-11-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Narmbro"
     },
     {
       "id": 104574,
@@ -953,6 +997,7 @@
       "dob": "1981-04-24",
       "height": 176,
       "weight": 72,
+      "birthPlace": "Brasilia",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1010,7 +1055,8 @@
       "name": "Luiza Amélia Ramos",
       "dob": "1974-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fortaleza"
     },
     {
       "id": 104618,
@@ -1024,7 +1070,8 @@
       "name": "Luciana Rosario",
       "dob": "1976-06-07",
       "height": 174,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Rio de Janeiro, Brazil"
     },
     {
       "id": 105053,
@@ -1063,14 +1110,16 @@
       "name": "Clarisse Peixoto",
       "dob": "1987-03-01",
       "height": null,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Fortaleza/CE"
     },
     {
       "id": 105062,
       "name": "Nina Vieira",
       "dob": "1984-01-16",
       "height": null,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Rio De Janeiro"
     },
     {
       "id": 105063,
@@ -1078,6 +1127,7 @@
       "dob": "1984-02-25",
       "height": 176,
       "weight": 69,
+      "birthPlace": "Resende",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1094,7 +1144,8 @@
       "name": "Virna Dias",
       "dob": "1971-08-31",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Natal / RN, BRA"
     },
     {
       "id": 112638,
@@ -1102,6 +1153,7 @@
       "dob": "1985-06-29",
       "height": 189,
       "weight": 74,
+      "birthPlace": "São Paulo",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -1126,6 +1178,7 @@
       "dob": "1983-06-22",
       "height": 182,
       "weight": 70,
+      "birthPlace": "Curitiba",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1155,6 +1208,7 @@
       "dob": "1987-10-26",
       "height": 183,
       "weight": 72,
+      "birthPlace": "Vitoria",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1185,7 +1239,8 @@
       "name": "Camilla dos Reis Saldanha",
       "dob": "1985-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro/RJ"
     },
     {
       "id": 117510,
@@ -1245,14 +1300,16 @@
       "name": "Naiana Rodrigues de Araújo",
       "dob": null,
       "height": null,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Fortaleza- Ceará"
     },
     {
       "id": 118421,
       "name": "Luana Amorim Madeira",
       "dob": "1984-05-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vitoria"
     },
     {
       "id": 118743,
@@ -1290,14 +1347,16 @@
       "name": "Fernanda Nunes Costa",
       "dob": "1990-02-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "rio de janeiro"
     },
     {
       "id": 120894,
       "name": "Pauline Alves da Silva",
       "dob": "1988-06-17",
       "height": 184,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 120896,
@@ -1319,6 +1378,7 @@
       "dob": "1984-10-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Vitória, ES",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -1390,14 +1450,16 @@
       "name": "Raquel Pellucci",
       "dob": "1978-04-30",
       "height": 191,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 132193,
       "name": "Fabíola Lima Constâncio",
       "dob": "1983-11-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brasília/DF"
     },
     {
       "id": 132686,
@@ -1405,6 +1467,7 @@
       "dob": "1993-04-23",
       "height": 175,
       "weight": 78,
+      "birthPlace": "Fortaleza",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1422,6 +1485,7 @@
       "dob": "1992-08-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Fortaleza/CE",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -1434,6 +1498,7 @@
       "dob": "1992-04-01",
       "height": 179,
       "weight": 62,
+      "birthPlace": "Curitiba",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1452,14 +1517,16 @@
       "name": "Priscilla Eckstein Lese Lima",
       "dob": "1979-12-19",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 138309,
       "name": "Thais Rodrigues Ferreira",
       "dob": "1991-05-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cabo Frio"
     },
     {
       "id": 138753,
@@ -1479,6 +1546,7 @@
       "dob": "1998-08-01",
       "height": 180,
       "weight": 78,
+      "birthPlace": "Sergipe",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -1512,14 +1580,16 @@
       "name": "Drussyla Costa",
       "dob": "1996-07-01",
       "height": 182,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Rio de Janeiro/RJ"
     },
     {
       "id": 141652,
       "name": "Giulia Gavio",
       "dob": "1996-10-25",
       "height": 181,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "São Paulo"
     },
     {
       "id": 142309,
@@ -1527,6 +1597,7 @@
       "dob": "1996-10-27",
       "height": 176,
       "weight": 64,
+      "birthPlace": "João Pessoa",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1553,6 +1624,7 @@
       "dob": "1995-07-31",
       "height": 176,
       "weight": 70,
+      "birthPlace": "Clínica Maternidade St. Helena,",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1564,14 +1636,16 @@
       "name": "Paula Moniz Hoffmann",
       "dob": "1996-10-15",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 143353,
       "name": "Natasha Valente Bastos",
       "dob": "1989-09-24",
       "height": null,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Rio de Janeiro/RJ"
     },
     {
       "id": 145813,
@@ -1586,6 +1660,7 @@
       "dob": "1999-09-16",
       "height": 178,
       "weight": 70,
+      "birthPlace": "Ivinhema",
       "tour": {
         "gold": 4,
         "silver": 3,
@@ -1627,6 +1702,7 @@
       "dob": "1995-10-30",
       "height": 182,
       "weight": 71,
+      "birthPlace": "Fortaleza/ Ceara",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1652,21 +1728,24 @@
       "name": "Beatriz Vieira",
       "dob": "1997-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 152578,
       "name": "Eunyce Martins Verçosa",
       "dob": "1989-05-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maceio"
     },
     {
       "id": 152581,
       "name": "Barbara De Sousa Alves Ferreira",
       "dob": "1992-05-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 154054,
@@ -1680,7 +1759,8 @@
       "name": "Danielle Cristine Neves",
       "dob": "1985-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Campo Grande"
     },
     {
       "id": 154094,
@@ -1702,6 +1782,7 @@
       "dob": "1989-03-30",
       "height": 174,
       "weight": 71,
+      "birthPlace": "Rio de Janeiro - RJ",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1721,6 +1802,7 @@
       "dob": "1996-11-03",
       "height": 168,
       "weight": 62,
+      "birthPlace": "Itaperuna/RJ",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1740,6 +1822,7 @@
       "dob": "1999-11-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Petrópolis",
       "tour": {
         "gold": 0,
         "silver": 3,
@@ -1759,6 +1842,7 @@
       "dob": "1998-04-04",
       "height": null,
       "weight": 71,
+      "birthPlace": "Natal",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1785,6 +1869,7 @@
       "dob": "2000-07-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Piúma",
       "tour": {
         "gold": 6,
         "silver": 2,
@@ -1804,6 +1889,7 @@
       "dob": "1995-08-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio Branco/AC",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1815,7 +1901,8 @@
       "name": "Maria Clara Albrecht Carvalhaes",
       "dob": "2003-09-28",
       "height": 172,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 166760,
@@ -1830,6 +1917,7 @@
       "dob": "1991-06-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Aurelino Leal- BA",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1841,7 +1929,8 @@
       "name": "Anne Karolayne Figueredo Gois",
       "dob": "2001-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aracaju/SE"
     },
     {
       "id": 167418,
@@ -1870,6 +1959,7 @@
       "dob": "2001-04-21",
       "height": null,
       "weight": 66,
+      "birthPlace": "Natal",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1895,28 +1985,32 @@
       "name": "Rupia Inck Freitas Furtado",
       "dob": "1990-04-12",
       "height": 185,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Uberaba"
     },
     {
       "id": 178677,
       "name": "Larissa Ferreira Gomes de Vasconcelos",
       "dob": "2003-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fortaleza"
     },
     {
       "id": 182126,
       "name": "Carolina Sallaberry Cavalcanti",
       "dob": "2005-05-10",
       "height": 182,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 182128,
       "name": "Maria Fernanda Ferreira Dias",
       "dob": "2002-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 182988,
@@ -1938,6 +2032,7 @@
       "dob": "1995-10-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio Grande do Sul",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1950,6 +2045,7 @@
       "dob": "2006-09-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Espírito Santo",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1969,6 +2065,7 @@
       "dob": "2002-10-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Minas Gerais",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1980,21 +2077,24 @@
       "name": "Mayara Larissa Dos santos Lamin",
       "dob": "2001-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maringá"
     },
     {
       "id": 203599,
       "name": "Kedma Lucia Da Silva",
       "dob": "1980-08-22",
       "height": 176,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Sao Paulo"
     },
     {
       "id": 204022,
       "name": "Alessandra Rezende Jardim",
       "dob": "1987-07-22",
       "height": null,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Brumadinho/MG"
     },
     {
       "id": 204320,
@@ -2050,7 +2150,8 @@
       "name": "Victoria de Souza Strehl",
       "dob": "1996-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto Alegre - RS"
     },
     {
       "id": 208608,
@@ -2058,6 +2159,7 @@
       "dob": "2006-12-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Rio de Janeiro",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -2069,63 +2171,72 @@
       "name": "Ana Beatriz Sanches Francelino",
       "dob": "2008-03-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Campo Grande"
     },
     {
       "id": 213013,
       "name": "Maria Julia Guanabara Pimentel",
       "dob": "2006-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Recife"
     },
     {
       "id": 222976,
       "name": "Clara Vieira Lawrenz",
       "dob": "2009-09-16",
       "height": 179,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Curitiba"
     },
     {
       "id": 225456,
       "name": "Isabela Sallaberry Cavalcanti",
       "dob": "2008-03-12",
       "height": null,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 226841,
       "name": "Kiara Vitoria Ernesto Jeronimo",
       "dob": "2010-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio de Janeiro"
     },
     {
       "id": 226842,
       "name": "Leticia Schwalb Machado",
       "dob": "2009-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sao Paulo"
     },
     {
       "id": 230447,
       "name": "Cassiane França de Souza",
       "dob": "2004-02-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nanuque - MG"
     },
     {
       "id": 236829,
       "name": "Julia Machado da Costa",
       "dob": "2004-11-26",
       "height": 170,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Passo Fundo"
     },
     {
       "id": 239876,
       "name": "Luisa Ianegitz",
       "dob": "2010-10-08",
       "height": null,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Jaragua Do Sul"
     }
   ]
 }

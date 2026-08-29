@@ -21,7 +21,8 @@
       "name": "Evangelos \"Vagelis\" Koutouleas",
       "dob": "1966-01-19",
       "height": 192,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 101408,
@@ -35,49 +36,56 @@
       "name": "Panagiotis Dimitrakakos",
       "dob": "1970-01-27",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Athens"
     },
     {
       "id": 102404,
       "name": "Georgios \"Yorgos\" Giatsis",
       "dob": "1968-06-22",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 102405,
       "name": "Ilias Arabatzis",
       "dob": "1967-07-01",
       "height": 191,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Drama"
     },
     {
       "id": 102842,
       "name": "Manolis \"Manos\" Roumeliotis",
       "dob": "1968-04-16",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Athens"
     },
     {
       "id": 102843,
       "name": "Thanassis \"Thanos\" Michalopoulos",
       "dob": "1973-09-29",
       "height": 198,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Athens"
     },
     {
       "id": 102885,
       "name": "Dimitrios Kelepouris",
       "dob": "1976-12-19",
       "height": 200,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Athens"
     },
     {
       "id": 102886,
       "name": "Pavlos \"Beli\" Beligratis",
       "dob": "1977-11-16",
       "height": null,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Athens"
     },
     {
       "id": 103054,
@@ -105,7 +113,8 @@
       "name": "Panagiotis \"Takis\" Mavrakis",
       "dob": "1970-01-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korydallos, Piraeus"
     },
     {
       "id": 103072,
@@ -133,7 +142,8 @@
       "name": "Ilias Zolastathiadis",
       "dob": "1967-04-13",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 103076,
@@ -175,14 +185,16 @@
       "name": "Thanassis \"Sakis\" Chatziantoniou",
       "dob": "1971-10-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 103338,
       "name": "Georgios Batistatos",
       "dob": "1975-07-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 103500,
@@ -196,21 +208,24 @@
       "name": "Konstantinos Aggelidis",
       "dob": "1973-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 103502,
       "name": "Andreas Gortsianiouk",
       "dob": "1985-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chimsek"
     },
     {
       "id": 103503,
       "name": "Georgios Knapek",
       "dob": "1982-10-25",
       "height": 185,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Fydek-Mistek"
     },
     {
       "id": 103504,
@@ -224,14 +239,16 @@
       "name": "Konstantinos Tampouratzis",
       "dob": "1983-09-03",
       "height": 193,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Chalkida Evvias"
     },
     {
       "id": 103933,
       "name": "Nikolaos Giannakakos",
       "dob": "1983-12-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 104122,
@@ -239,6 +256,7 @@
       "dob": "1985-01-09",
       "height": 189,
       "weight": 79,
+      "birthPlace": "Thessaloniki",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -250,21 +268,24 @@
       "name": "Ioannis Mamais",
       "dob": "1985-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 104124,
       "name": "Emanouil Dimitriadis",
       "dob": "1985-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 104126,
       "name": "Charlampos Papadopoulos",
       "dob": "1987-10-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 104180,
@@ -278,7 +299,8 @@
       "name": "Panagiotis Mourtzios",
       "dob": "1980-05-05",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 104273,
@@ -299,7 +321,8 @@
       "name": "Emmanouil Xenakis",
       "dob": "1978-08-11",
       "height": 196,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Athens"
     },
     {
       "id": 104276,
@@ -341,14 +364,16 @@
       "name": "Apostolos Armenakis",
       "dob": "1980-07-19",
       "height": 205,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 105028,
       "name": "Pavlos Odysseas Kouzounis Boukogiannis",
       "dob": "1987-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Marousi"
     },
     {
       "id": 115481,
@@ -362,7 +387,8 @@
       "name": "Georgios Petreas",
       "dob": "1986-11-19",
       "height": 201,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 118048,
@@ -376,14 +402,16 @@
       "name": "Dimitrios Chalikos",
       "dob": "1984-08-31",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Kalymnos"
     },
     {
       "id": 118077,
       "name": "Fernandos Billiris",
       "dob": "1984-05-13",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Kalymnos"
     },
     {
       "id": 118243,
@@ -411,21 +439,24 @@
       "name": "Ioannis Roumeliotakis",
       "dob": "1989-06-25",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Irakleio"
     },
     {
       "id": 122396,
       "name": "Nikos Zoupani",
       "dob": "1989-03-18",
       "height": 202,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Pograntets"
     },
     {
       "id": 122397,
       "name": "Georgios Kotsilianos",
       "dob": "1982-12-13",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Patra"
     },
     {
       "id": 122449,
@@ -488,7 +519,8 @@
       "name": "Vasileios Mandilaris",
       "dob": "1996-02-15",
       "height": null,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Cholargos"
     },
     {
       "id": 146900,
@@ -503,6 +535,7 @@
       "dob": "1999-07-16",
       "height": 187,
       "weight": 81,
+      "birthPlace": "KOS",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -514,14 +547,16 @@
       "name": "Iason Kanellos",
       "dob": "1998-09-18",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Ioannina"
     },
     {
       "id": 153210,
       "name": "Angelos Mandilaris",
       "dob": "1998-11-07",
       "height": 200,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Cholargos Athens"
     },
     {
       "id": 158222,
@@ -535,7 +570,8 @@
       "name": "Gavriil - Giannis Salit",
       "dob": "1997-02-23",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Athens, Greece"
     },
     {
       "id": 164252,
@@ -543,6 +579,7 @@
       "dob": "1998-10-07",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Thassaloniki",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -554,21 +591,24 @@
       "name": "Antiol Kola",
       "dob": "2000-04-10",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Lusnije"
     },
     {
       "id": 168457,
       "name": "Stylianos Tzioumakas",
       "dob": "1998-03-14",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 170536,
       "name": "Alexandros Kourtidis",
       "dob": "2002-03-13",
       "height": 186,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 178503,
@@ -576,6 +616,7 @@
       "dob": "1997-10-28",
       "height": 191,
       "weight": 86,
+      "birthPlace": "Athens",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -587,63 +628,72 @@
       "name": "Triantafyllos Restemis",
       "dob": "2002-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Marousi"
     },
     {
       "id": 182282,
       "name": "Ioannis Kardoulias",
       "dob": "2005-04-12",
       "height": 183,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Amarousio"
     },
     {
       "id": 184832,
       "name": "Panagiotis Vogiatzoglou",
       "dob": "2001-07-06",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 188833,
       "name": "Christos Tsigaridas",
       "dob": "2001-06-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 188834,
       "name": "Panagiotis Semitekolos Faoularas",
       "dob": "2002-12-28",
       "height": 183,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Athens"
     },
     {
       "id": 188835,
       "name": "Iakovos Kafouros",
       "dob": "2002-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 188868,
       "name": "Dimitrios Kaliozis",
       "dob": "2005-08-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rodes"
     },
     {
       "id": 190878,
       "name": "Konstantinos Venios",
       "dob": "2005-11-01",
       "height": 187,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Heraklion"
     },
     {
       "id": 190879,
       "name": "Antonios Karykas",
       "dob": "2005-11-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 201645,

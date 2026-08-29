@@ -7,14 +7,16 @@
       "name": "Anjia Delapenha",
       "dob": "2005-03-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Grand Cayman"
     },
     {
       "id": 192535,
       "name": "Joanna Robinson",
       "dob": "2006-11-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Grand Cayman"
     }
   ]
 }

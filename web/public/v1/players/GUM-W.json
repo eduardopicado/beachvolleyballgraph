@@ -7,7 +7,8 @@
       "name": "Kendra Byrd",
       "dob": "1990-11-04",
       "height": 165,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tamuning, Guam"
     },
     {
       "id": 149672,
@@ -49,7 +50,8 @@
       "name": "Yasmeen-Tiana Lopez",
       "dob": "2004-08-13",
       "height": 158,
-      "weight": 43
+      "weight": 43,
+      "birthPlace": "Guam Memorial Hospital"
     },
     {
       "id": 178233,
@@ -140,7 +142,8 @@
       "name": "Erica Cassidy",
       "dob": "2009-07-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Guam"
     }
   ]
 }

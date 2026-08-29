@@ -21,49 +21,56 @@
       "name": "Peter 'Kimo' Kimijan",
       "dob": "1976-04-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 102170,
       "name": "Marek 'Cibo' Cibula",
       "dob": "1976-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 102583,
       "name": "Martin \"Kapu\" Kapusta",
       "dob": "1971-09-10",
       "height": 183,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 102613,
       "name": "Roman \"Maca Spacek",
       "dob": "1975-10-21",
       "height": 191,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Skalica"
     },
     {
       "id": 102614,
       "name": "Peter \"Fischer\" Varga",
       "dob": "1976-12-28",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Bojnice"
     },
     {
       "id": 102832,
       "name": "Lubor \"Gejza\" Halanda",
       "dob": "1977-09-12",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 102900,
       "name": "Radoslav Dvorsky",
       "dob": "1975-09-24",
       "height": 194,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Ruzomberok (Slovakia)"
     },
     {
       "id": 102952,
@@ -77,7 +84,8 @@
       "name": "Karol Sramek",
       "dob": "1977-01-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 103096,
@@ -91,14 +99,16 @@
       "name": "Martin Suja",
       "dob": "1981-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 103279,
       "name": "Jozef Sladecek",
       "dob": "1973-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 104062,
@@ -112,14 +122,16 @@
       "name": "Jan Majercak",
       "dob": "1970-08-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kezmarok"
     },
     {
       "id": 104216,
       "name": "Michal Litva",
       "dob": "1975-09-10",
       "height": 196,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Jesenik Czech Republic"
     },
     {
       "id": 104620,
@@ -133,14 +145,16 @@
       "name": "Marek Jany",
       "dob": "1979-07-15",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bratilslava"
     },
     {
       "id": 118106,
       "name": "Dominik Mracko",
       "dob": "1982-01-03",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Sala"
     },
     {
       "id": 118211,
@@ -161,7 +175,8 @@
       "name": "Peter Michalovic",
       "dob": "1990-05-26",
       "height": 200,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Malacky"
     },
     {
       "id": 119284,
@@ -182,35 +197,40 @@
       "name": "Matej Patak",
       "dob": "1990-06-08",
       "height": 197,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Dolny Kubin"
     },
     {
       "id": 119973,
       "name": "Igor Horvath",
       "dob": "1985-09-20",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 120071,
       "name": "Jan Namesansky",
       "dob": "1988-04-12",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Zilina"
     },
     {
       "id": 120072,
       "name": "Peter Gyurovszky",
       "dob": "1987-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Šaľa"
     },
     {
       "id": 120569,
       "name": "Matej Hukel",
       "dob": "1988-08-27",
       "height": 207,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Detva"
     },
     {
       "id": 120570,
@@ -231,7 +251,8 @@
       "name": "Tomas Halanda",
       "dob": "1992-04-25",
       "height": 195,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Umbertide"
     },
     {
       "id": 125001,
@@ -266,28 +287,32 @@
       "name": "Tomas Krisko",
       "dob": "1988-12-19",
       "height": 202,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Liptovsky Mikulas"
     },
     {
       "id": 132582,
       "name": "Samuel Podstupka",
       "dob": "1992-11-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malacky"
     },
     {
       "id": 137112,
       "name": "Michal Hovorka",
       "dob": "1991-09-29",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Zilina"
     },
     {
       "id": 139373,
       "name": "Jakub Ihnat",
       "dob": "1996-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kráľovský Chlmec"
     },
     {
       "id": 150235,
@@ -295,6 +320,7 @@
       "dob": "1995-03-02",
       "height": 184,
       "weight": 77,
+      "birthPlace": "Zvolen",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -306,14 +332,16 @@
       "name": "Patrik Pokopec",
       "dob": "1998-04-23",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Trenčín"
     },
     {
       "id": 155009,
       "name": "Kamil Pavlinsky",
       "dob": "1995-08-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Presov"
     },
     {
       "id": 156684,
@@ -335,6 +363,7 @@
       "dob": "2003-05-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Banska Bystrica",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -360,7 +389,8 @@
       "name": "Patrik Marcok",
       "dob": "1999-12-30",
       "height": 188,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Kosice"
     }
   ]
 }

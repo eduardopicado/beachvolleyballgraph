@@ -14,14 +14,16 @@
       "name": "Gerard Caminal",
       "dob": "1973-03-04",
       "height": null,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Andorra"
     },
     {
       "id": 118314,
       "name": "Xavier Folguera Estruga",
       "dob": "1988-08-27",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "andorra"
     },
     {
       "id": 118315,
@@ -42,14 +44,16 @@
       "name": "Nahuel Tagliaferro",
       "dob": "2006-01-21",
       "height": 184,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "La Seu d´Urgell"
     },
     {
       "id": 188759,
       "name": "Marc Garcia Calello",
       "dob": "2004-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Canillo"
     }
   ]
 }

@@ -28,7 +28,8 @@
       "name": "Emanuel Fernandes",
       "dob": "1967-07-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Namibe"
     },
     {
       "id": 101301,
@@ -49,7 +50,8 @@
       "name": "Miguel Xisto",
       "dob": "1964-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Luanda"
     },
     {
       "id": 104209,
@@ -63,7 +65,8 @@
       "name": "Morais Abreu",
       "dob": "1968-07-10",
       "height": 183,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Moxico"
     }
   ]
 }

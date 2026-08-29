@@ -35,7 +35,8 @@
       "name": "Ali Eshagh Bairami",
       "dob": "1979-02-13",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "doha"
     },
     {
       "id": 104789,
@@ -49,7 +50,8 @@
       "name": "Denis Messelmani",
       "dob": "1986-03-19",
       "height": 192,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Prague"
     },
     {
       "id": 117892,
@@ -70,14 +72,16 @@
       "name": "Nabeel M. Ali Naser",
       "dob": "1988-04-22",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Doha"
     },
     {
       "id": 120113,
       "name": "Asif Malik Sultan",
       "dob": "1987-04-04",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Doha"
     },
     {
       "id": 120495,
@@ -85,6 +89,7 @@
       "dob": "1986-03-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Guarapari/ES",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -103,14 +108,16 @@
       "name": "Mahdi Badreddin Sammoud",
       "dob": "1991-03-22",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Kelibia/ TUN"
     },
     {
       "id": 132808,
       "name": "Saifeddine Binaziz Elmajid",
       "dob": "1984-09-10",
       "height": 200,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Tunisia"
     },
     {
       "id": 138996,
@@ -124,7 +131,8 @@
       "name": "Assam Ahmed Mahmoud",
       "dob": "1987-02-20",
       "height": 195,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Qatar"
     },
     {
       "id": 145123,
@@ -132,6 +140,7 @@
       "dob": "1983-07-01",
       "height": 181,
       "weight": 84,
+      "birthPlace": "Beheira",
       "away": [
         {
           "id": 115975,
@@ -173,6 +182,7 @@
       "dob": "1989-06-08",
       "height": 182,
       "weight": 87,
+      "birthPlace": "Rio de Janeiro/ BRA",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -221,6 +231,7 @@
       "dob": "1985-11-11",
       "height": 192,
       "weight": 84,
+      "birthPlace": "salvador",
       "away": [
         {
           "id": 104073,
@@ -253,6 +264,7 @@
       "dob": "1995-04-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Banjul",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -286,63 +298,72 @@
       "name": "João Gusson Neto",
       "dob": "1992-04-29",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Pompéia /BRA"
     },
     {
       "id": 159909,
       "name": "Mohamed Ihab Zaki",
       "dob": "2000-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sharkia"
     },
     {
       "id": 161462,
       "name": "Ahmed M A Ali Nassir",
       "dob": "1987-08-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Doha"
     },
     {
       "id": 161615,
       "name": "Abdallah Ibrahim Nassim",
       "dob": "2001-01-20",
       "height": 210,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Niamey"
     },
     {
       "id": 182403,
       "name": "Yousef Alyafeai",
       "dob": "2002-05-15",
       "height": 190,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Doha"
     },
     {
       "id": 222229,
       "name": "Musa Alkeer Mou",
       "dob": "2011-01-01",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Luonyaker"
     },
     {
       "id": 226638,
       "name": "Ahmed zyad Betioui",
       "dob": "2010-04-19",
       "height": 193,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Doha"
     },
     {
       "id": 227951,
       "name": "Jassim Mahmoud Al-Tamimi",
       "dob": "2010-07-17",
       "height": 174,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Doha"
     },
     {
       "id": 227953,
       "name": "Saad Nasser Alawad",
       "dob": "2010-09-23",
       "height": 167,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Doha"
     }
   ]
 }

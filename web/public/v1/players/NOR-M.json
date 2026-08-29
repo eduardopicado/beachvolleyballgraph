@@ -8,6 +8,7 @@
       "dob": "1963-02-05",
       "height": 200,
       "weight": 95,
+      "birthPlace": "Skien",
       "tour": {
         "gold": 7,
         "silver": 2,
@@ -39,6 +40,7 @@
       "dob": "1968-03-07",
       "height": 198,
       "weight": 94,
+      "birthPlace": "Stavanger",
       "tour": {
         "gold": 7,
         "silver": 2,
@@ -58,6 +60,7 @@
       "dob": "1968-08-31",
       "height": 189,
       "weight": 86,
+      "birthPlace": "Drammen",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -82,6 +85,7 @@
       "dob": "1970-12-13",
       "height": 193,
       "weight": 90,
+      "birthPlace": "Baerum",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -93,7 +97,8 @@
       "name": "Jon Grydeland",
       "dob": "1974-11-12",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Asker"
     },
     {
       "id": 100844,
@@ -101,6 +106,7 @@
       "dob": "1971-05-10",
       "height": 193,
       "weight": 92,
+      "birthPlace": "Skien",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -117,7 +123,8 @@
       "name": "Jarle Huseby",
       "dob": "1973-11-11",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Askim"
     },
     {
       "id": 101703,
@@ -145,7 +152,8 @@
       "name": "Jostein Olimstad",
       "dob": "1973-07-22",
       "height": 201,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Akendal"
     },
     {
       "id": 102138,
@@ -153,6 +161,7 @@
       "dob": "1977-01-01",
       "height": 190,
       "weight": 88,
+      "birthPlace": "Aukra",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -164,35 +173,40 @@
       "name": "Ronny Berntsen",
       "dob": "1966-02-04",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Stavanger"
     },
     {
       "id": 102188,
       "name": "Paul Otterdal",
       "dob": "1973-03-06",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hornindal"
     },
     {
       "id": 102249,
       "name": "Lars Garder",
       "dob": "1962-08-20",
       "height": 189,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Sardsborg"
     },
     {
       "id": 102364,
       "name": "Espen \"Broren\" Goranson",
       "dob": "1968-07-15",
       "height": 198,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Borum"
     },
     {
       "id": 102373,
       "name": "Kjell-Oue Raheim",
       "dob": "1977-05-16",
       "height": 181,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Hoyanger"
     },
     {
       "id": 102374,
@@ -200,6 +214,7 @@
       "dob": "1978-11-06",
       "height": 191,
       "weight": 87,
+      "birthPlace": "Alesund",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -211,21 +226,24 @@
       "name": "Lars Jacob \"Laas\" Boe",
       "dob": "1974-09-28",
       "height": 194,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Halden"
     },
     {
       "id": 102546,
       "name": "Bard-Inge \"E.P.\" Pettersen",
       "dob": "1973-01-24",
       "height": 191,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Molde"
     },
     {
       "id": 102639,
       "name": "Martin Berntsen",
       "dob": "1977-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 102654,
@@ -239,14 +257,16 @@
       "name": "Martin Engvik",
       "dob": "1978-07-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 102656,
       "name": "Ragnar Wisloff",
       "dob": "1973-06-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 102658,
@@ -260,7 +280,8 @@
       "name": "Mats Bentsen",
       "dob": "1972-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trondheim"
     },
     {
       "id": 102761,
@@ -268,6 +289,7 @@
       "dob": "1972-11-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Frederikstad",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -279,77 +301,88 @@
       "name": "Ben Roger Nordas",
       "dob": "1978-08-02",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Porsgrunn"
     },
     {
       "id": 102866,
       "name": "Geir H. Ingeborgrud",
       "dob": "1975-05-04",
       "height": 191,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Oslo"
     },
     {
       "id": 102868,
       "name": "Sigurd Ringstad",
       "dob": "1974-07-24",
       "height": 184,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Oslo"
     },
     {
       "id": 102879,
       "name": "Helge Storoy",
       "dob": "1968-11-04",
       "height": 182,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Bergen, Norway"
     },
     {
       "id": 103013,
       "name": "Imran Khan",
       "dob": "1976-11-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Askim"
     },
     {
       "id": 103092,
       "name": "Morten Draegebo",
       "dob": "1977-10-15",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Bergen"
     },
     {
       "id": 103093,
       "name": "Oystein Hjellset",
       "dob": "1973-05-14",
       "height": 190,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Harstad"
     },
     {
       "id": 103189,
       "name": "Torstein Karner-Semd",
       "dob": "1982-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 103317,
       "name": "Rasmus Helgebostad",
       "dob": "1981-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 103318,
       "name": "Pierre Quarré",
       "dob": "1981-06-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 103323,
       "name": "Dag Tannes-fjeld",
       "dob": "1979-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rjukan"
     },
     {
       "id": 103362,
@@ -363,7 +396,8 @@
       "name": "Olav Helland",
       "dob": "1974-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sand"
     },
     {
       "id": 103364,
@@ -377,21 +411,24 @@
       "name": "Eskil Holtan",
       "dob": "1982-11-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alstahaug"
     },
     {
       "id": 103366,
       "name": "Christian Rom",
       "dob": "1982-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Baerum"
     },
     {
       "id": 103367,
       "name": "Erlend Damon Stokke",
       "dob": "1981-03-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo Norway"
     },
     {
       "id": 103368,
@@ -406,6 +443,7 @@
       "dob": "1979-10-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Akershus",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -417,21 +455,24 @@
       "name": "Alexander Loberg",
       "dob": "1977-09-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porsgronn"
     },
     {
       "id": 103569,
       "name": "Sturla Notvedt",
       "dob": "1981-08-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 103570,
       "name": "Trygve Leite",
       "dob": "1979-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 104084,
@@ -445,14 +486,16 @@
       "name": "Einar Fuhr Heggheim",
       "dob": "1985-11-08",
       "height": 180,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Norway"
     },
     {
       "id": 104245,
       "name": "Ole Martin Kleivenes",
       "dob": "1973-12-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Molde"
     },
     {
       "id": 104303,
@@ -466,35 +509,40 @@
       "name": "Nils Stensa",
       "dob": "1975-12-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trondheim"
     },
     {
       "id": 104305,
       "name": "Vegard Lyng",
       "dob": "1980-05-17",
       "height": 189,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Oslo"
     },
     {
       "id": 104370,
       "name": "Dag Stromsuag",
       "dob": "1984-02-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stavanger"
     },
     {
       "id": 104371,
       "name": "Bjornar Gjedrem",
       "dob": "1983-07-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stavanger"
     },
     {
       "id": 104759,
       "name": "Geir Eithun",
       "dob": "1979-11-12",
       "height": 199,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Flora"
     },
     {
       "id": 104794,
@@ -536,7 +584,8 @@
       "name": "Håkon Kronstad",
       "dob": "1983-09-04",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Oslo"
     },
     {
       "id": 117466,
@@ -564,7 +613,8 @@
       "name": "Espen Nesse",
       "dob": "1986-09-12",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Stavanger"
     },
     {
       "id": 117956,
@@ -606,7 +656,8 @@
       "name": "Oivind Hordvik",
       "dob": "1985-06-02",
       "height": 201,
-      "weight": 101
+      "weight": 101,
+      "birthPlace": "Bergen"
     },
     {
       "id": 118938,
@@ -709,28 +760,32 @@
       "name": "Jonas Kvalen",
       "dob": "1992-06-06",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Volda"
     },
     {
       "id": 124762,
       "name": "Jørn Olav Gamlemoen",
       "dob": "1990-02-21",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Oslo"
     },
     {
       "id": 124988,
       "name": "Fredrik Pe Ingebrigtsen",
       "dob": "1991-08-19",
       "height": 186,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 125064,
       "name": "Svein Oddmund Solhaug",
       "dob": "1991-08-30",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Oslo"
     },
     {
       "id": 132165,
@@ -751,14 +806,16 @@
       "name": "Andreas Takvam",
       "dob": "1993-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 132523,
       "name": "Runar Torsvik Sannarnes",
       "dob": "1994-04-07",
       "height": 188,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 132763,
@@ -773,6 +830,7 @@
       "dob": "1991-01-08",
       "height": 188,
       "weight": 84,
+      "birthPlace": "Arendal, norway",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -799,6 +857,7 @@
       "dob": "1995-12-03",
       "height": 192,
       "weight": 89,
+      "birthPlace": "Oslo",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -821,6 +880,7 @@
       "dob": "1994-03-10",
       "height": 183,
       "weight": 115,
+      "birthPlace": "Bergen",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -847,6 +907,7 @@
       "dob": "1995-01-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Førde",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -870,14 +931,16 @@
       "name": "Sadegh Mohajer",
       "dob": "1993-09-20",
       "height": 178,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tehran"
     },
     {
       "id": 142141,
       "name": "Henrik Aase Hole",
       "dob": "1996-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bern"
     },
     {
       "id": 142401,
@@ -891,7 +954,8 @@
       "name": "Martin Kløvfjell Olimstad",
       "dob": "1997-09-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arendal"
     },
     {
       "id": 143189,
@@ -899,6 +963,7 @@
       "dob": "1996-02-05",
       "height": 188,
       "weight": 83,
+      "birthPlace": "Åmli",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -918,6 +983,7 @@
       "dob": "1997-07-02",
       "height": 201,
       "weight": 96,
+      "birthPlace": "Stord",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -939,7 +1005,8 @@
       "name": "Christian Helland",
       "dob": "1988-11-01",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kongsberg"
     },
     {
       "id": 144510,
@@ -967,7 +1034,8 @@
       "name": "Erlend Henriksveen",
       "dob": "1995-09-19",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Porsgrunn"
     },
     {
       "id": 148730,
@@ -981,7 +1049,8 @@
       "name": "Christian Jørgensen Ruud",
       "dob": "1998-12-31",
       "height": 193,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Fredrikstad"
     },
     {
       "id": 151319,
@@ -995,14 +1064,16 @@
       "name": "Magnus Helgerud",
       "dob": "1995-07-13",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Drammen"
     },
     {
       "id": 151469,
       "name": "Jakob Solgaard Thelle",
       "dob": "1999-12-10",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Skien"
     },
     {
       "id": 151472,
@@ -1016,7 +1087,8 @@
       "name": "Stefan Ilic",
       "dob": "1998-03-22",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Fredrikstad"
     },
     {
       "id": 151474,
@@ -1030,14 +1102,16 @@
       "name": "Kjetil Tellnes",
       "dob": "1995-06-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 156952,
       "name": "Eivind Brekke",
       "dob": "2001-08-09",
       "height": 190,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 157029,
@@ -1045,6 +1119,7 @@
       "dob": "2001-02-26",
       "height": 194,
       "weight": 87,
+      "birthPlace": "Kristiansand",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -1077,7 +1152,8 @@
       "name": "Torje Thorkildsen",
       "dob": "1998-06-08",
       "height": 182,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 172619,
@@ -1085,6 +1161,7 @@
       "dob": "2002-04-03",
       "height": 197,
       "weight": 88,
+      "birthPlace": "Bergen",
       "tour": {
         "gold": 4,
         "silver": 1,
@@ -1097,6 +1174,7 @@
       "dob": "2003-04-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Molde",
       "tour": {
         "gold": 4,
         "silver": 0,
@@ -1108,28 +1186,32 @@
       "name": "Syver Drolsum Klungsøyr",
       "dob": "2003-03-18",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Oslo"
     },
     {
       "id": 179513,
       "name": "Håvard Solheim",
       "dob": "2003-04-03",
       "height": 186,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Tønsberg"
     },
     {
       "id": 182771,
       "name": "Oscar Majak Gundersen",
       "dob": "2004-08-03",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Oslo"
     },
     {
       "id": 182780,
       "name": "Adrian Mol",
       "dob": "2004-11-04",
       "height": 196,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Bergen"
     },
     {
       "id": 182797,
@@ -1137,6 +1219,7 @@
       "dob": "2005-09-09",
       "height": 197,
       "weight": 95,
+      "birthPlace": "Kristiansand",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1148,42 +1231,48 @@
       "name": "Jens Aasgard",
       "dob": "2004-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stord"
     },
     {
       "id": 190490,
       "name": "Marius Pande",
       "dob": "1995-04-20",
       "height": 189,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Lørenskog"
     },
     {
       "id": 190549,
       "name": "Jørgen Nylund Nilsen",
       "dob": "1999-06-08",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 190640,
       "name": "Jonah Utvik",
       "dob": "2005-10-11",
       "height": 190,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Haugesund"
     },
     {
       "id": 192770,
       "name": "Tobias Kawika Kauffman Pedersen",
       "dob": "2006-08-21",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 193426,
       "name": "Leon Lauvland",
       "dob": "2004-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 201399,
@@ -1191,6 +1280,7 @@
       "dob": "2005-11-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Stavanger",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -1202,28 +1292,32 @@
       "name": "Ludvig Sødal Ringøen",
       "dob": "2009-06-17",
       "height": 197,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 206047,
       "name": "Johannes Ringøen",
       "dob": "2007-01-20",
       "height": 196,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kristiansand"
     },
     {
       "id": 209530,
       "name": "Håvard Kjærheim Fredwall",
       "dob": "2001-12-10",
       "height": 189,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oslo"
     },
     {
       "id": 210034,
       "name": "Mathias Damian Smørholm",
       "dob": "2008-01-02",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bergen"
     },
     {
       "id": 210037,
@@ -1242,42 +1336,48 @@
       "name": "Torjussen Armand Torp",
       "dob": "2008-06-11",
       "height": 191,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Oslo"
     },
     {
       "id": 222813,
       "name": "Mon Mathys",
       "dob": "2005-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brussel"
     },
     {
       "id": 228127,
       "name": "Pavle Cetkovic",
       "dob": "2002-08-27",
       "height": 186,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Norge"
     },
     {
       "id": 232806,
       "name": "Mikael Beckman Dos Santos",
       "dob": "2008-12-26",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Oslo"
     },
     {
       "id": 239603,
       "name": "Lars Ragnar Vollan",
       "dob": "1994-03-19",
       "height": 185,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Drammen"
     },
     {
       "id": 239773,
       "name": "Liam Karlsen",
       "dob": "2009-03-14",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Oslo"
     }
   ]
 }

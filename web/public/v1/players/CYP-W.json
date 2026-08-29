@@ -8,6 +8,7 @@
       "dob": "1983-09-13",
       "height": 179,
       "weight": 65,
+      "birthPlace": "Jyväskylä",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -194,56 +195,64 @@
       "name": "Despina Konstantinou",
       "dob": "1987-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 124021,
       "name": "Manolina Konstantinou",
       "dob": "1993-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 124022,
       "name": "Mariota Angelopoulou",
       "dob": "1992-01-31",
       "height": 172,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Athens"
     },
     {
       "id": 134107,
       "name": "Ioanna Leonidou",
       "dob": "1995-10-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 134413,
       "name": "Anna Taliadorou",
       "dob": "1995-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nicosia"
     },
     {
       "id": 139381,
       "name": "Anthi Parla",
       "dob": "1995-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kato Polemidia Limassol"
     },
     {
       "id": 139382,
       "name": "Antonia Theoti",
       "dob": "1996-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pafos"
     },
     {
       "id": 139383,
       "name": "Zoi Konstantopoulou",
       "dob": "1997-01-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 139423,
@@ -257,7 +266,8 @@
       "name": "Erika Zempyla",
       "dob": "1996-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nicosia"
     },
     {
       "id": 139810,
@@ -271,7 +281,8 @@
       "name": "Vasiliki Chatzikonstanta",
       "dob": "1998-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 146955,
@@ -285,7 +296,8 @@
       "name": "Katerina Lamprou",
       "dob": "1997-06-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lemesos"
     },
     {
       "id": 146957,
@@ -306,21 +318,24 @@
       "name": "Antrea Tooulia",
       "dob": "1998-06-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 146964,
       "name": "Michaella Kokki",
       "dob": "1996-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 147480,
       "name": "Katerina Zakchaiou",
       "dob": "1998-07-26",
       "height": 192,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kato Polemidia"
     },
     {
       "id": 147869,
@@ -334,7 +349,8 @@
       "name": "Evita Leonidou",
       "dob": "2000-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 147889,
@@ -370,6 +386,7 @@
       "dob": "2004-07-15",
       "height": 177,
       "weight": 72,
+      "birthPlace": "Chicago",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -382,6 +399,7 @@
       "dob": "2008-04-02",
       "height": 180,
       "weight": 55,
+      "birthPlace": "Nicosia",
       "tour": {
         "gold": 0,
         "silver": 0,

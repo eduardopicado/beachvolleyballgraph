@@ -7,42 +7,48 @@
       "name": "Diouma Ndior",
       "dob": "2005-05-29",
       "height": 179,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Parare"
     },
     {
       "id": 200460,
       "name": "Dieynaba Thiam",
       "dob": "2006-11-29",
       "height": 162,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Diofior"
     },
     {
       "id": 226712,
       "name": "Aissatou SARR",
       "dob": "2009-02-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Diofior"
     },
     {
       "id": 226713,
       "name": "Nafi SEGNANE",
       "dob": "2009-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rufisque"
     },
     {
       "id": 226860,
       "name": "Khady Kane",
       "dob": "2010-12-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pavia"
     },
     {
       "id": 230729,
       "name": "Amy Diop",
       "dob": "2010-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Diofior"
     }
   ]
 }

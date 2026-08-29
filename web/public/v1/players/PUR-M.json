@@ -8,6 +8,7 @@
       "dob": "1968-10-07",
       "height": 195,
       "weight": 100,
+      "birthPlace": "Dorado",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -64,7 +65,8 @@
       "name": "Joseph A. \"Pelito\" Gil Rivera",
       "dob": "1971-01-15",
       "height": 193,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Hato Rey"
     },
     {
       "id": 100754,
@@ -92,7 +94,8 @@
       "name": "Ramon A. \"Moncho\" Hernandez Cruz",
       "dob": "1972-07-16",
       "height": 190,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Bayamon"
     },
     {
       "id": 100829,
@@ -139,7 +142,8 @@
       "name": "Rafael Del Valle Madamo",
       "dob": "1954-09-12",
       "height": 185,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Santurce"
     },
     {
       "id": 101025,
@@ -182,6 +186,7 @@
       "dob": "1972-03-06",
       "height": 195,
       "weight": 90,
+      "birthPlace": "Santurce",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -235,7 +240,8 @@
       "name": "Antonio J. Rondon",
       "dob": "1974-10-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santurce"
     },
     {
       "id": 103730,
@@ -347,14 +353,16 @@
       "name": "Victor Rivera",
       "dob": "1976-08-30",
       "height": 195,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Naranjito, Puerto Rico"
     },
     {
       "id": 116676,
       "name": "Hector Soto",
       "dob": "1978-06-28",
       "height": 197,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 117841,
@@ -368,7 +376,8 @@
       "name": "Roberto Rodríguez - Bertrán",
       "dob": "1986-08-08",
       "height": 190,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "San Juan, PR"
     },
     {
       "id": 120052,
@@ -396,7 +405,8 @@
       "name": "Orlando Irizarry",
       "dob": "1985-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Juan,PUR"
     },
     {
       "id": 145643,
@@ -417,21 +427,24 @@
       "name": "Arnel Cabrera Rivera",
       "dob": "1994-10-11",
       "height": 189,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Naranjito"
     },
     {
       "id": 146397,
       "name": "Kevin Joel Rodriguez",
       "dob": "1994-08-12",
       "height": 181,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 146398,
       "name": "Cristian Encarnacion Melendez",
       "dob": "1993-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Juan"
     },
     {
       "id": 146399,
@@ -452,7 +465,8 @@
       "name": "Ricardo Muratti",
       "dob": "1999-01-25",
       "height": 178,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "San Juan"
     },
     {
       "id": 152836,
@@ -466,14 +480,16 @@
       "name": "Daniel Timothy Henwood Rodriguez",
       "dob": "2005-12-29",
       "height": 183,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 192392,
       "name": "Franco Ignacio Roark De La Torre",
       "dob": "2005-09-06",
       "height": 193,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "San Juan"
     }
   ]
 }

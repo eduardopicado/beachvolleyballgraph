@@ -7,56 +7,64 @@
       "name": "Pa Alieu Njie",
       "dob": "1999-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Latriukunda Sabiji/ GMB"
     },
     {
       "id": 175142,
       "name": "Mbye Babou Jarra",
       "dob": "1999-05-21",
       "height": 178,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Banjul"
     },
     {
       "id": 175144,
       "name": "Sainey Jawo",
       "dob": "1999-12-30",
       "height": 205,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Njongon Village"
     },
     {
       "id": 189345,
       "name": "Laity Nyabally",
       "dob": "2005-03-14",
       "height": 190,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Serekunda"
     },
     {
       "id": 193543,
       "name": "Mario Dampha",
       "dob": "2004-04-04",
       "height": 178,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Brikama"
     },
     {
       "id": 224007,
       "name": "Bakary Ensa Kanyi",
       "dob": "2008-12-03",
       "height": 198,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Serekunda"
     },
     {
       "id": 226293,
       "name": "Abdallah Bah",
       "dob": "2011-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bundung"
     },
     {
       "id": 234382,
       "name": "Omar Bojang",
       "dob": "2012-12-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brikama"
     }
   ]
 }

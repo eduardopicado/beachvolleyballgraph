@@ -7,14 +7,16 @@
       "name": "Diraviam Nixson",
       "dob": "1972-10-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jhirvmayam"
     },
     {
       "id": 102060,
       "name": "John Pradeep",
       "dob": "1977-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chennai"
     },
     {
       "id": 104369,
@@ -28,7 +30,8 @@
       "name": "Arunachalam Manoharan",
       "dob": "1979-04-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karaika"
     },
     {
       "id": 120615,
@@ -126,21 +129,24 @@
       "name": "Robin Ravi",
       "dob": "2001-10-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sirkali"
     },
     {
       "id": 168875,
       "name": "Aaron Pereira",
       "dob": "1993-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ponda"
     },
     {
       "id": 168877,
       "name": "Kambala Rajesh",
       "dob": "1994-08-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Visakhapatnam"
     },
     {
       "id": 172022,
@@ -161,7 +167,8 @@
       "name": "Naresh Tumpera",
       "dob": "1991-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Narpala"
     },
     {
       "id": 193254,
@@ -175,77 +182,88 @@
       "name": "Rahul Barik",
       "dob": "1997-05-21",
       "height": 193,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Garam, Odisha"
     },
     {
       "id": 204710,
       "name": "Nitin Kashinath Sawant",
       "dob": "1994-07-03",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Panjim, GOA"
     },
     {
       "id": 204711,
       "name": "Barath Sonu",
       "dob": "2002-06-25",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Chennai, Tamil Nadu"
     },
     {
       "id": 204712,
       "name": "Selvam Shankar",
       "dob": "1994-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chennai, Tamil Nadu"
     },
     {
       "id": 204713,
       "name": "Thiyagarajan Govindasamy",
       "dob": "1996-01-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chennai, Tamil Nadu"
     },
     {
       "id": 215030,
       "name": "Abithan Senthilkumar",
       "dob": "2003-02-04",
       "height": 176,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Nagapattinam, Tamil Nadu"
     },
     {
       "id": 232899,
       "name": "Rajesh Vinayagamoorthy",
       "dob": "1999-05-27",
       "height": 194,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Tamilnadu"
     },
     {
       "id": 232900,
       "name": "Udaya Suriyan Poonthamizhan",
       "dob": "2004-07-11",
       "height": 176,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Tamilnadu"
     },
     {
       "id": 233012,
       "name": "Mahasim Khan",
       "dob": "1999-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pandua"
     },
     {
       "id": 233013,
       "name": "Prajna Sarathi Jena",
       "dob": "1999-05-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dharmakirti"
     },
     {
       "id": 233014,
       "name": "Mohan Biswal",
       "dob": "2005-12-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karanpalli"
     }
   ]
 }

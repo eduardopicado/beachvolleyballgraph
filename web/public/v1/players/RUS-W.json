@@ -49,14 +49,16 @@
       "name": "Anna Voronova",
       "dob": "1979-07-27",
       "height": 177,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "St-Petersburg"
     },
     {
       "id": 101758,
       "name": "Ekaterina Voronova",
       "dob": "1979-07-27",
       "height": 177,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "St-Petersburg"
     },
     {
       "id": 102686,
@@ -105,7 +107,8 @@
       "name": "Anna Morozova",
       "dob": "1984-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leningrad Region"
     },
     {
       "id": 103960,
@@ -113,6 +116,7 @@
       "dob": "1986-08-16",
       "height": null,
       "weight": null,
+      "birthPlace": "St. Petersburg",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -161,21 +165,24 @@
       "name": "Inna Yudina",
       "dob": "1985-01-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leningrad"
     },
     {
       "id": 104199,
       "name": "Natalya Uryadova",
       "dob": "1977-03-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow, reg., Kaliningrad"
     },
     {
       "id": 104200,
       "name": "Olga Filina",
       "dob": "1976-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 104479,
@@ -217,7 +224,8 @@
       "name": "Galina Boyko",
       "dob": "1985-05-29",
       "height": 177,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Anapa"
     },
     {
       "id": 116329,
@@ -245,7 +253,8 @@
       "name": "Olesya Sharavskaya",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ussr"
     },
     {
       "id": 117996,
@@ -260,6 +269,7 @@
       "dob": "1989-05-17",
       "height": 182,
       "weight": 66,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -411,14 +421,16 @@
       "name": "Anna Markova",
       "dob": "1990-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ussr"
     },
     {
       "id": 118696,
       "name": "Anastasia Barsuk",
       "dob": "1987-12-18",
       "height": 187,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Moscow"
     },
     {
       "id": 118697,
@@ -426,6 +438,7 @@
       "dob": "1988-07-02",
       "height": 186,
       "weight": 75,
+      "birthPlace": "Kolomna , Moscow region",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -445,6 +458,7 @@
       "dob": "1987-08-11",
       "height": 180,
       "weight": 64,
+      "birthPlace": "Bryansk",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -555,7 +569,8 @@
       "name": "Irina Samsonova",
       "dob": "1983-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krasnodar"
     },
     {
       "id": 132140,
@@ -563,6 +578,7 @@
       "dob": "1991-10-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Moscow",
       "away": [
         {
           "id": 147368,
@@ -611,6 +627,7 @@
       "dob": "1994-07-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -666,14 +683,16 @@
       "name": "Ekaterina Makroguzova",
       "dob": "1994-10-24",
       "height": 176,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Bratsk"
     },
     {
       "id": 135597,
       "name": "Ksenia Dyachuk",
       "dob": "1993-10-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 137476,
@@ -687,7 +706,8 @@
       "name": "Anna Gorbunova",
       "dob": "1995-10-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 139121,
@@ -695,6 +715,7 @@
       "dob": "1997-04-02",
       "height": 183,
       "weight": 57,
+      "birthPlace": "Russia",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -713,14 +734,16 @@
       "name": "Olga Motrich",
       "dob": "1988-07-18",
       "height": 190,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Moscow Russia"
     },
     {
       "id": 141621,
       "name": "Elena Sviridova",
       "dob": "1994-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Astana"
     },
     {
       "id": 141624,
@@ -739,21 +762,24 @@
       "name": "Evgeniia Iakovleva",
       "dob": "1994-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saint-Petersburg"
     },
     {
       "id": 141926,
       "name": "Anastasiia Strugova",
       "dob": "1996-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saint-Petersburg"
     },
     {
       "id": 141940,
       "name": "Maria Sviridova",
       "dob": "1994-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aktau city, Kazakhstan"
     },
     {
       "id": 144107,
@@ -761,6 +787,7 @@
       "dob": "1997-02-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Buzuluk",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -772,7 +799,8 @@
       "name": "Elizaveta Novikova",
       "dob": "1997-08-05",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Moscow, Russia"
     },
     {
       "id": 145664,
@@ -780,6 +808,7 @@
       "dob": "1997-11-09",
       "height": 174,
       "weight": 62,
+      "birthPlace": "City Obninsk",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -792,6 +821,7 @@
       "dob": "1998-04-28",
       "height": 189,
       "weight": 65,
+      "birthPlace": "Rostov-on-Don",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -860,6 +890,7 @@
       "dob": "2000-02-18",
       "height": 168,
       "weight": 61,
+      "birthPlace": "Russia",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -872,6 +903,7 @@
       "dob": "1998-07-25",
       "height": 187,
       "weight": 71,
+      "birthPlace": "Korolev",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -890,7 +922,8 @@
       "name": "Anna Kurshina",
       "dob": "1992-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tatarstan"
     },
     {
       "id": 156338,
@@ -898,6 +931,7 @@
       "dob": "2002-02-23",
       "height": 187,
       "weight": 78,
+      "birthPlace": "Lipetsk",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -917,6 +951,7 @@
       "dob": "1998-11-07",
       "height": 190,
       "weight": 68,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -963,7 +998,8 @@
       "name": "Ekaterina Filina",
       "dob": "1990-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leningrad"
     },
     {
       "id": 167881,
@@ -984,7 +1020,8 @@
       "name": "Valeria Filkova",
       "dob": "1999-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Makhachkala"
     },
     {
       "id": 170465,
@@ -998,14 +1035,16 @@
       "name": "Olga Gavrilova",
       "dob": "2003-05-09",
       "height": 184,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Moscow"
     },
     {
       "id": 171697,
       "name": "Alina Salmanova",
       "dob": "2003-01-31",
       "height": 175,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Moscow"
     },
     {
       "id": 172898,
@@ -1019,7 +1058,8 @@
       "name": "Elizaveta Gubina",
       "dob": "2004-07-07",
       "height": 181,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Voronezh"
     },
     {
       "id": 173701,

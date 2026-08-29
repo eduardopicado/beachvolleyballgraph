@@ -133,7 +133,8 @@
       "name": "Cristobal Martinez",
       "dob": "1986-02-21",
       "height": 196,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Santiago"
     },
     {
       "id": 125323,
@@ -147,7 +148,8 @@
       "name": "Matías Tobar",
       "dob": "1984-04-12",
       "height": 196,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "SAN Felipe"
     },
     {
       "id": 125329,
@@ -155,6 +157,7 @@
       "dob": "1989-07-11",
       "height": 196,
       "weight": 95,
+      "birthPlace": "Queilen, Chiloe",
       "tour": {
         "gold": 5,
         "silver": 2,
@@ -167,6 +170,7 @@
       "dob": "1991-01-09",
       "height": 190,
       "weight": 95,
+      "birthPlace": "Santiago de Chile",
       "tour": {
         "gold": 5,
         "silver": 2,
@@ -178,7 +182,8 @@
       "name": "Guillermo Ignacio Jimenez Aedo",
       "dob": "1983-10-27",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Concepción"
     },
     {
       "id": 135297,
@@ -221,6 +226,7 @@
       "dob": "2000-06-23",
       "height": 190,
       "weight": 85,
+      "birthPlace": "Rancagua",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -232,7 +238,8 @@
       "name": "Ignacio Alejandro Zavala Vuletich",
       "dob": "1995-06-23",
       "height": 196,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Santiago"
     },
     {
       "id": 161909,
@@ -253,7 +260,8 @@
       "name": "Martín Iglesias",
       "dob": "2002-03-27",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Santiago"
     },
     {
       "id": 172387,
@@ -261,6 +269,7 @@
       "dob": "2002-07-30",
       "height": 189,
       "weight": 80,
+      "birthPlace": "Las Condes",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -272,14 +281,16 @@
       "name": "Fernando Quintero",
       "dob": "2003-03-11",
       "height": 193,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Las Condes"
     },
     {
       "id": 172916,
       "name": "Thomas Acevedo",
       "dob": "2003-12-29",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Independencia"
     },
     {
       "id": 184342,
@@ -300,42 +311,48 @@
       "name": "Goran Grimalt Karmelic",
       "dob": "2002-08-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 208846,
       "name": "Jorge Pablo Brain Zirpel",
       "dob": "2006-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Viña DEL MAR"
     },
     {
       "id": 212941,
       "name": "José Tomas Brain Zirpel",
       "dob": "2008-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Viña DEL MAR"
     },
     {
       "id": 212942,
       "name": "George Hargreaves Arentsen",
       "dob": "2008-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Viña DEL MAR"
     },
     {
       "id": 225839,
       "name": "Francisco Farias Valdivia",
       "dob": "2009-03-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Viña DEL MAR"
     },
     {
       "id": 233988,
       "name": "Gael Arias Saldias",
       "dob": "2009-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "santiago"
     }
   ]
 }

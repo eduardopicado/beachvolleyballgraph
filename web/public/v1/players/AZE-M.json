@@ -8,6 +8,7 @@
       "dob": "1984-04-13",
       "height": null,
       "weight": 90,
+      "birthPlace": "Salvador - BRA",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -173,7 +174,8 @@
       "name": "Bernardo Wermelinger Romano",
       "dob": "1980-03-07",
       "height": null,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Cantagalo/ RJ"
     },
     {
       "id": 147362,

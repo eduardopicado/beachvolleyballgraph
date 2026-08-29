@@ -20,6 +20,7 @@
       "dob": "1998-05-24",
       "height": 175,
       "weight": 65,
+      "birthPlace": "Bucuresti",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -32,6 +33,7 @@
       "dob": "1997-08-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Satu Mare, Romania",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -43,7 +45,8 @@
       "name": "Florina Murariu",
       "dob": "2002-02-13",
       "height": 180,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Botosani"
     },
     {
       "id": 156846,
@@ -57,35 +60,40 @@
       "name": "Irina-Eliza Kosinski",
       "dob": "2001-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 160019,
       "name": "Ariana Pirv",
       "dob": "1996-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cluj-Napoca"
     },
     {
       "id": 163434,
       "name": "Serena-Andreea Grigore",
       "dob": "2002-12-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 166952,
       "name": "Elena-Andreea Petrosanu",
       "dob": "1997-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 167549,
       "name": "Andreea Iustina Corcoz",
       "dob": "2002-11-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucharest"
     },
     {
       "id": 169358,
@@ -93,6 +101,7 @@
       "dob": "2003-01-03",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Bucuresti",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -104,42 +113,48 @@
       "name": "Madalina-Luminita Sandu",
       "dob": "2002-03-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 171889,
       "name": "Ioana Sorina Hododi",
       "dob": "2005-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 173590,
       "name": "Adina Stanciu",
       "dob": "1986-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cluj Napoca"
     },
     {
       "id": 178050,
       "name": "Alexia Ioana Bradatan",
       "dob": "2004-10-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucharest, Romania"
     },
     {
       "id": 180667,
       "name": "Ioana Andreea Miu",
       "dob": "2005-04-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucuresti"
     },
     {
       "id": 212348,
       "name": "Ioana-Cristiana Murgoci",
       "dob": "2008-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Iasi"
     }
   ]
 }

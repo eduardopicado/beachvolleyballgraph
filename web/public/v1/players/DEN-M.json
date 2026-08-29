@@ -35,14 +35,16 @@
       "name": "Jes Barkler",
       "dob": "1973-03-07",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Odense"
     },
     {
       "id": 100849,
       "name": "Peter Lyo",
       "dob": "1964-11-30",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Odense"
     },
     {
       "id": 100892,
@@ -50,6 +52,7 @@
       "dob": "1973-06-07",
       "height": 184,
       "weight": 78,
+      "birthPlace": "Copenhagen",
       "away": [
         {
           "id": 102786,
@@ -75,28 +78,32 @@
       "name": "Jens 'Hassing' Larsen",
       "dob": "1969-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aalborg"
     },
     {
       "id": 102180,
       "name": "Mikkel \"Bosse\" Herslov",
       "dob": "1971-01-19",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Glostrup"
     },
     {
       "id": 102181,
       "name": "Thomas Lyo",
       "dob": "1970-09-18",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Odense"
     },
     {
       "id": 102589,
       "name": "Jesper Hansen",
       "dob": "1975-10-02",
       "height": 193,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Odense"
     },
     {
       "id": 102646,
@@ -104,6 +111,7 @@
       "dob": "1977-03-20",
       "height": 186,
       "weight": 82,
+      "birthPlace": "Randers",
       "away": [
         {
           "id": 102786,
@@ -149,35 +157,40 @@
       "name": "Henrik Berthelsen",
       "dob": "1976-12-23",
       "height": 203,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Faaborg"
     },
     {
       "id": 103358,
       "name": "Lars Kietzer",
       "dob": "1975-05-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kiel, Germany"
     },
     {
       "id": 103859,
       "name": "Lars Mayland",
       "dob": "1976-06-27",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Vejle"
     },
     {
       "id": 103860,
       "name": "Rasmus Funder",
       "dob": "1976-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sonderborg"
     },
     {
       "id": 104337,
       "name": "Jakob Moeller Soerensen",
       "dob": "1984-01-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Odense"
     },
     {
       "id": 104338,
@@ -185,6 +198,7 @@
       "dob": "1983-09-04",
       "height": 198,
       "weight": 85,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -271,7 +285,8 @@
       "name": "Jakob Due",
       "dob": "1977-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Horsens"
     },
     {
       "id": 104739,
@@ -299,7 +314,8 @@
       "name": "Kristian F. Knudsen",
       "dob": "1979-08-01",
       "height": 199,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Kolding"
     },
     {
       "id": 117463,
@@ -334,7 +350,8 @@
       "name": "Oliver Venndt Kaszas",
       "dob": "1991-07-27",
       "height": 191,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Hellerup"
     },
     {
       "id": 120726,
@@ -370,6 +387,7 @@
       "dob": "1985-02-04",
       "height": 201,
       "weight": 103,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -433,6 +451,7 @@
       "dob": "1994-11-10",
       "height": 203,
       "weight": 95,
+      "birthPlace": "Aarhus",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -483,6 +502,7 @@
       "dob": "1996-04-23",
       "height": 188,
       "weight": 80,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -495,6 +515,7 @@
       "dob": "1999-02-24",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -507,6 +528,7 @@
       "dob": "1995-05-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Copenhagen",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -526,6 +548,7 @@
       "dob": "1994-07-22",
       "height": 205,
       "weight": 100,
+      "birthPlace": "copenhagen",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -537,35 +560,40 @@
       "name": "Christian Lundby Andersen",
       "dob": "2004-09-12",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Vejle"
     },
     {
       "id": 181124,
       "name": "Marius Stenmann Hansen",
       "dob": "2004-07-31",
       "height": 195,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Copenhagen"
     },
     {
       "id": 187549,
       "name": "Villads Flügge Napier",
       "dob": "2006-01-17",
       "height": 191,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Frankrig"
     },
     {
       "id": 187554,
       "name": "Villads Lundby Andersen",
       "dob": "2006-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sønderborg"
     },
     {
       "id": 187558,
       "name": "Hjalmer Elmbæk Madsen",
       "dob": "2005-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Haderslev"
     }
   ]
 }

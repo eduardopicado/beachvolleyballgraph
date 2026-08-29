@@ -7,21 +7,24 @@
       "name": "Guang Fa Benjamin Yio",
       "dob": "1996-09-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     },
     {
       "id": 156310,
       "name": "Fan Yang Mark Shen",
       "dob": "1996-03-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     },
     {
       "id": 161459,
       "name": "Trevis Tan",
       "dob": "1999-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "singapore"
     },
     {
       "id": 161626,
@@ -91,14 +94,16 @@
       "name": "Lucas Jun Yang Gan",
       "dob": "2003-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     },
     {
       "id": 233530,
       "name": "Kah Shing, Damien Neo",
       "dob": "2004-04-20",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Singapore"
     }
   ]
 }

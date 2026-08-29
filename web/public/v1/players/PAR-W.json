@@ -7,14 +7,16 @@
       "name": "Patricia Carolina Caballero Peña",
       "dob": "1984-04-28",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 135186,
       "name": "Gabriela Filippo",
       "dob": "1986-07-21",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 141366,
@@ -22,6 +24,7 @@
       "dob": "1998-05-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Asuncion",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -34,6 +37,7 @@
       "dob": "1996-10-18",
       "height": 182,
       "weight": 75,
+      "birthPlace": "Asuncion",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -45,7 +49,8 @@
       "name": "Maria Johana Ocampos Romero",
       "dob": "1996-01-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 156179,
@@ -67,6 +72,7 @@
       "dob": "2000-09-30",
       "height": 180,
       "weight": null,
+      "birthPlace": "Asuncion",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -78,7 +84,8 @@
       "name": "Romina Ediger",
       "dob": "2002-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 163289,
@@ -92,35 +99,40 @@
       "name": "Adriana Ediger Pankratz",
       "dob": "2004-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asunción"
     },
     {
       "id": 182528,
       "name": "Fiorella Nunez Quintana",
       "dob": "2004-01-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lambare"
     },
     {
       "id": 183045,
       "name": "Maggie Paiva Goiburu",
       "dob": "2003-12-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asunción"
     },
     {
       "id": 188480,
       "name": "Denisse Alvarez",
       "dob": "2005-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 188748,
       "name": "Sofia Paredes Enrique",
       "dob": "2004-11-26",
       "height": 175,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 208857,
@@ -134,35 +146,40 @@
       "name": "Mayra Perez",
       "dob": "2006-03-19",
       "height": 174,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Asunción"
     },
     {
       "id": 222603,
       "name": "Valentina Schmeda",
       "dob": "2005-09-24",
       "height": 170,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 225640,
       "name": "Agustina Velazquez",
       "dob": "2010-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fernando DE LA Mora"
     },
     {
       "id": 225641,
       "name": "Sofia Martinez",
       "dob": "2011-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 233951,
       "name": "Clara naomi Torres",
       "dob": "2011-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asunción"
     }
   ]
 }

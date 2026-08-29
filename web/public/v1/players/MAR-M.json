@@ -21,7 +21,8 @@
       "name": "Mohammed Abicha",
       "dob": "1980-01-16",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Adgal/ MAR"
     },
     {
       "id": 104912,
@@ -49,7 +50,8 @@
       "name": "Khalid Satour",
       "dob": "1981-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rabat"
     },
     {
       "id": 104917,
@@ -116,6 +118,7 @@
       "dob": "1985-04-19",
       "height": 198,
       "weight": 82,
+      "birthPlace": "Mohammedia",
       "away": [
         {
           "id": 145123,
@@ -156,7 +159,8 @@
       "name": "Omar El Aqil",
       "dob": "1976-11-28",
       "height": 196,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Rabat"
     },
     {
       "id": 117038,
@@ -191,21 +195,24 @@
       "name": "Karim Oughdach",
       "dob": "1979-02-17",
       "height": 190,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "casablanca"
     },
     {
       "id": 135123,
       "name": "Soufiane Bouchaoui",
       "dob": "1983-05-09",
       "height": 192,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Casablanca, Maroc"
     },
     {
       "id": 135554,
       "name": "Ihssane Boukhar",
       "dob": "1979-11-27",
       "height": 190,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Casablanca"
     },
     {
       "id": 135555,
@@ -252,7 +259,8 @@
       "name": "Adil El Andaloussi",
       "dob": "1976-08-19",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "casablanca"
     },
     {
       "id": 137705,
@@ -266,28 +274,32 @@
       "name": "Mostapha Hamsi",
       "dob": "1981-11-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "CA"
     },
     {
       "id": 137707,
       "name": "Othmane Farabi",
       "dob": "1990-04-08",
       "height": 207,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "yacoub el mansour"
     },
     {
       "id": 150074,
       "name": "Zouheir Elgraoui",
       "dob": "1994-07-01",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Casablanca"
     },
     {
       "id": 150075,
       "name": "Adil Bsina",
       "dob": "1985-09-02",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Meknes"
     },
     {
       "id": 161540,
@@ -301,7 +313,8 @@
       "name": "Soufiane El Gharouti",
       "dob": "1998-01-23",
       "height": 190,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Mohammedia"
     },
     {
       "id": 163503,
@@ -336,7 +349,8 @@
       "name": "Driss Mosstari",
       "dob": "2002-07-27",
       "height": 194,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Casablanca"
     },
     {
       "id": 169496,
@@ -350,77 +364,88 @@
       "name": "Oussama El Azhari",
       "dob": "1999-04-09",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "casablanca"
     },
     {
       "id": 172004,
       "name": "Ilyas Rhouni Lazaar",
       "dob": "2000-04-14",
       "height": 192,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "EL Jadida"
     },
     {
       "id": 174199,
       "name": "Anass Saber",
       "dob": "1999-04-22",
       "height": 204,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Temara"
     },
     {
       "id": 176191,
       "name": "Nabil Chane",
       "dob": "1986-05-13",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "sidi kacem"
     },
     {
       "id": 207982,
       "name": "Youssef Bouysfi",
       "dob": "2008-07-04",
       "height": 177,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "casa blanca"
     },
     {
       "id": 207983,
       "name": "Adam Lahsini",
       "dob": "2008-12-13",
       "height": 190,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "agdal ryad"
     },
     {
       "id": 211179,
       "name": "Abdellatif Ourhdach",
       "dob": "2007-05-18",
       "height": 195,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Sidi Bernoussi"
     },
     {
       "id": 214329,
       "name": "Ilyas Karbal",
       "dob": "2007-03-31",
       "height": 194,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Sidi Bernoussi"
     },
     {
       "id": 217624,
       "name": "Berrada Allam Hamza",
       "dob": "1989-08-11",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Hay Hassani"
     },
     {
       "id": 231321,
       "name": "Mohammed El biary",
       "dob": "2009-01-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mdiq Maroc"
     },
     {
       "id": 231322,
       "name": "Othman Byadi",
       "dob": "2009-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "AIN Sebaa Maroc"
     }
   ]
 }

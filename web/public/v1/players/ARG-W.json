@@ -28,7 +28,8 @@
       "name": "Viviana Dominko",
       "dob": "1982-10-03",
       "height": 178,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 112614,
@@ -36,6 +37,7 @@
       "dob": "1984-06-11",
       "height": 172,
       "weight": 63,
+      "birthPlace": "Santa Fe",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -47,7 +49,8 @@
       "name": "Natali Flaviani",
       "dob": "1985-10-08",
       "height": 185,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Santa Fe"
     },
     {
       "id": 117545,
@@ -139,6 +142,7 @@
       "dob": "1986-01-16",
       "height": 173,
       "weight": 67,
+      "birthPlace": "Nogoya, Entre Ríos province",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -157,7 +161,8 @@
       "name": "Maria Virginia Zonta",
       "dob": "1989-09-30",
       "height": 169,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Santa Fe, Santa Fe province"
     },
     {
       "id": 134610,
@@ -178,7 +183,8 @@
       "name": "Irene Verasio",
       "dob": "1996-07-14",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Santa Fe"
     },
     {
       "id": 138787,
@@ -192,7 +198,8 @@
       "name": "Camila Hiruela Tapia",
       "dob": "1997-02-01",
       "height": 176,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "San Salvador de Jujuy"
     },
     {
       "id": 142068,
@@ -206,7 +213,8 @@
       "name": "Florencia Di Cesare",
       "dob": "1995-07-03",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Mendoza, Argentina"
     },
     {
       "id": 142942,
@@ -220,7 +228,8 @@
       "name": "Milena Churin",
       "dob": "1997-03-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "La Plata"
     },
     {
       "id": 145808,
@@ -246,14 +255,16 @@
       "name": "Florencia Amieva",
       "dob": "1995-01-01",
       "height": 170,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Tunuyán"
     },
     {
       "id": 149305,
       "name": "Maria Loreto Sancer Navarro",
       "dob": "1998-01-10",
       "height": 175,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Tunuyán"
     },
     {
       "id": 149307,
@@ -267,14 +278,16 @@
       "name": "Brenda Ailen Churin",
       "dob": "2000-02-17",
       "height": 173,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "La plata, Buenos Aires"
     },
     {
       "id": 150359,
       "name": "Agnes Victoria Michel Tosi",
       "dob": "1999-07-01",
       "height": 186,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Paraná, Entre Ríos"
     },
     {
       "id": 156191,
@@ -288,28 +301,32 @@
       "name": "Julia Diaz Neli",
       "dob": "1998-11-23",
       "height": null,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Rosario"
     },
     {
       "id": 156193,
       "name": "Virginia Beguiristain",
       "dob": "1999-02-02",
       "height": 180,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Rosario"
     },
     {
       "id": 163282,
       "name": "Victoria Pozzo Galdon",
       "dob": "2001-05-05",
       "height": 177,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Santa Fe"
     },
     {
       "id": 163283,
       "name": "Maria Paz Tolosa",
       "dob": "2000-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Olavarria"
     },
     {
       "id": 166926,
@@ -323,14 +340,16 @@
       "name": "Maria Laura Moreno",
       "dob": "1983-05-02",
       "height": 165,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Mendoza Argentina"
     },
     {
       "id": 178661,
       "name": "Maria Belen Enriquez Bondonno",
       "dob": "2004-05-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 181571,
@@ -338,6 +357,7 @@
       "dob": "2003-04-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Mendoza",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -349,7 +369,8 @@
       "name": "Iara Denappole",
       "dob": "2005-03-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar Del Plata - Bs. As"
     },
     {
       "id": 182135,
@@ -357,6 +378,7 @@
       "dob": "2002-10-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Rosario-Santa Fe",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -369,6 +391,7 @@
       "dob": "2005-05-25",
       "height": null,
       "weight": null,
+      "birthPlace": "Rosario - Santa Fe",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -380,14 +403,16 @@
       "name": "Agostina Panzera",
       "dob": "2004-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caba"
     },
     {
       "id": 200556,
       "name": "Lucia Piatti Fadda",
       "dob": "1993-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cordoba"
     },
     {
       "id": 208888,
@@ -415,7 +440,8 @@
       "name": "Angeles Frascaroli",
       "dob": "2009-08-22",
       "height": null,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "buenos aires"
     }
   ]
 }

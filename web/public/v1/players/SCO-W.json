@@ -7,7 +7,8 @@
       "name": "Lynne Beattie",
       "dob": "1985-12-23",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Glasgow"
     },
     {
       "id": 150830,
@@ -40,14 +41,16 @@
       "name": "Kathryn Barbour",
       "dob": "1995-11-23",
       "height": 175,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Glasgow"
     },
     {
       "id": 153177,
       "name": "Mhairi Wallace",
       "dob": "1996-10-16",
       "height": 188,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Glasgow"
     },
     {
       "id": 164869,
@@ -61,7 +64,8 @@
       "name": "Alexis Crusey",
       "dob": "1988-03-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     }
   ]
 }
