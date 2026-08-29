@@ -318,6 +318,52 @@ and 200 of those played three or more events together.
 
 ---
 
+## 6.5. `FirstName` and `LastName` are free text, not name parts
+
+`Player.FirstName` and `Player.LastName` are typed by hand at 200-odd
+federations over three decades, and it shows. Taking the site's 12,074
+published players as the population:
+
+| what | published | whole 130,988-row table |
+|---|---:|---:|
+| untrimmed whitespace | 205 | 6,500 (4.96%) |
+| typed entirely in capitals | 64 | 5,737 have an ALL-CAPS `FirstName` |
+| a quoted nickname inside the field | 547 | 982 |
+| a double space | 36 | 476 |
+| empty `FirstName` | 0 | 8 |
+
+**The worked example.** Alexandre Ramos Samuel — "Tande" — is player `102071`:
+
+```
+FirstName = ' Ramos Alexandre "Tande"'    LastName = 'Samuel'    TeamName = 'Tande'
+```
+
+Three problems in one row. A leading space; the surname `Ramos` sitting in
+front of the given name, so `FirstName + LastName` reads "Ramos Alexandre
+"Tande" Samuel"; and the nickname stuffed into `FirstName` when `TeamName`
+already holds it correctly.
+
+**Capitals sometimes carry meaning.** 64 published names shout in every word,
+where the capitals say nothing. But 66 others shout in *some* words —
+"Katharina HETZENDORFER", "MUKUNZI Christ Ornel" — and there the capitals mark
+the family name, which is the convention across much of Europe and Africa and
+the only indication of name order those rows have. Normalising case per word
+would delete it. `tidyName` in `ingest/build.ts` therefore tests the whole name
+and only touches the ones where every word shouts.
+
+**What can't be fixed downstream.** Name *order*. Nothing in the row says which
+token is the given name, so Tande stays "Ramos Alexandre …" until FIVB fixes
+the record. Reported upstream — see the bottom of this document.
+
+**Handled in.** `ingest/build.ts`, `tidyName`, applied in `fullName` and
+`shortName`. Trimming, whitespace collapsing, and case where case is noise.
+Particles are deliberately *not* lowercased: the same "DE" is a Portuguese
+particle in "TAVARES DE PINA" and part of a Flemish surname in "LOTTE DE
+CLERCQ", and "LE" in "OOI TIAN LE" is a Malaysian name rather than a French
+particle. Telling them apart needs the player's culture, not their string.
+
+---
+
 ## 7. Federation codes that aren't countries
 
 - **`SMA`** — the player sample includes a literal `Test` / `Test` entry

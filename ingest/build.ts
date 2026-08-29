@@ -357,11 +357,69 @@ export function aggregateTourPodiums(
   return out;
 }
 
+/** A token that is a shout: letters, all of them upper case. */
+function isShouted(token: string): boolean {
+  const letters = token.replace(/[^\p{L}]/gu, '');
+  return letters.length > 0 && token === token.toUpperCase() && token !== token.toLowerCase();
+}
+
+/**
+ * Tidy the presentation of a name VIS holds untidily.
+ *
+ * Two fixes, both cosmetic, neither changing which characters a name is made
+ * of. Measured over the 12,074 players we publish: 36 names carry a double
+ * space, and 64 are typed entirely in capitals.
+ *
+ * **Capitals only when they carry nothing.** The rule is deliberately
+ * whole-name rather than per-word, because a partly-capitalised name is using
+ * the capitals to *say* something: "Katharina HETZENDORFER" and "MUKUNZI Christ
+ * Ornel" mark the surname that way, which is the convention across much of
+ * Europe and Africa and is the only indication of name order those rows have.
+ * 66 published players are in that shape, and title-casing them would delete
+ * the one useful signal in the row. Where every word shouts there is no such
+ * signal to lose, so those are the only ones touched.
+ *
+ * **No particle lowering.** "ADLA MARINA TAVARES DE PINA" becomes "Adla Marina
+ * Tavares De Pina" where Portuguese would write "de Pina". That is knowingly
+ * left alone: the same "DE" is correctly capitalised in Flemish ("LOTTE DE
+ * CLERCQ" is De Clercq), and "LE" three rows away is a Malaysian name rather
+ * than a French particle ("OOI TIAN LE"). Guessing which is which needs the
+ * player's nationality *and* their culture's convention, and getting it wrong
+ * lowercases somebody's surname. Title case is never wrong-looking; it is only
+ * ever less right than a human would manage.
+ *
+ * Initialisms are left verbatim, so "A.J." does not become "A.j.".
+ */
+export function tidyName(value: string): string {
+  const collapsed = value.replace(/\s+/g, ' ').trim();
+  if (!collapsed) return '';
+
+  const words = collapsed.split(' ');
+  const shoutable = words.filter((w) => /\p{L}/u.test(w) && !w.includes('.'));
+  // A name of nothing but short words could be an initialism rather than a
+  // shout, so require one substantial word before deciding it is one.
+  const substantial = shoutable.some((w) => w.replace(/[^\p{L}]/gu, '').length >= 4);
+  if (!substantial || shoutable.length === 0 || !shoutable.every(isShouted)) return collapsed;
+
+  return words
+    .map((word) =>
+      word.includes('.')
+        ? word
+        : // A letter starts a new part of a name when it opens the word or
+          // follows a hyphen or apostrophe: Hsin-Tung, D'Almeida, O'Brien.
+          word.toLowerCase().replace(/(^|[-'’])(\p{L})/gu, (_, sep: string, letter: string) => sep + letter.toUpperCase()),
+    )
+    .join(' ');
+}
+
 function fullName(row: VisRow): string {
   const first = (row.FirstName ?? '').trim();
   const last = (row.LastName ?? '').trim();
-  const joined = `${first} ${last}`.trim();
-  return joined || (row.TeamName ?? '').trim() || `Player ${row.No}`;
+  // Tidied as one string rather than field by field, so the shout test sees the
+  // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
+  // "HETZENDORFER" on its own looks like a name that simply shouts.
+  const joined = tidyName(`${first} ${last}`);
+  return joined || tidyName(row.TeamName ?? '') || `Player ${row.No}`;
 }
 
 /**
@@ -369,9 +427,11 @@ function fullName(row: VisRow): string {
  * is not always populated — fall back to the surname, then the full name.
  */
 function shortName(row: VisRow, full: string): string {
-  const team = (row.TeamName ?? '').trim();
+  const team = tidyName(row.TeamName ?? '');
   if (team) return team;
-  const last = (row.LastName ?? '').trim();
+  // From the raw field rather than sliced out of `full`, which is already
+  // tidied and may have been title-cased as part of a longer name.
+  const last = tidyName(row.LastName ?? '');
   return last || full;
 }
 

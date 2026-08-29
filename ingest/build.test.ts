@@ -14,6 +14,7 @@ import {
   awayPartnersByPlayer,
   sliceByCountryAndGender,
   startOffsetFor,
+  tidyName,
 } from './build.js';
 import type { VisRow } from './vis.js';
 
@@ -129,6 +130,53 @@ describe('normaliseTournaments', () => {
       Type: t,
     }));
     expect(normaliseTournaments(rows).size).toBe(0);
+  });
+});
+
+describe('tidyName', () => {
+  it('trims and collapses the whitespace VIS leaves in the field', () => {
+    // Tande's row really is stored with a leading space.
+    expect(tidyName(' Ramos Alexandre "Tande" Samuel')).toBe('Ramos Alexandre "Tande" Samuel');
+    expect(tidyName('Paulo  Roberto   Moreira')).toBe('Paulo Roberto Moreira');
+  });
+
+  it('title-cases a name where every word shouts', () => {
+    expect(tidyName('ARIDSON RODRIGUES ANDRADE')).toBe('Aridson Rodrigues Andrade');
+    expect(tidyName('DELVINO ANDRADE SOUTO GONÇALVES')).toBe('Delvino Andrade Souto Gonçalves');
+    expect(tidyName('ONUR ÖZKOL')).toBe('Onur Özkol');
+  });
+
+  it('leaves a partly-capitalised name alone, because the capitals mark the surname', () => {
+    // The whole point of the whole-name rule: these say which word is the
+    // family name, and it is the only place that row says it.
+    expect(tidyName('Katharina HETZENDORFER')).toBe('Katharina HETZENDORFER');
+    expect(tidyName('MUKUNZI Christ Ornel')).toBe('MUKUNZI Christ Ornel');
+    expect(tidyName('Lucilia ROSA LEMOS')).toBe('Lucilia ROSA LEMOS');
+  });
+
+  it('capitalises after a hyphen or apostrophe, not just at the word start', () => {
+    expect(tidyName('HSIN-TUNG CHUANG')).toBe('Hsin-Tung Chuang');
+    expect(tidyName("MARIA D'ALMEIDA")).toBe("Maria D'Almeida");
+  });
+
+  it('leaves initialisms and short-word names as they are', () => {
+    // "A.J." must not become "A.j.", and a name with no substantial word is
+    // more likely an initialism than a shout.
+    expect(tidyName('A.J. JOHNSON')).toBe('A.J. Johnson');
+    expect(tidyName('KK')).toBe('KK');
+  });
+
+  it('does not lowercase particles, because the same word differs by culture', () => {
+    // "de Pina" is the strictly correct Portuguese form and we knowingly do not
+    // produce it — the same DE is capitalised in Flemish, and LE two rows away
+    // is a Malaysian name rather than a French particle.
+    expect(tidyName('ADLA MARINA TAVARES DE PINA')).toBe('Adla Marina Tavares De Pina');
+    expect(tidyName('OOI TIAN LE')).toBe('Ooi Tian Le');
+  });
+
+  it('leaves an ordinary name untouched', () => {
+    expect(tidyName('Alexandre Ramos Samuel')).toBe('Alexandre Ramos Samuel');
+    expect(tidyName('')).toBe('');
   });
 });
 
@@ -1264,5 +1312,48 @@ describe('the published best finishes', () => {
 
   it('has someone who won together', () => {
     expect(edges.filter((e) => e.r === 1).length).toBeGreaterThan(100);
+  });
+});
+
+/**
+ * What actually got published, rather than what the rule does on a fixture.
+ *
+ * `tidyName` is unit-tested above, but nothing there proves it is *reached* —
+ * the name path runs through `fullName`, `shortName` and the search index, and
+ * a field that stopped being tidied on the way would still publish perfectly
+ * plausible names. These assert the three defects are absent from the artifact
+ * and that the deliberate non-fix is still deliberate.
+ */
+describe('the published player names', () => {
+  const search = JSON.parse(readFileSync(new URL('../web/public/v1/search.json', import.meta.url), 'utf8'));
+  const names: string[] = [];
+  for (const list of Object.values(search.slices as Record<string, [number, string, number][]>)) {
+    for (const entry of list) names.push(entry[1]);
+  }
+
+  const words = (name: string) => name.split(' ').filter((w) => /\p{L}/u.test(w));
+  const shouts = (word: string) => word === word.toUpperCase() && word !== word.toLowerCase();
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: the assertions below all pass trivially on an empty list.
+    expect(names.length).toBeGreaterThan(10_000);
+  });
+
+  it('has no name typed entirely in capitals', () => {
+    // 64 before this; the rule only fires when every word shouts.
+    expect(names.filter((n) => words(n).length > 0 && words(n).every(shouts))).toEqual([]);
+  });
+
+  it('has no double space and no stray whitespace', () => {
+    // 36 double-spaced. Tande's row is stored with a leading space.
+    expect(names.filter((n) => /\s\s/.test(n) || n !== n.trim())).toEqual([]);
+  });
+
+  it('still keeps the capitals that mark a surname', () => {
+    // The deliberate non-fix, asserted so a future "tidy every word" change
+    // has to argue with a test rather than silently delete the signal. These
+    // are names like "Katharina HETZENDORFER" and "MUKUNZI Christ Ornel".
+    const marked = names.filter((n) => words(n).some(shouts) && words(n).some((w) => !shouts(w)));
+    expect(marked.length).toBeGreaterThan(20);
   });
 });
