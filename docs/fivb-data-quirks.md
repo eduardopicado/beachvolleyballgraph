@@ -531,7 +531,10 @@ reliable than parsing the names.
 the season is a complete key, and it does not require guessing the code FIVB
 will invent for an edition that has not happened. `ingest/olympics.ts` maps
 season to the official designation; anything not in the map keeps FIVB's own
-name, which is worse-looking but never wrong.
+name, which is worse-looking but never wrong. **Los Angeles 2028 and Brisbane
+2032 are already in it** — both hosts are settled, neither has a tournament in
+VIS yet, and keying by season means adding them cost nothing and risked
+nothing.
 
 **Watch 2021.** The Tokyo Games were postponed a year. The archive files them
 under season **2021** and they are officially **Tokyo 2020**, so the label and

@@ -24,16 +24,18 @@ describe('olympicName', () => {
     expect(olympicName(2020)).toBeNull();
   });
 
-  it('is ready for Los Angeles before the tournament exists', () => {
-    // Entered ahead of time and keyed by season, so it does not depend on
-    // guessing the code FIVB will invent for it.
+  it('is ready for the next two hosts before their tournaments exist', () => {
+    // Entered ahead of time and keyed by season, so neither depends on
+    // guessing the code FIVB will invent. Both hosts are settled.
     expect(olympicName(2028)).toBe('Los Angeles 2028');
+    expect(olympicName(2032)).toBe('Brisbane 2032');
   });
 
   it('gives nothing for a Games it has not been told about', () => {
     // Null rather than a guess: an unknown edition keeps whatever FIVB called
-    // it, which is worse-looking but never wrong.
-    expect(olympicName(2032)).toBeNull();
+    // it, which is worse-looking but never wrong. 2036 has no host yet, and
+    // 1992 predates beach volleyball at the Games.
+    expect(olympicName(2036)).toBeNull();
     expect(olympicName(1992)).toBeNull();
   });
 

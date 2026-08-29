@@ -25,9 +25,12 @@
  * shows the season in its gutter and the name beside it, so a reader sees both
  * when it was played and what it is called.
  *
- * 2028 is entered ahead of time. Los Angeles is a settled host, but no
- * tournament exists in VIS yet — so this row does nothing until one appears,
- * and costs nothing if FIVB files it under a code nobody predicted.
+ * 2028 and 2032 are entered ahead of time. Los Angeles and Brisbane are
+ * settled hosts, but neither has a tournament in VIS yet — so those rows do
+ * nothing until one appears, and cost nothing if FIVB files them under codes
+ * nobody predicted. Keying by season is what makes that safe: a guess at the
+ * code could be wrong, but there will be exactly one Games in 2032 whatever it
+ * ends up being called.
  */
 export const OLYMPIC_GAMES: Readonly<Record<number, string>> = {
   1996: 'Atlanta 1996',
@@ -40,6 +43,7 @@ export const OLYMPIC_GAMES: Readonly<Record<number, string>> = {
   2021: 'Tokyo 2020',
   2024: 'Paris 2024',
   2028: 'Los Angeles 2028',
+  2032: 'Brisbane 2032',
 };
 
 /**
