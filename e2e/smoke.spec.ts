@@ -1273,6 +1273,16 @@ test.describe('other federations', () => {
     const timeline = page.locator('.away .timeline.is-away');
     await timeline.locator('> li').first().locator('.season').click();
 
+    // Wait for the season's events to arrive before reading them. Expanding a
+    // season *fetches* its tournaments, and `allInnerTexts` does not auto-wait
+    // — it returns whatever is in the DOM at that instant, which on a slow
+    // fetch is nothing, and the assertion below then fails on an empty list
+    // rather than on a wrong name. This flaked twice on CI before it was
+    // diagnosed; delaying the results response by 800ms reproduces it every
+    // time. Waiting on `.events > li` rather than `.with` because the partner
+    // span is only rendered when the event names one.
+    await expect(timeline.locator('.events > li').first()).toBeVisible();
+
     const withs = await timeline.locator('.events .with').allInnerTexts();
     expect(withs.length, 'need at least one event to check').toBeGreaterThan(0);
     for (const name of withs) {
