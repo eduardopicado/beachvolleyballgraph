@@ -366,21 +366,57 @@ blindness that hides Noppen hides Gisi, for a different reason.
 be entirely correct; the ambiguity is ours, and it comes from having no
 federation history to check against (§6b).
 
----|---|
-| 1996–2003 | 0.7 – 1.3% |
-| 2004–2012 | 0.3 – 0.5% |
-| 2013–2022 | 0.9 – 1.2% |
-| 2023–2026 | 1.4 – **2.3%** |
+### 6d. Rows agreeing with each other is not corroboration
 
-2,436 of 198,147 comparable entries overall (1.22%). **1,267 partnerships are
-mixed at every event they played, and 206 of those played three or more events
-together.**
+§6a establishes that the team `FederationCode` is stored on the row rather than
+joined live — it does not follow that the stored value is contemporaneous. Every
+argument in §6a–6c leans on rows agreeing with one another, and it is worth
+knowing what that agreement is made of.
 
-The rarity is the point rather than a reason to ignore it: Gisi's fifteen
-entries at Gstaad, Klagenfurt, Marseille and Berlin are genuine FIVB World Tour
-results (Type 0 and 1, organiser FIVB), not domestic events that slipped
-through §1's filter. A mixed pair is unusual, allowed, and correctly recorded —
-the graph simply has nowhere to put one.
+`BeachTeam` will return a **`Version`** if you ask for it. It is a global
+monotonic write counter, not a date: rows written in the same transaction share
+a value, and a higher value means "written later than". So it cannot say *when*
+a row was last touched, but it says exactly **which rows were written together**,
+which turns out to be the more useful question.
+
+Ask for it carefully. VIS **silently ignores field names it does not recognise**
+and answers with the default set instead — `LastChangeDate`, `ModifiedDate` and
+`Timestamp` all come back looking like successful responses containing no such
+field. An unrecognised field is not an error, so a typo in a `Fields` list
+degrades quietly rather than failing.
+
+**What the counter shows.** Across 206,459 team rows there are 23,911 distinct
+versions, and the large ones reach across the whole archive at once:
+
+| version | rows | share | seasons it spans |
+| --- | --- | --- | --- |
+| 2362678 | 21,580 | 10.5% | 1996–2024 |
+| 4293583 | 12,846 | 6.2% | 2002–2026 |
+| 4190115 | 3,320 | 1.6% | 2004–2026 |
+| 4248077 | 1,958 | 0.9% | 1999–2026 |
+
+Of the 350 writes touching 100 rows or more, **303 rewrite rows a decade or
+more apart in a single operation** — median span 14 seasons, longest 28. FIVB
+does mass-rewrite its own past, and 4293583 sits near the top of the sequence,
+so it is recent. Restricted to 1996–2005, **30.1% of rows carry a version above
+the 2362678 floor**: they were written to after the bulk import that created
+them.
+
+**What this costs the arguments above.** Take the §6c worked example. All
+fifteen of Gisi Gavio's rows carry version 2362678 exactly — none rewritten
+since the import, which sounds reassuring until you notice that 2362678 *is*
+the import. Fifteen rows saying `BRA` is not fifteen observations; it is one
+write, copied fifteen times, and whatever those rows said before it is gone.
+Generalised: of the 23,456 players ever listed first, **60.0% have their entire
+player-1 record written in a single transaction**, and 4,740 of those have
+several rows that all agree with each other.
+
+So a rule that accepts a federation because several rows concur is, most of the
+time, consulting one assertion several times. That is still worth doing — it
+catches the case where the rows genuinely *disagree*, which is how the false
+transfers in §6c were found — but it is a **consistency** check, not evidence
+that the value is historically true. Nothing in VIS can supply the latter; only
+a source outside it can.
 
 ---
 
