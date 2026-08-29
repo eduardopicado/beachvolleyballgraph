@@ -480,6 +480,21 @@ export interface AggregateResult {
    */
   results: Map<number, ResultEntry[]>;
   rejects: RejectCounts;
+  /**
+   * player id -> season -> federation code -> how many times.
+   *
+   * Counted only from rows where VIS listed the player first — the nearest
+   * thing to a *player's* own federation a team row offers, since a mixed pair
+   * carries one code and it usually follows player 1.
+   *
+   * "Usually" is the honest word. §6c measures it at 207 of 296 (69.9%) on
+   * mixed rows, so 30.1% follow player 2 instead. It is far safer than it
+   * sounds for this use: the overwhelming majority of rows are *not* mixed,
+   * and on those both players share the code, so reading it as player 1's is
+   * trivially right. The 69.9% bites only where a player's rows are mostly
+   * mixed — Gisi being the extreme, which is why she stays unresolved.
+   */
+  ownFederation: Map<number, Map<number, Map<string, number>>>;
 }
 
 /**
@@ -549,6 +564,12 @@ export function aggregatePartnerships(
    * legend was published as Azerbaijani with nothing to disagree with.
    */
   const fedCodesByPair = new Map<string, Set<string>>();
+  /**
+   * Each player's own federation by season, counted only from rows where VIS
+   * listed them first. See the capture below for why that is the only place
+   * this can come from.
+   */
+  const ownFederation = new Map<number, Map<number, Map<string, number>>>();
   const rejects: RejectCounts = {
     missingPlayer: 0,
     selfPair: 0,
@@ -616,6 +637,26 @@ export function aggregatePartnerships(
       let codes = fedCodesByPair.get(fedKey);
       if (!codes) fedCodesByPair.set(fedKey, (codes = new Set()));
       codes.add(stamped);
+
+      // The same code, filed under whoever VIS listed *first* on the row.
+      //
+      // This is the only per-player federation signal in the data, and it
+      // exists because of §6c: a team gets one code, and on a mixed pair that
+      // code follows player 1 about seven times in ten (207 of 296 measured;
+      // the rest follow player 2). So a row where a player is listed first says
+      // something about *them*; a row where they are listed second says
+      // something about their partner. `pair.a`/`pair.b` are the numeric
+      // minimum and maximum and cannot answer this, which is why it is
+      // captured here rather than derived later.
+      const first = Number(row.NoPlayer1);
+      const season = tournament.season;
+      if (Number.isFinite(first) && first > 0) {
+        let seasons = ownFederation.get(first);
+        if (!seasons) ownFederation.set(first, (seasons = new Map()));
+        let tally = seasons.get(season);
+        if (!tally) seasons.set(season, (tally = new Map()));
+        tally.set(stamped, (tally.get(stamped) ?? 0) + 1);
+      }
     }
 
     const rank = Number(row.Rank);
@@ -667,7 +708,7 @@ export function aggregatePartnerships(
     if (pair) pair.best = best;
   }
 
-  return { partnerships, appearances, results: ordered, rejects };
+  return { partnerships, appearances, results: ordered, rejects, ownFederation };
 }
 
 /**
@@ -779,6 +820,7 @@ export function awayPartnersByPlayer(
   partnerships: Map<string, Partnership>,
   players: Map<number, Player>,
   tournaments: Map<string, Tournament>,
+  ownFederation: Map<number, Map<number, Map<string, number>>>,
   conflicts: FederationConflict[] = [],
 ): Map<number, AwayPartner[]> {
   const out = new Map<number, AwayPartner[]>();
@@ -806,6 +848,37 @@ export function awayPartnersByPlayer(
       }
     }
   }
+
+  /**
+   * A player's own federation in a season, from the rows where VIS listed them
+   * first — the closest a team row comes to naming that player's own
+   * federation (§6c, and see `ownFederation` for how close that is).
+   *
+   * Falls back to the nearest season they have a record for, because a player
+   * does not change federation for one event and back: a partnership in 2003
+   * is corroborated by that player being Italian in 2002 and 2004. Returns
+   * null when they were never listed first at all, which is 31.5% of players —
+   * and null means "cannot corroborate", never "disagrees".
+   */
+  const ownFedAt = (id: number, season: number): string | null => {
+    const seasons = ownFederation.get(id);
+    if (!seasons) return null;
+    let best: string | null = null;
+    let bestDistance = Infinity;
+    let bestCount = 0;
+    for (const [year, tally] of seasons) {
+      const distance = Math.abs(year - season);
+      if (distance > bestDistance) continue;
+      for (const [code, count] of tally) {
+        if (distance < bestDistance || count > bestCount) {
+          best = code;
+          bestDistance = distance;
+          bestCount = count;
+        }
+      }
+    }
+    return best;
+  };
 
   /** The federation a pair represented, season by season. */
   const spansFor = (pair: Partnership): [number, string][] => {
@@ -852,6 +925,52 @@ export function awayPartnersByPlayer(
       [a, b],
       [b, a],
     ] as const) {
+      // Only claim a federation for the partnership where *both* players'
+      // own records agree with it.
+      //
+      // `spansFor` returns the code stamped on the team row, and on a mixed
+      // pair that code describes one player rather than the pair (§6c) — so on
+      // Gisi Gavio's card it said her Italian partners represented Brazil, and
+      // the flag pair rendered from it read as a transfer none of them made.
+      //
+      // Measured on the published rows, the filter drops 154 spans: 100 where a
+      // player's own record names a *different* federation, so the claim was
+      // simply wrong, and 54 where nobody disagrees and one side merely has no
+      // record. Away rows carrying a federation go 221 -> 111, and rows drawing
+      // a transfer arrow 116 -> 58.
+      //
+      // Symmetric on purpose, and an asymmetric version of this was wrong.
+      // Checking only the partner looks like it gives a pleasingly different
+      // answer per direction — nothing about Cicola on Gisi's card, but Gisi
+      // still Brazilian on Cicola's. That second half is the code vouching for
+      // itself: Gisi is listed first on all fifteen of her rows, is never
+      // listed second, and never once partnered a Brazilian, so every row
+      // saying BRA is a row whose BRA came from her being player 1 on it.
+      // There is no independent evidence of her federation in this data at
+      // all, and a rule that produces one is measuring its own input.
+      //
+      // Requiring both sides also makes the field mean what it says. "The
+      // federation the pair represented" is only true of a pair who were both
+      // in it; where they were not, there is no such federation to name.
+      //
+      // What this is *not* is proof the surviving codes are historically true.
+      // Both sides of the test read the same field, written by the same people,
+      // and §6d measures how little independence there is between two rows: the
+      // biggest single write covers 21,580 rows spanning 1996 to 2024, 303 bulk
+      // writes rewrite rows a decade or more apart in one operation, and 60.0%
+      // of players have their whole player-1 record written in one transaction
+      // — Gisi's fifteen rows among them. Rows concurring is usually one
+      // assertion consulted repeatedly. So this catches rows that *disagree*,
+      // which is the case that produced the 31 false transfers, and it cannot
+      // catch a code that was wrong, or retroactively made wrong, everywhere at
+      // once. Only a source outside VIS could.
+      //
+      // Silence is the fallback, not a guess. A row with no span shows the
+      // partner's current federation and nothing about the past, which is
+      // exactly what we know.
+      const corroborated = spans.filter(
+        ([season, code]) => ownFedAt(self.id, season) === code && ownFedAt(other.id, season) === code,
+      );
       const list = out.get(self.id) ?? [];
       list.push({
         id: other.id,
@@ -862,7 +981,7 @@ export function awayPartnersByPlayer(
         f: pair.firstSeason,
         l: pair.lastSeason,
         s: seasonTallies(pair.tournaments, tournaments),
-        at: spans.length > 0 ? spans : undefined,
+        at: corroborated.length > 0 ? corroborated : undefined,
         ...(pair.best === null ? {} : { r: pair.best }),
       });
       out.set(self.id, list);

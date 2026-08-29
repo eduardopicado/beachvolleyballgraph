@@ -569,12 +569,12 @@ describe('a partnership\u2019s best finish, end to end', () => {
 
   it('reaches an away partner as `r` too, so the two lists agree', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
-    const { partnerships } = aggregatePartnerships(
+    const { partnerships, ownFederation } = aggregatePartnerships(
       [placed('t1', 1, 2, 9), placed('t2', 1, 2, 2)],
       tournaments,
       people,
     );
-    const away = awayPartnersByPlayer(partnerships, people, tournaments);
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
     expect(away.get(1)![0]!.r).toBe(2);
     expect(away.get(2)![0]!.r).toBe(2);
   });
@@ -612,8 +612,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('records a partnership split across federations on both players', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2), entry('t2', 1, 2)], tournaments, people);
-    const away = awayPartnersByPlayer(partnerships, people, tournaments);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2), entry('t2', 1, 2)], tournaments, people);
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
 
     expect(away.get(1)).toEqual([
       {
@@ -638,8 +638,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('ignores a partnership the graph already shows', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).size).toBe(0);
   });
 
   it('treats a different gender under the same federation as away too', () => {
@@ -647,8 +647,8 @@ describe('awayPartnersByPlayer', () => {
     // Carrying the partner's gender is what lets the card link to the right
     // slice rather than guessing.
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '1', 'BRA')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
   });
 
   it('orders a player\'s away partners by tournaments together, then name', () => {
@@ -657,12 +657,12 @@ describe('awayPartnersByPlayer', () => {
       player(2, '0', 'ARG'),
       player(3, '0', 'ARG'),
     ]);
-    const { partnerships } = aggregatePartnerships(
+    const { partnerships, ownFederation } = aggregatePartnerships(
       [entry('t1', 1, 2), entry('t1', 1, 3), entry('t2', 1, 3)],
       tournaments,
       people,
     );
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)!.map((a) => [a.id, a.t])).toEqual([
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).get(1)!.map((a) => [a.id, a.t])).toEqual([
       [3, 2],
       [2, 1],
     ]);
@@ -670,8 +670,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('skips players with no federation on file', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), { ...player(2, '0', 'ARG'), FederationCode: '' }]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).size).toBe(0);
   });
 });
 
@@ -1355,5 +1355,120 @@ describe('the published player names', () => {
     // are names like "Katharina HETZENDORFER" and "MUKUNZI Christ Ornel".
     const marked = names.filter((n) => words(n).some(shouts) && words(n).some((w) => !shouts(w)));
     expect(marked.length).toBeGreaterThan(20);
+  });
+});
+
+/**
+ * A federation claim survives only where the partner's own record backs it.
+ *
+ * `spansFor` reads the code stamped on the team row, and on a mixed-nationality
+ * pair that code belongs to player 1 alone (quirks §6c) — so without this the
+ * card told readers that Gisi Gavio's Italian partners represented Brazil.
+ */
+describe('corroborating a partnership\u2019s federation', () => {
+  const tournaments = normaliseTournaments([tournament('t1', 2002), tournament('t2', 2003)]);
+
+  /** A team row with an explicit federation and an explicit player order. */
+  const stamped = (tour: string, first: number, second: number, fed: string): VisRow => ({
+    NoTournament: tour,
+    NoPlayer1: String(first),
+    NoPlayer2: String(second),
+    FederationCode: fed,
+    Rank: '5',
+  });
+
+  it('keeps a span the partner\u2019s own record agrees with', () => {
+    // Both Brazilian, both listed first somewhere: nothing in dispute.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 1, 'BRA')],
+      tournaments,
+      people,
+    );
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
+    // Player 2 was listed first on t2 under BRA, so BRA is corroborated for them.
+    expect(away.get(1)![0]!.at).toBeTruthy();
+  });
+
+  it('drops a span the partner was never in', () => {
+    // The Gisi shape: player 1 is Brazilian and listed first every time, so
+    // every row is stamped BRA — while player 2 is Italian on their own rows.
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ITA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    const row = away.get(1)?.find((a) => a.id === 2);
+    expect(row, 'the partnership should still be listed').toBeTruthy();
+    // ...but it must not say the Italian represented Brazil.
+    expect(row!.at).toBeUndefined();
+  });
+
+  /**
+   * Written first as "answers differently in each direction, which is the
+   * point", asserting that the Italian's card could still say the Brazilian
+   * was Brazilian. That was wrong, and wrong in the way this whole area keeps
+   * being wrong.
+   *
+   * Player 1's code is the *only* evidence of player 1's federation, so a
+   * player who is always listed first and never partners a compatriot has no
+   * independent record at all — every row saying BRA says it because they were
+   * player 1 on it. Gisi Gavio is exactly that: fifteen rows, listed first on
+   * all fifteen, never once partnered a Brazilian. An asymmetric rule reads
+   * that as corroboration and is measuring its own input.
+   */
+  it('stays silent in both directions when only one side is established', () => {
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ITA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toBeUndefined();
+    expect(away.get(2)?.find((a) => a.id === 1)?.at).toBeUndefined();
+  });
+
+  it('keeps a span both players are independently in', () => {
+    // Two Brazilians who each have their own BRA row, one of whom later moves.
+    // This is the Solberg/Tiago shape, and it must survive: it is the case the
+    // field exists for.
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'QAT'), player(3, '0', 'BRA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t1', 2, 3, 'BRA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toEqual([[2002, 'BRA']]);
+  });
+
+  it('says nothing rather than guessing when the partner was never listed first', () => {
+    // 31.5% of players never appear as player 1, so their federation cannot be
+    // read from any row. Silence is the honest answer, not the team code.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA')],
+      tournaments,
+      people,
+    );
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
+    expect(away.get(1)![0]!.at).toBeUndefined();
+  });
+
+  it('accepts a neighbouring season, since nobody transfers for one event', () => {
+    // Both established as Italian — one in 2003 directly, the other in 2002 —
+    // so the 2003 span stands on the nearby record rather than needing an
+    // exact-season row from each.
+    const roster = normalisePlayers([player(1, '0', 'ITA'), player(2, '0', 'BRA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t2', 1, 2, 'ITA'), stamped('t1', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toEqual([[2003, 'ITA']]);
   });
 });

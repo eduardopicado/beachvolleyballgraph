@@ -219,7 +219,7 @@ async function main() {
   });
   log('entries', `${teamRows.length} team entries`);
 
-  const { partnerships, appearances, results, rejects } = aggregatePartnerships(teamRows, tournaments, players);
+  const { partnerships, appearances, results, rejects, ownFederation } = aggregatePartnerships(teamRows, tournaments, players);
   log('aggregate', `${partnerships.size} partnerships across ${appearances.size} players`);
   log('rejected', JSON.stringify(rejects));
 
@@ -287,6 +287,7 @@ async function main() {
     partnerships,
     players,
     tournaments,
+    ownFederation,
     federationConflicts,
   );
   if (federationConflicts.length > 0) {

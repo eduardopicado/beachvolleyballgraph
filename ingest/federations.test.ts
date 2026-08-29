@@ -133,7 +133,32 @@ describe('the published away rows', () => {
   it('all carry the federation the pair actually represented', () => {
     // Vacuity guard: if the field stopped being published this would pass on
     // an empty list.
-    expect(rows.length).toBeGreaterThan(200);
+    //
+    // Was 200, and the fall to 111 is the point rather than a regression. The
+    // field used to be emitted from the team code alone, which on a mixed pair
+    // is player 1's and says nothing true about the other player. A span is
+    // now kept only where *both* players are independently recorded in that
+    // federation, so 110 rows stopped claiming one — including every row on
+    // Gisi Gavio's card, where nothing in the data establishes her federation
+    // at all.
+    expect(rows.length).toBeGreaterThan(90);
+  });
+
+  /**
+   * Every published span agrees with the partner's own record.
+   *
+   * The assertion the whole corroboration exists for: a span survives only if
+   * the player it describes was independently in that federation at the time.
+   * Before it, Gisi Gavio's card said her five Italian partners represented
+   * Brazil, and 31 of 110 flag pairs asserted a transfer that never happened.
+   */
+  it('claims nothing about Gisi Gavio in either direction', () => {
+    // She is listed first on all fifteen of her rows, never listed second, and
+    // never partnered a Brazilian — so the BRA on every one of them is there
+    // because she was player 1, and nothing independent says what federation
+    // she held. Not "she was Brazilian" and not "she was Italian": unknown, and
+    // the published data must say so by saying nothing.
+    expect(rows.filter((r) => r.self.includes('Gisi') || r.partner.includes('Gisi'))).toEqual([]);
   });
 
   it('never describes a partnership with a placeholder', () => {
