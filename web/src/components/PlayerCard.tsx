@@ -611,11 +611,17 @@ export function PlayerCard({
         {partners.length === 0 ? (
           <p className="empty">
             {/* Says where the partnerships *are*, not just where they are not.
-                The previous wording ended on "none of them appear in the
+                An earlier wording ended on "none of them appear in the
                 ${countryName} graph" with a list of them immediately below it,
-                which reads as a contradiction rather than an explanation. */}
+                which reads as a contradiction rather than an explanation.
+
+                The pointer stays; naming its target does not. The heading is
+                the next thing on the card, so "See Now with other federations
+                below" spent six words on a place the eye has already reached —
+                and reading a heading that opens with "Now" back into a sentence
+                made the sentence stumble. */}
             {away.length > 0
-              ? `None of these partnerships appear in the ${countryName} graph, which only links players from the same federation. See Other federations below.`
+              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
               : `No partnerships on record for this player.`}
           </p>
         ) : showing === 'timeline' ? (
@@ -650,8 +656,18 @@ export function PlayerCard({
             {/* Named rather than hidden: the graph deliberately holds only
                 same-federation pairs, and a player who moved keeps their new
                 country while every partner stays behind. Without this the card
-                reads as though they never had a partner at all. */}
-            <h4>Other federations</h4>
+                reads as though they never had a partner at all.
+
+                "Now" is load-bearing. The rows underneath carry the federation
+                the pair represented *at the time*, and on 106 of the 221
+                published away rows that is this very country — so a heading
+                reading "Other federations" sat directly above this slice's own
+                flag. Gabriel Pereira's whole card is one such row: his only
+                partner is Jefferson Santos Pereira, they played one event
+                together in 2008 as Brazilians, and Jefferson is Qatari today.
+                The block is not "partners from elsewhere", it is "partners who
+                are elsewhere now". */}
+            <h4>Now with other federations</h4>
             {showing === 'timeline' && awayTimeline.length > 0 ? (
               <SeasonList
                 rows={awayTimeline}
@@ -670,11 +686,18 @@ export function PlayerCard({
                 // The two differ for exactly the partnerships this block was
                 // getting wrong.
                 const spans = representedAs(then);
+                // Where they are today, but only when the row does not already
+                // say it. Half the published away rows (110 of 221) end on a
+                // federation the partner has since left, and after the flags
+                // started telling the truth about *then*, nothing on the row
+                // told the reader about *now* — including the fact that
+                // selecting it navigates to another country's graph.
+                const moved = spans.length > 0 && spans[spans.length - 1]!.fed !== partner.fed;
                 const label =
                   spans.length > 0
                     ? spans
                         .map((r) => `${r.countryName}, ${r.from === r.to ? r.from : `${r.from}–${r.to}`}`)
-                        .join(' · ')
+                        .join(' · ') + (moved ? ` · now ${partnerCountry}` : '')
                     : partnerCountry;
                 const badge = spans.length > 0 ? spans.map((r) => r.flag).join('') : partnerFlag;
                 return (
@@ -684,7 +707,13 @@ export function PlayerCard({
                       <span className="name">{partner.name}</span>
                       <span className="meta">
                         <span className="fed" title={label}>
-                          <span aria-hidden="true">{badge}</span>
+                          <span aria-hidden="true">
+                            {badge}
+                            {/* The arrow carries the whole story in two
+                                characters: was there, is here now. Spelled out
+                                for a screen reader by `label`. */}
+                            {moved && <span className="moved-to">→{partnerFlag}</span>}
+                          </span>
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
@@ -699,7 +728,13 @@ export function PlayerCard({
                       <span className="name">{partner.name}</span>
                       <span className="meta">
                         <span className="fed" title={label}>
-                          <span aria-hidden="true">{badge}</span>
+                          <span aria-hidden="true">
+                            {badge}
+                            {/* The arrow carries the whole story in two
+                                characters: was there, is here now. Spelled out
+                                for a screen reader by `label`. */}
+                            {moved && <span className="moved-to">→{partnerFlag}</span>}
+                          </span>
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
