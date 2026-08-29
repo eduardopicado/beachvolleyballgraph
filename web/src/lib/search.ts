@@ -72,6 +72,18 @@ export interface IndexedPlayer extends SearchablePlayer {
    * separate names.
    */
   foldedAka?: string;
+  /**
+   * Every word of every name this player answers to, each one preceded by a
+   * space: `" eduardo esteban mono martinez"`.
+   *
+   * Feeds the scattered-token match below. A blob rather than an array because
+   * testing `includes(" " + token)` on one string is a word-prefix test with no
+   * per-word loop and no allocation, and this runs 12,074 times a keystroke.
+   *
+   * Split on anything that is not a letter or digit, so the quotes around a
+   * nickname are not part of the word — `"Mono"` indexes as `mono`.
+   */
+  foldedWords: string;
 }
 
 export interface SearchMatch extends IndexedPlayer {
@@ -129,6 +141,9 @@ export function indexPlayers(players: readonly SearchablePlayer[]): IndexedPlaye
     const folded = foldAccents(player.name);
     const short = player.short ? foldAccents(player.short) : '';
     const aka = (player.alsoKnownAs ?? []).map(foldAccents).filter(Boolean).join(' ');
+    const words = `${folded} ${short} ${aka}`
+      .split(/[^\p{L}\p{N}]+/u)
+      .filter(Boolean);
     return {
       ...player,
       folded,
@@ -136,6 +151,7 @@ export function indexPlayers(players: readonly SearchablePlayer[]): IndexedPlaye
       // skips a redundant second `includes` on almost every player.
       foldedShort: short && !folded.includes(short) ? short : undefined,
       foldedAka: aka || undefined,
+      foldedWords: words.length ? ` ${words.join(' ')}` : '',
     };
   });
 }
@@ -143,9 +159,9 @@ export function indexPlayers(players: readonly SearchablePlayer[]): IndexedPlaye
 /**
  * Rank matches for a "jump to this player" search.
  *
- * The keys, in order: how near the reader the match is, then whether the name
- * starts with the query or merely contains it, then tournaments played, then
- * the name as a stable tie-break.
+ * The keys, in order: how near the reader the match is, then how well the name
+ * matches — it starts with the query, contains it, or contains its words
+ * separately — then tournaments played, then the name as a stable tie-break.
  *
  * **Proximity leads, and that is the change.** It used to come second, as a
  * tie-break *inside* the prefix and substring groups, which meant a prefix
@@ -173,9 +189,16 @@ export function searchPlayers(
   const q = foldAccents(query.trim());
   if (!q) return { matches: [], hidden: 0 };
 
-  // 0 for a prefix, 1 for a substring — a sort key rather than two arrays,
-  // now that it is no longer the outermost distinction.
-  const found: { player: IndexedPlayer; group: MatchGroup; prefix: number }[] = [];
+  // Match quality as a sort key rather than three arrays: 0 a prefix, 1 a
+  // contiguous substring, 2 the query's words found separately.
+  const found: { player: IndexedPlayer; group: MatchGroup; quality: number }[] = [];
+  // Only multi-word queries can match scattered; a single word already matches
+  // as a substring anywhere, which is strictly broader.
+  //
+  // Split on the same class the index does, not on spaces, so a hyphen in the
+  // query does not become part of a token that no word can start with:
+  // "Kerri-Ann Pottharst" is three words to look up, not two.
+  const tokens = q.includes(' ') ? q.split(/[^\p{L}\p{N}]+/u).filter(Boolean) : null;
   for (const player of players) {
     // Either name can match, and a prefix on either counts as a prefix: someone
     // typing "Duda" has typed the whole of what they saw.
@@ -187,20 +210,32 @@ export function searchPlayers(
     // with a current one would put a renamed player ahead of her own
     // namesakes.
     const aka = player.foldedAka;
-    const prefix =
+    const quality =
       player.folded.startsWith(q) || short?.startsWith(q)
         ? 0
         : player.folded.includes(q) || short?.includes(q) || aka?.includes(q)
           ? 1
-          : -1;
-    if (prefix < 0) continue;
-    found.push({ player, group: groupOf(player.slice, home), prefix });
+          : // Every word of the query begins a word of some name they answer to.
+            // "Eduardo Martinez" is stored as `Eduardo Esteban "Mono" Martinez`
+            // and "Paulo Moreira" as `Paulo Roberto "Paulão" Moreira da Costa`,
+            // so the two words a reader actually knows are never adjacent and
+            // a contiguous match cannot reach them. Measured over the published
+            // index, 1,865 of 12,074 players — 15.45% — could not be found by
+            // their own given name and surname before this.
+            //
+            // Word-prefix rather than substring-anywhere, so "an a" does not
+            // match half the archive, and so "edu mart" still works.
+            tokens?.every((t) => player.foldedWords.includes(` ${t}`))
+            ? 2
+            : -1;
+    if (quality < 0) continue;
+    found.push({ player, group: groupOf(player.slice, home), quality });
   }
 
   found.sort(
     (a, b) =>
       GROUP_ORDER[a.group] - GROUP_ORDER[b.group] ||
-      a.prefix - b.prefix ||
+      a.quality - b.quality ||
       b.player.tournaments - a.player.tournaments ||
       a.player.name.localeCompare(b.player.name),
   );

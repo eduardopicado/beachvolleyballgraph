@@ -309,3 +309,89 @@ describe('former names', () => {
     expect(searchPlayers(index, 'nameseconds', home).matches).toEqual([]);
   });
 });
+
+/**
+ * Names with something in the middle.
+ *
+ * The archive is full of them — a middle name, or a nickname FIVB stored inside
+ * `FirstName` — and the two words a reader actually knows are then never
+ * adjacent. Measured over the published index, 1,865 of 12,074 players (15.45%)
+ * could not be found by their own given name and surname before this.
+ */
+describe('a query whose words are separated in the name', () => {
+  const home: Slice = { country: 'BRA', gender: 'M' };
+  const player = (id: number, name: string, tournaments = 10, short?: string): SearchablePlayer => ({
+    id,
+    name,
+    tournaments,
+    slice: home,
+    short,
+  });
+
+  it('finds a player past their middle name', () => {
+    const index = indexPlayers([player(1, 'Eduardo Esteban Martinez')]);
+    expect(searchPlayers(index, 'eduardo martinez', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('finds a player past a nickname stored inside the first name', () => {
+    // Exactly how VIS holds these: the quotes are part of the field.
+    const index = indexPlayers([player(1, 'Karolyn "KK" Kirby'), player(2, 'Paulo Roberto "Paulão" Moreira da Costa')]);
+    expect(searchPlayers(index, 'karolyn kirby', home).matches.map((m) => m.id)).toEqual([1]);
+    expect(searchPlayers(index, 'paulo moreira', home).matches.map((m) => m.id)).toEqual([2]);
+  });
+
+  it('matches on word beginnings, so a partial name still works', () => {
+    const index = indexPlayers([player(1, 'Eduardo Esteban Martinez')]);
+    expect(searchPlayers(index, 'edu mart', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('ranks a scattered match below a contiguous one', () => {
+    // The point of the third tier rather than widening the second: a name that
+    // really does read "Eduardo Martinez" must come first.
+    //
+    // Neither is a prefix match, and the scattered one has far more
+    // tournaments, so quality is the only key that can produce this order —
+    // giving the two tiers the same value flips it.
+    const index = indexPlayers([
+      player(1, 'Ana Eduardo Martinez Silva', 1),
+      player(2, 'Eduardo Esteban Martinez', 99),
+    ]);
+    expect(searchPlayers(index, 'eduardo martinez', home).matches.map((m) => m.id)).toEqual([1, 2]);
+  });
+
+  it('needs every word of the query, not just one', () => {
+    const index = indexPlayers([player(1, 'Eduardo Esteban Martinez')]);
+    expect(searchPlayers(index, 'eduardo nobody', home).matches).toEqual([]);
+  });
+
+  it('matches word beginnings rather than anywhere inside a word', () => {
+    // Substring-anywhere would make short words match almost everyone: "ar tin"
+    // is inside "Martinez" twice over.
+    const index = indexPlayers([player(1, 'Eduardo Esteban Martinez')]);
+    expect(searchPlayers(index, 'ar tin', home).matches).toEqual([]);
+  });
+
+  it('splits a hyphenated query word rather than looking it up whole', () => {
+    // Found by measuring: "Kerri-Ann Pottharst" missed her, because the index
+    // holds `kerri` and `ann` as separate words and no word starts with
+    // "kerri-ann". The query has to be split the same way the index is.
+    const index = indexPlayers([player(1, 'Kerri-Ann "Kez" Pottharst'), player(2, 'Jean-Michel "Jean-Mi" Nihoul')]);
+    expect(searchPlayers(index, 'kerri-ann pottharst', home).matches.map((m) => m.id)).toEqual([1]);
+    expect(searchPlayers(index, 'jean-michel nihoul', home).matches.map((m) => m.id)).toEqual([2]);
+  });
+
+  it('leaves a single-word query matching substrings as before', () => {
+    // Unchanged behaviour, asserted so the new tier cannot narrow the old one:
+    // one word still matches inside a word.
+    const index = indexPlayers([player(1, 'Eduardo Esteban Martinez')]);
+    expect(searchPlayers(index, 'tinez', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+
+  it('searches the competition name and former names by word too', () => {
+    const index = indexPlayers([
+      { ...player(1, 'Eduarda Santos Lisboa', 10, 'Duda'), alsoKnownAs: ['Taryn Kloth'] },
+    ]);
+    expect(searchPlayers(index, 'duda lisboa', home).matches.map((m) => m.id)).toEqual([1]);
+    expect(searchPlayers(index, 'taryn kloth', home).matches.map((m) => m.id)).toEqual([1]);
+  });
+});
