@@ -16,14 +16,20 @@
       "dob": "1977-09-21",
       "height": null,
       "weight": null,
-      "birthPlace": "Accra"
+      "birthPlace": "Accra",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145802,
       "name": "Jonathan Scott Sarpong",
       "dob": "1979-08-15",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147894,

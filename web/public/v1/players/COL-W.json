@@ -13,7 +13,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 135301,
@@ -25,7 +29,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 136368,
@@ -48,7 +56,10 @@
       "dob": "1993-03-23",
       "height": 183,
       "weight": 63,
-      "birthPlace": "Bogota"
+      "birthPlace": "Bogota",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 155110,
@@ -56,7 +67,10 @@
       "dob": "1989-12-06",
       "height": null,
       "weight": null,
-      "birthPlace": "Medellin"
+      "birthPlace": "Medellin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 155111,
@@ -64,7 +78,10 @@
       "dob": "1995-06-10",
       "height": 170,
       "weight": 72,
-      "birthPlace": "Bucaramanga"
+      "birthPlace": "Bucaramanga",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 161568,

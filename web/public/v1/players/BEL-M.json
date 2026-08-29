@@ -23,6 +23,9 @@
       "height": 196,
       "weight": 88,
       "birthPlace": "Deurne",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 103278,
@@ -95,7 +98,10 @@
       "dob": "1971-05-13",
       "height": 192,
       "weight": 84,
-      "birthPlace": "Kortryk"
+      "birthPlace": "Kortryk",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101402,
@@ -103,7 +109,10 @@
       "dob": "1969-04-24",
       "height": 194,
       "weight": 86,
-      "birthPlace": "Leuven"
+      "birthPlace": "Leuven",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101403,
@@ -150,7 +159,10 @@
       "dob": "1972-10-24",
       "height": 186,
       "weight": 80,
-      "birthPlace": "Maaseik"
+      "birthPlace": "Maaseik",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102016,
@@ -190,7 +202,10 @@
       "dob": "1964-05-12",
       "height": 184,
       "weight": 90,
-      "birthPlace": "Schoten"
+      "birthPlace": "Schoten",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102431,
@@ -255,6 +270,9 @@
       "height": 193,
       "weight": 87,
       "birthPlace": "Veurne",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 103278,
@@ -535,7 +553,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 131628,
@@ -556,7 +578,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132336,
@@ -613,7 +639,10 @@
         "gold": 4,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139107,
@@ -648,7 +677,10 @@
         "gold": 4,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143941,
@@ -774,7 +806,10 @@
         "gold": 3,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179319,
@@ -795,7 +830,10 @@
         "gold": 3,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190216,

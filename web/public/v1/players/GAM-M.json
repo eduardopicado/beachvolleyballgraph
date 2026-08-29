@@ -16,7 +16,10 @@
       "dob": "1999-05-21",
       "height": 178,
       "weight": 72,
-      "birthPlace": "Banjul"
+      "birthPlace": "Banjul",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 175144,
@@ -24,7 +27,10 @@
       "dob": "1999-12-30",
       "height": 205,
       "weight": 81,
-      "birthPlace": "Njongon Village"
+      "birthPlace": "Njongon Village",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 189345,

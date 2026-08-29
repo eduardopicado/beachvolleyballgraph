@@ -15,7 +15,10 @@
       "dob": "1992-08-08",
       "height": 192,
       "weight": 80,
-      "birthPlace": "Ruhango"
+      "birthPlace": "Ruhango",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 142107,
@@ -55,7 +58,10 @@
       "dob": "1992-03-30",
       "height": 198,
       "weight": 92,
-      "birthPlace": "Gisagara"
+      "birthPlace": "Gisagara",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172779,

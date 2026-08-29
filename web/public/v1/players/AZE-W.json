@@ -14,6 +14,10 @@
         "silver": 1,
         "bronze": 3
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 103997,

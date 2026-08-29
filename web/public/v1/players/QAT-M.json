@@ -94,7 +94,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 122792,
@@ -132,7 +135,10 @@
       "dob": "1987-02-20",
       "height": 195,
       "weight": 80,
-      "birthPlace": "Qatar"
+      "birthPlace": "Qatar",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145123,
@@ -141,6 +147,9 @@
       "height": 181,
       "weight": 84,
       "birthPlace": "Beheira",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 115975,
@@ -188,6 +197,11 @@
         "silver": 0,
         "bronze": 0
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 120895,
@@ -274,7 +288,12 @@
         "gold": 7,
         "silver": 9,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 146488,
@@ -291,7 +310,12 @@
         "gold": 8,
         "silver": 7,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147562,

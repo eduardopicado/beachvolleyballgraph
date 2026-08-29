@@ -46,7 +46,10 @@
       "dob": "1995-10-20",
       "height": null,
       "weight": null,
-      "birthPlace": "Maputo"
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146944,
@@ -60,7 +63,10 @@
       "name": "Liocadia Manhica",
       "dob": "1999-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168290,
@@ -68,7 +74,10 @@
       "dob": "2000-07-06",
       "height": 173,
       "weight": 59,
-      "birthPlace": "Maputo"
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168295,
@@ -76,7 +85,10 @@
       "dob": "2000-05-09",
       "height": 175,
       "weight": 65,
-      "birthPlace": "Maputo"
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177275,

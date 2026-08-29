@@ -21,7 +21,10 @@
       "name": "Marcos Jose Tenorio Angulo",
       "dob": "1993-02-10",
       "height": 201,
-      "weight": 96
+      "weight": 96,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 155929,
@@ -36,7 +39,10 @@
       "dob": "2000-11-15",
       "height": 187,
       "weight": 75,
-      "birthPlace": "Esmeraldas"
+      "birthPlace": "Esmeraldas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 162397,

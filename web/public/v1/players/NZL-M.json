@@ -7,14 +7,20 @@
       "name": "Glenn Hamilton",
       "dob": "1966-08-13",
       "height": 192,
-      "weight": 93
+      "weight": 93,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100050,
       "name": "Reid Hamilton",
       "dob": "1969-04-03",
       "height": 185,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100718,
@@ -22,7 +28,10 @@
       "dob": "1971-09-23",
       "height": 188,
       "weight": 90,
-      "birthPlace": "Dunedin"
+      "birthPlace": "Dunedin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100719,
@@ -58,7 +67,10 @@
       "dob": "1970-09-20",
       "height": 194,
       "weight": 90,
-      "birthPlace": "Auckland"
+      "birthPlace": "Auckland",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101721,
@@ -93,7 +105,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104659,
@@ -106,7 +122,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118100,
@@ -114,7 +134,10 @@
       "dob": "1989-02-05",
       "height": 185,
       "weight": 80,
-      "birthPlace": "Auckland"
+      "birthPlace": "Auckland",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118103,
@@ -195,7 +218,11 @@
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122248,
@@ -246,7 +273,11 @@
         "gold": 2,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132542,
@@ -283,7 +314,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135513,
@@ -296,7 +330,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138957,
@@ -317,7 +354,11 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 140905,
@@ -385,7 +426,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161083,
@@ -412,7 +456,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164398,
@@ -461,7 +508,10 @@
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 166737,

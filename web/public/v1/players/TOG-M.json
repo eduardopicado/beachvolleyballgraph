@@ -8,7 +8,10 @@
       "dob": "1997-05-10",
       "height": 190,
       "weight": 90,
-      "birthPlace": "Lome"
+      "birthPlace": "Lome",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177968,
@@ -16,7 +19,10 @@
       "dob": "1996-10-04",
       "height": 179,
       "weight": 78,
-      "birthPlace": "Lome"
+      "birthPlace": "Lome",
+      "filters": [
+        "world-champs"
+      ]
     }
   ]
 }

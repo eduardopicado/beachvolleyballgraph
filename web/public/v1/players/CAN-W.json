@@ -43,7 +43,10 @@
       "dob": "1965-09-22",
       "height": 173,
       "weight": null,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100725,
@@ -51,7 +54,10 @@
       "dob": "1967-08-08",
       "height": 173,
       "weight": 63,
-      "birthPlace": "St John"
+      "birthPlace": "St John",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100931,
@@ -64,7 +70,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100932,
@@ -72,7 +83,11 @@
       "dob": "1967-09-10",
       "height": 176,
       "weight": 70,
-      "birthPlace": "Quebec"
+      "birthPlace": "Quebec",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100933,
@@ -88,14 +103,20 @@
       "dob": "1968-01-23",
       "height": 180,
       "weight": 70,
-      "birthPlace": "Lethbridge"
+      "birthPlace": "Lethbridge",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100935,
       "name": "Jolan Storch",
       "dob": "1970-07-22",
       "height": 176,
-      "weight": 68
+      "weight": 68,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101413,
@@ -133,7 +154,10 @@
       "dob": "1969-02-22",
       "height": 176,
       "weight": 66,
-      "birthPlace": "Calgary"
+      "birthPlace": "Calgary",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101681,
@@ -141,7 +165,10 @@
       "dob": "1972-03-11",
       "height": 174,
       "weight": 59,
-      "birthPlace": "Montreal"
+      "birthPlace": "Montreal",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101682,
@@ -154,7 +181,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101708,
@@ -193,7 +224,10 @@
       "dob": "1968-05-28",
       "height": null,
       "weight": null,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102103,
@@ -201,7 +235,10 @@
       "dob": "1971-05-30",
       "height": null,
       "weight": null,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102151,
@@ -209,7 +246,10 @@
       "dob": "1964-07-24",
       "height": 173,
       "weight": 67,
-      "birthPlace": "Kelowna"
+      "birthPlace": "Kelowna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102152,
@@ -281,7 +321,10 @@
       "dob": "1966-06-12",
       "height": 185,
       "weight": 78,
-      "birthPlace": "Halifax (NS)"
+      "birthPlace": "Halifax (NS)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102623,
@@ -302,7 +345,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102625,
@@ -334,7 +382,10 @@
       "dob": "1978-02-16",
       "height": null,
       "weight": null,
-      "birthPlace": "Loretteville"
+      "birthPlace": "Loretteville",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102915,
@@ -347,7 +398,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102939,
@@ -355,7 +410,10 @@
       "dob": "1972-08-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102940,
@@ -363,7 +421,10 @@
       "dob": "1972-02-23",
       "height": null,
       "weight": null,
-      "birthPlace": "Mississauga"
+      "birthPlace": "Mississauga",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102941,
@@ -389,7 +450,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103260,
@@ -397,7 +461,10 @@
       "dob": "1962-08-31",
       "height": null,
       "weight": null,
-      "birthPlace": "Winnepeg"
+      "birthPlace": "Winnepeg",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103261,
@@ -410,7 +477,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103262,
@@ -483,7 +554,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103870,
@@ -520,7 +596,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103895,
@@ -533,7 +612,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103919,
@@ -586,7 +668,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104190,
@@ -599,7 +684,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104351,
@@ -657,7 +745,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 105017,
@@ -684,7 +777,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 113601,
@@ -710,7 +806,12 @@
         "gold": 6,
         "silver": 9,
         "bronze": 6
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 115224,
@@ -718,7 +819,10 @@
       "dob": null,
       "height": 170,
       "weight": 61,
-      "birthPlace": "sherbrooke"
+      "birthPlace": "sherbrooke",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 115225,
@@ -732,7 +836,10 @@
       "name": "Caroline Fiset",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 115600,
@@ -936,7 +1043,10 @@
       "dob": "1974-08-13",
       "height": 182,
       "weight": 70,
-      "birthPlace": "Burlington"
+      "birthPlace": "Burlington",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118633,
@@ -998,7 +1108,12 @@
         "gold": 4,
         "silver": 5,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120040,
@@ -1064,7 +1179,10 @@
       "dob": "1984-07-26",
       "height": 183,
       "weight": 68,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120908,
@@ -1123,7 +1241,12 @@
         "gold": 10,
         "silver": 9,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 124980,
@@ -1158,7 +1281,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125482,
@@ -1282,7 +1410,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138681,
@@ -1290,7 +1421,10 @@
       "dob": "1993-04-18",
       "height": 183,
       "weight": 69,
-      "birthPlace": "Winnipeg, Manitoba"
+      "birthPlace": "Winnipeg, Manitoba",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139266,
@@ -1329,7 +1463,12 @@
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139522,
@@ -1381,7 +1520,10 @@
       "dob": "1997-08-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Richmond, BC Canada"
+      "birthPlace": "Richmond, BC Canada",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 140551,
@@ -1389,7 +1531,10 @@
       "dob": "1997-08-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Richmond, BC Canada"
+      "birthPlace": "Richmond, BC Canada",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 140838,
@@ -1433,7 +1578,12 @@
         "gold": 7,
         "silver": 4,
         "bronze": 6
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142101,
@@ -1461,7 +1611,11 @@
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 145875,
@@ -1489,7 +1643,11 @@
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 151488,
@@ -1518,7 +1676,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 153992,
@@ -1567,7 +1729,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156483,
@@ -1579,7 +1744,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156805,
@@ -1636,7 +1804,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 162675,
@@ -1649,7 +1821,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166907,
@@ -1670,7 +1846,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 166909,
@@ -1744,7 +1923,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 174863,
@@ -1842,7 +2024,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182655,
@@ -1879,7 +2064,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190257,

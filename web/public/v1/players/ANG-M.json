@@ -29,7 +29,10 @@
       "dob": "1967-07-25",
       "height": null,
       "weight": null,
-      "birthPlace": "Namibe"
+      "birthPlace": "Namibe",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101301,
@@ -51,14 +54,20 @@
       "dob": "1964-04-17",
       "height": null,
       "weight": null,
-      "birthPlace": "Luanda"
+      "birthPlace": "Luanda",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104209,
       "name": "Mario Silva",
       "dob": "1980-06-23",
       "height": 193,
-      "weight": 91
+      "weight": 91,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118532,
@@ -66,7 +75,11 @@
       "dob": "1968-07-10",
       "height": 183,
       "weight": 85,
-      "birthPlace": "Moxico"
+      "birthPlace": "Moxico",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

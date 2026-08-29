@@ -8,7 +8,11 @@
       "dob": "1987-04-08",
       "height": 165,
       "weight": 59,
-      "birthPlace": "Heredia"
+      "birthPlace": "Heredia",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 117514,
@@ -23,7 +27,11 @@
       "dob": "1985-11-06",
       "height": 173,
       "weight": 75,
-      "birthPlace": "San Jose, Costa Rica"
+      "birthPlace": "San Jose, Costa Rica",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 132212,
@@ -157,7 +165,10 @@
       "dob": "2002-02-14",
       "height": 170,
       "weight": 64,
-      "birthPlace": "San José"
+      "birthPlace": "San José",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 158704,
@@ -178,7 +189,10 @@
       "name": "Ximena Núñez Muñoz",
       "dob": "2003-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 182690,
@@ -194,7 +208,10 @@
       "dob": "2002-10-31",
       "height": 173,
       "weight": 70,
-      "birthPlace": "San Carlos"
+      "birthPlace": "San Carlos",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 183083,

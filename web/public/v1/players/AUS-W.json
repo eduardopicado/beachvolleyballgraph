@@ -7,7 +7,10 @@
       "name": "Anita \"Neet\" Spring (Palm)",
       "dob": "1965-06-26",
       "height": 172,
-      "weight": 70
+      "weight": 70,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100037,
@@ -30,6 +33,9 @@
       "height": 172,
       "weight": 70,
       "birthPlace": "Perth",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 100686,
@@ -81,7 +87,12 @@
         "gold": 3,
         "silver": 7,
         "bronze": 13
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100358,
@@ -90,6 +101,10 @@
       "height": 170,
       "weight": 67,
       "birthPlace": "Brisbane",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 100686,
@@ -141,7 +156,12 @@
         "gold": 2,
         "silver": 9,
         "bronze": 10
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100611,
@@ -155,6 +175,11 @@
         "silver": 0,
         "bronze": 1
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 100686,
@@ -283,6 +308,11 @@
         "silver": 1,
         "bronze": 0
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 100686,
@@ -314,7 +344,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101667,
@@ -362,7 +396,11 @@
       "dob": "1978-03-30",
       "height": 181,
       "weight": 78,
-      "birthPlace": "Townsville QLD"
+      "birthPlace": "Townsville QLD",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101725,
@@ -375,7 +413,12 @@
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101726,
@@ -414,7 +457,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102957,
@@ -429,7 +477,10 @@
       "dob": "1975-03-06",
       "height": 172,
       "weight": 70,
-      "birthPlace": "Townsville"
+      "birthPlace": "Townsville",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103224,
@@ -483,7 +534,10 @@
       "dob": "1984-10-27",
       "height": null,
       "weight": null,
-      "birthPlace": "Adelaide"
+      "birthPlace": "Adelaide",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104145,
@@ -546,7 +600,10 @@
       "dob": "1988-09-04",
       "height": 176,
       "weight": 62,
-      "birthPlace": "Manly, Sydney"
+      "birthPlace": "Manly, Sydney",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104471,
@@ -591,7 +648,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 114845,
@@ -621,7 +683,10 @@
       "dob": "1985-11-29",
       "height": 181,
       "weight": 79,
-      "birthPlace": "Perth, Australia"
+      "birthPlace": "Perth, Australia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116642,
@@ -634,7 +699,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117067,
@@ -701,7 +771,12 @@
         "gold": 8,
         "silver": 4,
         "bronze": 7
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119356,
@@ -803,7 +878,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125170,
@@ -841,7 +921,12 @@
         "gold": 8,
         "silver": 3,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132933,
@@ -854,7 +939,12 @@
         "gold": 2,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 133153,
@@ -897,7 +987,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 141377,
@@ -910,7 +1004,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 141391,
@@ -938,7 +1035,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143196,
@@ -959,7 +1059,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146816,
@@ -1000,7 +1103,11 @@
         "gold": 2,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 150562,
@@ -1114,7 +1221,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172191,
@@ -1135,7 +1246,11 @@
         "gold": 3,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172221,
@@ -1156,7 +1271,11 @@
         "gold": 1,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172223,
@@ -1172,7 +1291,10 @@
       "dob": "2003-03-27",
       "height": 179,
       "weight": 61,
-      "birthPlace": "Epsom"
+      "birthPlace": "Epsom",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 178070,
@@ -1185,7 +1307,11 @@
         "gold": 5,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178266,
@@ -1200,7 +1326,10 @@
       "name": "Tara Phillips",
       "dob": "2001-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 180619,
@@ -1332,7 +1461,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 187295,
@@ -1384,7 +1517,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 189502,

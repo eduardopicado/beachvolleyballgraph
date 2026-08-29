@@ -15,7 +15,10 @@
       "dob": "1996-01-17",
       "height": 172,
       "weight": 61,
-      "birthPlace": "Kaduna Nigeria"
+      "birthPlace": "Kaduna Nigeria",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147670,
@@ -23,7 +26,10 @@
       "dob": "1995-07-05",
       "height": null,
       "weight": null,
-      "birthPlace": "onitsha"
+      "birthPlace": "onitsha",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 163008,

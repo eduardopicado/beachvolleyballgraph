@@ -7,7 +7,10 @@
       "name": "Denise Mutatsimpundu",
       "dob": "1993-05-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135064,
@@ -15,7 +18,10 @@
       "dob": "1987-05-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Kirehe"
+      "birthPlace": "Kirehe",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135065,
@@ -23,7 +29,10 @@
       "dob": "1993-12-23",
       "height": null,
       "weight": null,
-      "birthPlace": "Musanze"
+      "birthPlace": "Musanze",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147320,

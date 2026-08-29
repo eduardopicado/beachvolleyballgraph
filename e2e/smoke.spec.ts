@@ -495,6 +495,104 @@ test.describe('where a player was born', () => {
   });
 });
 
+/**
+ * Narrowing the timeline to the Games, the Worlds, or a podium week.
+ *
+ * Subjects are scanned out of the published data: which players have which
+ * filters moves as the archive is rebuilt, and only 2,292 of 12,074 have any.
+ */
+test.describe('narrowing the timeline', () => {
+  const chips = (page: Page) => page.locator('.tl-filters button');
+
+  const withFilter = (want: string) =>
+    players(COUNTRY, GENDER).players.find((p) => (p.filters ?? []).includes(want as never));
+
+  test('offers only the narrowings this player has something for', async ({ page }) => {
+    const subject = withFilter('olympics');
+    expect(subject, 'no Olympian in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+
+    // "All" plus one per published filter, in the published order.
+    await expect(chips(page)).toHaveCount((subject!.filters ?? []).length + 1);
+    await expect(chips(page).first()).toHaveText('All');
+  });
+
+  test('shows no chips at all for a player with none', async ({ page }) => {
+    // 9,782 of 12,074 players — the control has to be absent, not empty.
+    //
+    // The subject must have a *timeline*, or this passes for the wrong reason:
+    // a player with one tournament has no Timeline tab to open, so no chip row
+    // would render however broken the gate was. Removing the gate really does
+    // fail this test now, which the first version of it did not.
+    const withTimeline = new Set(
+      graph(COUNTRY, GENDER)
+        .nodes.filter((n) => n.tournaments >= 2)
+        .map((n) => n.id),
+    );
+    const plain = players(COUNTRY, GENDER).players.find(
+      (p) => !p.filters && withTimeline.has(p.id),
+    );
+    expect(plain, 'no player in this slice has a timeline but no filters').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${plain!.id}`);
+    const timeline = page.getByRole('button', { name: 'Timeline' });
+    await expect(timeline).toBeVisible();
+    await timeline.click();
+    await expect(page.locator('.tl-filters')).toHaveCount(0);
+  });
+
+  test('lists every Games and nothing else', async ({ page }) => {
+    const subject = withFilter('olympics');
+    expect(subject).toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+    await chips(page).filter({ hasText: 'Olympics' }).click();
+
+    const list = page.locator('.timeline.is-filtered');
+    await expect(list.locator('.events > li').first()).toBeVisible();
+
+    // Every row is badged Olympics — the guard against a filter that widens
+    // instead of narrowing.
+    const badges = await list.locator('.events .badge').allInnerTexts();
+    expect(badges.length).toBeGreaterThan(0);
+    expect([...new Set(badges)]).toEqual(['Olympics']);
+
+    // Newest first, like every other timeline on the card.
+    const years = (await list.locator('.year').allInnerTexts()).map(Number);
+    expect(years).toEqual([...years].sort((a, b) => b - a));
+  });
+
+  test('names the Games rather than repeating what FIVB typed', async ({ page }) => {
+    // FIVB files the 2012 draws as "Olympic Games 2012", which never says
+    // London, and the 2021 draws under a season that is not their name.
+    const index = tournamentIndex();
+    const named = Object.values(index).filter((t) => t[2] === 'olympics').map((t) => t[0]);
+    expect(named.length, 'no Olympic tournament published').toBeGreaterThan(0);
+    for (const name of named) {
+      expect(name, `${name} still reads like FIVB's own label`).not.toMatch(/olympic|tournament|beach volleyball/i);
+    }
+    expect(named).toContain('London 2012');
+    expect(named).toContain('Tokyo 2020');
+  });
+
+  test('goes back to the whole career', async ({ page }) => {
+    const subject = withFilter('olympics');
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+    await chips(page).filter({ hasText: 'Olympics' }).click();
+    await expect(page.locator('.timeline.is-filtered')).toBeVisible();
+
+    // Scoped to the chip row: the graph's own filter panel has an "All" too,
+    // and an unscoped role query matches both.
+    await chips(page).filter({ hasText: 'All' }).click();
+    await expect(page.locator('.timeline.is-filtered')).toHaveCount(0);
+    await expect(page.locator('.partners > .timeline')).toBeVisible();
+  });
+});
+
 test('the card counts tour podiums apart from Olympic and World Championships medals', async ({
   page,
 }) => {

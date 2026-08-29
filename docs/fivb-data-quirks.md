@@ -509,6 +509,38 @@ shout and are fixed; the codes survive.
 **Handled in.** `ingest/build.ts`, `tidyBirthPlace`, with the published
 artifact asserted in `build.test.ts` — no empty string, no bare date, no bare
 postcode, no internal note, nothing shouting, and the codes still present.
+## 6.7. FIVB names the Olympics six different ways
+
+The eight Games in the archive carry five naming conventions between them, and
+two of the editions never say where they were held:
+
+```
+1996  "Atlanta"
+2012  "Olympic Games 2012"                          no city anywhere
+2016  "Men's Olympic Game - Rio 2016"               city, gender, and a typo
+2021  "Tokyo Olympic Games - Men's Tournament"      city, gender, no year
+2024  "Olympic Games Paris 2024 - Beach Volleyball"
+```
+
+**The city is in the code, not the name.** `MLON2012` says London where the
+name never does. But the codes are inconsistent too — `MATL1996` and
+`MLON2012` follow one shape, `Rio2016M` another — so parsing them is no more
+reliable than parsing the names.
+
+**Keyed by season instead.** There is exactly one Olympic Games per season, so
+the season is a complete key, and it does not require guessing the code FIVB
+will invent for an edition that has not happened. `ingest/olympics.ts` maps
+season to the official designation; anything not in the map keeps FIVB's own
+name, which is worse-looking but never wrong.
+
+**Watch 2021.** The Tokyo Games were postponed a year. The archive files them
+under season **2021** and they are officially **Tokyo 2020**, so the label and
+the season deliberately disagree — the timeline shows the season in its gutter
+and the name beside it, which is the one place a reader gets both.
+
+`BeachNbSelOG` is not a usable count of Olympic appearances, incidentally. It
+reads **0** for Pablo Herrera, who has played six Games, and 3 for Natalie
+Cook, who has played five. Appearances are derived from the results instead.
 
 ---
 

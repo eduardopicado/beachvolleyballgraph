@@ -55,7 +55,11 @@
       "name": "choaib Belhaj Salah",
       "dob": "1987-06-04",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 150102,
@@ -63,7 +67,11 @@
       "dob": "1988-11-04",
       "height": 190,
       "weight": 81,
-      "birthPlace": "Hammam Laghzaz"
+      "birthPlace": "Hammam Laghzaz",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

@@ -84,7 +84,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132732,
@@ -160,7 +165,11 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 143083,
@@ -190,6 +199,10 @@
       "height": null,
       "weight": null,
       "birthPlace": "Venezuela",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 105127,

@@ -30,7 +30,11 @@
       "dob": "1981-01-20",
       "height": 204,
       "weight": 92,
-      "birthPlace": "Joao Pessoa"
+      "birthPlace": "Joao Pessoa",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 117861,
@@ -38,7 +42,11 @@
       "dob": "1976-07-19",
       "height": 191,
       "weight": 80,
-      "birthPlace": "Joao Pessoa"
+      "birthPlace": "Joao Pessoa",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

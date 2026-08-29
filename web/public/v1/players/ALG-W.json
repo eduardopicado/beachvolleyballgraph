@@ -8,7 +8,10 @@
       "dob": "1984-01-03",
       "height": 175,
       "weight": 73,
-      "birthPlace": "Bejaia"
+      "birthPlace": "Bejaia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135596,
@@ -16,7 +19,10 @@
       "dob": "1994-05-25",
       "height": 172,
       "weight": 60,
-      "birthPlace": "Bejaia"
+      "birthPlace": "Bejaia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135666,

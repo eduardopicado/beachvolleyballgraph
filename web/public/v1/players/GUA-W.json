@@ -8,7 +8,10 @@
       "dob": "1981-04-08",
       "height": 163,
       "weight": 57,
-      "birthPlace": "Guatemala"
+      "birthPlace": "Guatemala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132286,
@@ -47,7 +50,10 @@
       "dob": "1995-09-27",
       "height": 169,
       "weight": 60,
-      "birthPlace": "Guatemala"
+      "birthPlace": "Guatemala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139960,

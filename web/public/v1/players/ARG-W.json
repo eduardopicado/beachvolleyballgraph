@@ -42,7 +42,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117253,
@@ -147,7 +152,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122491,
@@ -162,7 +172,11 @@
       "dob": "1989-09-30",
       "height": 169,
       "weight": 66,
-      "birthPlace": "Santa Fe, Santa Fe province"
+      "birthPlace": "Santa Fe, Santa Fe province",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 134610,
@@ -241,7 +255,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 149283,
@@ -279,7 +296,10 @@
       "dob": "2000-02-17",
       "height": 173,
       "weight": 64,
-      "birthPlace": "La plata, Buenos Aires"
+      "birthPlace": "La plata, Buenos Aires",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 150359,
@@ -333,7 +353,11 @@
       "name": "Fernanda Pereyra",
       "dob": "1991-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 172781,
@@ -362,7 +386,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182131,
@@ -383,7 +410,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182137,
@@ -396,7 +426,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 182138,

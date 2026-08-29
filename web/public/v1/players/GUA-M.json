@@ -22,7 +22,10 @@
       "dob": "1989-10-27",
       "height": 193,
       "weight": 90,
-      "birthPlace": "Izabal"
+      "birthPlace": "Izabal",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 121014,
@@ -30,7 +33,10 @@
       "dob": "1991-01-15",
       "height": 184,
       "weight": 75,
-      "birthPlace": "Guatemala"
+      "birthPlace": "Guatemala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132565,

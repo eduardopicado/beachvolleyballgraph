@@ -8,7 +8,10 @@
       "dob": "1964-12-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Silistra"
+      "birthPlace": "Silistra",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102039,
@@ -21,7 +24,12 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102150,
@@ -34,7 +42,12 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102206,

@@ -72,7 +72,11 @@
       "dob": "1976-07-12",
       "height": 181,
       "weight": 72,
-      "birthPlace": "Durban"
+      "birthPlace": "Durban",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 104240,
@@ -80,14 +84,21 @@
       "dob": "1972-06-04",
       "height": null,
       "weight": null,
-      "birthPlace": "Nurehberg"
+      "birthPlace": "Nurehberg",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 117657,
       "name": "Vitalila Nel",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 117659,
@@ -165,7 +176,11 @@
       "name": "Judith Augoustides",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 123445,
@@ -173,7 +188,10 @@
       "dob": "1986-09-03",
       "height": 177,
       "weight": 83,
-      "birthPlace": "Bloemfontein"
+      "birthPlace": "Bloemfontein",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 134989,
@@ -181,7 +199,10 @@
       "dob": "1984-12-31",
       "height": 167,
       "weight": 67,
-      "birthPlace": "South Africa"
+      "birthPlace": "South Africa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139974,

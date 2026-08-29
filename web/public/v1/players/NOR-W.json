@@ -7,14 +7,20 @@
       "name": "Merita Berntsen",
       "dob": "1969-02-24",
       "height": 178,
-      "weight": 64
+      "weight": 64,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100559,
       "name": "Ragni Hestad",
       "dob": "1968-09-05",
       "height": 184,
-      "weight": 74
+      "weight": 74,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101391,
@@ -51,7 +57,10 @@
       "dob": "1971-12-10",
       "height": 172,
       "weight": 60,
-      "birthPlace": "Stavanger"
+      "birthPlace": "Stavanger",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101756,
@@ -59,7 +68,10 @@
       "dob": "1969-01-10",
       "height": 177,
       "weight": 68,
-      "birthPlace": "Lorenskog"
+      "birthPlace": "Lorenskog",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102590,
@@ -67,7 +79,11 @@
       "dob": "1974-12-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Bergen"
+      "birthPlace": "Bergen",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102591,
@@ -75,7 +91,11 @@
       "dob": "1976-12-18",
       "height": 182,
       "weight": 73,
-      "birthPlace": "Stavanger"
+      "birthPlace": "Stavanger",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102840,
@@ -96,7 +116,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102999,
@@ -117,7 +141,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103043,
@@ -138,7 +167,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103061,
@@ -175,7 +208,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103220,
@@ -320,7 +358,10 @@
       "dob": "1983-12-30",
       "height": 181,
       "weight": 74,
-      "birthPlace": "Norway"
+      "birthPlace": "Norway",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117955,
@@ -328,7 +369,10 @@
       "dob": "1984-01-09",
       "height": 179,
       "weight": null,
-      "birthPlace": "Oslo"
+      "birthPlace": "Oslo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118109,
@@ -429,7 +473,10 @@
       "name": "Siri Bjørkesett",
       "dob": "1983-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120298,
@@ -507,7 +554,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124707,
@@ -527,7 +577,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124737,
@@ -605,7 +658,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137133,
@@ -654,7 +710,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142400,
@@ -747,7 +806,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153151,
@@ -760,7 +822,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173418,
@@ -796,7 +861,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179296,
@@ -916,7 +984,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 226836,

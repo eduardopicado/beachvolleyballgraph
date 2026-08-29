@@ -8,7 +8,10 @@
       "dob": "1987-02-11",
       "height": 180,
       "weight": 62,
-      "birthPlace": "Bonao"
+      "birthPlace": "Bonao",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 123981,
@@ -32,7 +35,10 @@
       "dob": "1999-05-28",
       "height": null,
       "weight": null,
-      "birthPlace": "Bonao"
+      "birthPlace": "Bonao",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 182042,
@@ -40,7 +46,10 @@
       "dob": "2003-02-09",
       "height": null,
       "weight": null,
-      "birthPlace": "Cevicos"
+      "birthPlace": "Cevicos",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 195290,
@@ -48,7 +57,10 @@
       "dob": "2005-05-11",
       "height": null,
       "weight": null,
-      "birthPlace": "D.N."
+      "birthPlace": "D.N.",
+      "filters": [
+        "world-champs"
+      ]
     }
   ]
 }

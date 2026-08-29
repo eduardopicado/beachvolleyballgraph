@@ -8,7 +8,11 @@
       "dob": "1964-12-07",
       "height": 168,
       "weight": 56,
-      "birthPlace": "Whitburn (Scotland)"
+      "birthPlace": "Whitburn (Scotland)",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100264,
@@ -16,7 +20,11 @@
       "dob": "1970-07-16",
       "height": 180,
       "weight": 70,
-      "birthPlace": "Weymouth"
+      "birthPlace": "Weymouth",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100712,
@@ -30,6 +38,10 @@
         "silver": 0,
         "bronze": 1
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 101683,
@@ -111,7 +123,10 @@
       "name": "Vanessa Malone",
       "dob": "1971-07-31",
       "height": 176,
-      "weight": 68
+      "weight": 68,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100939,
@@ -131,7 +146,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103376,
@@ -162,6 +181,9 @@
       "height": 185,
       "weight": 68,
       "birthPlace": "Luxembourg",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 118753,
@@ -194,7 +216,10 @@
       "dob": "1986-01-02",
       "height": 174,
       "weight": 78,
-      "birthPlace": "Romford"
+      "birthPlace": "Romford",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118190,
@@ -203,6 +228,10 @@
       "height": 178,
       "weight": 65,
       "birthPlace": "Poole",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 118753,
@@ -354,7 +383,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125533,
@@ -388,7 +420,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 133882,
@@ -451,7 +486,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145733,
@@ -479,7 +517,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155116,
@@ -522,7 +563,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181666,
@@ -558,7 +602,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 205758,

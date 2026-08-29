@@ -8,7 +8,10 @@
       "dob": "1975-03-28",
       "height": 191,
       "weight": 82,
-      "birthPlace": "Almaty"
+      "birthPlace": "Almaty",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102598,
@@ -16,7 +19,10 @@
       "dob": "1975-01-26",
       "height": 192,
       "weight": 82,
-      "birthPlace": "Almatinskaya Obl"
+      "birthPlace": "Almatinskaya Obl",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102599,
@@ -24,7 +30,10 @@
       "dob": "1976-08-19",
       "height": 182,
       "weight": 77,
-      "birthPlace": "Temirtau"
+      "birthPlace": "Temirtau",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102600,
@@ -32,7 +41,10 @@
       "dob": "1973-08-25",
       "height": null,
       "weight": null,
-      "birthPlace": "Karagandinskaya Obl."
+      "birthPlace": "Karagandinskaya Obl.",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102888,
@@ -107,7 +119,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104876,
@@ -135,7 +151,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117868,
@@ -143,7 +163,10 @@
       "dob": "1980-05-18",
       "height": 195,
       "weight": 89,
-      "birthPlace": "Ukraine"
+      "birthPlace": "Ukraine",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118547,
@@ -151,7 +174,10 @@
       "dob": "1987-09-14",
       "height": 191,
       "weight": 93,
-      "birthPlace": "Aktau, Kazakhstan"
+      "birthPlace": "Aktau, Kazakhstan",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118553,
@@ -200,7 +226,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122476,
@@ -227,7 +257,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 122479,

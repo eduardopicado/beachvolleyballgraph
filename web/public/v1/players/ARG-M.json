@@ -13,7 +13,12 @@
         "gold": 3,
         "silver": 7,
         "bronze": 7
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100148,
@@ -31,7 +36,12 @@
         "gold": 8,
         "silver": 15,
         "bronze": 12
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100149,
@@ -87,7 +97,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100768,
@@ -107,7 +121,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100770,
@@ -244,7 +263,12 @@
         "gold": 6,
         "silver": 8,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101686,
@@ -570,7 +594,10 @@
       "dob": "1984-10-15",
       "height": 184,
       "weight": 72,
-      "birthPlace": "arg"
+      "birthPlace": "arg",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104603,
@@ -640,7 +667,10 @@
       "name": "Pablo Bianchi",
       "dob": "1983-05-12",
       "height": 196,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117543,
@@ -779,7 +809,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 135142,
@@ -852,7 +887,10 @@
         "gold": 5,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145596,
@@ -880,7 +918,12 @@
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 149242,
@@ -909,7 +952,11 @@
         "gold": 5,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 160816,
@@ -930,7 +977,11 @@
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178680,
@@ -946,7 +997,10 @@
       "dob": "2002-07-01",
       "height": 190,
       "weight": 88,
-      "birthPlace": "Tunuyan - Mendoza"
+      "birthPlace": "Tunuyan - Mendoza",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 182132,

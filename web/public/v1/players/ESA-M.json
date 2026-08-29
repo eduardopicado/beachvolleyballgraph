@@ -31,7 +31,10 @@
       "dob": "1981-01-06",
       "height": 181,
       "weight": 85,
-      "birthPlace": "San Salvador"
+      "birthPlace": "San Salvador",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 121033,
@@ -46,7 +49,10 @@
       "dob": "1985-02-19",
       "height": 191,
       "weight": 79,
-      "birthPlace": "San Salvador"
+      "birthPlace": "San Salvador",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139055,

@@ -15,7 +15,10 @@
       "name": "Victor Manuel Espiricueta Amarillas",
       "dob": "1960-07-28",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100514,
@@ -38,7 +41,11 @@
       "dob": "1969-05-30",
       "height": 192,
       "weight": 88,
-      "birthPlace": "Tepic Nayarit"
+      "birthPlace": "Tepic Nayarit",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100736,
@@ -78,7 +85,10 @@
       "name": "Alfonso \"Kiss\" Jackson Avina",
       "dob": "1966-07-06",
       "height": 186,
-      "weight": 84
+      "weight": 84,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101038,
@@ -165,7 +175,11 @@
       "dob": "1970-07-13",
       "height": 190,
       "weight": 95,
-      "birthPlace": "Mexico City"
+      "birthPlace": "Mexico City",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102570,
@@ -307,7 +321,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104106,
@@ -334,7 +353,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104510,
@@ -475,7 +499,10 @@
       "dob": "1991-05-07",
       "height": 188,
       "weight": 88,
-      "birthPlace": "Armeria"
+      "birthPlace": "Armeria",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 119918,
@@ -519,7 +546,10 @@
       "dob": "1992-09-02",
       "height": 196,
       "weight": 82,
-      "birthPlace": "Manzanillo"
+      "birthPlace": "Manzanillo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 138891,
@@ -617,7 +647,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "tour-podium"
+      ]
     },
     {
       "id": 147045,
@@ -629,7 +663,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "tour-podium"
+      ]
     },
     {
       "id": 147049,
@@ -666,7 +704,10 @@
       "dob": "1999-03-23",
       "height": 194,
       "weight": 88,
-      "birthPlace": "Tijuana"
+      "birthPlace": "Tijuana",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 164443,
@@ -681,7 +722,10 @@
       "dob": "1996-05-23",
       "height": 195,
       "weight": 98,
-      "birthPlace": "Mexico"
+      "birthPlace": "Mexico",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172975,
@@ -689,7 +733,10 @@
       "dob": "2002-08-20",
       "height": 184,
       "weight": 71,
-      "birthPlace": "Nuevo leon"
+      "birthPlace": "Nuevo leon",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 176513,

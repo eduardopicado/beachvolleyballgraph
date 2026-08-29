@@ -7,7 +7,10 @@
       "name": "José Javier \"Javi\" Yuste Muniz",
       "dob": "1971-12-14",
       "height": 185,
-      "weight": 90
+      "weight": 90,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100095,
@@ -32,7 +35,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100097,
@@ -47,7 +55,10 @@
       "name": "Miguel Angel Martin Prieto",
       "dob": "1970-01-29",
       "height": 187,
-      "weight": 84
+      "weight": 84,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100152,
@@ -73,7 +84,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "tour-podium"
+      ]
     },
     {
       "id": 100222,
@@ -122,7 +137,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100664,
@@ -329,7 +348,10 @@
       "dob": "1975-04-01",
       "height": 191,
       "weight": 80,
-      "birthPlace": "Santa Cruz de Tenerife"
+      "birthPlace": "Santa Cruz de Tenerife",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101583,
@@ -350,7 +372,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101612,
@@ -358,7 +385,10 @@
       "dob": "1972-10-17",
       "height": 195,
       "weight": 88,
-      "birthPlace": "Sevilla"
+      "birthPlace": "Sevilla",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101613,
@@ -460,7 +490,10 @@
       "dob": "1977-12-21",
       "height": 190,
       "weight": 87,
-      "birthPlace": "Zaanstad"
+      "birthPlace": "Zaanstad",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102484,
@@ -526,7 +559,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102837,
@@ -548,7 +584,10 @@
       "dob": "1979-06-08",
       "height": 191,
       "weight": 90,
-      "birthPlace": "Palma de Mallorca"
+      "birthPlace": "Palma de Mallorca",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103038,
@@ -585,7 +624,10 @@
       "dob": "1976-11-25",
       "height": 200,
       "weight": 95,
-      "birthPlace": "Malaga"
+      "birthPlace": "Malaga",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103310,
@@ -598,7 +640,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103311,
@@ -616,7 +663,12 @@
         "gold": 6,
         "silver": 10,
         "bronze": 12
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103312,
@@ -736,7 +788,11 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104177,
@@ -830,7 +886,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 110494,
@@ -875,7 +935,12 @@
         "gold": 5,
         "silver": 12,
         "bronze": 10
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116711,
@@ -894,7 +959,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117943,
@@ -1087,7 +1156,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124784,
@@ -1182,7 +1254,10 @@
       "name": "Javier Monfort Minaya",
       "dob": "1990-07-30",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 144297,
@@ -1201,7 +1276,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145561,
@@ -1222,7 +1300,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145947,
@@ -1235,7 +1316,10 @@
         "gold": 3,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151178,
@@ -1254,7 +1338,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153221,
@@ -1297,7 +1384,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168484,
@@ -1316,7 +1406,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169834,
@@ -1366,7 +1459,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 183253,

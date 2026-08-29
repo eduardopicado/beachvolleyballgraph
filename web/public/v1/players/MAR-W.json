@@ -49,7 +49,10 @@
       "name": "Mahassine Siad",
       "dob": "1988-01-02",
       "height": 178,
-      "weight": 74
+      "weight": 74,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 150071,
@@ -57,14 +60,20 @@
       "dob": "1988-07-30",
       "height": null,
       "weight": null,
-      "birthPlace": "Oulad Amrane"
+      "birthPlace": "Oulad Amrane",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 150072,
       "name": "Imane Zeroual",
       "dob": "1990-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 154900,
@@ -72,7 +81,10 @@
       "dob": "1994-03-17",
       "height": 165,
       "weight": 52,
-      "birthPlace": "Rabat"
+      "birthPlace": "Rabat",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 156055,
@@ -88,7 +100,10 @@
       "dob": "1998-11-30",
       "height": null,
       "weight": null,
-      "birthPlace": "Mers Sultan"
+      "birthPlace": "Mers Sultan",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 161545,

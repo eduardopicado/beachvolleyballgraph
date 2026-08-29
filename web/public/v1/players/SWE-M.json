@@ -13,14 +13,23 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100306,
       "name": "Fredrik \"Figge\" Petersson",
       "dob": "1969-10-19",
       "height": 179,
-      "weight": 77
+      "weight": 77,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100501,
@@ -40,7 +49,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100841,
@@ -55,7 +69,10 @@
       "dob": "1973-10-23",
       "height": 182,
       "weight": 82,
-      "birthPlace": "Nacka"
+      "birthPlace": "Nacka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100843,
@@ -70,7 +87,10 @@
       "dob": "1971-11-30",
       "height": 195,
       "weight": 90,
-      "birthPlace": "Varsala"
+      "birthPlace": "Varsala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100920,
@@ -85,7 +105,10 @@
       "dob": "1972-04-20",
       "height": 194,
       "weight": 78,
-      "birthPlace": "Ljungby"
+      "birthPlace": "Ljungby",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100922,
@@ -112,7 +135,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102121,
@@ -125,7 +153,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102453,
@@ -133,7 +164,10 @@
       "dob": "1977-09-04",
       "height": 185,
       "weight": 75,
-      "birthPlace": "Skövde"
+      "birthPlace": "Skövde",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102454,
@@ -161,7 +195,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102630,
@@ -169,7 +207,10 @@
       "dob": "1976-03-26",
       "height": 187,
       "weight": 84,
-      "birthPlace": "Huddinge"
+      "birthPlace": "Huddinge",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102787,
@@ -339,7 +380,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103863,
@@ -352,7 +397,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103864,
@@ -360,7 +409,10 @@
       "dob": "1976-07-28",
       "height": null,
       "weight": null,
-      "birthPlace": "Ronneby"
+      "birthPlace": "Ronneby",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104243,
@@ -720,7 +772,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145062,
@@ -797,7 +852,12 @@
         "gold": 13,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166274,
@@ -820,7 +880,12 @@
         "gold": 13,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166287,
@@ -833,7 +898,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168894,
@@ -846,7 +914,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 171940,
@@ -864,7 +935,11 @@
         "gold": 7,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178014,
@@ -885,7 +960,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182701,
@@ -905,7 +983,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190604,
@@ -917,7 +998,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 201042,
@@ -942,7 +1026,11 @@
         "gold": 7,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 207076,
@@ -992,7 +1080,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 223798,

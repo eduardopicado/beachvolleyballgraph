@@ -13,7 +13,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100191,
@@ -35,6 +39,9 @@
       "dob": "1968-01-21",
       "height": 181,
       "weight": 75,
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 100330,
@@ -66,14 +73,20 @@
       "dob": "1971-01-15",
       "height": 193,
       "weight": 77,
-      "birthPlace": "Hato Rey"
+      "birthPlace": "Hato Rey",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100754,
       "name": "David M. Quinonez Correa",
       "dob": "1965-09-08",
       "height": 170,
-      "weight": 61
+      "weight": 61,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100774,
@@ -95,7 +108,11 @@
       "dob": "1972-07-16",
       "height": 190,
       "weight": 93,
-      "birthPlace": "Bayamon"
+      "birthPlace": "Bayamon",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100829,
@@ -191,21 +208,32 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101627,
       "name": "Raul E. Papaleo Pérez",
       "dob": "1971-10-11",
       "height": 185,
-      "weight": 85
+      "weight": 85,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101629,
       "name": "Jorge Gonzalez",
       "dob": "1977-09-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101632,
@@ -377,7 +405,10 @@
       "dob": "1986-08-08",
       "height": 190,
       "weight": 89,
-      "birthPlace": "San Juan, PR"
+      "birthPlace": "San Juan, PR",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120052,
@@ -398,7 +429,10 @@
       "name": "Eric Haddock",
       "dob": "1983-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135420,

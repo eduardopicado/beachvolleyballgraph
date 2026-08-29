@@ -22,7 +22,10 @@
       "dob": "1990-07-23",
       "height": 190,
       "weight": 81,
-      "birthPlace": "Lokossa"
+      "birthPlace": "Lokossa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177540,
@@ -30,7 +33,10 @@
       "dob": "1995-07-12",
       "height": 199,
       "weight": 85,
-      "birthPlace": "Natitingou"
+      "birthPlace": "Natitingou",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 226750,

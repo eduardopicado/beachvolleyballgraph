@@ -36,7 +36,10 @@
       "name": "Farida Elaskalany Ahmed",
       "dob": "1995-02-14",
       "height": 184,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 123666,
@@ -44,7 +47,10 @@
       "dob": "1993-05-15",
       "height": 174,
       "weight": 63,
-      "birthPlace": "SAU"
+      "birthPlace": "SAU",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 143657,
@@ -52,7 +58,10 @@
       "dob": "1998-04-12",
       "height": 180,
       "weight": 71,
-      "birthPlace": "cairo"
+      "birthPlace": "cairo",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 151097,
@@ -60,7 +69,11 @@
       "dob": "1996-08-11",
       "height": 180,
       "weight": 84,
-      "birthPlace": "cairo"
+      "birthPlace": "cairo",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 152274,
@@ -76,7 +89,11 @@
       "dob": "1997-12-22",
       "height": 184,
       "weight": 83,
-      "birthPlace": "Cairo"
+      "birthPlace": "Cairo",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 167546,
@@ -92,7 +109,10 @@
       "dob": "2003-12-04",
       "height": 182,
       "weight": 75,
-      "birthPlace": "Giza"
+      "birthPlace": "Giza",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172320,

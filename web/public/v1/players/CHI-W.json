@@ -184,7 +184,10 @@
       "name": "Maria Francisca Rivas Zapata",
       "dob": "1988-01-11",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135093,
@@ -192,7 +195,10 @@
       "dob": "1990-10-04",
       "height": 174,
       "weight": 58,
-      "birthPlace": "Santiago"
+      "birthPlace": "Santiago",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135189,

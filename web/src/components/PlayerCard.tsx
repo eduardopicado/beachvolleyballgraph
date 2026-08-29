@@ -7,7 +7,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
-import { playerProfileUrl, TIER_BADGE } from '../schema';
+import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
 import { foldAccents } from '../lib/search';
 import {
   age,
@@ -294,6 +294,19 @@ function isFocusable(el: Element): el is Element & Pick<HTMLOrSVGElement, 'focus
   return typeof (el as Partial<HTMLOrSVGElement>).focus === 'function';
 }
 
+/**
+ * What each narrowing is called on screen.
+ *
+ * "Tour podiums" matches the vitals tile of the same name exactly, because the
+ * two count the same events — a chip called "Podiums" would promise the
+ * Olympic and World Championship podiums as well.
+ */
+const FILTER_LABEL: Record<TimelineFilter, string> = {
+  olympics: 'Olympics',
+  'world-champs': 'Worlds',
+  'tour-podium': 'Tour podiums',
+};
+
 export function PlayerCard({
   node,
   detail,
@@ -436,6 +449,34 @@ export function PlayerCard({
   const canShowTimeline = timeline.length > 0 || awayTimeline.length > 0;
   const showing = canShowTimeline ? view : 'partners';
 
+  /**
+   * A narrowing of the timeline: the Games, the World Championships, or the
+   * weeks on tour a player finished on the podium.
+   *
+   * Which chips exist comes from the published `filters`, not from the results
+   * file, because that file is only fetched when somebody opens a season — a
+   * control that appeared after the first click would not be a control anyone
+   * could find. Picking one raises the same flag an expansion does.
+   */
+  const [filter, setFilter] = useState<TimelineFilter | null>(null);
+  const available = detail?.filters ?? [];
+
+  // A different player has different chips, and one of them may not exist here.
+  useEffect(() => setFilter(null), [node.id]);
+
+  const matchesFilter = useCallback(
+    (event: SeasonEvent) => {
+      if (filter === 'olympics') return event.tier === 'olympics';
+      if (filter === 'world-champs') return event.tier === 'world-champs';
+      // Ranks 1-3 on tour, which is what the Tour podiums tile counts.
+      if (filter === 'tour-podium') {
+        return TOUR_TIERS.has(event.tier) && event.rank >= 1 && event.rank <= 3;
+      }
+      return true;
+    },
+    [filter],
+  );
+
   // --- expanding a season into its tournaments ------------------------------
   const [openSeasons, setOpenSeasons] = useState<ReadonlySet<number>>(new Set());
   // Raised by the first expansion and never lowered, which is what keeps the
@@ -499,6 +540,39 @@ export function PlayerCard({
     (season: number) => eventsForSeason(season).filter((event) => awayIds.has(event.partnerId)),
     [eventsForSeason, awayIds],
   );
+
+  /**
+   * The timeline, narrowed to the events a chip asks for.
+   *
+   * Built from the results rather than from the partnership rows above,
+   * because those are grouped by partner and a filter is a question about
+   * *events*. Every season that survives is rendered open: a filtered list
+   * exists to show the events themselves, so making the reader open four
+   * seasons to see four Games would be the same list they already had.
+   */
+  const filteredSeasons = useMemo(() => {
+    if (!filter || results.status !== 'ready') return [];
+    const seasons = new Set<number>();
+    for (const [no] of entries ?? []) {
+      const tournament = results.data.tournaments[no];
+      if (tournament) seasons.add(tournament[1]);
+    }
+    return [...seasons]
+      .filter((season) => eventsForSeason(season).some(matchesFilter))
+      .sort((a, b) => b - a)
+      .map((season) => ({ season, partners: [], total: 0 }));
+  }, [filter, results, entries, eventsForSeason, matchesFilter]);
+
+  const filteredEventsForSeason = useCallback(
+    (season: number) => eventsForSeason(season).filter(matchesFilter),
+    [eventsForSeason, matchesFilter],
+  );
+
+  const allFilteredOpen = useMemo(
+    () => new Set(filteredSeasons.map((r) => r.season)),
+    [filteredSeasons],
+  );
+
 
   return (
     <aside
@@ -622,6 +696,39 @@ export function PlayerCard({
           )}
         </div>
 
+        {showing === 'timeline' && available.length > 0 && (
+          /* The narrowings this player has anything for. Rendered only in the
+             timeline, because they narrow *events* and the partner list has
+             none — and only when there is something to narrow to, so most
+             cards never see them. */
+          <div className="tl-filters" role="group" aria-label="Show only">
+            <button
+              type="button"
+              className={filter === null ? 'on' : undefined}
+              aria-pressed={filter === null}
+              onClick={() => setFilter(null)}
+            >
+              All
+            </button>
+            {available.map((f) => (
+              <button
+                key={f}
+                type="button"
+                className={filter === f ? 'on' : undefined}
+                aria-pressed={filter === f}
+                onClick={() => {
+                  // Same flag an expansion raises: choosing a chip is the first
+                  // thing that needs the results file.
+                  setWantResults(true);
+                  setFilter((current) => (current === f ? null : f));
+                }}
+              >
+                {FILTER_LABEL[f]}
+              </button>
+            ))}
+          </div>
+        )}
+
         {partners.length === 0 ? (
           <p className="empty">
             {/* Says where the partnerships *are*, not just where they are not.
@@ -638,6 +745,26 @@ export function PlayerCard({
               ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
               : `No partnerships on record for this player.`}
           </p>
+        ) : showing === 'timeline' && filter ? (
+          results.status !== 'ready' ? (
+            <p className="events-note">Loading…</p>
+          ) : filteredSeasons.length === 0 ? (
+            /* Reachable only if the published `filters` and the results file
+               disagree, which would be a bug rather than an empty career — the
+               chip is not drawn unless the ingest found something. */
+            <p className="events-note">Nothing to show for this filter.</p>
+          ) : (
+            <SeasonList
+              rows={filteredSeasons}
+              open={allFilteredOpen}
+              onToggle={() => undefined}
+              idPrefix={`filtered-${node.id}`}
+              eventsFor={filteredEventsForSeason}
+              status={results.status}
+              onSelectPartner={onSelectPartner}
+              variant="is-filtered"
+            />
+          )
         ) : showing === 'timeline' ? (
           <SeasonList
             rows={timeline}

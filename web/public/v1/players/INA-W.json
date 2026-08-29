@@ -23,7 +23,11 @@
       "dob": "1974-07-05",
       "height": 171,
       "weight": 73,
-      "birthPlace": "Merauke"
+      "birthPlace": "Merauke",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100634,
@@ -31,7 +35,11 @@
       "dob": "1976-12-11",
       "height": 165,
       "weight": 55,
-      "birthPlace": "Praya"
+      "birthPlace": "Praya",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101011,
@@ -326,7 +334,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135473,
@@ -339,7 +350,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143023,

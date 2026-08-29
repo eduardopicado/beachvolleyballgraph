@@ -47,7 +47,10 @@
       "dob": "1975-01-28",
       "height": 172,
       "weight": 58,
-      "birthPlace": "Bratislava"
+      "birthPlace": "Bratislava",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 114808,
@@ -55,7 +58,10 @@
       "dob": "1983-09-20",
       "height": 184,
       "weight": 69,
-      "birthPlace": "Bratislava"
+      "birthPlace": "Bratislava",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118177,
@@ -68,7 +74,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118178,
@@ -146,7 +156,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120336,
@@ -219,7 +233,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 137170,

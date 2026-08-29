@@ -51,7 +51,10 @@
       "dob": "1973-10-23",
       "height": 196,
       "weight": null,
-      "birthPlace": "Cape Town"
+      "birthPlace": "Cape Town",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100836,
@@ -100,7 +103,10 @@
       "dob": "1970-12-14",
       "height": 181,
       "weight": 82,
-      "birthPlace": "Cape Town"
+      "birthPlace": "Cape Town",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101316,
@@ -299,7 +305,10 @@
       "name": "Colin Pocock",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101695,
@@ -440,7 +449,10 @@
       "name": "Freedom Chiya",
       "dob": "1979-07-11",
       "height": 186,
-      "weight": 92
+      "weight": 92,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 104642,
@@ -467,7 +479,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117671,
@@ -518,7 +535,10 @@
       "dob": "1972-09-28",
       "height": 190,
       "weight": 88,
-      "birthPlace": "Sofia"
+      "birthPlace": "Sofia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 131969,
@@ -531,7 +551,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 145168,
@@ -576,7 +600,10 @@
       "dob": "1986-09-29",
       "height": 187,
       "weight": 87,
-      "birthPlace": "RSA"
+      "birthPlace": "RSA",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145493,
