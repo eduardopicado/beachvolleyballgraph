@@ -954,6 +954,68 @@ test.describe('cross-country search', () => {
       page.locator('.player-search-results [role="group"][aria-label="Elsewhere"] .where').first(),
     ).toBeVisible();
   });
+
+  /**
+   * A name with something in the middle.
+   *
+   * FIVB stores middle names and nicknames inside `FirstName`, so the two words
+   * a reader knows are often not adjacent: "Eduardo Esteban \"Mono\" Martinez",
+   * "Paulo Roberto \"Paulao\" Moreira da Costa". Measured over the published
+   * index, 2,766 of 12,029 published players could not be found by their own
+   * first and last word before the scattered-token tier.
+   *
+   * The subject is scanned out of the published data rather than named, because
+   * which players are in that shape changes with the archive.
+   */
+  const separatedName = () => {
+    for (const player of searchable()) {
+      const words = player.name.split(/\s+/).filter((w) => /\p{L}/u.test(w) && !/["'\u201c\u201d]/.test(w));
+      // Three plain words or more, and the outer two long enough to be a real
+      // query rather than an initial.
+      if (words.length < 3) continue;
+      const first = words[0]!;
+      const last = words[words.length - 1]!;
+      if (first.length < 4 || last.length < 4) continue;
+      // Only useful as a regression test if the *old* rule would have missed
+      // them, which is exactly when the two words are not adjacent.
+      if (player.folded.includes(`${first.toLowerCase()} ${last.toLowerCase()}`)) continue;
+      return { player, query: `${first} ${last}` };
+    }
+    return null;
+  };
+
+  test('finds a player by their first and last word, past whatever sits between', async ({
+    page,
+  }) => {
+    const found = separatedName();
+    expect(found, 'no published name with a separated first and last word').toBeTruthy();
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(found!.query);
+
+    const row = rows(page).filter({ hasText: found!.player.name }).first();
+    await expect(row).toBeVisible();
+
+    // The guard on the guard: the query really is two words that never appear
+    // together, so a revert to contiguous-only matching renders no such row.
+    expect(found!.player.name).not.toContain(found!.query);
+  });
+
+  test('still requires every word of the query to match something', async ({ page }) => {
+    // The scattered tier widens the search; this is what stops it widening into
+    // "any word matches". Pairing a real name with a word no player holds must
+    // find nobody.
+    const found = separatedName();
+    expect(found).toBeTruthy();
+    const first = found!.query.split(' ')[0]!;
+
+    await page.goto(`./${slicePath()}`);
+    await box(page).click();
+    await box(page).fill(`${first} qqzzxx`);
+
+    await expect(rows(page)).toHaveCount(0);
+  });
 });
 
 test('published JSON endpoints are reachable', async ({ page, baseURL }) => {
