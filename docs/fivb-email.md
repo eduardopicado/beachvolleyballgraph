@@ -105,6 +105,28 @@ entered alongside a real athlete at a national tour event — `Dummy1 Dummy1`
 partnering Markus Groeber at Innsbruck 2018 (`NAUT0118`, team 935106), with a
 recorded finish of 13th.
 
+The player name fields have picked up the ordinary wear of thirty years of
+hand-typing at a couple of hundred federations. Across the 130,988 records in
+the player list: 6,500 have leading or trailing spaces, 5,737 have a `FirstName`
+typed entirely in capitals, 982 have a nickname in quotation marks inside
+`FirstName` or `LastName` even though `TeamName` already holds it, 476 have a
+double space, and 8 have an empty `FirstName`. None of that is urgent and I
+tidy all of it on my side before publishing.
+
+The one I cannot fix downstream is name order, because nothing in the record
+says which word is the given name. Alexandre Ramos Samuel — "Tande" — is player
+`102071`, and his row reads:
+
+```
+FirstName = ' Ramos Alexandre "Tande"'   LastName = 'Samuel'   TeamName = 'Tande'
+```
+
+So `FirstName` + `LastName` renders as "Ramos Alexandre "Tande" Samuel". His
+surname is in front of his given name, and the nickname is in the middle of
+both. `TeamName` is correct. Whoever else is filed this way is invisible to me
+— I can only spot it for players I happen to recognise — so it is worth a look
+from your side if names are ever tidied in bulk.
+
 I have not sent anyone an unsolicited bug report and I do not intend to start.
 But if a list would be useful to whoever looks after VIS, I would be glad to
 send what I have in whatever form is easiest to act on, and to keep sending
@@ -179,9 +201,11 @@ you could not find recorded anywhere — that sentence is worth more than
 anything else in the mail.
 
 **Every specific in it has been checked against VIS.** The team numbers, the
-tournament codes, the nineteen test records and the Innsbruck finish are all
-real and re-checkable, which matters: the mail asks them to trust a stranger's
-reading of their own data, and a single wrong detail would undo that. The
+tournament codes, the nineteen test records, the name-field counts and the
+Innsbruck finish are all real and re-checkable, which matters: the mail asks
+them to trust a stranger's reading of their own data, and a single wrong detail
+would undo that. Tande's row is quoted exactly as `GetPlayer` returns it,
+leading space included. The
 Innsbruck event is deliberately described as a *national tour* event rather
 than an FIVB one — it is `Type` 15, `OrganizerType` 5 — because overstating it
 would be exactly the kind of error the paragraph is warning them about.
