@@ -7,42 +7,48 @@
       "name": "Musumba Bernard Oundo Francis",
       "dob": "1981-04-04",
       "height": 194,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Busia,Kenya"
     },
     {
       "id": 176815,
       "name": "Brian Kipkirui Melly",
       "dob": "1998-01-16",
       "height": 185,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Uasin Gishu"
     },
     {
       "id": 178606,
       "name": "Ezekiel Kibet Yebei",
       "dob": "1988-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "uasin gishu"
     },
     {
       "id": 178705,
       "name": "Jairus Kipkosgei",
       "dob": "1994-10-22",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Nandi"
     },
     {
       "id": 179683,
       "name": "Elphas Maikuva Makuto",
       "dob": "1997-10-08",
       "height": 180,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "mavusi"
     },
     {
       "id": 179692,
       "name": "Wilson Cheruiyot",
       "dob": "1999-09-21",
       "height": 193,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "nandi"
     }
   ]
 }

@@ -35,7 +35,8 @@
       "name": "Olena Zalubovskaya Ippolitova",
       "dob": "1965-08-01",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Lugansk"
     },
     {
       "id": 101929,
@@ -49,91 +50,104 @@
       "name": "Aurora Sunol",
       "dob": "1981-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 102156,
       "name": "Susana Vega Gomez",
       "dob": "1972-03-31",
       "height": 165,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 102157,
       "name": "Ester Alcon",
       "dob": "1970-10-26",
       "height": 173,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Sabaden (Barcelona)"
     },
     {
       "id": 102318,
       "name": "Sonia Alonso Martinez",
       "dob": "1969-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Madrid"
     },
     {
       "id": 102377,
       "name": "Nuria Forteza Vicaria",
       "dob": "1975-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103386,
       "name": "Benigna Fernandez Rodriguez",
       "dob": "1981-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oviedo, Asturias"
     },
     {
       "id": 103387,
       "name": "Patricia Barrio Cendoya",
       "dob": "1982-07-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Laredo"
     },
     {
       "id": 103388,
       "name": "Ester Ribera Boter",
       "dob": "1979-08-26",
       "height": 176,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Sant Pol De Mar"
     },
     {
       "id": 103389,
       "name": "Catalina Maria Pol",
       "dob": "1981-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Consell (Mallora)"
     },
     {
       "id": 103405,
       "name": "Veronica Zamora Granja",
       "dob": "1981-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alicante"
     },
     {
       "id": 103406,
       "name": "Amparo Hopf",
       "dob": "1980-12-19",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Madrid"
     },
     {
       "id": 103407,
       "name": "Miriam Carrillo",
       "dob": "1979-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Las Palmas de Gran Canaria"
     },
     {
       "id": 103409,
       "name": "Mari Luz Carballo",
       "dob": "1980-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Las Palmas de Gran Canaria"
     },
     {
       "id": 103410,
@@ -175,7 +189,8 @@
       "name": "Beatriz Alonzo Gonzales",
       "dob": "1982-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tenerife"
     },
     {
       "id": 103490,
@@ -189,119 +204,136 @@
       "name": "Cristina Gallardo",
       "dob": "1976-10-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alcecoras (Cadiz)"
     },
     {
       "id": 103769,
       "name": "Barbara Puiggali Fontanals",
       "dob": "1980-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103770,
       "name": "Barbara Pérez-Albert",
       "dob": "1977-03-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103771,
       "name": "Maria Bonafont",
       "dob": "1975-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103774,
       "name": "Noelia Esteban",
       "dob": "1972-10-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Madrid"
     },
     {
       "id": 103775,
       "name": "Celia Morales",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "La Laguna"
     },
     {
       "id": 103776,
       "name": "Ana Fernandez",
       "dob": "1975-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malaga"
     },
     {
       "id": 103777,
       "name": "Ana Sancho",
       "dob": "1978-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 103818,
       "name": "Angelica Gomez Rodriguez",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Cruz de Tenerife"
     },
     {
       "id": 103854,
       "name": "Elena Navarro Lewis",
       "dob": "1976-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alicante"
     },
     {
       "id": 103923,
       "name": "Ester Rodriguez",
       "dob": "1982-02-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Granada"
     },
     {
       "id": 103924,
       "name": "Eva Suarez Zapico",
       "dob": "1985-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gijon"
     },
     {
       "id": 103925,
       "name": "Cristina Hopf",
       "dob": "1985-10-09",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Madrid"
     },
     {
       "id": 104007,
       "name": "Carla Martinez",
       "dob": "1980-04-09",
       "height": 182,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 104150,
       "name": "Jenifer Laya",
       "dob": "1986-08-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cantabria"
     },
     {
       "id": 104151,
       "name": "Irene Cano",
       "dob": "1985-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cantabria"
     },
     {
       "id": 104153,
       "name": "Cristina Callejón",
       "dob": "1977-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Madrid"
     },
     {
       "id": 104183,
@@ -309,6 +341,7 @@
       "dob": "1981-04-08",
       "height": null,
       "weight": 70,
+      "birthPlace": "Alicante",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -320,7 +353,8 @@
       "name": "Carol Triguero",
       "dob": "1982-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 104202,
@@ -334,7 +368,8 @@
       "name": "Nuria Moncunill",
       "dob": "1987-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 104615,
@@ -342,6 +377,7 @@
       "dob": "1982-01-05",
       "height": 180,
       "weight": 70,
+      "birthPlace": "La Pampa, Argentina",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -382,6 +418,7 @@
       "dob": "1985-02-25",
       "height": 180,
       "weight": 66,
+      "birthPlace": "vigo",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -434,6 +471,7 @@
       "dob": "1987-01-04",
       "height": 178,
       "weight": 74,
+      "birthPlace": "Alicante",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -565,6 +603,7 @@
       "dob": "1984-06-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Alaro",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -584,6 +623,7 @@
       "dob": "1987-06-25",
       "height": 181,
       "weight": 68,
+      "birthPlace": "New York",
       "tour": {
         "gold": 0,
         "silver": 5,
@@ -602,14 +642,16 @@
       "name": "Cristina Vilabrille",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gijón"
     },
     {
       "id": 119666,
       "name": "Milagros Collar",
       "dob": "1988-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Madrid"
     },
     {
       "id": 119966,
@@ -628,7 +670,8 @@
       "name": "Meritxell Alseda Aizcorbe",
       "dob": "1982-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 120305,
@@ -649,7 +692,8 @@
       "name": "Ana María Vidal Bouza",
       "dob": "1983-10-25",
       "height": 172,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lugo"
     },
     {
       "id": 120493,
@@ -670,7 +714,8 @@
       "name": "María José Corral Bouza",
       "dob": "1991-01-01",
       "height": 177,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Lugo"
     },
     {
       "id": 120708,
@@ -678,6 +723,7 @@
       "dob": "1992-04-22",
       "height": 175,
       "weight": 64,
+      "birthPlace": "Málaga",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -690,6 +736,7 @@
       "dob": "1989-12-13",
       "height": 185,
       "weight": 76,
+      "birthPlace": "Sevilla",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -701,14 +748,16 @@
       "name": "Nira Pérez Cabrera",
       "dob": "1984-11-01",
       "height": 177,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Sta. Cruz Tenerife"
     },
     {
       "id": 124600,
       "name": "Andrea García Gonzalo",
       "dob": "1990-03-22",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Madrid"
     },
     {
       "id": 124883,
@@ -736,7 +785,8 @@
       "name": "Amaranta Fernández Navarro",
       "dob": "1983-08-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mataró"
     },
     {
       "id": 132595,
@@ -744,6 +794,7 @@
       "dob": "1993-01-31",
       "height": 180,
       "weight": 71,
+      "birthPlace": "Orihuela",
       "tour": {
         "gold": 5,
         "silver": 5,
@@ -755,7 +806,8 @@
       "name": "Berta Antequera Feixa",
       "dob": "1984-11-24",
       "height": 176,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Lleida"
     },
     {
       "id": 140030,
@@ -769,7 +821,8 @@
       "name": "Aida Etxebarría Valparis",
       "dob": "1995-03-26",
       "height": 175,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bilbao"
     },
     {
       "id": 152148,
@@ -784,6 +837,7 @@
       "dob": "2002-01-29",
       "height": 175,
       "weight": 62,
+      "birthPlace": "Valdemorillo",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -796,6 +850,7 @@
       "dob": "1999-03-15",
       "height": 190,
       "weight": 82,
+      "birthPlace": "Madrid",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -829,6 +884,7 @@
       "dob": "2001-11-27",
       "height": 186,
       "weight": 78,
+      "birthPlace": "Gijón",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -893,6 +949,7 @@
       "dob": "2001-07-27",
       "height": 177,
       "weight": 62,
+      "birthPlace": "Malaga",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -931,6 +988,7 @@
       "dob": "2006-06-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Boadilla del Monte (Madrid)",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -943,6 +1001,7 @@
       "dob": "2005-05-04",
       "height": null,
       "weight": null,
+      "birthPlace": "Majadahonda (Madrid)",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -990,6 +1049,7 @@
       "dob": "2006-02-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Quijorna (Madrid)",
       "tour": {
         "gold": 3,
         "silver": 0,
@@ -1001,7 +1061,8 @@
       "name": "Sol Guidarelli",
       "dob": "2001-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 192823,
@@ -1015,7 +1076,8 @@
       "name": "Daniela Andreu Balado",
       "dob": "2003-06-11",
       "height": 180,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Barcelona"
     },
     {
       "id": 199700,
@@ -1043,7 +1105,8 @@
       "name": "Julia Caldentey López",
       "dob": "2008-08-17",
       "height": 179,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Manacor"
     },
     {
       "id": 221162,
@@ -1057,7 +1120,8 @@
       "name": "Federica Garcés Curbelo",
       "dob": "2008-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Spain"
     }
   ]
 }

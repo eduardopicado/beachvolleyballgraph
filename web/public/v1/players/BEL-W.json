@@ -21,14 +21,16 @@
       "name": "Anja Duyck",
       "dob": "1968-10-08",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Gent"
     },
     {
       "id": 101541,
       "name": "Ulrike Deforce",
       "dob": "1973-07-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Menen"
     },
     {
       "id": 101542,
@@ -56,28 +58,32 @@
       "name": "Kristien Van Lierop",
       "dob": "1979-01-10",
       "height": 175,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Beveren-Waas"
     },
     {
       "id": 102990,
       "name": "Katrien De Decker",
       "dob": "1975-12-06",
       "height": 188,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Oostende"
     },
     {
       "id": 104382,
       "name": "Tetyana Zhmakova",
       "dob": "1969-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Poltana (urss)"
     },
     {
       "id": 115423,
       "name": "Liesbet Vindevoghel",
       "dob": "1979-12-29",
       "height": 187,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Gent - Belgium"
     },
     {
       "id": 115424,
@@ -85,6 +91,7 @@
       "dob": "1983-01-07",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Tongeren",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -96,14 +103,16 @@
       "name": "Els Vandesteene",
       "dob": "1987-05-30",
       "height": 186,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Brugge"
     },
     {
       "id": 115429,
       "name": "Frauke Dirickx",
       "dob": "1980-01-03",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Halle - Belgium"
     },
     {
       "id": 115438,
@@ -111,6 +120,7 @@
       "dob": "1979-01-27",
       "height": 178,
       "weight": 74,
+      "birthPlace": "Mechelen",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -122,35 +132,40 @@
       "name": "Maud Catry",
       "dob": "1990-09-04",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Kortrijk"
     },
     {
       "id": 119430,
       "name": "Katrien Gielen",
       "dob": "1990-10-26",
       "height": 181,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Hasselt"
     },
     {
       "id": 122266,
       "name": "Stephanie Van Bree",
       "dob": "1986-11-10",
       "height": 180,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Turnhout"
     },
     {
       "id": 122326,
       "name": "Goedele Van Cauteren",
       "dob": "1982-07-22",
       "height": 180,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Leuven"
     },
     {
       "id": 123728,
       "name": "Britt Ruysschaert",
       "dob": "1994-05-27",
       "height": 177,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Turnout"
     },
     {
       "id": 138946,
@@ -165,6 +180,7 @@
       "dob": "1997-04-14",
       "height": 188,
       "weight": 70,
+      "birthPlace": "Lier",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -176,14 +192,16 @@
       "name": "Birthe Wittock",
       "dob": "1995-05-29",
       "height": 183,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sint-Niklaas"
     },
     {
       "id": 152039,
       "name": "Amber De Tant",
       "dob": "1998-03-22",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Aalst"
     },
     {
       "id": 152043,
@@ -198,6 +216,7 @@
       "dob": "1998-09-07",
       "height": 182,
       "weight": 67,
+      "birthPlace": "Herentals",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -216,56 +235,64 @@
       "name": "Fleur Baens",
       "dob": "1999-12-22",
       "height": 170,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Genk"
     },
     {
       "id": 156988,
       "name": "Isabel Van den Broeck",
       "dob": "1993-04-11",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Lier"
     },
     {
       "id": 156992,
       "name": "Annelies Vandenabeele",
       "dob": "1980-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Poperinge"
     },
     {
       "id": 181509,
       "name": "Marion Beauve",
       "dob": "2005-03-21",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Liège"
     },
     {
       "id": 181510,
       "name": "Jade Van Deun",
       "dob": "2004-01-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wilrijk"
     },
     {
       "id": 189137,
       "name": "Annelore Bex",
       "dob": "2006-04-13",
       "height": 175,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Pelt"
     },
     {
       "id": 190211,
       "name": "Hannelore Pass",
       "dob": "2005-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bree"
     },
     {
       "id": 190212,
       "name": "Océane Reul",
       "dob": "1992-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liège"
     },
     {
       "id": 190213,
@@ -305,7 +332,8 @@
       "name": "Anne-Line Vervloet",
       "dob": "2007-10-25",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Sint-Niklaas"
     },
     {
       "id": 210110,
@@ -319,7 +347,8 @@
       "name": "Lotte De Clercq",
       "dob": "2007-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rumst"
     },
     {
       "id": 210116,
@@ -333,7 +362,8 @@
       "name": "Simone Vervloet",
       "dob": "2009-07-14",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Sint-Niklaas"
     },
     {
       "id": 211362,
@@ -347,7 +377,8 @@
       "name": "Tes Waegeneers",
       "dob": "2010-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leuven"
     }
   ]
 }

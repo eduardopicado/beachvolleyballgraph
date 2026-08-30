@@ -466,6 +466,52 @@ particle. Telling them apart needs the player's culture, not their string.
 
 ---
 
+## 6.6. `BirthPlace` is free text, and occasionally not a place
+
+One field, no separate city or country, filled in by hand at a couple of
+hundred federations. It reaches **6,496 of the 12,074 published players
+(53.8%)** and holds at least four conventions at once:
+
+| Player | `BirthPlace`, exactly as stored | What it is |
+|---|---|---|
+| Emanuel Rego | `Curitiba, PR` | city and state |
+| Laura Ludwig | `Berlin` | city alone — the median shape |
+| Gisi Gavio | `Juiz de Fora (BRA)` | city and country code |
+| Tande | `Resende-Rio de Janeiro` | city and state, hyphenated |
+| — | `TN` | a province code, not a city |
+
+None of that is repairable: nothing separates a city from a province, and
+nothing says which country a bare "Portland" is in. It is published verbatim.
+
+**It is much cleaner than it first looks.** Only **21 of 6,496 (0.32%)** are
+unusable, and most of those are merely suspicious — `Paris 14e`, `Praha 4`,
+`Sèvres (92)`, `St Brieul (12)`, `Auckland N2` are arrondissements, districts
+and department numbers, which are real answers. Rejecting anything containing a
+digit would discard all of them to catch **seven** genuinely broken records:
+
+```
+21.08.77   03/09/1988   06-05-1991   17/01/1992     a date in the place field
+30019      98278                                    a bare postcode
+to be Merged with (#164181) as                      an internal editing note
+```
+
+That last one is worth reporting upstream: it is a note to whoever maintains
+the record, sitting in a public field.
+
+**Capitals are normalised per word here, not per string.** §6.5 leaves a partly
+capitalised *name* alone because the capitals mark the family name; a place has
+no such convention, so `9 de JULIO` should become `9 de Julio` even though "de"
+is already lower case. What makes per-word safe is a length gate — a short
+upper-case token in a place is a **code**: the `PR` in `Curitiba, PR`, the
+`BRA` in `Juiz de Fora (BRA)`, the whole of `TN`. 444 published birth places
+shout and are fixed; the codes survive.
+
+**Handled in.** `ingest/build.ts`, `tidyBirthPlace`, with the published
+artifact asserted in `build.test.ts` — no empty string, no bare date, no bare
+postcode, no internal note, nothing shouting, and the codes still present.
+
+---
+
 ## 7. Federation codes that aren't countries
 
 - **`SMA`** — the player sample includes a literal `Test` / `Test` entry

@@ -7,21 +7,24 @@
       "name": "Avo Keel",
       "dob": "1962-10-01",
       "height": 193,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Voru"
     },
     {
       "id": 100490,
       "name": "Kaido Kreen",
       "dob": "1965-01-12",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Viljandi"
     },
     {
       "id": 100787,
       "name": "Kaarel Kais",
       "dob": "1974-09-13",
       "height": 188,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 100788,
@@ -29,6 +32,7 @@
       "dob": "1976-03-03",
       "height": 188,
       "weight": 82,
+      "birthPlace": "Paikuse, Parnumaa",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -68,7 +72,8 @@
       "name": "Sten Esna",
       "dob": "1982-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 103981,
@@ -76,6 +81,7 @@
       "dob": "1980-07-15",
       "height": 198,
       "weight": 90,
+      "birthPlace": "Parnu",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -87,21 +93,24 @@
       "name": "Mait Murs",
       "dob": "1983-09-13",
       "height": 185,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Rakvere"
     },
     {
       "id": 104037,
       "name": "Harrys Puusepp",
       "dob": "1983-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rakuere (Estonia)"
     },
     {
       "id": 104217,
       "name": "Jaanus Nommsalu",
       "dob": "1981-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pârnu"
     },
     {
       "id": 105099,
@@ -129,7 +138,8 @@
       "name": "Rain Raud",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tartu"
     },
     {
       "id": 115734,
@@ -157,7 +167,8 @@
       "name": "Martin Ruul",
       "dob": "1986-10-06",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Tartu, Estonia"
     },
     {
       "id": 117877,
@@ -185,14 +196,16 @@
       "name": "Martti Juhkami",
       "dob": "1988-06-06",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Eesti"
     },
     {
       "id": 119274,
       "name": "Kristo Kollo",
       "dob": "1990-01-17",
       "height": 190,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Tartu"
     },
     {
       "id": 120114,
@@ -241,7 +254,8 @@
       "name": "Oliver Venno",
       "dob": "1990-05-23",
       "height": 210,
-      "weight": 106
+      "weight": 106,
+      "birthPlace": "Tartu"
     },
     {
       "id": 124875,
@@ -262,7 +276,8 @@
       "name": "Sander Steinberg",
       "dob": "1988-04-06",
       "height": 206,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 135696,
@@ -288,21 +303,24 @@
       "name": "Renee Teppan",
       "dob": "1993-09-26",
       "height": 197,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Pärnu"
     },
     {
       "id": 144348,
       "name": "Stefan Kaibald",
       "dob": "1997-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kärdla"
     },
     {
       "id": 144349,
       "name": "Markus Uuskari",
       "dob": "1997-04-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kärdla"
     },
     {
       "id": 148483,
@@ -310,6 +328,7 @@
       "dob": "1998-10-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Narva",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -322,6 +341,7 @@
       "dob": "1991-11-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Rapla",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -334,6 +354,7 @@
       "dob": "1991-11-06",
       "height": 189,
       "weight": 82,
+      "birthPlace": "Tallinn",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -352,56 +373,64 @@
       "name": "Märt Tammearu",
       "dob": "2001-03-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pärnu"
     },
     {
       "id": 164510,
       "name": "Rasmus Meius",
       "dob": "2002-04-05",
       "height": 191,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 168984,
       "name": "Timo Ander Lõhmus",
       "dob": "2001-05-30",
       "height": 188,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 169386,
       "name": "Mihkel Tanila",
       "dob": "1991-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saaremaa"
     },
     {
       "id": 173516,
       "name": "Kaur Erik Kais",
       "dob": "2002-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pärnu"
     },
     {
       "id": 182928,
       "name": "Jaan Rebel",
       "dob": "1996-10-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 185688,
       "name": "Karmo Saviauk",
       "dob": "2002-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 185769,
       "name": "Karl Rinaldo",
       "dob": "1992-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 190802,
@@ -429,14 +458,16 @@
       "name": "Siim Rantanen",
       "dob": "1993-03-05",
       "height": 196,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Kuressaare"
     },
     {
       "id": 190812,
       "name": "Sander Talistu",
       "dob": "1995-04-06",
       "height": 190,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Kuressaare"
     },
     {
       "id": 201782,
@@ -464,7 +495,8 @@
       "name": "tobias penasse",
       "dob": "2007-01-16",
       "height": 183,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hove"
     },
     {
       "id": 218083,
@@ -485,14 +517,16 @@
       "name": "Kristo Tamm",
       "dob": "1993-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Estonia"
     },
     {
       "id": 225481,
       "name": "Kaspar Vares",
       "dob": "2009-10-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     }
   ]
 }

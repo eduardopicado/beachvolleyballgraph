@@ -7,84 +7,96 @@
       "name": "Irina Cristina Gomes Delgado",
       "dob": "1983-03-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 170818,
       "name": "Ludmila Sofia Oliveira Varela",
       "dob": "1994-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ilha de Santiago"
     },
     {
       "id": 173574,
       "name": "Janice Anilda Oliveira Varela",
       "dob": "1991-03-13",
       "height": null,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Praia"
     },
     {
       "id": 181413,
       "name": "Sandrina Benany Vieira Monteiro Silva",
       "dob": "1997-04-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tarrafal"
     },
     {
       "id": 209041,
       "name": "Keila Santos da Cruz",
       "dob": "2001-10-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mindelo"
     },
     {
       "id": 219579,
       "name": "Ariel Cilene da Conceição Neves Paulina",
       "dob": "2001-09-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 227349,
       "name": "Maria clara V. Semedo Lima",
       "dob": "2008-11-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 227350,
       "name": "Catarina Raquel Silva Fonseca",
       "dob": "2008-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 230740,
       "name": "Adla Marina Tavares De Pina",
       "dob": "2006-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 230741,
       "name": "Claudia Helena Cruz Pinto",
       "dob": "1986-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 230742,
       "name": "Melanie Yara Soares Lopes Rocha",
       "dob": "1993-10-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 241573,
       "name": "Josany Simone Da Cruz Fortes",
       "dob": "1991-09-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santo Antão"
     }
   ]
 }

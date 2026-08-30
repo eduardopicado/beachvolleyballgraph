@@ -7,42 +7,48 @@
       "name": "Brackcides Khadambi",
       "dob": "1984-05-14",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Kakamega"
     },
     {
       "id": 124540,
       "name": "Gaudencia Makokha",
       "dob": "1992-11-15",
       "height": 187,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Lugari"
     },
     {
       "id": 142061,
       "name": "Naomie Too",
       "dob": "1992-04-24",
       "height": 170,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Uasin Gishu"
     },
     {
       "id": 172146,
       "name": "Sharleen Maywa",
       "dob": "1997-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "kapsokwony"
     },
     {
       "id": 179830,
       "name": "Mercy Iminza Likhayo",
       "dob": "2002-04-03",
       "height": 185,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Bungoma"
     },
     {
       "id": 185151,
       "name": "Marion Makonjo Indeche",
       "dob": "1999-08-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kakamega"
     }
   ]
 }

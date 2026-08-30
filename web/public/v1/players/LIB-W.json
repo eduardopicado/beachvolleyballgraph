@@ -7,14 +7,16 @@
       "name": "Mira Adra",
       "dob": "1986-03-02",
       "height": 168,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "mina"
     },
     {
       "id": 175389,
       "name": "Aya Maria Matar",
       "dob": "2002-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Beirut"
     }
   ]
 }

@@ -21,21 +21,24 @@
       "name": "Andy Alexis Leonardo Blanco",
       "dob": "1989-10-27",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Izabal"
     },
     {
       "id": 121014,
       "name": "Luis Augusto Garcia Betancourt",
       "dob": "1991-01-15",
       "height": 184,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Guatemala"
     },
     {
       "id": 132565,
       "name": "Axel Enrique Menendez Burgos",
       "dob": "1993-06-29",
       "height": 177,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Poptun, Peten"
     },
     {
       "id": 139726,
@@ -49,14 +52,16 @@
       "name": "Fredy Ronaldo Luna Vivas",
       "dob": "2008-04-13",
       "height": 175,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "El Progreso"
     },
     {
       "id": 217628,
       "name": "Robin Jean Carlos Oliva Véliz",
       "dob": "2008-06-21",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "El Progreso"
     }
   ]
 }

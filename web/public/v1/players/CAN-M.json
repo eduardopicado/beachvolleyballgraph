@@ -8,6 +8,7 @@
       "dob": "1967-05-04",
       "height": 189,
       "weight": 93,
+      "birthPlace": "Toronto",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -32,6 +33,7 @@
       "dob": "1969-08-15",
       "height": 184,
       "weight": 85,
+      "birthPlace": "Toronto",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -48,7 +50,8 @@
       "name": "Mike Chaloupka",
       "dob": "1971-06-27",
       "height": 199,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Toronto"
     },
     {
       "id": 100144,
@@ -62,7 +65,8 @@
       "name": "Brian \"Gatz\" Gatzke",
       "dob": "1964-11-21",
       "height": 197,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Vernon"
     },
     {
       "id": 100289,
@@ -88,14 +92,16 @@
       "name": "Marc \"Sparky\" Dunn",
       "dob": "1965-09-09",
       "height": 183,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Kingston"
     },
     {
       "id": 100639,
       "name": "James Olejnik",
       "dob": "1967-03-23",
       "height": 195,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Etobicoke"
     },
     {
       "id": 100722,
@@ -103,6 +109,7 @@
       "dob": "1968-08-20",
       "height": 195,
       "weight": 95,
+      "birthPlace": "Shelburne, Nova Scotia",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -115,6 +122,7 @@
       "dob": "1969-05-18",
       "height": 188,
       "weight": 84,
+      "birthPlace": "Calgary",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -141,6 +149,7 @@
       "dob": "1971-04-02",
       "height": 193,
       "weight": 89,
+      "birthPlace": "Kelowna B.C.",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -200,140 +209,160 @@
       "name": "Ahren Cadieux",
       "dob": "1976-04-06",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102072,
       "name": "Michael \"Mike\" Slean",
       "dob": "1975-08-07",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102073,
       "name": "Djordje Ljubicic",
       "dob": "1972-03-01",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102074,
       "name": "Christopher Torr",
       "dob": "1974-11-22",
       "height": 186,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Kitchener, Canada"
     },
     {
       "id": 102075,
       "name": "Shaun Furneaux",
       "dob": "1976-10-15",
       "height": 185,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "London (Ontario)"
     },
     {
       "id": 102231,
       "name": "Marc \"Roops\" Roberts",
       "dob": "1969-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102232,
       "name": "Steve Delaney",
       "dob": "1976-03-08",
       "height": 195,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Mississauga"
     },
     {
       "id": 102233,
       "name": "Emmanuel Loeub",
       "dob": "1973-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Montreal"
     },
     {
       "id": 102234,
       "name": "Pierre Chamberland",
       "dob": "1976-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pointe-Claire"
     },
     {
       "id": 102237,
       "name": "Abraham \"Neil\" Mason",
       "dob": "1977-03-09",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102238,
       "name": "Jasper Egan",
       "dob": "1972-05-03",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Montreal"
     },
     {
       "id": 102239,
       "name": "Cesar Bayan",
       "dob": "1975-04-08",
       "height": 173,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Manila"
     },
     {
       "id": 102240,
       "name": "John Barrett",
       "dob": "1962-08-11",
       "height": 198,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102241,
       "name": "Ed \"Fast Eddie\" Richardson",
       "dob": "1968-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102508,
       "name": "Everett \"Evie\" Matthews",
       "dob": "1977-03-29",
       "height": 173,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Halifax"
     },
     {
       "id": 102510,
       "name": "James Alexander \"Jamie\" Mackay",
       "dob": "1975-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saskatoon"
     },
     {
       "id": 102511,
       "name": "Eric Masson",
       "dob": "1973-11-08",
       "height": 191,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Montreal"
     },
     {
       "id": 102538,
       "name": "Vincent Larivée",
       "dob": "1970-09-18",
       "height": 165,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Montreal"
     },
     {
       "id": 102541,
       "name": "Steven John \"Steve\" Smith",
       "dob": "1967-03-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St-Catherines"
     },
     {
       "id": 102634,
       "name": "Anton Hauser",
       "dob": "1976-09-05",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Toronto"
     },
     {
       "id": 102910,
@@ -354,21 +383,24 @@
       "name": "Chris Jedlovcnik",
       "dob": "1968-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Slovenia"
     },
     {
       "id": 103062,
       "name": "Kevin Benn",
       "dob": "1974-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kingston Ontario"
     },
     {
       "id": 103205,
       "name": "James Gravelle",
       "dob": "1975-03-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Windsor"
     },
     {
       "id": 103266,
@@ -389,7 +421,8 @@
       "name": "Brian John Hiebert",
       "dob": "1979-11-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Canada"
     },
     {
       "id": 103682,
@@ -436,7 +469,8 @@
       "name": "Miguel Domingo",
       "dob": "1980-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kimberley, British Columbia"
     },
     {
       "id": 103918,
@@ -444,6 +478,7 @@
       "dob": "1982-03-16",
       "height": 188,
       "weight": 86,
+      "birthPlace": "Toronto",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -455,7 +490,8 @@
       "name": "Paul Podstawka",
       "dob": "1985-05-28",
       "height": 198,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Toronto, Canada"
     },
     {
       "id": 104099,
@@ -470,6 +506,7 @@
       "dob": "1981-01-12",
       "height": 196,
       "weight": 98,
+      "birthPlace": "Toronto",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -481,14 +518,16 @@
       "name": "Pascal Cloutier",
       "dob": "1974-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Victoriaville"
     },
     {
       "id": 104222,
       "name": "Dany Côté",
       "dob": "1974-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St-Hyacinthe Québec"
     },
     {
       "id": 104388,
@@ -502,21 +541,24 @@
       "name": "Spencer Holowachuk",
       "dob": "1986-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Victoria"
     },
     {
       "id": 104481,
       "name": "Mischa Harris",
       "dob": "1986-01-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Victoria BC"
     },
     {
       "id": 104575,
       "name": "Richard Van Huizen",
       "dob": "1975-11-25",
       "height": 205,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Belleville, Canada"
     },
     {
       "id": 104630,
@@ -524,6 +566,7 @@
       "dob": "1977-10-28",
       "height": 194,
       "weight": 92,
+      "birthPlace": "Ottawa",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -550,6 +593,7 @@
       "dob": "1988-11-21",
       "height": 200,
       "weight": 92,
+      "birthPlace": "Calgary",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -637,6 +681,7 @@
       "dob": "1984-05-02",
       "height": 199,
       "weight": 96,
+      "birthPlace": "Comox",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -703,14 +748,16 @@
       "name": "Daniel Lewis",
       "dob": "1976-04-03",
       "height": 189,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Oakville"
     },
     {
       "id": 115222,
       "name": "Ray Sewell",
       "dob": "1981-11-24",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Calgary"
     },
     {
       "id": 115223,
@@ -739,6 +786,7 @@
       "dob": "1979-03-05",
       "height": 188,
       "weight": 81,
+      "birthPlace": "vancouver",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -877,6 +925,7 @@
       "dob": "1981-08-21",
       "height": 192,
       "weight": 86,
+      "birthPlace": "Poland",
       "away": [
         {
           "id": 131994,
@@ -908,7 +957,8 @@
       "name": "Rex Fenton",
       "dob": "1990-09-12",
       "height": 192,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ottawa, Canada"
     },
     {
       "id": 120717,
@@ -948,21 +998,24 @@
       "name": "Steve Corothers",
       "dob": "1981-03-29",
       "height": 193,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Edmonton"
     },
     {
       "id": 122264,
       "name": "Dave Quinn",
       "dob": "1982-05-25",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Ottawa"
     },
     {
       "id": 122530,
       "name": "Matthew Fugard",
       "dob": "1983-06-11",
       "height": 201,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Ottawa"
     },
     {
       "id": 124973,
@@ -976,7 +1029,8 @@
       "name": "Nick Del Bianco",
       "dob": "1992-02-06",
       "height": 195,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Vancouver"
     },
     {
       "id": 124977,
@@ -990,7 +1044,8 @@
       "name": "Garrett May",
       "dob": "1992-04-14",
       "height": 191,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 125480,
@@ -998,6 +1053,7 @@
       "dob": "1990-01-13",
       "height": 197,
       "weight": 87,
+      "birthPlace": "Toronto, Ontario",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1009,7 +1065,8 @@
       "name": "Jasmin Cull",
       "dob": "1983-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 132699,
@@ -1024,6 +1081,7 @@
       "dob": "1993-11-02",
       "height": 188,
       "weight": 88,
+      "birthPlace": "Scarborough",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1035,14 +1093,16 @@
       "name": "Michael Plantinga",
       "dob": "1990-05-23",
       "height": 199,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Langley"
     },
     {
       "id": 135226,
       "name": "Maverick Hatch",
       "dob": "1987-03-20",
       "height": 201,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Comox"
     },
     {
       "id": 135344,
@@ -1071,6 +1131,7 @@
       "dob": "1988-09-19",
       "height": null,
       "weight": null,
+      "birthPlace": "Barrie",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1082,7 +1143,8 @@
       "name": "Simon Fecteau-Boutin",
       "dob": "1987-12-17",
       "height": 190,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Lévis"
     },
     {
       "id": 135516,
@@ -1131,7 +1193,8 @@
       "name": "Felipe Humana-Paredes",
       "dob": "1989-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 139264,
@@ -1145,7 +1208,8 @@
       "name": "William Hoey",
       "dob": "1994-11-24",
       "height": 209,
-      "weight": 106
+      "weight": 106,
+      "birthPlace": "Brampton, ON"
     },
     {
       "id": 139429,
@@ -1153,6 +1217,7 @@
       "dob": "1989-11-23",
       "height": 191,
       "weight": 85,
+      "birthPlace": "Abbotsford",
       "away": [
         {
           "id": 131994,
@@ -1198,7 +1263,8 @@
       "name": "Danny Demyanenko",
       "dob": "1994-07-13",
       "height": 196,
-      "weight": 101
+      "weight": 101,
+      "birthPlace": "Toronto"
     },
     {
       "id": 140044,
@@ -1206,6 +1272,7 @@
       "dob": "1993-06-25",
       "height": 210,
       "weight": 100,
+      "birthPlace": "Vancouver",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1218,6 +1285,7 @@
       "dob": "1996-05-01",
       "height": 183,
       "weight": null,
+      "birthPlace": "Georgetown Ontario",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1276,21 +1344,24 @@
       "name": "Parvir Jhajj",
       "dob": "1998-01-26",
       "height": 185,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "etobicoke"
     },
     {
       "id": 145883,
       "name": "Taryq Sani",
       "dob": "1998-11-06",
       "height": 182,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Scarborough"
     },
     {
       "id": 145892,
       "name": "Zachery Albert",
       "dob": "1997-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brampton, ON"
     },
     {
       "id": 145893,
@@ -1318,21 +1389,24 @@
       "name": "Blake Scheerhoorn",
       "dob": "1995-01-06",
       "height": 202,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Belleville"
     },
     {
       "id": 148400,
       "name": "Lucas Coleman",
       "dob": "1995-01-14",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Richmond Hill"
     },
     {
       "id": 151875,
       "name": "Arran Chambers",
       "dob": "1995-04-12",
       "height": 202,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Edmonton"
     },
     {
       "id": 154905,
@@ -1353,14 +1427,16 @@
       "name": "Aidan Saladana",
       "dob": "1996-08-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Victoria"
     },
     {
       "id": 157321,
       "name": "Sharone Vernon-Evans",
       "dob": "1998-08-28",
       "height": 206,
-      "weight": 108
+      "weight": 108,
+      "birthPlace": "Toronto"
     },
     {
       "id": 157334,
@@ -1381,7 +1457,8 @@
       "name": "Tomas Sorra",
       "dob": "1999-01-19",
       "height": 189,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Toronto"
     },
     {
       "id": 157811,
@@ -1395,14 +1472,16 @@
       "name": "Ivan Reka",
       "dob": "1993-11-08",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Montreal/ CAN"
     },
     {
       "id": 161788,
       "name": "Logan Mend",
       "dob": "1997-05-10",
       "height": 196,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Naramata, BC"
     },
     {
       "id": 161789,
@@ -1423,35 +1502,40 @@
       "name": "Aleksandar Zdravkov Borisov",
       "dob": "1995-07-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vidin, Bulgaria"
     },
     {
       "id": 162256,
       "name": "Jordan Deshane",
       "dob": "1997-09-03",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Burnaby, BC"
     },
     {
       "id": 166905,
       "name": "Robert Kemp",
       "dob": "2000-06-15",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "North York, Toronto"
     },
     {
       "id": 166906,
       "name": "Cole Irwin",
       "dob": "2001-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto, Ontario"
     },
     {
       "id": 168711,
       "name": "Max Losier",
       "dob": "2001-10-29",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Fairfax"
     },
     {
       "id": 168712,
@@ -1477,7 +1561,8 @@
       "name": "Coltyn Liu",
       "dob": "1999-06-07",
       "height": 193,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Vancouver"
     },
     {
       "id": 169057,
@@ -1505,7 +1590,8 @@
       "name": "Eric Girard",
       "dob": "1994-09-09",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ottawa"
     },
     {
       "id": 172785,
@@ -1552,7 +1638,8 @@
       "name": "Jérémie Doyon",
       "dob": "2000-04-05",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Saint-Georges"
     },
     {
       "id": 178483,
@@ -1566,56 +1653,64 @@
       "name": "Yoan David",
       "dob": "1999-07-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gatineau"
     },
     {
       "id": 178710,
       "name": "Anthony De Girolamo",
       "dob": "1999-05-22",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Markham, Canada"
     },
     {
       "id": 182538,
       "name": "Daniil Hershtynovich",
       "dob": "2005-03-21",
       "height": 206,
-      "weight": 101
+      "weight": 101,
+      "birthPlace": "Molodechno"
     },
     {
       "id": 182539,
       "name": "Luke de Greeff",
       "dob": "2001-09-02",
       "height": 194,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Vancouver"
     },
     {
       "id": 182581,
       "name": "Kaden Schmidt",
       "dob": "2004-10-01",
       "height": 196,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Mississauga"
     },
     {
       "id": 182625,
       "name": "Joshua Gagnon",
       "dob": "2002-04-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 182626,
       "name": "Colby Nemeth",
       "dob": "2002-09-06",
       "height": 196,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Red Deer"
     },
     {
       "id": 182654,
       "name": "Martin Licht",
       "dob": "2002-01-19",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Dallas"
     },
     {
       "id": 183440,
@@ -1623,6 +1718,7 @@
       "dob": "2001-08-09",
       "height": 198,
       "weight": 96,
+      "birthPlace": "Calgary, AB",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1635,6 +1731,7 @@
       "dob": "2002-02-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Mississauga",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1646,70 +1743,80 @@
       "name": "Mikaël Dagenais",
       "dob": "1992-03-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Montreal"
     },
     {
       "id": 191673,
       "name": "Jack Svendsen",
       "dob": "2005-12-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 191674,
       "name": "Cameron McGregor",
       "dob": "2004-09-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 191675,
       "name": "Charlie Winser",
       "dob": "2004-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North York"
     },
     {
       "id": 191902,
       "name": "Andon Kiriakou",
       "dob": "2005-08-04",
       "height": 184,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Toronto"
     },
     {
       "id": 193939,
       "name": "Rouzbeh Rahnavard",
       "dob": "2000-04-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shiraz"
     },
     {
       "id": 194201,
       "name": "Brendan Mills",
       "dob": "2003-03-22",
       "height": 200,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "London"
     },
     {
       "id": 198925,
       "name": "Tynan Gannett",
       "dob": "2002-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Halifax"
     },
     {
       "id": 201259,
       "name": "Grégoire Mercier-Noël",
       "dob": "2002-10-02",
       "height": 189,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Longueuil"
     },
     {
       "id": 201260,
       "name": "Marc-Antoine Durocher",
       "dob": "2001-11-02",
       "height": 198,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Longueuil"
     },
     {
       "id": 201305,
@@ -1717,6 +1824,7 @@
       "dob": "2003-07-22",
       "height": 193,
       "weight": 98,
+      "birthPlace": "Calgary",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1728,168 +1836,192 @@
       "name": "Ben Moffat",
       "dob": "2002-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kingston"
     },
     {
       "id": 202083,
       "name": "Reed Venning",
       "dob": "2003-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Scugog"
     },
     {
       "id": 204185,
       "name": "Zechariah Johnson",
       "dob": "1999-08-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Langley"
     },
     {
       "id": 204215,
       "name": "Gabriel Arpin",
       "dob": "1993-12-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sorel-Tracey"
     },
     {
       "id": 204852,
       "name": "Colin Lash",
       "dob": "2003-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 204853,
       "name": "Brandon Burnside",
       "dob": "2006-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 204885,
       "name": "Charles Ellinas",
       "dob": "2003-11-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 205274,
       "name": "Louis Charbonneau",
       "dob": "2006-02-10",
       "height": 200,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Paget"
     },
     {
       "id": 208694,
       "name": "Tyler Brossard",
       "dob": "2003-11-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Greenfield Park"
     },
     {
       "id": 210570,
       "name": "Blake Armstrong",
       "dob": "2001-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mississauga"
     },
     {
       "id": 211027,
       "name": "Aiden Hilkowitz",
       "dob": "2005-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 211028,
       "name": "Connor Dorsey",
       "dob": "2005-10-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dublin"
     },
     {
       "id": 211971,
       "name": "Elliot Collard",
       "dob": "2000-09-08",
       "height": 201,
-      "weight": 104
+      "weight": 104,
+      "birthPlace": "Chicoutimi"
     },
     {
       "id": 212435,
       "name": "Mason Doering",
       "dob": "2006-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 212440,
       "name": "Brecken Morrison",
       "dob": "2006-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oakville"
     },
     {
       "id": 212656,
       "name": "Chris Tautrims",
       "dob": "2006-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oakville"
     },
     {
       "id": 213297,
       "name": "Henry Heider",
       "dob": "2007-04-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Newmarket"
     },
     {
       "id": 215088,
       "name": "Conaires Taub",
       "dob": "2004-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 222089,
       "name": "Jaxson Thys",
       "dob": "1999-03-22",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Calgary"
     },
     {
       "id": 225356,
       "name": "Bryce Kim",
       "dob": "2008-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toronto"
     },
     {
       "id": 225358,
       "name": "Misha Panasiouk",
       "dob": "2008-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 227183,
       "name": "Brock Reinsch",
       "dob": "2008-12-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 227184,
       "name": "Chase Walker",
       "dob": "2008-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calgary"
     },
     {
       "id": 227930,
       "name": "Gavin Deep",
       "dob": "2005-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kitchener"
     },
     {
       "id": 228566,
@@ -1897,6 +2029,7 @@
       "dob": "2009-03-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Queens",
       "away": [
         {
           "id": 209015,
@@ -1927,35 +2060,40 @@
       "name": "Zachary McGrath",
       "dob": "2009-05-29",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Oakville"
     },
     {
       "id": 233727,
       "name": "Joaquin Lopez",
       "dob": "2009-10-22",
       "height": 157,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Markham"
     },
     {
       "id": 234030,
       "name": "Cameron Gibson",
       "dob": "2009-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Newmarket"
     },
     {
       "id": 234397,
       "name": "Bruno Azevedo",
       "dob": "2009-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mississauga"
     },
     {
       "id": 236101,
       "name": "Brendon Lord",
       "dob": "2003-11-18",
       "height": 194,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Grande Prairie"
     }
   ]
 }

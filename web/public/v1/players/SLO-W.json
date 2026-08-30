@@ -7,28 +7,32 @@
       "name": "Natasa \"Tjasi\" Artnik",
       "dob": "1975-09-27",
       "height": 177,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 102229,
       "name": "Mojca Legac",
       "dob": "1975-07-04",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Koper"
     },
     {
       "id": 103664,
       "name": "Ana Oblak",
       "dob": "1981-05-13",
       "height": 176,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Kranj"
     },
     {
       "id": 103665,
       "name": "Barbara Kristan",
       "dob": "1981-07-15",
       "height": 183,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 104653,
@@ -42,7 +46,8 @@
       "name": "Erika Fabjan",
       "dob": "1987-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 104963,
@@ -94,7 +99,8 @@
       "name": "Andreja Vodeb",
       "dob": "1979-11-09",
       "height": 182,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Celje"
     },
     {
       "id": 132761,
@@ -120,7 +126,8 @@
       "name": "Nataša Fekonja",
       "dob": "1990-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Murska Sobota"
     },
     {
       "id": 138349,
@@ -128,6 +135,7 @@
       "dob": "1990-07-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Slovenj Gradec",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -146,7 +154,8 @@
       "name": "Sara Valenčič",
       "dob": "1990-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Koper"
     },
     {
       "id": 140019,
@@ -168,6 +177,7 @@
       "dob": "1985-09-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Koper",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -186,7 +196,8 @@
       "name": "Mojca Pene",
       "dob": "1989-04-23",
       "height": 180,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 153211,
@@ -194,6 +205,7 @@
       "dob": "1998-10-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Izola",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -205,14 +217,16 @@
       "name": "Spela Morgan",
       "dob": "1999-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Izola"
     },
     {
       "id": 153924,
       "name": "Nina Kontrec",
       "dob": "1989-10-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Slovenj Gradec"
     },
     {
       "id": 154048,
@@ -268,7 +282,8 @@
       "name": "Lea Gostincar",
       "dob": "1999-03-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 157843,
@@ -276,6 +291,7 @@
       "dob": "1992-10-16",
       "height": null,
       "weight": null,
+      "birthPlace": "Ljubljana",
       "tour": {
         "gold": 2,
         "silver": 4,
@@ -313,7 +329,8 @@
       "name": "Asja Šen",
       "dob": "2003-11-26",
       "height": 179,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Postojna"
     },
     {
       "id": 179308,
@@ -321,6 +338,7 @@
       "dob": "2004-03-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Postojna",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -332,7 +350,8 @@
       "name": "Anja Puckmeister",
       "dob": "2004-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Celje"
     }
   ]
 }

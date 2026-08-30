@@ -63,7 +63,8 @@
       "name": "Thi Thanh Tram Nguyen",
       "dob": "1994-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Khanh HOA"
     },
     {
       "id": 150559,
@@ -112,42 +113,48 @@
       "name": "Thi Hoa Hien Le",
       "dob": "1993-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Long AN"
     },
     {
       "id": 172841,
       "name": "Thi Thu Vu",
       "dob": "2001-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hai Phong"
     },
     {
       "id": 172842,
       "name": "Ngoc Lan Chau",
       "dob": "2001-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vinh Long"
     },
     {
       "id": 177270,
       "name": "Le Thi Tuong Vy Nguyen",
       "dob": "1999-12-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Khanh Hoa"
     },
     {
       "id": 189591,
       "name": "Hong Hanh Mai",
       "dob": "2005-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kien Giang"
     },
     {
       "id": 199504,
       "name": "Thi Thu Nguyen",
       "dob": "2005-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "HAI Phong"
     }
   ]
 }

@@ -7,14 +7,16 @@
       "name": "Mathew Ressa",
       "dob": "2008-12-13",
       "height": null,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Gibraltar"
     },
     {
       "id": 203663,
       "name": "Liam Neish",
       "dob": "2008-09-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gibraltar"
     }
   ]
 }

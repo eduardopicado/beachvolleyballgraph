@@ -8,6 +8,7 @@
       "dob": "1977-08-02",
       "height": 169,
       "weight": 60,
+      "birthPlace": "Manaus",
       "away": [
         {
           "id": 104192,
@@ -49,7 +50,8 @@
       "name": "Cristine Santanna",
       "dob": "1979-05-27",
       "height": 181,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Sao Paulo"
     }
   ]
 }

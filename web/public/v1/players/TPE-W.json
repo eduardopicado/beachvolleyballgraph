@@ -7,7 +7,8 @@
       "name": "Hui Min Chang",
       "dob": "1979-10-08",
       "height": 175,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Taiwan"
     },
     {
       "id": 134692,
@@ -15,6 +16,7 @@
       "dob": "1989-04-05",
       "height": 168,
       "weight": 63,
+      "birthPlace": "Taiwan",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -52,14 +54,16 @@
       "name": "Hsuan-Tsen Yeh",
       "dob": "2002-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiwan"
     },
     {
       "id": 167171,
       "name": "Xiao-Pei Hu",
       "dob": "2001-11-30",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Taiwan"
     },
     {
       "id": 167174,
@@ -73,14 +77,16 @@
       "name": "Wei-Jie Chang",
       "dob": "2001-10-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiwan"
     },
     {
       "id": 192831,
       "name": "Chia-Ning Hsu",
       "dob": "2006-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaohsiung"
     },
     {
       "id": 210506,

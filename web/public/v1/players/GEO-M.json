@@ -21,21 +21,24 @@
       "name": "Soso Lobzhanidze",
       "dob": "1983-04-28",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Lentekhi"
     },
     {
       "id": 117860,
       "name": "Renato Gomes",
       "dob": "1981-01-20",
       "height": 204,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Joao Pessoa"
     },
     {
       "id": 117861,
       "name": "Jorge Terceiro",
       "dob": "1976-07-19",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Joao Pessoa"
     }
   ]
 }

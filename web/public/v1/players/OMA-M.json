@@ -21,7 +21,8 @@
       "name": "Haitham Khalfan Abdulla AL Shereiqi",
       "dob": "1986-03-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nizwa"
     },
     {
       "id": 120826,
@@ -57,6 +58,7 @@
       "dob": "1988-08-09",
       "height": 187,
       "weight": 66,
+      "birthPlace": "Saham",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -68,7 +70,8 @@
       "name": "Haitham Alshereiqi",
       "dob": "1986-03-14",
       "height": 187,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Nizwa"
     },
     {
       "id": 142812,
@@ -102,6 +105,7 @@
       "dob": "1988-02-14",
       "height": 188,
       "weight": 76,
+      "birthPlace": "Rostaq",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -113,7 +117,8 @@
       "name": "Nouh Al-Jalbubi",
       "dob": "1991-11-03",
       "height": 188,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Rostaq"
     },
     {
       "id": 161336,
@@ -142,6 +147,7 @@
       "dob": "1998-08-04",
       "height": 192,
       "weight": 83,
+      "birthPlace": "Rustaq",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -209,21 +215,24 @@
       "name": "Arif Alamri",
       "dob": "1993-05-30",
       "height": 185,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Tawi Atayr"
     },
     {
       "id": 223112,
       "name": "Haytham Ahmed Abdallah Rashid Al Breiki",
       "dob": "2010-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "saham"
     },
     {
       "id": 229423,
       "name": "Mazin Khalfan Said Abdullah Al Salmani",
       "dob": "2009-06-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matrha"
     }
   ]
 }

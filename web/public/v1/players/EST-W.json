@@ -43,6 +43,7 @@
       "dob": "1982-08-12",
       "height": 177,
       "weight": 65,
+      "birthPlace": "Rapina",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -61,21 +62,24 @@
       "name": "Anna-Liisa \"Liisu\" Sutt",
       "dob": "1984-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Parnu"
     },
     {
       "id": 104951,
       "name": "Katre Laanes",
       "dob": "1979-06-01",
       "height": 186,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Tartu"
     },
     {
       "id": 104957,
       "name": "Kadri Puri",
       "dob": "1988-07-05",
       "height": 174,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tartu"
     },
     {
       "id": 104958,
@@ -89,7 +93,8 @@
       "name": "Polina Bratuhhina",
       "dob": "1987-12-07",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Narva"
     },
     {
       "id": 116570,
@@ -97,6 +102,7 @@
       "dob": "1987-12-07",
       "height": 180,
       "weight": 70,
+      "birthPlace": "Narva, Estonia",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -115,7 +121,8 @@
       "name": "Kristel Kiens",
       "dob": "1989-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tartu"
     },
     {
       "id": 119277,
@@ -129,14 +136,16 @@
       "name": "Anu Vukicevic",
       "dob": "1992-01-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Viljandi"
     },
     {
       "id": 137446,
       "name": "Anett Hollas",
       "dob": "1995-04-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Estonia"
     },
     {
       "id": 143851,
@@ -144,6 +153,7 @@
       "dob": "1997-05-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Estonia",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -156,6 +166,7 @@
       "dob": "1997-06-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Estonia",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -214,7 +225,8 @@
       "name": "Merike Errit",
       "dob": "1992-11-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 179427,
@@ -222,6 +234,7 @@
       "dob": "2003-04-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Tartu",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -240,7 +253,8 @@
       "name": "Grete Jürgenson",
       "dob": "2005-07-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tartu"
     },
     {
       "id": 190817,
@@ -275,7 +289,8 @@
       "name": "Keira Liina Lukas",
       "dob": "2009-09-09",
       "height": 185,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Tallinn"
     },
     {
       "id": 204597,
@@ -303,14 +318,16 @@
       "name": "Lenna Kuusik",
       "dob": "2008-08-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rakvere"
     },
     {
       "id": 230927,
       "name": "Susanna Elisabeth RIKAND",
       "dob": "2009-10-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tartu"
     }
   ]
 }

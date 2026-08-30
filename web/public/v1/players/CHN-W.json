@@ -7,7 +7,8 @@
       "name": "Nan Bi",
       "dob": "1972-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shandong"
     },
     {
       "id": 101851,
@@ -15,6 +16,7 @@
       "dob": "1976-07-26",
       "height": 180,
       "weight": 74,
+      "birthPlace": "Sichuan",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -33,14 +35,16 @@
       "name": "Na Dong",
       "dob": "1977-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shan Xi"
     },
     {
       "id": 101856,
       "name": "Bo Han",
       "dob": "1978-03-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiang Su"
     },
     {
       "id": 101857,
@@ -54,21 +58,24 @@
       "name": "Min Li",
       "dob": "1976-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shan Xi"
     },
     {
       "id": 101861,
       "name": "Haiyan Sun",
       "dob": "1976-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shangdong"
     },
     {
       "id": 101862,
       "name": "Jing Sun",
       "dob": "1981-05-14",
       "height": 177,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Jiang Su"
     },
     {
       "id": 101864,
@@ -90,6 +97,7 @@
       "dob": "1976-11-08",
       "height": 181,
       "weight": 74,
+      "birthPlace": "Sichuan",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -101,21 +109,24 @@
       "name": "Jingkun Zhang",
       "dob": "1973-03-07",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Tian Jing"
     },
     {
       "id": 102164,
       "name": "Chun Ying Liu",
       "dob": "1975-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tianjin"
     },
     {
       "id": 102165,
       "name": "Suhong Zhou",
       "dob": "1979-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "JiangSu"
     },
     {
       "id": 102166,
@@ -123,6 +134,7 @@
       "dob": "1981-02-09",
       "height": 177,
       "weight": 68,
+      "birthPlace": "Tianjin",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -144,28 +156,32 @@
       "name": "Ling Li Fu",
       "dob": "1972-08-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 102338,
       "name": "Yu Juan Kang",
       "dob": "1979-10-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tianjin"
     },
     {
       "id": 102339,
       "name": "Hong Lan",
       "dob": "1974-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korla Xin Tiang"
     },
     {
       "id": 102340,
       "name": "Wei Liu",
       "dob": "1978-11-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Heilongjiang"
     },
     {
       "id": 102341,
@@ -173,6 +189,7 @@
       "dob": "1981-08-06",
       "height": 183,
       "weight": 68,
+      "birthPlace": "Henan",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -189,56 +206,64 @@
       "name": "Li Xue",
       "dob": "1976-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiangsu"
     },
     {
       "id": 102343,
       "name": "Jie Yang",
       "dob": "1977-02-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tianjin"
     },
     {
       "id": 102344,
       "name": "Na Zhang",
       "dob": "1980-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tianjin"
     },
     {
       "id": 102774,
       "name": "Ying Li",
       "dob": "1980-01-02",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Yang Quan Shanxi"
     },
     {
       "id": 102775,
       "name": "Chun Hong Lu",
       "dob": "1981-03-20",
       "height": 176,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Jiang shu"
     },
     {
       "id": 102776,
       "name": "Zi Qian Zhang",
       "dob": "1982-01-28",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Tian Jin"
     },
     {
       "id": 102777,
       "name": "Ju Zhang",
       "dob": "1979-11-09",
       "height": 179,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Tian Jin"
     },
     {
       "id": 102778,
       "name": "Yan Song",
       "dob": "1982-02-28",
       "height": 182,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Kuitin XIN Jiang"
     },
     {
       "id": 102779,
@@ -252,14 +277,16 @@
       "name": "Rui Ge",
       "dob": "1981-06-09",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Shan Xi"
     },
     {
       "id": 102844,
       "name": "Yun Xu",
       "dob": "1977-01-20",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Shanghai"
     },
     {
       "id": 103178,
@@ -267,6 +294,7 @@
       "dob": "1982-08-08",
       "height": 189,
       "weight": 76,
+      "birthPlace": "Shanxi",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -279,6 +307,7 @@
       "dob": "1979-10-20",
       "height": 178,
       "weight": 68,
+      "birthPlace": "Shanhgai",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -290,49 +319,56 @@
       "name": "Su Qian Luo",
       "dob": "1976-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hubei"
     },
     {
       "id": 103181,
       "name": "Ni Na Yang",
       "dob": "1984-03-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hu Bei"
     },
     {
       "id": 103235,
       "name": "Wen Juan Wang",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hebei"
     },
     {
       "id": 103236,
       "name": "Jing Zhang",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Heilongjiang"
     },
     {
       "id": 103237,
       "name": "Wang Ye Pan",
       "dob": "1984-08-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shanghai"
     },
     {
       "id": 103255,
       "name": "Zhengqing Ren",
       "dob": "1985-02-20",
       "height": 172,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Zhejiang"
     },
     {
       "id": 103256,
       "name": "Wen Feng Lu",
       "dob": "1982-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhe Jiang"
     },
     {
       "id": 103631,
@@ -347,6 +383,7 @@
       "dob": "1986-05-03",
       "height": 183,
       "weight": 73,
+      "birthPlace": "Shangai",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -359,6 +396,7 @@
       "dob": "1985-04-19",
       "height": 183,
       "weight": 64,
+      "birthPlace": "Jiangsu",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -380,21 +418,24 @@
       "name": "Yi Zhang",
       "dob": "1985-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiansu"
     },
     {
       "id": 104030,
       "name": "Lina Hong",
       "dob": "1983-05-12",
       "height": 178,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Fujian"
     },
     {
       "id": 104031,
       "name": "Xianling Lin",
       "dob": "1985-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fu Jian"
     },
     {
       "id": 104032,
@@ -402,6 +443,7 @@
       "dob": "1985-12-04",
       "height": null,
       "weight": null,
+      "birthPlace": "Xing Jiang",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -431,6 +473,7 @@
       "dob": "1989-02-18",
       "height": 191,
       "weight": 75,
+      "birthPlace": "Fujian, China",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -452,7 +495,8 @@
       "name": "Ni Yan",
       "dob": "1989-03-02",
       "height": 189,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Liaoning"
     },
     {
       "id": 104463,
@@ -466,7 +510,8 @@
       "name": "Yang Li",
       "dob": "1987-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shanxi"
     },
     {
       "id": 104465,
@@ -474,6 +519,7 @@
       "dob": "1984-06-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Sichuan",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -540,6 +586,7 @@
       "dob": "1987-07-23",
       "height": 184,
       "weight": 70,
+      "birthPlace": "Shandong, China",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -591,7 +638,8 @@
       "name": "Yuanyuan Ma",
       "dob": "1990-06-24",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Shandong, China"
     },
     {
       "id": 120105,
@@ -662,6 +710,7 @@
       "dob": "1994-01-27",
       "height": 188,
       "weight": 73,
+      "birthPlace": "Hebei, China",
       "tour": {
         "gold": 2,
         "silver": 8,
@@ -727,7 +776,8 @@
       "name": "Yixin Zheng",
       "dob": "1995-05-06",
       "height": 189,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Fujian"
     },
     {
       "id": 138971,
@@ -735,6 +785,7 @@
       "dob": "1993-01-27",
       "height": 178,
       "weight": 72,
+      "birthPlace": "Nantong",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -746,7 +797,8 @@
       "name": "Yuanyuan Wang",
       "dob": "1995-01-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liaoning, China"
     },
     {
       "id": 141747,
@@ -782,6 +834,7 @@
       "dob": "1997-03-10",
       "height": 185,
       "weight": 77,
+      "birthPlace": "Chang Ji",
       "tour": {
         "gold": 6,
         "silver": 0,
@@ -806,6 +859,7 @@
       "dob": "1994-07-27",
       "height": 180,
       "weight": 69,
+      "birthPlace": "Xin jiang",
       "tour": {
         "gold": 6,
         "silver": 1,
@@ -850,7 +904,8 @@
       "name": "Ningya Tang",
       "dob": "1994-05-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiangsu, China"
     },
     {
       "id": 145635,
@@ -877,6 +932,7 @@
       "dob": "1998-04-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Shandong, China",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -895,7 +951,8 @@
       "name": "Hong Xie",
       "dob": "2000-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hainan"
     },
     {
       "id": 151562,
@@ -929,6 +986,7 @@
       "dob": "2000-09-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Xinjiang",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1035,6 +1093,7 @@
       "dob": "1997-11-26",
       "height": 186,
       "weight": 77,
+      "birthPlace": "wenchang",
       "tour": {
         "gold": 3,
         "silver": 2,
@@ -1053,49 +1112,56 @@
       "name": "Wenqin Han",
       "dob": "2003-03-19",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiangsu"
     },
     {
       "id": 189780,
       "name": "Siyu Yang",
       "dob": "2005-01-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shanxi"
     },
     {
       "id": 189795,
       "name": "Xin Yao",
       "dob": "2004-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhejiang"
     },
     {
       "id": 189797,
       "name": "Yuran Hu",
       "dob": "2005-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhejiang"
     },
     {
       "id": 189799,
       "name": "Jindi Dong",
       "dob": "2005-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 189800,
       "name": "Abudula Dilinaer",
       "dob": "2006-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 189801,
       "name": "Yufei Fu",
       "dob": "2007-06-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liaoning"
     },
     {
       "id": 189802,
@@ -1103,6 +1169,7 @@
       "dob": "2004-11-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Shandong",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1151,6 +1218,7 @@
       "dob": "2004-12-07",
       "height": 190,
       "weight": 78,
+      "birthPlace": "Jiangsu",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -1163,6 +1231,7 @@
       "dob": "2002-06-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Xinjiang",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1174,7 +1243,8 @@
       "name": "Yifan Yang",
       "dob": "2003-11-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 210159,
@@ -1182,6 +1252,7 @@
       "dob": "2006-08-30",
       "height": null,
       "weight": null,
+      "birthPlace": "shandong",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1193,7 +1264,8 @@
       "name": "Jiabei Zhang",
       "dob": "2008-09-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "shanghai"
     },
     {
       "id": 210161,
@@ -1201,6 +1273,7 @@
       "dob": "2009-06-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Jiangsu",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -1219,56 +1292,64 @@
       "name": "Jihan Chen",
       "dob": "2001-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fujian"
     },
     {
       "id": 210396,
       "name": "Jinli Zhang",
       "dob": "2004-11-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fujian"
     },
     {
       "id": 210513,
       "name": "Nan Chen",
       "dob": "2000-09-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liaoning"
     },
     {
       "id": 210514,
       "name": "Jiayi Wang",
       "dob": "2003-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liaoning"
     },
     {
       "id": 210515,
       "name": "Yixin Liu",
       "dob": "2006-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liaoning"
     },
     {
       "id": 213584,
       "name": "Zhang Kexin",
       "dob": "2009-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiangsu nantong"
     },
     {
       "id": 213585,
       "name": "Lin Jiaying",
       "dob": "2008-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fujian Minqing"
     },
     {
       "id": 213586,
       "name": "Wu Zihan",
       "dob": "2008-01-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jiangxi Guangfeng"
     },
     {
       "id": 214306,
@@ -1296,14 +1377,16 @@
       "name": "Yingshan Chen",
       "dob": "2003-10-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fujian"
     },
     {
       "id": 221394,
       "name": "Yuhan Fan",
       "dob": "2009-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 221395,
@@ -1311,6 +1394,7 @@
       "dob": "2009-03-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Fujian",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1322,77 +1406,88 @@
       "name": "Jiaqi Cai",
       "dob": "2008-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhejiang"
     },
     {
       "id": 221397,
       "name": "Xinyu Wang",
       "dob": "2008-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhejiang"
     },
     {
       "id": 221413,
       "name": "Yuqin Xia",
       "dob": "2005-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Anhui"
     },
     {
       "id": 221414,
       "name": "Yingxuan Fan",
       "dob": "2005-03-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Anhui"
     },
     {
       "id": 222064,
       "name": "Ruixuan Cui",
       "dob": "2008-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shanxi"
     },
     {
       "id": 224918,
       "name": "Yilin Ma",
       "dob": "2008-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shanxi"
     },
     {
       "id": 232840,
       "name": "Xiaochen Li",
       "dob": "2004-04-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tianjin"
     },
     {
       "id": 232841,
       "name": "Rouzi Maidinuer",
       "dob": "2002-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Xinjiang"
     },
     {
       "id": 232898,
       "name": "Qiufen Feng",
       "dob": "2006-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hainan"
     },
     {
       "id": 239226,
       "name": "Sitong Zhan",
       "dob": "2005-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hubei"
     },
     {
       "id": 240478,
       "name": "Luoqian Wei",
       "dob": "2008-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Guangxi"
     }
   ]
 }

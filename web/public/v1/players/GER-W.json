@@ -43,6 +43,7 @@
       "dob": "1971-04-14",
       "height": 179,
       "weight": 67,
+      "birthPlace": "Kassel",
       "tour": {
         "gold": 1,
         "silver": 5,
@@ -88,6 +89,7 @@
       "dob": "1970-07-18",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Eutin",
       "tour": {
         "gold": 0,
         "silver": 3,
@@ -111,7 +113,8 @@
       "name": "Andrea \"Andi\" Ahmann",
       "dob": "1968-11-19",
       "height": 168,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Suttgart-bad"
     },
     {
       "id": 101828,
@@ -125,21 +128,24 @@
       "name": "Ulrike Schmidt",
       "dob": "1969-03-30",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Remscheid"
     },
     {
       "id": 101909,
       "name": "Gudula \"Gudi\" Staub",
       "dob": "1968-12-31",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Saarlouis"
     },
     {
       "id": 102043,
       "name": "Michaela Grohmann",
       "dob": "1964-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 102215,
@@ -147,6 +153,7 @@
       "dob": "1978-05-07",
       "height": 186,
       "weight": 76,
+      "birthPlace": "Finsterwalde",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -158,7 +165,8 @@
       "name": "Martina Stoof",
       "dob": "1974-07-15",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Imenau"
     },
     {
       "id": 102288,
@@ -166,6 +174,7 @@
       "dob": "1969-03-15",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Bergen",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -177,42 +186,48 @@
       "name": "Jana Vollmer",
       "dob": "1973-05-05",
       "height": 185,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Mlada Boleslav (CZE)"
     },
     {
       "id": 102533,
       "name": "Judith Deister",
       "dob": "1975-04-10",
       "height": 187,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Friedrichroda"
     },
     {
       "id": 102534,
       "name": "Julia Krumbeck",
       "dob": "1976-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cloppenburg"
     },
     {
       "id": 102925,
       "name": "Helke Claasen",
       "dob": "1977-03-16",
       "height": 184,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Schwedt/ Oder"
     },
     {
       "id": 102926,
       "name": "Annette \"Delfsi\" Romainczyk",
       "dob": "1969-06-30",
       "height": 174,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Munich"
     },
     {
       "id": 103002,
       "name": "Rieke Brink-Abeler",
       "dob": "1979-12-11",
       "height": 179,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Emsdetten"
     },
     {
       "id": 103114,
@@ -226,7 +241,8 @@
       "name": "Delia \"Deli\" Schultrich",
       "dob": "1970-11-10",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Berlin"
     },
     {
       "id": 103116,
@@ -234,6 +250,7 @@
       "dob": "1974-05-11",
       "height": 180,
       "weight": 72,
+      "birthPlace": "Munich",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -246,6 +263,7 @@
       "dob": "1977-01-05",
       "height": 179,
       "weight": 69,
+      "birthPlace": "Leer",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -264,28 +282,32 @@
       "name": "Nicole Galle",
       "dob": "1967-03-02",
       "height": 176,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 103120,
       "name": "Beate Wand",
       "dob": "1973-01-16",
       "height": 176,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Muenster"
     },
     {
       "id": 103121,
       "name": "Gabriele Freytag",
       "dob": "1967-03-21",
       "height": 172,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "wEIDEN"
     },
     {
       "id": 103276,
       "name": "Claudia Pavlicek",
       "dob": "1976-12-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Munich"
     },
     {
       "id": 103327,
@@ -293,6 +315,7 @@
       "dob": "1968-09-10",
       "height": 182,
       "weight": 69,
+      "birthPlace": "Luckenwalde",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -305,6 +328,7 @@
       "dob": "1981-01-22",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 0,
         "silver": 3,
@@ -316,21 +340,24 @@
       "name": "Martina Stein",
       "dob": "1982-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 103784,
       "name": "Ina Maser",
       "dob": "1977-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zittan"
     },
     {
       "id": 103928,
       "name": "Doreen Engel",
       "dob": "1982-02-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Schweizin"
     },
     {
       "id": 103929,
@@ -345,6 +372,7 @@
       "dob": "1984-05-21",
       "height": 180,
       "weight": 70,
+      "birthPlace": "Starnberg",
       "tour": {
         "gold": 0,
         "silver": 7,
@@ -356,7 +384,8 @@
       "name": "Leonie Müller",
       "dob": "1982-02-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Frieburg"
     },
     {
       "id": 104156,
@@ -371,6 +400,7 @@
       "dob": "1985-09-08",
       "height": 183,
       "weight": 69,
+      "birthPlace": "Aachen",
       "tour": {
         "gold": 4,
         "silver": 5,
@@ -383,6 +413,7 @@
       "dob": "1985-10-05",
       "height": 181,
       "weight": 70,
+      "birthPlace": "Suhl",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -401,14 +432,16 @@
       "name": "Antje Röder",
       "dob": "1978-10-17",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Berlin"
     },
     {
       "id": 104328,
       "name": "Hella Jurich",
       "dob": "1980-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokio"
     },
     {
       "id": 104329,
@@ -422,14 +455,16 @@
       "name": "Carola Stöwe",
       "dob": "1977-11-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Munich"
     },
     {
       "id": 104331,
       "name": "Daniela Raddatz",
       "dob": "1973-04-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zwickau"
     },
     {
       "id": 104332,
@@ -437,6 +472,7 @@
       "dob": "1983-09-05",
       "height": 187,
       "weight": 74,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -456,6 +492,7 @@
       "dob": "1984-04-10",
       "height": 176,
       "weight": 63,
+      "birthPlace": "Bocholt",
       "tour": {
         "gold": 4,
         "silver": 5,
@@ -468,6 +505,7 @@
       "dob": "1986-04-21",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -479,7 +517,8 @@
       "name": "Sandra - Patrizia Piasecki",
       "dob": "1986-09-25",
       "height": 178,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Delmold"
     },
     {
       "id": 104460,
@@ -487,6 +526,7 @@
       "dob": "1986-01-11",
       "height": 178,
       "weight": 70,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -499,6 +539,7 @@
       "dob": "1986-01-13",
       "height": 181,
       "weight": 70,
+      "birthPlace": "Berlin",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -520,7 +561,8 @@
       "name": "Katarina Schillerwein",
       "dob": "1987-04-18",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 105039,
@@ -535,6 +577,7 @@
       "dob": "1987-09-02",
       "height": 185,
       "weight": 77,
+      "birthPlace": "Gießen",
       "tour": {
         "gold": 5,
         "silver": 8,
@@ -554,6 +597,7 @@
       "dob": "1986-10-30",
       "height": 188,
       "weight": 70,
+      "birthPlace": "Hamburg",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -573,6 +617,7 @@
       "dob": "1985-06-10",
       "height": 179,
       "weight": 60,
+      "birthPlace": "Oberhausen",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -585,6 +630,7 @@
       "dob": "1988-05-25",
       "height": 185,
       "weight": 78,
+      "birthPlace": "Dearborn",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -602,6 +648,7 @@
       "dob": "1988-05-04",
       "height": 178,
       "weight": null,
+      "birthPlace": "Weimar",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -620,7 +667,8 @@
       "name": "Svenja Engelhardt",
       "dob": "1988-04-20",
       "height": 182,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Heidelberg"
     },
     {
       "id": 118277,
@@ -635,6 +683,7 @@
       "dob": "1988-07-27",
       "height": 181,
       "weight": 68,
+      "birthPlace": "Bad Muskau",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -709,6 +758,7 @@
       "dob": "1988-11-22",
       "height": 179,
       "weight": 70,
+      "birthPlace": "Heppenheim",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -725,7 +775,8 @@
       "name": "Laura Emonts",
       "dob": "1991-04-04",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Tuttlingen"
     },
     {
       "id": 120051,
@@ -747,6 +798,7 @@
       "dob": "1990-01-04",
       "height": 179,
       "weight": 70,
+      "birthPlace": "Friedrichshafen",
       "tour": {
         "gold": 2,
         "silver": 7,
@@ -759,6 +811,7 @@
       "dob": "1990-04-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Münster",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -782,7 +835,8 @@
       "name": "Jenny Heinemann",
       "dob": "1988-08-13",
       "height": 177,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Erfurt"
     },
     {
       "id": 124766,
@@ -790,6 +844,7 @@
       "dob": "1992-03-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Georgsmarienhuette",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -802,6 +857,7 @@
       "dob": "1993-02-21",
       "height": 177,
       "weight": null,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -813,7 +869,8 @@
       "name": "Anika Krebs",
       "dob": "1993-07-10",
       "height": 181,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 124769,
@@ -828,6 +885,7 @@
       "dob": "1991-07-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Olpe",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -847,6 +905,7 @@
       "dob": "1991-07-13",
       "height": 174,
       "weight": 62,
+      "birthPlace": "Munster",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -870,7 +929,8 @@
       "name": "Angelina Hübner-Grün",
       "dob": "1979-12-02",
       "height": 185,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Duschanbe"
     },
     {
       "id": 132846,
@@ -878,6 +938,7 @@
       "dob": "1992-09-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Bremen",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -897,6 +958,7 @@
       "dob": "1994-06-24",
       "height": 181,
       "weight": 68,
+      "birthPlace": "Munich",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -915,14 +977,16 @@
       "name": "Nadja Glenzke",
       "dob": "1995-08-25",
       "height": 185,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Berlin"
     },
     {
       "id": 137339,
       "name": "Yanina Weiland",
       "dob": "1994-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Munich"
     },
     {
       "id": 139390,
@@ -930,6 +994,7 @@
       "dob": "1996-01-22",
       "height": 186,
       "weight": 72,
+      "birthPlace": "Frankenberg/Eder",
       "tour": {
         "gold": 2,
         "silver": 2,
@@ -941,14 +1006,16 @@
       "name": "Lara Schreiber",
       "dob": "1995-02-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tübingen"
     },
     {
       "id": 139393,
       "name": "Leonie Körtzinger",
       "dob": "1997-03-25",
       "height": 188,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Kiel"
     },
     {
       "id": 141678,
@@ -956,6 +1023,7 @@
       "dob": "1994-09-23",
       "height": 191,
       "weight": 78,
+      "birthPlace": "Herford",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -967,7 +1035,8 @@
       "name": "Natascha Niemczyk",
       "dob": "1990-02-07",
       "height": 182,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Dachau"
     },
     {
       "id": 142933,
@@ -988,7 +1057,8 @@
       "name": "Leonie Welsch",
       "dob": "1996-01-29",
       "height": 184,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Filderstadt"
     },
     {
       "id": 147664,
@@ -1017,6 +1087,7 @@
       "dob": "1997-04-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Nürnberg",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1028,7 +1099,8 @@
       "name": "Marie Koloseus",
       "dob": "1998-03-18",
       "height": 182,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aschaffenburg"
     },
     {
       "id": 151008,
@@ -1043,6 +1115,7 @@
       "dob": "2000-05-27",
       "height": 182,
       "weight": 69,
+      "birthPlace": "Borken",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1055,6 +1128,7 @@
       "dob": "2001-02-13",
       "height": 192,
       "weight": 80,
+      "birthPlace": "Dortmund",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1071,7 +1145,8 @@
       "name": "Lena Günther",
       "dob": "1999-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leonberg / Ger"
     },
     {
       "id": 153328,
@@ -1097,7 +1172,8 @@
       "name": "Karoline Fröhlich",
       "dob": "1989-07-22",
       "height": 172,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Berlin"
     },
     {
       "id": 153931,
@@ -1112,6 +1188,7 @@
       "dob": "1999-08-19",
       "height": 183,
       "weight": null,
+      "birthPlace": "Nurnberg",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -1131,6 +1208,7 @@
       "dob": "2001-03-21",
       "height": 189,
       "weight": null,
+      "birthPlace": "Munich",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -1143,6 +1221,7 @@
       "dob": "2000-11-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Wiesbaden",
       "tour": {
         "gold": 3,
         "silver": 2,
@@ -1155,6 +1234,7 @@
       "dob": "2001-12-18",
       "height": 186,
       "weight": 75,
+      "birthPlace": "Varel",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1179,6 +1259,7 @@
       "dob": "2001-02-11",
       "height": 185,
       "weight": 65,
+      "birthPlace": "Buxtehude",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1191,6 +1272,7 @@
       "dob": "2002-01-07",
       "height": 180,
       "weight": 65,
+      "birthPlace": "Essen, Germany",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -1228,21 +1310,24 @@
       "name": "Lina Hesse",
       "dob": "2002-05-08",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Berlin"
     },
     {
       "id": 181616,
       "name": "Annika Berndt",
       "dob": "2004-04-25",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Heidelberg"
     },
     {
       "id": 182336,
       "name": "Kim Viktoria Prade",
       "dob": "2005-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ludwigsburg"
     },
     {
       "id": 182338,
@@ -1270,7 +1355,8 @@
       "name": "Josefine Schäkel",
       "dob": "2005-12-01",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Kiel"
     },
     {
       "id": 182352,
@@ -1278,6 +1364,7 @@
       "dob": "2000-10-27",
       "height": 177,
       "weight": null,
+      "birthPlace": "Buenos Aires",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1315,14 +1402,16 @@
       "name": "Mila Jancar",
       "dob": "2007-01-06",
       "height": 183,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Essen"
     },
     {
       "id": 192816,
       "name": "Mareet Maidhof",
       "dob": "2005-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gelsenkirchen"
     },
     {
       "id": 193548,
@@ -1336,7 +1425,8 @@
       "name": "Lydia Scherber",
       "dob": "1989-08-10",
       "height": 163,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Riesa"
     },
     {
       "id": 200707,
@@ -1344,6 +1434,7 @@
       "dob": "2008-11-11",
       "height": 182,
       "weight": null,
+      "birthPlace": "Neuss",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -1356,6 +1447,7 @@
       "dob": "2006-07-02",
       "height": 181,
       "weight": 70,
+      "birthPlace": "Aachen",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1367,28 +1459,32 @@
       "name": "Anna-Chiara Reformat",
       "dob": "2009-02-09",
       "height": 184,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 207354,
       "name": "Annalena Richter",
       "dob": "2008-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karlsruhe"
     },
     {
       "id": 210546,
       "name": "Geeske Camp",
       "dob": "2005-08-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 213307,
       "name": "Isabel Marie Schattauer",
       "dob": "2005-08-18",
       "height": 175,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Brandenburg an der Havel"
     },
     {
       "id": 214136,
@@ -1409,28 +1505,32 @@
       "name": "Edda Schulz",
       "dob": "2010-03-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Potsdam"
     },
     {
       "id": 219960,
       "name": "Zoe Neboh",
       "dob": "2009-06-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Böblingen"
     },
     {
       "id": 221481,
       "name": "Angelina Linke",
       "dob": "2005-03-16",
       "height": 178,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Berlin"
     },
     {
       "id": 222902,
       "name": "Mieke Joli Luise Hesse",
       "dob": "2004-09-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 225740,
@@ -1444,42 +1544,48 @@
       "name": "Nika Elaine Reddin",
       "dob": "2005-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Parchim"
     },
     {
       "id": 226516,
       "name": "Emilia Antonia Bruno",
       "dob": "2006-05-14",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Elmshorn"
     },
     {
       "id": 226708,
       "name": "Mari Carlotta Höchstetter",
       "dob": "2007-05-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 229864,
       "name": "Mia Henny Günther",
       "dob": "2006-10-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Erfurt"
     },
     {
       "id": 232471,
       "name": "Jiliana Dora Kirchner",
       "dob": "2009-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Frankfurt (Main)"
     },
     {
       "id": 232641,
       "name": "Joceline Buchwald",
       "dob": "2008-09-11",
       "height": 172,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Nordhausen"
     },
     {
       "id": 239601,

@@ -8,6 +8,7 @@
       "dob": "1984-09-11",
       "height": 178,
       "weight": 70,
+      "birthPlace": "Johannesburg",
       "away": [
         {
           "id": 118190,
@@ -136,6 +137,7 @@
       "dob": "1988-10-27",
       "height": 171,
       "weight": 67,
+      "birthPlace": "Swindon",
       "away": [
         {
           "id": 120911,

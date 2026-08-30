@@ -8,6 +8,7 @@
       "dob": "1988-09-02",
       "height": 182,
       "weight": 60,
+      "birthPlace": "Bogota",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -31,7 +32,8 @@
       "name": "Sara Fraija",
       "dob": "1989-03-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bucaramanga"
     },
     {
       "id": 137154,
@@ -45,21 +47,24 @@
       "name": "Margarita Guzman",
       "dob": "1993-03-23",
       "height": 183,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Bogota"
     },
     {
       "id": 155110,
       "name": "Diana Rios",
       "dob": "1989-12-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Medellin"
     },
     {
       "id": 155111,
       "name": "Yuli Ayala Machado",
       "dob": "1995-06-10",
       "height": 170,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Bucaramanga"
     },
     {
       "id": 161568,
@@ -73,14 +78,16 @@
       "name": "Mariana Lucrecia Gaviria Romero",
       "dob": "2006-07-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bogota"
     },
     {
       "id": 196712,
       "name": "Juliana Franco Acosta",
       "dob": "2006-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bogota"
     }
   ]
 }

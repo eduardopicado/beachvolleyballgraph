@@ -133,56 +133,64 @@
       "name": "Omar Abi Karam",
       "dob": "2003-02-01",
       "height": 189,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "kuwait"
     },
     {
       "id": 181540,
       "name": "Jason El Najjar",
       "dob": "2002-05-19",
       "height": 189,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Jbeil"
     },
     {
       "id": 201849,
       "name": "Hadi El Chabib",
       "dob": "2006-08-12",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Almina"
     },
     {
       "id": 210016,
       "name": "Jad Abi Karam",
       "dob": "2006-10-19",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Kuwait"
     },
     {
       "id": 212725,
       "name": "Marven El Najjar",
       "dob": "2008-08-10",
       "height": 186,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Jbeil"
     },
     {
       "id": 212727,
       "name": "Mohamad Lazkani",
       "dob": "2008-07-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mina"
     },
     {
       "id": 212728,
       "name": "Nicolas Ghajar",
       "dob": "2008-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ras Maska"
     },
     {
       "id": 227489,
       "name": "Elias Azzi",
       "dob": "2008-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jbeil"
     }
   ]
 }

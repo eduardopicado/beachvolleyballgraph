@@ -20,6 +20,7 @@
       "dob": "1977-12-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Harbor City, California, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -44,6 +45,7 @@
       "dob": "1996-09-04",
       "height": 166,
       "weight": 55,
+      "birthPlace": "Cebu City",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -56,6 +58,7 @@
       "dob": "1996-10-19",
       "height": 170,
       "weight": 61,
+      "birthPlace": "Malolos, Bulacan",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -67,7 +70,8 @@
       "name": "Maria Beatriz Tan",
       "dob": "1993-04-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Manapla, Negros Occidental"
     },
     {
       "id": 167879,
@@ -109,7 +113,8 @@
       "name": "Dhannylaine Mae DEMONTAÑO",
       "dob": "1988-05-07",
       "height": null,
-      "weight": 50
+      "weight": 50,
+      "birthPlace": "Iloilo City"
     },
     {
       "id": 173223,
@@ -117,6 +122,7 @@
       "dob": "1999-07-28",
       "height": 170,
       "weight": 58,
+      "birthPlace": "Cagayan De Oro City",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -129,6 +135,7 @@
       "dob": "1996-08-29",
       "height": 168,
       "weight": 57,
+      "birthPlace": "Dumaguete City, Philippines",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -140,14 +147,16 @@
       "name": "Baby Love Barbon",
       "dob": "1999-04-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Quezon, Bukidnon"
     },
     {
       "id": 178049,
       "name": "Alexa Polidario",
       "dob": "1998-01-02",
       "height": 167,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Bacolod City"
     },
     {
       "id": 181514,
@@ -155,6 +164,7 @@
       "dob": "2006-01-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Jagna, Bohol",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -166,7 +176,8 @@
       "name": "Grydelle Joanice Matibag",
       "dob": "2006-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Manila"
     },
     {
       "id": 202940,
@@ -174,6 +185,7 @@
       "dob": "2004-11-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Butuan City",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -185,14 +197,16 @@
       "name": "Mary Klymince Orillaneda",
       "dob": "1999-10-24",
       "height": null,
-      "weight": 53
+      "weight": 53,
+      "birthPlace": "Cebu"
     },
     {
       "id": 209539,
       "name": "Jenny Gaviola",
       "dob": "1998-10-08",
       "height": 175,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Manila"
     },
     {
       "id": 217632,
@@ -206,14 +220,16 @@
       "name": "Kathrina Epa",
       "dob": "2001-11-10",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Bais City"
     },
     {
       "id": 220297,
       "name": "Honey Grace Cordero",
       "dob": "2003-01-10",
       "height": 165,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Silay City"
     }
   ]
 }

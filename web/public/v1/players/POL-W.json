@@ -22,6 +22,7 @@
       "dob": "1981-10-05",
       "height": 181,
       "weight": 54,
+      "birthPlace": "Szczecin",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -33,21 +34,24 @@
       "name": "Dorota Wojtczak",
       "dob": "1981-06-20",
       "height": 170,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Chorzow"
     },
     {
       "id": 103757,
       "name": "Ewa Kalinowska",
       "dob": "1978-05-05",
       "height": 181,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Wroctaw"
     },
     {
       "id": 103758,
       "name": "Agnieszka Kucypera",
       "dob": "1978-11-14",
       "height": 181,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Wroctaw"
     },
     {
       "id": 103759,
@@ -55,6 +59,7 @@
       "dob": "1979-01-26",
       "height": 175,
       "weight": 63,
+      "birthPlace": "Sosnowiec",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -66,49 +71,56 @@
       "name": "Dorota Wrzochol",
       "dob": "1979-01-02",
       "height": 183,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Gdansk"
     },
     {
       "id": 103761,
       "name": "Ewa Kaminska",
       "dob": "1979-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gdynia"
     },
     {
       "id": 103956,
       "name": "Julia Jurczyk",
       "dob": "1983-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 103957,
       "name": "Jolanta Sokalska",
       "dob": "1982-01-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gizycko"
     },
     {
       "id": 103958,
       "name": "Anna Bialobrzeska",
       "dob": "1984-01-30",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 103959,
       "name": "Joanna Kuchczynska",
       "dob": "1985-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 104105,
       "name": "Agata Furmanek",
       "dob": "1985-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pleszew"
     },
     {
       "id": 104764,
@@ -122,21 +134,24 @@
       "name": "Joanna Wiatr",
       "dob": "1987-06-05",
       "height": 178,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Sosnowiec"
     },
     {
       "id": 105046,
       "name": "Katarzyna Urban",
       "dob": "1987-10-30",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Dabrowa Gornicza"
     },
     {
       "id": 115626,
       "name": "Malgorzata Sobolewska",
       "dob": "1969-05-09",
       "height": 175,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Bialystok"
     },
     {
       "id": 115627,
@@ -150,7 +165,8 @@
       "name": "Justyna Lademan",
       "dob": "1977-04-22",
       "height": 178,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Bolszewo"
     },
     {
       "id": 116354,
@@ -171,35 +187,40 @@
       "name": "Wiktoria Staszak-Staszkow",
       "dob": "1987-11-20",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 116649,
       "name": "Katarzyna Ciesielska",
       "dob": "1987-03-14",
       "height": 172,
-      "weight": 53
+      "weight": 53,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 117465,
       "name": "Karolina Michalkiewicz",
       "dob": "1988-09-03",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Lodz"
     },
     {
       "id": 118029,
       "name": "Magdalena Saad",
       "dob": "1985-05-14",
       "height": 168,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Lodz"
     },
     {
       "id": 118183,
       "name": "Karolina Sowala",
       "dob": "1988-03-18",
       "height": 180,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Lask"
     },
     {
       "id": 118184,
@@ -213,7 +234,8 @@
       "name": "Martyna Wardak",
       "dob": "1984-07-09",
       "height": 180,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Wrzesnia"
     },
     {
       "id": 118247,
@@ -228,6 +250,7 @@
       "dob": "1989-07-28",
       "height": 173,
       "weight": 64,
+      "birthPlace": "Rybnik",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -246,7 +269,8 @@
       "name": "Izabela Blasiak",
       "dob": "1991-08-03",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Bedzin"
     },
     {
       "id": 118631,
@@ -261,6 +285,7 @@
       "dob": "1990-06-02",
       "height": 179,
       "weight": 64,
+      "birthPlace": "Lublin",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -272,7 +297,8 @@
       "name": "Beata Galek",
       "dob": "1990-05-10",
       "height": 168,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Myslowice"
     },
     {
       "id": 118713,
@@ -286,14 +312,16 @@
       "name": "Daria Przybylak",
       "dob": "1991-08-30",
       "height": 185,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Krotoszyn"
     },
     {
       "id": 119260,
       "name": "Aleksandra Filip",
       "dob": "1989-10-29",
       "height": 176,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Krakow"
     },
     {
       "id": 120213,
@@ -307,14 +335,16 @@
       "name": "Aleksandra Wolak",
       "dob": "1976-12-09",
       "height": 186,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Mielec"
     },
     {
       "id": 120337,
       "name": "Paulina Eska",
       "dob": "1990-09-13",
       "height": 182,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Ilawa"
     },
     {
       "id": 120340,
@@ -328,7 +358,8 @@
       "name": "Renata Bekier",
       "dob": "1991-02-03",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Sosnowiec"
     },
     {
       "id": 120665,
@@ -356,14 +387,16 @@
       "name": "Aneta Gancarczyk",
       "dob": "1990-08-16",
       "height": 179,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Nowy S?cz"
     },
     {
       "id": 120926,
       "name": "Sylwia Pilarek",
       "dob": "1991-07-13",
       "height": 171,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Olsztyn"
     },
     {
       "id": 120927,
@@ -419,14 +452,16 @@
       "name": "Karolina Bednarek",
       "dob": "1988-10-31",
       "height": 190,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Olsztyn, Poland"
     },
     {
       "id": 132674,
       "name": "Michalina Kwasowska",
       "dob": "1992-07-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bielsko Biala"
     },
     {
       "id": 132864,
@@ -440,7 +475,8 @@
       "name": "Karolina Baran",
       "dob": "1994-09-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krakow"
     },
     {
       "id": 132868,
@@ -448,6 +484,7 @@
       "dob": "1995-03-11",
       "height": 176,
       "weight": 68,
+      "birthPlace": "Lask",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -459,7 +496,8 @@
       "name": "Agata Wawrzynczyk",
       "dob": "1992-01-31",
       "height": 173,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Limanowa"
     },
     {
       "id": 135533,
@@ -474,6 +512,7 @@
       "dob": "1995-02-01",
       "height": 175,
       "weight": 62,
+      "birthPlace": "Wrzesnia",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -485,14 +524,16 @@
       "name": "Natalia Gruszczynska",
       "dob": "1995-04-13",
       "height": 191,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Ryki"
     },
     {
       "id": 139804,
       "name": "Dorota Strag",
       "dob": "1994-08-02",
       "height": 180,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 139808,
@@ -506,7 +547,8 @@
       "name": "Agnieszka Pregowska",
       "dob": "1986-08-18",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Warszawa"
     },
     {
       "id": 140029,
@@ -520,7 +562,8 @@
       "name": "Maria Wloch",
       "dob": "1995-05-12",
       "height": 174,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Poznan"
     },
     {
       "id": 143600,
@@ -541,14 +584,16 @@
       "name": "Agata Trybula",
       "dob": "1997-06-28",
       "height": 180,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Swiecie"
     },
     {
       "id": 146446,
       "name": "Agnieszka Adamek",
       "dob": "1996-01-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ostrow Wielkopolski"
     },
     {
       "id": 146846,
@@ -556,6 +601,7 @@
       "dob": "1998-03-20",
       "height": 178,
       "weight": 76,
+      "birthPlace": "Cieszyn",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -574,21 +620,24 @@
       "name": "Malgorzata Vlk (Lech)",
       "dob": "1989-02-08",
       "height": 187,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Milicz"
     },
     {
       "id": 152073,
       "name": "Kinga Legieta",
       "dob": "1997-08-02",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Czestochowa"
     },
     {
       "id": 152707,
       "name": "Monika Gorzka",
       "dob": "1998-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ilawa"
     },
     {
       "id": 152711,
@@ -609,14 +658,16 @@
       "name": "Patrycja Jundzill",
       "dob": "2000-07-11",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Czestochowa"
     },
     {
       "id": 156821,
       "name": "Aleksandra Zdon",
       "dob": "1990-07-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ostróda"
     },
     {
       "id": 157236,
@@ -630,7 +681,8 @@
       "name": "Justyna Tylutki",
       "dob": "1986-08-08",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Warszawa"
     },
     {
       "id": 157849,
@@ -638,6 +690,7 @@
       "dob": "1992-06-17",
       "height": 181,
       "weight": 68,
+      "birthPlace": "Nowy Dwór Mazowiecki",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -663,7 +716,8 @@
       "name": "Aleksandra Gromadowska",
       "dob": "1996-02-03",
       "height": 188,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Wrocław"
     },
     {
       "id": 162079,
@@ -671,6 +725,7 @@
       "dob": "1997-01-11",
       "height": 185,
       "weight": 68,
+      "birthPlace": "Warsaw",
       "tour": {
         "gold": 0,
         "silver": 3,
@@ -682,7 +737,8 @@
       "name": "Aneta Kaczmarek",
       "dob": "1990-08-16",
       "height": 179,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Nowy Sacz"
     },
     {
       "id": 163356,
@@ -718,6 +774,7 @@
       "dob": "1998-08-29",
       "height": 186,
       "weight": 71,
+      "birthPlace": "Puck",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -729,7 +786,8 @@
       "name": "Marta Duda",
       "dob": "1996-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wielun"
     },
     {
       "id": 168373,
@@ -743,7 +801,8 @@
       "name": "Aleksandra Chudzik",
       "dob": "2002-10-30",
       "height": 178,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Olsztyn"
     },
     {
       "id": 171761,
@@ -757,7 +816,8 @@
       "name": "Katarzyna Chmiel",
       "dob": "1993-07-02",
       "height": 178,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Sandomierz"
     },
     {
       "id": 173413,
@@ -792,7 +852,8 @@
       "name": "Melania Marcinowska",
       "dob": "2003-06-22",
       "height": 185,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Wroclaw"
     },
     {
       "id": 179385,
@@ -800,6 +861,7 @@
       "dob": "2004-11-17",
       "height": 182,
       "weight": 67,
+      "birthPlace": "Cieszyn",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -812,6 +874,7 @@
       "dob": "2004-02-17",
       "height": 179,
       "weight": 71,
+      "birthPlace": "Olsztyn",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -824,6 +887,7 @@
       "dob": "2004-05-16",
       "height": 181,
       "weight": 67,
+      "birthPlace": "Pruszkow",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -835,7 +899,8 @@
       "name": "Maja Kruczek",
       "dob": "2004-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nowy Sacz"
     },
     {
       "id": 182450,
@@ -850,6 +915,7 @@
       "dob": "2006-02-19",
       "height": 174,
       "weight": 59,
+      "birthPlace": "Lublin",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -861,21 +927,24 @@
       "name": "Julia Czurylo",
       "dob": "2005-06-05",
       "height": 181,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Wrocław"
     },
     {
       "id": 187980,
       "name": "Zuzanna Rapczynska",
       "dob": "2006-11-06",
       "height": 175,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Sejny"
     },
     {
       "id": 188285,
       "name": "Paulina Labuz",
       "dob": "2006-10-09",
       "height": 182,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Krakow"
     },
     {
       "id": 201991,
@@ -889,14 +958,16 @@
       "name": "Klaudia Parczynska",
       "dob": "1998-08-08",
       "height": 170,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Poznań"
     },
     {
       "id": 202038,
       "name": "Amelia Panek",
       "dob": "2007-05-11",
       "height": 178,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Lublin"
     },
     {
       "id": 202625,
@@ -910,21 +981,24 @@
       "name": "Katarzyna Lipska",
       "dob": "1988-03-03",
       "height": 163,
-      "weight": 49
+      "weight": 49,
+      "birthPlace": "Wieruszów"
     },
     {
       "id": 211634,
       "name": "Zuzanna Przybyszewska",
       "dob": "2008-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 211635,
       "name": "Aleksandra Wolny",
       "dob": "2009-01-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Katowice"
     },
     {
       "id": 212210,
@@ -938,14 +1012,16 @@
       "name": "Zuzanna Legień",
       "dob": "2009-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sosnowiec"
     },
     {
       "id": 223693,
       "name": "Magdalena Nikiel",
       "dob": "1994-01-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Skarżysko-Kamienna"
     },
     {
       "id": 223694,
@@ -953,6 +1029,7 @@
       "dob": "2007-04-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Warszawa",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -964,7 +1041,8 @@
       "name": "Zuzanna Michalska",
       "dob": "2003-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Warszawa"
     }
   ]
 }

@@ -7,14 +7,16 @@
       "name": "Tyna William",
       "dob": "1993-10-07",
       "height": 182,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "St Lucia"
     },
     {
       "id": 141929,
       "name": "Lisa Casimie",
       "dob": "1996-07-24",
       "height": 178,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "LCA"
     },
     {
       "id": 141930,
@@ -28,21 +30,24 @@
       "name": "Dala Noel",
       "dob": "1996-01-20",
       "height": 173,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "St Lucia"
     },
     {
       "id": 146907,
       "name": "Nikita Greenidge",
       "dob": "1998-01-17",
       "height": 175,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Castries"
     },
     {
       "id": 165134,
       "name": "Kerin Neptune",
       "dob": "1995-04-08",
       "height": 170,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Saint Lucia"
     }
   ]
 }

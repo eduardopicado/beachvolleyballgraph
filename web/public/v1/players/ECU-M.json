@@ -35,35 +35,40 @@
       "name": "Dany Jair Leon Nieves",
       "dob": "2000-11-15",
       "height": 187,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Esmeraldas"
     },
     {
       "id": 162397,
       "name": "Joffre Rodolfo Jurado Carrillo",
       "dob": "2001-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Portoviejo"
     },
     {
       "id": 175849,
       "name": "Julio Mateo Estupiñan Centeno",
       "dob": "2002-06-17",
       "height": 183,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Esmerladas"
     },
     {
       "id": 208867,
       "name": "Isaac Josué Jiménez Mero",
       "dob": "2006-04-11",
       "height": null,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Guayaquil"
     },
     {
       "id": 225836,
       "name": "Alfredo Velez Aparicio",
       "dob": "2009-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Milagros"
     }
   ]
 }

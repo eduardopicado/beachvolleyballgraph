@@ -19,14 +19,16 @@
       "name": "Rushan Dayanov",
       "dob": "1960-06-20",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Moscow"
     },
     {
       "id": 100111,
       "name": "Alexander Iaremenko",
       "dob": "1968-08-10",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Voroneg"
     },
     {
       "id": 100112,
@@ -41,6 +43,7 @@
       "dob": null,
       "height": 202,
       "weight": null,
+      "birthPlace": "Dnepropetrovsk",
       "away": [
         {
           "id": 149100,
@@ -88,21 +91,24 @@
       "name": "Vladimir Bouralev",
       "dob": "1962-08-20",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Moscow"
     },
     {
       "id": 100283,
       "name": "Mikhail Bouralev",
       "dob": "1961-06-17",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Moscow"
     },
     {
       "id": 100644,
       "name": "Dmitry Karasev",
       "dob": "1970-03-01",
       "height": 197,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Krasnogorsk"
     },
     {
       "id": 100652,
@@ -135,14 +141,16 @@
       "name": "Sergei Molchanov",
       "dob": "1959-08-02",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Moscow"
     },
     {
       "id": 100658,
       "name": "Sergei Orlov",
       "dob": "1963-12-31",
       "height": 186,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Moscow"
     },
     {
       "id": 100837,
@@ -156,7 +164,8 @@
       "name": "Dmitri Kouvitchka",
       "dob": "1968-04-08",
       "height": 193,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Voroshilovgrad"
     },
     {
       "id": 100885,
@@ -231,7 +240,8 @@
       "name": "Sergey Sayfulin",
       "dob": "1968-05-27",
       "height": 197,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Kemerovo"
     },
     {
       "id": 101348,
@@ -239,6 +249,7 @@
       "dob": "1952-10-11",
       "height": 178,
       "weight": 77,
+      "birthPlace": "Krasnorjarsk",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -258,6 +269,7 @@
       "dob": "1970-06-04",
       "height": 208,
       "weight": 102,
+      "birthPlace": "Saratov",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -269,7 +281,8 @@
       "name": "Oleg Kiselev",
       "dob": "1967-07-08",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Alma-Ata"
     },
     {
       "id": 101424,
@@ -277,6 +290,7 @@
       "dob": "1972-06-27",
       "height": 192,
       "weight": 82,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -288,7 +302,8 @@
       "name": "Serguei Kolesnik",
       "dob": "1967-07-28",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Moscow"
     },
     {
       "id": 101801,
@@ -296,6 +311,7 @@
       "dob": "1971-05-30",
       "height": 208,
       "weight": 92,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -314,49 +330,56 @@
       "name": "Denis Radzimovsky",
       "dob": "1978-08-28",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "St-Petersburg"
     },
     {
       "id": 102193,
       "name": "Pavel Zabuslayev",
       "dob": "1978-05-11",
       "height": 187,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "St-Petersburg"
     },
     {
       "id": 102393,
       "name": "Alexei Dudnik",
       "dob": "1976-03-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rostov"
     },
     {
       "id": 102394,
       "name": "Sergei Kichko",
       "dob": "1971-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maikop"
     },
     {
       "id": 102395,
       "name": "Andrei Kojin",
       "dob": "1972-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 102397,
       "name": "Konstantin Shved",
       "dob": "1973-11-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leningrad"
     },
     {
       "id": 102398,
       "name": "Valeri Skvortsov",
       "dob": "1967-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rostov"
     },
     {
       "id": 102631,
@@ -364,6 +387,7 @@
       "dob": "1980-01-20",
       "height": 193,
       "weight": 86,
+      "birthPlace": "Krasnodar",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -380,14 +404,16 @@
       "name": "Dmitry Astafiev",
       "dob": "1976-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 102633,
       "name": "Pavel Zaitsev",
       "dob": "1979-01-11",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Moscow"
     },
     {
       "id": 103374,
@@ -401,28 +427,32 @@
       "name": "Roman Arkaev",
       "dob": "1973-11-25",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Simferopol Crimea"
     },
     {
       "id": 103527,
       "name": "Alexei Taratine",
       "dob": "1980-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 103690,
       "name": "Anton Kulikovsky",
       "dob": "1982-03-04",
       "height": 198,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Moscow"
     },
     {
       "id": 103691,
       "name": "Alexei Verbov",
       "dob": "1982-01-31",
       "height": 186,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Moscow"
     },
     {
       "id": 103811,
@@ -430,6 +460,7 @@
       "dob": "1978-04-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Zheleznodoroznyi",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -441,21 +472,24 @@
       "name": "Alexei Polnitski",
       "dob": "1971-08-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St. Petersburg"
     },
     {
       "id": 103991,
       "name": "Denis Tenenbaum",
       "dob": "1973-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krasnodar"
     },
     {
       "id": 103992,
       "name": "Mikhail Tarakanov",
       "dob": "1978-09-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St. Petersburg"
     },
     {
       "id": 104041,
@@ -463,6 +497,7 @@
       "dob": "1985-05-21",
       "height": 194,
       "weight": 85,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -474,7 +509,8 @@
       "name": "Ruslan Daianov",
       "dob": "1985-07-16",
       "height": 192,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Moscow"
     },
     {
       "id": 104218,
@@ -495,14 +531,16 @@
       "name": "Alexei Zavialov",
       "dob": "1975-06-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leningrad"
     },
     {
       "id": 104478,
       "name": "Andrey Berezin",
       "dob": "1986-04-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 104850,
@@ -561,7 +599,8 @@
       "name": "Sergey Tetyukhin",
       "dob": "1975-09-23",
       "height": 197,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Margelan, Uzbekistan"
     },
     {
       "id": 112228,
@@ -569,6 +608,7 @@
       "dob": "1983-07-07",
       "height": 197,
       "weight": 92,
+      "birthPlace": "Magdeburg (GER)",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -655,7 +695,8 @@
       "name": "Alexander Likholetov",
       "dob": "1987-03-04",
       "height": 207,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Ukraine"
     },
     {
       "id": 117887,
@@ -663,6 +704,7 @@
       "dob": "1986-10-21",
       "height": 198,
       "weight": 83,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -682,6 +724,7 @@
       "dob": "1989-06-28",
       "height": 191,
       "weight": 81,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -700,7 +743,8 @@
       "name": "Alexey Yutvalin",
       "dob": "1987-04-19",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ussr"
     },
     {
       "id": 120025,
@@ -715,6 +759,7 @@
       "dob": "1986-03-17",
       "height": 182,
       "weight": 80,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -750,7 +795,8 @@
       "name": "Dmitry Karpov",
       "dob": "1986-10-19",
       "height": 192,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Leningrad"
     },
     {
       "id": 120523,
@@ -764,7 +810,8 @@
       "name": "Andrey Belov",
       "dob": "1984-05-15",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Leningrad, Ussr"
     },
     {
       "id": 120577,
@@ -772,6 +819,7 @@
       "dob": "1991-05-04",
       "height": 194,
       "weight": 92,
+      "birthPlace": "Globyne, Poltava region,Ukraine",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -922,7 +970,8 @@
       "name": "Anton Botin",
       "dob": "1990-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 120707,
@@ -1104,6 +1153,7 @@
       "dob": "1992-10-20",
       "height": 194,
       "weight": 83,
+      "birthPlace": "Lipetsk",
       "tour": {
         "gold": 2,
         "silver": 0,
@@ -1123,6 +1173,7 @@
       "dob": "1990-05-10",
       "height": 190,
       "weight": 88,
+      "birthPlace": "Saint-Petersburg",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1142,6 +1193,7 @@
       "dob": "1989-06-09",
       "height": 210,
       "weight": 100,
+      "birthPlace": "Tokmak. Kyrgyzstan",
       "tour": {
         "gold": 4,
         "silver": 4,
@@ -1154,6 +1206,7 @@
       "dob": "1991-12-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Russia",
       "away": [
         {
           "id": 104434,
@@ -1214,6 +1267,7 @@
       "dob": "1989-10-05",
       "height": 197,
       "weight": 88,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 4,
         "silver": 0,
@@ -1225,7 +1279,8 @@
       "name": "Aleksander Margiev",
       "dob": "1995-01-24",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Rostov-on-Don, Russia"
     },
     {
       "id": 134970,
@@ -1299,6 +1354,7 @@
       "dob": "1996-09-26",
       "height": 207,
       "weight": 112,
+      "birthPlace": "Moscow",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1321,6 +1377,7 @@
       "dob": "1996-05-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Russia",
       "tour": {
         "gold": 1,
         "silver": 4,
@@ -1332,7 +1389,8 @@
       "name": "Yaroslav Ostrakhovskiy",
       "dob": "1991-05-11",
       "height": 202,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Chusovoi city"
     },
     {
       "id": 143169,
@@ -1340,6 +1398,7 @@
       "dob": "1995-12-27",
       "height": 190,
       "weight": 90,
+      "birthPlace": "City Ekaterinburg",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -1371,6 +1430,7 @@
       "dob": "1998-10-17",
       "height": null,
       "weight": null,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 1,
         "silver": 3,
@@ -1382,7 +1442,8 @@
       "name": "Vasilii Ivanov",
       "dob": "1999-07-08",
       "height": 202,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Brukhovetskaya"
     },
     {
       "id": 146569,
@@ -1404,6 +1465,7 @@
       "dob": "1997-08-22",
       "height": 195,
       "weight": 83,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1416,6 +1478,7 @@
       "dob": "1985-10-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Gorkiy",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1497,6 +1560,7 @@
       "dob": "2000-10-25",
       "height": 191,
       "weight": 85,
+      "birthPlace": "Moscow",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1522,7 +1586,8 @@
       "name": "Aleksei Arkhipov",
       "dob": "2001-01-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St. Petersburg"
     },
     {
       "id": 164583,
@@ -1557,42 +1622,48 @@
       "name": "Kirill Kranin",
       "dob": "1998-02-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minsk"
     },
     {
       "id": 178078,
       "name": "Vladislav Panchenko",
       "dob": "2004-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moscow"
     },
     {
       "id": 178079,
       "name": "Ivan Chuprinov",
       "dob": "2004-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rostov"
     },
     {
       "id": 178959,
       "name": "Egor Zharovin",
       "dob": "2003-12-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St. Petersburg"
     },
     {
       "id": 178960,
       "name": "Aleksandr Rukhmanov",
       "dob": "2002-09-21",
       "height": 198,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "St. Petersburg"
     },
     {
       "id": 182251,
       "name": "Marat Islamov",
       "dob": "2003-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saint-Petersburg"
     }
   ]
 }

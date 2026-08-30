@@ -7,21 +7,24 @@
       "name": "Mariam Omari",
       "dob": "2002-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Katavi"
     },
     {
       "id": 214521,
       "name": "Leah Emmanuel Steven",
       "dob": "2003-12-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mara"
     },
     {
       "id": 214953,
       "name": "Victoria Mwita Samson",
       "dob": "2005-10-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tarime"
     }
   ]
 }

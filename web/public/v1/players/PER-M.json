@@ -21,14 +21,16 @@
       "name": "Alvaro Hidalgo Ascues",
       "dob": "1994-03-23",
       "height": 187,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Lima"
     },
     {
       "id": 139363,
       "name": "Eduardo Romay Dammert",
       "dob": "1995-08-22",
       "height": 200,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Lima"
     },
     {
       "id": 139773,
@@ -42,7 +44,8 @@
       "name": "Jose Vargas",
       "dob": "1993-02-03",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Tumbes"
     },
     {
       "id": 145397,
@@ -63,14 +66,16 @@
       "name": "Juan Carlos Bustos",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tacna"
     },
     {
       "id": 161727,
       "name": "Bruno Sebastian Seminario Florentini",
       "dob": "2000-01-07",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Lima"
     },
     {
       "id": 163337,

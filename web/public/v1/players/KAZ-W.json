@@ -7,7 +7,8 @@
       "name": "Svetlana Savchenko",
       "dob": "1985-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Amatinskaya obl."
     },
     {
       "id": 104366,
@@ -15,6 +16,7 @@
       "dob": "1988-03-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Almaty",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -47,7 +49,8 @@
       "name": "Irina Penkina",
       "dob": "1980-07-21",
       "height": 183,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Temirtau, Kazakhstan"
     },
     {
       "id": 116581,
@@ -68,7 +71,8 @@
       "name": "Alexandra Turichsheva",
       "dob": "1989-01-06",
       "height": 185,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Almaty"
     },
     {
       "id": 118008,
@@ -110,7 +114,8 @@
       "name": "Bakhtygul Samalikova",
       "dob": "1993-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mangistau region"
     },
     {
       "id": 120466,
@@ -125,6 +130,7 @@
       "dob": "1987-08-09",
       "height": 181,
       "weight": 71,
+      "birthPlace": "Almaty",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -150,7 +156,8 @@
       "name": "Marina Storozhenko",
       "dob": "1985-06-06",
       "height": 175,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Almaty, Kazakhstan"
     },
     {
       "id": 132144,
@@ -171,14 +178,16 @@
       "name": "Inna Yakovleva",
       "dob": "1988-03-04",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Pavlodar"
     },
     {
       "id": 135458,
       "name": "Radmila Beresneva",
       "dob": "1983-06-06",
       "height": 185,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Almaty, Kazakhstan"
     },
     {
       "id": 138616,
@@ -199,7 +208,8 @@
       "name": "Lyudmila Issayeva",
       "dob": "1989-09-26",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Turkmenistan"
     },
     {
       "id": 150274,
@@ -213,14 +223,16 @@
       "name": "Tatyana Nikitina",
       "dob": "2001-01-15",
       "height": 185,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Almaty region"
     },
     {
       "id": 155612,
       "name": "Akerke Shaken",
       "dob": "2000-03-06",
       "height": null,
-      "weight": 170
+      "weight": 170,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 155613,
@@ -276,7 +288,8 @@
       "name": "Nadezhda Ivanchenko",
       "dob": "2005-03-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 181494,
@@ -304,35 +317,40 @@
       "name": "Mariya Peressetskaya",
       "dob": "2007-10-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 210207,
       "name": "Gayana Galash",
       "dob": "2009-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 210210,
       "name": "Yekaterina Ryukhova",
       "dob": "2008-11-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 212766,
       "name": "Kristina Karimova",
       "dob": "2006-08-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 227191,
       "name": "Merey Kozhakhmet",
       "dob": "2009-11-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     }
   ]
 }

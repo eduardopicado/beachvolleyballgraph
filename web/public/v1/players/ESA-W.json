@@ -14,21 +14,24 @@
       "name": "Ana Luz Aquino De Garcia Granados",
       "dob": "1970-12-29",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "SAN Salvador"
     },
     {
       "id": 103201,
       "name": "Frida Larios",
       "dob": "1974-10-26",
       "height": 174,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "San José, Costa Rica"
     },
     {
       "id": 103869,
       "name": "Yvonne Soler",
       "dob": "1979-05-20",
       "height": 170,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "San Salvador"
     },
     {
       "id": 117684,
@@ -42,14 +45,16 @@
       "name": "Fatima Giselle Rendon Garcia",
       "dob": "2011-01-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Miguel"
     },
     {
       "id": 207338,
       "name": "Devora Scarleth Medina Mencos",
       "dob": "2010-08-13",
       "height": 167,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Salvador"
     }
   ]
 }

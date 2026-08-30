@@ -8,6 +8,7 @@
       "dob": "1992-04-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Benkovac",
       "away": [
         {
           "id": 170677,
@@ -39,7 +40,8 @@
       "name": "Katarina Raicevic",
       "dob": "1994-07-25",
       "height": 184,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Belgrade"
     },
     {
       "id": 146757,
@@ -53,21 +55,24 @@
       "name": "Irena Drobnjak",
       "dob": "1999-05-09",
       "height": 169,
-      "weight": 50
+      "weight": 50,
+      "birthPlace": "Belgrade"
     },
     {
       "id": 147367,
       "name": "Natasa Masulovic",
       "dob": "1994-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pec"
     },
     {
       "id": 148877,
       "name": "Marija Milosevic",
       "dob": "1986-03-15",
       "height": 182,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Ljig"
     },
     {
       "id": 170715,
@@ -81,14 +86,16 @@
       "name": "Milena Gavric",
       "dob": "1997-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pozarevac"
     },
     {
       "id": 194244,
       "name": "Ana Marija Mitrovic",
       "dob": "1995-02-24",
       "height": 184,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Valjevo, Serbia"
     }
   ]
 }

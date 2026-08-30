@@ -14,7 +14,8 @@
       "name": "Fabiana Gomez",
       "dob": "1986-12-08",
       "height": 180,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Montevideo"
     },
     {
       "id": 117051,
@@ -35,7 +36,8 @@
       "name": "Guerrero Mariana",
       "dob": "1980-05-26",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Lyon"
     },
     {
       "id": 117602,
@@ -70,7 +72,8 @@
       "name": "Catalina Simon",
       "dob": "1998-12-17",
       "height": 177,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Montevideo, Uruguay"
     },
     {
       "id": 160736,
@@ -84,35 +87,40 @@
       "name": "Camila Bausero",
       "dob": "1999-06-02",
       "height": 177,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Montevideo"
     },
     {
       "id": 171225,
       "name": "Maria Isabel Bianchi",
       "dob": "2001-07-09",
       "height": 183,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Paysandú, Uruguay"
     },
     {
       "id": 202270,
       "name": "Sol Acuña",
       "dob": "2002-02-02",
       "height": 171,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Durazno"
     },
     {
       "id": 208735,
       "name": "Martina Lucas",
       "dob": "2007-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Treinta Y Tres"
     },
     {
       "id": 208736,
       "name": "MacArena López",
       "dob": "2007-03-08",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Montevideo"
     }
   ]
 }

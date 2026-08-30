@@ -21,42 +21,48 @@
       "name": "Chad Mowrey",
       "dob": "1977-07-19",
       "height": 187,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Tahoka, Texas"
     },
     {
       "id": 118826,
       "name": "Christian Tuyay",
       "dob": "1982-10-04",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "San Diego, CA USA"
     },
     {
       "id": 135441,
       "name": "Henry James Pecaña",
       "dob": "1989-12-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Binan City"
     },
     {
       "id": 146169,
       "name": "Jade Becaldo",
       "dob": "1990-05-07",
       "height": 180,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Liloan Cebu"
     },
     {
       "id": 165041,
       "name": "Anthony Lemuel Jr. Arbasto",
       "dob": "1996-12-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Polomolok, South Cotabato"
     },
     {
       "id": 165042,
       "name": "Jude Garcia",
       "dob": "1998-11-07",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Umingan, PGN"
     },
     {
       "id": 168053,
@@ -91,14 +97,16 @@
       "name": "Alnakran Abdilla",
       "dob": "1992-04-22",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Tawi-TAWI"
     },
     {
       "id": 168061,
       "name": "Edwin TOLENTINO",
       "dob": "1993-01-29",
       "height": 183,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Pampanga"
     },
     {
       "id": 173234,
@@ -113,6 +121,7 @@
       "dob": "1998-11-10",
       "height": 185,
       "weight": 74,
+      "birthPlace": "Bantayan, Cebu",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -124,42 +133,48 @@
       "name": "Jessie Lopez",
       "dob": "1986-03-29",
       "height": 178,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Laguna"
     },
     {
       "id": 177582,
       "name": "Jaron Requinton",
       "dob": "2000-07-02",
       "height": 190,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Sta Maria, Bulacan"
     },
     {
       "id": 181515,
       "name": "Jay Rack De La Noche",
       "dob": "2002-07-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Silay City"
     },
     {
       "id": 181516,
       "name": "Alexander Jhon Iraya",
       "dob": "2003-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Victorias City"
     },
     {
       "id": 185233,
       "name": "Andre Joseph Pareja",
       "dob": "1988-05-02",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "San Juan MM"
     },
     {
       "id": 196579,
       "name": "Pol Gringo Salvador",
       "dob": "2000-07-05",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Cebu City"
     },
     {
       "id": 201244,
@@ -167,6 +182,7 @@
       "dob": "2000-04-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Cebu",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -185,21 +201,24 @@
       "name": "Ronniel Rosales",
       "dob": "1998-09-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tiaong Quezon"
     },
     {
       "id": 216832,
       "name": "Lerry John Francisco",
       "dob": "1998-10-28",
       "height": 187,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Meycauayan Bulacan"
     },
     {
       "id": 239393,
       "name": "Alih Faisal Gampong",
       "dob": "1998-03-18",
       "height": 188,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Tawi Tawi"
     }
   ]
 }

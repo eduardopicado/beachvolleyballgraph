@@ -14,21 +14,24 @@
       "name": "Godwin Shekarau",
       "dob": "1995-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saminaka"
     },
     {
       "id": 163010,
       "name": "Hilary Simon",
       "dob": "1999-11-19",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Maiduguri"
     },
     {
       "id": 201047,
       "name": "Ogunshina Obayemi Olorundare",
       "dob": "1998-07-20",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Ogori"
     }
   ]
 }

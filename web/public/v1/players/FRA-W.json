@@ -14,7 +14,8 @@
       "name": "Anabelle Prawerman",
       "dob": "1963-01-13",
       "height": 176,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Paris"
     },
     {
       "id": 101084,
@@ -22,6 +23,7 @@
       "dob": "1981-01-28",
       "height": 170,
       "weight": 58,
+      "birthPlace": "Marseille",
       "away": [
         {
           "id": 100156,
@@ -47,42 +49,48 @@
       "name": "Cécile \"Cilou\" Rigaux",
       "dob": "1969-04-20",
       "height": 182,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Nogent s/Marne"
     },
     {
       "id": 101656,
       "name": "Arcadia Berjonneau",
       "dob": "1970-06-03",
       "height": 179,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Boulogne Billancourt"
     },
     {
       "id": 101750,
       "name": "Christine Cordinnier",
       "dob": "1972-04-11",
       "height": 168,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Marseille"
     },
     {
       "id": 101824,
       "name": "Brigitte Gros",
       "dob": "1971-06-26",
       "height": 174,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Toulon"
     },
     {
       "id": 101825,
       "name": "Marie Tari",
       "dob": "1970-05-10",
       "height": 173,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Tahiti"
     },
     {
       "id": 101826,
       "name": "Sandrine Filisetti",
       "dob": "1975-04-13",
       "height": 177,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Marseille"
     },
     {
       "id": 101827,
@@ -96,7 +104,8 @@
       "name": "Marion Picard",
       "dob": "1978-09-28",
       "height": 170,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Lyon"
     },
     {
       "id": 101892,
@@ -110,14 +119,16 @@
       "name": "Natacha Gally",
       "dob": "1978-10-11",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Villeurbanne"
     },
     {
       "id": 101894,
       "name": "Magali Magail",
       "dob": "1978-02-24",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "mulhouse"
     },
     {
       "id": 101906,
@@ -152,14 +163,16 @@
       "name": "Claire Jaouen",
       "dob": "1979-02-13",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "St Brieul (12)"
     },
     {
       "id": 101965,
       "name": "Séverine Lienard",
       "dob": "1979-02-19",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Valenciennes"
     },
     {
       "id": 101966,
@@ -174,6 +187,7 @@
       "dob": "1980-02-26",
       "height": 163,
       "weight": 56,
+      "birthPlace": "Marseille",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -206,35 +220,40 @@
       "name": "Gaëlle Lopez",
       "dob": "1973-09-14",
       "height": 180,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Montpellier"
     },
     {
       "id": 102158,
       "name": "Dominique Lefort",
       "dob": "1972-08-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bordeaux"
     },
     {
       "id": 102213,
       "name": "Karine Salinas",
       "dob": "1973-03-05",
       "height": 175,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Mont Saint Aignan"
     },
     {
       "id": 102292,
       "name": "Muriel Benazeth",
       "dob": "1966-02-02",
       "height": 177,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Agen"
     },
     {
       "id": 102351,
       "name": "Célia Martinez",
       "dob": "1978-07-08",
       "height": 168,
-      "weight": 53
+      "weight": 53,
+      "birthPlace": "Narbonne"
     },
     {
       "id": 102352,
@@ -248,21 +267,24 @@
       "name": "Audrey Viguier",
       "dob": "1980-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sète"
     },
     {
       "id": 102354,
       "name": "Sophie Jung",
       "dob": "1977-03-14",
       "height": 170,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "bedarieux"
     },
     {
       "id": 102355,
       "name": "Laurence Salette",
       "dob": "1972-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bouake (CIV)"
     },
     {
       "id": 102356,
@@ -270,6 +292,7 @@
       "dob": "1981-06-12",
       "height": 176,
       "weight": 62,
+      "birthPlace": "Narbonne",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -282,6 +305,7 @@
       "dob": "1981-05-09",
       "height": 177,
       "weight": 64,
+      "birthPlace": "Paris",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -293,14 +317,16 @@
       "name": "Marion Castelli",
       "dob": "1984-03-28",
       "height": 180,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Marseille"
     },
     {
       "id": 102359,
       "name": "Caroline \"Caro\" Reb",
       "dob": "1983-11-03",
       "height": 165,
-      "weight": 53
+      "weight": 53,
+      "birthPlace": "Aix-en-Provence"
     },
     {
       "id": 102767,
@@ -342,7 +368,8 @@
       "name": "Marjorie Molina",
       "dob": "1980-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Le Ciolat"
     },
     {
       "id": 102773,
@@ -356,28 +383,32 @@
       "name": "Emilie \"Em\" Burte",
       "dob": "1983-11-18",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Orleans"
     },
     {
       "id": 103123,
       "name": "Solenne \"Sol\" Frey",
       "dob": "1983-04-29",
       "height": 171,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Aix en Provence"
     },
     {
       "id": 103124,
       "name": "Natacha Reb",
       "dob": "1980-03-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aix en Provence"
     },
     {
       "id": 103125,
       "name": "Nadege Belle Perat",
       "dob": "1977-05-27",
       "height": 172,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Echirolles"
     },
     {
       "id": 103126,
@@ -385,6 +416,7 @@
       "dob": "1984-12-17",
       "height": 174,
       "weight": 61,
+      "birthPlace": "La Tronche",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -396,42 +428,48 @@
       "name": "Stephanie Dehant",
       "dob": "1978-08-19",
       "height": null,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Marseille"
     },
     {
       "id": 103128,
       "name": "Aurélie Barlier",
       "dob": "1984-02-01",
       "height": 171,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Lavaur"
     },
     {
       "id": 103129,
       "name": "Céline Gemise Fareau",
       "dob": "1984-09-16",
       "height": 176,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Versailles"
     },
     {
       "id": 103290,
       "name": "Audrey \"Syssy\" Syren",
       "dob": "1983-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mulhouse"
     },
     {
       "id": 103332,
       "name": "Andrea Luge",
       "dob": "1965-07-14",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Hemau/Germany"
     },
     {
       "id": 103549,
       "name": "Zoé Chater",
       "dob": "1976-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sèvres (92)"
     },
     {
       "id": 103778,
@@ -439,6 +477,7 @@
       "dob": "1973-05-03",
       "height": 178,
       "weight": 64,
+      "birthPlace": "Paris 14e",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -451,6 +490,7 @@
       "dob": "1979-07-02",
       "height": 177,
       "weight": 61,
+      "birthPlace": "Nice",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -469,7 +509,8 @@
       "name": "Hélène Yahiel",
       "dob": "1978-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calais"
     },
     {
       "id": 104154,
@@ -502,14 +543,16 @@
       "name": "Perrine Royannais",
       "dob": "1978-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toulon"
     },
     {
       "id": 104467,
       "name": "Deborah Giaoui",
       "dob": "1980-05-13",
       "height": 182,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Paris"
     },
     {
       "id": 104527,
@@ -528,7 +571,8 @@
       "name": "Natacha Nelson",
       "dob": null,
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "San Jose, CA, U.S.A."
     },
     {
       "id": 104867,
@@ -549,7 +593,8 @@
       "name": "Laura Longuet",
       "dob": "1988-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Versailles"
     },
     {
       "id": 105004,
@@ -571,6 +616,7 @@
       "dob": "1977-06-12",
       "height": 193,
       "weight": 73,
+      "birthPlace": "Mulhouse",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -589,7 +635,8 @@
       "name": "Aurélie Pause",
       "dob": "1989-12-09",
       "height": 172,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Saint Denis"
     },
     {
       "id": 116689,
@@ -624,7 +671,8 @@
       "name": "Michaela Formankova",
       "dob": "1985-11-21",
       "height": 170,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Brno"
     },
     {
       "id": 117080,
@@ -694,7 +742,8 @@
       "name": "Julie Mollinger",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "paris 16"
     },
     {
       "id": 119256,
@@ -736,7 +785,8 @@
       "name": "Justine Astruc",
       "dob": "1983-04-22",
       "height": 185,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Béziers"
     },
     {
       "id": 124780,
@@ -757,7 +807,8 @@
       "name": "Mélody Benhamou",
       "dob": "1983-03-31",
       "height": 188,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Les Abymes"
     },
     {
       "id": 132672,
@@ -785,7 +836,8 @@
       "name": "Lucie Dekeukelaire",
       "dob": "1993-05-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "LE Creusot"
     },
     {
       "id": 135620,
@@ -828,6 +880,7 @@
       "dob": "1990-03-11",
       "height": 188,
       "weight": 83,
+      "birthPlace": "Charenton-le-Pont",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -839,7 +892,8 @@
       "name": "Melinda Adelin",
       "dob": "1987-05-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mulhouse"
     },
     {
       "id": 142085,
@@ -873,6 +927,7 @@
       "dob": "1996-03-06",
       "height": 184,
       "weight": null,
+      "birthPlace": "Villeurbanne",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -899,6 +954,7 @@
       "dob": "1996-04-03",
       "height": 183,
       "weight": 76,
+      "birthPlace": "LA Teste DE Buch",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -925,6 +981,7 @@
       "dob": "1997-12-11",
       "height": 180,
       "weight": 69,
+      "birthPlace": "Croix",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -936,7 +993,8 @@
       "name": "Marie Nevot",
       "dob": "2000-12-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lehon"
     },
     {
       "id": 157191,
@@ -950,7 +1008,8 @@
       "name": "Pia Szewczyk",
       "dob": "1999-03-27",
       "height": 188,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Bordeaux"
     },
     {
       "id": 157362,
@@ -972,6 +1031,7 @@
       "dob": "2000-11-01",
       "height": 176,
       "weight": 67,
+      "birthPlace": "Grenoble",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -983,21 +1043,24 @@
       "name": "Emere Maau-Boutry",
       "dob": "1986-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "papeete"
     },
     {
       "id": 171781,
       "name": "Aurore Fareura",
       "dob": "1990-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Paris 14"
     },
     {
       "id": 179179,
       "name": "Maëva Guignan",
       "dob": "1994-12-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bordeaux"
     },
     {
       "id": 179313,
@@ -1005,6 +1068,7 @@
       "dob": "2002-09-29",
       "height": 174,
       "weight": 70,
+      "birthPlace": "Lourdes",
       "tour": {
         "gold": 2,
         "silver": 5,
@@ -1017,6 +1081,7 @@
       "dob": "2006-01-27",
       "height": 173,
       "weight": 67,
+      "birthPlace": "Grasse",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1029,6 +1094,7 @@
       "dob": "1999-08-11",
       "height": 180,
       "weight": null,
+      "birthPlace": "Frejus",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -1041,6 +1107,7 @@
       "dob": "1996-09-06",
       "height": 185,
       "weight": 75,
+      "birthPlace": "Mulhouse",
       "tour": {
         "gold": 0,
         "silver": 3,
@@ -1067,6 +1134,7 @@
       "dob": "2000-08-10",
       "height": 175,
       "weight": 60,
+      "birthPlace": "Couderkerque-Branche",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -1090,7 +1158,8 @@
       "name": "Céline Collette",
       "dob": "1989-02-06",
       "height": 175,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Croix"
     },
     {
       "id": 197805,
@@ -1104,28 +1173,32 @@
       "name": "Izzie Delporte",
       "dob": "2009-02-18",
       "height": 188,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Avignon"
     },
     {
       "id": 200625,
       "name": "Lucile Colin",
       "dob": "1991-12-11",
       "height": 178,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Nantes"
     },
     {
       "id": 204414,
       "name": "Laura Arteil",
       "dob": "1993-10-09",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Toulouse"
     },
     {
       "id": 209753,
       "name": "Kumuhei Heitaa",
       "dob": "2004-02-11",
       "height": null,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Papeete"
     },
     {
       "id": 209754,
@@ -1139,7 +1212,8 @@
       "name": "Lokelani Vero",
       "dob": "1985-01-29",
       "height": 179,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Papeete"
     },
     {
       "id": 209828,
@@ -1154,6 +1228,7 @@
       "dob": "2003-12-18",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1165,28 +1240,32 @@
       "name": "Kyara Rouer",
       "dob": "2007-02-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cannes"
     },
     {
       "id": 221167,
       "name": "Joséphine Candela",
       "dob": "2008-05-03",
       "height": 176,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Beaumont"
     },
     {
       "id": 223437,
       "name": "Malo Mir",
       "dob": "2009-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lille"
     },
     {
       "id": 227138,
       "name": "Mathilde Berthaudeau",
       "dob": "2009-06-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "La Rochelle"
     }
   ]
 }

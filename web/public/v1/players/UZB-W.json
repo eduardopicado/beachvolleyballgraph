@@ -7,14 +7,16 @@
       "name": "Odina Uralova",
       "dob": "2009-10-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tashkent Region"
     },
     {
       "id": 240434,
       "name": "Guzaloy Mamatsodikova",
       "dob": "2009-10-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Khorezm Region"
     }
   ]
 }

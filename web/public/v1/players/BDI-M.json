@@ -21,91 +21,104 @@
       "name": "Yvan Dukundane",
       "dob": "1995-04-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Musaga Bujumbura/ BDI"
     },
     {
       "id": 183725,
       "name": "Evrard Irangabiye",
       "dob": "1996-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bujumbura"
     },
     {
       "id": 192198,
       "name": "Lionel Ndayisaba",
       "dob": "2006-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bujumbura"
     },
     {
       "id": 192199,
       "name": "Don Diamel Ndayisaba",
       "dob": "2005-04-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bujumbura"
     },
     {
       "id": 194231,
       "name": "Jean Berthrand Iteriteka",
       "dob": "2003-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bururi"
     },
     {
       "id": 198156,
       "name": "MUKUNZI Christ Ornel",
       "dob": "2006-10-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Musaga-Bujumbura"
     },
     {
       "id": 204927,
       "name": "Ishimwe Dan Jordy",
       "dob": "2003-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nyakabiga-Bujumbura"
     },
     {
       "id": 204932,
       "name": "Haragakiza Below",
       "dob": "2001-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nyanza-Lac"
     },
     {
       "id": 211939,
       "name": "Igiraneza Engambe",
       "dob": "2008-12-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bwiza-Bujumbura"
     },
     {
       "id": 214061,
       "name": "Gakiza Don Carmel",
       "dob": "2006-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mugozi-Bururi"
     },
     {
       "id": 214062,
       "name": "Manariyo Florian",
       "dob": "2008-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Umurundi"
     },
     {
       "id": 226569,
       "name": "HARAGAKIZA Aldo",
       "dob": "2009-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bujumbura"
     },
     {
       "id": 226570,
       "name": "NDAYISABA Akbar",
       "dob": "2009-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bujumbura"
     }
   ]
 }

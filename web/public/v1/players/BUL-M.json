@@ -7,21 +7,24 @@
       "name": "Vladislav \"Sara\" Todorov",
       "dob": "1970-01-02",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Sofia"
     },
     {
       "id": 100523,
       "name": "Ivaylo Gavrilov",
       "dob": "1970-12-30",
       "height": 200,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Sofia,BULGARIA"
     },
     {
       "id": 100525,
       "name": "Petar \"The Shark\" Atanasov",
       "dob": "1971-11-17",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Sofia"
     },
     {
       "id": 100526,
@@ -35,147 +38,168 @@
       "name": "Robert \"Robi\" Simeonov",
       "dob": "1970-01-13",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Sofia"
     },
     {
       "id": 101913,
       "name": "Ivaylo Stefanov",
       "dob": "1973-07-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102014,
       "name": "Pavel Damianov",
       "dob": "1968-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tcepelare"
     },
     {
       "id": 102015,
       "name": "Jri Iotov",
       "dob": "1963-07-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Etropole"
     },
     {
       "id": 102050,
       "name": "Radoslav \"Yakimov\" Arsov",
       "dob": "1971-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102051,
       "name": "Georgi Sabchev",
       "dob": "1975-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102459,
       "name": "Kiril Kaltchev",
       "dob": "1973-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102460,
       "name": "Petar Iliev Dochev",
       "dob": "1973-09-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102461,
       "name": "Svetozar Dimov",
       "dob": "1975-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 102464,
       "name": "Nikolay Yanakiev Milanov",
       "dob": "1971-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dobritch"
     },
     {
       "id": 102465,
       "name": "Valeri Dimitrov Viktorov",
       "dob": "1967-07-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toutrakan"
     },
     {
       "id": 102466,
       "name": "Evgeni Petkov Grigorov",
       "dob": "1992-02-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 102473,
       "name": "Nikolay \"Koko\" Grigorov",
       "dob": "1966-05-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gabrovo"
     },
     {
       "id": 104613,
       "name": "Milen Stoyanov",
       "dob": "1982-05-08",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Varna"
     },
     {
       "id": 104614,
       "name": "Boris Yankov",
       "dob": "1982-04-19",
       "height": 195,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Varna"
     },
     {
       "id": 113700,
       "name": "Andrey Nikolov",
       "dob": "1984-09-29",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Burgas"
     },
     {
       "id": 117791,
       "name": "Miroslav Gradinarov",
       "dob": "1985-02-10",
       "height": 203,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Dobrich"
     },
     {
       "id": 117793,
       "name": "Konstantin Mitev",
       "dob": "1984-10-27",
       "height": 196,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Haskovo"
     },
     {
       "id": 118486,
       "name": "Valentin Bratoev",
       "dob": "1987-10-21",
       "height": 203,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Sofia"
     },
     {
       "id": 118487,
       "name": "Georgi Bratoev",
       "dob": "1987-10-21",
       "height": 203,
-      "weight": 106
+      "weight": 106,
+      "birthPlace": "Sofia"
     },
     {
       "id": 119127,
       "name": "Simeon Aleksandrov",
       "dob": "1988-02-18",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Sofia"
     },
     {
       "id": 119411,
@@ -189,7 +213,8 @@
       "name": "Neven Neshev",
       "dob": "1981-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lukovit"
     },
     {
       "id": 124249,
@@ -203,21 +228,24 @@
       "name": "Valentin Dimov",
       "dob": "1986-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kardzhali"
     },
     {
       "id": 124986,
       "name": "Delcho Raev",
       "dob": "1990-05-11",
       "height": 185,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Kardzhali"
     },
     {
       "id": 132350,
       "name": "Tuncher Haydarov",
       "dob": "1983-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kardzhali"
     },
     {
       "id": 132352,
@@ -231,14 +259,16 @@
       "name": "Ivan Latunov",
       "dob": "1990-06-29",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kardzhali"
     },
     {
       "id": 136485,
       "name": "Zlatan Yordanov",
       "dob": "1991-03-02",
       "height": 200,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Kardzhali"
     },
     {
       "id": 144035,
@@ -257,7 +287,8 @@
       "name": "Branimir Grozdanov",
       "dob": "1994-05-21",
       "height": 198,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Sofia"
     },
     {
       "id": 146445,
@@ -292,56 +323,64 @@
       "name": "Mihail Stoev",
       "dob": "1990-09-25",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Sliven"
     },
     {
       "id": 149415,
       "name": "Filip Denchev",
       "dob": "1995-07-24",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Varna"
     },
     {
       "id": 162688,
       "name": "Georgi Stoyanov",
       "dob": "1997-05-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 173067,
       "name": "Nikolay Kolev",
       "dob": "1997-12-16",
       "height": 204,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Varna"
     },
     {
       "id": 175810,
       "name": "Mario Iliev",
       "dob": "1982-05-07",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Sofia"
     },
     {
       "id": 178752,
       "name": "Lachezar Stoimenov",
       "dob": "1996-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna, Bulgaria"
     },
     {
       "id": 179402,
       "name": "Nikolay Kostov",
       "dob": "2003-07-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sofia"
     },
     {
       "id": 180587,
       "name": "Dimitar Dimitrov",
       "dob": "2000-12-11",
       "height": 208,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Plovdiv"
     },
     {
       "id": 181034,
@@ -349,6 +388,7 @@
       "dob": "2000-03-05",
       "height": 188,
       "weight": 82,
+      "birthPlace": "Smolyan",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -360,28 +400,32 @@
       "name": "Dimitar Vasilev",
       "dob": "2000-06-08",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Varna"
     },
     {
       "id": 181220,
       "name": "Kaloyan Balabanov",
       "dob": "1998-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 181224,
       "name": "Atanas Georgiev",
       "dob": "1999-07-26",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Varna"
     },
     {
       "id": 182783,
       "name": "Alexander Tsanev",
       "dob": "2005-08-27",
       "height": 188,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Varna"
     },
     {
       "id": 191686,
@@ -395,21 +439,24 @@
       "name": "Boris Georgiev",
       "dob": "2005-08-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varna"
     },
     {
       "id": 191706,
       "name": "Konstantin Stoykov",
       "dob": "2006-09-21",
       "height": 196,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Varna"
     },
     {
       "id": 192652,
       "name": "Denislav Dimitrov",
       "dob": "1994-04-04",
       "height": 194,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Ruse"
     },
     {
       "id": 192653,
@@ -423,7 +470,8 @@
       "name": "Aleks Nikolov",
       "dob": "1999-07-03",
       "height": 197,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Ruse"
     },
     {
       "id": 210859,
@@ -437,7 +485,8 @@
       "name": "Georgi Antov",
       "dob": "2007-07-14",
       "height": 192,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Sofia"
     }
   ]
 }

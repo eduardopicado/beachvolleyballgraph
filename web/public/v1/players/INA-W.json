@@ -7,7 +7,8 @@
       "name": "Yayah Rodiah",
       "dob": "1967-08-16",
       "height": 162,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Sukabumi"
     },
     {
       "id": 100512,
@@ -21,21 +22,24 @@
       "name": "Engel Berta \"Eta\" Kaize",
       "dob": "1974-07-05",
       "height": 171,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Merauke"
     },
     {
       "id": 100634,
       "name": "Ni Putu Timy Yudhani Rahayu",
       "dob": "1976-12-11",
       "height": 165,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Praya"
     },
     {
       "id": 101011,
       "name": "Agustina \"Agustin\" Sineri",
       "dob": "1970-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Manokwari"
     },
     {
       "id": 101012,
@@ -49,7 +53,8 @@
       "name": "Siti \"Nung\" Nurjanah",
       "dob": "1974-05-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandung"
     },
     {
       "id": 101014,
@@ -63,7 +68,8 @@
       "name": "Trisiwi \"Sulis\" Susilowati",
       "dob": "1969-11-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mataram"
     },
     {
       "id": 101658,
@@ -126,14 +132,16 @@
       "name": "Risma Siswardini",
       "dob": "1978-04-11",
       "height": 170,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Ankara"
     },
     {
       "id": 103798,
       "name": "Emerisa Trian Arisanti",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stooaro"
     },
     {
       "id": 104525,
@@ -147,7 +155,8 @@
       "name": "Minarni Minarni",
       "dob": "1983-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Baneka- Belitune"
     },
     {
       "id": 104557,
@@ -161,7 +170,8 @@
       "name": "Reni Yusriani",
       "dob": "1975-10-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kunincan"
     },
     {
       "id": 104559,
@@ -175,63 +185,72 @@
       "name": "Hanida Burhkina",
       "dob": "1982-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Painan"
     },
     {
       "id": 104562,
       "name": "Neli Gm Fangidae",
       "dob": "1982-06-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Atapenan"
     },
     {
       "id": 104563,
       "name": "Herlina Linda",
       "dob": "1986-01-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bandung"
     },
     {
       "id": 104564,
       "name": "Iim Mukhodimah",
       "dob": "1984-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ciamie"
     },
     {
       "id": 104565,
       "name": "Gina Indri Andriana",
       "dob": "1989-11-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pontinnak"
     },
     {
       "id": 104566,
       "name": "Susan Stevia",
       "dob": "2003-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sebadu"
     },
     {
       "id": 104569,
       "name": "Eva Artaningsih Komang",
       "dob": "1973-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Drumpasak"
     },
     {
       "id": 104570,
       "name": "Parwati Niluh",
       "dob": "1975-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Danpasar"
     },
     {
       "id": 104571,
       "name": "Bali Nursiyah",
       "dob": "1974-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "ambon"
     },
     {
       "id": 104572,
@@ -302,6 +321,7 @@
       "dob": "1993-07-07",
       "height": 170,
       "weight": 62,
+      "birthPlace": "Bima",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -314,6 +334,7 @@
       "dob": "1994-01-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Gianyar",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -325,7 +346,8 @@
       "name": "Maria Dwiningtyas",
       "dob": "1998-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sleman"
     },
     {
       "id": 150503,
@@ -339,7 +361,8 @@
       "name": "Desi Ratnasari",
       "dob": "1997-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pungkit"
     },
     {
       "id": 154804,
@@ -360,7 +383,8 @@
       "name": "Nur Sari",
       "dob": "1998-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gresik"
     },
     {
       "id": 167236,
@@ -388,14 +412,16 @@
       "name": "Bernadetta Shella Herdanti",
       "dob": "2002-10-30",
       "height": 170,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Sleman"
     },
     {
       "id": 210048,
       "name": "Josephine Selvina Anasthasya Kaize",
       "dob": "2005-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Depok"
     }
   ]
 }

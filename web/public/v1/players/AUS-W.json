@@ -29,6 +29,7 @@
       "dob": "1972-06-16",
       "height": 172,
       "weight": 70,
+      "birthPlace": "Perth",
       "away": [
         {
           "id": 100686,
@@ -65,6 +66,7 @@
       "dob": "1975-01-19",
       "height": 181,
       "weight": 72,
+      "birthPlace": "Brisbane",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -87,6 +89,7 @@
       "dob": "1966-01-01",
       "height": 170,
       "weight": 67,
+      "birthPlace": "Brisbane",
       "away": [
         {
           "id": 100686,
@@ -128,6 +131,7 @@
       "dob": "1965-06-25",
       "height": 184,
       "weight": 70,
+      "birthPlace": "Adelaïde, South Australia",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -145,6 +149,7 @@
       "dob": "1971-06-10",
       "height": 189,
       "weight": 80,
+      "birthPlace": "Sydney",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -272,6 +277,7 @@
       "dob": "1973-08-16",
       "height": 177,
       "weight": 67,
+      "birthPlace": "Adelaide",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -303,6 +309,7 @@
       "dob": "1975-11-02",
       "height": 186,
       "weight": 73,
+      "birthPlace": "Adelaïde",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -354,7 +361,8 @@
       "name": "Summer Louise Lochowicz",
       "dob": "1978-03-30",
       "height": 181,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Townsville QLD"
     },
     {
       "id": 101725,
@@ -362,6 +370,7 @@
       "dob": "1969-02-02",
       "height": 181,
       "weight": 69,
+      "birthPlace": "Mt. Gambier",
       "tour": {
         "gold": 0,
         "silver": 4,
@@ -395,6 +404,7 @@
       "dob": "1976-04-01",
       "height": 182,
       "weight": 66,
+      "birthPlace": "Perth",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -418,28 +428,32 @@
       "name": "Kylie Gerlic",
       "dob": "1975-03-06",
       "height": 172,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Townsville"
     },
     {
       "id": 103224,
       "name": "Megan Avery",
       "dob": "1981-09-21",
       "height": 187,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 103225,
       "name": "Fay Avery",
       "dob": "1981-09-21",
       "height": 186,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 103426,
       "name": "Stacey Michelle Kloeden",
       "dob": "1982-11-14",
       "height": 172,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 103557,
@@ -460,14 +474,16 @@
       "name": "Olivia Orchard",
       "dob": "1984-02-04",
       "height": 171,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Adelaide, SA"
     },
     {
       "id": 103969,
       "name": "Heike Jensen",
       "dob": "1984-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 104145,
@@ -488,7 +504,8 @@
       "name": "Renae Lynn Maycock",
       "dob": "1980-01-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Darwin, aus"
     },
     {
       "id": 104353,
@@ -496,6 +513,7 @@
       "dob": "1985-11-04",
       "height": null,
       "weight": null,
+      "birthPlace": "Sydney",
       "away": [
         {
           "id": 133882,
@@ -527,35 +545,40 @@
       "name": "Alice Rohkamper",
       "dob": "1988-09-04",
       "height": 176,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Manly, Sydney"
     },
     {
       "id": 104471,
       "name": "Jillian McLeod",
       "dob": "1987-06-03",
       "height": 181,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 104541,
       "name": "Larraine Busch",
       "dob": "1983-04-03",
       "height": 175,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Cairns, AUS"
     },
     {
       "id": 104542,
       "name": "Kaylah Lauren Nielsen",
       "dob": "1986-03-26",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Tula Southpark"
     },
     {
       "id": 113407,
       "name": "Eileen Romanowski",
       "dob": "1984-01-03",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Adelaide, Australia"
     },
     {
       "id": 113416,
@@ -563,6 +586,7 @@
       "dob": "1980-03-10",
       "height": 193,
       "weight": 73,
+      "birthPlace": "Ballarat",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -581,7 +605,8 @@
       "name": "Natalie Frostick",
       "dob": "1986-08-08",
       "height": 175,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Sydney, Australia"
     },
     {
       "id": 115664,
@@ -595,7 +620,8 @@
       "name": "Tara West",
       "dob": "1985-11-29",
       "height": 181,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Perth, Australia"
     },
     {
       "id": 116642,
@@ -603,6 +629,7 @@
       "dob": "1988-06-18",
       "height": 183,
       "weight": 73,
+      "birthPlace": "Adelaide",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -614,7 +641,8 @@
       "name": "Jacinta Mitchard",
       "dob": "1980-03-25",
       "height": 167,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Victoria"
     },
     {
       "id": 117068,
@@ -642,7 +670,8 @@
       "name": "Zina Stone",
       "dob": "1990-05-08",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 118987,
@@ -657,6 +686,7 @@
       "dob": "1993-10-24",
       "height": 173,
       "weight": 66,
+      "birthPlace": "Lima",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -768,6 +798,7 @@
       "dob": "1981-08-07",
       "height": 184,
       "weight": 72,
+      "birthPlace": "Melbourne",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -786,7 +817,8 @@
       "name": "Eliza (Karley) Hynes",
       "dob": "1992-01-29",
       "height": 183,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Bendigo- Victoria"
     },
     {
       "id": 125172,
@@ -794,6 +826,7 @@
       "dob": "1992-06-25",
       "height": 184,
       "weight": 68,
+      "birthPlace": "Kingaroy",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -816,6 +849,7 @@
       "dob": "1993-02-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Paddington",
       "tour": {
         "gold": 2,
         "silver": 1,
@@ -827,7 +861,8 @@
       "name": "Jessica Ryder",
       "dob": "1992-05-18",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Buderim"
     },
     {
       "id": 133965,
@@ -848,7 +883,8 @@
       "name": "Rebecca Reeve",
       "dob": "1994-05-23",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Fitzroy"
     },
     {
       "id": 139049,
@@ -856,6 +892,7 @@
       "dob": "1995-12-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Auckland",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -868,6 +905,7 @@
       "dob": "1996-12-22",
       "height": 183,
       "weight": 68,
+      "birthPlace": "Herston",
       "tour": {
         "gold": 1,
         "silver": 1,
@@ -879,7 +917,8 @@
       "name": "Christine Jenkins",
       "dob": "1986-03-26",
       "height": 173,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Sandringham"
     },
     {
       "id": 141405,
@@ -894,6 +933,7 @@
       "dob": "1996-01-03",
       "height": 195,
       "weight": 74,
+      "birthPlace": "Geelong",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -905,7 +945,8 @@
       "name": "Agnieszka Kudziela",
       "dob": "1996-03-26",
       "height": 188,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Wroclaw"
     },
     {
       "id": 146136,
@@ -913,6 +954,7 @@
       "dob": "1996-03-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Waikerie",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -953,6 +995,7 @@
       "dob": "1998-09-07",
       "height": 181,
       "weight": 69,
+      "birthPlace": "Toowoomba",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -964,7 +1007,8 @@
       "name": "Jennifer Aliss Sadler",
       "dob": "1993-03-18",
       "height": 185,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "East Fremantle"
     },
     {
       "id": 151089,
@@ -978,28 +1022,32 @@
       "name": "Sabine Link",
       "dob": "1981-12-08",
       "height": 175,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 155484,
       "name": "Rebecca Ingram",
       "dob": "1999-03-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maffra"
     },
     {
       "id": 155496,
       "name": "Sabine Mills",
       "dob": "1998-04-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 155563,
       "name": "Caitlin Bettenay",
       "dob": "1998-09-03",
       "height": 183,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Townville"
     },
     {
       "id": 155583,
@@ -1013,35 +1061,40 @@
       "name": "Lauren Taylor",
       "dob": "2001-11-01",
       "height": 177,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Carlton"
     },
     {
       "id": 156512,
       "name": "Nicola Gregory",
       "dob": "2001-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ballarat"
     },
     {
       "id": 156513,
       "name": "Tiaan Smith",
       "dob": "2000-09-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 166412,
       "name": "Aimee Coleman",
       "dob": "2000-07-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Southport"
     },
     {
       "id": 166554,
       "name": "Elenoa Sing",
       "dob": "2001-01-18",
       "height": 181,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 166924,
@@ -1056,6 +1109,7 @@
       "dob": "2003-02-04",
       "height": null,
       "weight": null,
+      "birthPlace": "South Brisbane",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1067,7 +1121,8 @@
       "name": "Brianna Mears",
       "dob": "2003-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 172210,
@@ -1075,6 +1130,7 @@
       "dob": "2001-09-29",
       "height": 189,
       "weight": 72,
+      "birthPlace": "North Adelaide",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -1086,7 +1142,8 @@
       "name": "Allysha Sims",
       "dob": "2002-08-16",
       "height": 170,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Bedford Park"
     },
     {
       "id": 172222,
@@ -1094,6 +1151,7 @@
       "dob": "2003-01-05",
       "height": 183,
       "weight": 69,
+      "birthPlace": "Brisbane",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -1105,14 +1163,16 @@
       "name": "Annelies Jones",
       "dob": "2002-10-08",
       "height": 183,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 173203,
       "name": "Alisha Stevens",
       "dob": "2003-03-27",
       "height": 179,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Epsom"
     },
     {
       "id": 178070,
@@ -1120,6 +1180,7 @@
       "dob": "2004-12-08",
       "height": 180,
       "weight": null,
+      "birthPlace": "North Sydney",
       "tour": {
         "gold": 5,
         "silver": 2,
@@ -1131,7 +1192,8 @@
       "name": "Jesse Mann",
       "dob": "2004-02-09",
       "height": 180,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "St Leonards"
     },
     {
       "id": 178282,
@@ -1145,14 +1207,16 @@
       "name": "Bailee Kendall",
       "dob": "2002-07-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ashford"
     },
     {
       "id": 180621,
       "name": "Sarah Burton",
       "dob": "2002-12-20",
       "height": 182,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Como"
     },
     {
       "id": 180738,
@@ -1166,84 +1230,96 @@
       "name": "Ruby Vanloo",
       "dob": "2003-08-21",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North Adelaide"
     },
     {
       "id": 186869,
       "name": "Lucy Knight",
       "dob": "2002-10-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Toorak Gardens"
     },
     {
       "id": 186871,
       "name": "Ella Milne",
       "dob": "2004-09-20",
       "height": 189,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Toowoomba"
     },
     {
       "id": 186873,
       "name": "Ella Schabort",
       "dob": "2005-05-25",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Murdoch"
     },
     {
       "id": 186893,
       "name": "Tyla Hardy",
       "dob": "2004-03-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Canberra"
     },
     {
       "id": 186895,
       "name": "Cassandra Dodd",
       "dob": "2004-03-12",
       "height": 188,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Subiaco"
     },
     {
       "id": 186896,
       "name": "Brielle Kettleton",
       "dob": "2004-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 186916,
       "name": "Brodie Baker",
       "dob": "2002-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wodonga"
     },
     {
       "id": 186918,
       "name": "Charlotte Duncan",
       "dob": "2004-08-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Herston"
     },
     {
       "id": 186920,
       "name": "Kasey Hogan",
       "dob": "2003-06-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Proserpine"
     },
     {
       "id": 186923,
       "name": "Jessica Jones",
       "dob": "1996-12-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North Adelaide"
     },
     {
       "id": 186941,
       "name": "Sophia Soderberg",
       "dob": "2004-07-24",
       "height": 175,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Frederiksberg"
     },
     {
       "id": 186953,
@@ -1251,6 +1327,7 @@
       "dob": "2004-09-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Murdoch",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1269,28 +1346,32 @@
       "name": "Georgina Vanloo",
       "dob": "2005-06-25",
       "height": 176,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "North Adelaide"
     },
     {
       "id": 189488,
       "name": "Tandia Briggs",
       "dob": "2005-06-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Emerald"
     },
     {
       "id": 189490,
       "name": "Josephine Foster",
       "dob": "2005-01-20",
       "height": 192,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Redcliffe"
     },
     {
       "id": 189494,
       "name": "Jessica Hunter",
       "dob": "2006-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North Gosford"
     },
     {
       "id": 189499,
@@ -1298,6 +1379,7 @@
       "dob": "2006-06-04",
       "height": 189,
       "weight": 71,
+      "birthPlace": "Cleveland",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -1309,35 +1391,40 @@
       "name": "Mali Towers",
       "dob": "2005-10-28",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Figtree"
     },
     {
       "id": 189504,
       "name": "Chloe Walker",
       "dob": "2005-02-13",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 189505,
       "name": "Cameron Zajer",
       "dob": "2006-02-27",
       "height": 183,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 198931,
       "name": "Alexia Zammit",
       "dob": "2004-11-06",
       "height": 176,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Subiaco"
     },
     {
       "id": 199519,
       "name": "Kyla Sanchez",
       "dob": "2001-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Attadale"
     },
     {
       "id": 199786,
@@ -1351,7 +1438,8 @@
       "name": "Gemma McNamara",
       "dob": "2006-02-06",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Carlton"
     },
     {
       "id": 199806,
@@ -1365,21 +1453,24 @@
       "name": "Lauren Brasell",
       "dob": "2006-02-10",
       "height": 183,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 199808,
       "name": "Leilani Burnell",
       "dob": "2005-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Honolulu, Hawaii"
     },
     {
       "id": 199810,
       "name": "Lina Mueller",
       "dob": "2006-02-25",
       "height": 175,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sydney"
     },
     {
       "id": 199813,
@@ -1393,7 +1484,8 @@
       "name": "Mireille Smith",
       "dob": "2007-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nowra, NSW"
     },
     {
       "id": 199832,
@@ -1407,28 +1499,32 @@
       "name": "Chloe Sumich",
       "dob": "2007-01-05",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 200642,
       "name": "Ava Gaborit",
       "dob": "2009-11-05",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Ashford"
     },
     {
       "id": 208912,
       "name": "Lara Maric",
       "dob": "2007-05-05",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 208940,
       "name": "Isabella Simurina",
       "dob": "2006-03-30",
       "height": 186,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kogarah"
     },
     {
       "id": 209082,
@@ -1442,7 +1538,8 @@
       "name": "Lilyana Stanojevic",
       "dob": "2006-04-18",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Auchenflower"
     },
     {
       "id": 209091,
@@ -1456,21 +1553,24 @@
       "name": "Caitlin Clarke",
       "dob": "2007-06-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Durban"
     },
     {
       "id": 209674,
       "name": "Charlotte Graham",
       "dob": "2003-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 211662,
       "name": "Chelsea Cocks",
       "dob": "2007-09-20",
       "height": 186,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Westmead"
     },
     {
       "id": 211663,
@@ -1491,28 +1591,32 @@
       "name": "Jorja Grocott",
       "dob": "2010-06-29",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Benowa"
     },
     {
       "id": 224496,
       "name": "Lydia Amstutz",
       "dob": "2008-05-02",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "California, USA"
     },
     {
       "id": 227579,
       "name": "Ella McDonell",
       "dob": "2009-11-19",
       "height": 186,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wodonga"
     },
     {
       "id": 227580,
       "name": "Ruby Longmuir",
       "dob": "2009-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Parkville"
     }
   ]
 }

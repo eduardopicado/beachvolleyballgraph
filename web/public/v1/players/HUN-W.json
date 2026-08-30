@@ -7,7 +7,8 @@
       "name": "Gyöngyi Polanyi",
       "dob": "1970-12-04",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Budapest"
     },
     {
       "id": 100077,
@@ -35,14 +36,16 @@
       "name": "Zsuzsanna Selmeczi - Brecher",
       "dob": "1970-10-15",
       "height": 170,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Budapest"
     },
     {
       "id": 100947,
       "name": "Nathalie Dambendzet",
       "dob": "1975-07-05",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Budapest"
     },
     {
       "id": 101548,
@@ -70,14 +73,16 @@
       "name": "Virag Nyari",
       "dob": "1968-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 101552,
       "name": "Erszebet Fesus",
       "dob": "1967-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gyela"
     },
     {
       "id": 101577,
@@ -91,35 +96,40 @@
       "name": "Krisztina Nagy",
       "dob": "1976-02-06",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Budapest"
     },
     {
       "id": 102924,
       "name": "Rita Wolf",
       "dob": "1974-12-31",
       "height": 183,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Budapest"
     },
     {
       "id": 102945,
       "name": "Anita Szabo",
       "dob": "1974-07-21",
       "height": 183,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Budapest"
     },
     {
       "id": 102958,
       "name": "Anita Petho",
       "dob": "1979-08-04",
       "height": 183,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Kerepestarcsa"
     },
     {
       "id": 103252,
       "name": "Katalin Schlegl",
       "dob": "1976-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 103433,
@@ -140,35 +150,40 @@
       "name": "Bernadette Kiss",
       "dob": "1982-02-08",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Budapest"
     },
     {
       "id": 103669,
       "name": "Regina Kiss",
       "dob": "1986-05-06",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Szolnok"
     },
     {
       "id": 103804,
       "name": "Valéria Héjjas",
       "dob": "1980-07-04",
       "height": 182,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Szarvas"
     },
     {
       "id": 103852,
       "name": "Marianna Faludy",
       "dob": "1977-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaposvar"
     },
     {
       "id": 103853,
       "name": "Viktoria Witz",
       "dob": "1980-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaposvar"
     },
     {
       "id": 104160,
@@ -189,7 +204,8 @@
       "name": "Zsuzsanna Józsa",
       "dob": "1983-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 118163,
@@ -203,7 +219,8 @@
       "name": "Gabriella Veres",
       "dob": "1982-05-08",
       "height": 185,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Hun"
     },
     {
       "id": 118191,
@@ -224,7 +241,8 @@
       "name": "Eniko Lakatos",
       "dob": "1993-10-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 132610,
@@ -238,7 +256,8 @@
       "name": "Renáta Hadnagy",
       "dob": "1993-12-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 132660,
@@ -259,14 +278,16 @@
       "name": "Szandra Szombathelyi",
       "dob": "1989-08-02",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Budapest"
     },
     {
       "id": 146789,
       "name": "Laura Krisztina Gubicza",
       "dob": "1994-06-11",
       "height": 178,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Budapest"
     },
     {
       "id": 147398,
@@ -280,21 +301,24 @@
       "name": "Eszter Lutter",
       "dob": "1990-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 148974,
       "name": "Eszter Nagy",
       "dob": "1989-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Veszprém"
     },
     {
       "id": 152476,
       "name": "Nikolett Tátrai",
       "dob": "2000-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 152477,
@@ -302,6 +326,7 @@
       "dob": "1997-06-03",
       "height": 184,
       "weight": 75,
+      "birthPlace": "Budapest",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -327,7 +352,8 @@
       "name": "Judit Kolada",
       "dob": "1992-02-22",
       "height": 173,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Budapest"
     },
     {
       "id": 160066,
@@ -341,14 +367,16 @@
       "name": "Panna Györi",
       "dob": "1991-02-20",
       "height": 184,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Budapest"
     },
     {
       "id": 162524,
       "name": "Lujza Papp",
       "dob": "1999-12-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 163400,
@@ -376,84 +404,96 @@
       "name": "Orsolya Orbán",
       "dob": "2000-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 167119,
       "name": "Adrienn Czene",
       "dob": "1994-05-19",
       "height": 175,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Budapest"
     },
     {
       "id": 168695,
       "name": "Hanna Gubik",
       "dob": "2004-03-22",
       "height": 170,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Budapest"
     },
     {
       "id": 168699,
       "name": "Orsolya Éva Réthelyi",
       "dob": "2004-07-28",
       "height": 176,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Budapest"
     },
     {
       "id": 168744,
       "name": "Alíz Hajós",
       "dob": "1999-02-08",
       "height": 180,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Budapest"
     },
     {
       "id": 169819,
       "name": "Liza Lutter",
       "dob": "1992-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 170183,
       "name": "Zsófi Vasvári",
       "dob": "2004-08-06",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Budapest"
     },
     {
       "id": 170184,
       "name": "Eszter Vasvári",
       "dob": "2001-07-23",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Budapest"
     },
     {
       "id": 173093,
       "name": "Csenge Villám",
       "dob": "1999-05-23",
       "height": 174,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Budapest"
     },
     {
       "id": 173449,
       "name": "Fanni Vecsey",
       "dob": null,
       "height": 182,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Budapest"
     },
     {
       "id": 179972,
       "name": "Kinga Melinda Windisch",
       "dob": "1997-09-04",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Budapest"
     },
     {
       "id": 181216,
       "name": "Adrienn Posztós-Szabó",
       "dob": "1995-10-25",
       "height": 176,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Budapest"
     },
     {
       "id": 181615,
@@ -461,6 +501,7 @@
       "dob": "2005-10-26",
       "height": 173,
       "weight": 57,
+      "birthPlace": "Budapest",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -472,21 +513,24 @@
       "name": "Chiara Honti-Majoros",
       "dob": "2005-11-27",
       "height": 183,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Budapest"
     },
     {
       "id": 181754,
       "name": "Anna Szabó",
       "dob": "2006-11-28",
       "height": 171,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Kistarcsa"
     },
     {
       "id": 181812,
       "name": "Tamara Stréli",
       "dob": "2007-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 182100,
@@ -500,91 +544,104 @@
       "name": "Laura Kállai",
       "dob": "2006-01-06",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Budapest"
     },
     {
       "id": 191408,
       "name": "Flóra Zolnai",
       "dob": "2006-08-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Komárom"
     },
     {
       "id": 192185,
       "name": "Alma Matkovits",
       "dob": "2008-05-18",
       "height": 170,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Budapest"
     },
     {
       "id": 202017,
       "name": "Kármen Honti-Majoros",
       "dob": "2009-01-31",
       "height": 190,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Budapest"
     },
     {
       "id": 205705,
       "name": "Réka Meilinger",
       "dob": "2006-01-24",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Veszprém"
     },
     {
       "id": 210882,
       "name": "Emese Kiss-Bertók",
       "dob": "2008-05-05",
       "height": 185,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Keszthely"
     },
     {
       "id": 210887,
       "name": "Réka Pádár",
       "dob": "2010-12-28",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Veszprém"
     },
     {
       "id": 212490,
       "name": "Jázmin Pesti-Tóth",
       "dob": "2003-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kaposvár"
     },
     {
       "id": 213054,
       "name": "Izabella Anna Szabó",
       "dob": "2003-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Budapest"
     },
     {
       "id": 217372,
       "name": "Lilianna Szabó",
       "dob": "2004-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Székesfehérvár"
     },
     {
       "id": 218800,
       "name": "Viktória Dibusz",
       "dob": "2010-03-09",
       "height": 175,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Budapest"
     },
     {
       "id": 225367,
       "name": "Léna Sárik-Veress",
       "dob": "2010-01-29",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Budapest"
     },
     {
       "id": 239522,
       "name": "Anna Tóth",
       "dob": "2008-01-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Székesfehérvár"
     }
   ]
 }

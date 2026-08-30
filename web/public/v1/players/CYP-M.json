@@ -21,7 +21,8 @@
       "name": "Georgios Platritis",
       "dob": "1981-08-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 118087,
@@ -63,14 +64,16 @@
       "name": "Andreas Zanis",
       "dob": "1977-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Paralimni"
     },
     {
       "id": 118098,
       "name": "Charalambos Savvides",
       "dob": "1975-03-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lusaka, Zambia"
     },
     {
       "id": 119598,
@@ -84,7 +87,8 @@
       "name": "Stavros Michaelides",
       "dob": "1970-11-20",
       "height": 194,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Limassol"
     },
     {
       "id": 119614,
@@ -98,7 +102,8 @@
       "name": "Efstathiou Konstantinos",
       "dob": "1984-10-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pafos"
     },
     {
       "id": 119618,
@@ -133,28 +138,32 @@
       "name": "Dimitris Apostolou",
       "dob": "1984-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nicosia"
     },
     {
       "id": 139376,
       "name": "Konstantinos Yiannakkos",
       "dob": "1994-04-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pafos"
     },
     {
       "id": 139377,
       "name": "Panagiotis Michail",
       "dob": "1994-05-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 139379,
       "name": "Minos Agathokleous",
       "dob": "1995-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol, Cyprus"
     },
     {
       "id": 139380,
@@ -175,21 +184,24 @@
       "name": "Charalampos Zorbis",
       "dob": "1997-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 144043,
       "name": "Georgios Chrysostomou",
       "dob": "1996-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lemesos"
     },
     {
       "id": 145293,
       "name": "Antreas Savvidis",
       "dob": "1991-07-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 146953,
@@ -217,14 +229,16 @@
       "name": "Kyriakos Parlas",
       "dob": "1996-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kato Polemidia"
     },
     {
       "id": 147872,
       "name": "Dimitrios Pochanis",
       "dob": "1997-07-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Marousi"
     },
     {
       "id": 147875,
@@ -245,7 +259,8 @@
       "name": "Antonios Liotatis",
       "dob": "1997-11-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 157803,
@@ -259,14 +274,16 @@
       "name": "Sotiris Siapanis",
       "dob": "2001-01-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 157851,
       "name": "Marios Stroukarevits",
       "dob": "1998-08-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Limassol"
     },
     {
       "id": 157857,
@@ -280,7 +297,8 @@
       "name": "Kanaris Michael",
       "dob": "2002-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Larnaca"
     }
   ]
 }

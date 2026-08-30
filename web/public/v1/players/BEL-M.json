@@ -22,6 +22,7 @@
       "dob": "1964-11-19",
       "height": 196,
       "weight": 88,
+      "birthPlace": "Deurne",
       "away": [
         {
           "id": 103278,
@@ -47,14 +48,16 @@
       "name": "Martin \"Marcel\" Van der Sichel",
       "dob": "1963-01-16",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Ghent"
     },
     {
       "id": 100883,
       "name": "Dirk De Boiserie",
       "dob": "1963-05-18",
       "height": 186,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Gent"
     },
     {
       "id": 100884,
@@ -75,28 +78,32 @@
       "name": "Geert Van der Straeten",
       "dob": "1969-03-14",
       "height": 191,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Bilzen"
     },
     {
       "id": 100889,
       "name": "Kurt Verleene",
       "dob": "1970-01-04",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Oostende"
     },
     {
       "id": 101359,
       "name": "Peter Ix",
       "dob": "1971-05-13",
       "height": 192,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Kortryk"
     },
     {
       "id": 101402,
       "name": "Pascal Delfosse",
       "dob": "1969-04-24",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Leuven"
     },
     {
       "id": 101403,
@@ -110,119 +117,136 @@
       "name": "Alexandre \"Sacha\" Koulberg",
       "dob": "1959-11-03",
       "height": 192,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Watermael Boitsfort"
     },
     {
       "id": 102010,
       "name": "Tom Roose",
       "dob": "1969-06-20",
       "height": 176,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Gent"
     },
     {
       "id": 102011,
       "name": "Tom Speleman",
       "dob": "1968-01-07",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "St-Niklaas"
     },
     {
       "id": 102012,
       "name": "Filip Van Huffel",
       "dob": "1965-05-19",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "St Niklaas"
     },
     {
       "id": 102013,
       "name": "Ward Ceyfs",
       "dob": "1972-10-24",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Maaseik"
     },
     {
       "id": 102016,
       "name": "Thierry Courtois",
       "dob": "1967-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liège"
     },
     {
       "id": 102017,
       "name": "Jean Premuzak",
       "dob": "1971-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liège"
     },
     {
       "id": 102281,
       "name": "Damien Libertiaux",
       "dob": "1969-03-05",
       "height": 191,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Namur"
     },
     {
       "id": 102302,
       "name": "Eric Humblet",
       "dob": "1970-04-23",
       "height": 192,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Bruxelles"
     },
     {
       "id": 102427,
       "name": "Marc Braeckmans",
       "dob": "1964-05-12",
       "height": 184,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Schoten"
     },
     {
       "id": 102431,
       "name": "Koene \"Koen\" Embrechts",
       "dob": "1974-12-30",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Deurne"
     },
     {
       "id": 102432,
       "name": "Laurent Van Elslande",
       "dob": "1968-10-11",
       "height": 192,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Mons"
     },
     {
       "id": 102433,
       "name": "Jean-Michel \"Jean-Mi\" Nihoul",
       "dob": "1970-11-28",
       "height": 196,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Verviers"
     },
     {
       "id": 102434,
       "name": "Frank Verbeeck",
       "dob": "1975-07-24",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Hasselt"
     },
     {
       "id": 102435,
       "name": "Ivan \"Vaane\" De Decker",
       "dob": "1973-06-26",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Ostend"
     },
     {
       "id": 102436,
       "name": "Tim Van Mierlo",
       "dob": "1976-04-21",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Borgerhout"
     },
     {
       "id": 102437,
       "name": "Tom De Vleeschouwer",
       "dob": "1971-08-30",
       "height": 186,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Mechelen"
     },
     {
       "id": 102604,
@@ -230,6 +254,7 @@
       "dob": "1971-10-30",
       "height": 193,
       "weight": 87,
+      "birthPlace": "Veurne",
       "away": [
         {
           "id": 103278,
@@ -260,21 +285,24 @@
       "name": "Dieter \"Two\" Melis",
       "dob": "1977-10-03",
       "height": 195,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Wilrijk"
     },
     {
       "id": 102826,
       "name": "Marc Humblet",
       "dob": "1971-12-17",
       "height": 187,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Liege"
     },
     {
       "id": 102827,
       "name": "Tom Andelhof",
       "dob": "1979-03-23",
       "height": 198,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "gent"
     },
     {
       "id": 102828,
@@ -288,49 +316,56 @@
       "name": "Ward Coucke",
       "dob": "1981-10-08",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Waregem"
     },
     {
       "id": 103030,
       "name": "Tim Joosen",
       "dob": "1973-03-07",
       "height": 192,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Schoten"
     },
     {
       "id": 103176,
       "name": "Matthias \"Matthi\" Cagnie",
       "dob": "1979-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kortrijk"
     },
     {
       "id": 103182,
       "name": "Kristof \"Chester\" Deleu",
       "dob": null,
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roesecare"
     },
     {
       "id": 103183,
       "name": "Bram \"Brambo\" Cafmeyer",
       "dob": "1974-04-15",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Torhot"
     },
     {
       "id": 103184,
       "name": "Bjorn De Greef",
       "dob": "1978-12-12",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Spich, Germany"
     },
     {
       "id": 103185,
       "name": "Gunther \"Jacko\" Desmedt",
       "dob": "1976-03-13",
       "height": 179,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Asse"
     },
     {
       "id": 103404,
@@ -344,7 +379,8 @@
       "name": "Kristof Achten",
       "dob": "1978-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maaseik"
     },
     {
       "id": 103617,
@@ -386,21 +422,24 @@
       "name": "Bob Van Looy",
       "dob": "1976-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ekeren"
     },
     {
       "id": 103836,
       "name": "Yves Verstraelen",
       "dob": "1978-08-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Turnhout"
     },
     {
       "id": 104047,
       "name": "Ron Andelhof",
       "dob": "1978-01-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gent"
     },
     {
       "id": 105107,
@@ -414,7 +453,8 @@
       "name": "Fabian Jadot",
       "dob": "1980-11-17",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Liege"
     },
     {
       "id": 118705,
@@ -428,14 +468,16 @@
       "name": "Audry Frankart",
       "dob": "1982-09-15",
       "height": 197,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Charleroi"
     },
     {
       "id": 119454,
       "name": "Seppe Baetens",
       "dob": "1989-02-13",
       "height": 191,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Halle"
     },
     {
       "id": 119511,
@@ -449,14 +491,16 @@
       "name": "Kristof Hoho",
       "dob": "1980-08-07",
       "height": 196,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Maaseik"
     },
     {
       "id": 122953,
       "name": "Dennis Deroey",
       "dob": "1987-08-14",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Leuven"
     },
     {
       "id": 122954,
@@ -470,14 +514,16 @@
       "name": "Jens Christiaens",
       "dob": "1993-04-10",
       "height": 186,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Jette"
     },
     {
       "id": 124288,
       "name": "Lander Vandecaveye",
       "dob": "1991-04-03",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Kortrijk"
     },
     {
       "id": 124756,
@@ -496,7 +542,8 @@
       "name": "Aljosa Urnaut",
       "dob": "1988-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 132321,
@@ -504,6 +551,7 @@
       "dob": "1988-05-25",
       "height": 191,
       "weight": 85,
+      "birthPlace": "Herk-de-Stad",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -515,7 +563,8 @@
       "name": "Matthias Cloot",
       "dob": "1985-07-11",
       "height": 197,
-      "weight": 110
+      "weight": 110,
+      "birthPlace": "Eupen"
     },
     {
       "id": 132338,
@@ -543,7 +592,8 @@
       "name": "Martijn Colson",
       "dob": "1994-04-08",
       "height": 203,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Lommel"
     },
     {
       "id": 137290,
@@ -558,6 +608,7 @@
       "dob": "1992-08-31",
       "height": null,
       "weight": null,
+      "birthPlace": "Kortrijk",
       "tour": {
         "gold": 4,
         "silver": 2,
@@ -583,7 +634,8 @@
       "name": "Yannick Pirali",
       "dob": "1987-05-25",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Eupen"
     },
     {
       "id": 142921,
@@ -591,6 +643,7 @@
       "dob": "1995-08-28",
       "height": 192,
       "weight": 80,
+      "birthPlace": "Kortrijk",
       "tour": {
         "gold": 4,
         "silver": 2,
@@ -602,14 +655,16 @@
       "name": "Bob Douwen",
       "dob": "1986-07-28",
       "height": 190,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Geel"
     },
     {
       "id": 144039,
       "name": "Lars Maddens",
       "dob": "1997-03-05",
       "height": 192,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Menen"
     },
     {
       "id": 150731,
@@ -651,7 +706,8 @@
       "name": "Arne Darras",
       "dob": "1999-02-04",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Jette"
     },
     {
       "id": 156996,
@@ -672,35 +728,40 @@
       "name": "Christophe Witvrouwen",
       "dob": "1998-05-20",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Herentals"
     },
     {
       "id": 160151,
       "name": "Hugo Fischer",
       "dob": "1999-08-31",
       "height": 204,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Verviers"
     },
     {
       "id": 162598,
       "name": "Yorik Van Tigchelt",
       "dob": "1997-07-11",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Hasselt"
     },
     {
       "id": 178982,
       "name": "Louis Laenen",
       "dob": "2002-11-09",
       "height": 189,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Verviers"
     },
     {
       "id": 178983,
       "name": "Thibault Goset",
       "dob": "2002-05-07",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Verviers"
     },
     {
       "id": 179290,
@@ -708,6 +769,7 @@
       "dob": "2003-01-15",
       "height": 189,
       "weight": 80,
+      "birthPlace": "Leuven",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -719,7 +781,8 @@
       "name": "Jelle De Hert",
       "dob": "2004-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lier"
     },
     {
       "id": 182781,
@@ -727,6 +790,7 @@
       "dob": "2004-04-08",
       "height": 199,
       "weight": 85,
+      "birthPlace": "Sint Niklaas",
       "tour": {
         "gold": 3,
         "silver": 1,
@@ -752,7 +816,8 @@
       "name": "Jordan Pirick",
       "dob": "1992-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liège"
     },
     {
       "id": 222955,

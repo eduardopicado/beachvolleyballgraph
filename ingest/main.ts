@@ -205,6 +205,7 @@ async function main() {
       'Birthdate',
       'Height',
       'Weight',
+      'BirthPlace',
     ],
     itemTag: 'Player',
   });
@@ -415,6 +416,10 @@ async function main() {
           dob: p.dob,
           height: p.height,
           weight: p.weight,
+          // Omitted rather than null for the 46% without one, like the medals
+          // below: the field is absent from most players and this keeps it out
+          // of their published row entirely.
+          ...(p.birthPlace ? { birthPlace: p.birthPlace } : {}),
           olympics: m && hasMedal(m.olympics) ? m.olympics : undefined,
           worldChamps: m && hasMedal(m['world-champs']) ? m['world-champs'] : undefined,
           tour: podium && hasMedal(podium) ? podium : undefined,

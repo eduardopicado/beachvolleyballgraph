@@ -7,21 +7,24 @@
       "name": "Oliver \"Oli\" Indra",
       "dob": "1974-09-08",
       "height": 192,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Vaduz"
     },
     {
       "id": 101841,
       "name": "Beat Wachter",
       "dob": "1977-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Altstätten"
     },
     {
       "id": 102438,
       "name": "Adrian \"Adi\" Ritter",
       "dob": "1979-08-08",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Grabs"
     },
     {
       "id": 104722,
@@ -42,14 +45,16 @@
       "name": "Maximilian von Deichmann",
       "dob": "1991-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vaduz"
     },
     {
       "id": 124740,
       "name": "Manuel Gahr",
       "dob": "1992-07-24",
       "height": 189,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Vaduz"
     }
   ]
 }

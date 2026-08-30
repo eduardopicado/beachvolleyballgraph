@@ -7,21 +7,24 @@
       "name": "Gregorio Godoy",
       "dob": "1985-09-20",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Asunción"
     },
     {
       "id": 145745,
       "name": "Roger Daniel Battilana Villamayor",
       "dob": "1992-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 146096,
       "name": "Eder Enrique Rojas Lobo",
       "dob": "1999-06-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 157230,
@@ -36,6 +39,7 @@
       "dob": "2000-11-17",
       "height": 170,
       "weight": 64,
+      "birthPlace": "asuncion",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -54,14 +58,16 @@
       "name": "Santiago Mendoza Fretes",
       "dob": "2002-02-22",
       "height": 187,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 178348,
       "name": "Jonathan Abel Reckziegel Gallas",
       "dob": "2002-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asunción"
     },
     {
       "id": 178349,
@@ -69,6 +75,7 @@
       "dob": "2002-03-16",
       "height": 192,
       "weight": 90,
+      "birthPlace": "Asunción",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -87,21 +94,24 @@
       "name": "Camilo Vargas",
       "dob": "2004-02-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 188476,
       "name": "Angel Palacios",
       "dob": "2004-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fer. de la Mora"
     },
     {
       "id": 193855,
       "name": "Fabricio Bobadilla",
       "dob": "2005-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 208860,
@@ -115,21 +125,24 @@
       "name": "Juanangel Gomez",
       "dob": "2006-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     },
     {
       "id": 222620,
       "name": "Hugo Felix Benitez Vazquez",
       "dob": "2009-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Luque"
     },
     {
       "id": 222625,
       "name": "Matias Gabriel Yegros Gomez",
       "dob": "2008-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asuncion"
     }
   ]
 }

@@ -7,21 +7,24 @@
       "name": "Nsangou Lindou Mohamed Lamine",
       "dob": "2002-04-02",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bertoua"
     },
     {
       "id": 181894,
       "name": "Ngueuche Bruno Angafor",
       "dob": "1992-10-21",
       "height": null,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Yaounde"
     },
     {
       "id": 188136,
       "name": "Besongngnem Obenda",
       "dob": "1990-09-08",
       "height": 182,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Ngaoundere"
     }
   ]
 }

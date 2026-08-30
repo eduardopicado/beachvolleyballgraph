@@ -7,14 +7,16 @@
       "name": "Aiturgan Aitbekova",
       "dob": "2006-09-21",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kyrgyzstan"
     },
     {
       "id": 188852,
       "name": "Roza Rasulbek Kyzy",
       "dob": "2005-10-04",
       "height": 182,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kyrgyz Republic"
     }
   ]
 }

@@ -7,7 +7,8 @@
       "name": "Taleb Ibrahim Boubacar",
       "dob": "1995-01-20",
       "height": 172,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Niamey"
     },
     {
       "id": 139037,
@@ -28,21 +29,24 @@
       "name": "Ibrahim Dan Baro Abdoul Nasser",
       "dob": "1995-01-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Niamey"
     },
     {
       "id": 156303,
       "name": "Moussa Idrissa",
       "dob": "2000-01-01",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Niamey"
     },
     {
       "id": 169607,
       "name": "Boureima Moubarak",
       "dob": "2001-01-01",
       "height": 198,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Niamey"
     }
   ]
 }

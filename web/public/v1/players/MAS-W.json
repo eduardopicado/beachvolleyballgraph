@@ -7,14 +7,16 @@
       "name": "Lim Poh Hong",
       "dob": "1972-01-08",
       "height": 167,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Selangor"
     },
     {
       "id": 117717,
       "name": "Beh Shun Thing",
       "dob": "1985-10-29",
       "height": 174,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Lumut,Perak."
     },
     {
       "id": 117718,
@@ -35,14 +37,16 @@
       "name": "Luk Teck Hua",
       "dob": "1982-01-07",
       "height": 173,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Bintagor"
     },
     {
       "id": 117730,
       "name": "Luk Teng Kee",
       "dob": "1984-07-11",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Bintangor"
     },
     {
       "id": 124981,
@@ -91,7 +95,8 @@
       "name": "Shu Woon Joo",
       "dob": "1995-03-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Johor Bahru"
     },
     {
       "id": 161704,
@@ -105,7 +110,8 @@
       "name": "Thevar Aishuria",
       "dob": "1995-01-01",
       "height": 167,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Kuantan, Malaysia"
     },
     {
       "id": 167583,
@@ -126,7 +132,8 @@
       "name": "Foo Sin Xi",
       "dob": "2000-01-25",
       "height": 174,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Manjung"
     },
     {
       "id": 172095,
@@ -168,7 +175,8 @@
       "name": "Kelly Yong",
       "dob": "1999-11-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sabah"
     },
     {
       "id": 186572,
@@ -196,49 +204,56 @@
       "name": "Muhamad Nasir Mashitah",
       "dob": "2006-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kedah"
     },
     {
       "id": 209999,
       "name": "Goh Yu Heng",
       "dob": "2010-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kuala Lumpur"
     },
     {
       "id": 210014,
       "name": "Lim Jing Qian",
       "dob": "2008-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kuala Lumpur"
     },
     {
       "id": 210015,
       "name": "Goh Rachael, Yu Jie",
       "dob": "2007-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kuala Lumpur"
     },
     {
       "id": 210033,
       "name": "Mohammad Noor Aizuddin Nur Azwa Qariesya",
       "dob": "2009-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bukit Mertajam"
     },
     {
       "id": 220414,
       "name": "Shamsulrizal Nur Amni Liyana Binti",
       "dob": "2012-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Penang"
     },
     {
       "id": 240135,
       "name": "Jing Yi Ong",
       "dob": "2010-11-10",
       "height": 168,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Selangor"
     }
   ]
 }

@@ -35,7 +35,8 @@
       "name": "Duncan \"Lofty\" Leroux",
       "dob": "1971-12-07",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Johannseburg"
     },
     {
       "id": 100683,
@@ -49,14 +50,16 @@
       "name": "Gershon Rorich",
       "dob": "1973-10-23",
       "height": 196,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 100836,
       "name": "Adrian \"Gosh\" Strijdom",
       "dob": "1972-02-08",
       "height": 181,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 101304,
@@ -96,7 +99,8 @@
       "name": "Casey Augoustides",
       "dob": "1970-12-14",
       "height": 181,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 101316,
@@ -428,7 +432,8 @@
       "name": "Jerome Fredericks",
       "dob": "1975-03-23",
       "height": 193,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 104641,
@@ -457,6 +462,7 @@
       "dob": "1983-04-16",
       "height": 195,
       "weight": 88,
+      "birthPlace": "Cape Town",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -475,7 +481,8 @@
       "name": "Shaien Govender",
       "dob": "1982-09-08",
       "height": 173,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Durban"
     },
     {
       "id": 117708,
@@ -510,7 +517,8 @@
       "name": "Patrik Flisberg",
       "dob": "1972-09-28",
       "height": 190,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Sofia"
     },
     {
       "id": 131969,
@@ -518,6 +526,7 @@
       "dob": "1985-05-09",
       "height": 198,
       "weight": 96,
+      "birthPlace": "Cape Town",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -536,7 +545,8 @@
       "name": "Ivan Solomans",
       "dob": "1978-06-06",
       "height": 194,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 145473,
@@ -557,14 +567,16 @@
       "name": "Clinton Stemmet",
       "dob": "1988-06-29",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "cape town"
     },
     {
       "id": 145485,
       "name": "Jamaine Naidoo",
       "dob": "1986-09-29",
       "height": 187,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "RSA"
     },
     {
       "id": 145493,
@@ -585,42 +597,48 @@
       "name": "Lukholo Jooste",
       "dob": "2000-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town, South Africa"
     },
     {
       "id": 164403,
       "name": "Aviwe Bulela Mamfanya",
       "dob": "2000-06-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 168285,
       "name": "Mthokozisi Mndingi",
       "dob": "1994-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "KwaNongoma (Zululand)"
     },
     {
       "id": 168820,
       "name": "Alistair Glossop",
       "dob": "1984-02-27",
       "height": 188,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 181382,
       "name": "Danilo Von Ludwiger",
       "dob": "2002-07-01",
       "height": 195,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 184593,
       "name": "Heiko Egon Guther",
       "dob": "2003-04-14",
       "height": 206,
-      "weight": 108
+      "weight": 108,
+      "birthPlace": "Pretoria"
     },
     {
       "id": 184879,
@@ -634,21 +652,24 @@
       "name": "Valaitham Deloshem",
       "dob": "2006-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Durban"
     },
     {
       "id": 194555,
       "name": "Kemoloile Otsweleng",
       "dob": "2003-07-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tshwane"
     },
     {
       "id": 194882,
       "name": "Deloshen Valaitham",
       "dob": "2006-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Durban"
     },
     {
       "id": 228378,

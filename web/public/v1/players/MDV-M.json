@@ -7,14 +7,16 @@
       "name": "Sajid Ismail",
       "dob": "1990-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "K. Male"
     },
     {
       "id": 155248,
       "name": "Adam Naseem",
       "dob": "1992-05-01",
       "height": 175,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "R. Kinolhas"
     },
     {
       "id": 163468,

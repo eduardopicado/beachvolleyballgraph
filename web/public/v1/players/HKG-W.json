@@ -7,21 +7,24 @@
       "name": "Ming Mei \"May\" Tang",
       "dob": "1969-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 103239,
       "name": "Lai Ming \"Joee\" Tong",
       "dob": "1973-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 103241,
       "name": "Cheng Mei Ling",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 103601,
@@ -70,7 +73,8 @@
       "name": "Wing Hung Tse",
       "dob": "1986-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 103642,
@@ -133,7 +137,8 @@
       "name": "Wing Tung To",
       "dob": "1993-09-14",
       "height": 176,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 133549,
@@ -147,7 +152,8 @@
       "name": "Tin Lai Ng",
       "dob": "1987-11-26",
       "height": 164,
-      "weight": 51
+      "weight": 51,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 135654,
@@ -168,7 +174,8 @@
       "name": "Wai Yan Lo",
       "dob": "1991-02-19",
       "height": 165,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 146056,
@@ -189,7 +196,8 @@
       "name": "Wai Yan Au Yeung",
       "dob": "1988-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 155884,
@@ -203,7 +211,8 @@
       "name": "Cheuk Yee Kong",
       "dob": "1987-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 167255,
@@ -238,28 +247,32 @@
       "name": "Halimah Zampaligre Wilson",
       "dob": "2006-03-03",
       "height": 172,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 212886,
       "name": "Lok Ching CHEUNG",
       "dob": "2006-01-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 234213,
       "name": "Hong Ting NG",
       "dob": "2009-09-29",
       "height": 169,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Hong Kong"
     },
     {
       "id": 234215,
       "name": "Meyan WONG",
       "dob": "2009-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hong Kong"
     }
   ]
 }

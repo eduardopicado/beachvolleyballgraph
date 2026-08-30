@@ -7,7 +7,8 @@
       "name": "Sebastijan Skorc",
       "dob": "1974-02-12",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Maribor"
     },
     {
       "id": 101977,
@@ -21,7 +22,8 @@
       "name": "Samo \"Backo\" Bacvic",
       "dob": "1973-08-20",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "M. Sobota"
     },
     {
       "id": 102252,
@@ -29,6 +31,7 @@
       "dob": "1974-07-05",
       "height": 195,
       "weight": 93,
+      "birthPlace": "Koper",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -40,7 +43,8 @@
       "name": "Dejan Fujs",
       "dob": "1968-09-02",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "M. Sobota"
     },
     {
       "id": 102254,
@@ -48,6 +52,7 @@
       "dob": "1974-10-21",
       "height": 192,
       "weight": 88,
+      "birthPlace": "Sempeter Pri Gorici",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -59,14 +64,16 @@
       "name": "Matjaz \"Zemo\" Siftar",
       "dob": "1969-05-08",
       "height": 200,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 102257,
       "name": "Ales \"Andlo\" Andlovic",
       "dob": "1976-10-04",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Maribor"
     },
     {
       "id": 103352,
@@ -87,7 +94,8 @@
       "name": "Gregor Sirk",
       "dob": "1983-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sempeter pri Gorici"
     },
     {
       "id": 104761,
@@ -115,35 +123,40 @@
       "name": "Simon Krakar",
       "dob": "1987-07-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novo mesto"
     },
     {
       "id": 114949,
       "name": "Rok Satler",
       "dob": "1979-04-04",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 114955,
       "name": "Tomislav Šmuc",
       "dob": "1976-06-23",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 114957,
       "name": "Tine Urnaut",
       "dob": "1988-09-03",
       "height": 200,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Slovenj Gradec"
     },
     {
       "id": 114961,
       "name": "Andrej Flajs",
       "dob": "1983-03-11",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Celje"
     },
     {
       "id": 116725,
@@ -151,6 +164,7 @@
       "dob": "1988-02-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Maribor",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -169,7 +183,8 @@
       "name": "Miha Plot",
       "dob": "1987-05-11",
       "height": 180,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Novo Mesto"
     },
     {
       "id": 119030,
@@ -177,6 +192,7 @@
       "dob": "1988-01-02",
       "height": 203,
       "weight": 94,
+      "birthPlace": "Maribor",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -202,7 +218,8 @@
       "name": "Alen Djordjevič",
       "dob": "1985-07-05",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Slovenj Gradec"
     },
     {
       "id": 121985,
@@ -224,6 +241,7 @@
       "dob": "1984-07-31",
       "height": 194,
       "weight": 89,
+      "birthPlace": "Slovenj Gradec",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -236,6 +254,7 @@
       "dob": "1989-12-15",
       "height": 200,
       "weight": 85,
+      "birthPlace": "Slovenj Gradec",
       "tour": {
         "gold": 1,
         "silver": 2,
@@ -247,7 +266,8 @@
       "name": "Andrej Grut",
       "dob": "1984-08-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Murska Sobota"
     },
     {
       "id": 135494,
@@ -268,7 +288,8 @@
       "name": "Sergej Drobnic",
       "dob": "1995-02-25",
       "height": 194,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 141939,
@@ -282,28 +303,32 @@
       "name": "Ziga Kumer",
       "dob": "1999-09-09",
       "height": 185,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 148553,
       "name": "Jernej Tomazin",
       "dob": "1994-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novo mesto"
     },
     {
       "id": 148619,
       "name": "David Renko",
       "dob": "1996-01-21",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Novo mesto"
     },
     {
       "id": 153282,
       "name": "Gasper Plahutnik",
       "dob": "1997-09-24",
       "height": 181,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 153301,
@@ -311,6 +336,7 @@
       "dob": "1996-08-30",
       "height": 189,
       "weight": 80,
+      "birthPlace": "Maribor",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -330,6 +356,7 @@
       "dob": "1990-08-29",
       "height": 183,
       "weight": 84,
+      "birthPlace": "Slovenj Gradec",
       "tour": {
         "gold": 1,
         "silver": 0,
@@ -342,6 +369,7 @@
       "dob": "2000-09-21",
       "height": 196,
       "weight": 93,
+      "birthPlace": "Novo Mesto",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -353,14 +381,16 @@
       "name": "Jan Brulec",
       "dob": "1993-02-08",
       "height": 199,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Novo mesto"
     },
     {
       "id": 157181,
       "name": "Martin Valencic",
       "dob": "1999-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 157824,
@@ -382,6 +412,7 @@
       "dob": "2004-04-21",
       "height": 194,
       "weight": 90,
+      "birthPlace": "Maribor",
       "tour": {
         "gold": 0,
         "silver": 1,
@@ -421,7 +452,8 @@
       "name": "Rok Možič",
       "dob": "2002-01-17",
       "height": 200,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Maribor"
     },
     {
       "id": 170733,
@@ -435,35 +467,40 @@
       "name": "Marin Novak",
       "dob": "2000-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maribor"
     },
     {
       "id": 187458,
       "name": "Miha Kosanc",
       "dob": "2005-04-07",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 190783,
       "name": "Jaka Prevorčnik",
       "dob": "2003-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ljubljana"
     },
     {
       "id": 192811,
       "name": "Benjamin Mugerli",
       "dob": "2006-01-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Postojna"
     },
     {
       "id": 195813,
       "name": "Jaka Jevšnik",
       "dob": "2001-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novo mesto"
     },
     {
       "id": 200038,
@@ -477,14 +514,16 @@
       "name": "Maj Nanut",
       "dob": "2000-10-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Šempeter pri Gorici"
     },
     {
       "id": 240078,
       "name": "Matic Pavlič",
       "dob": "2000-09-17",
       "height": 205,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Ljubljana"
     }
   ]
 }
