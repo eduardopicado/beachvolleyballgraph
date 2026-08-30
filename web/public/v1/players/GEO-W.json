@@ -9,6 +9,10 @@
       "height": 169,
       "weight": 60,
       "birthPlace": "Manaus",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 104192,
@@ -51,7 +55,11 @@
       "dob": "1979-05-27",
       "height": 181,
       "weight": 71,
-      "birthPlace": "Sao Paulo"
+      "birthPlace": "Sao Paulo",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

@@ -286,6 +286,9 @@
       "height": 192,
       "weight": 92,
       "birthPlace": "Palma DE Mallorca",
+      "filters": [
+        "olympics"
+      ],
       "away": [
         {
           "id": 118567,

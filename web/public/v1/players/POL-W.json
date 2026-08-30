@@ -27,7 +27,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103681,
@@ -64,7 +67,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103760,
@@ -255,7 +261,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118249,
@@ -290,7 +301,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118712,
@@ -313,7 +329,10 @@
       "dob": "1991-08-30",
       "height": 185,
       "weight": 74,
-      "birthPlace": "Krotoszyn"
+      "birthPlace": "Krotoszyn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 119260,
@@ -359,7 +378,10 @@
       "dob": "1991-02-03",
       "height": 178,
       "weight": 65,
-      "birthPlace": "Sosnowiec"
+      "birthPlace": "Sosnowiec",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120665,
@@ -476,7 +498,10 @@
       "dob": "1994-09-02",
       "height": null,
       "weight": null,
-      "birthPlace": "Krakow"
+      "birthPlace": "Krakow",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132868,
@@ -489,7 +514,11 @@
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 135450,
@@ -497,7 +526,10 @@
       "dob": "1992-01-31",
       "height": 173,
       "weight": 62,
-      "birthPlace": "Limanowa"
+      "birthPlace": "Limanowa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135533,
@@ -517,7 +549,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139661,
@@ -606,7 +642,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146847,
@@ -695,7 +734,11 @@
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 157922,
@@ -730,7 +773,10 @@
         "gold": 0,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163351,
@@ -779,7 +825,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 166223,
@@ -866,7 +915,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179416,
@@ -879,7 +931,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 179515,
@@ -892,7 +948,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179516,
@@ -920,7 +979,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 187979,
@@ -1005,7 +1067,10 @@
       "name": "Natalia Okla",
       "dob": "2005-09-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 221529,
@@ -1034,7 +1099,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 223696,

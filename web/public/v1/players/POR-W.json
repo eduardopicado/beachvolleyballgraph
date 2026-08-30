@@ -8,7 +8,11 @@
       "dob": "1965-02-13",
       "height": 178,
       "weight": 67,
-      "birthPlace": "Viseu"
+      "birthPlace": "Viseu",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100956,
@@ -77,7 +81,11 @@
       "dob": "1968-03-08",
       "height": 169,
       "weight": 60,
-      "birthPlace": "Porto"
+      "birthPlace": "Porto",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100965,
@@ -171,7 +179,10 @@
       "dob": "1977-05-11",
       "height": null,
       "weight": null,
-      "birthPlace": "Porto"
+      "birthPlace": "Porto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101994,
@@ -202,7 +213,10 @@
       "dob": "1972-09-19",
       "height": null,
       "weight": null,
-      "birthPlace": "Porto"
+      "birthPlace": "Porto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101998,
@@ -407,7 +421,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103575,
@@ -523,7 +540,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 116750,

@@ -173,7 +173,10 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 118973,
@@ -254,7 +257,10 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     }
   ]
 }

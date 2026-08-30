@@ -8,7 +8,10 @@
       "dob": "1989-08-04",
       "height": 175,
       "weight": 78,
-      "birthPlace": "Managua"
+      "birthPlace": "Managua",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 138668,
@@ -16,7 +19,10 @@
       "dob": "1986-08-25",
       "height": 175,
       "weight": 62,
-      "birthPlace": "Managua"
+      "birthPlace": "Managua",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 144707,

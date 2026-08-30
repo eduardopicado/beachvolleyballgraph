@@ -97,7 +97,10 @@
       "dob": "1976-02-06",
       "height": 178,
       "weight": 65,
-      "birthPlace": "Budapest"
+      "birthPlace": "Budapest",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102924,
@@ -121,7 +124,10 @@
       "dob": "1979-08-04",
       "height": 183,
       "weight": 68,
-      "birthPlace": "Kerepestarcsa"
+      "birthPlace": "Kerepestarcsa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103252,
@@ -129,7 +135,10 @@
       "dob": "1976-02-10",
       "height": null,
       "weight": null,
-      "birthPlace": "Budapest"
+      "birthPlace": "Budapest",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103433,
@@ -331,7 +340,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153707,
@@ -506,7 +518,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181618,

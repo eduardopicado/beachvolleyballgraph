@@ -8,7 +8,11 @@
       "dob": "1982-09-29",
       "height": 173,
       "weight": 75,
-      "birthPlace": "Mauritius"
+      "birthPlace": "Mauritius",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 120936,
@@ -16,14 +20,21 @@
       "dob": "1980-07-10",
       "height": 180,
       "weight": 77,
-      "birthPlace": "Curepipe, Mauritius"
+      "birthPlace": "Curepipe, Mauritius",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 138855,
       "name": "Marie Nathalie Jacqueline Letendrie",
       "dob": "1988-11-23",
       "height": 173,
-      "weight": 73
+      "weight": 73,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146709,
@@ -39,7 +50,10 @@
       "dob": "1980-09-06",
       "height": 174,
       "weight": 63,
-      "birthPlace": "Pamplemousses"
+      "birthPlace": "Pamplemousses",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172464,

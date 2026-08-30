@@ -8,7 +8,10 @@
       "dob": "1985-09-20",
       "height": 187,
       "weight": 82,
-      "birthPlace": "Asunción"
+      "birthPlace": "Asunción",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145745,
@@ -16,7 +19,10 @@
       "dob": "1992-07-08",
       "height": null,
       "weight": null,
-      "birthPlace": "Asuncion"
+      "birthPlace": "Asuncion",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146096,
@@ -44,7 +50,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 161955,
@@ -80,7 +90,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181607,

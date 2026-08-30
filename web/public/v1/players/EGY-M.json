@@ -75,7 +75,10 @@
       "dob": "1981-01-06",
       "height": 188,
       "weight": 90,
-      "birthPlace": "portsaid"
+      "birthPlace": "portsaid",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 142080,
@@ -146,7 +149,10 @@
       "dob": "1981-09-09",
       "height": 196,
       "weight": 74,
-      "birthPlace": "Cairo"
+      "birthPlace": "Cairo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 162678,

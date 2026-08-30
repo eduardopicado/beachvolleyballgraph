@@ -13,14 +13,21 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100268,
       "name": "Velia Eguiluz Soto",
       "dob": "1965-04-01",
       "height": 165,
-      "weight": 55
+      "weight": 55,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100505,
@@ -56,7 +63,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100735,
@@ -79,7 +91,10 @@
       "dob": "1967-01-07",
       "height": null,
       "weight": null,
-      "birthPlace": "Monterrey"
+      "birthPlace": "Monterrey",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100951,
@@ -87,7 +102,11 @@
       "dob": "1970-11-12",
       "height": 162,
       "weight": 52,
-      "birthPlace": "Mexico"
+      "birthPlace": "Mexico",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100952,
@@ -95,7 +114,10 @@
       "dob": "1967-04-10",
       "height": 158,
       "weight": 55,
-      "birthPlace": "Mexico City"
+      "birthPlace": "Mexico City",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100953,
@@ -149,7 +171,11 @@
       "dob": "1972-07-14",
       "height": 181,
       "weight": 70,
-      "birthPlace": "Guamuchil Sinaloa"
+      "birthPlace": "Guamuchil Sinaloa",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102567,
@@ -180,7 +206,10 @@
       "dob": "1975-03-10",
       "height": 178,
       "weight": 70,
-      "birthPlace": "Mexico"
+      "birthPlace": "Mexico",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102653,
@@ -212,7 +241,11 @@
       "dob": "1972-05-16",
       "height": 173,
       "weight": 64,
-      "birthPlace": "Tijuana BC"
+      "birthPlace": "Tijuana BC",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102967,
@@ -290,7 +323,10 @@
       "dob": "1986-09-06",
       "height": 178,
       "weight": 75,
-      "birthPlace": "Mexico DF"
+      "birthPlace": "Mexico DF",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104110,
@@ -380,7 +416,10 @@
       "dob": "1989-05-03",
       "height": 183,
       "weight": 70,
-      "birthPlace": "guadalajara"
+      "birthPlace": "guadalajara",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118468,
@@ -416,7 +455,11 @@
       "dob": "1983-12-02",
       "height": 196,
       "weight": 76,
-      "birthPlace": "Torreon"
+      "birthPlace": "Torreon",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 119184,
@@ -446,7 +489,10 @@
       "dob": "1992-09-22",
       "height": 178,
       "weight": 64,
-      "birthPlace": "Cd. Victoria, Tam"
+      "birthPlace": "Cd. Victoria, Tam",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120819,
@@ -662,7 +708,10 @@
       "dob": "1998-11-14",
       "height": null,
       "weight": null,
-      "birthPlace": "Cd. Obregón, Sonora"
+      "birthPlace": "Cd. Obregón, Sonora",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147154,
@@ -720,7 +769,10 @@
       "dob": "2000-10-05",
       "height": 171,
       "weight": 63,
-      "birthPlace": "Coatzacoalcos"
+      "birthPlace": "Coatzacoalcos",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 163498,
@@ -757,7 +809,10 @@
       "name": "Susana Torres García",
       "dob": "2001-01-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 176575,
@@ -771,7 +826,10 @@
       "name": "Esperanza Katherine Albarran Castro",
       "dob": "2000-10-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 184726,
@@ -787,7 +845,10 @@
       "dob": "2003-02-03",
       "height": null,
       "weight": null,
-      "birthPlace": "Sinaloa"
+      "birthPlace": "Sinaloa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 186947,
@@ -803,7 +864,10 @@
       "dob": "2002-11-06",
       "height": null,
       "weight": null,
-      "birthPlace": "Colima"
+      "birthPlace": "Colima",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 199263,
@@ -811,7 +875,10 @@
       "dob": "2006-11-13",
       "height": null,
       "weight": null,
-      "birthPlace": "Chulavista, California"
+      "birthPlace": "Chulavista, California",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 207600,

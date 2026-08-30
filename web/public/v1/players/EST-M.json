@@ -8,7 +8,10 @@
       "dob": "1962-10-01",
       "height": 193,
       "weight": 100,
-      "birthPlace": "Voru"
+      "birthPlace": "Voru",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100490,
@@ -16,7 +19,10 @@
       "dob": "1965-01-12",
       "height": 193,
       "weight": 88,
-      "birthPlace": "Viljandi"
+      "birthPlace": "Viljandi",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100787,
@@ -37,7 +43,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100893,
@@ -86,7 +97,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104036,
@@ -175,7 +191,10 @@
       "name": "Karl Jaani",
       "dob": "1985-12-27",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117878,
@@ -296,7 +315,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143835,
@@ -333,7 +355,10 @@
         "gold": 1,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 149120,
@@ -346,7 +371,11 @@
         "gold": 1,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155460,
@@ -359,7 +388,11 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 157777,

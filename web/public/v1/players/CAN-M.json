@@ -18,14 +18,22 @@
         "gold": 1,
         "silver": 5,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100005,
       "name": "Edward Drakich",
       "dob": "1962-09-30",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100088,
@@ -43,7 +51,12 @@
         "gold": 1,
         "silver": 5,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100089,
@@ -51,7 +64,10 @@
       "dob": "1971-06-27",
       "height": 199,
       "weight": 98,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100144,
@@ -66,7 +82,10 @@
       "dob": "1964-11-21",
       "height": 197,
       "weight": 93,
-      "birthPlace": "Vernon"
+      "birthPlace": "Vernon",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100289,
@@ -78,7 +97,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100637,
@@ -93,7 +115,10 @@
       "dob": "1965-09-09",
       "height": 183,
       "weight": 86,
-      "birthPlace": "Kingston"
+      "birthPlace": "Kingston",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100639,
@@ -114,7 +139,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100723,
@@ -127,7 +157,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 101066,
@@ -154,7 +187,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101333,
@@ -167,6 +205,9 @@
         "silver": 2,
         "bronze": 3
       },
+      "filters": [
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 101687,
@@ -210,7 +251,10 @@
       "dob": "1976-04-06",
       "height": 193,
       "weight": 85,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102072,
@@ -218,7 +262,10 @@
       "dob": "1975-08-07",
       "height": 185,
       "weight": 79,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102073,
@@ -226,7 +273,10 @@
       "dob": "1972-03-01",
       "height": 188,
       "weight": 85,
-      "birthPlace": "Toronto"
+      "birthPlace": "Toronto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102074,
@@ -441,7 +491,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103749,
@@ -470,7 +523,10 @@
       "dob": "1980-06-22",
       "height": null,
       "weight": null,
-      "birthPlace": "Kimberley, British Columbia"
+      "birthPlace": "Kimberley, British Columbia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103918,
@@ -483,7 +539,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104098,
@@ -511,7 +571,12 @@
         "gold": 1,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104221,
@@ -558,7 +623,10 @@
       "dob": "1975-11-25",
       "height": 205,
       "weight": 105,
-      "birthPlace": "Belleville, Canada"
+      "birthPlace": "Belleville, Canada",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104630,
@@ -571,7 +639,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104725,
@@ -599,6 +670,11 @@
         "silver": 2,
         "bronze": 4
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 131994,
@@ -687,6 +763,11 @@
         "silver": 1,
         "bronze": 2
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 131994,
@@ -749,7 +830,10 @@
       "dob": "1976-04-03",
       "height": 189,
       "weight": 86,
-      "birthPlace": "Oakville"
+      "birthPlace": "Oakville",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 115222,
@@ -791,7 +875,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 117258,
@@ -903,7 +990,10 @@
       "name": "Sam Pedlow",
       "dob": "1987-06-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120218,
@@ -970,7 +1060,12 @@
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120780,
@@ -1058,7 +1153,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 131606,
@@ -1073,7 +1173,10 @@
       "name": "Aaron Nusbaum",
       "dob": "1993-01-13",
       "height": 187,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132700,
@@ -1086,7 +1189,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 133310,
@@ -1123,7 +1230,10 @@
       "name": "Ryan Vandenburg",
       "dob": "1983-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135347,
@@ -1136,7 +1246,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135385,
@@ -1277,7 +1390,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 141595,
@@ -1290,7 +1406,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 141598,
@@ -1330,7 +1449,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145818,
@@ -1554,7 +1676,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168915,
@@ -1603,7 +1728,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172998,
@@ -1723,7 +1852,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 185582,
@@ -1736,7 +1868,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 185977,
@@ -1829,7 +1964,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 201877,

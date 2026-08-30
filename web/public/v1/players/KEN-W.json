@@ -8,7 +8,11 @@
       "dob": "1984-05-14",
       "height": 180,
       "weight": 70,
-      "birthPlace": "Kakamega"
+      "birthPlace": "Kakamega",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 124540,
@@ -16,7 +20,11 @@
       "dob": "1992-11-15",
       "height": 187,
       "weight": 68,
-      "birthPlace": "Lugari"
+      "birthPlace": "Lugari",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 142061,
@@ -24,7 +32,10 @@
       "dob": "1992-04-24",
       "height": 170,
       "weight": 75,
-      "birthPlace": "Uasin Gishu"
+      "birthPlace": "Uasin Gishu",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172146,

@@ -8,7 +8,10 @@
       "dob": "1995-09-27",
       "height": 186,
       "weight": 88,
-      "birthPlace": "San Juan Del Sur"
+      "birthPlace": "San Juan Del Sur",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 137536,
@@ -31,7 +34,10 @@
       "dob": "1989-09-01",
       "height": 178,
       "weight": 80,
-      "birthPlace": "Nicaragua"
+      "birthPlace": "Nicaragua",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146010,
@@ -39,7 +45,10 @@
       "dob": "1999-07-31",
       "height": 178,
       "weight": 74,
-      "birthPlace": "Rivas"
+      "birthPlace": "Rivas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 167427,

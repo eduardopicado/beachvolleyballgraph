@@ -212,7 +212,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157680,
@@ -263,7 +266,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163408,
@@ -283,7 +289,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168704,
@@ -336,7 +345,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181697,
@@ -348,7 +360,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181706,
@@ -361,7 +376,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181710,
@@ -374,7 +392,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181711,

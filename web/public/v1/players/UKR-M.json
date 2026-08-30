@@ -143,7 +143,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102730,
@@ -212,7 +215,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103530,
@@ -225,7 +232,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103531,
@@ -238,7 +248,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103532,
@@ -251,7 +264,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103533,
@@ -315,7 +331,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103541,
@@ -328,7 +347,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103987,
@@ -431,6 +453,9 @@
       "dob": "1986-06-26",
       "height": 192,
       "weight": 88,
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 120577,
@@ -562,7 +587,10 @@
       "dob": "1984-12-19",
       "height": 193,
       "weight": 80,
-      "birthPlace": "Zaporizhya"
+      "birthPlace": "Zaporizhya",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 119075,
@@ -604,6 +632,10 @@
         "silver": 3,
         "bronze": 1
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 120577,
@@ -722,6 +754,9 @@
         "silver": 1,
         "bronze": 2
       },
+      "filters": [
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 120577,
@@ -811,7 +846,11 @@
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142220,
@@ -839,7 +878,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143287,
@@ -890,7 +932,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 148853,
@@ -969,7 +1014,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 171672,
@@ -988,7 +1036,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179524,
@@ -1016,7 +1067,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182775,
@@ -1029,7 +1083,10 @@
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 187007,
@@ -1042,7 +1099,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 188626,
@@ -1071,7 +1131,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 200610,
@@ -1083,7 +1146,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203692,

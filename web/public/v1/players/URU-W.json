@@ -15,7 +15,10 @@
       "dob": "1986-12-08",
       "height": 180,
       "weight": 73,
-      "birthPlace": "Montevideo"
+      "birthPlace": "Montevideo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117051,
@@ -29,7 +32,10 @@
       "name": "Maria Eugenia Nieto",
       "dob": "1986-01-15",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117601,
@@ -58,7 +64,10 @@
       "name": "Maria Florencia Rotti Giordano",
       "dob": "1997-05-05",
       "height": 165,
-      "weight": 57
+      "weight": 57,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 149371,
@@ -88,7 +97,10 @@
       "dob": "1999-06-02",
       "height": 177,
       "weight": 72,
-      "birthPlace": "Montevideo"
+      "birthPlace": "Montevideo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 171225,

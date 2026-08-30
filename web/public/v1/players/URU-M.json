@@ -118,7 +118,10 @@
       "dob": "1996-10-23",
       "height": 190,
       "weight": 83,
-      "birthPlace": "San José"
+      "birthPlace": "San José",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 143446,
@@ -126,7 +129,10 @@
       "dob": "1996-12-05",
       "height": 191,
       "weight": 86,
-      "birthPlace": "Montevideo, Uruguay"
+      "birthPlace": "Montevideo, Uruguay",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145364,
@@ -134,7 +140,10 @@
       "dob": "1997-05-10",
       "height": 183,
       "weight": 75,
-      "birthPlace": "Montevideo"
+      "birthPlace": "Montevideo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 156170,
@@ -202,7 +211,10 @@
       "dob": "1998-09-04",
       "height": null,
       "weight": null,
-      "birthPlace": "Paysandu"
+      "birthPlace": "Paysandu",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 186856,

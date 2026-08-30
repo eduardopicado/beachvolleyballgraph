@@ -21,7 +21,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104672,
@@ -115,7 +119,10 @@
       "dob": "1993-03-20",
       "height": null,
       "weight": null,
-      "birthPlace": "Mangistau region"
+      "birthPlace": "Mangistau region",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120466,
@@ -135,7 +142,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122474,

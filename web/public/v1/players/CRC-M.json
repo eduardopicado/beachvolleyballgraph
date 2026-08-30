@@ -7,14 +7,20 @@
       "name": "Alexander Villegas Gonzalez",
       "dob": "1974-02-27",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100682,
       "name": "Zlatko Crespo Piskulich",
       "dob": "1973-12-22",
       "height": 190,
-      "weight": 95
+      "weight": 95,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117431,

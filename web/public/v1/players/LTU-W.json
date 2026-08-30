@@ -15,7 +15,10 @@
       "dob": "1975-06-25",
       "height": null,
       "weight": null,
-      "birthPlace": "Kaunas"
+      "birthPlace": "Kaunas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102226,
@@ -38,35 +41,50 @@
       "name": "Jurate Karaleviciene",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102690,
       "name": "Neringa Susinskyte",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102691,
       "name": "Daiva Vaitulioniene",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102692,
       "name": "Roberta Tarnauskaite",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102693,
       "name": "Oiedre Tarnauskaite",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103424,
@@ -109,7 +127,11 @@
         "gold": 0,
         "silver": 4,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132827,
@@ -129,7 +151,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135488,
@@ -142,7 +167,12 @@
         "gold": 2,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139477,
@@ -155,7 +185,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139478,
@@ -175,7 +208,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 141990,
@@ -212,7 +248,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153208,
@@ -232,7 +271,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156699,
@@ -253,7 +295,10 @@
         "gold": 0,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163333,
@@ -266,7 +311,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163509,
@@ -285,7 +333,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169390,
@@ -297,7 +348,12 @@
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 169437,
@@ -310,7 +366,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169438,
@@ -323,7 +382,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 174260,

@@ -165,7 +165,10 @@
       "dob": "1984-04-28",
       "height": 192,
       "weight": 93,
-      "birthPlace": "Valencia"
+      "birthPlace": "Valencia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104514,
@@ -187,7 +190,10 @@
       "dob": "1985-02-28",
       "height": null,
       "weight": null,
-      "birthPlace": "camaguan (edo) guarico"
+      "birthPlace": "camaguan (edo) guarico",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116764,
@@ -195,7 +201,11 @@
       "dob": "1986-11-19",
       "height": 184,
       "weight": 81,
-      "birthPlace": "Barinas, Edo. Barinas"
+      "birthPlace": "Barinas, Edo. Barinas",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 116766,
@@ -203,7 +213,10 @@
       "dob": "1982-09-24",
       "height": 189,
       "weight": 80,
-      "birthPlace": "Maracaibo"
+      "birthPlace": "Maracaibo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116770,
@@ -267,7 +280,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122626,
@@ -298,7 +315,11 @@
       "dob": "1977-01-22",
       "height": null,
       "weight": 85,
-      "birthPlace": "san carlos, cojedes"
+      "birthPlace": "san carlos, cojedes",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 133196,
@@ -336,7 +357,10 @@
       "dob": "1990-07-01",
       "height": null,
       "weight": 88,
-      "birthPlace": "Bejuma"
+      "birthPlace": "Bejuma",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 138621,
@@ -357,7 +381,10 @@
       "name": "Jonathan Golindano",
       "dob": "1989-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141872,
@@ -365,7 +392,10 @@
       "dob": "1996-02-15",
       "height": 179,
       "weight": 72,
-      "birthPlace": "Barinas"
+      "birthPlace": "Barinas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141875,
@@ -386,7 +416,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142875,

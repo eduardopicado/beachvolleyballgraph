@@ -22,7 +22,11 @@
       "dob": "1980-01-16",
       "height": 193,
       "weight": 80,
-      "birthPlace": "Adgal/ MAR"
+      "birthPlace": "Adgal/ MAR",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 104912,
@@ -63,7 +67,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104918,
@@ -75,7 +82,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104919,
@@ -291,7 +301,11 @@
       "dob": "1994-07-01",
       "height": 197,
       "weight": 90,
-      "birthPlace": "Casablanca"
+      "birthPlace": "Casablanca",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 150075,
@@ -314,7 +328,10 @@
       "dob": "1998-01-23",
       "height": 190,
       "weight": 74,
-      "birthPlace": "Mohammedia"
+      "birthPlace": "Mohammedia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 163503,
@@ -365,7 +382,10 @@
       "dob": "1999-04-09",
       "height": 195,
       "weight": 82,
-      "birthPlace": "casablanca"
+      "birthPlace": "casablanca",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172004,
@@ -373,7 +393,10 @@
       "dob": "2000-04-14",
       "height": 192,
       "weight": 92,
-      "birthPlace": "EL Jadida"
+      "birthPlace": "EL Jadida",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 174199,

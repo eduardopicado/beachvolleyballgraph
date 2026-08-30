@@ -90,7 +90,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100495,
@@ -108,7 +113,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100503,
@@ -128,7 +138,12 @@
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100804,
@@ -155,7 +170,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100807,
@@ -281,7 +299,10 @@
       "dob": "1970-06-07",
       "height": 202,
       "weight": 102,
-      "birthPlace": "Waren"
+      "birthPlace": "Waren",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101473,
@@ -289,7 +310,10 @@
       "dob": "1973-07-04",
       "height": 191,
       "weight": 85,
-      "birthPlace": "Neurrupin"
+      "birthPlace": "Neurrupin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101474,
@@ -311,7 +335,10 @@
       "dob": "1967-04-14",
       "height": 190,
       "weight": 70,
-      "birthPlace": "Creglingen"
+      "birthPlace": "Creglingen",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101477,
@@ -319,7 +346,11 @@
       "dob": "1968-08-18",
       "height": 198,
       "weight": 90,
-      "birthPlace": "Stuttgart"
+      "birthPlace": "Stuttgart",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101478,
@@ -346,7 +377,12 @@
         "gold": 2,
         "silver": 7,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101481,
@@ -359,7 +395,12 @@
         "gold": 5,
         "silver": 4,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101482,
@@ -399,7 +440,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101918,
@@ -507,7 +552,12 @@
         "gold": 1,
         "silver": 5,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103109,
@@ -530,7 +580,12 @@
         "gold": 5,
         "silver": 18,
         "bronze": 10
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103217,
@@ -553,7 +608,12 @@
         "gold": 7,
         "silver": 11,
         "bronze": 12
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103244,
@@ -566,7 +626,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103297,
@@ -600,7 +664,12 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103349,
@@ -675,7 +744,10 @@
       "dob": "1976-02-05",
       "height": 187,
       "weight": 80,
-      "birthPlace": "Paderborn"
+      "birthPlace": "Paderborn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103878,
@@ -715,7 +787,10 @@
       "dob": "1983-08-05",
       "height": 196,
       "weight": 93,
-      "birthPlace": "Alzenau"
+      "birthPlace": "Alzenau",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104100,
@@ -736,7 +811,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104138,
@@ -775,7 +853,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104334,
@@ -804,7 +885,12 @@
         "gold": 1,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104422,
@@ -812,7 +898,10 @@
       "dob": "1983-05-06",
       "height": 201,
       "weight": 94,
-      "birthPlace": "Berlin"
+      "birthPlace": "Berlin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104423,
@@ -825,7 +914,11 @@
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104424,
@@ -838,7 +931,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104454,
@@ -846,7 +943,10 @@
       "dob": "1986-07-24",
       "height": 202,
       "weight": 105,
-      "birthPlace": "EckernfÖrde"
+      "birthPlace": "EckernfÖrde",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104455,
@@ -859,7 +959,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104456,
@@ -898,7 +1002,10 @@
       "dob": "1972-06-25",
       "height": 198,
       "weight": 85,
-      "birthPlace": "Nordhorn"
+      "birthPlace": "Nordhorn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 105036,
@@ -924,7 +1031,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 105108,
@@ -945,7 +1056,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 105126,
@@ -1001,7 +1115,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116662,
@@ -1021,7 +1140,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 118265,
@@ -1078,7 +1200,12 @@
         "gold": 3,
         "silver": 4,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120049,
@@ -1136,7 +1263,12 @@
         "gold": 3,
         "silver": 5,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120849,
@@ -1164,7 +1296,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 123014,
@@ -1227,7 +1363,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125056,
@@ -1256,7 +1396,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132666,
@@ -1269,7 +1412,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132875,
@@ -1289,7 +1435,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 133717,
@@ -1309,7 +1459,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135671,
@@ -1328,7 +1481,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 136761,
@@ -1355,7 +1511,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137343,
@@ -1400,7 +1559,12 @@
         "gold": 0,
         "silver": 5,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139388,
@@ -1427,7 +1591,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143091,
@@ -1447,7 +1614,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143617,
@@ -1460,7 +1630,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143618,
@@ -1499,7 +1672,12 @@
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147930,
@@ -1512,7 +1690,11 @@
         "gold": 0,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147931,
@@ -1525,7 +1707,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 152347,
@@ -1538,7 +1723,11 @@
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 153264,
@@ -1551,7 +1740,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153266,
@@ -1564,7 +1756,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153837,
@@ -1592,7 +1787,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 154959,
@@ -1618,7 +1816,12 @@
         "gold": 1,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 156568,
@@ -1626,7 +1829,10 @@
       "dob": "1979-06-11",
       "height": null,
       "weight": null,
-      "birthPlace": "Melle"
+      "birthPlace": "Melle",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 156598,
@@ -1654,7 +1860,11 @@
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 160092,
@@ -1690,7 +1900,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164645,
@@ -1723,7 +1936,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168767,
@@ -1735,7 +1951,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168768,
@@ -1755,7 +1974,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169019,
@@ -1783,7 +2005,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 172907,
@@ -1796,7 +2021,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 173053,
@@ -1816,7 +2045,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 174292,
@@ -1837,7 +2069,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179314,
@@ -1850,7 +2085,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179419,
@@ -1871,7 +2109,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182343,
@@ -1891,7 +2132,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182794,
@@ -1904,7 +2148,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182795,
@@ -1917,7 +2164,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 184134,
@@ -2027,7 +2277,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199226,
@@ -2040,7 +2293,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203267,
@@ -2053,7 +2309,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203698,
@@ -2097,7 +2356,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 219583,
@@ -2149,7 +2411,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 223294,

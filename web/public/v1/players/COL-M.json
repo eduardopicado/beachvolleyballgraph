@@ -16,7 +16,10 @@
       "dob": "1992-10-11",
       "height": null,
       "weight": 82,
-      "birthPlace": "Apartadó - Antioquia"
+      "birthPlace": "Apartadó - Antioquia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 156070,
@@ -48,7 +51,10 @@
       "dob": "1995-12-24",
       "height": null,
       "weight": null,
-      "birthPlace": "Cartagena"
+      "birthPlace": "Cartagena",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 161855,

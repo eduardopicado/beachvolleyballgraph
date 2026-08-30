@@ -48,7 +48,12 @@
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100676,
@@ -61,7 +66,12 @@
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101051,
@@ -106,7 +116,10 @@
       "dob": "1973-08-14",
       "height": 196,
       "weight": 96,
-      "birthPlace": "Ciudad Habana"
+      "birthPlace": "Ciudad Habana",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102327,
@@ -130,14 +143,20 @@
       "dob": "1974-10-11",
       "height": 183,
       "weight": 84,
-      "birthPlace": "S. De Cuba"
+      "birthPlace": "S. De Cuba",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116046,
       "name": "Wilfredo Villar Casazayas",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116047,
@@ -165,7 +184,10 @@
       "name": "Leonel Munder Misiñan",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120814,
@@ -179,7 +201,10 @@
       "name": "Karell Piña Ventoza",
       "dob": "1988-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139762,
@@ -192,7 +217,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 148569,
@@ -204,7 +234,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 151619,
@@ -212,7 +247,10 @@
       "dob": "1995-08-23",
       "height": 200,
       "weight": 98,
-      "birthPlace": "Ciego de Avila"
+      "birthPlace": "Ciego de Avila",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 164066,
@@ -220,7 +258,10 @@
       "dob": "1999-01-26",
       "height": 198,
       "weight": 90,
-      "birthPlace": "La Habana"
+      "birthPlace": "La Habana",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 167628,
@@ -233,7 +274,12 @@
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 173077,
@@ -253,7 +299,12 @@
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 210559,
@@ -261,7 +312,10 @@
       "dob": "2004-10-24",
       "height": null,
       "weight": 76,
-      "birthPlace": "Guantanamo"
+      "birthPlace": "Guantanamo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 210560,
@@ -269,7 +323,10 @@
       "dob": "2003-05-06",
       "height": 192,
       "weight": 78,
-      "birthPlace": "Guantanamo"
+      "birthPlace": "Guantanamo",
+      "filters": [
+        "world-champs"
+      ]
     }
   ]
 }

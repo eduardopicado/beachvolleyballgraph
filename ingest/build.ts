@@ -15,10 +15,13 @@ import type {
   ResultEntry,
   SeasonTally,
   Tier,
+  TimelineFilter,
 } from '../web/src/schema.js';
+import { TOUR_TIERS } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
+import { olympicName } from './olympics.js';
 import {
   federationSpans,
   resolveFederation,
@@ -187,7 +190,15 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       // Trimmed because some do carry trailing spaces ("FIVB Beach Volleyball
       // World Championships  "), and numbered rather than left blank because a
       // nameless row on the card would be indistinguishable from a bug.
-      name: (row.Name ?? '').trim() || `Tournament ${no}`,
+      //
+      // The Olympics get their official designation instead of whatever FIVB
+      // typed, because two editions do not name their host at all — 2012 is
+      // filed as "Olympic Games 2012", which never says London. See
+      // ingest/olympics.ts; an edition the map has not been told about keeps
+      // FIVB's name.
+      name:
+        (tier === 'olympics' ? olympicName(season) : null) ??
+        ((row.Name ?? '').trim() || `Tournament ${no}`),
       code: (row.Code ?? '').trim(),
       tier,
       level: levelFor(row.Type),
@@ -309,7 +320,7 @@ export function aggregateMedals(
  * would flatter the wrong careers. The Olympics and the World Championships
  * are excluded because they are counted separately and more precisely.
  */
-const TOUR_TIERS = new Set<Tier>(['world-tour', 'beach-pro-tour']);
+
 
 /**
  * Per-player podium counts across the tour: 1,552 of the 1,688 qualifying
@@ -478,6 +489,46 @@ export function tidyBirthPlace(value: string | undefined): string | null {
       })
       .join(' ') || null
   );
+}
+
+/**
+ * Which timeline narrowings a player has anything for.
+ *
+ * Read from the deduplicated results rather than the raw rows, so it agrees
+ * exactly with what expanding a season will show — a filter that offers a chip
+ * and then renders an empty list is worse than no chip.
+ *
+ * `tour-podium` asks for ranks 1-3; the other two ask only that the player was
+ * there. That asymmetry is the point: 412 of the 488 published Olympians never
+ * medalled, and they are precisely the careers this control exists to make
+ * legible.
+ */
+export function timelineFiltersByPlayer(
+  results: ReadonlyMap<number, ResultEntry[]>,
+  tournaments: ReadonlyMap<string, Tournament>,
+): Map<number, TimelineFilter[]> {
+  const out = new Map<number, TimelineFilter[]>();
+  for (const [player, entries] of results) {
+    let olympics = false;
+    let worlds = false;
+    let podium = false;
+    for (const [no, , rank] of entries) {
+      const tier = tournaments.get(String(no))?.tier;
+      if (tier === 'olympics') olympics = true;
+      else if (tier === 'world-champs') worlds = true;
+      // TOUR_TIERS, not 'world-tour' alone: the tour is two tiers, and the
+      // Beach Pro Tour is the whole of it from 2022 on. This has to be the same
+      // set `aggregateTourPodiums` uses, or the chip and the Tour podiums tile
+      // beside it would be counting different events.
+      else if (tier && TOUR_TIERS.has(tier) && rank >= 1 && rank <= 3) podium = true;
+    }
+    const filters: TimelineFilter[] = [];
+    if (olympics) filters.push('olympics');
+    if (worlds) filters.push('world-champs');
+    if (podium) filters.push('tour-podium');
+    if (filters.length) out.set(player, filters);
+  }
+  return out;
 }
 
 function fullName(row: VisRow): string {

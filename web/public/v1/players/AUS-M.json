@@ -13,7 +13,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 8
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100040,
@@ -25,7 +30,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100065,
@@ -53,7 +62,10 @@
       "name": "Joel Durrant",
       "dob": "1968-02-06",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100117,
@@ -103,7 +115,10 @@
       "dob": "1961-05-18",
       "height": null,
       "weight": null,
-      "birthPlace": "Sydney"
+      "birthPlace": "Sydney",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100130,
@@ -186,7 +201,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 6
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100695,
@@ -204,7 +224,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100775,
@@ -219,7 +244,10 @@
       "dob": "1968-10-10",
       "height": 196,
       "weight": 86,
-      "birthPlace": "Bendigo (Victoria)"
+      "birthPlace": "Bendigo (Victoria)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101395,
@@ -234,7 +262,10 @@
       "dob": "1973-05-28",
       "height": 188,
       "weight": 84,
-      "birthPlace": "Canberra"
+      "birthPlace": "Canberra",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101495,
@@ -242,7 +273,10 @@
       "dob": "1975-11-15",
       "height": 191,
       "weight": 84,
-      "birthPlace": "Adelaide"
+      "birthPlace": "Adelaide",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101496,
@@ -265,7 +299,11 @@
       "dob": "1971-06-09",
       "height": 192,
       "weight": 90,
-      "birthPlace": "Christchurch (NZL)"
+      "birthPlace": "Christchurch (NZL)",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101685,
@@ -273,7 +311,10 @@
       "dob": "1975-08-04",
       "height": 191,
       "weight": 99,
-      "birthPlace": "Brisbane"
+      "birthPlace": "Brisbane",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101704,
@@ -281,7 +322,10 @@
       "dob": "1975-09-10",
       "height": 195,
       "weight": 89,
-      "birthPlace": "Melbourne, AUS"
+      "birthPlace": "Melbourne, AUS",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101897,
@@ -303,7 +347,10 @@
       "dob": "1975-03-14",
       "height": 191,
       "weight": 92,
-      "birthPlace": "Auburn"
+      "birthPlace": "Auburn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102173,
@@ -337,7 +384,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102552,
@@ -345,7 +397,10 @@
       "dob": "1975-11-29",
       "height": 194,
       "weight": 85,
-      "birthPlace": "New Castle"
+      "birthPlace": "New Castle",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102603,
@@ -353,7 +408,10 @@
       "dob": "1969-05-30",
       "height": 187,
       "weight": 88,
-      "birthPlace": "Hobart"
+      "birthPlace": "Hobart",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102786,
@@ -367,6 +425,10 @@
         "silver": 0,
         "bronze": 0
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 104338,
@@ -533,7 +595,10 @@
       "dob": "1977-06-07",
       "height": 187,
       "weight": 95,
-      "birthPlace": "Charters Towers, ALD"
+      "birthPlace": "Charters Towers, ALD",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103397,
@@ -602,7 +667,10 @@
       "dob": "1981-09-07",
       "height": 198,
       "weight": 98,
-      "birthPlace": "Australia"
+      "birthPlace": "Australia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103911,
@@ -663,6 +731,11 @@
         "silver": 1,
         "bronze": 1
       },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 102087,
@@ -703,7 +776,10 @@
       "dob": "1988-03-04",
       "height": 192,
       "weight": 94,
-      "birthPlace": "Adelaide"
+      "birthPlace": "Adelaide",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104675,
@@ -882,7 +958,12 @@
         "gold": 2,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118116,
@@ -925,7 +1006,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119354,
@@ -1041,7 +1126,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125174,
@@ -1070,7 +1159,12 @@
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132381,
@@ -1145,7 +1239,10 @@
       "dob": "1989-01-13",
       "height": null,
       "weight": null,
-      "birthPlace": "Perth, Western Australia"
+      "birthPlace": "Perth, Western Australia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139052,
@@ -1174,7 +1271,12 @@
         "gold": 2,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142151,
@@ -1187,7 +1289,12 @@
         "gold": 1,
         "silver": 5,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142166,
@@ -1200,7 +1307,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142167,
@@ -1326,7 +1436,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155510,
@@ -1355,7 +1468,12 @@
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155531,
@@ -1400,7 +1518,11 @@
         "gold": 1,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155756,
@@ -1467,7 +1589,12 @@
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172206,
@@ -1494,7 +1621,11 @@
         "gold": 3,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178254,
@@ -1507,7 +1638,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178265,
@@ -1519,7 +1653,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178269,
@@ -1601,7 +1738,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 186870,
@@ -1724,7 +1865,11 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 187447,
@@ -1745,7 +1890,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 198969,
@@ -1766,7 +1915,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199771,
@@ -1801,7 +1953,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199837,
@@ -1874,7 +2029,10 @@
       "name": "Oliver Merritt",
       "dob": "2001-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 209646,

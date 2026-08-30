@@ -59,7 +59,10 @@
       "name": "Marlon Phillip",
       "dob": "1997-09-12",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146640,
@@ -73,7 +76,10 @@
       "name": "Daneil Williams",
       "dob": "1988-09-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 165329,

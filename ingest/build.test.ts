@@ -16,6 +16,7 @@ import {
   startOffsetFor,
   tidyName,
   tidyBirthPlace,
+  timelineFiltersByPlayer,
 } from './build.js';
 import type { VisRow } from './vis.js';
 
@@ -1596,5 +1597,61 @@ describe('the published birth places', () => {
     // The guard on the guard: a rule that simply title-cased everything would
     // pass every assertion above and quietly turn "PR" into "Pr".
     expect(places.filter((p) => /\b[A-Z]{2,3}\b/.test(p)).length).toBeGreaterThan(20);
+  });
+});
+
+describe('timelineFiltersByPlayer', () => {
+  // Numeric ids, because a published result entry carries the tournament
+  // number as a number and the lookup stringifies it — 't1' would never match.
+  const tours = normaliseTournaments([
+    { ...tournament('1', 2004), Type: '5' }, // Olympics
+    { ...tournament('2', 2003), Type: '4' }, // World Championships
+    { ...tournament('3', 2005), Type: '52' }, // Beach Pro Tour Elite16
+    { ...tournament('4', 2006), Type: '1' }, // World Tour
+  ]);
+
+  const filtersFor = (entries: [number, number, number][]) =>
+    timelineFiltersByPlayer(new Map([[1, entries]]), tours).get(1);
+
+  it('offers the Games to anyone who was there, medal or not', () => {
+    // The point of the whole field: 412 of the 488 published Olympians never
+    // reached a podium, and a control driven by medals would be missing for
+    // all of them.
+    expect(filtersFor([[1, 2, 19]])).toEqual(['olympics']);
+  });
+
+  it('offers Worlds on the same terms', () => {
+    expect(filtersFor([[2, 2, 25]])).toEqual(['world-champs']);
+  });
+
+  it('offers tour podiums only for a podium', () => {
+    expect(filtersFor([[4, 2, 3]])).toEqual(['tour-podium']);
+    expect(filtersFor([[4, 2, 4]])).toBeUndefined();
+  });
+
+  it('counts a Beach Pro Tour podium, not just a World Tour one', () => {
+    // The tour is two tiers and has been the Beach Pro Tour since 2022. Using
+    // 'world-tour' alone would drop every podium from then on.
+    expect(filtersFor([[3, 2, 1]])).toEqual(['tour-podium']);
+  });
+
+  it('does not turn an Olympic or World placing into a tour podium', () => {
+    // An Olympic gold is rank 1, but it is not a week on tour — the Tour
+    // podiums tile does not count it, and neither may the chip beside it.
+    expect(filtersFor([[1, 2, 1]])).toEqual(['olympics']);
+    expect(filtersFor([[2, 2, 1]])).toEqual(['world-champs']);
+  });
+
+  it('lists them in a fixed order, whatever order the events arrive in', () => {
+    expect(filtersFor([[4, 2, 1], [2, 2, 9], [1, 2, 5]])).toEqual([
+      'olympics',
+      'world-champs',
+      'tour-podium',
+    ]);
+  });
+
+  it('says nothing at all for the great majority', () => {
+    expect(filtersFor([[4, 2, 17]])).toBeUndefined();
+    expect(timelineFiltersByPlayer(new Map(), tours).size).toBe(0);
   });
 });

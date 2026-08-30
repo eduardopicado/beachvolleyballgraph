@@ -96,7 +96,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 115427,
@@ -125,7 +130,12 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119426,
@@ -141,7 +151,10 @@
       "dob": "1990-10-26",
       "height": 181,
       "weight": 72,
-      "birthPlace": "Hasselt"
+      "birthPlace": "Hasselt",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 122266,
@@ -185,7 +198,10 @@
         "gold": 2,
         "silver": 3,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 148666,
@@ -221,7 +237,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 152086,
@@ -311,7 +330,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190246,

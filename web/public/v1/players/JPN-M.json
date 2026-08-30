@@ -14,7 +14,10 @@
       "name": "Shingo Sakai",
       "dob": "1969-08-20",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100053,
@@ -27,7 +30,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100054,
@@ -39,7 +47,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100055,
@@ -47,7 +58,10 @@
       "dob": "1965-01-25",
       "height": 185,
       "weight": 83,
-      "birthPlace": "Miyazaki"
+      "birthPlace": "Miyazaki",
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100056,
@@ -55,7 +69,10 @@
       "dob": "1965-12-17",
       "height": 189,
       "weight": 75,
-      "birthPlace": "Niigata"
+      "birthPlace": "Niigata",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100057,
@@ -175,14 +192,20 @@
       "dob": "1970-01-13",
       "height": 181,
       "weight": 83,
-      "birthPlace": "Kanagawa (Yokohama)"
+      "birthPlace": "Kanagawa (Yokohama)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100551,
       "name": "Masafumi \"Sohn\" Matsunaga",
       "dob": "1969-09-20",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100816,
@@ -240,7 +263,10 @@
       "dob": "1969-12-12",
       "height": 170,
       "weight": 70,
-      "birthPlace": "Fukuoka"
+      "birthPlace": "Fukuoka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101068,
@@ -295,7 +321,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101603,
@@ -308,7 +338,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101635,
@@ -316,7 +350,10 @@
       "dob": "1975-08-01",
       "height": null,
       "weight": null,
-      "birthPlace": "Gumma"
+      "birthPlace": "Gumma",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102132,
@@ -353,7 +390,12 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103250,
@@ -421,7 +463,10 @@
       "dob": "1973-06-30",
       "height": 175,
       "weight": 68,
-      "birthPlace": "Kyoto"
+      "birthPlace": "Kyoto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103841,
@@ -429,7 +474,11 @@
       "dob": "1975-09-19",
       "height": 199,
       "weight": 90,
-      "birthPlace": "Kumamoto"
+      "birthPlace": "Kumamoto",
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 103842,
@@ -565,7 +614,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125595,
@@ -620,7 +672,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142152,
@@ -639,7 +695,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145405,
@@ -693,7 +752,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151850,
@@ -733,7 +795,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156853,
@@ -780,7 +845,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157646,
@@ -821,7 +889,12 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 163564,
@@ -848,7 +921,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167588,
@@ -882,7 +958,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168709,
