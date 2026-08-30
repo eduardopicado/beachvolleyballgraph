@@ -193,13 +193,21 @@ this file hundreds of times in a committed tree.
 //        name                season tier             offset code       level
 ```
 
-**`code` is FIVB's own identifier** — gender letter, venue, season. Populated on
+**`code` is FIVB's own identifier** — gender letter, venue, year. Populated on
 all 1,688 tournaments, no duplicates. It is published because it is the only
 stable public handle on a tournament: FIVB retired its per-tournament pages,
 the Volleyball World replacement uses hand-curated slugs that cannot be
 derived, and VIS itself carries no URL (`WebSite` and `BuyTicketsUrl` are empty
 on every record). Nothing renders it — it exists so this data can be joined to
 another source, and so a link is one line the day a durable target appears.
+
+**The code's year is not the `season` beside it**, on 29 of the 1,688. The four
+Rio de Janeiro events coded `MRIO1988` through `MRIO1991` all publish as season
+1987. That is not a coding error: VIS gives those rows a `Season` of `"1987-91"`
+— a *range*, not a year — and `parseSeason` keeps the first four digits. The
+code carries the year the event was actually played, and on 26 of the 29 it is
+the code that matches `StartDateMainDraw`. Quirks §19. Do not join these two
+fields expecting them to agree, in either direction.
 
 **`level` is what FIVB called the event's rung at the time** — "Grand Slam",
 "4-star", "Elite16". Present on the 1,552 tour events, absent on the Olympics,
