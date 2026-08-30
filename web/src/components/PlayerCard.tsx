@@ -391,13 +391,10 @@ export function PlayerCard({
 
   const years = age(detail?.dob ?? null);
   // Both lists, because both are on the card. Counting only the graph's edges
-  // made a player whose partners all competed elsewhere read "0 partners, 0
-  // entries" directly above a list of six of them and a career of fifteen
-  // tournaments — the vitals describing the graph while the rest of the card
-  // described the player.
+  // made a player whose partners all competed elsewhere read "0 partners"
+  // directly above a list of six of them — the vitals describing the graph
+  // while the rest of the card described the player.
   const partnerCount = partners.length + away.length;
-  const totalTogether =
-    partners.reduce((sum, p) => sum + p.t, 0) + away.reduce((sum, a) => sum + a.partner.t, 0);
 
   const timeline = useMemo(() => buildTimeline(partners), [partners]);
   /**
@@ -671,10 +668,21 @@ export function PlayerCard({
             the card is sized to the graph beside it, so on a short window
             every row this header costs comes straight out of the list. */}
         <div className="partners-head">
-          <h3>
-            {showing === 'timeline' ? 'Timeline' : 'Partners'}{' '}
-            <span className="count">{plural(totalTogether, 'entry', 'entries')}</span>
-          </h3>
+          {/* The switch *is* the heading when there is one. Whichever half is
+              pressed names the list below it, so a separate <h3> beside it said
+              "Partners" twice on the same row. Kept for screen readers, which
+              need the section named without relying on a pressed state.
+
+              The visible fallback is for data with no per-season tallies, which
+              is what `canShowTimeline` already guards for: every one of the
+              13,820 published edges carries them today, so this branch is
+              reachable only by a slice published before that field existed. It
+              matches the guard rather than assuming the guard is dead. */}
+          {canShowTimeline ? (
+            <h3 className="sr-only">{showing === 'timeline' ? 'Timeline' : 'Partners'}</h3>
+          ) : (
+            <h3>Partners</h3>
+          )}
 
           {canShowTimeline && (
             <div className="view-switch" role="group" aria-label="Partner view">

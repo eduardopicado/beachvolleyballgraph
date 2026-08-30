@@ -496,6 +496,60 @@ test.describe('where a player was born', () => {
 });
 
 /**
+ * The row above the partner list.
+ *
+ * It used to be a heading plus a tally: "Partners  234 entries". The tally was
+ * the sum of tournaments-per-partner, which for a pairs sport is the player's
+ * tournament count by construction — the same 234 already in the Tournaments
+ * tile two rows above, under a label that reads like a partner count while the
+ * Partners tile beside it says 9.
+ */
+test.describe('the partner list heading', () => {
+  test('shows the switch instead of a tally that repeats a tile', async ({ page }) => {
+    const detail = players(COUNTRY, GENDER);
+    const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
+    expect(busiest, 'no players in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${busiest!.id}`);
+    const head = page.locator('.partners-head');
+    await expect(head).toBeVisible();
+
+    // The tournament count is on the card exactly once, in its own tile.
+    const tile = page.locator('.player-card .vitals div', {
+      has: page.getByText('Tournaments', { exact: true }),
+    });
+    await expect(tile.locator('dd')).toHaveText(String(busiest!.tournaments));
+    await expect(head).not.toContainText(String(busiest!.tournaments));
+    await expect(head.locator('.count')).toHaveCount(0);
+
+    // And the switch is what names the section now, at the row's full width.
+    const sw = head.locator('.view-switch');
+    await expect(sw).toBeVisible();
+    const headBox = await head.boundingBox();
+    const swBox = await sw.boundingBox();
+    expect(swBox!.width, 'the switch should fill the row').toBeGreaterThan(headBox!.width * 0.9);
+
+    // Still named for assistive tech, just not drawn twice on one row.
+    await expect(head.locator('h3')).toHaveText('Partners');
+    const h3 = await head.locator('h3').boundingBox();
+    expect(h3!.width, 'the heading should be visually hidden').toBeLessThan(3);
+  });
+
+  test('opens on Partners, with Timeline one press away', async ({ page }) => {
+    const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
+    await page.goto(`./${slicePath()}?player=${busiest!.id}`);
+
+    const sw = page.locator('.partners-head .view-switch');
+    await expect(sw.getByRole('button', { name: 'Partners' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(sw.getByRole('button', { name: 'Timeline' })).toHaveAttribute('aria-pressed', 'false');
+
+    await sw.getByRole('button', { name: 'Timeline' }).click();
+    await expect(sw.getByRole('button', { name: 'Timeline' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.partners > .timeline')).toBeVisible();
+  });
+});
+
+/**
  * Narrowing the timeline to the Games, the Worlds, or a podium week.
  *
  * Subjects are scanned out of the published data: which players have which

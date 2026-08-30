@@ -227,12 +227,6 @@
   font-weight: 650;
 }
 
-.partners .count {
-  color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 500;
-}
-
 .partners ul {
   margin: 0;
   padding: 0;
@@ -438,23 +432,29 @@
 
 /* --- Partners / Timeline switch ----------------------------------------- */
 
+/* Fills the row now that the heading beside it is gone. It is the section's
+   label as well as its control, so it gets the width a heading had. */
 .view-switch {
   display: flex;
   gap: 2px;
-  flex-shrink: 0;
+  flex: 1;
   padding: 2px;
   border-radius: 7px;
   background: var(--series-1-wash);
 }
 
 .view-switch button {
-  padding: 4px 10px;
+  /* Equal halves, so neither view reads as the secondary one. The type steps
+     up from 11px to the 13px the heading used, because this now carries the
+     job that heading had. */
+  flex: 1;
+  padding: 6px 10px;
   border: 0;
   border-radius: 5px;
   background: transparent;
   color: var(--text-secondary);
   font: inherit;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }
