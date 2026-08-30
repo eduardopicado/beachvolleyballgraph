@@ -36,6 +36,22 @@ describe('worldChampionshipName', () => {
     expect(worldChampionshipName(2027)).toBe('Netherlands');
   });
 
+  it('names an edition with no single host city after what contains it', () => {
+    // Tlaxcala is the state that Apizaco and Huamantla sit in as well as its
+    // own capital, so it contains the 2023 edition. The four Dutch cities are
+    // in four provinces, so only the country contains 2015 and 2027 — and
+    // 2027 is those same four cities over again.
+    expect(worldChampionshipName(2023)).toBe('Tlaxcala');
+    expect(worldChampionshipName(2015)).toBe(worldChampionshipName(2027));
+  });
+
+  it('does not rename an edition FIVB already named', () => {
+    // 2001 ran across Klagenfurt, Maria Wörth and Velden, and FIVB picked one.
+    // Deciding a multi-city edition needs a broader label is only this map's
+    // call where FIVB left the question open.
+    expect(worldChampionshipName(2001)).toBe('Klagenfurt');
+  });
+
   it('gives nothing for an edition it has not been told about', () => {
     // Null rather than a guess, so an unknown edition keeps FIVB's name.
     // 2029 has no host yet; 2021 never happened — Rome was postponed into the

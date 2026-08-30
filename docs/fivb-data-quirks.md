@@ -582,11 +582,26 @@ rather than "Hamburg 2019", because that is how FIVB itself named ten of the
 sixteen, and because the row already carries a "Worlds" badge with the season
 in the timeline gutter beside it.
 
-**Two entries name a country.** 2015 was played across four Dutch cities — the
-match rows put 29 in The Hague, 25 each in Amsterdam and Apeldoorn, 25 in
-Rotterdam — so no one of them is the host. 2027 is awarded to the Netherlands
-with no city announced, and both draws are already in VIS carrying a `Title`
-copied wholesale from 2025.
+**Four editions had no single host city**, and each takes the smallest label
+that contains the whole event rather than one of its towns:
+
+```
+2001  Klagenfurt / Maria Wörth / Velden                 "Klagenfurt"
+2015  The Hague / Amsterdam / Apeldoorn / Rotterdam     "Netherlands"
+2023  Tlaxcala / Apizaco / Huamantla                    "Tlaxcala"
+2027  the 2015 four again                               "Netherlands"
+```
+
+Tlaxcala is the state the other two towns sit in as well as its own capital, so
+it contains the edition; the four Dutch cities are in four provinces, so only
+the country does. 2001 keeps Klagenfurt because that is what FIVB chose to call
+it — deciding a multi-city edition needs a broader label is only this map's call
+where FIVB left the question open.
+
+The per-match `City` field is what established this, and it agrees with the
+public record: 29 matches in The Hague against 25 each in Amsterdam, Apeldoorn
+and Rotterdam for 2015, and 56 in Tlaxcala against 27 in Apizaco and 25 in
+Huamantla for 2023.
 
 ---
 

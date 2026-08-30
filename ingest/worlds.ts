@@ -36,6 +36,20 @@
  * `CountryName` is the one location field populated on all 32 rows, and it is
  * what the two Dutch entries below fall back to.
  *
+ * **Four editions had no single host city**, and each takes the smallest label
+ * that contains the whole event rather than one of its towns:
+ *
+ *   2001  Klagenfurt / Maria Wörth / Velden       "Klagenfurt"
+ *   2015  The Hague / Amsterdam / Apeldoorn / Rotterdam    "Netherlands"
+ *   2023  Tlaxcala / Apizaco / Huamantla          "Tlaxcala"
+ *   2027  the 2015 four again                     "Netherlands"
+ *
+ * Tlaxcala is the state the other two towns sit in as well as its own capital,
+ * so it contains the edition; the four Dutch cities are in four provinces, so
+ * only the country does. 2001 keeps Klagenfurt because that is what FIVB chose
+ * to call it, and this map is not in the business of renaming an edition FIVB
+ * already named.
+ *
  * **Keyed by season, not by tournament code**, for the same reason as the
  * Olympics: the published data holds exactly two rows per season, a men's draw
  * and a women's, so the season is a complete key — while the codes have used
@@ -55,10 +69,10 @@ export const WORLD_CHAMPIONSHIPS: Readonly<Record<number, string>> = {
   2009: 'Stavanger',
   2011: 'Rome',
   2013: 'Stare Jablonki',
-  // Played across four cities, so no one of them is the host: the match rows
-  // put 29 matches in The Hague, 25 in Amsterdam, 25 in Apeldoorn and 25 in
-  // Rotterdam. VIS files both draws under CountryName "Netherlands", which is
-  // the only answer that is true of the whole event.
+  // Played across four cities — the match rows put 29 in The Hague, 25 each in
+  // Amsterdam, Apeldoorn and Rotterdam — in four different provinces, so the
+  // country is the smallest label that contains the whole event. VIS files both
+  // draws under CountryName "Netherlands" and offers nothing narrower.
   2015: 'Netherlands',
   2017: 'Vienna',
   2019: 'Hamburg',
@@ -70,9 +84,10 @@ export const WORLD_CHAMPIONSHIPS: Readonly<Record<number, string>> = {
   // Huamantla, and Tlaxcala names both the state and its capital.
   2023: 'Tlaxcala',
   2025: 'Adelaide',
-  // Awarded to the Netherlands; no host city announced. VIS already carries
-  // both 2027 draws with CountryName "Netherlands" and a Title copied from
-  // 2025, so this row is doing work today rather than waiting for one.
+  // The 2015 edition again, down to the four cities. VIS already carries both
+  // draws with CountryName "Netherlands" and a Title copied wholesale from
+  // 2025, so this row is doing work today rather than waiting for a city that
+  // is never going to arrive on its own.
   2027: 'Netherlands',
 };
 
