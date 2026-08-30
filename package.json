@@ -18,7 +18,7 @@
     "test:e2e": "playwright test",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint . && stylelint \"web/src/**/*.css\""
   },
   "dependencies": {
     "d3-force": "^3.0.0",
@@ -38,6 +38,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.9.0",
+    "stylelint": "^17.14.1",
+    "stylelint-config-recommended": "^18.0.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.66.0",
