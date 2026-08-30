@@ -10,7 +10,11 @@ documented in a way that would have saved us the discovery, so it is written
 down here instead of being rediscovered.
 
 Each entry says what the quirk is, how it showed up, and where the pipeline
-deals with it. Counts are from the archive as of **2026-08-09**; they drift.
+deals with it. Counts are from the archive as of **2026-08-09** unless a
+section says otherwise; they drift, and a section re-measured since then names
+its own date. What is being asserted is the *finding* — that a field is empty
+on every row, that 89% of ranks are shared — so a re-measurement is worth doing
+when it might overturn one, not to keep an absolute count current.
 
 ---
 
@@ -754,13 +758,14 @@ megabytes. Two practical consequences:
 ## 14. Only one of the tournament date fields is reliably populated
 
 `BeachTournament` exposes several dates, and they are not equally trustworthy.
-Measured across all 9,264 tournaments VIS returns:
+Measured across all 9,270 tournaments VIS returns (re-measured 2026-08-30; the
+shape has not moved):
 
 | Field | Populated |
 |---|---:|
-| `StartDateMainDraw` | 9,264 (100%) |
-| `EndDateMainDraw` | 9,264 (100%) |
-| `StartDateQualification` | 2,750 (30%) |
+| `StartDateMainDraw` | 9,270 (100%) |
+| `EndDateMainDraw` | 9,270 (100%) |
+| `StartDateQualification` | 2,754 (30%) |
 | `Dates` | 0 |
 
 So `StartDateMainDraw` is the only start date worth ordering by. Using
@@ -953,13 +958,78 @@ about a person from a four-character string.
 
 ---
 
+## 19. `Season` is sometimes a range, not a year
+
+**What.** `BeachTournament.Season` reads `2024` on almost every row — and
+`"1987-91"`, `"1995-96"`, `"1993-94"` on **70 of the 9,270**. A cross-year
+season is ordinary in a sport that runs through a southern summer; `"1987-91"`
+is not a season at all, it is five of them in one bucket.
+
+`parseSeason` keeps the leading four digits, so every row in that bucket
+publishes as season **1987**, including events played in 1988, 1989, 1990 and
+1991. That is a deliberate choice and its comment says so — `Number("1987-91")`
+is `NaN`, which would drop the events entirely — but the cost of taking the
+first year had never been measured. It is: **71 qualifying rows carry a ranged
+`Season`, and 26 of them were played in a year other than the one we publish**,
+off by one to four years.
+
+The Rio de Janeiro series is the clearest case, and it is visible in the codes:
+
+| Code | Published season | `StartDateMainDraw` |
+|---|---:|---|
+| `MRIO1987` | 1987 | 1987-02-17 |
+| `MRIO1988` | 1987 | 1988-02-20 |
+| `MRIO1989` | 1987 | 1989-02-18 |
+| `MRIO1990` | 1987 | 1990-02-13 |
+| `MRIO1991` | 1987 | 1991-02-12 |
+
+Five annual editions, five correct codes, one season between them.
+
+**Not the same thing as a wrong code.** Of the 29 codes whose year differs from
+the published season, 26 are this — the code is right and the season is coarse.
+The other three are the reverse: `WCAR1991` was played in August 1994, and
+`MCAP2023` / `WCAP2023` are dated November 2020. `MTOK2020` is deliberate and
+belongs to §6.7 — the Games are named for 2020 and were played in 2021.
+
+**Handled in.** `parseSeason` in `ingest/build.ts`, for the half of the problem
+it was written for: the events are kept rather than dropped. The other half —
+that 26 of them are then dated wrongly — is open. `StartDateMainDraw` is
+populated on 100% of rows (§14), so falling back to the date's year when
+`Season` is a range is available and cheap. It would move 26 tournaments
+between seasons, which shifts `first`/`last` on every node and edge that
+references them, so it wants its own change, its own regression-check run and
+its own look at the timeline.
+
+---
+
 ## Reporting these upstream
 
-Most of the above is ours to work around. Two are arguably worth raising with
+Most of the above is ours to work around. These are the ones worth raising with
 FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.
+- **§6**, whether anything in VIS records which federation an athlete
+  represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
 - **§18**, the two players whose `Gender` contradicts the only event they
   played. Two records, and a one-field correction each.
+- **§19**, the three tournament codes whose year contradicts their own dates —
+  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
+- **§6.5**, names shouting in all capitals or carrying a nickname inside the
+  surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
+- **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
+  notes rather than places.
+- **§6.7 and §6.8**, championship editions whose names never say where they
+  were held. A request rather than a defect report: a populated `DefaultCity`
+  on the Olympics and the World Championships would retire two hand-maintained
+  maps here and help every other consumer of the archive.
+
+Everything in this list is worked around already. Raising them is about the
+archive being better for everyone reading it, not about unblocking this site.
+
+**The draft introduction email covers the first three only.** It is
+`docs/fivb-email.md` on the unsent branch (task #12), written before the name,
+birth-place and championship-naming quirks were found. Anyone picking that task
+up should add the last three to its "would a list of data issues be useful"
+section before sending — it already offers exactly that list.
