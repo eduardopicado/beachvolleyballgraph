@@ -918,6 +918,41 @@ run log instead of being noticed by a reader.
 
 ---
 
+## 18. A player's `Gender` can disagree with every event they played
+
+**What.** `Player.Gender` puts a player in the men's or the women's half of the
+archive, and a slice is one federation and one gender. Three published
+partnerships have their two halves in the *same* federation under *opposite*
+genders — which would have to be a mixed pair, and FIVB runs no mixed beach
+competition.
+
+They are not mixed pairs. All three played a men's event:
+
+| Pair | Event | Code |
+|---|---|---|
+| Josue Flores Garita + Flores Garita Andres Felipe (CRC) | Halifax 2012 | `MU212012` |
+| Anas Diouri + Hafid Ouchrif (MAR) | Agadir 2011 | `MAGA2011` |
+| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro 1987 | `MRIO1989` |
+
+One partner in each is filed `W`. For the first two that is the whole of their
+record — one men's event each — so the gender field is simply wrong: measured
+across the archive, **2 of 12,073 published players contradict every event they
+entered**. Marion Marquet is the more interesting case, because she also has a
+genuine women's event (`WMAR2000`); it is the 1987 entry that is anomalous, not
+the label.
+
+**Why it shows up at all.** Slicing is by federation *and* gender, so these
+pairs land in different slices and get carried on the player as `away` rows —
+which is why the card's block is headed "Partners not in this graph" rather
+than anything naming federations. Six of the 221 published away rows are these
+three pairs, counted from both ends.
+
+**Handled in.** Nothing. Two players and one old entry are not worth a rule,
+and any rule that reassigned a gender from tournament codes would be guessing
+about a person from a four-character string.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. Two are arguably worth raising with
@@ -926,3 +961,5 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.
 - **§7**, the `SMA` test records sitting in production player data.
+- **§18**, the two players whose `Gender` contradicts the only event they
+  played. Two records, and a one-field correction each.
