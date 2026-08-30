@@ -545,6 +545,49 @@ and the name beside it, which is the one place a reader gets both.
 reads **0** for Pablo Herrera, who has played six Games, and 3 for Natalie
 Cook, who has played five. Appearances are derived from the results instead.
 
+## 6.8. The World Championships stopped naming their host in 2015
+
+FIVB named the first ten editions after the host city and nothing else, then
+stopped. The 32 published rows — 16 editions, a men's draw and a women's for
+each — break down like this:
+
+```
+1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
+2015             "Beach Volleyball Men WCHs"              no host anywhere
+2019             "WCH Hamburg"                            prefixed
+2022             "Rome World Championships"               suffixed
+2023             "World Championships 2023 - Tlaxcala Mexico"
+                 "World Championships 2023 - Tlaxcala, Mexico"   men vs women
+2025, 2027       "FIVB Beach Volleyball World Championships"     no host anywhere
+```
+
+**Unlike the Olympics, the code does not rescue it.** `MLAX1997` carries Los
+Angeles, but from 2017 every code is `MWCH####` or `WWCH####` — the shape that
+finally became consistent is the one that dropped the city.
+
+**Nor do the location fields.** Three look like they should supply the host,
+measured across all 32 rows:
+
+- **`DefaultCity`** is populated on **4** of them — 2022 and 2025 only.
+- **`CountryName`** is populated on all 32, but names a country.
+- The per-match **`City`** is empty for every edition through 2013, reports
+  three separate towns for 2023 (Tlaxcala 56 matches, Apizaco 27, Huamantla
+  25), court-suffixed strings for 2025 (`Adelaide (CC)`, `Adelaide (2)`,
+  `Adelaide (3)`), and nothing at all for an edition not yet played. It also
+  costs one request per tournament.
+
+**Keyed by season, same as the Olympics.** `ingest/worlds.ts` maps season to
+host; anything not in the map keeps FIVB's own name. The value is the bare host
+rather than "Hamburg 2019", because that is how FIVB itself named ten of the
+sixteen, and because the row already carries a "Worlds" badge with the season
+in the timeline gutter beside it.
+
+**Two entries name a country.** 2015 was played across four Dutch cities — the
+match rows put 29 in The Hague, 25 each in Amsterdam and Apeldoorn, 25 in
+Rotterdam — so no one of them is the host. 2027 is awarded to the Netherlands
+with no city announced, and both draws are already in VIS carrying a `Title`
+copied wholesale from 2025.
+
 ---
 
 ## 7. Federation codes that aren't countries

@@ -22,6 +22,7 @@ import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
 import { olympicName } from './olympics.js';
+import { worldChampionshipName } from './worlds.js';
 import {
   federationSpans,
   resolveFederation,
@@ -171,6 +172,23 @@ export function isCancelled(row: VisRow): boolean {
   return /cancel/i.test(row.Name ?? '');
 }
 
+/**
+ * The name we hold for a season of a championship, or `null` to keep FIVB's.
+ *
+ * Two tiers get one. Both are events whose editions are known years ahead and
+ * named after their host by convention, and in both FIVB's own naming broke
+ * down often enough that a reader scanning a timeline could not tell what they
+ * were looking at — "Olympic Games 2012" never says London, "FIVB Beach
+ * Volleyball World Championships" never says Adelaide. Every other tier keeps
+ * whatever FIVB typed: there are 1,600-odd of those, they carry no fixed
+ * designation, and a map of them would be a second dataset to maintain.
+ */
+function curatedName(tier: Tier, season: number): string | null {
+  if (tier === 'olympics') return olympicName(season);
+  if (tier === 'world-champs') return worldChampionshipName(season);
+  return null;
+}
+
 export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
   const out = new Map<string, Tournament>();
   for (const row of rows) {
@@ -191,14 +209,12 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       // World Championships  "), and numbered rather than left blank because a
       // nameless row on the card would be indistinguishable from a bug.
       //
-      // The Olympics get their official designation instead of whatever FIVB
-      // typed, because two editions do not name their host at all — 2012 is
-      // filed as "Olympic Games 2012", which never says London. See
-      // ingest/olympics.ts; an edition the map has not been told about keeps
-      // FIVB's name.
-      name:
-        (tier === 'olympics' ? olympicName(season) : null) ??
-        ((row.Name ?? '').trim() || `Tournament ${no}`),
+      // The Olympics and the World Championships get the host we hold for the
+      // season instead of whatever FIVB typed, because several editions do not
+      // name their host at all — 2012 is filed as "Olympic Games 2012", which
+      // never says London. See `curatedName` above; an edition neither map has
+      // been told about keeps FIVB's name.
+      name: curatedName(tier, season) ?? ((row.Name ?? '').trim() || `Tournament ${no}`),
       code: (row.Code ?? '').trim(),
       tier,
       level: levelFor(row.Type),
