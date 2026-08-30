@@ -9,6 +9,7 @@
       "height": 193,
       "weight": 100,
       "birthPlace": "Voru",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -20,6 +21,7 @@
       "height": 193,
       "weight": 88,
       "birthPlace": "Viljandi",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -44,6 +46,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -98,6 +101,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

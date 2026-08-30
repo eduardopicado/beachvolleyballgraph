@@ -262,6 +262,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -302,6 +303,7 @@
         "silver": 2,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

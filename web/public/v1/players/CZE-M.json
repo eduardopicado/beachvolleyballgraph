@@ -9,6 +9,7 @@
       "height": 202,
       "weight": 93,
       "birthPlace": "Litomysl",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -21,6 +22,7 @@
       "height": 190,
       "weight": 80,
       "birthPlace": "Prerov",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -129,6 +131,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -170,6 +173,7 @@
       "height": 197,
       "weight": 90,
       "birthPlace": "Prague",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -247,6 +251,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -841,6 +846,7 @@
         "silver": 8,
         "bronze": 3
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -1033,6 +1039,7 @@
         "silver": 7,
         "bronze": 3
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",

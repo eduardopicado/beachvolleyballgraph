@@ -19,6 +19,7 @@
         "silver": 5,
         "bronze": 8
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -31,6 +32,7 @@
       "dob": "1962-09-30",
       "height": 192,
       "weight": 90,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -52,6 +54,7 @@
         "silver": 5,
         "bronze": 8
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -116,6 +119,7 @@
       "height": 183,
       "weight": 86,
       "birthPlace": "Kingston",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -140,6 +144,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -188,6 +193,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -572,6 +578,7 @@
         "silver": 4,
         "bronze": 3
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -670,6 +677,7 @@
         "silver": 2,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -763,6 +771,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1061,6 +1070,7 @@
         "silver": 3,
         "bronze": 1
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -1154,6 +1164,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

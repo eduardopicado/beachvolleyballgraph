@@ -24,6 +24,7 @@
       "height": 171,
       "weight": 73,
       "birthPlace": "Merauke",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -36,6 +37,7 @@
       "height": 165,
       "weight": 55,
       "birthPlace": "Praya",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

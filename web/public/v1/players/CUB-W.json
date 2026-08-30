@@ -73,6 +73,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -107,6 +108,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -128,6 +130,7 @@
       "height": 173,
       "weight": 60,
       "birthPlace": "Cabaiguan",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -148,6 +151,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "C. Habana",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -160,6 +164,7 @@
       "height": 182,
       "weight": 73,
       "birthPlace": "Güines",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -201,6 +206,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

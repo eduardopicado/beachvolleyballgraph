@@ -14,6 +14,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -26,6 +27,7 @@
       "dob": "1969-10-19",
       "height": 179,
       "weight": 77,
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -50,6 +52,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -136,6 +139,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -853,6 +857,7 @@
         "silver": 5,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -881,6 +886,7 @@
         "silver": 5,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

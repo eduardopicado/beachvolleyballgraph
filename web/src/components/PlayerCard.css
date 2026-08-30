@@ -123,6 +123,17 @@
   font-weight: 600;
 }
 
+/* A second, quieter line inside a vitals tile — the Games behind a medal
+   tally. Same weight as the birth city below it: the tile's headline value is
+   the fact it is named for, and this qualifies it. */
+.vitals dd .sub {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
 /* The birth city, under the date in the same tile. Smaller and quieter than
    the date it hangs off: the date is the fact the tile is named for, and the
    city is a qualifier on it, not a second value. */

@@ -85,6 +85,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -199,6 +200,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Venezuela",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

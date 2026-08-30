@@ -22,6 +22,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -111,6 +112,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -124,6 +126,7 @@
       "height": 178,
       "weight": 70,
       "birthPlace": "Tian Jing",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -170,6 +173,7 @@
         "silver": 11,
         "bronze": 12
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -225,6 +229,7 @@
         "silver": 1,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -333,6 +338,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -351,6 +357,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -458,6 +465,7 @@
         "silver": 14,
         "bronze": 9
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -510,6 +518,7 @@
         "silver": 11,
         "bronze": 9
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -545,6 +554,7 @@
         "silver": 16,
         "bronze": 13
       },
+      "olympicGames": 4,
       "filters": [
         "olympics",
         "world-champs",
@@ -666,6 +676,7 @@
         "silver": 4,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -799,6 +810,7 @@
         "silver": 8,
         "bronze": 0
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -949,6 +961,7 @@
         "silver": 8,
         "bronze": 6
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -1049,6 +1062,7 @@
         "silver": 4,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

@@ -73,6 +73,7 @@
       "height": 181,
       "weight": 72,
       "birthPlace": "Durban",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -85,6 +86,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Nurehberg",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -96,6 +98,7 @@
       "dob": null,
       "height": null,
       "weight": null,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -177,6 +180,7 @@
       "dob": null,
       "height": null,
       "weight": null,
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

@@ -9,6 +9,7 @@
       "height": 165,
       "weight": 59,
       "birthPlace": "Heredia",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -28,6 +29,7 @@
       "height": 173,
       "weight": 75,
       "birthPlace": "San Jose, Costa Rica",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

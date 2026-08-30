@@ -207,6 +207,13 @@ export interface PlayerDetail {
    * never medalled, to keep the common case free.
    */
   olympics?: MedalCounts;
+  /**
+   * Olympic Games competed at, medal or not — 488 published players have one,
+   * and only 76 of them medalled. Separate from `olympics` above because they
+   * answer different questions and the card shows both: the medals, and the
+   * Games that produced them.
+   */
+  olympicGames?: number;
   /** Present only when the player won at least one FIVB World Championships medal. */
   worldChamps?: MedalCounts;
   /**

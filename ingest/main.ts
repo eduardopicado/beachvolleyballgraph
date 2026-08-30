@@ -41,6 +41,7 @@ import {
   aggregatePartnerships,
   aggregateTourPodiums,
   timelineFiltersByPlayer,
+  olympicGamesByPlayer,
   awayPartnersByPlayer,
   finishedWithoutResults,
   isCancelled,
@@ -263,6 +264,8 @@ async function main() {
   // can draw the controls before it fetches a single result — the results file
   // only loads when somebody opens a season.
   const timelineFilters = timelineFiltersByPlayer(results, tournaments);
+  // Appearances, not medals — see olympicGamesByPlayer.
+  const olympicGames = olympicGamesByPlayer(results, tournaments);
   log('podiums', `${podiumsByPlayer.size} players with a World Tour or Beach Pro Tour podium`);
 
   // A collapse in matched entries means the upstream shape changed. Better to
@@ -428,6 +431,7 @@ async function main() {
           olympics: m && hasMedal(m.olympics) ? m.olympics : undefined,
           worldChamps: m && hasMedal(m['world-champs']) ? m['world-champs'] : undefined,
           tour: podium && hasMedal(podium) ? podium : undefined,
+          olympicGames: olympicGames.get(node.id),
           filters: timelineFilters.get(node.id),
           away: awayPartners.get(node.id),
         };

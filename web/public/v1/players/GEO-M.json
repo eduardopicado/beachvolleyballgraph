@@ -31,6 +31,7 @@
       "height": 204,
       "weight": 92,
       "birthPlace": "Joao Pessoa",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -43,6 +44,7 @@
       "height": 191,
       "weight": 80,
       "birthPlace": "Joao Pessoa",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

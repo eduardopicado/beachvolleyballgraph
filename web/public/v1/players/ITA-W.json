@@ -26,6 +26,7 @@
       "height": 174,
       "weight": 60,
       "birthPlace": "Lecco",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -51,6 +52,7 @@
         "silver": 0,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -64,6 +66,7 @@
       "height": 175,
       "weight": 60,
       "birthPlace": "Ancona",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -94,6 +97,7 @@
       "dob": "1961-07-07",
       "height": 177,
       "weight": 66,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -110,6 +114,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -974,6 +979,7 @@
         "silver": 10,
         "bronze": 8
       },
+      "olympicGames": 4,
       "filters": [
         "olympics",
         "world-champs",
@@ -1013,6 +1019,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1031,6 +1038,7 @@
         "silver": 3,
         "bronze": 5
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1129,6 +1137,7 @@
         "silver": 3,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1830,6 +1839,7 @@
         "silver": 5,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

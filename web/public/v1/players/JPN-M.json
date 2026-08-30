@@ -31,6 +31,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -59,6 +60,7 @@
       "height": 185,
       "weight": 83,
       "birthPlace": "Miyazaki",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -391,6 +393,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -475,6 +478,7 @@
       "height": 199,
       "weight": 90,
       "birthPlace": "Kumamoto",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -890,6 +894,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

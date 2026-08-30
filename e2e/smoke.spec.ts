@@ -555,6 +555,56 @@ test.describe('the partner list heading', () => {
  * Subjects are scanned out of the published data: which players have which
  * filters moves as the archive is rebuilt, and only 2,292 of 12,074 have any.
  */
+/**
+ * The Olympics tile.
+ *
+ * It used to be drawn from the medal tally alone, so a tile headed "Olympics"
+ * was absent for 412 of the 488 published Olympians — 84.4% of the people it
+ * names. Martin Alejo Conde has four Games and had no tile at all.
+ */
+test.describe('the Olympics tile', () => {
+  const tile = (page: Page) =>
+    page.locator('.player-card .vitals div', { has: page.getByText('Olympics', { exact: true }) });
+
+  const bySlice = (want: (p: { olympics?: unknown; olympicGames?: number }) => boolean) =>
+    players(COUNTRY, GENDER).players.find(want);
+
+  const games = (n: number) => `${n} ${n === 1 ? 'Game' : 'Games'}`;
+
+  test('shows the Games for an Olympian who never medalled', async ({ page }) => {
+    const subject = bySlice((p) => p.olympicGames !== undefined && p.olympics === undefined);
+    expect(subject, 'no un-medalled Olympian in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(tile(page)).toBeVisible();
+    await expect(tile(page).locator('dd')).toHaveText(games(subject!.olympicGames!));
+  });
+
+  test('keeps the medals and adds the Games beneath them', async ({ page }) => {
+    const subject = bySlice((p) => p.olympics !== undefined && p.olympicGames !== undefined);
+    expect(subject, 'no Olympic medallist in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    const dd = tile(page).locator('dd');
+    // The medals stay the headline; the Games are the second line.
+    await expect(dd.locator('.sub')).toHaveText(games(subject!.olympicGames!));
+    // By the medal label rather than a gold glyph: the first medallist in this
+    // slice has a lone silver, and asserting 🥇 only passed by luck of who
+    // sorts first.
+    await expect(dd).toHaveAttribute('aria-label', /medal/);
+  });
+
+  test('is absent for a player who never went', async ({ page }) => {
+    // 96% of the archive. The tile has to disappear, not show a zero.
+    const subject = bySlice((p) => p.olympicGames === undefined && p.olympics === undefined);
+    expect(subject).toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(page.locator('.player-card .vitals')).toBeVisible();
+    await expect(tile(page)).toHaveCount(0);
+  });
+});
+
 test.describe('narrowing the timeline', () => {
   const chips = (page: Page) => page.locator('.tl-filters button');
 

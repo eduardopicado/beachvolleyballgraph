@@ -9,6 +9,7 @@
       "height": 169,
       "weight": 60,
       "birthPlace": "Manaus",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -56,6 +57,7 @@
       "height": 181,
       "weight": 71,
       "birthPlace": "Sao Paulo",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

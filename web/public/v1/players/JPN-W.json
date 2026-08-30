@@ -40,6 +40,7 @@
       "height": 174,
       "weight": 59,
       "birthPlace": "Tokyo",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -57,6 +58,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -69,6 +71,7 @@
       "dob": "1968-01-09",
       "height": 173,
       "weight": 59,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -85,6 +88,7 @@
         "silver": 2,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -177,6 +181,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -190,6 +195,7 @@
       "height": 175,
       "weight": 68,
       "birthPlace": "Ehime, Kikuma-machi",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -202,6 +208,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Ehime",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -230,6 +237,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Ehime",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -798,6 +806,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -948,6 +957,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -966,6 +976,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

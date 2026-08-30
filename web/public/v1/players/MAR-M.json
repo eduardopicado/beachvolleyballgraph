@@ -23,6 +23,7 @@
       "height": 193,
       "weight": 80,
       "birthPlace": "Adgal/ MAR",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -302,6 +303,7 @@
       "height": 197,
       "weight": 90,
       "birthPlace": "Casablanca",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
