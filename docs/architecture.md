@@ -91,11 +91,11 @@ sequenceDiagram
   participant I as ingest
   participant V as VIS
   I->>V: GetBeachTournamentList (Fields=...)
-  V-->>I: 9,264 tournaments
+  V-->>I: 9,270 tournaments
   I->>V: GetPlayerList (Fields=...)
-  V-->>I: 130,542 players
+  V-->>I: 130,992 players
   I->>V: GetBeachTeamList (Fields=...)
-  V-->>I: 205,876 team entries
+  V-->>I: 206,489 team entries
   Note over I: normalise → aggregate → slice → write
 ```
 
@@ -117,7 +117,7 @@ requests return a silently empty element without one.
 
 The graph is sliced into 264 files rather than served whole.
 
-A single global graph would be 12,066 nodes — unreadable as a visualisation and
+A single global graph would be 12,074 nodes — unreadable as a visualisation and
 a large download to answer a question that is almost always about one country.
 Slicing gives each page a payload proportional to what it shows.
 
@@ -140,8 +140,8 @@ flowchart TD
   B --> D["players/{CC}-{G}.json<br/>vitals, medals, foreign partners"]
   C --> E{"Reader acts"}
   D --> E
-  E -->|"types in search"| F["search.json — 364 KB<br/>all 12,066 players"]
-  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 108 KB"]
+  E -->|"types in search"| F["search.json — 392 KB<br/>all 12,074 players"]
+  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 120 KB"]
 
   style F stroke-dasharray: 4 4
   style G stroke-dasharray: 4 4
@@ -150,7 +150,7 @@ flowchart TD
 Solid edges load with the page; dashed ones are fetched on first interaction
 and never otherwise. The two lazy tiers exist because they are the two largest
 things published and most visits need neither: `results/` is 2.9 MB across all
-slices (127,643 rows), `search.json` is 364 KB.
+slices (127,899 rows), `search.json` is 392 KB.
 
 `api.ts` memoises every fetch by URL, so switching country and back, or opening
 a second season, costs nothing.
@@ -230,17 +230,18 @@ It has **no automatic gate** against `deploy.yml` — disable one by hand.
 
 | | | Why this |
 |---|---|---|
-| **TypeScript** 5.7 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
-| **React** 18.3 | app | Component model for the card/controls/table; the graph opts out of it where it costs frames. |
+| **TypeScript** 5 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
+| **React** 18 | app | Component model for the card/controls/table; the graph opts out of it where it costs frames. |
 | **Vite** 6 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
-| **Vitest** 2 | unit tests | 259 tests. Same transform pipeline as Vite, no second config to keep in step. |
-| **Playwright** 1.62 | browser tests | 64 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
+| **Vitest** 2 | unit tests | 467 tests. Same transform pipeline as Vite, no second config to keep in step. |
+| **Playwright** 1.62 | browser tests | 113 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
 | **ESLint** 9 | lint | Flat config, with the React Hooks rules. |
+| **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
 **Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.
-197 KB of JavaScript, 65 KB gzipped.
+214 KB of JavaScript, 71 KB gzipped.
 
 Deliberately not used:
 
@@ -251,7 +252,9 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 20 KB of CSS.
+  component has a sibling stylesheet. The whole site is 28 KB of CSS, linted by
+  `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
+  closing brace without complaint, so nothing else would catch one.
 - **No data-fetching library.** Six `fetch` calls behind a memoising map.
 - **No charting library.** The graph is bespoke SVG; a general library would be
   larger than the whole app.

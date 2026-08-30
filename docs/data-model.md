@@ -12,15 +12,55 @@ the app; this document explains the *why*.
 ```
 web/public/v1/
 ├── manifest.json              36 KB    index: countries, counts, tiers, freshness
-├── tournaments.json          108 KB    every qualifying tournament
-├── search.json               364 KB    every published player, for search
-├── graphs/{CC}-{G}.json      5.3 MB    264 files: nodes + edges
-├── players/{CC}-{G}.json     2.5 MB    264 files: vitals, medals, foreign partners
+├── tournaments.json          120 KB    every qualifying tournament
+├── search.json               392 KB    every published player, for search
+├── graphs/{CC}-{G}.json      5.5 MB    264 files: nodes + edges
+├── players/{CC}-{G}.json     2.9 MB    264 files: vitals, medals, foreign partners
 └── results/{CC}-{G}.json     2.9 MB    264 files: every tournament every player entered
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
 country code. `{G}` is `M` or `W`.
+
+## How the files join
+
+No file repeats what another one holds, so almost everything on screen is a
+join. The two dashed edges are the ones that surprise people.
+
+```mermaid
+flowchart LR
+  MAN["manifest.json<br/><i>which slices exist</i>"]
+  PL["players/{CC}-{G}.json<br/><i>vitals, medals, away</i>"]
+  SRC["search.json<br/><i>every player, every slice</i>"]
+  RES["results/{CC}-{G}.json<br/><i>[tournament, partner, rank]</i>"]
+
+  GR["<b>graphs/{CC}-{G}.json</b><br/>nodes — id, name, short<br/>edges — a, b, t, s"]
+  TRN["tournaments.json<br/><i>name, season, tier, level</i>"]
+
+  MAN -->|"names the slice"| GR
+  PL -->|"player id"| GR
+  SRC -->|"player id"| GR
+  RES -->|"partner id"| GR
+  RES -->|"tournament no."| TRN
+
+  RES -.->|"partner from<br/>another slice"| RN["the results file's<br/>own <b>names</b> map"]
+  PL -.-> ND["away partner whose slice<br/>was too small to publish —<br/>no page to link to"]
+
+  style GR fill:#e8f0fe,stroke:#4285f4
+  style RN stroke-dasharray: 4 4
+  style ND stroke-dasharray: 4 4
+```
+
+**A partner is named by the graph, not by the row that references them.** A
+result row is three numbers; the partner's name comes from the `nodes` array of
+the same slice. That works because a partner is almost always in the slice —
+and where they are not, the results file carries a small `names` map for the
+overflow. Two lookups, in that order, and no name is stored twice.
+
+**An `away` partner can be real and still unlinkable.** They belong to a
+different slice, which may have fewer than two players and therefore not be
+published at all. The card shows their name and federation without a link,
+rather than pretending the page exists.
 
 ## Identity
 
@@ -46,7 +86,7 @@ The index. Loaded first, on every page.
   "generatedAt": "2026-08-17T14:45:35.126Z",
   "sourceVersion": "114096",
   "seasons": { "from": 1987, "to": 2027 },
-  "totals": { "tournaments": 1688, "players": 12066, "partnerships": 13909 },
+  "totals": { "tournaments": 1688, "players": 12075, "partnerships": 13931 },
   "tiers": { "FIVB World Tour": 1077, "Beach Pro Tour": 475, "...": 0 },
   "countries": [ { "code": "BRA", "name": "Brazil", "iso2": "BR",
                    "genders": { "M": { "nodes": 234, "edges": 412 } } } ]
@@ -97,8 +137,10 @@ file size — roughly a 30% saving for free.
 - The *last* event, not the first, because the card lists seasons newest-first
   and the rows inside one must run the same way.
 - Ordering by this rather than by volume changed which name came first in **38%
-  of the archive's 5,891 shared seasons** — a one-off fill-in routinely
-  outranked the partner somebody actually switched to.
+  of the ~5,900 seasons in which a player had more than one partner** — a
+  one-off fill-in routinely outranked the partner somebody actually switched
+  to. (The 38% was measured when the change was made; the population it was
+  measured over grows a little every week.)
 - Optional, because slices published before the field existed do not carry it;
   the timeline hides itself rather than rendering empty.
 
@@ -192,7 +234,7 @@ a reader expands a season on a card.
 //                         tournament partner rank
 ```
 
-127,643 rows across the archive — an order of magnitude more than everything
+127,899 rows across the archive — an order of magnitude more than everything
 else about a player put together, which is why it is a separate file and a
 separate fetch.
 
@@ -206,7 +248,7 @@ reports brackets (9th covers 9th–16th). Negative values are eliminations befor
 the main draw: `<= -25` in qualification, `-2` on a confederation quota.
 
 **On disk, one player per line.** `JSON.stringify(x, null, 2)` would give each
-of those 127,643 tuples five lines — roughly 640,000 lines to express 127,643
+of those 127,899 tuples five lines — roughly 640,000 lines to express 127,899
 facts, in a tree that is committed. Keying by line puts the diff boundary where
 change actually happens.
 
@@ -219,7 +261,7 @@ interaction with the search box, never with the page.
 { "slices": { "BRA-M": [[100427, "Emanuel Rego", 255]] } }
 ```
 
-Grouped rather than flat so the slice key is not repeated on 12,000 rows.
+Grouped rather than flat so the slice key is not repeated on 12,074 rows.
 Sorted most-tournaments-first, which is the order the search ranks by anyway.
 
 It exists so the box can find a player without the reader knowing their

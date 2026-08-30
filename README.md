@@ -17,7 +17,7 @@ Only **FIVB-organised international** competition:
 
 | Tier | Events |
 |---|---:|
-| FIVB World Tour (1987–2021) | ~1,200 |
+| FIVB World Tour (1987–2021) | ~1,100 |
 | Beach Pro Tour (2022–) | ~500 |
 | Age-group World Championships | ~90 |
 | World Championships | ~30 |
@@ -118,20 +118,20 @@ incremental cache — a full rebuild every week is cheap and self-healing.
 ### Why the default graph looks so sparse
 
 Across the whole dataset the mean is barely two partners per player — but the
-**median player has one partner and one tournament**, because the archive is
+**median player has one partner and two tournaments**, because the archive is
 dominated by one-off entrants:
 
-| Population | Players | Mean partners | Median |
-|---|---:|---:|---:|
-| Everyone | ~12,000 | 2.3 | 1 |
-| ≥3 tournaments | ~5,500 | 3.6 | 3 |
-| ≥10 tournaments | ~2,700 | 5.0 | 5 |
-| ≥50 tournaments | ~700 | 6.7 | 6 |
+| Population | Players | Mean partners | Median partners | Median tournaments |
+|---|---:|---:|---:|---:|
+| Everyone | ~12,100 | 2.3 | 1 | 2 |
+| ≥3 tournaments | ~5,600 | 3.6 | 3 | 9 |
+| ≥10 tournaments | ~2,700 | 5.0 | 5 | 25 |
+| ≥50 tournaments | ~700 | 6.7 | 6 | 82 |
 
-Roughly **half** of all players have exactly one partner and around **four in
-ten** entered exactly one tournament, ever. Career players behave the way you
-would expect — about five partners — and the **Min. events together** filter is
-the quickest way to see only them.
+Roughly **half** of all players have exactly one partner (54%) and around **four
+in ten** entered exactly one tournament, ever (39%). Career players behave the
+way you would expect — about five partners — and the **Min. events together**
+filter is the quickest way to see only them.
 
 The medians are the stable part of that table; the counts move every week and
 the means drift slowly. `llms.txt` carries the same shape figures computed at
@@ -177,17 +177,17 @@ file; the files are served gzipped and there it costs about a kilobyte.
 
 Player detail is a **separate file per slice**, not per player: it loads once
 alongside the graph, so opening a profile costs no network request. Even the
-largest country's pair of files comes to well under 200 KB uncompressed.
+largest country's pair of files comes to about 290 KB uncompressed.
 
 Results are a third file, and the one thing here that is *not* loaded with the
 slice. `/v1/results/` holds one row per tournament per player —
-`[tournament number, partner id, rank]` — which is 127,591 rows across the
+`[tournament number, partner id, rank]` — which is ~128,000 rows across the
 archive, an order of magnitude more data than everything else about a player
 put together. It is fetched the first time somebody expands a season on a
 player card, and never otherwise. The rows carry no names: tournaments are
 named once in the shared `/v1/tournaments.json`, and partners by the slice's
 own graph, with only the ones from outside it (see below) named in the results
-file itself. The largest results file is 85 KB uncompressed.
+file itself. The largest results file is 84 KB uncompressed.
 
 Each tournament also carries the **level** FIVB gave it at the time — "Grand
 Slam", "4-star", "Elite16" — on the 1,552 tour events, and absent on the
@@ -212,7 +212,7 @@ renders it — it is published so this data can be joined to another beach
 volleyball source, and so a link costs one line the day a durable target
 appears.
 
-`/v1/search.json` is the other lazy file — 370 KB fetched on the first
+`/v1/search.json` is the other lazy file — ~390 KB fetched on the first
 interaction with the search box, never with the page. It exists so the box can
 find a player without the reader knowing which country they compete for, which
 is the normal case: you know the name, and for anyone who transferred the
@@ -290,7 +290,7 @@ BASE_PATH=/beachvolleyballgraph/ npm run test:e2e
 `BASE_PATH` has to match between the two — `vite preview` serves at the base the
 site was built with, so a mismatch just 404s.
 
-**259 unit tests** cover the pure logic — tier filtering, pair aggregation and
+**467 unit tests** cover the pure logic — tier filtering, pair aggregation and
 dedupe, medal counting, country-name resolution, the VIS attribute scanner and
 unit conversions, graph layout maths (fit-to-view, label collision, radius
 scaling), slug round-trips and HTML escaping. Logic that starts inside a
@@ -298,13 +298,14 @@ component gets lifted into `web/src/lib/` to be tested there rather than through
 the DOM: the strength threshold and the table's sort comparator were both
 `useMemo` bodies first.
 
-`npm run test:e2e` is the other half: **64 Playwright tests in six files**
+`npm run test:e2e` is the other half: **113 Playwright tests in seven files**
 against the *built* site served by `vite preview`, at the same `BASE_PATH` the
 deploy uses, so what it exercises is what ships — prerendered HTML and asset
 URLs included. They cover rendering and the no-JavaScript path (`smoke`), five
 viewport widths (`layout`), the focus contract and search combobox
-(`keyboard`), the min-events threshold (`filter`), sorting (`table`) and deep
-links with the canonical tag (`routing`).
+(`keyboard`), the min-events threshold (`filter`), sorting (`table`), deep
+links with the canonical tag (`routing`), and tap targets surviving the zoom
+the graph actually chooses (`pointer`).
 
 Every assertion is cross-checked against the JSON the page was built from
 rather than a number written into the test, so the suite survives the weekly

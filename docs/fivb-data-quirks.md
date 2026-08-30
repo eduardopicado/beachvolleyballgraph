@@ -10,7 +10,11 @@ documented in a way that would have saved us the discovery, so it is written
 down here instead of being rediscovered.
 
 Each entry says what the quirk is, how it showed up, and where the pipeline
-deals with it. Counts are from the archive as of **2026-08-09**; they drift.
+deals with it. Counts are from the archive as of **2026-08-09** unless a
+section says otherwise; they drift, and a section re-measured since then names
+its own date. What is being asserted is the *finding* — that a field is empty
+on every row, that 89% of ranks are shared — so a re-measurement is worth doing
+when it might overturn one, not to keep an absolute count current.
 
 ---
 
@@ -754,13 +758,14 @@ megabytes. Two practical consequences:
 ## 14. Only one of the tournament date fields is reliably populated
 
 `BeachTournament` exposes several dates, and they are not equally trustworthy.
-Measured across all 9,264 tournaments VIS returns:
+Measured across all 9,270 tournaments VIS returns (re-measured 2026-08-30; the
+shape has not moved):
 
 | Field | Populated |
 |---|---:|
-| `StartDateMainDraw` | 9,264 (100%) |
-| `EndDateMainDraw` | 9,264 (100%) |
-| `StartDateQualification` | 2,750 (30%) |
+| `StartDateMainDraw` | 9,270 (100%) |
+| `EndDateMainDraw` | 9,270 (100%) |
+| `StartDateQualification` | 2,754 (30%) |
 | `Dates` | 0 |
 
 So `StartDateMainDraw` is the only start date worth ordering by. Using
@@ -920,9 +925,28 @@ run log instead of being noticed by a reader.
 
 ## Reporting these upstream
 
-Most of the above is ours to work around. Two are arguably worth raising with
+Most of the above is ours to work around. These are the ones worth raising with
 FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.
+- **§6**, whether anything in VIS records which federation an athlete
+  represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
+- **§6.5**, names shouting in all capitals or carrying a nickname inside the
+  surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
+- **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
+  notes rather than places.
+- **§6.7 and §6.8**, championship editions whose names never say where they
+  were held. A request rather than a defect report: a populated `DefaultCity`
+  on the Olympics and the World Championships would retire two hand-maintained
+  maps here and help every other consumer of the archive.
+
+Everything in this list is worked around already. Raising them is about the
+archive being better for everyone reading it, not about unblocking this site.
+
+**The draft introduction email covers the first three only.** It is
+`docs/fivb-email.md` on the unsent branch (task #12), written before the name,
+birth-place and championship-naming quirks were found. Anyone picking that task
+up should add the last three to its "would a list of data issues be useful"
+section before sending — it already offers exactly that list.
