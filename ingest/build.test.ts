@@ -127,6 +127,31 @@ describe('normaliseTournaments', () => {
     expect(normaliseTournaments(rows).size).toBe(4);
   });
 
+  it('renames a championship after its host, whatever FIVB called it', () => {
+    // The wiring, not the maps: olympics.test.ts and worlds.test.ts already
+    // check what each map holds, and both would still pass if the build never
+    // consulted one of them. Names are the real ones from VIS.
+    const rows = [
+      { ...tournament('1', 2012), Type: '5', Name: 'Olympic Games 2012' },
+      { ...tournament('2', 2025), Type: '4', Name: 'FIVB Beach Volleyball World Championships' },
+    ];
+    const kept = normaliseTournaments(rows);
+    expect(kept.get('1')!.name).toBe('London 2012');
+    expect(kept.get('2')!.name).toBe('Adelaide');
+  });
+
+  it('leaves every other tier named as FIVB named it', () => {
+    // A tour stop in an Olympic season must not pick up the Games' name, and
+    // a championship season the maps have not been told about keeps FIVB's.
+    const rows = [
+      { ...tournament('1', 2012), Name: 'Gstaad' }, // Beach Pro Tour, London year
+      { ...tournament('2', 2029), Type: '4', Name: 'FIVB Beach Volleyball World Championships' },
+    ];
+    const kept = normaliseTournaments(rows);
+    expect(kept.get('1')!.name).toBe('Gstaad');
+    expect(kept.get('2')!.name).toBe('FIVB Beach Volleyball World Championships');
+  });
+
   it('drops snow volleyball, seminars and multi-sport games', () => {
     const rows = ['36', '35', '44', '50'].map((t, i) => ({
       ...tournament(String(100 + i), 2024),
@@ -1728,5 +1753,54 @@ describe('the published Olympic appearances', () => {
   it('never claims more Games than have been held', () => {
     // Eight editions in the archive; nobody can have attended more.
     expect(players.filter((p) => (p.olympicGames ?? 0) > 8)).toEqual([]);
+  });
+});
+
+/**
+ * What actually got published, rather than what the maps hold.
+ *
+ * `olympics.ts` and `worlds.ts` are unit-tested, and `normaliseTournaments`
+ * is tested for consulting them, but neither proves the names *survive* to
+ * `tournaments.json` — the value travels through the publish step, and a name
+ * that stopped being substituted on the way would publish "FIVB Beach
+ * Volleyball World Championships" against every 2025 and 2027 row without
+ * anything looking obviously wrong.
+ */
+describe('the published championship names', () => {
+  const file = JSON.parse(readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'));
+  const rows = Object.values(file.tournaments) as [string, number, string][];
+  const named = (tier: string) => rows.filter((r) => r[2] === tier).map((r) => r[0]);
+  const worlds = named('world-champs');
+  const olympics = named('olympics');
+
+  it('publishes both draws of every edition', () => {
+    // Vacuity guard, and the premise of keying by season: a men's draw and a
+    // women's, and nothing else, in each season either map covers.
+    expect(worlds.length).toBe(32);
+    expect(olympics.length).toBe(16);
+  });
+
+  it('names each edition after its host and nothing else', () => {
+    // The whole point. Every one of these substrings is in a name FIVB
+    // actually published, and none should reach a card.
+    const noise = /world championship|WCH|FIVB|Olympic|beach volleyball|\d/i;
+    expect(worlds.filter((n) => noise.test(n))).toEqual([]);
+  });
+
+  it('gives the men and the women the same name', () => {
+    // FIVB does not: the 2023 draws differ by a comma, "Tlaxcala Mexico"
+    // against "Tlaxcala, Mexico". Two spellings of one edition would read as
+    // two events on a timeline.
+    //
+    // Grouped by season rather than counted, because a host can and does
+    // recur — Rome held 2011 and 2022, the Netherlands 2015 and 2027 — so it
+    // is the season that must have one name, not the archive.
+    const bySeason = new Map<string, Set<string>>();
+    for (const [name, season, tier] of rows) {
+      if (tier !== 'world-champs' && tier !== 'olympics') continue;
+      const key = `${tier} ${season}`;
+      (bySeason.get(key) ?? bySeason.set(key, new Set()).get(key)!).add(name);
+    }
+    expect([...bySeason].filter(([, names]) => names.size > 1)).toEqual([]);
   });
 });

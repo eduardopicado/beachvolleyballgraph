@@ -545,6 +545,64 @@ and the name beside it, which is the one place a reader gets both.
 reads **0** for Pablo Herrera, who has played six Games, and 3 for Natalie
 Cook, who has played five. Appearances are derived from the results instead.
 
+## 6.8. The World Championships stopped naming their host in 2015
+
+FIVB named the first ten editions after the host city and nothing else, then
+stopped. The 32 published rows — 16 editions, a men's draw and a women's for
+each — break down like this:
+
+```
+1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
+2015             "Beach Volleyball Men WCHs"              no host anywhere
+2019             "WCH Hamburg"                            prefixed
+2022             "Rome World Championships"               suffixed
+2023             "World Championships 2023 - Tlaxcala Mexico"
+                 "World Championships 2023 - Tlaxcala, Mexico"   men vs women
+2025, 2027       "FIVB Beach Volleyball World Championships"     no host anywhere
+```
+
+**Unlike the Olympics, the code does not rescue it.** `MLAX1997` carries Los
+Angeles, but from 2017 every code is `MWCH####` or `WWCH####` — the shape that
+finally became consistent is the one that dropped the city.
+
+**Nor do the location fields.** Three look like they should supply the host,
+measured across all 32 rows:
+
+- **`DefaultCity`** is populated on **4** of them — 2022 and 2025 only.
+- **`CountryName`** is populated on all 32, but names a country.
+- The per-match **`City`** is empty for every edition through 2013, reports
+  three separate towns for 2023 (Tlaxcala 56 matches, Apizaco 27, Huamantla
+  25), court-suffixed strings for 2025 (`Adelaide (CC)`, `Adelaide (2)`,
+  `Adelaide (3)`), and nothing at all for an edition not yet played. It also
+  costs one request per tournament.
+
+**Keyed by season, same as the Olympics.** `ingest/worlds.ts` maps season to
+host; anything not in the map keeps FIVB's own name. The value is the bare host
+rather than "Hamburg 2019", because that is how FIVB itself named ten of the
+sixteen, and because the row already carries a "Worlds" badge with the season
+in the timeline gutter beside it.
+
+**Four editions had no single host city**, and each takes the smallest label
+that contains the whole event rather than one of its towns:
+
+```
+2001  Klagenfurt / Maria Wörth / Velden                 "Klagenfurt"
+2015  The Hague / Amsterdam / Apeldoorn / Rotterdam     "Netherlands"
+2023  Tlaxcala / Apizaco / Huamantla                    "Tlaxcala"
+2027  the 2015 four again                               "Netherlands"
+```
+
+Tlaxcala is the state the other two towns sit in as well as its own capital, so
+it contains the edition; the four Dutch cities are in four provinces, so only
+the country does. 2001 keeps Klagenfurt because that is what FIVB chose to call
+it — deciding a multi-city edition needs a broader label is only this map's call
+where FIVB left the question open.
+
+The per-match `City` field is what established this, and it agrees with the
+public record: 29 matches in The Hague against 25 each in Amsterdam, Apeldoorn
+and Rotterdam for 2015, and 56 in Tlaxcala against 27 in Apizaco and 25 in
+Huamantla for 2023.
+
 ---
 
 ## 7. Federation codes that aren't countries
