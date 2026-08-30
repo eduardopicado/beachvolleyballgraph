@@ -24,7 +24,7 @@
       "dob": "1988-08-12",
       "height": null,
       "weight": null,
-      "birthPlace": "uasin gishu"
+      "birthPlace": "Uasin Gishu"
     },
     {
       "id": 178705,
@@ -40,7 +40,7 @@
       "dob": "1997-10-08",
       "height": 180,
       "weight": 76,
-      "birthPlace": "mavusi"
+      "birthPlace": "Mavusi"
     },
     {
       "id": 179692,
@@ -48,7 +48,7 @@
       "dob": "1999-09-21",
       "height": 193,
       "weight": 79,
-      "birthPlace": "nandi"
+      "birthPlace": "Nandi"
     }
   ]
 }

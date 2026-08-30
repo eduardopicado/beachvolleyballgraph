@@ -154,7 +154,7 @@
       "dob": "1982-10-24",
       "height": 195,
       "weight": 92,
-      "birthPlace": "shandong"
+      "birthPlace": "Shandong"
     },
     {
       "id": 103685,
@@ -1002,7 +1002,7 @@
       "dob": "2008-03-23",
       "height": null,
       "weight": null,
-      "birthPlace": "sichuan",
+      "birthPlace": "Sichuan",
       "tour": {
         "gold": 0,
         "silver": 0,

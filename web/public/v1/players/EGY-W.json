@@ -58,7 +58,7 @@
       "dob": "1998-04-12",
       "height": 180,
       "weight": 71,
-      "birthPlace": "cairo",
+      "birthPlace": "Cairo",
       "olympicGames": 1,
       "filters": [
         "olympics"
@@ -70,7 +70,7 @@
       "dob": "1996-08-11",
       "height": 180,
       "weight": 84,
-      "birthPlace": "cairo",
+      "birthPlace": "Cairo",
       "olympicGames": 2,
       "filters": [
         "olympics",

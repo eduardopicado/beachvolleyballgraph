@@ -190,7 +190,7 @@
       "dob": "1985-02-28",
       "height": null,
       "weight": null,
-      "birthPlace": "camaguan (edo) guarico",
+      "birthPlace": "Camaguan (Edo) Guarico",
       "filters": [
         "world-champs"
       ]
@@ -316,7 +316,7 @@
       "dob": "1977-01-22",
       "height": null,
       "weight": 85,
-      "birthPlace": "san carlos, cojedes",
+      "birthPlace": "San Carlos, Cojedes",
       "olympicGames": 1,
       "filters": [
         "olympics",
@@ -430,7 +430,7 @@
       "dob": "1993-11-19",
       "height": 193,
       "weight": 80,
-      "birthPlace": "barquisimeto"
+      "birthPlace": "Barquisimeto"
     },
     {
       "id": 143057,
