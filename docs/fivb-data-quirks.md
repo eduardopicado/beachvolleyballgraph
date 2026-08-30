@@ -555,6 +555,13 @@ FIVB named the first ten editions after the host city and nothing else, then
 stopped. The 32 published rows — 16 editions, a men's draw and a women's for
 each — break down like this:
 
+(**Sixteen editions, starting 1997.** Ten more were held in Rio de Janeiro
+between 1987 and 1996, and they are deliberately not here: those were the
+*unofficial* championships, not organised by the FIVB, and VIS files them as
+ordinary World Tour Opens — which is what `tiers.ts` publishes them as. The
+first official edition is Los Angeles 1997. See §19: that whole era is also
+where the ranged `Season` values live.)
+
 ```
 1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
 2015             "Beach Volleyball Men WCHs"              no host anywhere
@@ -949,6 +956,15 @@ The Rio de Janeiro series is the clearest case, and it is visible in the codes:
 | `MRIO1991` | 1987 | 1991-02-12 |
 
 Five annual editions, five correct codes, one season between them.
+
+**The ranges are exactly the pre-1997 archive.** All 70 of them were played
+between **1987 and 1996**, and no row outside that window has one. That is the
+era FIVB was not yet running: the ten Rio de Janeiro editions above are the
+*unofficial* World Championships, not organised by the FIVB, and the first
+official edition is Los Angeles 1997 (§6.8, and why `worlds.ts` starts there).
+A block of years rather than a season per year is what back-filled records of
+somebody else's events look like — which is a reason to trust the dates over
+the bucket, not merely a licence to.
 
 **Not the same thing as a wrong code.** Of the 29 codes whose year differed from
 the published season, 25 were this — the code right, the season coarse — and
