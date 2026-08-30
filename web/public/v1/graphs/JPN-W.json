@@ -8,16 +8,16 @@
       "name": "Kimie Kanda",
       "short": "Kanda",
       "tournaments": 1,
-      "first": 1992,
-      "last": 1992
+      "first": 1993,
+      "last": 1993
     },
     {
       "id": 100022,
       "name": "Kazumi Nakajima",
       "short": "Nakajima",
       "tournaments": 1,
-      "first": 1992,
-      "last": 1992
+      "first": 1993,
+      "last": 1993
     },
     {
       "id": 100265,
@@ -40,7 +40,7 @@
       "name": "Teruko \"Peko\" Nakano",
       "short": "Nakano",
       "tournaments": 33,
-      "first": 1993,
+      "first": 1994,
       "last": 2000
     },
     {
@@ -48,7 +48,7 @@
       "name": "Yukiko \"Yuki\" Ishizaka",
       "short": "Ishizaka",
       "tournaments": 59,
-      "first": 1993,
+      "first": 1994,
       "last": 2001
     },
     {
@@ -56,7 +56,7 @@
       "name": "Sachiko Fujita",
       "short": "Fujita",
       "tournaments": 17,
-      "first": 1993,
+      "first": 1994,
       "last": 1996
     },
     {
@@ -64,7 +64,7 @@
       "name": "Yukiko Takahashi",
       "short": "Takahashi",
       "tournaments": 57,
-      "first": 1993,
+      "first": 1994,
       "last": 2001
     },
     {
@@ -1361,13 +1361,13 @@
       "a": 100013,
       "b": 100022,
       "t": 1,
-      "f": 1992,
-      "l": 1992,
+      "f": 1993,
+      "l": 1993,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ]
       ],
       "r": 10
@@ -1476,27 +1476,22 @@
       "a": 100294,
       "b": 100473,
       "t": 19,
-      "f": 1993,
+      "f": 1994,
       "l": 1996,
       "s": [
         [
-          1993,
-          1,
-          379
-        ],
-        [
           1994,
-          5,
-          425
+          4,
+          320
         ],
         [
           1995,
-          10,
-          423
+          11,
+          319
         ],
         [
           1996,
-          3,
+          4,
           221
         ]
       ],
@@ -1596,27 +1591,22 @@
       "a": 100479,
       "b": 100506,
       "t": 17,
-      "f": 1993,
+      "f": 1994,
       "l": 1996,
       "s": [
         [
-          1993,
-          1,
-          403
-        ],
-        [
           1994,
-          4,
+          5,
           320
         ],
         [
           1995,
-          10,
-          423
+          9,
+          319
         ],
         [
           1996,
-          2,
+          3,
           204
         ]
       ],

@@ -8,15 +8,15 @@
       "name": "Tina Klappenbach",
       "short": "Klappenbach",
       "tournaments": 1,
-      "first": 1992,
-      "last": 1992
+      "first": 1993,
+      "last": 1993
     },
     {
       "id": 100039,
       "name": "Cordula Borger",
       "short": "Borger",
       "tournaments": 14,
-      "first": 1992,
+      "first": 1993,
       "last": 1996
     },
     {
@@ -64,15 +64,15 @@
       "name": "Judith Kern",
       "short": "Kern",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 100632,
       "name": "Brigitte \"Gittì\" Lohse",
       "short": "Lohse",
       "tournaments": 2,
-      "first": 1994,
+      "first": 1995,
       "last": 1997
     },
     {
@@ -1369,13 +1369,13 @@
       "a": 100014,
       "b": 100039,
       "t": 1,
-      "f": 1992,
-      "l": 1992,
+      "f": 1993,
+      "l": 1993,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ]
       ],
       "r": 9
@@ -1454,12 +1454,12 @@
       "s": [
         [
           1995,
-          9,
-          423
+          8,
+          319
         ],
         [
           1996,
-          6,
+          7,
           228
         ]
       ],
@@ -1554,13 +1554,13 @@
       "a": 100631,
       "b": 100632,
       "t": 1,
-      "f": 1994,
-      "l": 1994,
+      "f": 1995,
+      "l": 1995,
       "s": [
         [
-          1994,
+          1995,
           1,
-          425
+          60
         ]
       ],
       "r": 9

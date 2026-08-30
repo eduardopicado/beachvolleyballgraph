@@ -8,7 +8,7 @@
       "name": "Pedro Enrique \"Tapita\" Tapia Palacios",
       "short": "Tapia",
       "tournaments": 5,
-      "first": 1993,
+      "first": 1994,
       "last": 1997
     },
     {
@@ -16,15 +16,15 @@
       "name": "José Richard Pastor",
       "short": "Pastor",
       "tournaments": 2,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100594,
       "name": "Carlos Cartaya",
       "short": "Cartaya",
       "tournaments": 3,
-      "first": 1993,
+      "first": 1994,
       "last": 1999
     },
     {
@@ -32,7 +32,7 @@
       "name": "Rojas \"Luis\" Nacero",
       "short": "Nacero",
       "tournaments": 2,
-      "first": 1993,
+      "first": 1994,
       "last": 1999
     },
     {
@@ -489,13 +489,13 @@
       "a": 100308,
       "b": 100309,
       "t": 2,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           2,
-          396
+          31
         ]
       ],
       "r": 25
@@ -519,13 +519,13 @@
       "a": 100594,
       "b": 101244,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          382
+          17
         ]
       ],
       "r": 21

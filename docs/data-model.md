@@ -201,13 +201,15 @@ derived, and VIS itself carries no URL (`WebSite` and `BuyTicketsUrl` are empty
 on every record). Nothing renders it — it exists so this data can be joined to
 another source, and so a link is one line the day a durable target appears.
 
-**The code's year is not the `season` beside it**, on 29 of the 1,688. The four
-Rio de Janeiro events coded `MRIO1988` through `MRIO1991` all publish as season
-1987. That is not a coding error: VIS gives those rows a `Season` of `"1987-91"`
-— a *range*, not a year — and `parseSeason` keeps the first four digits. The
-code carries the year the event was actually played, and on 26 of the 29 it is
-the code that matches `StartDateMainDraw`. Quirks §19. Do not join these two
-fields expecting them to agree, in either direction.
+**The code's year and the `season` beside it agree on all but six.** They used
+to differ on 29: the four Rio de Janeiro events coded `MRIO1988` through
+`MRIO1991` all published as season 1987, because VIS gives those rows a `Season`
+of `"1987-91"` — a *range*, not a year. `seasonFor` now dates a ranged season by
+`StartDateMainDraw`, so 25 of them line up. The six that remain are three
+genuinely mis-coded events, the two Tokyo rows named for 2020 and played in
+2021, and one January event whose code names the season it opened. Quirks §19 —
+so the two fields are close to interchangeable and still must not be joined as
+if they were.
 
 **`level` is what FIVB called the event's rung at the time** — "Grand Slam",
 "4-star", "Elite16". Present on the 1,552 tour events, absent on the Olympics,

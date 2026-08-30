@@ -950,20 +950,32 @@ The Rio de Janeiro series is the clearest case, and it is visible in the codes:
 
 Five annual editions, five correct codes, one season between them.
 
-**Not the same thing as a wrong code.** Of the 29 codes whose year differs from
-the published season, 26 are this — the code is right and the season is coarse.
-The other three are the reverse: `WCAR1991` was played in August 1994, and
-`MCAP2023` / `WCAP2023` are dated November 2020. `MTOK2020` is deliberate and
-belongs to §6.7 — the Games are named for 2020 and were played in 2021.
+**Not the same thing as a wrong code.** Of the 29 codes whose year differed from
+the published season, 25 were this — the code right, the season coarse — and
+they agree now. Six disagreements remain and all are explicable: `WCAR1991` was
+played in August 1994 and `MCAP2023` / `WCAP2023` in November 2020, which are
+genuinely mis-coded; the two Tokyo rows are named for 2020 and were played in
+2021 (§6.7); and `MSAN1995` is a January 1996 event whose code names the season
+it opened rather than the year it ran.
 
-**Handled in.** `parseSeason` in `ingest/build.ts`, for the half of the problem
-it was written for: the events are kept rather than dropped. The other half —
-that 26 of them are then dated wrongly — is open. `StartDateMainDraw` is
-populated on 100% of rows (§14), so falling back to the date's year when
-`Season` is a range is available and cheap. It would move 26 tournaments
-between seasons, which shifts `first`/`last` on every node and edge that
-references them, so it wants its own change, its own regression-check run and
-its own look at the timeline.
+**The offset gave it away twice over.** `startOffset` is days from 1 January of
+the season, and is documented as two or three digits. While the range start won,
+**18 rows ran to four** — `MSYD1991` sat **1,533 days** after the 1 January of
+the 1987 it was filed under. A field cannot be that far into its own season.
+
+**Handled in.** `seasonFor` in `ingest/build.ts`. A ranged `Season` defers to
+`StartDateMainDraw`, which is populated on every row (§14) and, on all 70 of
+these, lands inside the range the season itself declares — so the range is the
+bound, and a date outside it leaves the start in place. A **single-year**
+`Season` still wins over its date, deliberately: a southern season opens in the
+previous December, so an event dated 2019-12-05 in season 2020 is filed exactly
+right, and `startOffset` goes negative to say so. Only a range has lost
+information.
+
+25 tournaments moved, which corrects the careers built on top of them: Paulo
+Roberto "Paulão" Moreira da Costa published as 1987–2003 and is 1990–2003, his
+earliest event being the Rio de Janeiro of February 1990. No four-digit offset
+survives.
 
 ---
 

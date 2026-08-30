@@ -33,7 +33,7 @@
       "short": "Gordeev",
       "tournaments": 4,
       "first": 1991,
-      "last": 1992
+      "last": 1993
     },
     {
       "id": 100114,
@@ -56,7 +56,7 @@
       "name": "Vladimir Bouralev",
       "short": "Bouralev V.",
       "tournaments": 3,
-      "first": 1993,
+      "first": 1994,
       "last": 1998
     },
     {
@@ -64,7 +64,7 @@
       "name": "Mikhail Bouralev",
       "short": "Bouralev M.",
       "tournaments": 8,
-      "first": 1993,
+      "first": 1994,
       "last": 2001
     },
     {
@@ -72,7 +72,7 @@
       "name": "Dmitry Karasev",
       "short": "Karasev",
       "tournaments": 102,
-      "first": 1994,
+      "first": 1995,
       "last": 2009
     },
     {
@@ -128,7 +128,7 @@
       "name": "Dmitri Kouvitchka",
       "short": "Kouvitchka",
       "tournaments": 33,
-      "first": 1987,
+      "first": 1990,
       "last": 2002
     },
     {
@@ -144,48 +144,48 @@
       "name": "... Margus",
       "short": "Margus",
       "tournaments": 2,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1990
     },
     {
       "id": 101227,
       "name": "Valts Mihelsons",
       "short": "Mihelson",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1989
     },
     {
       "id": 101229,
       "name": "... Tikas",
       "short": "Tikas",
       "tournaments": 2,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1990
     },
     {
       "id": 101231,
       "name": "Ivan Zagorsky",
       "short": "Zagorsky",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101233,
       "name": "Igor Abdrakhmanov",
       "short": "Abdrakhmanov",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1989
     },
     {
       "id": 101234,
       "name": "Alexandr Ovsiannikov",
       "short": "Ovsiannikov",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1989
     },
     {
       "id": 101347,
@@ -1544,17 +1544,12 @@
       "a": 100048,
       "b": 100644,
       "t": 4,
-      "f": 1994,
+      "f": 1995,
       "l": 1995,
       "s": [
         [
-          1994,
-          1,
-          411
-        ],
-        [
           1995,
-          3,
+          4,
           235
         ]
       ],
@@ -1665,7 +1660,7 @@
       "b": 100112,
       "t": 4,
       "f": 1991,
-      "l": 1992,
+      "l": 1993,
       "s": [
         [
           1991,
@@ -1674,8 +1669,13 @@
         ],
         [
           1992,
-          3,
-          405
+          2,
+          230
+        ],
+        [
+          1993,
+          1,
+          39
         ]
       ],
       "r": 13
@@ -1744,13 +1744,13 @@
       "a": 100282,
       "b": 100283,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ]
       ],
       "r": 28
@@ -2273,13 +2273,13 @@
       "a": 100858,
       "b": 101231,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1316
+          220
         ]
       ],
       "r": 7
@@ -2328,13 +2328,18 @@
       "a": 101226,
       "b": 101229,
       "t": 2,
-      "f": 1987,
-      "l": 1987,
+      "f": 1989,
+      "l": 1990,
       "s": [
         [
-          1987,
-          2,
-          1139
+          1989,
+          1,
+          48
+        ],
+        [
+          1990,
+          1,
+          43
         ]
       ],
       "r": 17
@@ -2343,13 +2348,13 @@
       "a": 101233,
       "b": 101234,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1989,
+      "l": 1989,
       "s": [
         [
-          1987,
+          1989,
           1,
-          946
+          215
         ]
       ],
       "r": 6
