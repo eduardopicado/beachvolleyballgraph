@@ -73,6 +73,7 @@
       "height": 198,
       "weight": 87,
       "birthPlace": "Athens",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -93,6 +94,7 @@
       "height": null,
       "weight": 83,
       "birthPlace": "Athens",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

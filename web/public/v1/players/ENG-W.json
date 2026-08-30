@@ -9,6 +9,7 @@
       "height": 168,
       "weight": 56,
       "birthPlace": "Whitburn (Scotland)",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -21,6 +22,7 @@
       "height": 180,
       "weight": 70,
       "birthPlace": "Weymouth",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -228,6 +230,7 @@
       "height": 178,
       "weight": 65,
       "birthPlace": "Poole",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

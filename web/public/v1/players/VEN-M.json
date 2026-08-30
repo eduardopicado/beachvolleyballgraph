@@ -202,6 +202,7 @@
       "height": 184,
       "weight": 81,
       "birthPlace": "Barinas, Edo. Barinas",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -316,6 +317,7 @@
       "height": null,
       "weight": 85,
       "birthPlace": "san carlos, cojedes",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

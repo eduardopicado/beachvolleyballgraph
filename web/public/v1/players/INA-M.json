@@ -8,6 +8,7 @@
       "dob": "1969-06-07",
       "height": 183,
       "weight": 75,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -25,6 +26,7 @@
       "dob": "1973-04-10",
       "height": 182,
       "weight": 75,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]

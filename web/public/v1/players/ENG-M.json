@@ -308,6 +308,7 @@
       "height": 198,
       "weight": 93,
       "birthPlace": "London",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ],

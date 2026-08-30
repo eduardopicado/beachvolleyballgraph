@@ -56,6 +56,7 @@
       "dob": "1987-06-04",
       "height": 194,
       "weight": 86,
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -68,6 +69,7 @@
       "height": 190,
       "weight": 81,
       "birthPlace": "Hammam Laghzaz",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

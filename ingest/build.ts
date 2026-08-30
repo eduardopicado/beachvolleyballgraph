@@ -531,6 +531,39 @@ export function timelineFiltersByPlayer(
   return out;
 }
 
+/**
+ * How many Olympic Games each player competed at.
+ *
+ * The card has always had an Olympics tile, but it was drawn from the medal
+ * tally, so it appeared for 76 players and vanished for the other 412 — a tile
+ * headed "Olympics" absent for 84.4% of the people who went to the Olympics.
+ * Martin Alejo Conde has four Games and no tile at all. Being an Olympian is
+ * the achievement; the medal is a separate one.
+ *
+ * Counted over distinct tournaments rather than result rows. A player has one
+ * entry per Games in practice, but the pair is what a row records, and nothing
+ * upstream guarantees a player is never entered twice — counting rows would
+ * turn that into a second Games.
+ *
+ * Deliberately not extended to the World Championships. That reaches 1,359
+ * players against 488 here, and a first-round exit twice over is not the same
+ * kind of fact; the Worlds tile stays a medal tally.
+ */
+export function olympicGamesByPlayer(
+  results: ReadonlyMap<number, ResultEntry[]>,
+  tournaments: ReadonlyMap<string, Tournament>,
+): Map<number, number> {
+  const out = new Map<number, number>();
+  for (const [player, entries] of results) {
+    const games = new Set<number>();
+    for (const [no] of entries) {
+      if (tournaments.get(String(no))?.tier === 'olympics') games.add(no);
+    }
+    if (games.size > 0) out.set(player, games.size);
+  }
+  return out;
+}
+
 function fullName(row: VisRow): string {
   const first = (row.FirstName ?? '').trim();
   const last = (row.LastName ?? '').trim();

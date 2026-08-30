@@ -59,6 +59,7 @@
       "height": 180,
       "weight": 71,
       "birthPlace": "cairo",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -70,6 +71,7 @@
       "height": 180,
       "weight": 84,
       "birthPlace": "cairo",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -90,6 +92,7 @@
       "height": 184,
       "weight": 83,
       "birthPlace": "Cairo",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

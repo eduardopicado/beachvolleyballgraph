@@ -163,6 +163,7 @@
         "silver": 2,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -184,6 +185,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Moscow, reg., Kaliningrad",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -288,6 +290,7 @@
         "silver": 1,
         "bronze": 5
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -452,6 +455,7 @@
       "height": 187,
       "weight": 64,
       "birthPlace": "Moscow",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -493,6 +497,7 @@
         "silver": 1,
         "bronze": 3
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -537,6 +542,7 @@
       "dob": "1989-02-27",
       "height": 175,
       "weight": 70,
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -766,6 +772,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -870,6 +877,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

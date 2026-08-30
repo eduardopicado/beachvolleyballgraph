@@ -52,6 +52,7 @@
       "height": 196,
       "weight": null,
       "birthPlace": "Cape Town",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -306,6 +307,7 @@
       "dob": null,
       "height": null,
       "weight": null,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -450,6 +452,7 @@
       "dob": "1979-07-11",
       "height": 186,
       "weight": 92,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -480,6 +483,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

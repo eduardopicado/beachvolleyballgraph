@@ -8,6 +8,7 @@
       "dob": "1964-06-18",
       "height": 192,
       "weight": 78,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -19,6 +20,7 @@
       "height": 176,
       "weight": 66,
       "birthPlace": "Paris",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -58,6 +60,7 @@
       "height": 182,
       "weight": 70,
       "birthPlace": "Nogent s/Marne",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -1053,6 +1056,7 @@
         "silver": 1,
         "bronze": 5
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1085,6 +1089,7 @@
         "silver": 0,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1117,6 +1122,7 @@
         "silver": 0,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1172,6 +1178,7 @@
         "silver": 1,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

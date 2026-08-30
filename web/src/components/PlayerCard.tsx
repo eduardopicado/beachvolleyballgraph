@@ -639,10 +639,30 @@ export function PlayerCard({
           <dt>Seasons</dt>
           <dd>{seasonSpan(node.first, node.last)}</dd>
         </div>
-        {detail?.olympics && (
+        {/* Drawn from appearances as well as medals, because the tile is headed
+            "Olympics" and used to appear only for the 76 published players who
+            medalled — absent for the other 412, which is 84.4% of the people it
+            names. Being an Olympian is the fact; the medal is a second one.
+
+            The Games count sits under the medals rather than replacing them,
+            the same shape the birth city takes under the date. A player with no
+            medal gets the count as the value, so the tile still says something
+            rather than showing an em dash. */}
+        {(detail?.olympics || detail?.olympicGames) && (
           <div>
             <dt>Olympics</dt>
-            <dd aria-label={medalAriaLabel(detail.olympics)}>{formatMedals(detail.olympics)}</dd>
+            <dd aria-label={detail.olympics ? medalAriaLabel(detail.olympics) : undefined}>
+              {detail.olympics ? (
+                <>
+                  {formatMedals(detail.olympics)}
+                  {detail.olympicGames ? (
+                    <span className="sub">{plural(detail.olympicGames, 'Game')}</span>
+                  ) : null}
+                </>
+              ) : (
+                plural(detail.olympicGames!, 'Game')
+              )}
+            </dd>
           </div>
         )}
         {detail?.worldChamps && (

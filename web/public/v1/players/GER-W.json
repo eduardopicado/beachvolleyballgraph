@@ -49,6 +49,7 @@
         "silver": 5,
         "bronze": 1
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -66,6 +67,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "tour-podium"
@@ -107,6 +109,7 @@
         "silver": 3,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -153,6 +156,7 @@
       "height": 179,
       "weight": 69,
       "birthPlace": "Remscheid",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -165,6 +169,7 @@
       "height": 184,
       "weight": 76,
       "birthPlace": "Saarlouis",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -193,6 +198,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -327,6 +333,7 @@
         "silver": 0,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -384,6 +391,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -450,6 +458,7 @@
         "silver": 7,
         "bronze": 6
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -483,6 +492,7 @@
         "silver": 5,
         "bronze": 9
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -594,6 +604,7 @@
         "silver": 5,
         "bronze": 9
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -663,6 +674,7 @@
         "silver": 12,
         "bronze": 10
       },
+      "olympicGames": 5,
       "filters": [
         "olympics",
         "world-champs",
@@ -696,6 +708,7 @@
         "silver": 8,
         "bronze": 5
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -721,6 +734,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -767,6 +781,7 @@
         "silver": 1,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -856,6 +871,7 @@
         "silver": 4,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -916,6 +932,7 @@
         "silver": 2,
         "bronze": 7
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -1088,6 +1105,7 @@
         "silver": 4,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1227,6 +1245,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1349,6 +1368,7 @@
         "silver": 3,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

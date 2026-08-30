@@ -9,6 +9,7 @@
       "height": 173,
       "weight": 75,
       "birthPlace": "Mauritius",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -21,6 +22,7 @@
       "height": 180,
       "weight": 77,
       "birthPlace": "Curepipe, Mauritius",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

@@ -9,6 +9,7 @@
       "height": 178,
       "weight": 70,
       "birthPlace": "Johannesburg",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

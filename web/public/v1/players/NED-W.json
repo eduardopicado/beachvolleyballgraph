@@ -37,6 +37,7 @@
       "height": 179,
       "weight": 65,
       "birthPlace": "Rotterdam",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -48,6 +49,7 @@
       "dob": "1969-08-07",
       "height": 183,
       "weight": 68,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -106,6 +108,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -156,6 +159,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -197,6 +201,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -223,6 +228,7 @@
         "silver": 2,
         "bronze": 6
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -265,6 +271,7 @@
         "silver": 5,
         "bronze": 8
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -392,6 +399,7 @@
         "silver": 6,
         "bronze": 7
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -468,6 +476,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -481,6 +490,7 @@
       "height": 183,
       "weight": 73,
       "birthPlace": "Wageningen",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -797,6 +807,7 @@
         "silver": 6,
         "bronze": 6
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -887,6 +898,7 @@
         "silver": 7,
         "bronze": 6
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",

@@ -9,6 +9,7 @@
       "height": 178,
       "weight": 67,
       "birthPlace": "Viseu",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -82,6 +83,7 @@
       "height": 169,
       "weight": 60,
       "birthPlace": "Porto",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

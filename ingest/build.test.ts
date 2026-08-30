@@ -17,6 +17,7 @@ import {
   tidyName,
   tidyBirthPlace,
   timelineFiltersByPlayer,
+  olympicGamesByPlayer,
 } from './build.js';
 import type { VisRow } from './vis.js';
 
@@ -1653,5 +1654,79 @@ describe('timelineFiltersByPlayer', () => {
   it('says nothing at all for the great majority', () => {
     expect(filtersFor([[4, 2, 17]])).toBeUndefined();
     expect(timelineFiltersByPlayer(new Map(), tours).size).toBe(0);
+  });
+});
+
+describe('olympicGamesByPlayer', () => {
+  const tours = normaliseTournaments([
+    { ...tournament('1', 2004), Type: '5' }, // Olympics
+    { ...tournament('2', 2008), Type: '5' }, // Olympics
+    { ...tournament('3', 2003), Type: '4' }, // World Championships
+    { ...tournament('4', 2006), Type: '1' }, // World Tour
+  ]);
+  const gamesFor = (entries: [number, number, number][]) =>
+    olympicGamesByPlayer(new Map([[1, entries]]), tours).get(1);
+
+  it('counts a Games whatever the finish', () => {
+    // The whole point: 412 of the 488 published Olympians never medalled, and
+    // the tile was invisible for every one of them.
+    expect(gamesFor([[1, 2, 19]])).toBe(1);
+    expect(gamesFor([[1, 2, 1]])).toBe(1);
+  });
+
+  it('counts each Games once, not each row', () => {
+    // A player has one entry per Games in practice, but a row records a pair
+    // and nothing upstream forbids a second entry — counting rows would turn
+    // that into a second Games.
+    expect(gamesFor([[1, 2, 9], [1, 3, 9]])).toBe(1);
+    expect(gamesFor([[1, 2, 9], [2, 3, 5]])).toBe(2);
+  });
+
+  it('counts nothing but the Olympics', () => {
+    expect(gamesFor([[3, 2, 1], [4, 2, 1]])).toBeUndefined();
+    expect(gamesFor([[1, 2, 9], [3, 2, 1], [4, 2, 2]])).toBe(1);
+  });
+
+  it('says nothing for the 96% who never went', () => {
+    expect(gamesFor([[4, 2, 5]])).toBeUndefined();
+    expect(olympicGamesByPlayer(new Map(), tours).size).toBe(0);
+  });
+});
+
+/**
+ * The published artifact, not the rule on a fixture.
+ *
+ * A medal without an appearance would be incoherent — you cannot medal at a
+ * Games you did not attend — so it is worth asserting on the real data rather
+ * than trusting that two derivations of the same archive agree.
+ */
+describe('the published Olympic appearances', () => {
+  const players: { olympics?: unknown; olympicGames?: number }[] = [];
+  for (const f of readdirSync(new URL('../web/public/v1/players', import.meta.url))) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/players/${f}`, import.meta.url), 'utf8'));
+    players.push(...file.players);
+  }
+
+  it('reaches far more players than the medal tally does', () => {
+    const games = players.filter((p) => p.olympicGames !== undefined);
+    const medals = players.filter((p) => p.olympics !== undefined);
+    expect(games.length).toBeGreaterThan(300);
+    expect(games.length).toBeGreaterThan(medals.length * 3);
+  });
+
+  it('never records a medal without a Games to have won it at', () => {
+    expect(players.filter((p) => p.olympics !== undefined && p.olympicGames === undefined)).toEqual([]);
+  });
+
+  it('is always a positive whole number', () => {
+    const bad = players.filter(
+      (p) => p.olympicGames !== undefined && (!Number.isInteger(p.olympicGames) || p.olympicGames < 1),
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('never claims more Games than have been held', () => {
+    // Eight editions in the archive; nobody can have attended more.
+    expect(players.filter((p) => (p.olympicGames ?? 0) > 8)).toEqual([]);
   });
 });

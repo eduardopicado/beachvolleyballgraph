@@ -14,6 +14,7 @@
         "silver": 3,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -32,6 +33,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -253,6 +255,7 @@
         "silver": 2,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -285,6 +288,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -472,6 +476,7 @@
       "height": 190,
       "weight": 89,
       "birthPlace": "Grosseto",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -731,6 +736,7 @@
         "silver": 2,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1485,6 +1491,7 @@
         "silver": 11,
         "bronze": 13
       },
+      "olympicGames": 4,
       "filters": [
         "olympics",
         "world-champs",
@@ -1662,6 +1669,7 @@
         "silver": 8,
         "bronze": 10
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -1806,6 +1814,7 @@
         "silver": 4,
         "bronze": 5
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -2004,6 +2013,7 @@
         "silver": 2,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -2134,6 +2144,7 @@
         "silver": 2,
         "bronze": 4
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -2329,6 +2340,7 @@
         "silver": 4,
         "bronze": 5
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

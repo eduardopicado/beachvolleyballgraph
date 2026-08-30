@@ -25,6 +25,7 @@
       "dob": "1965-04-01",
       "height": 165,
       "weight": 55,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -64,6 +65,7 @@
         "silver": 0,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -103,6 +105,7 @@
       "height": 162,
       "weight": 52,
       "birthPlace": "Mexico",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -172,6 +175,7 @@
       "height": 181,
       "weight": 70,
       "birthPlace": "Guamuchil Sinaloa",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -242,6 +246,7 @@
       "height": 173,
       "weight": 64,
       "birthPlace": "Tijuana BC",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -456,6 +461,7 @@
       "height": 196,
       "weight": 76,
       "birthPlace": "Torreon",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

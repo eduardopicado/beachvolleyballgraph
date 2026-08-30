@@ -37,6 +37,7 @@
       "height": 190,
       "weight": 87,
       "birthPlace": "Hulst",
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -48,6 +49,7 @@
       "height": 196,
       "weight": 83,
       "birthPlace": "Hengelo",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -126,6 +128,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -189,6 +192,7 @@
       "height": 185,
       "weight": 90,
       "birthPlace": "Enschede",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -359,6 +363,7 @@
         "silver": 5,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -382,6 +387,7 @@
         "silver": 6,
         "bronze": 2
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -446,6 +452,7 @@
         "silver": 10,
         "bronze": 7
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -469,6 +476,7 @@
         "silver": 2,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -544,6 +552,7 @@
         "silver": 10,
         "bronze": 7
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -731,6 +740,7 @@
         "silver": 1,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -961,6 +971,7 @@
         "silver": 2,
         "bronze": 9
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -979,6 +990,7 @@
         "silver": 3,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1014,6 +1026,7 @@
         "silver": 3,
         "bronze": 9
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

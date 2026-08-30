@@ -8,6 +8,7 @@
       "dob": "1965-06-26",
       "height": 172,
       "weight": 70,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -88,6 +89,7 @@
         "silver": 7,
         "bronze": 13
       },
+      "olympicGames": 5,
       "filters": [
         "olympics",
         "world-champs",
@@ -101,6 +103,7 @@
       "height": 170,
       "weight": 67,
       "birthPlace": "Brisbane",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -157,6 +160,7 @@
         "silver": 9,
         "bronze": 10
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -175,6 +179,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -308,6 +313,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -397,6 +403,7 @@
       "height": 181,
       "weight": 78,
       "birthPlace": "Townsville QLD",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -414,6 +421,7 @@
         "silver": 4,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -458,6 +466,7 @@
         "silver": 1,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -649,6 +658,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -700,6 +710,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -772,6 +783,7 @@
         "silver": 4,
         "bronze": 7
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -879,6 +891,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -922,6 +935,7 @@
         "silver": 3,
         "bronze": 8
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -940,6 +954,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

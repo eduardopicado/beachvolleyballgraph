@@ -43,6 +43,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -153,6 +154,7 @@
         "silver": 1,
         "bronze": 0
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -173,6 +175,7 @@
       "height": 169,
       "weight": 66,
       "birthPlace": "Santa Fe, Santa Fe province",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -354,6 +357,7 @@
       "dob": "1991-06-30",
       "height": null,
       "weight": null,
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"

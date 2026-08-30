@@ -8,6 +8,7 @@
       "dob": "1969-02-24",
       "height": 178,
       "weight": 64,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -18,6 +19,7 @@
       "dob": "1968-09-05",
       "height": 184,
       "weight": 74,
+      "olympicGames": 1,
       "filters": [
         "olympics"
       ]
@@ -80,6 +82,7 @@
       "height": null,
       "weight": null,
       "birthPlace": "Bergen",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -92,6 +95,7 @@
       "height": 182,
       "weight": 73,
       "birthPlace": "Stavanger",
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs"
@@ -142,6 +146,7 @@
         "silver": 2,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -209,6 +214,7 @@
         "silver": 2,
         "bronze": 2
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",

@@ -63,6 +63,7 @@
         "silver": 0,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -98,6 +99,7 @@
         "silver": 5,
         "bronze": 6
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -146,6 +148,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -163,6 +166,7 @@
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -234,6 +238,7 @@
         "silver": 3,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -404,6 +409,7 @@
         "silver": 0,
         "bronze": 1
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -566,6 +572,7 @@
         "silver": 13,
         "bronze": 13
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -843,6 +850,7 @@
         "silver": 5,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -866,6 +874,7 @@
         "silver": 5,
         "bronze": 3
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -901,6 +910,7 @@
         "silver": 10,
         "bronze": 15
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -1025,6 +1035,7 @@
         "silver": 17,
         "bronze": 8
       },
+      "olympicGames": 4,
       "filters": [
         "olympics",
         "world-champs",
@@ -1085,6 +1096,7 @@
         "silver": 11,
         "bronze": 11
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1195,6 +1207,7 @@
         "silver": 19,
         "bronze": 12
       },
+      "olympicGames": 4,
       "filters": [
         "olympics",
         "world-champs",
@@ -1397,6 +1410,7 @@
         "silver": 0,
         "bronze": 0
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1415,6 +1429,7 @@
         "silver": 4,
         "bronze": 7
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1535,6 +1550,7 @@
         "silver": 1,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -1723,6 +1739,7 @@
         "silver": 15,
         "bronze": 13
       },
+      "olympicGames": 3,
       "filters": [
         "olympics",
         "world-champs",
@@ -2031,6 +2048,7 @@
         "silver": 3,
         "bronze": 8
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -2240,6 +2258,7 @@
         "silver": 1,
         "bronze": 6
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -2416,6 +2435,7 @@
         "silver": 4,
         "bronze": 4
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -2446,6 +2466,7 @@
         "silver": 5,
         "bronze": 4
       },
+      "olympicGames": 2,
       "filters": [
         "olympics",
         "world-champs",
@@ -2975,6 +2996,7 @@
         "silver": 5,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",
@@ -3848,6 +3870,7 @@
         "silver": 5,
         "bronze": 2
       },
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs",

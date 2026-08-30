@@ -9,6 +9,7 @@
       "height": 180,
       "weight": 70,
       "birthPlace": "Kakamega",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
@@ -21,6 +22,7 @@
       "height": 187,
       "weight": 68,
       "birthPlace": "Lugari",
+      "olympicGames": 1,
       "filters": [
         "olympics",
         "world-champs"
