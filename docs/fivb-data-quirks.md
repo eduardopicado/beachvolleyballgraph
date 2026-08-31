@@ -937,7 +937,7 @@ They are not mixed pairs. All three played a men's event:
 |---|---|---|
 | Josue Flores Garita + Flores Garita Andres Felipe (CRC) | Halifax 2012 | `MU212012` |
 | Anas Diouri + Hafid Ouchrif (MAR) | Agadir 2011 | `MAGA2011` |
-| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro | `MRIO1989` |
+| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro 1989 | `MRIO1989` |
 
 The shared symptom hides three unrelated defects, and only the middle one is
 the simple mislabel it looks like.
@@ -967,6 +967,34 @@ editions the sport treats as its unofficial World Championship (§6.8), and one
 of only eleven FIVB events in the whole 1987-91 bucket. A career that opens at
 the biggest tournament of its era, then resumes once, a decade later, at an
 ordinary Open, is not a career. It is two records that were joined by mistake.
+
+**The era around it is sound, which is what makes this a bad row rather than a
+bad decade.** The obvious worry about a defect in the 1987-91 bucket is that
+the whole bucket is guesswork. It is not. `MRIO1987` can be checked against a
+contemporary newspaper results table — reproduced in FIVB's own article on the
+event, and supplied by the site's author — and VIS matches it **exactly**: the
+same 20 pairs, in the same order, 1 through 20, right down to Ojeda/Ojeda
+(ARG) in 20th. Twenty rows in the newspaper, twenty in VIS.
+
+So the archive of this period is not approximate. `MRIO1989`'s 24 rows are a
+different draw with a different field, and rank 21 — the French pair — is a
+single bad row inside an otherwise well-kept record.
+
+**A warning for anyone re-checking this.** These editions are trivially easy to
+mix up, and doing so manufactures a discrepancy that is not there. Nine men's
+Rio events sit at consecutive tournament numbers 335-343, all coded `MRIO…`,
+all named just "Rio de Janeiro", all staged in February, and every one of them
+filed under a *ranged* `Season` (§19) rather than the year it was played:
+
+```
+No=335  MRIO1987  Season=1987-91  main=1987-02-17
+No=337  MRIO1989  Season=1987-91  main=1989-02-18
+```
+
+Smith/Stoklos won both 1987 and 1989, so a comparison against the wrong edition
+still agrees at rank 1 and then diverges from rank 2 down — which reads like a
+corrupt ranking rather than the mismatched-edition error it actually is.
+`StartDateMainDraw` is the field that tells them apart; `Season` cannot.
 
 **The Costa Rican case is a duplicated athlete, not just a mislabelled one.**
 Josue Flores Garita partnered "Andres" at two consecutive under-21 events, under
