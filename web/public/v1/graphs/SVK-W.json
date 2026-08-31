@@ -207,7 +207,7 @@
       "id": 134031,
       "name": "Silvia Poszmikova",
       "short": "Poszmikova",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2015,
       "last": 2026
     },
@@ -319,7 +319,7 @@
       "id": 158117,
       "name": "Katarina Kapralova",
       "short": "Kapralova",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -949,7 +949,7 @@
     {
       "a": 134031,
       "b": 158117,
-      "t": 3,
+      "t": 4,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -960,11 +960,11 @@
         ],
         [
           2026,
-          2,
-          183
+          3,
+          239
         ]
       ],
-      "r": 17
+      "r": 13
     },
     {
       "a": 134031,

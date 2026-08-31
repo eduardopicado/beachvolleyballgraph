@@ -931,7 +931,7 @@
       "weight": 72,
       "tour": {
         "gold": 4,
-        "silver": 3,
+        "silver": 4,
         "bronze": 2
       },
       "olympicGames": 1,
@@ -1027,7 +1027,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 2,
+        "gold": 3,
         "silver": 0,
         "bronze": 1
       },
@@ -1113,7 +1113,7 @@
       "birthPlace": "Brno",
       "tour": {
         "gold": 2,
-        "silver": 1,
+        "silver": 2,
         "bronze": 0
       },
       "filters": [
@@ -1173,7 +1173,7 @@
       "height": null,
       "weight": null,
       "tour": {
-        "gold": 2,
+        "gold": 3,
         "silver": 0,
         "bronze": 1
       },
@@ -1198,7 +1198,7 @@
       "tour": {
         "gold": 2,
         "silver": 2,
-        "bronze": 0
+        "bronze": 1
       },
       "filters": [
         "tour-podium"
@@ -1358,7 +1358,7 @@
       "tour": {
         "gold": 1,
         "silver": 2,
-        "bronze": 0
+        "bronze": 1
       },
       "filters": [
         "tour-podium"
@@ -1450,6 +1450,13 @@
       "weight": null
     },
     {
+      "id": 202727,
+      "name": "Jana Mrkvičková",
+      "dob": "2006-04-26",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 209533,
       "name": "Johana Stiburkova",
       "dob": "2005-10-23",
@@ -1479,6 +1486,13 @@
       "birthPlace": "Brno"
     },
     {
+      "id": 212661,
+      "name": "Zuzana Lajkebova",
+      "dob": "2009-04-13",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 212664,
       "name": "Ema Sebova",
       "dob": "2009-01-02",
@@ -1505,6 +1519,14 @@
       "id": 222741,
       "name": "Barbora Rudicka",
       "dob": "2005-06-03",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Brno"
+    },
+    {
+      "id": 223611,
+      "name": "Barbora Dostalikova",
+      "dob": "2009-10-27",
       "height": null,
       "weight": null,
       "birthPlace": "Brno"

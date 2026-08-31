@@ -1428,6 +1428,14 @@
       "birthPlace": "Frauenfeld"
     },
     {
+      "id": 221390,
+      "name": "Krähenbühl Jill",
+      "dob": "2005-11-03",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Bülach"
+    },
+    {
       "id": 222040,
       "name": "Fanny Deecke",
       "dob": "2008-08-07",
@@ -1450,6 +1458,14 @@
       "height": null,
       "weight": null,
       "birthPlace": "Zürich"
+    },
+    {
+      "id": 240040,
+      "name": "Lea Zürcher",
+      "dob": "2008-01-18",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Herisau"
     }
   ]
 }

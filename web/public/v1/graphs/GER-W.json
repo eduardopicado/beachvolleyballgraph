@@ -1268,6 +1268,14 @@
       "last": 2026
     },
     {
+      "id": 220856,
+      "name": "Carlotta Sophia Kahm",
+      "short": "Kahm",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 221481,
       "name": "Angelina Linke",
       "short": "Linke",
@@ -1335,6 +1343,14 @@
       "id": 232641,
       "name": "Joceline Buchwald",
       "short": "Buchwald",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 233002,
+      "name": "Lisa Zornow",
+      "short": "Zornow",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -6462,6 +6478,21 @@
         ]
       ],
       "r": 45
+    },
+    {
+      "a": 220856,
+      "b": 233002,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 225804,

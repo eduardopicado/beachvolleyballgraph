@@ -735,7 +735,7 @@
       "id": 163356,
       "name": "Agnieszka Radkowiak-Kiedacz",
       "short": "Radkowiak-Kiedacz",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -999,7 +999,7 @@
       "id": 223693,
       "name": "Magdalena Nikiel",
       "short": "Nikiel",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -3496,14 +3496,14 @@
     {
       "a": 163356,
       "b": 223693,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          155
+          2,
+          239
         ]
       ],
       "r": 17

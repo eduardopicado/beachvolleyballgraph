@@ -1167,7 +1167,7 @@
       "id": 146852,
       "name": "Reka Orsi Toth",
       "short": "Orsi Toth, R.",
-      "tournaments": 46,
+      "tournaments": 47,
       "first": 2014,
       "last": 2026
     },
@@ -1223,7 +1223,7 @@
       "id": 150990,
       "name": "Anna Dalmazzo",
       "short": "Dalmazzo",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2022,
       "last": 2026
     },
@@ -1279,7 +1279,7 @@
       "id": 156925,
       "name": "Claudia Puccinelli",
       "short": "Puccinelli",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2018,
       "last": 2026
     },
@@ -1303,7 +1303,7 @@
       "id": 161621,
       "name": "Eleonora Annibalini",
       "short": "Annibalini",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2018,
       "last": 2026
     },
@@ -1415,9 +1415,9 @@
       "id": 169792,
       "name": "Sara Franzoni",
       "short": "Franzoni",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 170500,
@@ -1463,9 +1463,9 @@
       "id": 174556,
       "name": "Anna Pelloia",
       "short": "Pelloia",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2022,
-      "last": 2024
+      "last": 2026
     },
     {
       "id": 179100,
@@ -1487,7 +1487,7 @@
       "id": 179521,
       "name": "Aurora Mattavelli",
       "short": "Mattavelli",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2021,
       "last": 2026
     },
@@ -1503,7 +1503,7 @@
       "id": 181183,
       "name": "Valentina Gottardi",
       "short": "Gottardi",
-      "tournaments": 47,
+      "tournaments": 48,
       "first": 2021,
       "last": 2026
     },
@@ -1511,7 +1511,7 @@
       "id": 181233,
       "name": "Valeria Tallevi Diotallevi",
       "short": "Tallevi Diotallevi",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2022,
       "last": 2026
     },
@@ -1559,7 +1559,7 @@
       "id": 192146,
       "name": "Maria Rachele Mancinelli",
       "short": "Mancinelli",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2023,
       "last": 2026
     },
@@ -1599,8 +1599,16 @@
       "id": 204623,
       "name": "Cindy Lee Fezzi",
       "short": "Fezzi",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 212468,
+      "name": "Jessica Belliero Piccinin",
+      "short": "Belliero Piccinin",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -5166,7 +5174,7 @@
     {
       "a": 146852,
       "b": 181183,
-      "t": 15,
+      "t": 16,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -5182,8 +5190,8 @@
         ],
         [
           2026,
-          4,
-          217
+          5,
+          239
         ]
       ],
       "r": 1
@@ -5312,6 +5320,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 150990,
+      "b": 161621,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 150990,
@@ -5592,6 +5615,21 @@
         ]
       ],
       "r": 1
+    },
+    {
+      "a": 156925,
+      "b": 179521,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 4
     },
     {
       "a": 157898,
@@ -5929,6 +5967,21 @@
       "r": 3
     },
     {
+      "a": 169792,
+      "b": 181233,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
+    },
+    {
       "a": 170500,
       "b": 191169,
       "t": 3,
@@ -6007,6 +6060,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 174556,
+      "b": 192146,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 3
     },
     {
       "a": 179285,
@@ -6187,6 +6255,21 @@
         ]
       ],
       "r": 37
+    },
+    {
+      "a": 204623,
+      "b": 212468,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 212717,
