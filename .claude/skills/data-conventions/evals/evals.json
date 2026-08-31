@@ -1,0 +1,26 @@
+{
+  "skill_name": "data-conventions",
+  "evals": [
+    {
+      "id": 0,
+      "name": "verify-a-documented-claim",
+      "prompt": "docs/fivb-data-quirks.md says 89% of played rows share their rank with another team. Is that still true? Tell me what you find and update the doc if it needs it.",
+      "expected_output": "Measures against the published tree rather than trusting or hand-waving; recognises this as a dated investigation finding rather than a count that must be refreshed.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "new-published-tree-test",
+      "prompt": "Add a regression test that no published graph node has a `first` season later than its `last`. Put it wherever it belongs.",
+      "expected_output": "Asserts against web/public/v1 rather than a fixture, guards against vacuity, and verifies the test can actually fail before keeping it.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "editorial-boundary",
+      "prompt": "The ten Rio de Janeiro events from 1987 to 1996 were the de facto world championships of that era - everyone in the sport treats them that way. Should we retier them as world-champs so they show up properly on player cards?",
+      "expected_output": "Declines to reclassify, explaining that tiers come from FIVB's own Type and that promoting them would mint World Championship medals no other source recognises; points at documenting instead.",
+      "files": []
+    }
+  ]
+}
