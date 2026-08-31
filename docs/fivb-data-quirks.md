@@ -1077,12 +1077,17 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 - **§6**, whether anything in VIS records which federation an athlete
   represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
-- **§18**, the two players whose `Gender` contradicts the only event they
-  played; underneath one of them a **duplicated athlete record**, CRC player
-  numbers 137511 and 137596 sharing a birthdate, a partner and a name; and,
-  separately, a **team row pointing at the wrong athlete** — `MRIO1989` credits
-  Marion Marquet (101084, born 1981-01-28) with a men's entry played when she
-  was eight.
+- **§18**, three defects that share one symptom. The two players whose `Gender`
+  contradicts the only event they ever played. A **duplicated athlete** —
+  CRC 137511 and 137596 are one person, sharing a birthdate and a partner, with
+  `FirstName` and `LastName` **transposed** between the two rows; that
+  transposition is the useful part, because a swapped name pair sharing a
+  birthdate is mechanically detectable across the whole player table, so it
+  points at the others rather than only this one. And a **team row crediting the
+  wrong athlete**: `MRIO1989` names Marion Marquet (101084, born 1981-01-28),
+  who would have been eight, and whose only other event is eleven years later —
+  two independent reasons, so the case survives if it turns out to be the
+  birthdate that is wrong.
 - **§19**, the three tournament codes whose year contradicts their own dates —
   `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
