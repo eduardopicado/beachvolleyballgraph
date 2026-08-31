@@ -187,3 +187,46 @@ describe('published levels agree with the tournament names', () => {
     expect(wrong).toEqual([]);
   });
 });
+
+/**
+ * The pre-1997 archive stays out of `world-champs`.
+ *
+ * Quirks §6.8 and §19 explain at length why the ten Rio de Janeiro editions of
+ * 1987–1996 are published as ordinary World Tour Opens: the public record
+ * treats them as the unofficial championships, FIVB's first official edition is
+ * Los Angeles 1997, and `Type` 4 is never applied to a Rio row in that window.
+ *
+ * Documentation is not enforcement. Nothing stopped somebody acting on the very
+ * reasonable-sounding request to promote them, and every existing test would
+ * have stayed green — the same gap the block above was written for after
+ * Elite16 and Challenge were transposed. The consequence is not cosmetic: a
+ * promotion mints World Championship medallists that no other source
+ * recognises, and simultaneously removes those events from the Tour podium
+ * tally they currently count towards.
+ *
+ * Two assertions rather than one, because "no `world-champs` before 1997" also
+ * passes if the Rio rows vanish from the archive entirely.
+ */
+describe('the pre-1997 archive is not a World Championship', () => {
+  const file = JSON.parse(
+    readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'),
+  ) as { tournaments: Record<string, [string, number, string, number, string, string?]> };
+  const rows = Object.values(file.tournaments);
+
+  it('has no world-champs row before the 1997 Los Angeles edition', () => {
+    const early = rows
+      .filter((r) => r[2] === 'world-champs' && r[1] < 1997)
+      .map((r) => `${r[4]} (${r[1]})`);
+    expect(early).toEqual([]);
+  });
+
+  it('still publishes the Rio series, as World Tour Opens', () => {
+    // Guards the guard: the assertion above is satisfied just as well by an
+    // archive that lost these rows. 13 of them — ten men's editions and the
+    // three women's draws of 1993, 1995 and 1996.
+    const rio = rows.filter((r) => /^[MW]RIO19(8[7-9]|9[0-6])$/.test(r[4] ?? ''));
+    expect(rio).toHaveLength(13);
+    expect([...new Set(rio.map((r) => r[2]))]).toEqual(['world-tour']);
+    expect([...new Set(rio.map((r) => r[5]))]).toEqual(['Open']);
+  });
+});
