@@ -993,6 +993,31 @@ Roberto "Paulão" Moreira da Costa published as 1987–2003 and is 1990–2003, 
 earliest event being the Rio de Janeiro of February 1990. No four-digit offset
 survives.
 
+**The dates themselves are sound**, which is worth stating because it is what
+makes deferring to them safe. Every edition in the series carries a specific
+range of a plausible length, and they check out against an outside reader of the
+same API: `WRIO1995` is `1995-03-02` to `1995-03-05` in VIS and 02–05 March 1995
+on `fivb.12ndr.at`. Only the season was ever coarse.
+
+```
+MRIO1987  1987-02-17 → 02-22    6 days
+MRIO1991  1991-02-12 → 02-23   12 days
+WRIO1995  1995-03-02 → 03-05    4 days
+WRIO1996  1996-02-28 → 03-03    5 days
+MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
+```
+
+**`MRIO1996` is the one bad date in the series**, and it is worth reporting
+rather than working around. A **1 January** start occurs on 2 of the 9,270 rows
+in the whole archive — this and `MDOH2022` — and its two-day main draw stands
+against 4 to 12 for every other edition, with the women's 1996 draw sitting in
+late February where the men's editions always sat. It reads as a placeholder
+typed in when the day was not to hand.
+
+It costs us almost nothing: the season is 1996 either way, and only the event's
+position within that season on a card is affected. It is on the upstream list
+because it is a one-field correction somebody at FIVB could make in a minute.
+
 ---
 
 ## Reporting these upstream
@@ -1006,7 +1031,9 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
 - **§19**, the three tournament codes whose year contradicts their own dates —
-  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
+  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020 — and
+  `MRIO1996`, dated 1–2 January 1996 where every other edition of that event ran
+  four days or more in February.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
   surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
 - **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
