@@ -163,7 +163,7 @@
       "dob": "1978-02-24",
       "height": 170,
       "weight": 60,
-      "birthPlace": "mulhouse"
+      "birthPlace": "Mulhouse"
     },
     {
       "id": 101906,
@@ -321,7 +321,7 @@
       "dob": "1977-03-14",
       "height": 170,
       "weight": 58,
-      "birthPlace": "bedarieux"
+      "birthPlace": "Bedarieux"
     },
     {
       "id": 102355,
@@ -860,7 +860,7 @@
       "dob": null,
       "height": null,
       "weight": null,
-      "birthPlace": "paris 16"
+      "birthPlace": "Paris 16"
     },
     {
       "id": 119256,
@@ -1191,7 +1191,7 @@
       "dob": "1986-06-17",
       "height": null,
       "weight": null,
-      "birthPlace": "papeete"
+      "birthPlace": "Papeete"
     },
     {
       "id": 171781,

@@ -1051,7 +1051,7 @@
       "dob": "1979-01-06",
       "height": null,
       "weight": null,
-      "birthPlace": "catania"
+      "birthPlace": "Catania"
     },
     {
       "id": 104302,
@@ -1059,7 +1059,7 @@
       "dob": "1977-03-23",
       "height": null,
       "weight": null,
-      "birthPlace": "sora"
+      "birthPlace": "Sora"
     },
     {
       "id": 104401,
@@ -1480,7 +1480,7 @@
       "dob": "1988-08-06",
       "height": 203,
       "weight": 91,
-      "birthPlace": "ortona",
+      "birthPlace": "Ortona",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1658,7 +1658,7 @@
       "dob": "1991-05-06",
       "height": 195,
       "weight": 80,
-      "birthPlace": "rome",
+      "birthPlace": "Rome",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1725,7 +1725,7 @@
       "dob": "1979-06-29",
       "height": 185,
       "weight": 82,
-      "birthPlace": "roma"
+      "birthPlace": "Roma"
     },
     {
       "id": 124711,
@@ -1895,7 +1895,7 @@
       "dob": "1993-02-27",
       "height": 186,
       "weight": 75,
-      "birthPlace": "ancona"
+      "birthPlace": "Ancona"
     },
     {
       "id": 135919,
@@ -2042,7 +2042,7 @@
       "dob": "1992-09-23",
       "height": 192,
       "weight": 87,
-      "birthPlace": "cesena",
+      "birthPlace": "Cesena",
       "tour": {
         "gold": 3,
         "silver": 2,
@@ -2375,7 +2375,7 @@
       "dob": "1997-07-27",
       "height": 187,
       "weight": 77,
-      "birthPlace": "alessandria"
+      "birthPlace": "Alessandria"
     },
     {
       "id": 165100,

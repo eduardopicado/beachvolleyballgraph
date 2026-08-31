@@ -1237,7 +1237,7 @@
       "dob": "1997-11-26",
       "height": 186,
       "weight": 77,
-      "birthPlace": "wenchang",
+      "birthPlace": "Wenchang",
       "tour": {
         "gold": 3,
         "silver": 2,
@@ -1419,7 +1419,7 @@
       "dob": "2006-08-30",
       "height": null,
       "weight": null,
-      "birthPlace": "shandong",
+      "birthPlace": "Shandong",
       "tour": {
         "gold": 0,
         "silver": 0,
@@ -1435,7 +1435,7 @@
       "dob": "2008-09-18",
       "height": null,
       "weight": null,
-      "birthPlace": "shanghai"
+      "birthPlace": "Shanghai"
     },
     {
       "id": 210161,

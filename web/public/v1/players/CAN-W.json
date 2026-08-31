@@ -826,7 +826,7 @@
       "dob": null,
       "height": 170,
       "weight": 61,
-      "birthPlace": "sherbrooke",
+      "birthPlace": "Sherbrooke",
       "filters": [
         "world-champs"
       ]
@@ -1930,7 +1930,7 @@
       "dob": "1997-08-08",
       "height": null,
       "weight": null,
-      "birthPlace": "saskatoon",
+      "birthPlace": "Saskatoon",
       "tour": {
         "gold": 0,
         "silver": 0,

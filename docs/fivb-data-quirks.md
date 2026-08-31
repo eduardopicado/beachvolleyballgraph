@@ -510,9 +510,42 @@ upper-case token in a place is a **code**: the `PR` in `Curitiba, PR`, the
 `BRA` in `Juiz de Fora (BRA)`, the whole of `TN`. 444 published birth places
 shout and are fixed; the codes survive.
 
+**The same box is filled in with caps lock the other way round**, on 102
+records: `rio de janeiro`, `buenos aires`, `salvador`. Those are title-cased
+too, with the length gate switched off, because a value carrying no capital
+cannot be hiding a code — `arg` becomes `Arg` and nothing is lost that was
+there. A particle stays lower case only *between* two words, since `el` is a
+preposition in `Yacoub el Mansour` and the start of the name in `El Jadida`,
+and a trailing token is far likelier to be a region than a preposition.
+
+**Only a uniformly-cased value is touched.** Mixed capitals are a choice
+somebody made, and rewriting them would mean deciding that
+`St-jean-sur-richelieu` is wrong while `St-Gallen` is right. 5 records are
+sloppy rather than deliberate — `Arendal, norway`, `Darwin, aus` — and are left
+as stored.
+
+**Where the case rule reads a word boundary matters more than it looks.** FIVB
+stores `Poltana (URSS)` and `AKTAU,KAZAKHSTAN` as single space-free tokens.
+De-shouting them by lower-casing and then capitalising only after a start,
+hyphen or apostrophe published `Poltana (urss)` and `Aktau,kazakhstan` — a
+different mistake from the one being fixed. A part now starts at any letter not
+preceded by another letter.
+
+A four-letter acronym still loses: `LENINGRAD, USSR` publishes as
+`Leningrad, Ussr`, because the length gate calls anything from four letters up
+a word. Raising the gate would re-break `Juiz de Fora (BRA)`; an acronym
+allowlist would be a third rule for a handful of records.
+
 **Handled in.** `ingest/build.ts`, `tidyBirthPlace`, with the published
 artifact asserted in `build.test.ts` — no empty string, no bare date, no bare
-postcode, no internal note, nothing shouting, and the codes still present.
+postcode, no internal note, nothing shouting, nothing entirely lower case, and
+the codes still present.
+
+The bracket rule is pinned by a unit test rather than by the published tree,
+deliberately: once it is fixed, a repaired `Poltana (Urss)` and a genuinely
+sloppy `Arendal, norway` are the same shape in the output, so an assertion over
+the published places cannot tell them apart and would pass whatever the rule
+did.
 ## 6.7. FIVB names the Olympics six different ways
 
 The eight Games in the archive carry five naming conventions between them, and

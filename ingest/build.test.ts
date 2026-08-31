@@ -268,6 +268,56 @@ describe('tidyBirthPlace', () => {
     expect(tidyBirthPlace('  Roma  ')).toBe('Roma');
   });
 
+  it('normalises a value that has no capitals either', () => {
+    // The mirror of the shout rule, and the same failure: a free-text box
+    // filled in with caps lock in the other state. 102 published places have no
+    // capital anywhere.
+    expect(tidyBirthPlace('rio de janeiro')).toBe('Rio de Janeiro');
+    expect(tidyBirthPlace('buenos aires')).toBe('Buenos Aires');
+    expect(tidyBirthPlace('salvador')).toBe('Salvador');
+    expect(tidyBirthPlace('st-gallen')).toBe('St-Gallen');
+  });
+
+  it('keeps a particle lower case, but only between two words', () => {
+    // "el" is a particle in the middle and the start of a name at the front;
+    // a trailing token is far likelier to be a region than a preposition. So
+    // first and last are always capitalised, which is also what makes the rule
+    // safe on a one-word value.
+    expect(tidyBirthPlace('santiago de cuba')).toBe('Santiago de Cuba');
+    expect(tidyBirthPlace('yacoub el mansour')).toBe('Yacoub el Mansour');
+    expect(tidyBirthPlace('pione di sacco')).toBe('Pione di Sacco');
+    expect(tidyBirthPlace('el jadida')).toBe('El Jadida');
+    expect(tidyBirthPlace('de')).toBe('De');
+  });
+
+  it('leaves a value that already carries mixed capitals', () => {
+    // Mixed case is a choice somebody made; only a uniformly-cased value has
+    // lost the information. Touching these would mean deciding that
+    // "St-jean-sur-richelieu" is wrong and "St-Gallen" is right, which is a
+    // different and much less certain rule.
+    expect(tidyBirthPlace('St-Gallen')).toBe('St-Gallen');
+    expect(tidyBirthPlace('Adelaide, SA')).toBe('Adelaide, SA');
+    expect(tidyBirthPlace('Arendal, norway')).toBe('Arendal, norway');
+  });
+
+  it('capitalises after a bracket or a comma, not only after a hyphen', () => {
+    // FIVB stores these as single space-free tokens, so de-shouting them used
+    // to lower-case everything past the punctuation: "Poltana (urss)" and
+    // "Aktau,kazakhstan" were published that way, which reads as a different
+    // mistake from the one being fixed.
+    expect(tidyBirthPlace('Poltana (URSS)')).toBe('Poltana (Urss)');
+    expect(tidyBirthPlace('AKTAU,KAZAKHSTAN')).toBe('Aktau,Kazakhstan');
+    expect(tidyBirthPlace('camaguan (edo) guarico')).toBe('Camaguan (Edo) Guarico');
+  });
+
+  it('still protects a short code in either direction', () => {
+    // The length gate only has to hold where a code can exist, which is the
+    // upper-case direction — a value with no capitals cannot be hiding one.
+    expect(tidyBirthPlace('Curitiba, PR')).toBe('Curitiba, PR');
+    expect(tidyBirthPlace('Juiz de Fora (BRA)')).toBe('Juiz de Fora (BRA)');
+    expect(tidyBirthPlace('TN')).toBe('TN');
+  });
+
   it('is null for the 46% who have nothing', () => {
     expect(tidyBirthPlace('')).toBeNull();
     expect(tidyBirthPlace(undefined)).toBeNull();
@@ -1678,6 +1728,12 @@ describe('the published birth places', () => {
       }),
     );
     expect(shouting).toEqual([]);
+  });
+
+  it('publishes nothing entirely in lower case', () => {
+    // 102 did before this: "rio de janeiro", "salvador". The mirror of the
+    // assertion above, and the reason the rule runs in both directions.
+    expect(places.filter((p) => p === p.toLowerCase() && /\p{Ll}/u.test(p))).toEqual([]);
   });
 
   it('still keeps the province and country codes', () => {

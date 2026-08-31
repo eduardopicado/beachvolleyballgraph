@@ -320,7 +320,7 @@
       "dob": "1986-07-01",
       "height": 177,
       "weight": 68,
-      "birthPlace": "guadalajara"
+      "birthPlace": "Guadalajara"
     },
     {
       "id": 104109,
@@ -421,7 +421,7 @@
       "dob": "1989-05-03",
       "height": 183,
       "weight": 70,
-      "birthPlace": "guadalajara",
+      "birthPlace": "Guadalajara",
       "filters": [
         "world-champs"
       ]

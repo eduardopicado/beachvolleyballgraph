@@ -738,7 +738,7 @@
       "dob": "1999-03-21",
       "height": null,
       "weight": null,
-      "birthPlace": "gorinchem"
+      "birthPlace": "Gorinchem"
     },
     {
       "id": 150809,
@@ -999,7 +999,7 @@
       "dob": "2003-05-05",
       "height": 185,
       "weight": null,
-      "birthPlace": "sneek",
+      "birthPlace": "Sneek",
       "tour": {
         "gold": 2,
         "silver": 3,
@@ -1248,7 +1248,7 @@
       "dob": "2008-03-12",
       "height": 170,
       "weight": null,
-      "birthPlace": "apeldoorn"
+      "birthPlace": "Apeldoorn"
     },
     {
       "id": 188426,
