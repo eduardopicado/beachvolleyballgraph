@@ -979,9 +979,19 @@ two different player numbers:
 
 Same date of birth, same partner, consecutive years, same age group, and the
 same four name-parts in two different orders. That is one person with two
-records, and the second copy also picked up the wrong gender. The reordering is
-itself §6.5 at work — `FirstName` and `LastName` are free text — and it is the
-fingerprint of the record being typed a second time by hand rather than copied.
+records, and the second copy also picked up the wrong gender.
+
+The two halves are **transposed**, not merely reordered: 137596 stores
+`FirstName` "Andres Felipe" and `LastName` "Flores Garita", and 137511 stores
+each in the other field. That is the fingerprint of a record retyped by hand
+rather than copied — and it is a pattern worth searching for upstream, since a
+transposed name pair sharing a `Birthdate` is mechanically detectable across
+the whole player table.
+
+Nothing forced the duplicate, either. A unique key over name and birthdate
+would not have collided, because the name fields already differ; and 139047
+shares a birthdate, a gender and a federation with 137596 while coexisting with
+it quite happily, so no constraint of that shape is enforced.
 
 A third CRC player, Josue himself (139047), carries **the same 1993-11-03
 birthdate**. Josue and Andres may well be twins; the birthdate may equally have
