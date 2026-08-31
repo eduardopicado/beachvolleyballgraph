@@ -436,13 +436,16 @@ export function tidyName(value: string): string {
 /**
  * One word, lower-cased with each part capitalised.
  *
- * A letter starts a new part when it opens the word or follows a hyphen or
- * apostrophe: Hsin-Tung, D'Almeida, O'Brien.
+ * A part starts at any letter not preceded by another letter: Hsin-Tung,
+ * D'Almeida, O'Brien — and also `(Urss)` and `Aktau,Kazakhstan`, which the
+ * narrower "start, hyphen or apostrophe" rule this replaces got wrong. FIVB
+ * stores "Poltana (URSS)" and "AKTAU,KAZAKHSTAN" as single space-free tokens;
+ * lower-casing them and then only capitalising after the three characters that
+ * rule knew about published "Poltana (urss)" and "Aktau,kazakhstan", which
+ * reads as a different mistake from the shouting it was fixing.
  */
 function titleCaseWord(word: string): string {
-  return word
-    .toLowerCase()
-    .replace(/(^|[-'’])(\p{L})/gu, (_, sep: string, letter: string) => sep + letter.toUpperCase());
+  return word.toLowerCase().replace(/(?<!\p{L})\p{L}/gu, (letter) => letter.toUpperCase());
 }
 
 /**
@@ -469,8 +472,13 @@ function titleCaseWord(word: string): string {
  *  - an internal note that should never have left the database —
  *    "to be Merged with (#164181) as" (1).
  *
- * Capitals are normalised by the same rule as the names (§6.5): 444 published
- * birth places shout, and "BUENOS AIRES" is no more correct than "MUKUNZI" was.
+ * Capitals are normalised in both directions. 444 published birth places shout,
+ * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 102 more have no
+ * capital at all — "rio de janeiro", "salvador" — which is the same box filled
+ * in with caps lock the other way. Only a value that is uniformly one case is
+ * touched: mixed capitals are a choice somebody made, and "St-Gallen" or
+ * "Adelaide, SA" is already right.
+ *
  * Stray quotation marks are stripped, which is one record — `"9 de JULIO"` is a
  * real Argentine town wearing the quotes FIVB stored it with.
  */
@@ -485,6 +493,18 @@ export function tidyBirthPlace(value: string | undefined): string | null {
   if (!/\p{L}/u.test(raw)) return null;
   // An editing note aimed at whoever maintains the record, not at a reader.
   if (/\bto be merged\b|\bmerge[dr]?\s+with\b|#\d{3,}|\bduplicate\b/i.test(raw)) return null;
+
+  // A value with no capital in it anywhere has lost its casing rather than
+  // chosen it: "rio de janeiro", "buenos aires", "salvador". 102 published
+  // places are like this, against 444 that shout, and both are the same
+  // failure — a federation typing into a free-text box with caps lock in one
+  // state or the other.
+  //
+  // Handled before the shout rule because the two need opposite treatment of
+  // short words. Nothing here is a code: a code is upper case, and a value with
+  // no capitals cannot be hiding one, so "arg" simply becomes "Arg". What the
+  // length gate below protects does not exist in this direction.
+  if (!/\p{Lu}/u.test(raw)) return titleCasePlace(raw) || null;
 
   // Capitals are normalised per *word* here, not per string as in `tidyName`.
   // A name uses partial capitals to mark the family name (§6.5) and that has to
@@ -505,6 +525,34 @@ export function tidyBirthPlace(value: string | undefined): string | null {
       })
       .join(' ') || null
   );
+}
+
+/**
+ * Words that stay lower case inside a place name: "Rio de Janeiro", not "Rio De
+ * Janeiro". Kept deliberately small — every entry is one that actually occurs
+ * in the published data.
+ */
+const PLACE_PARTICLES = new Set(['de', 'del', 'di', 'da', 'do', 'la', 'le', 'el', 'y']);
+
+/**
+ * Title-case a place that arrived with no capitals at all.
+ *
+ * A particle is only left alone **between** two other words. That position test
+ * is doing real work, because the same two letters are a particle in the middle
+ * and something else at either end: "el" is a particle in "Yacoub el Mansour"
+ * and the start of "El Jadida", and a trailing token is far more likely to be a
+ * region or country than a preposition. First and last are therefore always
+ * capitalised, which is also what makes this safe to run on a one-word value.
+ */
+function titleCasePlace(value: string): string {
+  const words = value.split(' ');
+  return words
+    .map((word, i) => {
+      const interior = i > 0 && i < words.length - 1;
+      if (interior && PLACE_PARTICLES.has(word)) return word;
+      return titleCaseWord(word);
+    })
+    .join(' ');
 }
 
 /**

@@ -207,7 +207,7 @@
       "dob": "1979-02-17",
       "height": 190,
       "weight": 91,
-      "birthPlace": "casablanca"
+      "birthPlace": "Casablanca"
     },
     {
       "id": 135123,
@@ -271,7 +271,7 @@
       "dob": "1976-08-19",
       "height": 194,
       "weight": 80,
-      "birthPlace": "casablanca"
+      "birthPlace": "Casablanca"
     },
     {
       "id": 137705,
@@ -294,7 +294,7 @@
       "dob": "1990-04-08",
       "height": 207,
       "weight": 102,
-      "birthPlace": "yacoub el mansour"
+      "birthPlace": "Yacoub el Mansour"
     },
     {
       "id": 150074,
@@ -384,7 +384,7 @@
       "dob": "1999-04-09",
       "height": 195,
       "weight": 82,
-      "birthPlace": "casablanca",
+      "birthPlace": "Casablanca",
       "filters": [
         "world-champs"
       ]
@@ -414,7 +414,7 @@
       "dob": "1986-05-13",
       "height": 188,
       "weight": 81,
-      "birthPlace": "sidi kacem"
+      "birthPlace": "Sidi Kacem"
     },
     {
       "id": 207982,
@@ -422,7 +422,7 @@
       "dob": "2008-07-04",
       "height": 177,
       "weight": 67,
-      "birthPlace": "casa blanca"
+      "birthPlace": "Casa Blanca"
     },
     {
       "id": 207983,
@@ -430,7 +430,7 @@
       "dob": "2008-12-13",
       "height": 190,
       "weight": 69,
-      "birthPlace": "agdal ryad"
+      "birthPlace": "Agdal Ryad"
     },
     {
       "id": 211179,

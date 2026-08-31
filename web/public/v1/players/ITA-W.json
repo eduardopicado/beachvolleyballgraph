@@ -573,7 +573,7 @@
       "dob": "1979-07-13",
       "height": null,
       "weight": null,
-      "birthPlace": "pione di sacco",
+      "birthPlace": "Pione di Sacco",
       "tour": {
         "gold": 0,
         "silver": 2,
@@ -590,7 +590,7 @@
       "dob": "1983-08-27",
       "height": null,
       "weight": null,
-      "birthPlace": "catania"
+      "birthPlace": "Catania"
     },
     {
       "id": 104406,
@@ -598,7 +598,7 @@
       "dob": "1983-06-21",
       "height": null,
       "weight": null,
-      "birthPlace": "catania"
+      "birthPlace": "Catania"
     },
     {
       "id": 104407,
@@ -1157,7 +1157,7 @@
       "dob": "1989-02-09",
       "height": 180,
       "weight": 68,
-      "birthPlace": "roma"
+      "birthPlace": "Roma"
     },
     {
       "id": 125443,
@@ -1172,7 +1172,7 @@
       "dob": "1990-08-12",
       "height": 184,
       "weight": 72,
-      "birthPlace": "rome"
+      "birthPlace": "Rome"
     },
     {
       "id": 132037,
@@ -1588,7 +1588,7 @@
       "dob": "1991-07-26",
       "height": null,
       "weight": null,
-      "birthPlace": "pesaro",
+      "birthPlace": "Pesaro",
       "tour": {
         "gold": 0,
         "silver": 1,

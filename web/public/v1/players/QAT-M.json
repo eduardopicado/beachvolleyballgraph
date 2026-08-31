@@ -36,7 +36,7 @@
       "dob": "1979-02-13",
       "height": 188,
       "weight": 80,
-      "birthPlace": "doha"
+      "birthPlace": "Doha"
     },
     {
       "id": 104789,
@@ -246,7 +246,7 @@
       "dob": "1985-11-11",
       "height": 192,
       "weight": 84,
-      "birthPlace": "salvador",
+      "birthPlace": "Salvador",
       "away": [
         {
           "id": 104073,
