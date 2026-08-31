@@ -959,6 +959,15 @@ international. Whoever partnered Jean C. Gaston in Rio in 1989, it was not
 this athlete — a team row points at the wrong player record, and no gender
 field would fix it.
 
+**The career shape says the same thing without the birthdate.** Worth having
+separately, because it survives the reply that it is the birthdate that is
+wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
+in 2000 and nothing else. Rio was not an ordinary week — it is one of the ten
+editions the sport treats as its unofficial World Championship (§6.8), and one
+of only eleven FIVB events in the whole 1987-91 bucket. A career that opens at
+the biggest tournament of its era, then resumes once, a decade later, at an
+ordinary Open, is not a career. It is two records that were joined by mistake.
+
 **The Costa Rican case is a duplicated athlete, not just a mislabelled one.**
 Josue Flores Garita partnered "Andres" at two consecutive under-21 events, under
 two different player numbers:

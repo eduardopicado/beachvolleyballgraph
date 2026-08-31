@@ -839,9 +839,12 @@ export function PlayerCard({
 
                 Six rows are not a federation difference at all. Three pairs sit
                 in the same federation under opposite genders — and since FIVB
-                runs no mixed beach competition, that is an upstream error, not
-                a category: all three played men's events (`MU212012`,
-                `MRIO1989`, `MAGA2011`) with one partner filed W. Quirks §18.
+                runs no mixed beach competition, that is an upstream error
+                rather than a category: all three played men's events
+                (`MU212012`, `MRIO1989`, `MAGA2011`). The errors differ, though,
+                and only one is the mislabel it looks like — a duplicated
+                athlete, a wrong gender, and a team row crediting the wrong
+                person entirely. Quirks §18.
 
                 So "not in this graph" is the one description true of all 221
                 rows, and it is what the row's own flags then qualify, since a
