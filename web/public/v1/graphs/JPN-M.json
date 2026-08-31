@@ -599,7 +599,7 @@
       "id": 133007,
       "name": "Takahiko Imamura",
       "short": "Imamura",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -847,7 +847,7 @@
       "id": 163564,
       "name": "Taito Mizumachi",
       "short": "Mizumachi",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -991,7 +991,7 @@
       "id": 189719,
       "name": "Kota Kurosawa",
       "short": "Kurosawa",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2022,
       "last": 2026
     },
@@ -1015,7 +1015,7 @@
       "id": 193529,
       "name": "Shuma Watanabe",
       "short": "Watanabe",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2023,
       "last": 2026
     },
@@ -3347,7 +3347,7 @@
     {
       "a": 133007,
       "b": 193529,
-      "t": 5,
+      "t": 6,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -3358,8 +3358,8 @@
         ],
         [
           2026,
-          2,
-          203
+          3,
+          239
         ]
       ],
       "r": 9
@@ -4297,14 +4297,14 @@
     {
       "a": 163564,
       "b": 189719,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          231
+          3,
+          239
         ]
       ],
       "r": 4

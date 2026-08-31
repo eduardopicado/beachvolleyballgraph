@@ -359,9 +359,9 @@
       "id": 175810,
       "name": "Mario Iliev",
       "short": "Iliev",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 178752,
@@ -375,9 +375,9 @@
       "id": 179402,
       "name": "Nikolay Kostov",
       "short": "Kostov",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2021,
-      "last": 2024
+      "last": 2026
     },
     {
       "id": 180587,
@@ -415,7 +415,7 @@
       "id": 181224,
       "name": "Atanas Georgiev",
       "short": "Georgiev",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -455,9 +455,9 @@
       "id": 192652,
       "name": "Denislav Dimitrov",
       "short": "Dimitrov",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 192653,
@@ -1056,14 +1056,19 @@
     {
       "a": 175810,
       "b": 179402,
-      "t": 3,
+      "t": 4,
       "f": 2024,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2024,
           3,
           158
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 13
@@ -1151,14 +1156,19 @@
     {
       "a": 181224,
       "b": 192652,
-      "t": 1,
+      "t": 2,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           1,
           247
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 21

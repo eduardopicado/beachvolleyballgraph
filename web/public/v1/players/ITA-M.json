@@ -1742,7 +1742,7 @@
       "weight": 85,
       "birthPlace": "Trento",
       "tour": {
-        "gold": 3,
+        "gold": 4,
         "silver": 1,
         "bronze": 3
       },
@@ -2524,7 +2524,7 @@
       "tour": {
         "gold": 0,
         "silver": 1,
-        "bronze": 0
+        "bronze": 1
       },
       "filters": [
         "tour-podium"
@@ -2586,7 +2586,7 @@
       "weight": null,
       "birthPlace": "Rivoli (TO)",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 0,
         "bronze": 1
       },
@@ -2659,7 +2659,7 @@
       "tour": {
         "gold": 0,
         "silver": 1,
-        "bronze": 0
+        "bronze": 1
       },
       "filters": [
         "tour-podium"
@@ -2703,6 +2703,13 @@
       "height": 193,
       "weight": 81,
       "birthPlace": "Cesena"
+    },
+    {
+      "id": 192776,
+      "name": "Gabriel Marini Da Costa",
+      "dob": "2006-07-29",
+      "height": null,
+      "weight": null
     },
     {
       "id": 193084,
@@ -2828,7 +2835,15 @@
       "name": "Marco Di Felice",
       "dob": "2008-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 220132,
@@ -2871,7 +2886,7 @@
       "birthPlace": "Roma",
       "tour": {
         "gold": 1,
-        "silver": 0,
+        "silver": 1,
         "bronze": 0
       },
       "filters": [

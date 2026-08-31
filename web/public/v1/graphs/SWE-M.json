@@ -727,7 +727,7 @@
       "id": 145060,
       "name": "Alexander Annerstedt",
       "short": "Annerstedt",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2018,
       "last": 2026
     },
@@ -807,7 +807,7 @@
       "id": 166287,
       "name": "Theodor Grahn",
       "short": "Grahn",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2020,
       "last": 2026
     },
@@ -839,7 +839,7 @@
       "id": 178243,
       "name": "Linus Isaksson",
       "short": "Isaksson",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2020,
       "last": 2026
     },
@@ -911,7 +911,7 @@
       "id": 209770,
       "name": "Teddie Almblad Engvall",
       "short": "Almblad Engvall",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2024,
       "last": 2026
     },
@@ -975,6 +975,22 @@
       "id": 240138,
       "name": "Otto Bornäs",
       "short": "Bornäs",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 240399,
+      "name": "Daniel Enström",
+      "short": "Enström",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 240546,
+      "name": "Leo Constantin",
+      "short": "Constantin",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -2932,17 +2948,17 @@
     {
       "a": 145060,
       "b": 209770,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          148
+          2,
+          239
         ]
       ],
-      "r": 9
+      "r": 5
     },
     {
       "a": 145060,
@@ -3097,7 +3113,7 @@
     {
       "a": 166287,
       "b": 178243,
-      "t": 23,
+      "t": 24,
       "f": 2020,
       "l": 2026,
       "s": [
@@ -3123,8 +3139,8 @@
         ],
         [
           2026,
-          4,
-          190
+          5,
+          239
         ]
       ],
       "r": 2
@@ -3340,6 +3356,21 @@
           2026,
           1,
           190
+        ]
+      ],
+      "r": 21
+    },
+    {
+      "a": 240399,
+      "b": 240546,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 21

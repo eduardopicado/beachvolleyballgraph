@@ -660,6 +660,14 @@
       "last": 2008
     },
     {
+      "id": 120130,
+      "name": "Catalina Pol Marti",
+      "short": "Pol",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 120305,
       "name": "Rocío Ruiz Ruiz",
       "short": "Ruiz",
@@ -1071,7 +1079,7 @@
       "id": 233513,
       "name": "Federica Garcés Curbelo",
       "short": "Garcés",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     }
@@ -2880,6 +2888,21 @@
         ]
       ],
       "r": 3
+    },
+    {
+      "a": 120130,
+      "b": 233513,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
     },
     {
       "a": 120474,

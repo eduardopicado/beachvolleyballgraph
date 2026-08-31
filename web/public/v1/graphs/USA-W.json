@@ -1615,7 +1615,7 @@
       "id": 140437,
       "name": "Alyssa Speckhals",
       "short": "Speckhals",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -3332,6 +3332,14 @@
       "last": 2025
     },
     {
+      "id": 227179,
+      "name": "Arika Johnson",
+      "short": "Johnson",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 230249,
       "name": "Alyssa Keller",
       "short": "Keller",
@@ -3351,7 +3359,7 @@
       "id": 233407,
       "name": "Kelsey Brandin",
       "short": "Brandin",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -3359,7 +3367,7 @@
       "id": 233544,
       "name": "Arina Gerasimova",
       "short": "Gerasimova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -9822,6 +9830,21 @@
       "r": 21
     },
     {
+      "a": 140437,
+      "b": 227179,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 140553,
       "b": 145629,
       "t": 1,
@@ -13904,14 +13927,14 @@
     {
       "a": 233407,
       "b": 233544,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          190
+          2,
+          239
         ]
       ],
       "r": 13

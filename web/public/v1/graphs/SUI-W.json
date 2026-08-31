@@ -1127,7 +1127,7 @@
       "id": 219123,
       "name": "Kim Affentranger",
       "short": "Affentranger",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -1159,8 +1159,16 @@
       "id": 220702,
       "name": "Sarina Diana Thalmann",
       "short": "Thalmann",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 221390,
+      "name": "Krähenbühl Jill",
+      "short": "Krähenbühl",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -1183,6 +1191,14 @@
       "id": 226835,
       "name": "Lisanne Erni",
       "short": "Erni",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 240040,
+      "name": "Lea Zürcher",
+      "short": "Zürcher",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -4776,6 +4792,21 @@
       "r": 21
     },
     {
+      "a": 219123,
+      "b": 221390,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
+    },
+    {
       "a": 219124,
       "b": 219127,
       "t": 6,
@@ -4826,6 +4857,21 @@
           2026,
           1,
           162
+        ]
+      ],
+      "r": 21
+    },
+    {
+      "a": 220702,
+      "b": 240040,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 21

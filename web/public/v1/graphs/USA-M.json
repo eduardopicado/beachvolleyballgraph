@@ -13,8 +13,8 @@
     },
     {
       "id": 100051,
-      "name": "Troy \"T2\" Tanner SUSPENDED",
-      "short": "Suspended",
+      "name": "Troy \"T2\" Tanner",
+      "short": "Tanner",
       "tournaments": 2,
       "first": 1993,
       "last": 1997
@@ -77,8 +77,8 @@
     },
     {
       "id": 100131,
-      "name": "Tim \"The Hov\" Hovland SUSPENDED",
-      "short": "Suspended",
+      "name": "Tim \"The Hov\" Hovland",
+      "short": "Hovland",
       "tournaments": 6,
       "first": 1988,
       "last": 1995
@@ -325,8 +325,8 @@
     },
     {
       "id": 100368,
-      "name": "Christopher J. Young SUSPENDED",
-      "short": "Suspended",
+      "name": "Christopher J. Young",
+      "short": "Young",
       "tournaments": 1,
       "first": 1995,
       "last": 1995
@@ -589,7 +589,7 @@
     },
     {
       "id": 100873,
-      "name": "Brent Frohoff SUSPENDED",
+      "name": "Brent Frohoff",
       "short": "Frohoff",
       "tournaments": 2,
       "first": 1995,
@@ -597,8 +597,8 @@
     },
     {
       "id": 100875,
-      "name": "Kevin \"K-Mart\" Martin SUSPENDED",
-      "short": "Suspended",
+      "name": "Kevin \"K-Mart\" Martin",
+      "short": "Martin",
       "tournaments": 2,
       "first": 1995,
       "last": 1995
@@ -629,8 +629,8 @@
     },
     {
       "id": 100881,
-      "name": "Matt Unger SUSPENDED",
-      "short": "Suspended",
+      "name": "Matt Unger",
+      "short": "Unger",
       "tournaments": 2,
       "first": 1995,
       "last": 1997

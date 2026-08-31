@@ -799,7 +799,7 @@
       "id": 173506,
       "name": "Markuss Graudins",
       "short": "Graudins",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2022,
       "last": 2026
     },
@@ -807,7 +807,7 @@
       "id": 173607,
       "name": "Olivers Bulgacs",
       "short": "Bulgacs O.",
-      "tournaments": 33,
+      "tournaments": 34,
       "first": 2021,
       "last": 2026
     },
@@ -839,7 +839,7 @@
       "id": 179133,
       "name": "Ernests Puskundzis",
       "short": "Puskundzis",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2022,
       "last": 2026
     },
@@ -927,7 +927,7 @@
       "id": 190909,
       "name": "Matīss Šalkovskis",
       "short": "Šalkovskis",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2024,
       "last": 2026
     },
@@ -951,7 +951,7 @@
       "id": 192792,
       "name": "Karlis Jaundžeikars",
       "short": "Jaundžeikars",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -991,7 +991,7 @@
       "id": 211966,
       "name": "Mārcis Bērziņš",
       "short": "Bērziņš M.",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2024,
       "last": 2026
     },
@@ -1015,7 +1015,7 @@
       "id": 211993,
       "name": "Bruno Liepiņš",
       "short": "Liepiņš B.",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -1031,7 +1031,7 @@
       "id": 214071,
       "name": "Renārs Lasmanis",
       "short": "Lasmanis",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -3608,14 +3608,14 @@
     {
       "a": 173506,
       "b": 179133,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          231
+          2,
+          239
         ]
       ],
       "r": 5
@@ -3658,14 +3658,14 @@
     {
       "a": 173607,
       "b": 211966,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          231
+          3,
+          239
         ]
       ],
       "r": 3
@@ -3973,7 +3973,7 @@
     {
       "a": 190909,
       "b": 192792,
-      "t": 9,
+      "t": 10,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -3989,8 +3989,8 @@
         ],
         [
           2026,
-          3,
-          231
+          4,
+          239
         ]
       ],
       "r": 2
@@ -4099,6 +4099,21 @@
         ]
       ],
       "r": 17
+    },
+    {
+      "a": 211993,
+      "b": 214071,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 214071,

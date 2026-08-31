@@ -681,14 +681,36 @@ export function olympicGamesByPlayer(
   return out;
 }
 
+/**
+ * A name field with a competition status stripped off it.
+ *
+ * Six VIS player records carry `SUSPENDED` inside the name itself — appended to
+ * `LastName` ("Hovland  SUSPENDED"), and standing alone as the whole of
+ * `TeamName` ("Suspended"). All six are American men whose careers ran through
+ * the AVP-era disputes of the mid-nineties, and all six reach our graph: five
+ * of them are labelled **"Suspended"** on the USA-M graph today, Tim Hovland
+ * among them, because `TeamName` is where the short label comes from.
+ *
+ * Measured over all 131,021 VIS player records, `SUSPENDED` is the only
+ * competition status written into a name. The other 19 records whose names read
+ * as annotations rather than people are test and dummy accounts ("Dummy1
+ * Dummy1", "Dev-Test-Firstname"), and none of those has ever entered a
+ * tournament, so none reaches the artifact and none is this function's problem.
+ * That is why this strips one word and not a family of them: one word is what
+ * the data has.
+ */
+function stripCompetitionStatus(value: string): string {
+  return value.replace(/(?<!\p{L})SUSPENDED(?!\p{L})/giu, '');
+}
+
 function fullName(row: VisRow): string {
-  const first = (row.FirstName ?? '').trim();
-  const last = (row.LastName ?? '').trim();
+  const first = stripCompetitionStatus((row.FirstName ?? '').trim());
+  const last = stripCompetitionStatus((row.LastName ?? '').trim());
   // Tidied as one string rather than field by field, so the shout test sees the
   // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
   // "HETZENDORFER" on its own looks like a name that simply shouts.
   const joined = tidyName(`${first} ${last}`);
-  return joined || tidyName(row.TeamName ?? '') || `Player ${row.No}`;
+  return joined || tidyName(stripCompetitionStatus(row.TeamName ?? '')) || `Player ${row.No}`;
 }
 
 /**
@@ -696,11 +718,13 @@ function fullName(row: VisRow): string {
  * is not always populated — fall back to the surname, then the full name.
  */
 function shortName(row: VisRow, full: string): string {
-  const team = tidyName(row.TeamName ?? '');
+  // A `TeamName` of nothing but "Suspended" is emptied by the strip, and so
+  // falls through to the surname the same way an unpopulated one does.
+  const team = tidyName(stripCompetitionStatus(row.TeamName ?? ''));
   if (team) return team;
   // From the raw field rather than sliced out of `full`, which is already
   // tidied and may have been title-cased as part of a longer name.
-  const last = tidyName(row.LastName ?? '');
+  const last = tidyName(stripCompetitionStatus(row.LastName ?? ''));
   return last || full;
 }
 
