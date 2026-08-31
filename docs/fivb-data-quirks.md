@@ -1040,16 +1040,27 @@ WRIO1996  1996-02-28 → 03-03    5 days
 MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
 ```
 
-**`MRIO1996` is the one bad date in the series**, and it is worth reporting
-rather than working around. A **1 January** start occurs on 2 of the 9,270 rows
-in the whole archive — this and `MDOH2022` — and its two-day main draw stands
-against 4 to 12 for every other edition, with the women's 1996 draw sitting in
-late February where the men's editions always sat. It reads as a placeholder
-typed in when the day was not to hand.
+**`MRIO1996` is the one bad date in the series, and it is confirmed wrong.**
+VIS dates it `1996-01-01` to `1996-01-02`. It was played **8–11 February 1996**,
+per [bvbinfo](http://bvbinfo.info/TeamPreview?TournID=624&ID1=409&ID2=597),
+which lists it as the Brazil Open in Rio de Janeiro on those dates. That is a
+hand-compiled database rather than another reader of this API, so unlike the
+12ndr check above it is genuinely independent evidence.
+
+Everything about the VIS row already pointed that way. A **1 January** start
+occurs on 2 of the 9,270 rows in the whole archive — this and `MDOH2022` — its
+two-day main draw stands against 4 to 12 for every other edition, and the
+women's 1996 draw sits in late February where the men's editions always sat.
+The real dates are four days in February, which is exactly the shape of the
+rest of the series. It is a placeholder typed in when the day was not to hand.
+
+There is no ambiguity about which event it is: `MRIO1996` is the only men's
+Brazilian tournament VIS holds for 1996 before April.
 
 It costs us almost nothing: the season is 1996 either way, and only the event's
 position within that season on a card is affected. It is on the upstream list
-because it is a one-field correction somebody at FIVB could make in a minute.
+because it is a one-field correction somebody at FIVB could make in a minute,
+and because the right value is now known.
 
 ---
 
@@ -1065,8 +1076,7 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 - **§7**, the `SMA` test records sitting in production player data.
 - **§19**, the three tournament codes whose year contradicts their own dates —
   `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020 — and
-  `MRIO1996`, dated 1–2 January 1996 where every other edition of that event ran
-  four days or more in February.
+  `MRIO1996`, dated 1–2 January 1996 when it was played 8–11 February 1996.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
   surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
 - **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
