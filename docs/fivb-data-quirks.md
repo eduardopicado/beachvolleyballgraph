@@ -923,7 +923,7 @@ run log instead of being noticed by a reader.
 
 ---
 
-## 18. A player's `Gender` can disagree with every event they played
+## 18. Three impossible pairs, three different upstream errors
 
 **What.** `Player.Gender` puts a player in the men's or the women's half of the
 archive, and a slice is one federation and one gender. Three published
@@ -937,14 +937,53 @@ They are not mixed pairs. All three played a men's event:
 |---|---|---|
 | Josue Flores Garita + Flores Garita Andres Felipe (CRC) | Halifax 2012 | `MU212012` |
 | Anas Diouri + Hafid Ouchrif (MAR) | Agadir 2011 | `MAGA2011` |
-| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro 1987 | `MRIO1989` |
+| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro | `MRIO1989` |
+
+The shared symptom hides three unrelated defects, and only the middle one is
+the simple mislabel it looks like.
 
 One partner in each is filed `W`. For the first two that is the whole of their
 record — one men's event each — so the gender field is simply wrong: measured
 across the archive, **2 of 12,073 published players contradict every event they
-entered**. Marion Marquet is the more interesting case, because she also has a
-genuine women's event (`WMAR2000`); it is the 1987 entry that is anomalous, not
-the label.
+entered**.
+
+**The French pair is not a gender error at all — it is the wrong person.**
+Marion Marquet (101084, FRA-W) is a real woman with a real career: `WMAR2000`,
+partnered with Natacha Reb, another FRA-W player. Jean C. Gaston (100156) is
+genuinely a man; his other event, `MCAG1991`, is with a male partner. Neither
+label is wrong. What is wrong is the row that joins them.
+
+Her `Birthdate` is **1981-01-28**. `MRIO1989`'s main draw opened
+**1989-02-18**, which makes her **eight years old** at a senior men's
+international. Whoever partnered Jean C. Gaston in Rio in 1989, it was not
+this athlete — a team row points at the wrong player record, and no gender
+field would fix it.
+
+**The Costa Rican case is a duplicated athlete, not just a mislabelled one.**
+Josue Flores Garita partnered "Andres" at two consecutive under-21 events, under
+two different player numbers:
+
+| Event | Partner id | Slice | `Birthdate` | Name as stored |
+|---|---:|---|---|---|
+| `MU212012` | 137511 | CRC-**W** | 1993-11-03 | `Flores Garita Andres Felipe` |
+| `M212013` | 137596 | CRC-**M** | 1993-11-03 | `Andres Felipe Flores Garita` |
+
+Same date of birth, same partner, consecutive years, same age group, and the
+same four name-parts in two different orders. That is one person with two
+records, and the second copy also picked up the wrong gender. The reordering is
+itself §6.5 at work — `FirstName` and `LastName` are free text — and it is the
+fingerprint of the record being typed a second time by hand rather than copied.
+
+A third CRC player, Josue himself (139047), carries **the same 1993-11-03
+birthdate**. Josue and Andres may well be twins; the birthdate may equally have
+been copied across records in the same sitting. Nothing in VIS distinguishes
+those, so this section does not claim which.
+
+The Moroccan case is weaker and worth stating as such. `Hafid Ouchrif` (137685,
+MAR-W) and `Ouchrif Abdelhafid` (117038, MAR-M) share a surname and a plausible
+name variant, but their only events are six years apart with different partners,
+so "duplicate" is a guess. What is *not* a guess is the gender: 137685's single
+event is a men's tournament.
 
 **Why it shows up at all.** Slicing is by federation *and* gender, so these
 pairs land in different slices and get carried on the player as `away` rows —
@@ -952,9 +991,16 @@ which is why the card's block is headed "Partners not in this graph" rather
 than anything naming federations. Six of the 221 published away rows are these
 three pairs, counted from both ends.
 
+**On the site** both CRC records render as "Flores", because `short` comes from
+FIVB's `TeamName` and is the same on each. The surname-first ordering above is
+what VIS stores, not what a reader sees.
+
 **Handled in.** Nothing. Two players and one old entry are not worth a rule,
 and any rule that reassigned a gender from tournament codes would be guessing
-about a person from a four-character string.
+about a person from a four-character string. The duplicate is a better thing to
+report than to work around: deduplicating athletes on our side would mean
+merging two FIVB player numbers, which is exactly the kind of judgement about a
+real person this pipeline does not make.
 
 ---
 
@@ -1013,7 +1059,11 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
 - **§18**, the two players whose `Gender` contradicts the only event they
-  played. Two records, and a one-field correction each.
+  played; underneath one of them a **duplicated athlete record**, CRC player
+  numbers 137511 and 137596 sharing a birthdate, a partner and a name; and,
+  separately, a **team row pointing at the wrong athlete** — `MRIO1989` credits
+  Marion Marquet (101084, born 1981-01-28) with a men's entry played when she
+  was eight.
 - **§19**, the three tournament codes whose year contradicts their own dates —
   `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
