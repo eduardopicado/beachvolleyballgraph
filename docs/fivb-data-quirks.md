@@ -968,17 +968,38 @@ of only eleven FIVB events in the whole 1987-91 bucket. A career that opens at
 the biggest tournament of its era, then resumes once, a decade later, at an
 ordinary Open, is not a career. It is two records that were joined by mistake.
 
-**The era around it is sound, which is what makes this a bad row rather than a
-bad decade.** The obvious worry about a defect in the 1987-91 bucket is that
-the whole bucket is guesswork. It is not. `MRIO1987` can be checked against a
-contemporary newspaper results table — reproduced in FIVB's own article on the
-event, and supplied by the site's author — and VIS matches it **exactly**: the
-same 20 pairs, in the same order, 1 through 20, right down to Ojeda/Ojeda
-(ARG) in 20th. Twenty rows in the newspaper, twenty in VIS.
+**One edition of this era can be checked against an outside source, and VIS
+passes.** `MRIO1987` matches a contemporary newspaper results table —
+reproduced in FIVB's own article on the event, supplied by the site's author —
+**exactly**: the same 20 pairs, in the same order, 1 through 20, down to
+Ojeda/Ojeda (ARG) in 20th. Worth recording because until now there was *no*
+independent check on any early Rio ranking at all. bvbinfo is not one: it
+carries the same Gaston/Marquet row as VIS, so it corroborates a date and never
+a roster (§6d).
 
-So the archive of this period is not approximate. `MRIO1989`'s 24 rows are a
-different draw with a different field, and rank 21 — the French pair — is a
-single bad row inside an otherwise well-kept record.
+**It does not reach the defect, and should not be read as if it does.** The
+check is one edition, and the bad row is in another. Worse, `MRIO1987` is the
+*smallest* draw of the ten:
+
+| Edition | Ranked rows | Deepest rank |
+|---|---:|---:|
+| `MRIO1987` | **20** | 20 |
+| `MRIO1988` | 24 | 24 |
+| `MRIO1989` | 24 | 24 |
+| `MRIO1990`, `MRIO1991` | 22 | 22 |
+| `MRIO1994` | 28 | 28 |
+| `MRIO1995`, `MRIO1996` | 32 | 25 |
+
+The French pair sits at **rank 21** of `MRIO1989`. The one edition anybody can
+verify is the only one of the ten with no rank-21 row to verify, and the
+newspaper stops at 20 regardless. Nothing outside VIS covers the depth of draw
+this defect lives at.
+
+So the honest position is narrow: the era is not *demonstrably* approximate,
+and one edition is demonstrably right. That is a reason not to assume rot, not
+evidence the 1989 roster is sound. The case against the French row rests on the
+birthdate and the career shape above — both internal to VIS — and it does not
+need the 1987 check to stand.
 
 **A warning for anyone re-checking this.** These editions are trivially easy to
 mix up, and doing so manufactures a discrepancy that is not there. Nine men's
