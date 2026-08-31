@@ -597,17 +597,18 @@ World Tour Opens. The first official edition is Los Angeles 1997. See §19: that
 whole era is also where the ranged `Season` values live.
 
 Careful with the word *unofficial*. Wikipedia describes them as "not organised
-by the FIVB", and this section used to repeat that — but VIS stamps
-`OrganizerType` 1, FIVB, on **all 100 rows played in 1987–1996**, these
-included, and `tierFor` only admits a tournament *because* of that value. So
-FIVB's own database does claim to have organised them. What the record supports
-is the narrower "not FIVB's official championships".
+by the FIVB", and this section used to repeat that. It is wrong, and FIVB says
+so itself: its own history page is headed
+[first FIVB-sanctioned beach volleyball event](https://www.fivb.com/first-fivb-sanctioned-beach-volleyball-event-begins-34-years-ago/)
+and is about Rio 1987. VIS agrees — `OrganizerType` 1, FIVB, on **all 100 rows
+played in 1987–1996** — and `tierFor` only admits a tournament *because* of
+that value.
 
-Both halves of that are FIVB's, which is the whole point: *we organised this*
-and *this was not a championship* are two statements from the same source, and
-the pipeline reproduces both without having to reconcile them. There is no rule
-here that excludes an event for not being FIVB-run, so there is nothing on our
-side for the tension to sit in.)
+So there is no tension to resolve, and an earlier draft of this section invented
+one. FIVB sanctioned these events, and FIVB classified them as Opens rather than
+championships. Both statements are FIVB's, they agree with each other, and the
+pipeline reproduces both. *Unofficial* here means "not FIVB's official
+championship", nothing more — and it is not our judgement to make either way.)
 
 ```
 1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
@@ -1058,9 +1059,16 @@ MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
 **`MRIO1996` is the one bad date in the series, and it is confirmed wrong.**
 VIS dates it `1996-01-01` to `1996-01-02`. It was played **8–11 February 1996**,
 per [bvbinfo](http://bvbinfo.info/TeamPreview?TournID=624&ID1=409&ID2=597),
-which lists it as the Brazil Open in Rio de Janeiro on those dates. That is a
-hand-compiled database rather than another reader of this API, so unlike the
-12ndr check above it is genuinely independent evidence.
+which lists it as the Brazil Open in Rio de Janeiro on those dates.
+
+**How far bvbinfo counts as independent, precisely.** It is not a mirror of this
+API: on this row it disagrees with VIS outright, which it could not do if it
+were reading the same field. But its *rosters* match FIVB's, errors included —
+it lists Jean Gaston and Marion Marquet at Rio 1989 exactly as VIS does, which
+is the misattribution §18 takes apart. So it corroborates a **date** here and
+cannot corroborate a **roster** anywhere. An earlier draft of this section
+called it "genuinely independent evidence" without that qualification, which
+claimed more than one agreeing row can support.
 
 Everything about the VIS row already pointed that way. A **1 January** start
 occurs on 2 of the 9,270 rows in the whole archive — this and `MDOH2022` — its
