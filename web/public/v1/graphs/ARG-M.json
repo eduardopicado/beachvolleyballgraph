@@ -8,7 +8,7 @@
       "name": "Eduardo Esteban \"Mono\" Martinez",
       "short": "Martinez",
       "tournaments": 96,
-      "first": 1991,
+      "first": 1992,
       "last": 2005
     },
     {
@@ -16,7 +16,7 @@
       "name": "Martin Alejo Conde",
       "short": "Conde",
       "tournaments": 178,
-      "first": 1987,
+      "first": 1991,
       "last": 2012
     },
     {
@@ -24,7 +24,7 @@
       "name": "Horacio Taccone",
       "short": "Taccone",
       "tournaments": 3,
-      "first": 1987,
+      "first": 1991,
       "last": 2000
     },
     {
@@ -32,8 +32,8 @@
       "name": "Ghillermo Ghillermo",
       "short": "Ghillermo",
       "tournaments": 1,
-      "first": 1991,
-      "last": 1991
+      "first": 1992,
+      "last": 1992
     },
     {
       "id": 100225,
@@ -48,7 +48,7 @@
       "name": "Carlos Javier Wuber",
       "short": "Weber",
       "tournaments": 2,
-      "first": 1987,
+      "first": 1988,
       "last": 1992
     },
     {
@@ -56,7 +56,7 @@
       "name": "Fabio Perez",
       "short": "Perez",
       "tournaments": 30,
-      "first": 1992,
+      "first": 1993,
       "last": 2005
     },
     {
@@ -112,48 +112,48 @@
       "name": "Ariel Bettiol",
       "short": "Bettiol",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101055,
       "name": "Juan Carlos Cuminetti",
       "short": "Cuminetti",
       "tournaments": 2,
-      "first": 1987,
-      "last": 1987
+      "first": 1988,
+      "last": 1990
     },
     {
       "id": 101058,
       "name": "Fabio Ricardo Diez",
       "short": "Diez",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101067,
       "name": "Leonardo \"Chiqui\" Wiernes",
       "short": "Wiernes",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1988,
+      "last": 1988
     },
     {
       "id": 101099,
       "name": "Raul Quiroga",
       "short": "Quiroga R.",
       "tournaments": 2,
-      "first": 1987,
-      "last": 1987
+      "first": 1988,
+      "last": 1989
     },
     {
       "id": 101116,
       "name": "Carlos Wagenpfeil",
       "short": "Wagenpfeil",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101142,
@@ -1043,17 +1043,17 @@
         ],
         [
           1994,
-          2,
-          411
+          1,
+          206
         ],
         [
           1995,
           16,
-          365
+          354
         ],
         [
           1996,
-          14,
+          15,
           347
         ],
         [
@@ -1083,13 +1083,13 @@
       "a": 100018,
       "b": 100213,
       "t": 1,
-      "f": 1991,
-      "l": 1991,
+      "f": 1992,
+      "l": 1992,
       "s": [
         [
-          1991,
+          1992,
           1,
-          414
+          49
         ]
       ],
       "r": 17
@@ -1098,13 +1098,13 @@
       "a": 100018,
       "b": 100244,
       "t": 1,
-      "f": 1992,
-      "l": 1992,
+      "f": 1993,
+      "l": 1993,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ]
       ],
       "r": 17
@@ -1173,17 +1173,12 @@
       "a": 100148,
       "b": 100149,
       "t": 2,
-      "f": 1987,
+      "f": 1991,
       "l": 1991,
       "s": [
         [
-          1987,
-          1,
-          1503
-        ],
-        [
           1991,
-          1,
+          2,
           209
         ]
       ],
@@ -1193,13 +1188,13 @@
       "a": 100148,
       "b": 100244,
       "t": 2,
-      "f": 1993,
+      "f": 1994,
       "l": 1996,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ],
         [
           1996,
@@ -1328,13 +1323,13 @@
       "a": 100226,
       "b": 101055,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1988,
+      "l": 1988,
       "s": [
         [
-          1987,
+          1988,
           1,
-          415
+          50
         ]
       ],
       "r": 12
@@ -1818,13 +1813,13 @@
       "a": 101046,
       "b": 101116,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1308
+          212
         ]
       ],
       "r": 20
@@ -1833,13 +1828,13 @@
       "a": 101055,
       "b": 101058,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1139
+          43
         ]
       ],
       "r": 20
@@ -1848,13 +1843,13 @@
       "a": 101067,
       "b": 101099,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1988,
+      "l": 1988,
       "s": [
         [
-          1987,
+          1988,
           1,
-          415
+          50
         ]
       ],
       "r": 21

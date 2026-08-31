@@ -73,11 +73,16 @@ export interface Tournament {
  * `YYYY-MM-DD` -> days from 1 January of `season`.
  *
  * `StartDateMainDraw` is populated on every tournament VIS returns (checked:
- * 9,264 of 9,264), so the null path is for a malformed value rather than a
+ * 9,270 of 9,270), so the null path is for a malformed value rather than a
  * missing one. Qualification can start earlier, but `StartDateQualification`
  * is populated on barely a third of them, so using it would order some
  * seasons by one field and some by another — worse than being uniformly
  * approximate by a day or two.
+ *
+ * The two or three digits this promises depend on `season` being the year the
+ * event was played. While a ranged `Season` was taken at its leading year, 18
+ * offsets ran to four digits — `MSYD1991` sat 1,533 days after 1 January of
+ * the 1987 it was filed under. `seasonFor` is what keeps that honest.
  */
 export function startOffsetFor(raw: string | undefined, season: number): number | null {
   if (!raw) return null;
@@ -154,6 +159,54 @@ export function parseSeason(raw: string | undefined): number | null {
 }
 
 /**
+ * The span a ranged `Season` covers, or `null` when it names a single year.
+ *
+ * The end is written with two digits ("1987-91", "1995-96") on every one of the
+ * 70 rows that has a range, but the four-digit form is accepted too rather than
+ * relying on that holding. A two-digit end takes its century from the start and
+ * rolls forward if that would put it earlier, so a hypothetical "1999-00" reads
+ * as 1999-2000 rather than an empty span.
+ */
+export function seasonRange(raw: string | undefined): { from: number; to: number } | null {
+  const match = /^\s*(\d{4})\s*-\s*(\d{2}|\d{4})\s*$/.exec(raw ?? '');
+  if (!match) return null;
+  const from = Number(match[1]);
+  const tail = match[2]!;
+  let to = tail.length === 4 ? Number(tail) : Math.floor(from / 100) * 100 + Number(tail);
+  if (to < from) to += 100;
+  return from >= 1985 && to <= 2100 ? { from, to } : null;
+}
+
+/**
+ * Which year a tournament belongs to.
+ *
+ * `Season` answers this on 9,200 of the 9,270 rows. On the other 70 it is a
+ * *range* — "1995-96" for a season crossing new year, and "1987-91" for five
+ * of them in one bucket — and taking its leading year filed the four annual Rio
+ * de Janeiro events coded MRIO1988 through MRIO1991 all under 1987. 26 rows
+ * were dated one to four years before they were played.
+ *
+ * So a range defers to `StartDateMainDraw`, which is populated on every row
+ * (quirks §14) and on all 70 of these lands inside the range the season
+ * declares. The bound is the point: a date outside the span is not a better
+ * answer than the span, so the range start still wins there.
+ *
+ * A **single-year** `Season` is authoritative even when the date disagrees, and
+ * that asymmetry is deliberate. A southern-hemisphere season opens in the
+ * previous December, so an event dated 2019-12-05 in season 2020 is filed
+ * exactly right — `startOffset` exists to carry that, and goes negative to say
+ * so. Only a range has lost information; a year has not.
+ */
+export function seasonFor(row: VisRow): number | null {
+  const declared = parseSeason(row.Season);
+  if (declared === null) return null;
+  const range = seasonRange(row.Season);
+  if (!range) return declared;
+  const played = Number((row.StartDateMainDraw ?? '').slice(0, 4));
+  return played >= range.from && played <= range.to ? played : declared;
+}
+
+/**
  * Was this tournament called off?
  *
  * VIS records it in the display name rather than a status field —
@@ -199,7 +252,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
     // was still counted in `manifest.totals.tournaments`, which is the one
     // published number that claimed otherwise. 131 of them, mostly 2020.
     if (isCancelled(row)) continue;
-    const season = parseSeason(row.Season);
+    const season = seasonFor(row);
     if (season === null) continue;
     const no = (row.No ?? '').trim();
     if (!no) continue;

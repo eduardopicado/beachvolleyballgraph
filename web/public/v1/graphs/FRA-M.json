@@ -8,7 +8,7 @@
       "name": "Christian Penigaud",
       "short": "Penigaud",
       "tournaments": 95,
-      "first": 1987,
+      "first": 1990,
       "last": 2000
     },
     {
@@ -16,7 +16,7 @@
       "name": "Jean-Philippe \"JP\" Jodard",
       "short": "Jodard",
       "tournaments": 93,
-      "first": 1987,
+      "first": 1990,
       "last": 2000
     },
     {
@@ -40,7 +40,7 @@
       "name": "Jean C. Gaston",
       "short": "Gaston",
       "tournaments": 2,
-      "first": 1987,
+      "first": 1989,
       "last": 1991
     },
     {
@@ -56,7 +56,7 @@
       "name": "Eric \"La Bouve\" Bouvier",
       "short": "Bouvier",
       "tournaments": 9,
-      "first": 1987,
+      "first": 1990,
       "last": 1997
     },
     {
@@ -72,7 +72,7 @@
       "name": "Thierry \"The Glove\" Glowacz",
       "short": "Glowacz",
       "tournaments": 12,
-      "first": 1987,
+      "first": 1990,
       "last": 1998
     },
     {
@@ -280,7 +280,7 @@
       "name": "Philippe Blain",
       "short": "Blain",
       "tournaments": 5,
-      "first": 1987,
+      "first": 1989,
       "last": 1997
     },
     {
@@ -288,32 +288,32 @@
       "name": "Jullien Blanc",
       "short": "Blanc",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101060,
       "name": "Alain Fabiani",
       "short": "Fabiani",
       "tournaments": 4,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1990
     },
     {
       "id": 101081,
       "name": "Cristophe Patry",
       "short": "Patry",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101082,
       "name": "... Meynard",
       "short": "Meynard",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101263,
@@ -1609,42 +1609,42 @@
       "a": 100103,
       "b": 100104,
       "t": 85,
-      "f": 1987,
+      "f": 1990,
       "l": 2000,
       "s": [
         [
-          1987,
-          3,
-          1533
+          1990,
+          1,
+          207
         ],
         [
           1991,
           6,
-          414
+          218
         ],
         [
           1992,
-          3,
+          5,
           230
         ],
         [
           1993,
-          3,
-          396
+          1,
+          209
         ],
         [
           1994,
-          6,
-          411
+          7,
+          243
         ],
         [
           1995,
           17,
-          365
+          354
         ],
         [
           1996,
-          6,
+          7,
           204
         ],
         [
@@ -1719,13 +1719,13 @@
       "a": 100104,
       "b": 100162,
       "t": 2,
-      "f": 1992,
+      "f": 1993,
       "l": 1997,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ],
         [
           1997,
@@ -1834,12 +1834,12 @@
       "s": [
         [
           1994,
-          3,
-          411
+          2,
+          243
         ],
         [
           1995,
-          1,
+          2,
           103
         ]
       ],
@@ -1864,13 +1864,13 @@
       "a": 100162,
       "b": 101081,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1303
+          207
         ]
       ],
       "r": 12
@@ -2599,13 +2599,18 @@
       "a": 101047,
       "b": 101060,
       "t": 4,
-      "f": 1987,
-      "l": 1987,
+      "f": 1989,
+      "l": 1990,
       "s": [
         [
-          1987,
-          4,
-          1316
+          1989,
+          1,
+          205
+        ],
+        [
+          1990,
+          3,
+          220
         ]
       ],
       "r": 4
@@ -2629,13 +2634,13 @@
       "a": 101048,
       "b": 101082,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1303
+          207
         ]
       ],
       "r": 14

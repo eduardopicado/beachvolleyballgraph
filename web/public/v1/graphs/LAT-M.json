@@ -8,16 +8,16 @@
       "name": "Ugis Krastins",
       "short": "Krastins",
       "tournaments": 1,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100476,
       "name": "Aivis Eida",
       "short": "Eida",
       "tournaments": 1,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100515,
@@ -56,7 +56,7 @@
       "name": "Viktor Artamonov",
       "short": "Artamonov",
       "tournaments": 3,
-      "first": 1987,
+      "first": 1989,
       "last": 1994
     },
     {
@@ -1049,13 +1049,13 @@
       "a": 100475,
       "b": 100476,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ]
       ],
       "r": 13

@@ -8,16 +8,16 @@
       "name": "Lazara \"Lachi\" Gonzalez",
       "short": "Lachi",
       "tournaments": 1,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100028,
       "name": "Nivris Rojas",
       "short": "Rojas",
       "tournaments": 1,
-      "first": 1992,
-      "last": 1992
+      "first": 1993,
+      "last": 1993
     },
     {
       "id": 100210,
@@ -32,7 +32,7 @@
       "name": "Lazara Martinez",
       "short": "Lazara",
       "tournaments": 3,
-      "first": 1992,
+      "first": 1993,
       "last": 1994
     },
     {
@@ -40,7 +40,7 @@
       "name": "Noemi Blanco Duran",
       "short": "Blanco",
       "tournaments": 6,
-      "first": 1994,
+      "first": 1995,
       "last": 1999
     },
     {
@@ -48,7 +48,7 @@
       "name": "Rubinelda Henry Serrano",
       "short": "Henry Serran",
       "tournaments": 4,
-      "first": 1994,
+      "first": 1995,
       "last": 1997
     },
     {
@@ -56,7 +56,7 @@
       "name": "Regla Aracely Serrano Junco",
       "short": "Serrano Junc",
       "tournaments": 2,
-      "first": 1994,
+      "first": 1995,
       "last": 1995
     },
     {
@@ -169,13 +169,13 @@
       "a": 100007,
       "b": 100210,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          403
+          38
         ]
       ],
       "r": 8
@@ -184,13 +184,13 @@
       "a": 100028,
       "b": 100263,
       "t": 1,
-      "f": 1992,
-      "l": 1992,
+      "f": 1993,
+      "l": 1993,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ]
       ],
       "r": 8
@@ -239,17 +239,12 @@
       "a": 100210,
       "b": 100629,
       "t": 4,
-      "f": 1994,
+      "f": 1995,
       "l": 1997,
       "s": [
         [
-          1994,
-          2,
-          425
-        ],
-        [
           1995,
-          1,
+          3,
           124
         ],
         [
@@ -264,17 +259,12 @@
       "a": 100628,
       "b": 100630,
       "t": 2,
-      "f": 1994,
+      "f": 1995,
       "l": 1995,
       "s": [
         [
-          1994,
-          1,
-          404
-        ],
-        [
           1995,
-          1,
+          2,
           124
         ]
       ],

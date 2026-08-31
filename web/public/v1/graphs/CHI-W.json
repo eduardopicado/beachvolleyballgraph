@@ -8,47 +8,47 @@
       "name": "Marcela Becerra",
       "short": "Becerra",
       "tournaments": 2,
-      "first": 1993,
-      "last": 1994
+      "first": 1994,
+      "last": 1995
     },
     {
       "id": 100480,
       "name": "Lia Karmelic",
       "short": "Karmelic",
       "tournaments": 2,
-      "first": 1993,
-      "last": 1994
+      "first": 1994,
+      "last": 1995
     },
     {
       "id": 100481,
       "name": "Sandra Solis Hunt",
       "short": "Solis Hunt",
       "tournaments": 1,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100482,
       "name": "Carolina Coddou Silva",
       "short": "Coddou",
       "tournaments": 3,
-      "first": 1993,
-      "last": 1994
+      "first": 1994,
+      "last": 1995
     },
     {
       "id": 100483,
       "name": "Sandra Vallejo",
       "short": "Vallejo",
       "tournaments": 4,
-      "first": 1993,
-      "last": 1994
+      "first": 1994,
+      "last": 1995
     },
     {
       "id": 100484,
       "name": "Vorena Contreras",
       "short": "Contreras",
       "tournaments": 3,
-      "first": 1993,
+      "first": 1994,
       "last": 1994
     },
     {
@@ -56,56 +56,56 @@
       "name": "Patricia Sofia \"Echavarria\" Lopez",
       "short": "Lopez",
       "tournaments": 1,
-      "first": 1993,
-      "last": 1993
+      "first": 1994,
+      "last": 1994
     },
     {
       "id": 100486,
       "name": "Cecilia Filliol",
       "short": "Filliol",
       "tournaments": 3,
-      "first": 1993,
-      "last": 1994
+      "first": 1994,
+      "last": 1995
     },
     {
       "id": 100622,
       "name": "Monica Micolich Figueroa",
       "short": "Figueroa",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 100623,
       "name": "Ericka Munoz Vasquez",
       "short": "Munoz",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 100625,
       "name": "Pamela Durruty",
       "short": "Durruty",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 100626,
       "name": "Mireya Solange Duarte",
       "short": "Duarte",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 100627,
       "name": "Licelotte Uteau",
       "short": "Uteau",
       "tournaments": 1,
-      "first": 1994,
-      "last": 1994
+      "first": 1995,
+      "last": 1995
     },
     {
       "id": 120112,
@@ -273,13 +273,13 @@
       "a": 100326,
       "b": 100481,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          379
+          14
         ]
       ],
       "r": 13
@@ -288,13 +288,13 @@
       "a": 100326,
       "b": 100483,
       "t": 1,
-      "f": 1994,
-      "l": 1994,
+      "f": 1995,
+      "l": 1995,
       "s": [
         [
-          1994,
+          1995,
           1,
-          404
+          39
         ]
       ],
       "r": 17
@@ -303,13 +303,13 @@
       "a": 100480,
       "b": 100482,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          403
+          38
         ]
       ],
       "r": 9
@@ -318,13 +318,13 @@
       "a": 100480,
       "b": 100627,
       "t": 1,
-      "f": 1994,
-      "l": 1994,
+      "f": 1995,
+      "l": 1995,
       "s": [
         [
-          1994,
+          1995,
           1,
-          404
+          39
         ]
       ],
       "r": 17
@@ -334,12 +334,17 @@
       "b": 100486,
       "t": 2,
       "f": 1994,
-      "l": 1994,
+      "l": 1995,
       "s": [
         [
           1994,
-          2,
-          404
+          1,
+          320
+        ],
+        [
+          1995,
+          1,
+          39
         ]
       ],
       "r": 13
@@ -348,17 +353,12 @@
       "a": 100483,
       "b": 100484,
       "t": 3,
-      "f": 1993,
+      "f": 1994,
       "l": 1994,
       "s": [
         [
-          1993,
-          1,
-          403
-        ],
-        [
           1994,
-          2,
+          3,
           320
         ]
       ],
@@ -368,13 +368,13 @@
       "a": 100485,
       "b": 100486,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          403
+          38
         ]
       ],
       "r": 13
@@ -383,13 +383,13 @@
       "a": 100622,
       "b": 100623,
       "t": 1,
-      "f": 1994,
-      "l": 1994,
+      "f": 1995,
+      "l": 1995,
       "s": [
         [
-          1994,
+          1995,
           1,
-          404
+          39
         ]
       ],
       "r": 30
@@ -398,13 +398,13 @@
       "a": 100625,
       "b": 100626,
       "t": 1,
-      "f": 1994,
-      "l": 1994,
+      "f": 1995,
+      "l": 1995,
       "s": [
         [
-          1994,
+          1995,
           1,
-          404
+          39
         ]
       ],
       "r": 28

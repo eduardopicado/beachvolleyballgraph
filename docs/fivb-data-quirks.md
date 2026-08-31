@@ -588,6 +588,13 @@ FIVB named the first ten editions after the host city and nothing else, then
 stopped. The 32 published rows — 16 editions, a men's draw and a women's for
 each — break down like this:
 
+(**Sixteen editions, starting 1997.** Ten more were held in Rio de Janeiro
+between 1987 and 1996, and they are deliberately not here: those were the
+*unofficial* championships, not organised by the FIVB, and VIS files them as
+ordinary World Tour Opens — which is what `tiers.ts` publishes them as. The
+first official edition is Los Angeles 1997. See §19: that whole era is also
+where the ranged `Season` values live.)
+
 ```
 1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
 2015             "Beach Volleyball Men WCHs"              no host anywhere
@@ -983,20 +990,77 @@ The Rio de Janeiro series is the clearest case, and it is visible in the codes:
 
 Five annual editions, five correct codes, one season between them.
 
-**Not the same thing as a wrong code.** Of the 29 codes whose year differs from
-the published season, 26 are this — the code is right and the season is coarse.
-The other three are the reverse: `WCAR1991` was played in August 1994, and
-`MCAP2023` / `WCAP2023` are dated November 2020. `MTOK2020` is deliberate and
-belongs to §6.7 — the Games are named for 2020 and were played in 2021.
+**The ranges are exactly the pre-1997 archive.** All 70 of them were played
+between **1987 and 1996**, and no row outside that window has one. That is the
+era FIVB was not yet running: the ten Rio de Janeiro editions above are the
+*unofficial* World Championships, not organised by the FIVB, and the first
+official edition is Los Angeles 1997 (§6.8, and why `worlds.ts` starts there).
+A block of years rather than a season per year is what back-filled records of
+somebody else's events look like — which is a reason to trust the dates over
+the bucket, not merely a licence to.
 
-**Handled in.** `parseSeason` in `ingest/build.ts`, for the half of the problem
-it was written for: the events are kept rather than dropped. The other half —
-that 26 of them are then dated wrongly — is open. `StartDateMainDraw` is
-populated on 100% of rows (§14), so falling back to the date's year when
-`Season` is a range is available and cheap. It would move 26 tournaments
-between seasons, which shifts `first`/`last` on every node and edge that
-references them, so it wants its own change, its own regression-check run and
-its own look at the timeline.
+**Not the same thing as a wrong code.** Of the 29 codes whose year differed from
+the published season, 25 were this — the code right, the season coarse — and
+they agree now. Six disagreements remain and all are explicable: `WCAR1991` was
+played in August 1994 and `MCAP2023` / `WCAP2023` in November 2020, which are
+genuinely mis-coded; the two Tokyo rows are named for 2020 and were played in
+2021 (§6.7); and `MSAN1995` is a January 1996 event whose code names the season
+it opened rather than the year it ran.
+
+**The offset gave it away twice over.** `startOffset` is days from 1 January of
+the season, and is documented as two or three digits. While the range start won,
+**18 rows ran to four** — `MSYD1991` sat **1,533 days** after the 1 January of
+the 1987 it was filed under. A field cannot be that far into its own season.
+
+**Handled in.** `seasonFor` in `ingest/build.ts`. A ranged `Season` defers to
+`StartDateMainDraw`, which is populated on every row (§14) and, on all 70 of
+these, lands inside the range the season itself declares — so the range is the
+bound, and a date outside it leaves the start in place. A **single-year**
+`Season` still wins over its date, deliberately: a southern season opens in the
+previous December, so an event dated 2019-12-05 in season 2020 is filed exactly
+right, and `startOffset` goes negative to say so. Only a range has lost
+information.
+
+25 tournaments moved, which corrects the careers built on top of them: Paulo
+Roberto "Paulão" Moreira da Costa published as 1987–2003 and is 1990–2003, his
+earliest event being the Rio de Janeiro of February 1990. No four-digit offset
+survives.
+
+**The dates themselves are sound**, which is worth stating because it is what
+makes deferring to them safe. Every edition in the series carries a specific
+range of a plausible length, and they check out against an outside reader of the
+same API: `WRIO1995` is `1995-03-02` to `1995-03-05` in VIS and 02–05 March 1995
+on `fivb.12ndr.at`. Only the season was ever coarse.
+
+```
+MRIO1987  1987-02-17 → 02-22    6 days
+MRIO1991  1991-02-12 → 02-23   12 days
+WRIO1995  1995-03-02 → 03-05    4 days
+WRIO1996  1996-02-28 → 03-03    5 days
+MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
+```
+
+**`MRIO1996` is the one bad date in the series, and it is confirmed wrong.**
+VIS dates it `1996-01-01` to `1996-01-02`. It was played **8–11 February 1996**,
+per [bvbinfo](http://bvbinfo.info/TeamPreview?TournID=624&ID1=409&ID2=597),
+which lists it as the Brazil Open in Rio de Janeiro on those dates. That is a
+hand-compiled database rather than another reader of this API, so unlike the
+12ndr check above it is genuinely independent evidence.
+
+Everything about the VIS row already pointed that way. A **1 January** start
+occurs on 2 of the 9,270 rows in the whole archive — this and `MDOH2022` — its
+two-day main draw stands against 4 to 12 for every other edition, and the
+women's 1996 draw sits in late February where the men's editions always sat.
+The real dates are four days in February, which is exactly the shape of the
+rest of the series. It is a placeholder typed in when the day was not to hand.
+
+There is no ambiguity about which event it is: `MRIO1996` is the only men's
+Brazilian tournament VIS holds for 1996 before April.
+
+It costs us almost nothing: the season is 1996 either way, and only the event's
+position within that season on a card is affected. It is on the upstream list
+because it is a one-field correction somebody at FIVB could make in a minute,
+and because the right value is now known.
 
 ---
 
@@ -1011,7 +1075,8 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
 - **§19**, the three tournament codes whose year contradicts their own dates —
-  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
+  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020 — and
+  `MRIO1996`, dated 1–2 January 1996 when it was played 8–11 February 1996.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
   surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
 - **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge

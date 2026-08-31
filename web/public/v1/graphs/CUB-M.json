@@ -8,7 +8,7 @@
       "name": "Eugenio Telles Ortiz",
       "short": "Ortiz",
       "tournaments": 4,
-      "first": 1987,
+      "first": 1988,
       "last": 1992
     },
     {
@@ -16,23 +16,23 @@
       "name": "Osvaldo Agustin Archer Abreu",
       "short": "Abreu",
       "tournaments": 4,
-      "first": 1987,
-      "last": 1993
+      "first": 1989,
+      "last": 1994
     },
     {
       "id": 100092,
       "name": "Juan Carlos Perdomo",
       "short": "Perdomo",
       "tournaments": 5,
-      "first": 1987,
-      "last": 1992
+      "first": 1988,
+      "last": 1993
     },
     {
       "id": 100093,
       "name": "Wilfredo \"Sombra\" Garcia Rizo",
       "short": "Garcia",
       "tournaments": 19,
-      "first": 1987,
+      "first": 1989,
       "last": 1995
     },
     {
@@ -40,7 +40,7 @@
       "name": "Gonzalo Manuel Torres",
       "short": "Torres",
       "tournaments": 17,
-      "first": 1993,
+      "first": 1994,
       "last": 1997
     },
     {
@@ -64,15 +64,15 @@
       "name": "Daniel Cardenas",
       "short": "Cardenas",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101175,
       "name": "Jorge Luis \"Bife\" Sanchez Cordero",
       "short": "Sanchez",
       "tournaments": 6,
-      "first": 1987,
+      "first": 1988,
       "last": 1998
     },
     {
@@ -80,16 +80,16 @@
       "name": "Miguel A. Martinez",
       "short": "Martinez",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101182,
       "name": "Roberto Sotolongo",
       "short": "Sotolongo",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1988,
+      "last": 1988
     },
     {
       "id": 101346,
@@ -265,13 +265,18 @@
       "a": 100090,
       "b": 100091,
       "t": 3,
-      "f": 1987,
+      "f": 1989,
       "l": 1992,
       "s": [
         [
-          1987,
-          2,
-          1139
+          1989,
+          1,
+          48
+        ],
+        [
+          1990,
+          1,
+          43
         ],
         [
           1992,
@@ -285,13 +290,13 @@
       "a": 100090,
       "b": 101182,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1988,
+      "l": 1988,
       "s": [
         [
-          1987,
+          1988,
           1,
-          415
+          50
         ]
       ],
       "r": 8
@@ -300,13 +305,13 @@
       "a": 100091,
       "b": 100424,
       "t": 1,
-      "f": 1993,
-      "l": 1993,
+      "f": 1994,
+      "l": 1994,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ]
       ],
       "r": 20
@@ -315,18 +320,23 @@
       "a": 100092,
       "b": 100093,
       "t": 4,
-      "f": 1987,
-      "l": 1992,
+      "f": 1989,
+      "l": 1993,
       "s": [
         [
-          1987,
+          1989,
           1,
-          779
+          48
         ],
         [
           1992,
-          3,
-          405
+          2,
+          230
+        ],
+        [
+          1993,
+          1,
+          39
         ]
       ],
       "r": 7
@@ -335,13 +345,13 @@
       "a": 100092,
       "b": 101175,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1988,
+      "l": 1988,
       "s": [
         [
-          1987,
+          1988,
           1,
-          415
+          50
         ]
       ],
       "r": 18
@@ -355,12 +365,12 @@
       "s": [
         [
           1994,
-          2,
-          411
+          1,
+          243
         ],
         [
           1995,
-          13,
+          14,
           259
         ]
       ],
@@ -390,12 +400,12 @@
       "s": [
         [
           1995,
-          16,
-          365
+          15,
+          354
         ],
         [
           1996,
-          11,
+          12,
           248
         ],
         [
@@ -495,13 +505,13 @@
       "a": 101051,
       "b": 101181,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1139
+          43
         ]
       ],
       "r": 10

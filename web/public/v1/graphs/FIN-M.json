@@ -8,7 +8,7 @@
       "name": "Petri Sainio",
       "short": "Sainio",
       "tournaments": 5,
-      "first": 1993,
+      "first": 1994,
       "last": 1996
     },
     {
@@ -16,7 +16,7 @@
       "name": "Janne \"Elmu\" Pulkkinen",
       "short": "Pulkkinen",
       "tournaments": 4,
-      "first": 1993,
+      "first": 1994,
       "last": 1998
     },
     {
@@ -577,13 +577,13 @@
       "a": 100420,
       "b": 100421,
       "t": 2,
-      "f": 1993,
+      "f": 1994,
       "l": 1996,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ],
         [
           1996,

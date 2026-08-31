@@ -13,6 +13,8 @@ import {
   pairKey,
   awayPartnersByPlayer,
   sliceByCountryAndGender,
+  seasonFor,
+  seasonRange,
   startOffsetFor,
   tidyName,
   tidyBirthPlace,
@@ -619,6 +621,65 @@ describe('orderResults', () => {
     ];
     orderResults(input, tournaments);
     expect(input.map(([no]) => no)).toEqual([4, 1]);
+  });
+});
+
+describe('seasonRange', () => {
+  it('reads a two-digit end, which is the only form VIS uses', () => {
+    // All 70 ranged rows look like these six.
+    expect(seasonRange('1987-91')).toEqual({ from: 1987, to: 1991 });
+    expect(seasonRange('1995-96')).toEqual({ from: 1995, to: 1996 });
+  });
+
+  it('rolls the century forward rather than reading an empty span', () => {
+    // No row looks like this today. Without the roll it would parse as
+    // 1999-1900, which is empty, and every date would fall outside it.
+    expect(seasonRange('1999-00')).toEqual({ from: 1999, to: 2000 });
+  });
+
+  it('is null for a plain year, which is 9,200 rows of 9,270', () => {
+    expect(seasonRange('2024')).toBeNull();
+    expect(seasonRange('')).toBeNull();
+    expect(seasonRange(undefined)).toBeNull();
+  });
+});
+
+describe('seasonFor', () => {
+  const row = (season: string, start?: string): VisRow => ({
+    No: '1',
+    Season: season,
+    ...(start ? { StartDateMainDraw: start } : {}),
+  });
+
+  it('dates a ranged season by when the event was actually played', () => {
+    // The four annual Rio events all sat in VIS season "1987-91" and all
+    // published as 1987. Their codes — MRIO1988 to MRIO1991 — said otherwise,
+    // and so did their dates.
+    expect(seasonFor(row('1987-91', '1988-02-20'))).toBe(1988);
+    expect(seasonFor(row('1987-91', '1991-02-12'))).toBe(1991);
+    expect(seasonFor(row('1995-96', '1996-01-01'))).toBe(1996);
+  });
+
+  it('leaves a single-year season alone even when the date disagrees', () => {
+    // The asymmetry is the point. A southern season opens in the previous
+    // December, so this row is filed exactly right and `startOffset` goes
+    // negative to say so. Only a range has lost information.
+    expect(seasonFor(row('2020', '2019-12-06'))).toBe(2020);
+    expect(seasonFor(row('2024', '2024-05-02'))).toBe(2024);
+  });
+
+  it('keeps the range start when the date falls outside the range', () => {
+    // A date outside the span it is meant to disambiguate is not a better
+    // answer than the span. No published row is like this; the bound is here
+    // so a future bad date cannot move an event decades.
+    expect(seasonFor(row('1987-91', '2015-06-01'))).toBe(1987);
+    expect(seasonFor(row('1987-91', '1980-06-01'))).toBe(1987);
+    expect(seasonFor(row('1987-91'))).toBe(1987);
+  });
+
+  it('is null when there is no usable season at all', () => {
+    expect(seasonFor(row(''))).toBeNull();
+    expect(seasonFor(row('not-a-year'))).toBeNull();
   });
 });
 
@@ -1679,6 +1740,48 @@ describe('the published birth places', () => {
     // The guard on the guard: a rule that simply title-cased everything would
     // pass every assertion above and quietly turn "PR" into "Pr".
     expect(places.filter((p) => /\b[A-Z]{2,3}\b/.test(p)).length).toBeGreaterThan(20);
+  });
+});
+
+/**
+ * The published artifact, not the rule on a fixture.
+ *
+ * `seasonFor` is unit-tested above, but nothing there proves a ranged `Season`
+ * ever reaches it — and while one did not, the damage was invisible in the
+ * season itself and showed up two fields away, in an offset that is supposed to
+ * be a few dozen days.
+ */
+describe('the published seasons', () => {
+  const file = JSON.parse(readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'));
+  const rows = Object.values(file.tournaments) as [string, number, string, number | null, string][];
+
+  it('keeps every start offset inside a single year', () => {
+    // The whole symptom. 18 rows ran past 400 days and MSYD1991 reached 1,533,
+    // because it was filed under the 1987 its "1987-91" season bucket starts
+    // in. A season is a year, so an offset from its 1 January cannot be two.
+    const wild = rows.filter(([, , , offset]) => offset !== null && Math.abs(offset) > 400);
+    expect(wild).toEqual([]);
+  });
+
+  it('agrees with the year in FIVB\u2019s own code, bar the six that disagree', () => {
+    // Not an equality: three codes are genuinely wrong (WCAR1991 was played in
+    // 1994, the two Cape Town rows in 2020), the two Tokyo rows are named for
+    // 2020 and were played in 2021, and MSAN1995 is a January event whose code
+    // names the season it opened. Everything else lines up, which is what a
+    // ranged season used to break on 25 rows.
+    const off = rows.filter(([, season, , , code]) => {
+      const year = /(\d{4})$/.exec(code ?? '');
+      return year && Number(year[1]) !== season;
+    });
+    expect(off.length).toBeLessThanOrEqual(6);
+  });
+
+  it('has more than one season in the years a range used to swallow', () => {
+    // Guards the guard. Taking the range start put five annual Rio editions in
+    // 1987; if that came back, 1988 to 1991 would empty out again.
+    for (const season of [1988, 1989, 1990, 1991]) {
+      expect(rows.filter((r) => r[1] === season).length).toBeGreaterThan(0);
+    }
   });
 });
 
