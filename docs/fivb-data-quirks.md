@@ -959,6 +959,15 @@ international. Whoever partnered Jean C. Gaston in Rio in 1989, it was not
 this athlete — a team row points at the wrong player record, and no gender
 field would fix it.
 
+**It is the partner half of the row that is wrong, not the row itself.**
+Gaston's own account of his career has him at Rio in 1989, so the entry is
+real and he is correctly on it. That is worth stating because it rules out the
+other reading — that the whole team row was attached to the wrong tournament —
+and leaves exactly one defect: the second player slot points at Marion
+Marquet's record when it cannot be her. Self-reported, and not the kind of
+source the rest of this document runs on, so it is corroboration for a
+conclusion the birthdate already forces rather than the basis for one.
+
 **The career shape says the same thing without the birthdate.** Worth having
 separately, because it survives the reply that it is the birthdate that is
 wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
