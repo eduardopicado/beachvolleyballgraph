@@ -80,6 +80,13 @@ it down. There is no store and no router.
 
 ## Conventions
 
+These are also encoded as a skill at `.claude/skills/data-conventions/`, which
+Claude Code loads automatically when someone works on the ingest, the published
+tree, or a test that reads it. The skill carries the runnable version — the
+commands for measuring a published field, checking which fields a data diff
+touched, and breaking a test to confirm it fails. Change both together.
+
+
 **Comments carry the reasoning.** This codebase is heavily commented on purpose:
 most non-obvious lines encode a decision with a measurement behind it. A
 comment saying *what* the code does is noise; one saying *why it is not the
