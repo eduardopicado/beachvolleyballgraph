@@ -589,20 +589,25 @@ stopped. The 32 published rows — 16 editions, a men's draw and a women's for
 each — break down like this:
 
 (**Sixteen editions, starting 1997.** Ten more men's editions were held in Rio
-de Janeiro between 1987 and 1996, and they are deliberately not here: the public
-record treats those as the *unofficial* championships, and the first official
-edition is Los Angeles 1997. VIS files all of them as ordinary World Tour Opens
-— `Type` 1, the same value as Enoshima 1989 or Sète 1990 — which is what
-`tiers.ts` publishes them as. See §19: that whole era is also where the ranged
-`Season` values live.
+de Janeiro between 1987 and 1996, and they are not in this list — but that is
+not a call anybody here made. **FIVB excludes them.** VIS stamps them `Type` 1,
+Open, the same value as Enoshima 1989 or Sète 1990, and never `Type` 4, the
+World Championship value. `tiers.ts` reads `Type`, so they publish as ordinary
+World Tour Opens. The first official edition is Los Angeles 1997. See §19: that
+whole era is also where the ranged `Season` values live.
 
 Careful with the word *unofficial*. Wikipedia describes them as "not organised
 by the FIVB", and this section used to repeat that — but VIS stamps
 `OrganizerType` 1, FIVB, on **all 100 rows played in 1987–1996**, these
 included, and `tierFor` only admits a tournament *because* of that value. So
-FIVB's own database does claim them. What the record actually supports is the
-narrower "not FIVB's official championships": `Type` 4, the World Championship
-value, is never applied to a Rio row in this window.)
+FIVB's own database does claim to have organised them. What the record supports
+is the narrower "not FIVB's official championships".
+
+Both halves of that are FIVB's, which is the whole point: *we organised this*
+and *this was not a championship* are two statements from the same source, and
+the pipeline reproduces both without having to reconcile them. There is no rule
+here that excludes an event for not being FIVB-run, so there is nothing on our
+side for the tension to sit in.)
 
 ```
 1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
