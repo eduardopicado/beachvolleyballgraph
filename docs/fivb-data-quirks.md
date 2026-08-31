@@ -968,6 +968,38 @@ Marquet's record when it cannot be her. Self-reported, and not the kind of
 source the rest of this document runs on, so it is corroboration for a
 conclusion the birthdate already forces rather than the basis for one.
 
+**Why *her* record, of all of them.** VIS holds five players matching
+"Marquet", three of them French:
+
+| Id | Name | Gender | Birthdate | Beach team rows |
+|---:|---|---|---|---:|
+| 101084 | Marion Marquet | W | 1981-01-28 | **2** |
+| 105101 | Pascal Marquet | M | — | 0 |
+| 111850 | Luc Marquet | M | 1970-04-15 | 0 |
+
+Marion is the only Marquet in the archive with a beach appearance of any kind.
+So the wrong link is not arbitrary: whoever attached a "Marquet" to the 1989
+entry had exactly one candidate the beach archive could offer, and took it.
+That is the same failure mode as the Costa Rican duplicate below — a name
+resolved against too small a pool — and it is the one worth reporting, because
+it recurs wherever a historical entry list is matched against a player table
+built later.
+
+**A candidate, flagged as a candidate.** Luc Marquet (111850) is French, male,
+and born in 1970 — a plausible partner for a Gaston also born in 1970. The
+site's author reports he was Gaston's indoor teammate in this period. VIS also
+holds a second Gaston, **Jean-Christophe Gaston** (111846, M, FRA,
+born 1970-05-19), whose name is what "Jean C." expands to and whose id sits
+four away from Luc Marquet's.
+
+None of that is a finding. **Both 111846 and 111850 have zero beach team rows**,
+so nothing in VIS puts either man at any tournament, and no source outside VIS
+names Gaston's 1989 partner at all. What can be said is narrower and still
+useful upstream: the records a corrected row would most plausibly point at
+already exist and are unused, and 100156 looks like a duplicate of 111846.
+Confirming any of it needs FIVB's own entry list, not more inference from
+this side.
+
 **The career shape says the same thing without the birthdate.** Worth having
 separately, because it survives the reply that it is the birthdate that is
 wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
@@ -1127,7 +1159,12 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   wrong athlete**: `MRIO1989` names Marion Marquet (101084, born 1981-01-28),
   who would have been eight, and whose only other event is eleven years later —
   two independent reasons, so the case survives if it turns out to be the
-  birthdate that is wrong.
+  birthdate that is wrong. She is also the only Marquet in the archive with any
+  beach appearance, which is likely why the row landed on her. Two unused
+  records look like the intended targets and are worth checking against the
+  original entry list: **Luc Marquet** (111850, M, FRA, 1970-04-15) for the
+  partner slot, and **Jean-Christophe Gaston** (111846, M, FRA, 1970-05-19),
+  which appears to be a duplicate of the 100156 record on the row.
 - **§19**, the three tournament codes whose year contradicts their own dates —
   `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
