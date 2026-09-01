@@ -1103,7 +1103,7 @@
       "id": 179513,
       "name": "Håvard Solheim",
       "short": "Solheim",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2023,
       "last": 2026
     },
@@ -1111,7 +1111,7 @@
       "id": 182771,
       "name": "Oscar Majak Gundersen",
       "short": "Majak",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -5928,7 +5928,7 @@
     {
       "a": 179513,
       "b": 182771,
-      "t": 7,
+      "t": 8,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -5944,8 +5944,8 @@
         ],
         [
           2026,
-          4,
-          169
+          5,
+          239
         ]
       ],
       "r": 4

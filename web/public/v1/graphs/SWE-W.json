@@ -559,7 +559,7 @@
       "id": 153169,
       "name": "Fanny Åhman",
       "short": "Åhman",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2016,
       "last": 2026
     },
@@ -607,7 +607,7 @@
       "id": 160596,
       "name": "Isabelle Reffel",
       "short": "Reffel",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -679,7 +679,7 @@
       "id": 179472,
       "name": "Selma Robinson",
       "short": "Robinson",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -719,7 +719,7 @@
       "id": 196022,
       "name": "Helene Jernbeck",
       "short": "Jernbeck",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2023,
       "last": 2026
     },
@@ -751,7 +751,7 @@
       "id": 232314,
       "name": "Sofia Russo",
       "short": "Russo, S.",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -759,7 +759,7 @@
       "id": 232315,
       "name": "Lina Russo",
       "short": "Russo, L.",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     }
@@ -2362,7 +2362,7 @@
     {
       "a": 153169,
       "b": 196022,
-      "t": 3,
+      "t": 4,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -2373,8 +2373,8 @@
         ],
         [
           2026,
-          2,
-          190
+          3,
+          239
         ]
       ],
       "r": 5
@@ -2462,14 +2462,14 @@
     {
       "a": 160596,
       "b": 179472,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          190
+          4,
+          239
         ]
       ],
       "r": 3
@@ -2627,14 +2627,14 @@
     {
       "a": 232314,
       "b": 232315,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          231
+          3,
+          239
         ]
       ],
       "r": 17

@@ -1212,6 +1212,13 @@
       "weight": null
     },
     {
+      "id": 164336,
+      "name": "Maciej Okrzeja",
+      "dob": "1993-04-20",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 164367,
       "name": "Filip Brandt",
       "dob": "1997-06-25",
@@ -1628,6 +1635,14 @@
       "height": 192,
       "weight": 85,
       "birthPlace": "Rybnik"
+    },
+    {
+      "id": 221519,
+      "name": "Michał Śliwa",
+      "dob": "2009-05-08",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Tychy"
     },
     {
       "id": 223996,

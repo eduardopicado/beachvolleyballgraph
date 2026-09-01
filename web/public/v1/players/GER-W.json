@@ -1795,6 +1795,14 @@
       "birthPlace": "Böblingen"
     },
     {
+      "id": 220856,
+      "name": "Carlotta Sophia Kahm",
+      "dob": "2010-03-13",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Hamburg"
+    },
+    {
       "id": 221481,
       "name": "Angelina Linke",
       "dob": "2005-03-16",
@@ -1864,6 +1872,14 @@
       "height": 172,
       "weight": 57,
       "birthPlace": "Nordhausen"
+    },
+    {
+      "id": 233002,
+      "name": "Lisa Zornow",
+      "dob": "2007-07-22",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Leipzig"
     },
     {
       "id": 239601,

@@ -767,7 +767,7 @@
       "id": 148474,
       "name": "Marie-Sara Stochlova",
       "short": "Stochlova",
-      "tournaments": 63,
+      "tournaments": 64,
       "first": 2016,
       "last": 2026
     },
@@ -791,7 +791,7 @@
       "id": 153347,
       "name": "Justyna Frommova",
       "short": "Frommova",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2023,
       "last": 2026
     },
@@ -807,7 +807,7 @@
       "id": 154128,
       "name": "Julie Honzovicova",
       "short": "Honzovicova",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2023,
       "last": 2026
     },
@@ -831,7 +831,7 @@
       "id": 154904,
       "name": "Martina Maixnerova",
       "short": "Maixnerova",
-      "tournaments": 37,
+      "tournaments": 38,
       "first": 2016,
       "last": 2026
     },
@@ -903,7 +903,7 @@
       "id": 164576,
       "name": "Marketa Svozilova",
       "short": "Svozilova",
-      "tournaments": 26,
+      "tournaments": 27,
       "first": 2023,
       "last": 2026
     },
@@ -919,7 +919,7 @@
       "id": 166811,
       "name": "Amalie Tonova",
       "short": "Tonova",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2025,
       "last": 2026
     },
@@ -943,7 +943,7 @@
       "id": 169499,
       "name": "Kylie Neuschaeferova",
       "short": "Kylie",
-      "tournaments": 34,
+      "tournaments": 35,
       "first": 2021,
       "last": 2026
     },
@@ -959,7 +959,7 @@
       "id": 173629,
       "name": "Andrea Lorenzova",
       "short": "Lorenzova",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2023,
       "last": 2026
     },
@@ -1031,7 +1031,7 @@
       "id": 181913,
       "name": "Lucie Knoblochova",
       "short": "Knoblochova",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1039,7 +1039,7 @@
       "id": 181914,
       "name": "Adela Petrikova",
       "short": "Petrikova",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1087,7 +1087,7 @@
       "id": 182658,
       "name": "Valerie Dvorníková",
       "short": "Dvorníková",
-      "tournaments": 35,
+      "tournaments": 36,
       "first": 2022,
       "last": 2026
     },
@@ -1095,7 +1095,7 @@
       "id": 182814,
       "name": "Lucie Grancaiova",
       "short": "Grancaiova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1103,7 +1103,7 @@
       "id": 190776,
       "name": "Mariana Tomasova",
       "short": "Tomasova",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -1119,7 +1119,7 @@
       "id": 190782,
       "name": "Elena Svobodova",
       "short": "Svobodova",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -1127,7 +1127,7 @@
       "id": 191283,
       "name": "Anna Simickova",
       "short": "Simickova An.",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1135,7 +1135,7 @@
       "id": 191284,
       "name": "Veronika Kleiblova",
       "short": "Kleiblova",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -1143,7 +1143,7 @@
       "id": 192337,
       "name": "Amalie Ebertova",
       "short": "Ebertova",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -1159,7 +1159,7 @@
       "id": 192736,
       "name": "Veronika Grancaiova",
       "short": "Grancaiova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1167,7 +1167,7 @@
       "id": 192868,
       "name": "Laura Kubistova",
       "short": "Kubistova",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2024,
       "last": 2026
     },
@@ -1183,7 +1183,7 @@
       "id": 201911,
       "name": "Adéla Šimíčková",
       "short": "Simickova Ad.",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1191,6 +1191,14 @@
       "id": 201912,
       "name": "Viktorie Šestáková",
       "short": "Sestakova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 202727,
+      "name": "Jana Mrkvičková",
+      "short": "Mrkvickova",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -1228,10 +1236,18 @@
       "last": 2026
     },
     {
+      "id": 212661,
+      "name": "Zuzana Lajkebova",
+      "short": "Lajkebova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 212664,
       "name": "Ema Sebova",
       "short": "Sebova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1257,6 +1273,14 @@
       "short": "Rudicka",
       "tournaments": 2,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 223611,
+      "name": "Barbora Dostalikova",
+      "short": "Dostalikova",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -3853,7 +3877,7 @@
     {
       "a": 148474,
       "b": 164576,
-      "t": 18,
+      "t": 19,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -3864,8 +3888,8 @@
         ],
         [
           2026,
-          4,
-          203
+          5,
+          239
         ]
       ],
       "r": 1
@@ -3888,14 +3912,14 @@
     {
       "a": 153347,
       "b": 154128,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          176
+          2,
+          239
         ]
       ],
       "r": 4
@@ -4173,7 +4197,7 @@
     {
       "a": 154904,
       "b": 169499,
-      "t": 21,
+      "t": 22,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4184,8 +4208,8 @@
         ],
         [
           2026,
-          6,
-          203
+          7,
+          239
         ]
       ],
       "r": 1
@@ -4263,7 +4287,7 @@
     {
       "a": 166811,
       "b": 192868,
-      "t": 15,
+      "t": 16,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4274,8 +4298,8 @@
         ],
         [
           2026,
-          7,
-          231
+          8,
+          239
         ]
       ],
       "r": 5
@@ -4453,7 +4477,7 @@
     {
       "a": 173629,
       "b": 190776,
-      "t": 11,
+      "t": 12,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -4469,8 +4493,8 @@
         ],
         [
           2026,
-          6,
-          217
+          7,
+          239
         ]
       ],
       "r": 1
@@ -4598,7 +4622,7 @@
     {
       "a": 181913,
       "b": 181914,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4609,8 +4633,8 @@
         ],
         [
           2026,
-          3,
-          190
+          4,
+          239
         ]
       ],
       "r": 4
@@ -4683,7 +4707,7 @@
     {
       "a": 182658,
       "b": 191284,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4694,8 +4718,8 @@
         ],
         [
           2026,
-          5,
-          211
+          6,
+          239
         ]
       ],
       "r": 9
@@ -4703,14 +4727,14 @@
     {
       "a": 182814,
       "b": 192736,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          190
+          2,
+          239
         ]
       ],
       "r": 17
@@ -4733,14 +4757,14 @@
     {
       "a": 190782,
       "b": 192337,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          176
+          3,
+          239
         ]
       ],
       "r": 13
@@ -4763,7 +4787,7 @@
     {
       "a": 191283,
       "b": 201911,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4774,8 +4798,8 @@
         ],
         [
           2026,
-          3,
-          204
+          4,
+          239
         ]
       ],
       "r": 9
@@ -4816,6 +4840,21 @@
       "r": 21
     },
     {
+      "a": 202727,
+      "b": 212664,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 5
+    },
+    {
       "a": 209533,
       "b": 234198,
       "t": 1,
@@ -4844,6 +4883,21 @@
         ]
       ],
       "r": 37
+    },
+    {
+      "a": 212661,
+      "b": 223611,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
     }
   ]
 }

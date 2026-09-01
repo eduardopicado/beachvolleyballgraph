@@ -1138,6 +1138,22 @@
       "height": null,
       "weight": null,
       "birthPlace": "Torn"
+    },
+    {
+      "id": 240399,
+      "name": "Daniel Enström",
+      "dob": "1989-07-22",
+      "height": 188,
+      "weight": 80,
+      "birthPlace": "Uddevalla"
+    },
+    {
+      "id": 240546,
+      "name": "Leo Constantin",
+      "dob": "2005-10-29",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Uddevalla"
     }
   ]
 }

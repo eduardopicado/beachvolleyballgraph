@@ -1423,9 +1423,9 @@
       "id": 160092,
       "name": "Johannes Kirsten",
       "short": "Kirsten",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2023,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 163563,
@@ -1647,7 +1647,7 @@
       "id": 184141,
       "name": "Lorenz Teege",
       "short": "Teege",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -1783,7 +1783,7 @@
       "id": 211379,
       "name": "Nicola Kössler",
       "short": "Kössler",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2024,
       "last": 2026
     },
@@ -1847,7 +1847,7 @@
       "id": 223294,
       "name": "Arne Robert Brendel",
       "short": "Brendel",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -1895,7 +1895,7 @@
       "id": 231058,
       "name": "Lasse Hüper",
       "short": "Hüper",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1903,7 +1903,7 @@
       "id": 232640,
       "name": "Hannes Ludwig",
       "short": "Ludwig",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -7023,9 +7023,9 @@
     {
       "a": 160092,
       "b": 211379,
-      "t": 5,
+      "t": 6,
       "f": 2024,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2024,
@@ -7036,6 +7036,11 @@
           2025,
           4,
           218
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 13
@@ -7713,7 +7718,7 @@
     {
       "a": 184141,
       "b": 223294,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -7724,8 +7729,8 @@
         ],
         [
           2026,
-          5,
-          176
+          6,
+          239
         ]
       ],
       "r": 13
@@ -8159,6 +8164,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 231058,
+      "b": 232640,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
     }
   ]
 }

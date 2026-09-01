@@ -415,7 +415,7 @@
       "id": 117899,
       "name": "Jan Dumek",
       "short": "Dumek",
-      "tournaments": 122,
+      "tournaments": 123,
       "first": 2006,
       "last": 2026
     },
@@ -727,7 +727,7 @@
       "id": 137346,
       "name": "Ondrej Perusic",
       "short": "Perusic",
-      "tournaments": 80,
+      "tournaments": 81,
       "first": 2012,
       "last": 2026
     },
@@ -791,7 +791,7 @@
       "id": 139869,
       "name": "Martin Pihera",
       "short": "Pihera",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2018,
       "last": 2026
     },
@@ -807,7 +807,7 @@
       "id": 147876,
       "name": "Vaclav Bercik",
       "short": "Bercik, V.",
-      "tournaments": 53,
+      "tournaments": 54,
       "first": 2014,
       "last": 2026
     },
@@ -879,7 +879,7 @@
       "id": 154123,
       "name": "Jiri Sedlak",
       "short": "Sedlak",
-      "tournaments": 53,
+      "tournaments": 54,
       "first": 2018,
       "last": 2026
     },
@@ -927,7 +927,7 @@
       "id": 157956,
       "name": "Matyas Dzavoronok",
       "short": "Dzavoronok",
-      "tournaments": 35,
+      "tournaments": 36,
       "first": 2021,
       "last": 2026
     },
@@ -975,7 +975,7 @@
       "id": 168597,
       "name": "Adam Miroslav Stocek",
       "short": "Stocek",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2019,
       "last": 2026
     },
@@ -991,7 +991,7 @@
       "id": 168606,
       "name": "Jakub Sepka",
       "short": "Sepka",
-      "tournaments": 49,
+      "tournaments": 50,
       "first": 2021,
       "last": 2026
     },
@@ -1039,7 +1039,7 @@
       "id": 173415,
       "name": "Tomas Semerad",
       "short": "Semerad",
-      "tournaments": 44,
+      "tournaments": 45,
       "first": 2021,
       "last": 2026
     },
@@ -1047,7 +1047,7 @@
       "id": 173575,
       "name": "Jan Bercik",
       "short": "Bercik, J.",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2021,
       "last": 2026
     },
@@ -1143,7 +1143,7 @@
       "id": 179529,
       "name": "Vaclav Kurka",
       "short": "Kurka",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2021,
       "last": 2026
     },
@@ -1167,7 +1167,7 @@
       "id": 181633,
       "name": "Krystof Jan Oliva",
       "short": "Oliva",
-      "tournaments": 33,
+      "tournaments": 34,
       "first": 2021,
       "last": 2026
     },
@@ -1175,9 +1175,9 @@
       "id": 182198,
       "name": "Vojtech Pavlusek",
       "short": "Pavlusek",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 182375,
@@ -1207,7 +1207,7 @@
       "id": 190771,
       "name": "David Westphal",
       "short": "Westphal",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2022,
       "last": 2026
     },
@@ -1231,7 +1231,7 @@
       "id": 192341,
       "name": "Martin Toufar",
       "short": "Toufar",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -1249,6 +1249,14 @@
       "short": "Kulis",
       "tournaments": 4,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 202726,
+      "name": "David Vyoral",
+      "short": "Vyoral",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -1280,6 +1288,14 @@
       "name": "Vitezslav Simek",
       "short": "Simek",
       "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 209573,
+      "name": "Simon Tuma",
+      "short": "Tuma",
+      "tournaments": 1,
       "first": 2026,
       "last": 2026
     },
@@ -1343,7 +1359,7 @@
       "id": 214025,
       "name": "Josef Havelka",
       "short": "Havelka",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -3321,7 +3337,7 @@
     {
       "a": 117899,
       "b": 190771,
-      "t": 9,
+      "t": 10,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -3332,8 +3348,8 @@
         ],
         [
           2026,
-          3,
-          217
+          4,
+          239
         ]
       ],
       "r": 4
@@ -3992,6 +4008,21 @@
       "r": 9
     },
     {
+      "a": 137346,
+      "b": 168606,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 1
+    },
+    {
       "a": 138670,
       "b": 138836,
       "t": 1,
@@ -4102,6 +4133,21 @@
     },
     {
       "a": 139869,
+      "b": 192341,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 139869,
       "b": 192787,
       "t": 1,
       "f": 2026,
@@ -4203,7 +4249,7 @@
     {
       "a": 147876,
       "b": 173575,
-      "t": 15,
+      "t": 16,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -4229,8 +4275,8 @@
         ],
         [
           2026,
-          2,
-          204
+          3,
+          239
         ]
       ],
       "r": 5
@@ -4593,17 +4639,22 @@
     {
       "a": 154123,
       "b": 157956,
-      "t": 2,
+      "t": 3,
       "f": 2021,
-      "l": 2021,
+      "l": 2026,
       "s": [
         [
           2021,
           2,
           259
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
-      "r": 5
+      "r": 2
     },
     {
       "a": 154123,
@@ -4893,7 +4944,7 @@
     {
       "a": 168597,
       "b": 173415,
-      "t": 14,
+      "t": 15,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -4909,8 +4960,8 @@
         ],
         [
           2026,
-          5,
-          231
+          6,
+          239
         ]
       ],
       "r": 5
@@ -5268,7 +5319,7 @@
     {
       "a": 179529,
       "b": 181633,
-      "t": 18,
+      "t": 19,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -5294,8 +5345,8 @@
         ],
         [
           2026,
-          4,
-          203
+          5,
+          239
         ]
       ],
       "r": 1
@@ -5369,6 +5420,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 182198,
+      "b": 214025,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 190440,
@@ -5474,6 +5540,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 202726,
+      "b": 209573,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 203268,

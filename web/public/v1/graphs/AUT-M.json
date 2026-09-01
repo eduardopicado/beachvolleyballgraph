@@ -895,7 +895,7 @@
       "id": 143120,
       "name": "Maximilian Trummer",
       "short": "Trummer",
-      "tournaments": 43,
+      "tournaments": 44,
       "first": 2018,
       "last": 2026
     },
@@ -1063,7 +1063,7 @@
       "id": 181938,
       "name": "Elias Holzinger",
       "short": "Holzinger",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2024,
       "last": 2026
     },
@@ -1071,7 +1071,7 @@
       "id": 182854,
       "name": "Philipp Sponer",
       "short": "Sponer P.",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2025,
       "last": 2026
     },
@@ -1092,6 +1092,14 @@
       "last": 2024
     },
     {
+      "id": 191134,
+      "name": "Cooper Boyd",
+      "short": "Boyd",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 191136,
       "name": "Alexander Sponer",
       "short": "Sponer A.",
@@ -1103,7 +1111,7 @@
       "id": 192193,
       "name": "Michael Mario Klemen",
       "short": "Klemen",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2024,
       "last": 2026
     },
@@ -1127,7 +1135,7 @@
       "id": 204486,
       "name": "Lukas Friedl",
       "short": "Friedl",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2024,
       "last": 2026
     },
@@ -5971,6 +5979,21 @@
       "r": 13
     },
     {
+      "a": 143120,
+      "b": 191134,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
+    },
+    {
       "a": 143888,
       "b": 143889,
       "t": 1,
@@ -6468,14 +6491,14 @@
     {
       "a": 181938,
       "b": 192193,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          176
+          3,
+          239
         ]
       ],
       "r": 5
@@ -6509,6 +6532,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 182854,
+      "b": 204486,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
     },
     {
       "a": 183841,

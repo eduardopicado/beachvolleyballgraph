@@ -1076,6 +1076,14 @@
       "last": 2026
     },
     {
+      "id": 164336,
+      "name": "Maciej Okrzeja",
+      "short": "Okrzeja",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 164367,
       "name": "Filip Brandt",
       "short": "Brandt",
@@ -1087,9 +1095,9 @@
       "id": 164749,
       "name": "Andrzej Paszkowski",
       "short": "Paszkowski",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2023,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 165620,
@@ -1335,7 +1343,7 @@
       "id": 202055,
       "name": "Jakub Magierski",
       "short": "Magierski",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1343,7 +1351,7 @@
       "id": 202140,
       "name": "Mateusz Pyrak",
       "short": "Pyrak",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -1428,10 +1436,18 @@
       "last": 2026
     },
     {
+      "id": 221519,
+      "name": "Michał Śliwa",
+      "short": "Śliwa",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 223996,
       "name": "Wojciech Witkowski",
       "short": "Witkowski",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -5314,6 +5330,21 @@
       "r": 9
     },
     {
+      "a": 164336,
+      "b": 164749,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 165620,
       "b": 169567,
       "t": 4,
@@ -5836,17 +5867,17 @@
     {
       "a": 202055,
       "b": 202140,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          183
+          2,
+          239
         ]
       ],
-      "r": 21
+      "r": 17
     },
     {
       "a": 210831,
@@ -5917,6 +5948,21 @@
         ]
       ],
       "r": 4
+    },
+    {
+      "a": 221519,
+      "b": 223996,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 223996,
