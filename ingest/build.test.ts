@@ -353,6 +353,31 @@ describe('normalisePlayers', () => {
     const map = normalisePlayers([player(11, '0', 'SMA'), player(12, '1', 'FIV')]);
     expect(map.size).toBe(0);
   });
+
+  it('strips a competition status out of the name and the short label', () => {
+    // Hovland's record exactly: appended to `LastName` behind a double space,
+    // and standing alone as the whole of `TeamName`. Both fields have to be
+    // handled — stripping only the surname leaves the graph label reading
+    // "Suspended", which is the defect readers actually saw.
+    const map = normalisePlayers([
+      {
+        ...player(13, '0', 'USA'),
+        FirstName: 'Tim "The Hov"',
+        LastName: 'Hovland  SUSPENDED',
+        TeamName: 'Suspended',
+      },
+    ]);
+    expect(map.get(13)).toMatchObject({ name: 'Tim "The Hov" Hovland', short: 'Hovland' });
+  });
+
+  it('leaves a populated team name alone', () => {
+    // Frohoff's record: the surname carries the status, `TeamName` does not.
+    // The strip must not cost him the label VIS got right.
+    const map = normalisePlayers([
+      { ...player(14, '0', 'USA'), FirstName: 'Brent', LastName: 'Frohoff  SUSPENDED', TeamName: 'Frohoff' },
+    ]);
+    expect(map.get(14)).toMatchObject({ name: 'Brent Frohoff', short: 'Frohoff' });
+  });
 });
 
 describe('aggregatePartnerships', () => {
@@ -1559,6 +1584,45 @@ describe('the published player names', () => {
     // are names like "Katharina HETZENDORFER" and "MUKUNZI Christ Ornel".
     const marked = names.filter((n) => words(n).some(shouts) && words(n).some((w) => !shouts(w)));
     expect(marked.length).toBeGreaterThan(20);
+  });
+});
+
+/**
+ * A competition status is not a name — asserted on the artifact, not a fixture.
+ *
+ * `SUSPENDED` reaches us in two fields at once, and the one that did the damage
+ * was `TeamName`: five of the six affected players were labelled "Suspended" on
+ * the USA-M graph, which is the label the node draws and the card headlines.
+ * A fixture proves the strip works; only the artifact proves it is reached on
+ * both fields, and the short label is not in `search.json` unless it differs
+ * from the full name — so this reads the graphs.
+ */
+describe('the published names carry no competition status', () => {
+  const dir = new URL('../web/public/v1/graphs', import.meta.url);
+  const labels: string[] = [];
+  for (const f of readdirSync(dir)) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/graphs/${f}`, import.meta.url), 'utf8'));
+    for (const node of file.nodes as { name: string; short: string }[]) {
+      labels.push(node.name, node.short);
+    }
+  }
+
+  it('covers every published node, name and short label alike', () => {
+    // Vacuity guard: the assertion below passes trivially on an empty list.
+    expect(labels.length).toBeGreaterThan(20_000);
+  });
+
+  it('never says a player is suspended', () => {
+    // Six before this: Tanner, Hovland, Young, Frohoff, Martin and Unger.
+    expect(labels.filter((n) => /(?<!\p{L})suspended(?!\p{L})/iu.test(n))).toEqual([]);
+  });
+
+  it('kept the players themselves', () => {
+    // Guard the guard: deleting the six records would also pass the assertion
+    // above. Hovland's six tournaments and Frohoff's two are still published.
+    expect(labels).toContain('Tim "The Hov" Hovland');
+    expect(labels).toContain('Hovland');
+    expect(labels).toContain('Brent Frohoff');
   });
 });
 

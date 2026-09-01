@@ -470,6 +470,50 @@ particle. Telling them apart needs the player's culture, not their string.
 
 ---
 
+## 6.5a. A name field sometimes holds a competition status
+
+Six player records carry `SUSPENDED` inside the name itself, in two fields at
+once:
+
+```
+100051  FirstName='Troy "T2"'        LastName='Tanner  SUSPENDED'    TeamName='Suspended'
+100131  FirstName='Tim "The Hov"'    LastName='Hovland  SUSPENDED'   TeamName='Suspended'
+100368  FirstName='Christopher J.'   LastName='Young  SUSPENDED'     TeamName='Suspended'
+100873  FirstName='Brent'            LastName='Frohoff  SUSPENDED'   TeamName='Frohoff'
+100875  FirstName='Kevin "K-Mart"'   LastName='Martin  SUSPENDED'    TeamName='Suspended'
+100881  FirstName='Matt'             LastName='Unger  SUSPENDED'     TeamName='Suspended'
+```
+
+All six are American men who competed between 1988 and 1997, and all six are
+real players with real results — Hovland has six tournaments in the archive.
+There is no status field here being read from; the annotation is written into
+the name, and `TeamName` is *replaced* by it on five of the six.
+
+That last part is what made this visible. `TeamName` is where the short label
+comes from (§6.5), so five of the six were drawn on the USA-M graph as a node
+labelled **"Suspended"** — no name at all.
+
+**Scope, measured.** Over all 131,021 player records, `SUSPENDED` is the only
+competition status written into a name. 19 further records read as annotations
+rather than people — `Dummy1 Dummy1`, `Dev-Test-Firstname Dev-Test-Lastname`,
+`TEST LVF TEST LVF`, spread across nine federations — but those are test
+accounts that have never been entered in a tournament, so none of them reaches
+the graph and none needs handling.
+
+**Not to be confused with** the 60 records whose name contains a bare "or".
+Almost all of those are a legal name beside the diminutive it is known by —
+"Randolph or Randy Stoklos", "Timothy or Tim Walmer" — which is documentation,
+not a defect. A handful pair two genuinely distinct given names ("Takeshi or
+Satoshi Matsumoto", "Olivier or Philippe Rossard"), and those read as FIVB
+recording that it is unsure which person the record belongs to. Nothing in the
+row distinguishes the two cases, so both are published verbatim.
+
+**Handled in.** `ingest/build.ts`, `stripCompetitionStatus`, applied to
+`FirstName`, `LastName` and `TeamName` inside `fullName` and `shortName`. One
+word is stripped, not a family of them, because one word is what the data has.
+
+---
+
 ## 6.6. `BirthPlace` is free text, and occasionally not a place
 
 One field, no separate city or country, filled in by hand at a couple of
@@ -1267,6 +1311,10 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   `MRIO1996`, dated 1–2 January 1996 when it was played 8–11 February 1996.
 - **§6.5**, names shouting in all capitals or carrying a nickname inside the
   surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
+- **§6.5a**, the six player records whose name field carries `SUSPENDED`, five
+  of which have lost their `TeamName` to it — Tim Hovland's short name in VIS
+  is currently the word "Suspended". The likeliest single-field fix in this
+  whole list.
 - **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
   notes rather than places.
 - **§6.7 and §6.8**, championship editions whose names never say where they
@@ -1278,7 +1326,7 @@ Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
 **The draft introduction email covers the first three only.** It is
-`docs/fivb-email.md` on the unsent branch (task #12), written before the name,
-birth-place and championship-naming quirks were found. Anyone picking that task
-up should add the last three to its "would a list of data issues be useful"
+`docs/fivb-email.md` on the unsent branch (task #12), written before the dated,
+name, birth-place and championship-naming quirks were found. Anyone picking that
+task up should add the last five to its "would a list of data issues be useful"
 section before sending — it already offers exactly that list.
