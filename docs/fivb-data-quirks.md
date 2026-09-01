@@ -632,12 +632,27 @@ FIVB named the first ten editions after the host city and nothing else, then
 stopped. The 32 published rows — 16 editions, a men's draw and a women's for
 each — break down like this:
 
-(**Sixteen editions, starting 1997.** Ten more were held in Rio de Janeiro
-between 1987 and 1996, and they are deliberately not here: those were the
-*unofficial* championships, not organised by the FIVB, and VIS files them as
-ordinary World Tour Opens — which is what `tiers.ts` publishes them as. The
-first official edition is Los Angeles 1997. See §19: that whole era is also
-where the ranged `Season` values live.)
+(**Sixteen editions, starting 1997.** Ten more men's editions were held in Rio
+de Janeiro between 1987 and 1996, and they are not in this list — but that is
+not a call anybody here made. **FIVB excludes them.** VIS stamps them `Type` 1,
+Open, the same value as Enoshima 1989 or Sète 1990, and never `Type` 4, the
+World Championship value. `tiers.ts` reads `Type`, so they publish as ordinary
+World Tour Opens. The first official edition is Los Angeles 1997. See §19: that
+whole era is also where the ranged `Season` values live.
+
+Careful with the word *unofficial*. Wikipedia describes them as "not organised
+by the FIVB", and this section used to repeat that. It is wrong, and FIVB says
+so itself: its own history page is headed
+[first FIVB-sanctioned beach volleyball event](https://www.fivb.com/first-fivb-sanctioned-beach-volleyball-event-begins-34-years-ago/)
+and is about Rio 1987. VIS agrees — `OrganizerType` 1, FIVB, on **all 100 rows
+played in 1987–1996** — and `tierFor` only admits a tournament *because* of
+that value.
+
+So there is no tension to resolve, and an earlier draft of this section invented
+one. FIVB sanctioned these events, and FIVB classified them as Opens rather than
+championships. Both statements are FIVB's, they agree with each other, and the
+pipeline reproduces both. *Unofficial* here means "not FIVB's official
+championship", nothing more — and it is not our judgement to make either way.)
 
 ```
 1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
@@ -1208,9 +1223,10 @@ Five annual editions, five correct codes, one season between them.
 
 **The ranges are exactly the pre-1997 archive.** All 70 of them were played
 between **1987 and 1996**, and no row outside that window has one. That is the
-era FIVB was not yet running: the ten Rio de Janeiro editions above are the
-*unofficial* World Championships, not organised by the FIVB, and the first
-official edition is Los Angeles 1997 (§6.8, and why `worlds.ts` starts there).
+era before FIVB ran a World Championship: the ten Rio de Janeiro editions above
+are the *unofficial* championships, and the first official edition is Los
+Angeles 1997 (§6.8, and why `worlds.ts` starts there — including the caveat
+there about who actually organised them).
 A block of years rather than a season per year is what back-filled records of
 somebody else's events look like — which is a reason to trust the dates over
 the bucket, not merely a licence to.
@@ -1259,9 +1275,16 @@ MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
 **`MRIO1996` is the one bad date in the series, and it is confirmed wrong.**
 VIS dates it `1996-01-01` to `1996-01-02`. It was played **8–11 February 1996**,
 per [bvbinfo](http://bvbinfo.info/TeamPreview?TournID=624&ID1=409&ID2=597),
-which lists it as the Brazil Open in Rio de Janeiro on those dates. That is a
-hand-compiled database rather than another reader of this API, so unlike the
-12ndr check above it is genuinely independent evidence.
+which lists it as the Brazil Open in Rio de Janeiro on those dates.
+
+**How far bvbinfo counts as independent, precisely.** It is not a mirror of this
+API: on this row it disagrees with VIS outright, which it could not do if it
+were reading the same field. But its *rosters* match FIVB's, errors included —
+it lists Jean Gaston and Marion Marquet at Rio 1989 exactly as VIS does, which
+is the misattribution §18 takes apart. So it corroborates a **date** here and
+cannot corroborate a **roster** anywhere. An earlier draft of this section
+called it "genuinely independent evidence" without that qualification, which
+claimed more than one agreeing row can support.
 
 Everything about the VIS row already pointed that way. A **1 January** start
 occurs on 2 of the 9,270 rows in the whole archive — this and `MDOH2022` — its
