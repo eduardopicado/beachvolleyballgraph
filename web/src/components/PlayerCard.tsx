@@ -765,10 +765,9 @@ export function PlayerCard({
                 which reads as a contradiction rather than an explanation.
 
                 The pointer stays; naming its target does not. The heading is
-                the next thing on the card, so "See Now with other federations
-                below" spent six words on a place the eye has already reached —
-                and reading a heading that opens with "Now" back into a sentence
-                made the sentence stumble. */}
+                the next thing on the card, so "See Partners not in this graph
+                below" would spend six words on a place the eye has already
+                reached. */}
             {away.length > 0
               ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
               : `No partnerships on record for this player.`}
@@ -823,20 +822,35 @@ export function PlayerCard({
         {away.length > 0 && (
           <div className="away">
             {/* Named rather than hidden: the graph deliberately holds only
-                same-federation pairs, and a player who moved keeps their new
-                country while every partner stays behind. Without this the card
-                reads as though they never had a partner at all.
+                same-slice pairs, and a player who moved keeps their new country
+                while every partner stays behind. Without this the card reads as
+                though they never had a partner at all.
 
-                "Now" is load-bearing. The rows underneath carry the federation
-                the pair represented *at the time*, and on 106 of the 221
-                published away rows that is this very country — so a heading
-                reading "Other federations" sat directly above this slice's own
-                flag. Gabriel Pereira's whole card is one such row: his only
-                partner is Jefferson Santos Pereira, they played one event
-                together in 2008 as Brazilians, and Jefferson is Qatari today.
-                The block is not "partners from elsewhere", it is "partners who
-                are elsewhere now". */}
-            <h4>Now with other federations</h4>
+                The heading says nothing about *who* moved, because the block
+                cannot tell. It read "Now with other federations" until someone
+                opened Tiago De J Santos in Qatar and found Pedro Solberg under
+                it: they played one event in 2005, both Brazilian, and Pedro has
+                been Brazilian ever since. Tiago is the one who left. Of the 111
+                published away rows carrying a federation for the partnership,
+                53 are that way round and 54 are the other, so a heading that
+                points at the partner is wrong about as often as it is right.
+                (4 more are the GBR split into ENG and SCO, where both ends
+                moved because the federation did.)
+
+                Six rows are not a federation difference at all. Three pairs sit
+                in the same federation under opposite genders — and since FIVB
+                runs no mixed beach competition, that is an upstream error
+                rather than a category: all three played men's events
+                (`MU212012`, `MRIO1989`, `MAGA2011`). The errors differ, though,
+                and only one is the mislabel it looks like — a duplicated
+                athlete, a wrong gender, and a team row crediting the wrong
+                person entirely. Quirks §18.
+
+                So "not in this graph" is the one description true of all 221
+                rows, and it is what the row's own flags then qualify, since a
+                partner who has since moved carries an arrow to where they are
+                today. */}
+            <h4>Partners not in this graph</h4>
             {showing === 'timeline' && awayTimeline.length > 0 ? (
               <SeasonList
                 rows={awayTimeline}

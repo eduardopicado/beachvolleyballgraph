@@ -1373,7 +1373,7 @@ test.describe('without JavaScript', () => {
  * second `.timeline` in the card, which is why every selector above had to say
  * which one it meant.
  */
-test.describe('the away block says "now"', () => {
+test.describe('the away block names itself for the graph, not for who moved', () => {
   const sliceFor = (code: string, gender: 'M' | 'W') => {
     const entry = manifest().countries.find((c) => c.code === code);
     if (!entry) throw new Error(`${code} missing from the manifest`);
@@ -1382,9 +1382,12 @@ test.describe('the away block says "now"', () => {
 
   /**
    * A published away row whose federation-at-the-time is this slice's *own*
-   * country — the case that made the heading read "Other federations: Brazil".
-   * Found by scanning the data rather than pinned to a player, so it survives
-   * the weekly ingest.
+   * country, so the partner is the one who left. Found by scanning the data
+   * rather than pinned to a player, so it survives the weekly ingest.
+   *
+   * 54 of the 111 away rows that carry a federation are this way round. The
+   * other 53 are `movedAwayRow()` below, and the two together are why the
+   * heading cannot name whoever moved.
    */
   const homeFlagRow = () => {
     for (const country of manifest().countries) {
@@ -1408,16 +1411,55 @@ test.describe('the away block says "now"', () => {
     return null;
   };
 
-  test('names the block for where partners are now, not where they were', async ({ page }) => {
-    const row = homeFlagRow();
-    expect(row, 'no away row carries this slice\u2019s own federation').not.toBeNull();
+  /**
+   * The mirror case: the pair played under the *partner's* federation, and the
+   * partner is still in it — so the player whose card this is, is the one who
+   * left. Tiago De J Santos in Qatar is the reported instance; his only away
+   * partner is Pedro Solberg, Brazilian in 2005 and Brazilian now.
+   */
+  const movedAwayRow = () => {
+    for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length === 0) continue;
+            const played = at[at.length - 1]![1];
+            // Played under the partner's federation, which is still theirs.
+            if (played === a.fed && played !== country.code) {
+              return { code: country.code, gender, id: p.id, partner: a.name };
+            }
+          }
+        }
+      }
+    }
+    return null;
+  };
 
-    await page.goto(`./${sliceFor(row!.code, row!.gender)}?player=${row!.id}`);
-    const card = page.locator('.player-card');
-    await expect(card).toBeVisible();
+  test('names the block the same way whichever of the two moved', async ({ page }) => {
+    const stayed = homeFlagRow();
+    const left = movedAwayRow();
+    // Guard the guard: without both, this asserts one heading twice.
+    expect(stayed, 'no away row where the partner is the one who moved').not.toBeNull();
+    expect(left, 'no away row where the card\u2019s own player is the one who moved').not.toBeNull();
+    expect(`${stayed!.code}-${stayed!.id}`).not.toBe(`${left!.code}-${left!.id}`);
 
-    // The heading has to be about today, because the flags under it are not.
-    await expect(card.locator('.away h4')).toHaveText('Now with other federations');
+    // The heading may not claim the partner moved: on `left` they did not, and
+    // a heading reading "now with other federations" is simply false there.
+    // What still distinguishes the two cases is the row's own arrow, which
+    // "a partner who never left gets one flag and no arrow" below pins.
+    for (const row of [stayed!, left!]) {
+      await page.goto(`./${sliceFor(row.code, row.gender)}?player=${row.id}`);
+      const card = page.locator('.player-card');
+      await expect(card).toBeVisible();
+      await expect(card.locator('.away h4')).toHaveText('Partners not in this graph');
+    }
   });
 
   test('a partner who moved shows both flags, not just the one', async ({ page }) => {
