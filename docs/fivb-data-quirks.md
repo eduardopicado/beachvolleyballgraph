@@ -496,9 +496,23 @@ labelled **"Suspended"** — no name at all.
 **Scope, measured.** Over all 131,021 player records, `SUSPENDED` is the only
 competition status written into a name. 19 further records read as annotations
 rather than people — `Dummy1 Dummy1`, `Dev-Test-Firstname Dev-Test-Lastname`,
-`TEST LVF TEST LVF`, spread across nine federations — but those are test
-accounts that have never been entered in a tournament, so none of them reaches
-the graph and none needs handling.
+`TEST LVF TEST LVF`, spread across nine federations — and none of them reaches
+the graph, so none needs stripping here.
+
+**They do compete, though.** An earlier version of this section said they had
+never been entered in a tournament. That is wrong: **10 of the 19 have team
+rows**, and not stray ones. `Dummy2 Dummy2` (157369) has twelve, carrying real
+placements — 5th at `NAUT1419`, 13th at `NAUT0821` — and `Dummy 4` (163708),
+`Test player Test player` (161987) and `Test Firstname Test Lasname` (179099)
+have their own.
+
+What keeps them out is the **tier filter**, not their absence. Every one of
+those events is either `Type` 15, an Austrian national tour stop (§1), or a
+`Type` 35 event literally named "Test NC2". That distinction is worth stating
+plainly, because it means the thing standing between the graph and a player
+called `Dummy2` is §1 — and a future widening of the admitted types would
+publish them without anything in this section noticing. `build.test.ts` now
+asserts they stay out, so that change would have to argue with a test.
 
 **Not to be confused with** the 60 records whose name contains a bare "or".
 Almost all of those are a legal name beside the diminutive it is known by —
