@@ -654,10 +654,16 @@
   flex: none;
 }
 
+/* Neutral, for the same reason `.view-switch`'s groove is. The fill is doing
+   grouping work — it binds a venue, a placement, a date, a badge and a partner
+   into one event, which is what stops an open season reading as twenty
+   unaligned lines — but grouped content is neither selected nor clickable, and
+   painting it in the accent put four blue blocks under a blue selected chip.
+   The panel stays; only its colour stops making a claim. */
 .events > li {
   padding: 4px 8px 5px;
   border-radius: 6px;
-  background: var(--series-1-wash);
+  background: var(--track);
 }
 
 .events .event {
