@@ -1624,6 +1624,19 @@ describe('the published names carry no competition status', () => {
     expect(labels).toContain('Hovland');
     expect(labels).toContain('Brent Frohoff');
   });
+
+  it('never publishes one of FIVB’s test accounts', () => {
+    // 19 player records in VIS are test or dummy accounts, and 10 of them have
+    // real team rows with real placements — `Dummy2 Dummy2` has twelve. They
+    // stay out because every one of those events is a national tour stop or a
+    // tournament named "Test NC2", which §1's tier filter excludes.
+    //
+    // So this asserts a property that nothing else does: the name strip above
+    // does not touch these, and the only thing keeping `Dummy2` off the graph
+    // is a tier decision made three modules away. Widening the admitted types
+    // would publish them, and that should fail here rather than ship.
+    expect(labels.filter((n) => /(?<!\p{L})(dummy|test)\d*(?!\p{L})/iu.test(n))).toEqual([]);
+  });
 });
 
 /**
