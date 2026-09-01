@@ -92,9 +92,11 @@
   cursor: pointer;
 }
 
-.player-card .close:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .player-card .close:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- vitals -------------------------------------------------------------- */
@@ -167,9 +169,11 @@
   cursor: pointer;
 }
 
-.tl-filters button:hover {
-  color: var(--text-primary);
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .tl-filters button:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
 }
 
 .tl-filters button.on {
@@ -290,8 +294,10 @@
   cursor: pointer;
 }
 
-.partners li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .partners li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .partners .name {
@@ -411,8 +417,10 @@
   cursor: pointer;
 }
 
-.away li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .away li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 /* No page to send anyone to: that country x gender slice had fewer than two
@@ -470,8 +478,10 @@
   cursor: pointer;
 }
 
-.view-switch button:hover {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .view-switch button:hover {
+    color: var(--text-primary);
+  }
 }
 
 .view-switch button[aria-pressed='true'] {
@@ -530,8 +540,10 @@
   cursor: pointer;
 }
 
-.timeline .season:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .timeline .season:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .timeline .year-row {
@@ -555,17 +567,24 @@
   transition: transform 120ms ease;
 }
 
-.timeline .season:hover .caret,
+/* Open is a state, not a pointer position, so the colour stays out of the
+   hover gate below — on a phone this is the only one of the two that can ever
+   be true, and it is what says the season is open. */
 .timeline .season[aria-expanded='true'] .caret {
   color: var(--series-1);
-}
-
-.timeline .season[aria-expanded='true'] .caret {
   transform: rotate(90deg);
 }
 
-.timeline .season:hover .year {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .timeline .season:hover .caret {
+    color: var(--series-1);
+  }
+}
+
+@media (hover: hover) {
+  .timeline .season:hover .year {
+    color: var(--text-primary);
+  }
 }
 
 .timeline .season[aria-expanded='true'] .year {
@@ -623,8 +642,10 @@
   cursor: pointer;
 }
 
-.timeline li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .timeline li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- an expanded season -------------------------------------------------- */
@@ -755,10 +776,12 @@
   color: var(--series-1);
 }
 
-.find-path:hover {
-  background: var(--series-1-wash);
-  border-color: var(--series-1);
-  color: var(--text-primary);
+@media (hover: hover) {
+  .find-path:hover {
+    background: var(--series-1-wash);
+    border-color: var(--series-1);
+    color: var(--text-primary);
+  }
 }
 
 .find-path:focus-visible {
@@ -773,6 +796,8 @@
   text-decoration: none;
 }
 
-.profile-link:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .profile-link:hover {
+    text-decoration: underline;
+  }
 }

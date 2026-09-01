@@ -63,10 +63,18 @@
   inset: -10px;
 }
 
-.help-tip-trigger:hover,
+/* Expanded is a state, not a pointer position — it must survive the gate below,
+   or an open tip on a phone loses the highlight that says it is open. */
 .help-tip-trigger[aria-expanded='true'] {
   border-color: var(--series-1);
   color: var(--series-1);
+}
+
+@media (hover: hover) {
+  .help-tip-trigger:hover {
+    border-color: var(--series-1);
+    color: var(--series-1);
+  }
 }
 
 .help-tip-bubble {
@@ -140,8 +148,10 @@
   white-space: nowrap;
 }
 
-.segmented button:hover:not(:disabled) {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .segmented button:hover:not(:disabled) {
+    color: var(--text-primary);
+  }
 }
 
 .segmented button.is-selected {
