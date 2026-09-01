@@ -451,7 +451,12 @@
   flex: 1;
   padding: 2px;
   border-radius: 7px;
-  background: var(--series-1-wash);
+  /* Neutral, not the accent wash. The tinted track is the iOS idiom — a white
+     thumb riding a coloured groove — and it is fine alone, but `.tl-filters`
+     sits 10px below spending that same wash on the *selected* chip. Two
+     controls, one colour, opposite meanings. The groove is chrome, so it gets
+     a colour that carries no state. */
+  background: var(--track);
 }
 
 .view-switch button {
@@ -474,9 +479,14 @@
   color: var(--text-primary);
 }
 
+/* Deliberately identical to `.tl-filters button.on` below, because a reader
+   scanning down the card meets both within one glance and should not have to
+   learn "selected" twice. Losing the white thumb is the cost of that, and it
+   is paid back three times over: fill, text colour and weight all move
+   together, where the thumb signalled with fill alone. */
 .view-switch button[aria-pressed='true'] {
-  background: var(--surface-1);
-  color: var(--text-primary);
+  background: var(--series-1-wash);
+  color: var(--series-1);
 }
 
 /* --- Timeline ------------------------------------------------------------ */
