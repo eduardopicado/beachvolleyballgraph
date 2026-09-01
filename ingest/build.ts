@@ -691,14 +691,41 @@ export function olympicGamesByPlayer(
  * of them are labelled **"Suspended"** on the USA-M graph today, Tim Hovland
  * among them, because `TeamName` is where the short label comes from.
  *
- * Measured over all 131,021 VIS player records, `SUSPENDED` is the only
+ * Measured over all 131,072 VIS player records, `SUSPENDED` is the only
  * competition status written into a name. The other 19 records whose names read
- * as annotations rather than people are test and dummy accounts ("Dummy1
- * Dummy1", "Dev-Test-Firstname"), and none of those has ever entered a
- * tournament, so none reaches the artifact and none is this function's problem.
- * That is why this strips one word and not a family of them: one word is what
- * the data has.
+ * as annotations rather than people are test and dummy accounts, and those are
+ * dropped outright by `isTestAccount` rather than tidied here. That is why this
+ * strips one word and not a family of them: one word is what the data has.
  */
+/**
+ * Whether a player record is one of FIVB's own test or dummy accounts.
+ *
+ * 19 of the 131,072 records are these: "Dummy1 Dummy1", "Test player Test
+ * player", "Dev-Test-Firstname Dev-Test-Lastname", "TEST LVF TEST LVF", spread
+ * across twelve federations. They are not inert. **10 of the 19 carry team
+ * rows**, with real placements — `Dummy2 Dummy2` (157369) has twelve of them,
+ * finishing 5th at `NAUT1419` and 13th at `NAUT0821`.
+ *
+ * None of them has ever reached the published graph, but until this existed
+ * nothing was aiming at that: every one of their events is a `Type` 15 national
+ * tour stop or a `Type` 35 event named "Test NC2", so §1's tier filter was
+ * keeping `Dummy2` off the site as a side effect of a decision about
+ * *tournaments*. Widening the admitted types would have published them.
+ *
+ * **Matched on the name alone, never on `TeamName`.** That boundary is the
+ * whole risk in this function, and it is not hypothetical: Erika Riedl (135343,
+ * JAM) is a real athlete whose `TeamName` is "Riedl-Test". Reading that field
+ * here drops her; reading only the name drops exactly the 19 and nobody else,
+ * measured over the full player list.
+ *
+ * The word boundaries do the rest of the work. `\d*` catches the numbered
+ * variants without letting the match run into a name — "Testa", "Teste",
+ * "Contesta" and "Dummett" are all real surnames that a looser pattern takes.
+ */
+export function isTestAccount(name: string): boolean {
+  return /(?<!\p{L})(dummy|test)\d*(?!\p{L})/iu.test(name);
+}
+
 function stripCompetitionStatus(value: string): string {
   return value.replace(/(?<!\p{L})SUSPENDED(?!\p{L})/giu, '');
 }
@@ -741,6 +768,8 @@ export function normalisePlayers(rows: VisRow[]): Map<number, Player> {
     if (EXCLUDED_FEDERATIONS.has(rawFederation)) continue;
     const dob = (row.Birthdate ?? '').trim();
     const name = fullName(row);
+    // After `fullName`, so the check sees the same string a reader would.
+    if (isTestAccount(name)) continue;
     out.set(id, {
       id,
       name,
