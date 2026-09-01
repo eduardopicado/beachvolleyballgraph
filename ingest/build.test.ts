@@ -354,6 +354,42 @@ describe('normalisePlayers', () => {
     expect(map.size).toBe(0);
   });
 
+  it('drops FIVB’s own test and dummy accounts', () => {
+    // Real shapes from the archive, across three federations.
+    const map = normalisePlayers([
+      { ...player(20, '0', 'AUT'), FirstName: 'Dummy2', LastName: 'Dummy2' },
+      { ...player(21, '0', 'FRA'), FirstName: 'Dev-Test-Firstname', LastName: 'Dev-Test-Lastname' },
+      { ...player(22, '1', 'ITA'), FirstName: 'TEST LVF', LastName: 'TEST LVF' },
+      { ...player(23, '0', 'IND'), FirstName: 'Test1', LastName: 'Test1' },
+    ]);
+    expect(map.size).toBe(0);
+  });
+
+  it('keeps a real player whose team name merely contains “test”', () => {
+    // Erika Riedl (135343, JAM) is why the rule reads the name and not
+    // `TeamName`: hers is "Riedl-Test". Matching that field drops an athlete.
+    const map = normalisePlayers([
+      { ...player(24, '1', 'JAM'), FirstName: 'Erika', LastName: 'Riedl', TeamName: 'Riedl-Test' },
+    ]);
+    expect(map.get(24)).toMatchObject({ name: 'Erika Riedl', short: 'Riedl-Test' });
+  });
+
+  it('keeps real surnames that a looser pattern would swallow', () => {
+    // The word boundaries are load-bearing, not decoration.
+    const map = normalisePlayers([
+      { ...player(25, '0', 'ITA'), FirstName: 'Marco', LastName: 'Testa' },
+      { ...player(26, '0', 'BRA'), FirstName: 'Paulo', LastName: 'Teste' },
+      { ...player(27, '0', 'ENG'), FirstName: 'John', LastName: 'Dummett' },
+      { ...player(28, '0', 'ITA'), FirstName: 'Mario', LastName: 'Contesta' },
+    ]);
+    expect([...map.values()].map((p) => p.name)).toEqual([
+      'Marco Testa',
+      'Paulo Teste',
+      'John Dummett',
+      'Mario Contesta',
+    ]);
+  });
+
   it('strips a competition status out of the name and the short label', () => {
     // Hovland's record exactly: appended to `LastName` behind a double space,
     // and standing alone as the whole of `TeamName`. Both fields have to be

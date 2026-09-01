@@ -506,13 +506,25 @@ placements — 5th at `NAUT1419`, 13th at `NAUT0821` — and `Dummy 4` (163708),
 `Test player Test player` (161987) and `Test Firstname Test Lasname` (179099)
 have their own.
 
-What keeps them out is the **tier filter**, not their absence. Every one of
-those events is either `Type` 15, an Austrian national tour stop (§1), or a
-`Type` 35 event literally named "Test NC2". That distinction is worth stating
-plainly, because it means the thing standing between the graph and a player
-called `Dummy2` is §1 — and a future widening of the admitted types would
-publish them without anything in this section noticing. `build.test.ts` now
-asserts they stay out, so that change would have to argue with a test.
+What used to keep them out was the **tier filter**, not their absence. Every one
+of those events is either `Type` 15, an Austrian national tour stop (§1), or a
+`Type` 35 event literally named "Test NC2" — so the thing standing between the
+graph and a player called `Dummy2` was a decision about *tournaments*, and
+widening the admitted types would have published them.
+
+**They are now dropped by name**, in `isTestAccount`, so the exclusion is
+deliberate rather than a side effect of §1. It changed nothing published, which
+is the point: the same 12,097 players and 13,966 partnerships came out of the
+run that introduced it. 17 records are newly excluded rather than 19, because
+`Test Test` (139736, SMA) and `Player Jessica Test` (179298, FIV) were already
+dropped by the excluded-federation rule.
+
+**The rule reads the name and never `TeamName`**, and that is the whole risk in
+it. Erika Riedl (135343, JAM) is a real athlete whose `TeamName` is
+"Riedl-Test"; a version of this that consulted that field would delete her.
+Matching on the name alone drops exactly the 19 across the full 131,072-record
+player list and nobody else. The word boundaries carry the rest: `Testa`,
+`Teste`, `Contesta` and `Dummett` are real surnames a looser pattern takes.
 
 **Not to be confused with** the 60 records whose name contains a bare "or".
 Almost all of those are a legal name beside the diminutive it is known by —
