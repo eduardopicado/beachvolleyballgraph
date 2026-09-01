@@ -29,7 +29,7 @@ As of the last refresh:
 
 ```
 1,688 tournaments      1987–2027       151 countries
-12,066 players         13,909 partnerships
+12,074 players         13,931 partnerships
 264 country × gender slices            795 published files, 12 MB
 ```
 
@@ -51,7 +51,7 @@ Everything described here is shipped and live. No open pull requests.
 
 | | |
 |---|---|
-| #12 | Send the FIVB introduction email — drafted in [fivb-email.md](fivb-email.md): application identifier, read access to the four `BeachAgreement*` date fields, and whether a stable per-tournament URL exists |
+| #12 | Send the FIVB introduction email — drafted in [fivb-email.md](fivb-email.md): application identifier, read access to the four `BeachAgreement*` date fields, and whether a stable per-tournament URL exists. **Add the six data issues found since it was written** — see the end of [fivb-data-quirks.md](fivb-data-quirks.md) |
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
 | #25 | "Six degrees": partnership path between two players — parked, needs design |
 | #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
@@ -102,9 +102,9 @@ npm run ingest         # ~15s: fetch FIVB, rebuild every file under web/public/v
 npm run dev            # Vite dev server
 npm run build          # typecheck + vite build + prerender 265 pages
 npm run preview        # serve the built site
-npm test               # 259 unit tests (vitest)
-npm run test:e2e       # 64 browser tests (Playwright, against the built site)
-npm run lint           # eslint
+npm test               # 467 unit tests (vitest)
+npm run test:e2e       # 113 browser tests (Playwright, against the built site)
+npm run lint           # eslint + stylelint
 ```
 
 **The weekly refresh** runs `.github/workflows/deploy.yml` on a Monday cron

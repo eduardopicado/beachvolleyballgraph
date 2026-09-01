@@ -7,14 +7,19 @@
       "name": "María Jose Orellana",
       "dob": "1981-04-08",
       "height": 163,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Guatemala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132286,
       "name": "Maria Renee Andreu Rivas",
       "dob": "1994-01-20",
       "height": 163,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Guatemala"
     },
     {
       "id": 134980,
@@ -28,28 +33,35 @@
       "name": "Nadia Lucia Galan Dary",
       "dob": "1993-11-05",
       "height": 166,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Guatemala"
     },
     {
       "id": 138403,
       "name": "Estefanie Bethancourth Guerra",
       "dob": "1996-08-15",
       "height": 175,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Chiquimula"
     },
     {
       "id": 139198,
       "name": "Maria Andrea Orellana Aragon",
       "dob": "1995-09-27",
       "height": 169,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Guatemala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139960,
       "name": "Natalia Maria Giron Boesche",
       "dob": "1996-09-13",
       "height": 181,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Guatemala"
     },
     {
       "id": 173300,
@@ -63,7 +75,8 @@
       "name": "Danna Mariela Aguilar Hernández",
       "dob": "2005-02-20",
       "height": 166,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Suchitepequez"
     },
     {
       "id": 195743,

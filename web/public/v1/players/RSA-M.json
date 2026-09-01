@@ -35,7 +35,8 @@
       "name": "Duncan \"Lofty\" Leroux",
       "dob": "1971-12-07",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Johannseburg"
     },
     {
       "id": 100683,
@@ -49,14 +50,20 @@
       "name": "Gershon Rorich",
       "dob": "1973-10-23",
       "height": 196,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town",
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100836,
       "name": "Adrian \"Gosh\" Strijdom",
       "dob": "1972-02-08",
       "height": 181,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 101304,
@@ -80,12 +87,6 @@
               354
             ]
           ],
-          "at": [
-            [
-              1995,
-              "RSA"
-            ]
-          ],
           "r": 37
         }
       ]
@@ -102,7 +103,11 @@
       "name": "Casey Augoustides",
       "dob": "1970-12-14",
       "height": 181,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Cape Town",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101316,
@@ -238,12 +243,6 @@
               354
             ]
           ],
-          "at": [
-            [
-              1995,
-              "CAN"
-            ]
-          ],
           "r": 25
         }
       ]
@@ -298,12 +297,6 @@
               347
             ]
           ],
-          "at": [
-            [
-              1996,
-              "RSA"
-            ]
-          ],
           "r": 38
         }
       ]
@@ -313,7 +306,11 @@
       "name": "Colin Pocock",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101695,
@@ -446,14 +443,19 @@
       "name": "Jerome Fredericks",
       "dob": "1975-03-23",
       "height": 193,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 104641,
       "name": "Freedom Chiya",
       "dob": "1979-07-11",
       "height": 186,
-      "weight": 92
+      "weight": 92,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 104642,
@@ -475,11 +477,18 @@
       "dob": "1983-04-16",
       "height": 195,
       "weight": 88,
+      "birthPlace": "Cape Town",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117671,
@@ -493,7 +502,8 @@
       "name": "Shaien Govender",
       "dob": "1982-09-08",
       "height": 173,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Durban"
     },
     {
       "id": 117708,
@@ -528,7 +538,11 @@
       "name": "Patrik Flisberg",
       "dob": "1972-09-28",
       "height": 190,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Sofia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 131969,
@@ -536,11 +550,16 @@
       "dob": "1985-05-09",
       "height": 198,
       "weight": 96,
+      "birthPlace": "Cape Town",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 145168,
@@ -554,7 +573,8 @@
       "name": "Ivan Solomans",
       "dob": "1978-06-06",
       "height": 194,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 145473,
@@ -575,14 +595,19 @@
       "name": "Clinton Stemmet",
       "dob": "1988-06-29",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 145485,
       "name": "Jamaine Naidoo",
       "dob": "1986-09-29",
       "height": 187,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "RSA",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145493,
@@ -603,42 +628,48 @@
       "name": "Lukholo Jooste",
       "dob": "2000-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town, South Africa"
     },
     {
       "id": 164403,
       "name": "Aviwe Bulela Mamfanya",
       "dob": "2000-06-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 168285,
       "name": "Mthokozisi Mndingi",
       "dob": "1994-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "KwaNongoma (Zululand)"
     },
     {
       "id": 168820,
       "name": "Alistair Glossop",
       "dob": "1984-02-27",
       "height": 188,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 181382,
       "name": "Danilo Von Ludwiger",
       "dob": "2002-07-01",
       "height": 195,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 184593,
       "name": "Heiko Egon Guther",
       "dob": "2003-04-14",
       "height": 206,
-      "weight": 108
+      "weight": 108,
+      "birthPlace": "Pretoria"
     },
     {
       "id": 184879,
@@ -652,21 +683,24 @@
       "name": "Valaitham Deloshem",
       "dob": "2006-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Durban"
     },
     {
       "id": 194555,
       "name": "Kemoloile Otsweleng",
       "dob": "2003-07-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tshwane"
     },
     {
       "id": 194882,
       "name": "Deloshen Valaitham",
       "dob": "2006-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Durban"
     },
     {
       "id": 228378,

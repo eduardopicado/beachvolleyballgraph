@@ -14,14 +14,16 @@
       "name": "Viktoriia Polishchuk",
       "dob": "1981-03-29",
       "height": 180,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Kiev, Ukraine"
     },
     {
       "id": 103822,
       "name": "Tetyana Budko",
       "dob": "1984-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Russia"
     },
     {
       "id": 104232,
@@ -29,11 +31,16 @@
       "dob": "1979-03-23",
       "height": 174,
       "weight": 64,
+      "birthPlace": "Kyiv",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104233,
@@ -41,11 +48,16 @@
       "dob": "1985-03-18",
       "height": 182,
       "weight": 69,
+      "birthPlace": "Illichivsk",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 122369,
@@ -95,21 +107,24 @@
       "name": "Ol'ga Drobyshevs'ka",
       "dob": "1985-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zaporizhzhya"
     },
     {
       "id": 104235,
       "name": "Anastasiya Rayeva",
       "dob": "1984-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Illichivsk"
     },
     {
       "id": 104236,
       "name": "Iryna Nikolayeva",
       "dob": "1985-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Illichivsk"
     },
     {
       "id": 104654,
@@ -131,11 +146,16 @@
       "dob": "1987-08-25",
       "height": 181,
       "weight": 66,
+      "birthPlace": "Ukraine",
       "tour": {
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118035,
@@ -149,7 +169,8 @@
       "name": "Myroslava Gryban",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dnipro"
     },
     {
       "id": 118238,
@@ -198,7 +219,8 @@
       "name": "Alona Malysheva",
       "dob": "1984-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cherkasy"
     },
     {
       "id": 120581,
@@ -206,11 +228,15 @@
       "dob": "1992-09-18",
       "height": 182,
       "weight": 69,
+      "birthPlace": "Sumy",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 120582,
@@ -264,6 +290,7 @@
       "dob": "1985-02-15",
       "height": 180,
       "weight": 62,
+      "birthPlace": "Odesa region",
       "away": [
         {
           "id": 147672,
@@ -304,7 +331,8 @@
       "name": "Yelyzaveta Sulima",
       "dob": "1995-10-10",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 132574,
@@ -316,7 +344,10 @@
         "gold": 4,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132575,
@@ -324,25 +355,31 @@
       "dob": "1994-10-15",
       "height": 179,
       "weight": 66,
+      "birthPlace": "Poltava region",
       "tour": {
         "gold": 4,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 133302,
       "name": "Daria Kovalova",
       "dob": "1996-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 135528,
       "name": "Angelina Lesunenko",
       "dob": "1994-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dnipropetrovsk"
     },
     {
       "id": 135529,
@@ -361,7 +398,10 @@
         "gold": 2,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142241,
@@ -375,7 +415,11 @@
       "name": "Ievgeniia Baieva",
       "dob": "1987-08-15",
       "height": 184,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Zaporizhzhia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147381,
@@ -383,6 +427,7 @@
       "dob": "1988-02-16",
       "height": null,
       "weight": null,
+      "birthPlace": "Ukraine",
       "away": [
         {
           "id": 119620,
@@ -404,16 +449,6 @@
               132
             ]
           ],
-          "at": [
-            [
-              2014,
-              "AZE"
-            ],
-            [
-              2015,
-              "AZE"
-            ]
-          ],
           "r": 4
         }
       ]
@@ -428,14 +463,18 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156819,
       "name": "Anna Shumeiko",
       "dob": "2001-02-14",
       "height": 184,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Kyiv"
     },
     {
       "id": 157200,
@@ -456,7 +495,8 @@
       "name": "Anastasiya Nagorna",
       "dob": "2002-03-13",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Donetsk"
     },
     {
       "id": 162408,
@@ -475,7 +515,11 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 162410,
@@ -487,14 +531,18 @@
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169905,
       "name": "Veronika Zhukova",
       "dob": "2002-02-13",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Zaporizhzhia"
     },
     {
       "id": 170281,
@@ -506,7 +554,11 @@
         "gold": 8,
         "silver": 3,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 173480,
@@ -518,42 +570,51 @@
         "gold": 2,
         "silver": 4,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 182699,
       "name": "Kateryna Udovenko",
       "dob": "2004-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 182804,
       "name": "Anastasiia Prykhodko",
       "dob": "1987-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zaporizhzhia"
     },
     {
       "id": 182805,
       "name": "Tetiana Grashchenko",
       "dob": "1988-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rivne"
     },
     {
       "id": 192247,
       "name": "Taisiia Kalchenko",
       "dob": "2005-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 193223,
       "name": "Mariia Shkurat",
       "dob": "2009-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 201612,
@@ -565,7 +626,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 211976,
@@ -579,14 +643,16 @@
       "name": "Marharyta Vapniar",
       "dob": "2009-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Derazhnia"
     },
     {
       "id": 212653,
       "name": "Iryna Nikitchuk",
       "dob": "2006-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riivne"
     }
   ]
 }

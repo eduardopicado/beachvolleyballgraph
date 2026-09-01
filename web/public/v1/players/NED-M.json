@@ -35,14 +35,25 @@
       "name": "Michel or Mies Everaert",
       "dob": "1963-04-21",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Hulst",
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100533,
       "name": "Sander Mulder",
       "dob": "1969-07-19",
       "height": 196,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Hengelo",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100679,
@@ -91,14 +102,19 @@
       "name": "Max Backer",
       "dob": "1976-07-22",
       "height": 200,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Gouda",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102368,
       "name": "Ralph Backer",
       "dob": "1974-05-09",
       "height": 204,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Gouda"
     },
     {
       "id": 102700,
@@ -106,18 +122,26 @@
       "dob": "1980-08-25",
       "height": 205,
       "weight": 90,
+      "birthPlace": "Amsterdam",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102701,
       "name": "Lucas Boersma",
       "dob": "1972-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Amsterdam"
     },
     {
       "id": 102796,
@@ -131,7 +155,11 @@
       "name": "Richard De Kogel",
       "dob": "1976-12-22",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Rotterdam",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103060,
@@ -146,18 +174,29 @@
       "dob": "1977-06-10",
       "height": 186,
       "weight": 85,
+      "birthPlace": "Boxmeer",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103299,
       "name": "Bram Ronnes",
       "dob": "1978-11-17",
       "height": 185,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Enschede",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 103300,
@@ -171,7 +210,8 @@
       "name": "Rick Wiggers",
       "dob": "1978-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zevenhuizen"
     },
     {
       "id": 104241,
@@ -179,32 +219,43 @@
       "dob": "1978-04-18",
       "height": 199,
       "weight": 90,
+      "birthPlace": "Leidschendam",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104242,
       "name": "Boudewijn Maas",
       "dob": "1979-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "A'dam"
     },
     {
       "id": 104349,
       "name": "Jorn Huiskamp",
       "dob": "1984-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Apeldoorn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104350,
       "name": "Oscar Nuijten",
       "dob": "1985-01-27",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Dordrecht"
     },
     {
       "id": 104719,
@@ -225,28 +276,38 @@
       "name": "Daan Spijkers",
       "dob": "1987-03-06",
       "height": 187,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Tilburg",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 105022,
       "name": "Marco Daalmeijer",
       "dob": "1987-10-02",
       "height": 187,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Ede"
     },
     {
       "id": 105023,
       "name": "Jeroen Van der Linden",
       "dob": "1987-04-18",
       "height": 186,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Apeldoorn"
     },
     {
       "id": 105024,
       "name": "Tim Oude Elferink",
       "dob": "1987-04-13",
       "height": 194,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Amsterdam",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 105103,
@@ -260,28 +321,35 @@
       "name": "Marko Klok",
       "dob": "1968-03-14",
       "height": 194,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Monnickendam, NED"
     },
     {
       "id": 111027,
       "name": "Martijn Dieleman",
       "dob": "1979-05-11",
       "height": 202,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Goes"
     },
     {
       "id": 113222,
       "name": "Joppe Paulides",
       "dob": "1982-04-13",
       "height": 203,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Noordwijkerhout, NED",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116494,
       "name": "Richard Rademaker",
       "dob": "1982-03-18",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Apeldoorn"
     },
     {
       "id": 116554,
@@ -289,11 +357,18 @@
       "dob": "1973-02-05",
       "height": 202,
       "weight": 94,
+      "birthPlace": "Leeuwarden",
       "tour": {
         "gold": 9,
         "silver": 5,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116556,
@@ -301,6 +376,7 @@
       "dob": "1976-09-10",
       "height": 194,
       "weight": 87,
+      "birthPlace": "IJsselmuiden",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -310,7 +386,13 @@
         "gold": 12,
         "silver": 6,
         "bronze": 2
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116623,
@@ -324,7 +406,8 @@
       "name": "Michiel Boersma",
       "dob": "1975-11-28",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Amsterdam"
     },
     {
       "id": 117963,
@@ -353,6 +436,7 @@
       "dob": "1989-11-03",
       "height": 198,
       "weight": 90,
+      "birthPlace": "Leiden",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -367,7 +451,13 @@
         "gold": 7,
         "silver": 10,
         "bronze": 7
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119235,
@@ -375,6 +465,7 @@
       "dob": "1990-05-06",
       "height": 212,
       "weight": 106,
+      "birthPlace": "Valthermond",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -384,7 +475,13 @@
         "gold": 3,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119236,
@@ -405,14 +502,16 @@
       "name": "Niels van de Sande",
       "dob": "1984-06-13",
       "height": 198,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Tilburg"
     },
     {
       "id": 119904,
       "name": "Frank van den Outenaar",
       "dob": "1985-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Beverwijk"
     },
     {
       "id": 119905,
@@ -420,11 +519,16 @@
       "dob": "1988-01-31",
       "height": 188,
       "weight": 81,
+      "birthPlace": "Amsterdam",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119991,
@@ -432,6 +536,7 @@
       "dob": "1988-03-21",
       "height": 207,
       "weight": 94,
+      "birthPlace": "Nieuwegein",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -446,14 +551,21 @@
         "gold": 6,
         "silver": 10,
         "bronze": 7
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120073,
       "name": "Tijmen Companjen",
       "dob": "1980-04-11",
       "height": 186,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Gouda"
     },
     {
       "id": 120074,
@@ -467,14 +579,16 @@
       "name": "Bart Bolsterlee",
       "dob": "1984-09-17",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Alkmaar"
     },
     {
       "id": 120676,
       "name": "Jan-Joost van den Bogert",
       "dob": "1990-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Moutain View"
     },
     {
       "id": 120677,
@@ -482,11 +596,15 @@
       "dob": "1991-12-11",
       "height": 208,
       "weight": 93,
+      "birthPlace": "Leiden",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 120681,
@@ -501,18 +619,23 @@
       "dob": "1988-05-08",
       "height": 200,
       "weight": 90,
+      "birthPlace": "Groningen",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 121987,
       "name": "Roland Rademaker",
       "dob": "1982-03-18",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Apeldoorn"
     },
     {
       "id": 121989,
@@ -520,11 +643,15 @@
       "dob": "1984-09-14",
       "height": 200,
       "weight": 90,
+      "birthPlace": "Apeldoorn",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124275,
@@ -538,7 +665,8 @@
       "name": "Bobby Kooy",
       "dob": "1991-02-25",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Amsterdam"
     },
     {
       "id": 124760,
@@ -546,11 +674,15 @@
       "dob": "1992-12-24",
       "height": 185,
       "weight": 78,
+      "birthPlace": "Terneuzen",
       "tour": {
         "gold": 2,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124761,
@@ -562,7 +694,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125423,
@@ -590,7 +725,8 @@
       "name": "Martijn van Eerd",
       "dob": "1990-09-17",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Tilburg"
     },
     {
       "id": 138207,
@@ -598,46 +734,67 @@
       "dob": "1994-08-08",
       "height": 199,
       "weight": 87,
+      "birthPlace": "Gouda",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139929,
       "name": "Maarten Van Garderen",
       "dob": "1990-01-24",
       "height": 200,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Renswoude",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141407,
       "name": "Michiel van Dorsten",
       "dob": "1986-08-08",
       "height": 212,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Hoogeveen",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141546,
       "name": "Wessel Keemink",
       "dob": "1993-05-29",
       "height": 197,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Schiedam",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 143175,
       "name": "Gijs van Pruissen",
       "dob": "1984-03-17",
       "height": 189,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Tilburg"
     },
     {
       "id": 144037,
       "name": "Tom van Steenis",
       "dob": "1996-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Utrecht"
     },
     {
       "id": 144112,
@@ -645,11 +802,16 @@
       "dob": "1997-09-11",
       "height": 199,
       "weight": 96,
+      "birthPlace": "Arnhem",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 146288,
@@ -657,11 +819,15 @@
       "dob": "1996-12-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Bergambacht",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146700,
@@ -676,11 +842,15 @@
       "dob": "1998-09-05",
       "height": 201,
       "weight": 84,
+      "birthPlace": "Tuitjenhorn",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146857,
@@ -695,11 +865,15 @@
       "dob": "1995-04-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Uitgeest",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151725,
@@ -713,7 +887,8 @@
       "name": "Shaun Sturgess",
       "dob": "1990-06-26",
       "height": 180,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Leiderdorp"
     },
     {
       "id": 156808,
@@ -721,11 +896,15 @@
       "dob": "1995-10-15",
       "height": 191,
       "weight": 82,
+      "birthPlace": "Winsum",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157092,
@@ -737,28 +916,34 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157237,
       "name": "Ricardo Hofman",
       "dob": "1998-07-17",
       "height": 199,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Pijnacker"
     },
     {
       "id": 158246,
       "name": "Timo Gras",
       "dob": "1993-03-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gouda"
     },
     {
       "id": 158636,
       "name": "Cain van Hal",
       "dob": "1996-03-10",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Capelle aan den IJssel"
     },
     {
       "id": 161004,
@@ -772,7 +957,8 @@
       "name": "Rik Damen",
       "dob": "2001-12-01",
       "height": 200,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Utrecht"
     },
     {
       "id": 162761,
@@ -784,7 +970,13 @@
         "gold": 3,
         "silver": 2,
         "bronze": 9
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166947,
@@ -792,11 +984,18 @@
       "dob": "2000-11-13",
       "height": 192,
       "weight": 88,
+      "birthPlace": "Leidschendam",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 168204,
@@ -804,11 +1003,16 @@
       "dob": "2000-11-19",
       "height": 197,
       "weight": 93,
+      "birthPlace": "Pietra Ligure",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 168503,
@@ -816,25 +1020,34 @@
       "dob": "1994-12-13",
       "height": 204,
       "weight": 98,
+      "birthPlace": "Hengelo",
       "tour": {
         "gold": 6,
         "silver": 3,
         "bronze": 9
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 169780,
       "name": "Siem Ooijman",
       "dob": "2003-04-20",
       "height": 195,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Doetinchem"
     },
     {
       "id": 169781,
       "name": "Kyran Versteegen",
       "dob": "2003-03-11",
       "height": 191,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Sittard"
     },
     {
       "id": 173208,
@@ -842,11 +1055,15 @@
       "dob": "2004-05-16",
       "height": 199,
       "weight": 89,
+      "birthPlace": "Zaltbommel",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173210,
@@ -858,7 +1075,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173538,
@@ -877,7 +1097,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178907,
@@ -885,11 +1108,15 @@
       "dob": "2001-09-20",
       "height": 194,
       "weight": 80,
+      "birthPlace": "Boskoop",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179382,
@@ -901,7 +1128,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182856,
@@ -918,11 +1148,19 @@
       "weight": null
     },
     {
+      "id": 185848,
+      "name": "Benjamin Koch",
+      "dob": "2005-11-28",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 189200,
       "name": "Michael Hemmes",
       "dob": "2000-07-17",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Amstelveen"
     },
     {
       "id": 190041,
@@ -937,11 +1175,15 @@
       "dob": "2007-12-28",
       "height": 193,
       "weight": 83,
+      "birthPlace": "Zoetermeer",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 193219,
@@ -955,7 +1197,8 @@
       "name": "Sam van Straten",
       "dob": "1996-03-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "s Gravenhage"
     },
     {
       "id": 196786,
@@ -967,7 +1210,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 197024,
@@ -1002,63 +1248,72 @@
       "name": "Sven van Groenestein",
       "dob": "2009-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Capelle aan de IJssel"
     },
     {
       "id": 224966,
       "name": "Mees Huisman",
       "dob": "2008-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alkmaar"
     },
     {
       "id": 224969,
       "name": "Stijn Pleunus van den Bos",
       "dob": "2010-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rotterdam"
     },
     {
       "id": 224973,
       "name": "Stijn Liesting",
       "dob": "2010-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zutphen"
     },
     {
       "id": 233158,
       "name": "Kyan Bezemer",
       "dob": "2011-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Onbekend"
     },
     {
       "id": 233161,
       "name": "Koen Meijer",
       "dob": "2009-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Onbekend"
     },
     {
       "id": 233162,
       "name": "Tijn Boonstra",
       "dob": "2010-01-06",
       "height": 188,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Assen"
     },
     {
       "id": 239914,
       "name": "Laszlo Stroeken",
       "dob": "2010-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Onbekend"
     },
     {
       "id": 239915,
       "name": "Maurizio Bezemer",
       "dob": "2010-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Onbekend"
     }
   ]
 }

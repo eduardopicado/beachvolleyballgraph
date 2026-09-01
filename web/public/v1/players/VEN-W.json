@@ -21,7 +21,8 @@
       "name": "Frankelina Rodriguez",
       "dob": "1978-10-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cumana"
     },
     {
       "id": 104612,
@@ -63,7 +64,8 @@
       "name": "Paola Saldaña",
       "dob": "1988-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tariba Edo.Tachira"
     },
     {
       "id": 119149,
@@ -82,7 +84,13 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132732,
@@ -103,7 +111,8 @@
       "name": "Orquidea Vera",
       "dob": "1985-09-22",
       "height": 181,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Valencia"
     },
     {
       "id": 139797,
@@ -157,7 +166,11 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 143083,
@@ -186,6 +199,12 @@
       "dob": "1983-06-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Venezuela",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 105127,
@@ -202,12 +221,6 @@
               237
             ]
           ],
-          "at": [
-            [
-              2010,
-              "ESP"
-            ]
-          ],
           "r": 33
         }
       ]
@@ -217,35 +230,40 @@
       "name": "Juliennis Regalado Bravo",
       "dob": "1998-02-07",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Macuto, Edo Vargas"
     },
     {
       "id": 149847,
       "name": "Rebeca Pazo Perez",
       "dob": "1983-06-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caracas"
     },
     {
       "id": 209527,
       "name": "Aidana Alejandra Mejias Ramirez",
       "dob": "2008-04-01",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Sucre"
     },
     {
       "id": 211451,
       "name": "Valeria Valentina Moreno Figueredo",
       "dob": "2009-09-19",
       "height": 160,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Barquisimeto"
     },
     {
       "id": 238032,
       "name": "Mariana Anais Chacin Esteves",
       "dob": "2013-02-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barinas"
     }
   ]
 }

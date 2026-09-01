@@ -28,14 +28,16 @@
       "name": "Rojas \"Luis\" Nacero",
       "dob": "1966-07-22",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Caracas"
     },
     {
       "id": 101458,
       "name": "José Rafael Perez Zacarias",
       "dob": "1970-05-15",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Zaraza"
     },
     {
       "id": 101459,
@@ -56,7 +58,8 @@
       "name": "Ivan Alexi Maldonado Balderrama",
       "dob": "1971-07-01",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Caracas"
     },
     {
       "id": 101808,
@@ -77,49 +80,56 @@
       "name": "Tomas \"Tommy\" Gonzalez Garcia",
       "dob": "1967-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caracas"
     },
     {
       "id": 102578,
       "name": "Publio Alvarado Alvarado Guzman",
       "dob": "1969-03-21",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Caracas"
     },
     {
       "id": 102579,
       "name": "Humberto Pino",
       "dob": "1971-07-20",
       "height": 180,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Caracas"
     },
     {
       "id": 102580,
       "name": "Gustavo Adolfo Vazquez Berti",
       "dob": "1972-05-11",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Caracas"
     },
     {
       "id": 102754,
       "name": "José Y. \"Camarita\" Vasquez A.",
       "dob": "1972-09-03",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Santo Estado Apure"
     },
     {
       "id": 102857,
       "name": "Mauro Hernandez",
       "dob": "1977-06-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Valencia"
     },
     {
       "id": 102858,
       "name": "Jean Paul Leroux",
       "dob": "1978-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caracas"
     },
     {
       "id": 102902,
@@ -154,7 +164,11 @@
       "name": "Farid Mussa",
       "dob": "1984-04-28",
       "height": 192,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Valencia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104514,
@@ -175,21 +189,35 @@
       "name": "Jackson Henriquez",
       "dob": "1985-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Camaguan (Edo) Guarico",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116764,
       "name": "Jesus Villafañe",
       "dob": "1986-11-19",
       "height": 184,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Barinas, Edo. Barinas",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 116766,
       "name": "Leonard Alexis Colina Chourio",
       "dob": "1982-09-24",
       "height": 189,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Maracaibo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116770,
@@ -224,7 +252,8 @@
       "name": "Eder Poletto",
       "dob": "1986-09-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barquisimeto Ven"
     },
     {
       "id": 118045,
@@ -238,7 +267,8 @@
       "name": "Jhonlenn Cruz Barreto Pena",
       "dob": "1987-05-14",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "San Felix/ VEN"
     },
     {
       "id": 119151,
@@ -246,18 +276,24 @@
       "dob": "1987-01-29",
       "height": 185,
       "weight": 76,
+      "birthPlace": "Puerto Ordaz",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122626,
       "name": "Nestor Alberto Gonzalez Jerez",
       "dob": "1988-02-01",
       "height": 200,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Maracay/ VEN"
     },
     {
       "id": 125497,
@@ -271,14 +307,21 @@
       "name": "Gerardo Mendez",
       "dob": "1992-12-29",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Cojedes - Venezuela"
     },
     {
       "id": 129963,
       "name": "Igor Spencer Hernandez Colina",
       "dob": "1977-01-22",
       "height": null,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "San Carlos, Cojedes",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 133196,
@@ -292,14 +335,16 @@
       "name": "Maikhol A Salcedo Valero",
       "dob": "1992-11-24",
       "height": 177,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Barinas, Edo Barinas"
     },
     {
       "id": 133198,
       "name": "Jose G Ruiz M",
       "dob": "1992-06-05",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Chivacoa Edo Yaracuy"
     },
     {
       "id": 135502,
@@ -313,7 +358,11 @@
       "name": "Carlos Rangel",
       "dob": "1990-07-01",
       "height": null,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Bejuma",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 138621,
@@ -334,21 +383,29 @@
       "name": "Jonathan Golindano",
       "dob": "1989-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141872,
       "name": "Jose Gregorio Gomez",
       "dob": "1996-02-15",
       "height": 179,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Barinas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 141875,
       "name": "Ronald Daniel Fayola Hurtado",
       "dob": "1995-06-20",
       "height": 198,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Ciudad Bolivar / VEN"
     },
     {
       "id": 141944,
@@ -356,18 +413,24 @@
       "dob": "1996-06-13",
       "height": 150,
       "weight": 74,
+      "birthPlace": "Carabobo",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142875,
       "name": "Pedro Castillo",
       "dob": "1993-11-19",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Barquisimeto"
     },
     {
       "id": 143057,
@@ -381,28 +444,32 @@
       "name": "alejandro jose sanoja",
       "dob": "1992-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Barinas/ VEN"
     },
     {
       "id": 180920,
       "name": "Miguel Andres Mendez Palencia",
       "dob": "1996-12-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maracay"
     },
     {
       "id": 209003,
       "name": "Sebastian Alfredo Pereira Blanco",
       "dob": "2008-05-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caracas"
     },
     {
       "id": 217352,
       "name": "Harrison Eduardo Riveros Ramirez",
       "dob": "2007-01-31",
       "height": 198,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Caracas"
     },
     {
       "id": 219625,
@@ -416,21 +483,24 @@
       "name": "Jose Francisco Hernandez Lanza",
       "dob": "2007-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Monagas"
     },
     {
       "id": 238035,
       "name": "Santiago Leandro Camejo Guerra",
       "dob": "2009-01-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Apure"
     },
     {
       "id": 238036,
       "name": "Diego Alejandro Hernandez Perez",
       "dob": "2009-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Apure"
     }
   ]
 }

@@ -14,21 +14,29 @@
       "name": "Patrick Lombi",
       "dob": "1996-09-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139768,
       "name": "Patrick Lombi",
       "dob": "1996-09-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mokanji"
     },
     {
       "id": 142105,
       "name": "Abu Bakarr Kamara",
       "dob": "1996-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Freetown",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 184613,

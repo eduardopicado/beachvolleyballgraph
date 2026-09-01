@@ -24,7 +24,7 @@
       "name": "Marion Marquet",
       "short": "Marquet",
       "tournaments": 2,
-      "first": 1987,
+      "first": 1989,
       "last": 2000
     },
     {
@@ -991,17 +991,17 @@
       "id": 157362,
       "name": "Alexandra Ferreira",
       "short": "Ferreira",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 157364,
       "name": "Marion Bernard",
       "short": "Bernard",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 163834,
@@ -1031,9 +1031,9 @@
       "id": 179179,
       "name": "Maëva Guignan",
       "short": "Guignan",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 179313,
@@ -1063,9 +1063,9 @@
       "id": 181376,
       "name": "Elsa Descamps",
       "short": "Descamps",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 181671,
@@ -1100,10 +1100,18 @@
       "last": 2026
     },
     {
+      "id": 190535,
+      "name": "Alexia Joffrin",
+      "short": "Joffrin",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 194470,
       "name": "Céline Collette",
       "short": "Collette",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2023,
       "last": 2026
     },
@@ -1222,12 +1230,12 @@
       "s": [
         [
           1995,
-          7,
-          423
+          6,
+          319
         ],
         [
           1996,
-          2,
+          3,
           204
         ]
       ],
@@ -3972,6 +3980,21 @@
       "r": 17
     },
     {
+      "a": 157362,
+      "b": 190535,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
+    },
+    {
       "a": 157364,
       "b": 171777,
       "t": 1,
@@ -3989,9 +4012,9 @@
     {
       "a": 157364,
       "b": 179179,
-      "t": 8,
+      "t": 9,
       "f": 2021,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2021,
@@ -4007,6 +4030,11 @@
           2025,
           1,
           338
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 13
@@ -4330,6 +4358,21 @@
         ]
       ],
       "r": 2
+    },
+    {
+      "a": 181376,
+      "b": 194470,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 181976,

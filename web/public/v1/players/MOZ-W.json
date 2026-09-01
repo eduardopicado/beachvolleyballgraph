@@ -7,21 +7,24 @@
       "name": "Guilhermina Cossa",
       "dob": "1982-09-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 103950,
       "name": "Sifa Quitende",
       "dob": "1985-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 104355,
       "name": "Anabela Manhique",
       "dob": "1986-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 104960,
@@ -42,7 +45,11 @@
       "name": "Vanessa Muianga",
       "dob": "1995-10-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146944,
@@ -56,49 +63,64 @@
       "name": "Liocadia Manhica",
       "dob": "1999-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168290,
       "name": "Mércia Mucheza",
       "dob": "2000-07-06",
       "height": 173,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168295,
       "name": "Ana Sinaportar",
       "dob": "2000-05-09",
       "height": 175,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177275,
       "name": "Angela Dercia Tembe",
       "dob": "2002-03-14",
       "height": null,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Matola"
     },
     {
       "id": 178378,
       "name": "Vania Precina José Miambo",
       "dob": "2004-06-19",
       "height": 155,
-      "weight": 51
+      "weight": 51,
+      "birthPlace": "Maputo"
     },
     {
       "id": 178380,
       "name": "Verónica Carlos Roque",
       "dob": null,
       "height": 178,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Maputo"
     },
     {
       "id": 178664,
       "name": "Nadia Julio Bango",
       "dob": "2005-07-03",
       "height": 179,
-      "weight": 45
+      "weight": 45,
+      "birthPlace": "Maputo"
     }
   ]
 }

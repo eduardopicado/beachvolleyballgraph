@@ -35,14 +35,16 @@
       "name": "Atef Nassif",
       "dob": "1986-07-20",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Yemen"
     },
     {
       "id": 122609,
       "name": "Eslam Okasha",
       "dob": "1984-03-06",
       "height": 188,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Port Said"
     },
     {
       "id": 131964,
@@ -56,63 +58,75 @@
       "name": "Ahmed Atta",
       "dob": "1978-05-15",
       "height": 189,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Suze"
     },
     {
       "id": 136431,
       "name": "Mohamed Yehia",
       "dob": "1991-05-01",
       "height": 198,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Giza"
     },
     {
       "id": 136831,
       "name": "Usama Eltranisy",
       "dob": "1981-01-06",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Portsaid",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 142080,
       "name": "Abdelrahman Fayed",
       "dob": "1993-01-07",
       "height": 198,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Cairo"
     },
     {
       "id": 142081,
       "name": "Mohamed Elaskolany",
       "dob": "1991-01-21",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Cairo"
     },
     {
       "id": 142082,
       "name": "Mostafa Roshdy",
       "dob": "2650-11-13",
       "height": 195,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Cairo"
     },
     {
       "id": 142083,
       "name": "Ahmed Fahmy Farag",
       "dob": "1993-08-19",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Giza"
     },
     {
       "id": 145949,
       "name": "Basel Ahmed",
       "dob": "1996-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 146626,
       "name": "Mohamed Abdelhady",
       "dob": "1994-05-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 147214,
@@ -126,14 +140,19 @@
       "name": "Mohamed Sayedin",
       "dob": "1996-04-01",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Giza"
     },
     {
       "id": 150576,
       "name": "Ayman Shoukry",
       "dob": "1981-09-09",
       "height": 196,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Cairo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 162678,
@@ -147,91 +166,104 @@
       "name": "Ahmed Azab Abdelrahman",
       "dob": "2000-03-01",
       "height": 198,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Cairo"
     },
     {
       "id": 167541,
       "name": "Ali Ahmed Mohamed Amin Farahat",
       "dob": "2000-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 167547,
       "name": "Youssef Ashraf Mohamed Mahmoud",
       "dob": "2002-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 182678,
       "name": "Hazem Abdelfatah",
       "dob": "2004-10-27",
       "height": 193,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Cairo"
     },
     {
       "id": 184784,
       "name": "Youssef Ismail",
       "dob": "2001-10-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 188705,
       "name": "Hermash Abdelrahman",
       "dob": "2004-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 188711,
       "name": "Elmetwally Anas",
       "dob": "2004-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 188777,
       "name": "Youssef Abdelrahman",
       "dob": "2004-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalyobiya"
     },
     {
       "id": 190443,
       "name": "Mazen Mostafa",
       "dob": "2004-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 211422,
       "name": "Marwan Takyeldeen",
       "dob": "2006-11-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 224951,
       "name": "Abdelrahman Elfeky",
       "dob": "2006-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 226540,
       "name": "Mohamed Khaled Mohamed",
       "dob": "2008-06-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 226541,
       "name": "Abdelhamid Abdelfattah",
       "dob": "2008-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     }
   ]
 }

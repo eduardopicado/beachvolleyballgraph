@@ -8,11 +8,18 @@
       "dob": "1966-12-15",
       "height": 199,
       "weight": 91,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100008,
@@ -20,11 +27,18 @@
       "dob": "1967-11-08",
       "height": 188,
       "weight": 85,
+      "birthPlace": "Padova",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100017,
@@ -32,11 +46,15 @@
       "dob": "1963-10-12",
       "height": 185,
       "weight": 75,
+      "birthPlace": "Civitavecchia",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100032,
@@ -48,7 +66,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100106,
@@ -70,11 +92,15 @@
       "dob": "1967-04-08",
       "height": 192,
       "weight": 82,
+      "birthPlace": "Ronciglione",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100171,
@@ -93,7 +119,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100176,
@@ -105,7 +134,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100177,
@@ -126,7 +158,8 @@
       "name": "Davide Sanguanins",
       "dob": "1963-04-14",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Mantova"
     },
     {
       "id": 100200,
@@ -161,14 +194,16 @@
       "name": "Giorgio Pallotta",
       "dob": "1966-06-13",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Roma"
     },
     {
       "id": 100786,
       "name": "Roberto \"Mascia\" Masciarelli",
       "dob": "1963-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ancona"
     },
     {
       "id": 100850,
@@ -197,11 +232,16 @@
       "dob": "1969-12-10",
       "height": 191,
       "weight": 82,
+      "birthPlace": "Cremona",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100900,
@@ -209,11 +249,18 @@
       "dob": "1972-04-13",
       "height": 197,
       "weight": 97,
+      "birthPlace": "Rome",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100901,
@@ -235,11 +282,18 @@
       "dob": "1969-12-19",
       "height": 187,
       "weight": 92,
+      "birthPlace": "San Benedetto del Tronto",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100904,
@@ -289,19 +343,13 @@
           "fed": "ARG",
           "gender": "M",
           "t": 1,
-          "f": 1987,
-          "l": 1987,
+          "f": 1989,
+          "l": 1989,
           "s": [
             [
-              1987,
+              1989,
               1,
-              936
-            ]
-          ],
-          "at": [
-            [
-              1987,
-              "ARG"
+              205
             ]
           ],
           "r": 19
@@ -384,6 +432,9 @@
       "dob": "1963-04-22",
       "height": null,
       "weight": null,
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 101671,
@@ -398,12 +449,6 @@
               1996,
               1,
               347
-            ]
-          ],
-          "at": [
-            [
-              1996,
-              "ITA"
             ]
           ],
           "r": 41
@@ -429,7 +474,13 @@
       "name": "Maurizio \"Pimpo\" Pimponi",
       "dob": "1970-09-01",
       "height": 190,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Grosseto",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101714,
@@ -443,21 +494,26 @@
       "name": "Marcello Abbondanza",
       "dob": "1970-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cesena"
     },
     {
       "id": 101784,
       "name": "Enrico Maccagni",
       "dob": "1968-05-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cesenatico"
     },
     {
       "id": 101885,
       "name": "Pietro Salvi",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101886,
@@ -485,7 +541,10 @@
       "name": "Paolo \"Crazy Paul\" Bina",
       "dob": "1964-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101926,
@@ -504,7 +563,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 101937,
@@ -519,60 +581,72 @@
       "dob": "1974-07-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102021,
       "name": "Andrea Toni",
       "dob": "1962-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 102089,
       "name": "Angelo Caso",
       "dob": "1970-05-03",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Bari"
     },
     {
       "id": 102131,
       "name": "Matteo 'Il Teo' De Cecco",
       "dob": "1969-01-23",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Udine"
     },
     {
       "id": 102307,
       "name": "Sandro \"Giogio\" Cordovana",
       "dob": "1973-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 102309,
       "name": "Giovanni \"Dupon\" Tarantini",
       "dob": "1976-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trani"
     },
     {
       "id": 102310,
       "name": "Luca \"Dupon\" Tarantini",
       "dob": "1976-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trani"
     },
     {
       "id": 102311,
       "name": "Luigi \"Japo\" Martini",
       "dob": "1971-11-26",
       "height": 191,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Ravenna"
     },
     {
       "id": 102312,
@@ -586,14 +660,16 @@
       "name": "Gianluca Pozzato",
       "dob": "1969-04-05",
       "height": 190,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Novara"
     },
     {
       "id": 102315,
       "name": "Mauro \"Devil\" Mercanti",
       "dob": "1976-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 102376,
@@ -621,21 +697,32 @@
       "name": "Giorgio Giordano",
       "dob": "1970-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nice",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102556,
       "name": "Alessandro Abba",
       "dob": "1961-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102557,
       "name": "Giulio Mosci",
       "dob": "1971-09-23",
       "height": 186,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Roma",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102558,
@@ -643,18 +730,29 @@
       "dob": "1972-02-17",
       "height": 193,
       "weight": 91,
+      "birthPlace": "Vergato (Bologna)",
       "tour": {
         "gold": 3,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102605,
       "name": "Simone Bendandi",
       "dob": "1976-08-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ravenna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102622,
@@ -680,14 +778,19 @@
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102661,
       "name": "Mario Marolda",
       "dob": "1976-12-05",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Salerno"
     },
     {
       "id": 102667,
@@ -695,6 +798,7 @@
       "dob": "1974-08-29",
       "height": 192,
       "weight": 94,
+      "birthPlace": "Treviso",
       "away": [
         {
           "id": 102666,
@@ -716,16 +820,6 @@
               223
             ]
           ],
-          "at": [
-            [
-              1999,
-              "SMR"
-            ],
-            [
-              2005,
-              "ITA"
-            ]
-          ],
           "r": 21
         }
       ]
@@ -742,14 +836,16 @@
       "name": "Lorenzo Simeon",
       "dob": "1975-10-30",
       "height": 193,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Torino"
     },
     {
       "id": 103101,
       "name": "Giancarlo \"Jack\" Salvador",
       "dob": "1975-05-05",
       "height": 196,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Camposampoero-PD"
     },
     {
       "id": 103103,
@@ -757,11 +853,16 @@
       "dob": "1975-10-06",
       "height": 193,
       "weight": 96,
+      "birthPlace": "Viareggio",
       "tour": {
         "gold": 4,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103104,
@@ -782,7 +883,8 @@
       "name": "Roberto Marini",
       "dob": "1974-03-07",
       "height": 192,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Arri Teramo"
     },
     {
       "id": 103278,
@@ -790,6 +892,7 @@
       "dob": "1977-10-30",
       "height": 201,
       "weight": 98,
+      "birthPlace": "Hasselt",
       "away": [
         {
           "id": 102604,
@@ -811,16 +914,6 @@
               206
             ]
           ],
-          "at": [
-            [
-              2001,
-              "ITA"
-            ],
-            [
-              2002,
-              "ITA"
-            ]
-          ],
           "r": 33
         },
         {
@@ -836,12 +929,6 @@
               2003,
               3,
               205
-            ]
-          ],
-          "at": [
-            [
-              2003,
-              "BEL"
             ]
           ],
           "r": 57
@@ -875,11 +962,16 @@
       "dob": "1978-04-09",
       "height": 197,
       "weight": 80,
+      "birthPlace": "Milan",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103743,
@@ -887,102 +979,119 @@
       "dob": "1979-08-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Torino",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103936,
       "name": "Claudio Carletti",
       "dob": "1982-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chiaravalle"
     },
     {
       "id": 103938,
       "name": "Massimiliano Zunino",
       "dob": "1984-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Savona"
     },
     {
       "id": 103939,
       "name": "Alessio Marri",
       "dob": "1982-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Savona"
     },
     {
       "id": 103972,
       "name": "Danilo Lorenzini",
       "dob": "1983-03-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 103973,
       "name": "Davide Giuffrida",
       "dob": "1982-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 103998,
       "name": "Alessandro Spanakis",
       "dob": "1978-08-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 104256,
       "name": "Erardo Meggiolaro",
       "dob": "1977-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Camposampiero"
     },
     {
       "id": 104301,
       "name": "Daniele Desiderio",
       "dob": "1979-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 104302,
       "name": "Giuseppe Patriarca",
       "dob": "1977-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sora"
     },
     {
       "id": 104401,
       "name": "Riccardo Garofalo",
       "dob": "1986-07-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Palermo"
     },
     {
       "id": 104402,
       "name": "Fabio Giorlando",
       "dob": "1984-06-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Palermo"
     },
     {
       "id": 104403,
       "name": "Stefano Duraute",
       "dob": "1984-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Narbo"
     },
     {
       "id": 104404,
       "name": "Paolo Fiore",
       "dob": "1985-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Galatina"
     },
     {
       "id": 104822,
@@ -1003,7 +1112,8 @@
       "name": "Thomas Casali",
       "dob": "1972-03-20",
       "height": 182,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Cesenatico"
     },
     {
       "id": 104826,
@@ -1032,11 +1142,15 @@
       "dob": "1977-03-17",
       "height": 190,
       "weight": 90,
+      "birthPlace": "Bergamo",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104879,
@@ -1048,14 +1162,18 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104880,
       "name": "Matteo Galli",
       "dob": "1983-06-21",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Rimini (RN)"
     },
     {
       "id": 104888,
@@ -1111,7 +1229,8 @@
       "name": "Robert Torello",
       "dob": "1976-04-23",
       "height": 186,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Paris"
     },
     {
       "id": 104996,
@@ -1181,14 +1300,16 @@
       "name": "Alberto Cisolla",
       "dob": "1977-10-10",
       "height": 197,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Treviso, ITA"
     },
     {
       "id": 113306,
       "name": "Andrea Anastasi",
       "dob": "1960-10-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Poggio Rusco (MN)"
     },
     {
       "id": 115726,
@@ -1230,7 +1351,8 @@
       "name": "Cavaliere Rodolfo",
       "dob": "1974-11-10",
       "height": 194,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Angera"
     },
     {
       "id": 116540,
@@ -1244,14 +1366,16 @@
       "name": "Pietro Ioppi",
       "dob": "2011-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Valdobbiadene"
     },
     {
       "id": 116542,
       "name": "Nicola Daldello",
       "dob": "1983-05-06",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Treviso"
     },
     {
       "id": 116549,
@@ -1287,11 +1411,16 @@
       "dob": "1988-02-12",
       "height": 192,
       "weight": 74,
+      "birthPlace": "Fortaleza",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117410,
@@ -1299,11 +1428,16 @@
       "dob": "1988-02-12",
       "height": 190,
       "weight": 75,
+      "birthPlace": "Fortaleza",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117423,
@@ -1346,6 +1480,7 @@
       "dob": "1988-08-06",
       "height": 203,
       "weight": 91,
+      "birthPlace": "Ortona",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1355,7 +1490,13 @@
         "gold": 4,
         "silver": 11,
         "bronze": 13
-      }
+      },
+      "olympicGames": 4,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118195,
@@ -1369,7 +1510,8 @@
       "name": "Giorgio Zauli",
       "dob": "1984-04-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ravenna (RA)"
     },
     {
       "id": 118650,
@@ -1383,14 +1525,16 @@
       "name": "Samuele Fioretta",
       "dob": "1983-08-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Voghera"
     },
     {
       "id": 118652,
       "name": "Davide Dal Molin",
       "dob": "1978-01-21",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bassano del Grappa (VI)"
     },
     {
       "id": 118655,
@@ -1425,7 +1569,8 @@
       "name": "Benito Marinucci",
       "dob": "1989-06-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lanciano (CH)"
     },
     {
       "id": 119333,
@@ -1453,7 +1598,8 @@
       "name": "Matteo Bertoli",
       "dob": "1988-07-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trento"
     },
     {
       "id": 120108,
@@ -1496,11 +1642,15 @@
       "dob": "1988-10-02",
       "height": 204,
       "weight": 100,
+      "birthPlace": "Spoleto",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 120774,
@@ -1508,6 +1658,7 @@
       "dob": "1991-05-06",
       "height": 195,
       "weight": 80,
+      "birthPlace": "Rome",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1517,7 +1668,13 @@
         "gold": 4,
         "silver": 8,
         "bronze": 10
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120775,
@@ -1552,7 +1709,8 @@
       "name": "Alberto Casadei",
       "dob": "1984-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Forlì"
     },
     {
       "id": 122419,
@@ -1566,7 +1724,8 @@
       "name": "Luca Colaberardino",
       "dob": "1979-06-29",
       "height": 185,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Roma"
     },
     {
       "id": 124711,
@@ -1581,25 +1740,31 @@
       "dob": "1992-01-28",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Trento",
       "tour": {
-        "gold": 3,
+        "gold": 4,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124850,
       "name": "Pasquale Gabriele",
       "dob": "1991-01-05",
       "height": 201,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Gioia Del Colle (BA)"
     },
     {
       "id": 124863,
       "name": "Alessandro Preti",
       "dob": "1992-08-07",
       "height": 205,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Villach"
     },
     {
       "id": 125259,
@@ -1628,11 +1793,15 @@
       "dob": "1987-03-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Pescara",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132141,
@@ -1644,14 +1813,21 @@
         "gold": 4,
         "silver": 4,
         "bronze": 5
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132142,
       "name": "Emanuele Monduzzi",
       "dob": "1970-12-28",
       "height": 190,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Imola (BO)"
     },
     {
       "id": 132349,
@@ -1679,14 +1855,18 @@
       "name": "Fabrizio Venditti",
       "dob": "1986-07-03",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Rome"
     },
     {
       "id": 132883,
       "name": "Matteo Martino",
       "dob": "1987-01-28",
       "height": 198,
-      "weight": 98
+      "weight": 98,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 133359,
@@ -1714,14 +1894,19 @@
       "name": "Matteo Romiti",
       "dob": "1993-02-27",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Ancona"
     },
     {
       "id": 135919,
       "name": "Matteo Cecchini",
       "dob": "1990-10-14",
       "height": 188,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Ancona",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 136787,
@@ -1791,7 +1976,8 @@
       "name": "Luca Spirito",
       "dob": "1993-10-30",
       "height": 199,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Savona"
     },
     {
       "id": 143730,
@@ -1799,11 +1985,15 @@
       "dob": "1998-05-20",
       "height": 189,
       "weight": 80,
+      "birthPlace": "Pescara",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143731,
@@ -1822,7 +2012,13 @@
         "gold": 3,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 145118,
@@ -1830,11 +2026,15 @@
       "dob": "1986-12-20",
       "height": 194,
       "weight": 96,
+      "birthPlace": "Rome",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146353,
@@ -1842,18 +2042,24 @@
       "dob": "1992-09-23",
       "height": 192,
       "weight": 87,
+      "birthPlace": "Cesena",
       "tour": {
         "gold": 3,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 146514,
       "name": "Davide Michienzi",
       "dob": "1987-07-10",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Roma"
     },
     {
       "id": 146733,
@@ -1874,7 +2080,8 @@
       "name": "Alessandro Carucci",
       "dob": "1994-04-19",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Milano (MI)"
     },
     {
       "id": 149100,
@@ -1882,6 +2089,7 @@
       "dob": "1988-07-28",
       "height": 198,
       "weight": 88,
+      "birthPlace": "Mosca",
       "away": [
         {
           "id": 100114,
@@ -1930,11 +2138,18 @@
       "dob": "1988-03-16",
       "height": null,
       "weight": 84,
+      "birthPlace": "Montevideo (URU)",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 150389,
@@ -1949,18 +2164,23 @@
       "dob": "1986-02-05",
       "height": 189,
       "weight": 90,
+      "birthPlace": "Milano",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151165,
       "name": "Nicolò Conti",
       "dob": "1992-02-04",
       "height": 185,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Ancona"
     },
     {
       "id": 151199,
@@ -1975,11 +2195,16 @@
       "dob": "1992-11-16",
       "height": 190,
       "weight": 90,
+      "birthPlace": "Rome",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 151263,
@@ -1993,7 +2218,8 @@
       "name": "Michele Crusca",
       "dob": "1994-09-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Borgomanero"
     },
     {
       "id": 153207,
@@ -2008,18 +2234,24 @@
       "dob": "1999-03-20",
       "height": 200,
       "weight": 90,
+      "birthPlace": "Vipiteno",
       "tour": {
         "gold": 6,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155625,
       "name": "Davide Boncompagni",
       "dob": "1991-09-25",
       "height": 195,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Ancona"
     },
     {
       "id": 155954,
@@ -2045,7 +2277,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 158171,
@@ -2060,11 +2295,16 @@
       "dob": "1993-09-24",
       "height": 181,
       "weight": 77,
+      "birthPlace": "Genova",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 161170,
@@ -2078,7 +2318,8 @@
       "name": "Marco Raisa",
       "dob": "1987-02-20",
       "height": 187,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Rovigo"
     },
     {
       "id": 163448,
@@ -2093,11 +2334,18 @@
       "dob": "1998-11-01",
       "height": 194,
       "weight": 82,
+      "birthPlace": "Modena",
       "tour": {
         "gold": 5,
         "silver": 4,
         "bronze": 5
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 164186,
@@ -2111,7 +2359,8 @@
       "name": "Mauro Sacripanti",
       "dob": "1998-05-15",
       "height": 190,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Rome"
     },
     {
       "id": 164787,
@@ -2125,7 +2374,8 @@
       "name": "Luca Cravera",
       "dob": "1997-07-27",
       "height": 187,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Alessandria"
     },
     {
       "id": 165100,
@@ -2133,11 +2383,15 @@
       "dob": "2000-11-05",
       "height": 192,
       "weight": 87,
+      "birthPlace": "Este",
       "tour": {
         "gold": 4,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167208,
@@ -2158,14 +2412,16 @@
       "name": "Theo Hanni",
       "dob": "2003-05-19",
       "height": 196,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Bruneck"
     },
     {
       "id": 169374,
       "name": "Emanuele LABATE",
       "dob": "1984-12-05",
       "height": 178,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Savona"
     },
     {
       "id": 169375,
@@ -2179,14 +2435,16 @@
       "name": "Luca Bigarelli",
       "dob": "1991-12-28",
       "height": 199,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Correggio"
     },
     {
       "id": 169572,
       "name": "Nicolò Siccardi",
       "dob": "1995-05-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Savona"
     },
     {
       "id": 169575,
@@ -2194,11 +2452,15 @@
       "dob": "2001-06-20",
       "height": 191,
       "weight": 80,
+      "birthPlace": "Venice",
       "tour": {
         "gold": 4,
         "silver": 1,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169579,
@@ -2206,11 +2468,16 @@
       "dob": "2001-01-09",
       "height": 203,
       "weight": 95,
+      "birthPlace": "Mirano",
       "tour": {
         "gold": 4,
         "silver": 4,
         "bronze": 7
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 169854,
@@ -2253,18 +2520,23 @@
       "dob": "2001-05-03",
       "height": 180,
       "weight": 77,
+      "birthPlace": "Bologna",
       "tour": {
         "gold": 0,
         "silver": 1,
-        "bronze": 0
-      }
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179038,
       "name": "Alberto Moro",
       "dob": "2003-03-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bentivoglio (BO)"
     },
     {
       "id": 179520,
@@ -2272,32 +2544,39 @@
       "dob": "2003-01-22",
       "height": 196,
       "weight": 98,
+      "birthPlace": "Brescia (BS)",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 180718,
       "name": "Michael Burgmann",
       "dob": "2004-03-06",
       "height": 196,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Brunico (BZ)"
     },
     {
       "id": 181232,
       "name": "Michele Luisetto",
       "dob": "1996-02-23",
       "height": 191,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Abano Terme"
     },
     {
       "id": 182437,
       "name": "Gaetano Penna",
       "dob": "2004-12-20",
       "height": 205,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Atripalda"
     },
     {
       "id": 182776,
@@ -2305,11 +2584,15 @@
       "dob": "2004-11-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Rivoli (TO)",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 183129,
@@ -2323,42 +2606,48 @@
       "name": "Andrea Armellini",
       "dob": "2004-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rimini"
     },
     {
       "id": 183815,
       "name": "Filippo Mancini",
       "dob": "2004-09-07",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Rimini"
     },
     {
       "id": 184212,
       "name": "Edoardo Gilardoni",
       "dob": "1991-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 185249,
       "name": "Federico Fazari",
       "dob": "1984-07-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Genova"
     },
     {
       "id": 187260,
       "name": "Federico Andronico",
       "dob": "1996-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 190160,
       "name": "Giosuè Andronico",
       "dob": "1996-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 191359,
@@ -2366,18 +2655,23 @@
       "dob": "2001-06-28",
       "height": 191,
       "weight": 85,
+      "birthPlace": "Fano",
       "tour": {
         "gold": 0,
         "silver": 1,
-        "bronze": 0
-      }
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192138,
       "name": "Matteo Bellucci",
       "dob": "1995-12-18",
       "height": 186,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bologna"
     },
     {
       "id": 192140,
@@ -2391,28 +2685,39 @@
       "name": "Riccardo Copelli",
       "dob": "1996-03-16",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Casalmaggiore (CR)"
     },
     {
       "id": 192395,
       "name": "Marco Zoli",
       "dob": "2003-10-07",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Ravenna"
     },
     {
       "id": 192396,
       "name": "Lorenzo Monti",
       "dob": "2003-04-17",
       "height": 193,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Cesena"
+    },
+    {
+      "id": 192776,
+      "name": "Gabriel Marini Da Costa",
+      "dob": "2006-07-29",
+      "height": null,
+      "weight": null
     },
     {
       "id": 193084,
       "name": "Felix Emilio Ludwig Arpino",
       "dob": "1993-08-16",
       "height": 182,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Boras"
     },
     {
       "id": 194477,
@@ -2426,126 +2731,151 @@
       "name": "Bryan Argilagos",
       "dob": "2007-01-26",
       "height": 200,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "San Donà di Piave"
     },
     {
       "id": 197905,
       "name": "Simone Porro",
       "dob": "2007-09-21",
       "height": 189,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Genova"
     },
     {
       "id": 200338,
       "name": "Federico Guidi",
       "dob": "1991-05-29",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Urbino"
     },
     {
       "id": 200339,
       "name": "Matteo Giorgi",
       "dob": "2003-02-08",
       "height": 183,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Italy"
     },
     {
       "id": 201164,
       "name": "Gerald Ndrecaj",
       "dob": "1999-12-16",
       "height": 200,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Catania"
     },
     {
       "id": 201225,
       "name": "Filippo Garra",
       "dob": "2005-08-12",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Genova"
     },
     {
       "id": 203308,
       "name": "Dario Spolverini",
       "dob": "1998-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 204985,
       "name": "Nico Fontana",
       "dob": "1999-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rovigo"
     },
     {
       "id": 209193,
       "name": "Laurin Zoeschg",
       "dob": "2007-12-25",
       "height": 188,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Bressanone"
     },
     {
       "id": 212360,
       "name": "Matteo Iurisci",
       "dob": "2007-05-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ortona"
     },
     {
       "id": 213074,
       "name": "Nicolas Brucini",
       "dob": "2004-07-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Iseo"
     },
     {
       "id": 213104,
       "name": "Riccardo Santomassimo",
       "dob": "2008-04-10",
       "height": 195,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Angera"
     },
     {
       "id": 215688,
       "name": "Matteo Marchesan",
       "dob": "2006-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Padova"
     },
     {
       "id": 215690,
       "name": "Marco Di Felice",
       "dob": "2008-08-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 220132,
       "name": "Mattia Perini",
       "dob": "1989-01-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chioggia"
     },
     {
       "id": 221402,
       "name": "Andrea Sanguanini",
       "dob": "2006-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mantova"
     },
     {
       "id": 221499,
       "name": "Francesco Peri",
       "dob": "2005-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 221566,
       "name": "Oleksandr Siedykh",
       "dob": "1983-09-15",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Slovyansk"
     },
     {
       "id": 223923,
@@ -2553,32 +2883,39 @@
       "dob": "1997-07-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 1,
-        "silver": 0,
+        "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 224744,
       "name": "Jack Bernardini",
       "dob": "2009-03-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 227130,
       "name": "Federico Viscuso",
       "dob": "2009-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 239605,
       "name": "Leonardo Milani",
       "dob": "2004-10-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bassano del Grappa (VI)"
     }
   ]
 }

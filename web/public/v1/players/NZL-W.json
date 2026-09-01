@@ -21,7 +21,10 @@
       "name": "Angela Stojanovic",
       "dob": "1969-05-17",
       "height": 179,
-      "weight": 79
+      "weight": 79,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101728,
@@ -35,7 +38,10 @@
       "name": "Nicola \"Nik\" Fake",
       "dob": "1971-11-09",
       "height": 176,
-      "weight": 66
+      "weight": 66,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101730,
@@ -49,70 +55,86 @@
       "name": "Lucy Todd",
       "dob": "1977-07-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "England",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103227,
       "name": "Sarah Drummond",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Christchurch",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103782,
       "name": "Susan Blundell",
       "dob": "1982-01-18",
       "height": 185,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kawakawa"
     },
     {
       "id": 103857,
       "name": "Sonia Dunne",
       "dob": "1971-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland N2"
     },
     {
       "id": 103858,
       "name": "Marnie Grant",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Zealand"
     },
     {
       "id": 104324,
       "name": "Alicia Malcolm",
       "dob": "1978-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Zeland"
     },
     {
       "id": 104325,
       "name": "Suzy Easterbrook",
       "dob": "1973-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Whangowei"
     },
     {
       "id": 104440,
       "name": "Shannen Bagge",
       "dob": "1987-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tauranga"
     },
     {
       "id": 104441,
       "name": "Hayley Stovold",
       "dob": "1986-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tauranga"
     },
     {
       "id": 104895,
       "name": "Emma Sophie Genner Preston",
       "dob": "1985-03-17",
       "height": 176,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Gisborne, New Zealand"
     },
     {
       "id": 104896,
@@ -148,11 +170,15 @@
       "dob": "1989-06-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Henderson",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 119158,
@@ -166,14 +192,16 @@
       "name": "Anna Harrison",
       "dob": "1983-04-15",
       "height": 187,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Westport, NZ"
     },
     {
       "id": 120169,
       "name": "Micah Brown",
       "dob": "1981-11-14",
       "height": 177,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Wellington"
     },
     {
       "id": 120172,
@@ -201,7 +229,8 @@
       "name": "Jessie Muggeridge",
       "dob": "1990-04-11",
       "height": 192,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "New Plymouth"
     },
     {
       "id": 120528,
@@ -223,11 +252,15 @@
       "dob": "1993-01-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Hamilton",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125013,
@@ -248,21 +281,24 @@
       "name": "Krista Whitewood",
       "dob": "1992-03-21",
       "height": 183,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 132539,
       "name": "Danielle Quigley",
       "dob": "1993-02-27",
       "height": 176,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Blenheim"
     },
     {
       "id": 132540,
       "name": "Charlotte Joy",
       "dob": "1993-07-02",
       "height": 181,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 132541,
@@ -277,11 +313,16 @@
       "dob": "1993-12-14",
       "height": 173,
       "weight": 69,
+      "birthPlace": "Hamilton",
       "tour": {
         "gold": 4,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 138939,
@@ -303,81 +344,96 @@
       "dob": "1996-01-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Hamilton",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142791,
       "name": "Trixie Croad",
       "dob": "1995-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North Shore"
     },
     {
       "id": 146807,
       "name": "Emily Johnston",
       "dob": "1998-12-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tauranga"
     },
     {
       "id": 146808,
       "name": "Georgia Louise Coughlan",
       "dob": "1998-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tauranga"
     },
     {
       "id": 155800,
       "name": "Ella Akkerman",
       "dob": "2000-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Christhchurch"
     },
     {
       "id": 155809,
       "name": "Antonia Harrison",
       "dob": "1997-11-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 155810,
       "name": "Libby Houghton",
       "dob": "2001-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Plymouth"
     },
     {
       "id": 155811,
       "name": "Jasmine Pepi-Milton",
       "dob": "1999-10-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Whangarei"
     },
     {
       "id": 157750,
       "name": "Francesca Kirwan",
       "dob": "1993-12-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland/ NZL"
     },
     {
       "id": 160935,
       "name": "Maya Dickson",
       "dob": "2001-04-03",
       "height": 177,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Auckland"
     },
     {
       "id": 161048,
       "name": "Katie Sadlier",
       "dob": "2000-10-27",
       "height": 182,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Wellington"
     },
     {
       "id": 161081,
@@ -392,11 +448,15 @@
       "dob": "1998-07-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Christchurch",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161090,
@@ -410,7 +470,8 @@
       "name": "Ariane Pola",
       "dob": "1999-11-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "North Shore"
     },
     {
       "id": 166630,
@@ -438,7 +499,8 @@
       "name": "Daniela Goffi",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 178689,
@@ -459,14 +521,16 @@
       "name": "Rosa Vesty",
       "dob": "2004-11-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Christchurch"
     },
     {
       "id": 180819,
       "name": "Taylah Holdem",
       "dob": "2004-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Christchurch"
     },
     {
       "id": 186818,
@@ -480,7 +544,8 @@
       "name": "Charlotte Blackman",
       "dob": "2003-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Takapuna"
     },
     {
       "id": 187846,
@@ -494,7 +559,8 @@
       "name": "Kiana Stevenson",
       "dob": "2005-12-27",
       "height": 180,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Auckland"
     },
     {
       "id": 187852,
@@ -508,7 +574,8 @@
       "name": "Meile Rose Green",
       "dob": "2004-12-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Zealand"
     },
     {
       "id": 198999,
@@ -536,7 +603,8 @@
       "name": "Terina Hauraki",
       "dob": "2003-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 208984,

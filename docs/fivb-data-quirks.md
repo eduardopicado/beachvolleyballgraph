@@ -10,7 +10,11 @@ documented in a way that would have saved us the discovery, so it is written
 down here instead of being rediscovered.
 
 Each entry says what the quirk is, how it showed up, and where the pipeline
-deals with it. Counts are from the archive as of **2026-08-09**; they drift.
+deals with it. Counts are from the archive as of **2026-08-09** unless a
+section says otherwise; they drift, and a section re-measured since then names
+its own date. What is being asserted is the *finding* — that a field is empty
+on every row, that 89% of ranks are shared — so a re-measurement is worth doing
+when it might overturn one, not to keep an absolute count current.
 
 ---
 
@@ -366,21 +370,57 @@ blindness that hides Noppen hides Gisi, for a different reason.
 be entirely correct; the ambiguity is ours, and it comes from having no
 federation history to check against (§6b).
 
----|---|
-| 1996–2003 | 0.7 – 1.3% |
-| 2004–2012 | 0.3 – 0.5% |
-| 2013–2022 | 0.9 – 1.2% |
-| 2023–2026 | 1.4 – **2.3%** |
+### 6d. Rows agreeing with each other is not corroboration
 
-2,436 of 198,147 comparable entries overall (1.22%). **1,267 partnerships are
-mixed at every event they played, and 206 of those played three or more events
-together.**
+§6a establishes that the team `FederationCode` is stored on the row rather than
+joined live — it does not follow that the stored value is contemporaneous. Every
+argument in §6a–6c leans on rows agreeing with one another, and it is worth
+knowing what that agreement is made of.
 
-The rarity is the point rather than a reason to ignore it: Gisi's fifteen
-entries at Gstaad, Klagenfurt, Marseille and Berlin are genuine FIVB World Tour
-results (Type 0 and 1, organiser FIVB), not domestic events that slipped
-through §1's filter. A mixed pair is unusual, allowed, and correctly recorded —
-the graph simply has nowhere to put one.
+`BeachTeam` will return a **`Version`** if you ask for it. It is a global
+monotonic write counter, not a date: rows written in the same transaction share
+a value, and a higher value means "written later than". So it cannot say *when*
+a row was last touched, but it says exactly **which rows were written together**,
+which turns out to be the more useful question.
+
+Ask for it carefully. VIS **silently ignores field names it does not recognise**
+and answers with the default set instead — `LastChangeDate`, `ModifiedDate` and
+`Timestamp` all come back looking like successful responses containing no such
+field. An unrecognised field is not an error, so a typo in a `Fields` list
+degrades quietly rather than failing.
+
+**What the counter shows.** Across 206,459 team rows there are 23,911 distinct
+versions, and the large ones reach across the whole archive at once:
+
+| version | rows | share | seasons it spans |
+| --- | --- | --- | --- |
+| 2362678 | 21,580 | 10.5% | 1996–2024 |
+| 4293583 | 12,846 | 6.2% | 2002–2026 |
+| 4190115 | 3,320 | 1.6% | 2004–2026 |
+| 4248077 | 1,958 | 0.9% | 1999–2026 |
+
+Of the 350 writes touching 100 rows or more, **303 rewrite rows a decade or
+more apart in a single operation** — median span 14 seasons, longest 28. FIVB
+does mass-rewrite its own past, and 4293583 sits near the top of the sequence,
+so it is recent. Restricted to 1996–2005, **30.1% of rows carry a version above
+the 2362678 floor**: they were written to after the bulk import that created
+them.
+
+**What this costs the arguments above.** Take the §6c worked example. All
+fifteen of Gisi Gavio's rows carry version 2362678 exactly — none rewritten
+since the import, which sounds reassuring until you notice that 2362678 *is*
+the import. Fifteen rows saying `BRA` is not fifteen observations; it is one
+write, copied fifteen times, and whatever those rows said before it is gone.
+Generalised: of the 23,456 players ever listed first, **60.0% have their entire
+player-1 record written in a single transaction**, and 4,740 of those have
+several rows that all agree with each other.
+
+So a rule that accepts a federation because several rows concur is, most of the
+time, consulting one assertion several times. That is still worth doing — it
+catches the case where the rows genuinely *disagree*, which is how the false
+transfers in §6c were found — but it is a **consistency** check, not evidence
+that the value is historically true. Nothing in VIS can supply the latter; only
+a source outside it can.
 
 ---
 
@@ -427,6 +467,244 @@ Particles are deliberately *not* lowercased: the same "DE" is a Portuguese
 particle in "TAVARES DE PINA" and part of a Flemish surname in "LOTTE DE
 CLERCQ", and "LE" in "OOI TIAN LE" is a Malaysian name rather than a French
 particle. Telling them apart needs the player's culture, not their string.
+
+---
+
+## 6.5a. A name field sometimes holds a competition status
+
+Six player records carry `SUSPENDED` inside the name itself, in two fields at
+once:
+
+```
+100051  FirstName='Troy "T2"'        LastName='Tanner  SUSPENDED'    TeamName='Suspended'
+100131  FirstName='Tim "The Hov"'    LastName='Hovland  SUSPENDED'   TeamName='Suspended'
+100368  FirstName='Christopher J.'   LastName='Young  SUSPENDED'     TeamName='Suspended'
+100873  FirstName='Brent'            LastName='Frohoff  SUSPENDED'   TeamName='Frohoff'
+100875  FirstName='Kevin "K-Mart"'   LastName='Martin  SUSPENDED'    TeamName='Suspended'
+100881  FirstName='Matt'             LastName='Unger  SUSPENDED'     TeamName='Suspended'
+```
+
+All six are American men who competed between 1988 and 1997, and all six are
+real players with real results — Hovland has six tournaments in the archive.
+There is no status field here being read from; the annotation is written into
+the name, and `TeamName` is *replaced* by it on five of the six.
+
+That last part is what made this visible. `TeamName` is where the short label
+comes from (§6.5), so five of the six were drawn on the USA-M graph as a node
+labelled **"Suspended"** — no name at all.
+
+**Scope, measured.** Over all 131,021 player records, `SUSPENDED` is the only
+competition status written into a name. 19 further records read as annotations
+rather than people — `Dummy1 Dummy1`, `Dev-Test-Firstname Dev-Test-Lastname`,
+`TEST LVF TEST LVF`, spread across nine federations — but those are test
+accounts that have never been entered in a tournament, so none of them reaches
+the graph and none needs handling.
+
+**Not to be confused with** the 60 records whose name contains a bare "or".
+Almost all of those are a legal name beside the diminutive it is known by —
+"Randolph or Randy Stoklos", "Timothy or Tim Walmer" — which is documentation,
+not a defect. A handful pair two genuinely distinct given names ("Takeshi or
+Satoshi Matsumoto", "Olivier or Philippe Rossard"), and those read as FIVB
+recording that it is unsure which person the record belongs to. Nothing in the
+row distinguishes the two cases, so both are published verbatim.
+
+**Handled in.** `ingest/build.ts`, `stripCompetitionStatus`, applied to
+`FirstName`, `LastName` and `TeamName` inside `fullName` and `shortName`. One
+word is stripped, not a family of them, because one word is what the data has.
+
+---
+
+## 6.6. `BirthPlace` is free text, and occasionally not a place
+
+One field, no separate city or country, filled in by hand at a couple of
+hundred federations. It reaches **6,496 of the 12,074 published players
+(53.8%)** and holds at least four conventions at once:
+
+| Player | `BirthPlace`, exactly as stored | What it is |
+|---|---|---|
+| Emanuel Rego | `Curitiba, PR` | city and state |
+| Laura Ludwig | `Berlin` | city alone — the median shape |
+| Gisi Gavio | `Juiz de Fora (BRA)` | city and country code |
+| Tande | `Resende-Rio de Janeiro` | city and state, hyphenated |
+| — | `TN` | a province code, not a city |
+
+None of that is repairable: nothing separates a city from a province, and
+nothing says which country a bare "Portland" is in. It is published verbatim.
+
+**It is much cleaner than it first looks.** Only **21 of 6,496 (0.32%)** are
+unusable, and most of those are merely suspicious — `Paris 14e`, `Praha 4`,
+`Sèvres (92)`, `St Brieul (12)`, `Auckland N2` are arrondissements, districts
+and department numbers, which are real answers. Rejecting anything containing a
+digit would discard all of them to catch **seven** genuinely broken records:
+
+```
+21.08.77   03/09/1988   06-05-1991   17/01/1992     a date in the place field
+30019      98278                                    a bare postcode
+to be Merged with (#164181) as                      an internal editing note
+```
+
+That last one is worth reporting upstream: it is a note to whoever maintains
+the record, sitting in a public field.
+
+**Capitals are normalised per word here, not per string.** §6.5 leaves a partly
+capitalised *name* alone because the capitals mark the family name; a place has
+no such convention, so `9 de JULIO` should become `9 de Julio` even though "de"
+is already lower case. What makes per-word safe is a length gate — a short
+upper-case token in a place is a **code**: the `PR` in `Curitiba, PR`, the
+`BRA` in `Juiz de Fora (BRA)`, the whole of `TN`. 444 published birth places
+shout and are fixed; the codes survive.
+
+**The same box is filled in with caps lock the other way round**, on 102
+records: `rio de janeiro`, `buenos aires`, `salvador`. Those are title-cased
+too, with the length gate switched off, because a value carrying no capital
+cannot be hiding a code — `arg` becomes `Arg` and nothing is lost that was
+there. A particle stays lower case only *between* two words, since `el` is a
+preposition in `Yacoub el Mansour` and the start of the name in `El Jadida`,
+and a trailing token is far likelier to be a region than a preposition.
+
+**Only a uniformly-cased value is touched.** Mixed capitals are a choice
+somebody made, and rewriting them would mean deciding that
+`St-jean-sur-richelieu` is wrong while `St-Gallen` is right. 5 records are
+sloppy rather than deliberate — `Arendal, norway`, `Darwin, aus` — and are left
+as stored.
+
+**Where the case rule reads a word boundary matters more than it looks.** FIVB
+stores `Poltana (URSS)` and `AKTAU,KAZAKHSTAN` as single space-free tokens.
+De-shouting them by lower-casing and then capitalising only after a start,
+hyphen or apostrophe published `Poltana (urss)` and `Aktau,kazakhstan` — a
+different mistake from the one being fixed. A part now starts at any letter not
+preceded by another letter.
+
+A four-letter acronym still loses: `LENINGRAD, USSR` publishes as
+`Leningrad, Ussr`, because the length gate calls anything from four letters up
+a word. Raising the gate would re-break `Juiz de Fora (BRA)`; an acronym
+allowlist would be a third rule for a handful of records.
+
+**Handled in.** `ingest/build.ts`, `tidyBirthPlace`, with the published
+artifact asserted in `build.test.ts` — no empty string, no bare date, no bare
+postcode, no internal note, nothing shouting, nothing entirely lower case, and
+the codes still present.
+
+The bracket rule is pinned by a unit test rather than by the published tree,
+deliberately: once it is fixed, a repaired `Poltana (Urss)` and a genuinely
+sloppy `Arendal, norway` are the same shape in the output, so an assertion over
+the published places cannot tell them apart and would pass whatever the rule
+did.
+## 6.7. FIVB names the Olympics six different ways
+
+The eight Games in the archive carry five naming conventions between them, and
+two of the editions never say where they were held:
+
+```
+1996  "Atlanta"
+2012  "Olympic Games 2012"                          no city anywhere
+2016  "Men's Olympic Game - Rio 2016"               city, gender, and a typo
+2021  "Tokyo Olympic Games - Men's Tournament"      city, gender, no year
+2024  "Olympic Games Paris 2024 - Beach Volleyball"
+```
+
+**The city is in the code, not the name.** `MLON2012` says London where the
+name never does. But the codes are inconsistent too — `MATL1996` and
+`MLON2012` follow one shape, `Rio2016M` another — so parsing them is no more
+reliable than parsing the names.
+
+**Keyed by season instead.** There is exactly one Olympic Games per season, so
+the season is a complete key, and it does not require guessing the code FIVB
+will invent for an edition that has not happened. `ingest/olympics.ts` maps
+season to the official designation; anything not in the map keeps FIVB's own
+name, which is worse-looking but never wrong. **Los Angeles 2028 and Brisbane
+2032 are already in it** — both hosts are settled, neither has a tournament in
+VIS yet, and keying by season means adding them cost nothing and risked
+nothing.
+
+**Watch 2021.** The Tokyo Games were postponed a year. The archive files them
+under season **2021** and they are officially **Tokyo 2020**, so the label and
+the season deliberately disagree — the timeline shows the season in its gutter
+and the name beside it, which is the one place a reader gets both.
+
+`BeachNbSelOG` is not a usable count of Olympic appearances, incidentally. It
+reads **0** for Pablo Herrera, who has played six Games, and 3 for Natalie
+Cook, who has played five. Appearances are derived from the results instead.
+
+## 6.8. The World Championships stopped naming their host in 2015
+
+FIVB named the first ten editions after the host city and nothing else, then
+stopped. The 32 published rows — 16 editions, a men's draw and a women's for
+each — break down like this:
+
+(**Sixteen editions, starting 1997.** Ten more men's editions were held in Rio
+de Janeiro between 1987 and 1996, and they are not in this list — but that is
+not a call anybody here made. **FIVB excludes them.** VIS stamps them `Type` 1,
+Open, the same value as Enoshima 1989 or Sète 1990, and never `Type` 4, the
+World Championship value. `tiers.ts` reads `Type`, so they publish as ordinary
+World Tour Opens. The first official edition is Los Angeles 1997. See §19: that
+whole era is also where the ranged `Season` values live.
+
+Careful with the word *unofficial*. Wikipedia describes them as "not organised
+by the FIVB", and this section used to repeat that. It is wrong, and FIVB says
+so itself: its own history page is headed
+[first FIVB-sanctioned beach volleyball event](https://www.fivb.com/first-fivb-sanctioned-beach-volleyball-event-begins-34-years-ago/)
+and is about Rio 1987. VIS agrees — `OrganizerType` 1, FIVB, on **all 100 rows
+played in 1987–1996** — and `tierFor` only admits a tournament *because* of
+that value.
+
+So there is no tension to resolve, and an earlier draft of this section invented
+one. FIVB sanctioned these events, and FIVB classified them as Opens rather than
+championships. Both statements are FIVB's, they agree with each other, and the
+pipeline reproduces both. *Unofficial* here means "not FIVB's official
+championship", nothing more — and it is not our judgement to make either way.)
+
+```
+1997-2013, 2017  "Los Angeles" / "Vienna"                 the host, on its own
+2015             "Beach Volleyball Men WCHs"              no host anywhere
+2019             "WCH Hamburg"                            prefixed
+2022             "Rome World Championships"               suffixed
+2023             "World Championships 2023 - Tlaxcala Mexico"
+                 "World Championships 2023 - Tlaxcala, Mexico"   men vs women
+2025, 2027       "FIVB Beach Volleyball World Championships"     no host anywhere
+```
+
+**Unlike the Olympics, the code does not rescue it.** `MLAX1997` carries Los
+Angeles, but from 2017 every code is `MWCH####` or `WWCH####` — the shape that
+finally became consistent is the one that dropped the city.
+
+**Nor do the location fields.** Three look like they should supply the host,
+measured across all 32 rows:
+
+- **`DefaultCity`** is populated on **4** of them — 2022 and 2025 only.
+- **`CountryName`** is populated on all 32, but names a country.
+- The per-match **`City`** is empty for every edition through 2013, reports
+  three separate towns for 2023 (Tlaxcala 56 matches, Apizaco 27, Huamantla
+  25), court-suffixed strings for 2025 (`Adelaide (CC)`, `Adelaide (2)`,
+  `Adelaide (3)`), and nothing at all for an edition not yet played. It also
+  costs one request per tournament.
+
+**Keyed by season, same as the Olympics.** `ingest/worlds.ts` maps season to
+host; anything not in the map keeps FIVB's own name. The value is the bare host
+rather than "Hamburg 2019", because that is how FIVB itself named ten of the
+sixteen, and because the row already carries a "Worlds" badge with the season
+in the timeline gutter beside it.
+
+**Four editions had no single host city**, and each takes the smallest label
+that contains the whole event rather than one of its towns:
+
+```
+2001  Klagenfurt / Maria Wörth / Velden                 "Klagenfurt"
+2015  The Hague / Amsterdam / Apeldoorn / Rotterdam     "Netherlands"
+2023  Tlaxcala / Apizaco / Huamantla                    "Tlaxcala"
+2027  the 2015 four again                               "Netherlands"
+```
+
+Tlaxcala is the state the other two towns sit in as well as its own capital, so
+it contains the edition; the four Dutch cities are in four provinces, so only
+the country does. 2001 keeps Klagenfurt because that is what FIVB chose to call
+it — deciding a multi-city edition needs a broader label is only this map's call
+where FIVB left the question open.
+
+The per-match `City` field is what established this, and it agrees with the
+public record: 29 matches in The Hague against 25 each in Amsterdam, Apeldoorn
+and Rotterdam for 2015, and 56 in Tlaxcala against 27 in Apizaco and 25 in
+Huamantla for 2023.
 
 ---
 
@@ -579,13 +857,14 @@ megabytes. Two practical consequences:
 ## 14. Only one of the tournament date fields is reliably populated
 
 `BeachTournament` exposes several dates, and they are not equally trustworthy.
-Measured across all 9,264 tournaments VIS returns:
+Measured across all 9,270 tournaments VIS returns (re-measured 2026-08-30; the
+shape has not moved):
 
 | Field | Populated |
 |---|---:|
-| `StartDateMainDraw` | 9,264 (100%) |
-| `EndDateMainDraw` | 9,264 (100%) |
-| `StartDateQualification` | 2,750 (30%) |
+| `StartDateMainDraw` | 9,270 (100%) |
+| `EndDateMainDraw` | 9,270 (100%) |
+| `StartDateQualification` | 2,754 (30%) |
 | `Dates` | 0 |
 
 So `StartDateMainDraw` is the only start date worth ordering by. Using
@@ -743,11 +1022,338 @@ run log instead of being noticed by a reader.
 
 ---
 
+## 18. Three impossible pairs, three different upstream errors
+
+**What.** `Player.Gender` puts a player in the men's or the women's half of the
+archive, and a slice is one federation and one gender. Three published
+partnerships have their two halves in the *same* federation under *opposite*
+genders — which would have to be a mixed pair, and FIVB runs no mixed beach
+competition.
+
+They are not mixed pairs. All three played a men's event:
+
+| Pair | Event | Code |
+|---|---|---|
+| Josue Flores Garita + Flores Garita Andres Felipe (CRC) | Halifax 2012 | `MU212012` |
+| Anas Diouri + Hafid Ouchrif (MAR) | Agadir 2011 | `MAGA2011` |
+| Jean C. Gaston + Marion Marquet (FRA) | Rio de Janeiro 1989 | `MRIO1989` |
+
+The shared symptom hides three unrelated defects, and only the middle one is
+the simple mislabel it looks like.
+
+One partner in each is filed `W`. For the first two that is the whole of their
+record — one men's event each — so the gender field is simply wrong: measured
+across the archive, **2 of 12,073 published players contradict every event they
+entered**.
+
+**The French pair is not a gender error at all — it is the wrong person.**
+Marion Marquet (101084, FRA-W) is a real woman with a real career: `WMAR2000`,
+partnered with Natacha Reb, another FRA-W player. Jean C. Gaston (100156) is
+genuinely a man; his other event, `MCAG1991`, is with a male partner. Neither
+label is wrong. What is wrong is the row that joins them.
+
+Her `Birthdate` is **1981-01-28**. `MRIO1989`'s main draw opened
+**1989-02-18**, which makes her **eight years old** at a senior men's
+international. Whoever partnered Jean C. Gaston in Rio in 1989, it was not
+this athlete — a team row points at the wrong player record, and no gender
+field would fix it.
+
+**It is the partner half of the row that is wrong, not the row itself.**
+Gaston's own account of his career has him at Rio in 1989, so the entry is
+real and he is correctly on it. That is worth stating because it rules out the
+other reading — that the whole team row was attached to the wrong tournament —
+and leaves exactly one defect: the second player slot points at Marion
+Marquet's record when it cannot be her. Self-reported, and not the kind of
+source the rest of this document runs on, so it is corroboration for a
+conclusion the birthdate already forces rather than the basis for one.
+
+**Why *her* record, of all of them.** VIS holds five players matching
+"Marquet", three of them French:
+
+| Id | Name | Gender | Birthdate | Beach team rows |
+|---:|---|---|---|---:|
+| 101084 | Marion Marquet | W | 1981-01-28 | **2** |
+| 105101 | Pascal Marquet | M | — | 0 |
+| 111850 | Luc Marquet | M | 1970-04-15 | 0 |
+
+Marion is the only Marquet in the archive with a beach appearance of any kind.
+So the wrong link is not arbitrary: whoever attached a "Marquet" to the 1989
+entry had exactly one candidate the beach archive could offer, and took it.
+That is the same failure mode as the Costa Rican duplicate below — a name
+resolved against too small a pool — and it is the one worth reporting, because
+it recurs wherever a historical entry list is matched against a player table
+built later.
+
+**A candidate, flagged as a candidate.** Luc Marquet (111850) is French, male,
+and born in 1970 — a plausible partner for a Gaston also born in 1970. The
+site's author reports he was Gaston's indoor teammate in this period. VIS also
+holds a second Gaston, **Jean-Christophe Gaston** (111846, M, FRA,
+born 1970-05-19), whose name is what "Jean C." expands to and whose id sits
+four away from Luc Marquet's.
+
+None of that is a finding. **Both 111846 and 111850 have zero beach team rows**,
+so nothing in VIS puts either man at any tournament, and no source outside VIS
+names Gaston's 1989 partner at all. What can be said is narrower and still
+useful upstream: the records a corrected row would most plausibly point at
+already exist and are unused, and 100156 looks like a duplicate of 111846.
+Confirming any of it needs FIVB's own entry list, not more inference from
+this side.
+
+**The career shape says the same thing without the birthdate.** Worth having
+separately, because it survives the reply that it is the birthdate that is
+wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
+in 2000 and nothing else. Rio was not an ordinary week — it is one of the ten
+editions the sport treats as its unofficial World Championship (§6.8), and one
+of only eleven FIVB events in the whole 1987-91 bucket. A career that opens at
+the biggest tournament of its era, then resumes once, a decade later, at an
+ordinary Open, is not a career. It is two records that were joined by mistake.
+
+**`MRIO1987` can be checked against an outside source, and VIS passes.** A
+contemporary newspaper results table — reproduced in FIVB's own article on the
+event, supplied by the site's author — lists the complete 20-team field, and
+VIS's 20 rows match it exactly, same pairs, same order.
+
+**`MRIO1989` has no outside source at all.** VIS has 24 rows for it and nothing
+independent exists to check them against. bvbinfo is not a second source: it
+carries the same Gaston/Marquet row, so it corroborates a date and never a
+roster (§6d).
+
+So the 1987 check says nothing about the French row, which is in a different
+event. It is worth recording only because it is the one independent check on
+any early Rio ranking that exists, and it passed. The case against the row
+rests on the birthdate and the career shape above, both internal to VIS.
+
+**A warning for anyone re-checking this.** These editions are trivially easy to
+mix up, and doing so manufactures a discrepancy that is not there. Nine men's
+Rio events sit at consecutive tournament numbers 335-343, all coded `MRIO…`,
+all named just "Rio de Janeiro", all staged in February, and every one of them
+filed under a *ranged* `Season` (§19) rather than the year it was played:
+
+```
+No=335  MRIO1987  Season=1987-91  main=1987-02-17
+No=337  MRIO1989  Season=1987-91  main=1989-02-18
+```
+
+Smith/Stoklos won both 1987 and 1989, so a comparison against the wrong edition
+still agrees at rank 1 and then diverges from rank 2 down — which reads like a
+corrupt ranking rather than the mismatched-edition error it actually is.
+`StartDateMainDraw` is the field that tells them apart; `Season` cannot.
+
+**The Costa Rican case is a duplicated athlete, not just a mislabelled one.**
+Josue Flores Garita partnered "Andres" at two consecutive under-21 events, under
+two different player numbers:
+
+| Event | Partner id | Slice | `Birthdate` | Name as stored |
+|---|---:|---|---|---|
+| `MU212012` | 137511 | CRC-**W** | 1993-11-03 | `Flores Garita Andres Felipe` |
+| `M212013` | 137596 | CRC-**M** | 1993-11-03 | `Andres Felipe Flores Garita` |
+
+Same date of birth, same partner, consecutive years, same age group, and the
+same four name-parts in two different orders. That is one person with two
+records, and the second copy also picked up the wrong gender.
+
+The two halves are **transposed**, not merely reordered: 137596 stores
+`FirstName` "Andres Felipe" and `LastName` "Flores Garita", and 137511 stores
+each in the other field. That is the fingerprint of a record retyped by hand
+rather than copied — and it is a pattern worth searching for upstream, since a
+transposed name pair sharing a `Birthdate` is mechanically detectable across
+the whole player table.
+
+Nothing forced the duplicate, either. A unique key over name and birthdate
+would not have collided, because the name fields already differ; and 139047
+shares a birthdate, a gender and a federation with 137596 while coexisting with
+it quite happily, so no constraint of that shape is enforced.
+
+A third CRC player, Josue himself (139047), carries **the same 1993-11-03
+birthdate**. Josue and Andres may well be twins; the birthdate may equally have
+been copied across records in the same sitting. Nothing in VIS distinguishes
+those, so this section does not claim which.
+
+The Moroccan case is weaker and worth stating as such. `Hafid Ouchrif` (137685,
+MAR-W) and `Ouchrif Abdelhafid` (117038, MAR-M) share a surname and a plausible
+name variant, but their only events are six years apart with different partners,
+so "duplicate" is a guess. What is *not* a guess is the gender: 137685's single
+event is a men's tournament.
+
+**Why it shows up at all.** Slicing is by federation *and* gender, so these
+pairs land in different slices and get carried on the player as `away` rows —
+which is why the card's block is headed "Partners not in this graph" rather
+than anything naming federations. Six of the 221 published away rows are these
+three pairs, counted from both ends.
+
+**On the site** both CRC records render as "Flores", because `short` comes from
+FIVB's `TeamName` and is the same on each. The surname-first ordering above is
+what VIS stores, not what a reader sees.
+
+**Handled in.** Nothing. Two players and one old entry are not worth a rule,
+and any rule that reassigned a gender from tournament codes would be guessing
+about a person from a four-character string. The duplicate is a better thing to
+report than to work around: deduplicating athletes on our side would mean
+merging two FIVB player numbers, which is exactly the kind of judgement about a
+real person this pipeline does not make.
+
+---
+
+## 19. `Season` is sometimes a range, not a year
+
+**What.** `BeachTournament.Season` reads `2024` on almost every row — and
+`"1987-91"`, `"1995-96"`, `"1993-94"` on **70 of the 9,270**. A cross-year
+season is ordinary in a sport that runs through a southern summer; `"1987-91"`
+is not a season at all, it is five of them in one bucket.
+
+`parseSeason` keeps the leading four digits, so every row in that bucket
+publishes as season **1987**, including events played in 1988, 1989, 1990 and
+1991. That is a deliberate choice and its comment says so — `Number("1987-91")`
+is `NaN`, which would drop the events entirely — but the cost of taking the
+first year had never been measured. It is: **71 qualifying rows carry a ranged
+`Season`, and 26 of them were played in a year other than the one we publish**,
+off by one to four years.
+
+The Rio de Janeiro series is the clearest case, and it is visible in the codes:
+
+| Code | Published season | `StartDateMainDraw` |
+|---|---:|---|
+| `MRIO1987` | 1987 | 1987-02-17 |
+| `MRIO1988` | 1987 | 1988-02-20 |
+| `MRIO1989` | 1987 | 1989-02-18 |
+| `MRIO1990` | 1987 | 1990-02-13 |
+| `MRIO1991` | 1987 | 1991-02-12 |
+
+Five annual editions, five correct codes, one season between them.
+
+**The ranges are exactly the pre-1997 archive.** All 70 of them were played
+between **1987 and 1996**, and no row outside that window has one. That is the
+era before FIVB ran a World Championship: the ten Rio de Janeiro editions above
+are the *unofficial* championships, and the first official edition is Los
+Angeles 1997 (§6.8, and why `worlds.ts` starts there — including the caveat
+there about who actually organised them).
+A block of years rather than a season per year is what back-filled records of
+somebody else's events look like — which is a reason to trust the dates over
+the bucket, not merely a licence to.
+
+**Not the same thing as a wrong code.** Of the 29 codes whose year differed from
+the published season, 25 were this — the code right, the season coarse — and
+they agree now. Six disagreements remain and all are explicable: `WCAR1991` was
+played in August 1994 and `MCAP2023` / `WCAP2023` in November 2020, which are
+genuinely mis-coded; the two Tokyo rows are named for 2020 and were played in
+2021 (§6.7); and `MSAN1995` is a January 1996 event whose code names the season
+it opened rather than the year it ran.
+
+**The offset gave it away twice over.** `startOffset` is days from 1 January of
+the season, and is documented as two or three digits. While the range start won,
+**18 rows ran to four** — `MSYD1991` sat **1,533 days** after the 1 January of
+the 1987 it was filed under. A field cannot be that far into its own season.
+
+**Handled in.** `seasonFor` in `ingest/build.ts`. A ranged `Season` defers to
+`StartDateMainDraw`, which is populated on every row (§14) and, on all 70 of
+these, lands inside the range the season itself declares — so the range is the
+bound, and a date outside it leaves the start in place. A **single-year**
+`Season` still wins over its date, deliberately: a southern season opens in the
+previous December, so an event dated 2019-12-05 in season 2020 is filed exactly
+right, and `startOffset` goes negative to say so. Only a range has lost
+information.
+
+25 tournaments moved, which corrects the careers built on top of them: Paulo
+Roberto "Paulão" Moreira da Costa published as 1987–2003 and is 1990–2003, his
+earliest event being the Rio de Janeiro of February 1990. No four-digit offset
+survives.
+
+**The dates themselves are sound**, which is worth stating because it is what
+makes deferring to them safe. Every edition in the series carries a specific
+range of a plausible length, and they check out against an outside reader of the
+same API: `WRIO1995` is `1995-03-02` to `1995-03-05` in VIS and 02–05 March 1995
+on `fivb.12ndr.at`. Only the season was ever coarse.
+
+```
+MRIO1987  1987-02-17 → 02-22    6 days
+MRIO1991  1991-02-12 → 02-23   12 days
+WRIO1995  1995-03-02 → 03-05    4 days
+WRIO1996  1996-02-28 → 03-03    5 days
+MRIO1996  1996-01-01 → 01-02    2 days   <- the exception
+```
+
+**`MRIO1996` is the one bad date in the series, and it is confirmed wrong.**
+VIS dates it `1996-01-01` to `1996-01-02`. It was played **8–11 February 1996**,
+per [bvbinfo](http://bvbinfo.info/TeamPreview?TournID=624&ID1=409&ID2=597),
+which lists it as the Brazil Open in Rio de Janeiro on those dates.
+
+**How far bvbinfo counts as independent, precisely.** It is not a mirror of this
+API: on this row it disagrees with VIS outright, which it could not do if it
+were reading the same field. But its *rosters* match FIVB's, errors included —
+it lists Jean Gaston and Marion Marquet at Rio 1989 exactly as VIS does, which
+is the misattribution §18 takes apart. So it corroborates a **date** here and
+cannot corroborate a **roster** anywhere. An earlier draft of this section
+called it "genuinely independent evidence" without that qualification, which
+claimed more than one agreeing row can support.
+
+Everything about the VIS row already pointed that way. A **1 January** start
+occurs on 2 of the 9,270 rows in the whole archive — this and `MDOH2022` — its
+two-day main draw stands against 4 to 12 for every other edition, and the
+women's 1996 draw sits in late February where the men's editions always sat.
+The real dates are four days in February, which is exactly the shape of the
+rest of the series. It is a placeholder typed in when the day was not to hand.
+
+There is no ambiguity about which event it is: `MRIO1996` is the only men's
+Brazilian tournament VIS holds for 1996 before April.
+
+It costs us almost nothing: the season is 1996 either way, and only the event's
+position within that season on a card is affected. It is on the upstream list
+because it is a one-field correction somebody at FIVB could make in a minute,
+and because the right value is now known.
+
+---
+
 ## Reporting these upstream
 
-Most of the above is ours to work around. Two are arguably worth raising with
+Most of the above is ours to work around. These are the ones worth raising with
 FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.
+- **§6**, whether anything in VIS records which federation an athlete
+  represented and from when.
 - **§7**, the `SMA` test records sitting in production player data.
+- **§18**, three defects that share one symptom. The two players whose `Gender`
+  contradicts the only event they ever played. A **duplicated athlete** —
+  CRC 137511 and 137596 are one person, sharing a birthdate and a partner, with
+  `FirstName` and `LastName` **transposed** between the two rows; that
+  transposition is the useful part, because a swapped name pair sharing a
+  birthdate is mechanically detectable across the whole player table, so it
+  points at the others rather than only this one. And a **team row crediting the
+  wrong athlete**: `MRIO1989` names Marion Marquet (101084, born 1981-01-28),
+  who would have been eight, and whose only other event is eleven years later —
+  two independent reasons, so the case survives if it turns out to be the
+  birthdate that is wrong. She is also the only Marquet in the archive with any
+  beach appearance, which is likely why the row landed on her. Two unused
+  records look like the intended targets and are worth checking against the
+  original entry list: **Luc Marquet** (111850, M, FRA, 1970-04-15) for the
+  partner slot, and **Jean-Christophe Gaston** (111846, M, FRA, 1970-05-19),
+  which appears to be a duplicate of the 100156 record on the row.
+- **§19**, the three tournament codes whose year contradicts their own dates —
+  `WCAR1991` played in 1994, `MCAP2023` and `WCAP2023` in 2020 — and
+  `MRIO1996`, dated 1–2 January 1996 when it was played 8–11 February 1996.
+- **§6.5**, names shouting in all capitals or carrying a nickname inside the
+  surname field — `Ramos Alexandre "Tande" Samuel` is one person, one field.
+- **§6.5a**, the six player records whose name field carries `SUSPENDED`, five
+  of which have lost their `TeamName` to it — Tim Hovland's short name in VIS
+  is currently the word "Suspended". The likeliest single-field fix in this
+  whole list.
+- **§6.6**, `BirthPlace` values that are dates, postcodes or internal merge
+  notes rather than places.
+- **§6.7 and §6.8**, championship editions whose names never say where they
+  were held. A request rather than a defect report: a populated `DefaultCity`
+  on the Olympics and the World Championships would retire two hand-maintained
+  maps here and help every other consumer of the archive.
+
+Everything in this list is worked around already. Raising them is about the
+archive being better for everyone reading it, not about unblocking this site.
+
+**The draft introduction email covers the first three only.** It is
+`docs/fivb-email.md` (task #12), written before the wrong-athlete, dated, name,
+birth-place and championship-naming quirks were found. Anyone picking that task
+up should add **the six below them** to its "would a list of data issues be
+useful" section before sending — it already offers exactly that list.
+
+Count them rather than trusting this sentence, which has gone stale twice: it
+said three, then five, while §18 and §6.5a were added on branches that merged
+independently and each looked right on its own.

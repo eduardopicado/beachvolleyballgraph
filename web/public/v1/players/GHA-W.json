@@ -7,14 +7,16 @@
       "name": "Rashaka Katadat",
       "dob": "1999-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ejura"
     },
     {
       "id": 188700,
       "name": "Benedicta Mawuse Akorli",
       "dob": "1997-02-09",
       "height": 173,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Battor,Ghana"
     }
   ]
 }

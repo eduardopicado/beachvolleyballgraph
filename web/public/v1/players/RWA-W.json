@@ -7,21 +7,32 @@
       "name": "Denise Mutatsimpundu",
       "dob": "1993-05-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135064,
       "name": "Hakizimana Judith",
       "dob": "1987-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kirehe",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135065,
       "name": "Charlotte Nzayisenga",
       "dob": "1993-12-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Musanze",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 147320,
@@ -42,63 +53,72 @@
       "name": "Seraphine Mukantambara",
       "dob": "1994-04-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gatsibo"
     },
     {
       "id": 164423,
       "name": "Penelope Musabyimana",
       "dob": "2001-02-01",
       "height": 173,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Ruhango"
     },
     {
       "id": 172650,
       "name": "Benitha Mukandayisenga",
       "dob": "1994-03-05",
       "height": 178,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kazo Ngoma"
     },
     {
       "id": 174089,
       "name": "Munezero Valentine",
       "dob": "2000-01-07",
       "height": 182,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Bugesera"
     },
     {
       "id": 175290,
       "name": "Louise Muhoza",
       "dob": "1998-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kayonza"
     },
     {
       "id": 175291,
       "name": "Christine Nyirarukundo",
       "dob": "1997-07-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Musanze"
     },
     {
       "id": 175292,
       "name": "Pacifique Umulisa",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rukira"
     },
     {
       "id": 180984,
       "name": "Claudine Musanabageni",
       "dob": "1996-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Musanze"
     },
     {
       "id": 241483,
       "name": "Uwimbabazi Lea",
       "dob": "1995-01-01",
       "height": 170,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Rwamagana"
     }
   ]
 }

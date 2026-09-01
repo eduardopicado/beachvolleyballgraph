@@ -8,11 +8,18 @@
       "dob": "1961-09-25",
       "height": 192,
       "weight": 88,
+      "birthPlace": "Necochea",
       "tour": {
         "gold": 3,
         "silver": 7,
         "bronze": 7
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100148,
@@ -20,6 +27,7 @@
       "dob": "1971-08-25",
       "height": 186,
       "weight": 86,
+      "birthPlace": "Mar del Plata",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -29,7 +37,13 @@
         "gold": 8,
         "silver": 15,
         "bronze": 12
-      }
+      },
+      "olympicGames": 4,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100149,
@@ -71,7 +85,8 @@
       "name": "Sergio Eduardo \"Tito\" Vodiany",
       "dob": "1968-04-07",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 100580,
@@ -79,11 +94,16 @@
       "dob": "1972-05-05",
       "height": 180,
       "weight": 83,
+      "birthPlace": "Mar del Plata",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100768,
@@ -98,18 +118,26 @@
       "dob": "1970-05-19",
       "height": 190,
       "weight": 87,
+      "birthPlace": "Buenos Aires",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100770,
       "name": "Pablo Del Coto",
       "dob": "1975-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 101031,
@@ -159,19 +187,13 @@
           "fed": "ITA",
           "gender": "M",
           "t": 1,
-          "f": 1987,
-          "l": 1987,
+          "f": 1989,
+          "l": 1989,
           "s": [
             [
-              1987,
+              1989,
               1,
-              936
-            ]
-          ],
-          "at": [
-            [
-              1987,
-              "ARG"
+              205
             ]
           ],
           "r": 19
@@ -204,7 +226,8 @@
       "name": "Marcelo Eduardo \"Makeco\" Roberts",
       "dob": "1965-01-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 101151,
@@ -233,6 +256,7 @@
       "dob": "1974-07-12",
       "height": 194,
       "weight": 89,
+      "birthPlace": "Buenos Aires",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -242,7 +266,13 @@
         "gold": 6,
         "silver": 8,
         "bronze": 8
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101686,
@@ -263,7 +293,8 @@
       "name": "Sebastian Menegozzo",
       "dob": "1971-05-17",
       "height": 184,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 101761,
@@ -284,28 +315,32 @@
       "name": "Wenceslao Roberto Frascaroli",
       "dob": "1973-10-24",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 102084,
       "name": "Javier \"Pele\" Pellegrini",
       "dob": "1973-01-22",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 102085,
       "name": "Luis Ernesto Quiroga",
       "dob": "1973-05-17",
       "height": 182,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 102093,
       "name": "Hector Oscar Labrada",
       "dob": "1971-10-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 102094,
@@ -319,21 +354,24 @@
       "name": "Javier Leonardo Pedri",
       "dob": "1963-07-20",
       "height": 190,
-      "weight": 104
+      "weight": 104,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 102096,
       "name": "Martin Horacio Carrocera",
       "dob": "1971-07-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 102097,
       "name": "Adrian Caccavielo",
       "dob": "1969-12-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "La Plata"
     },
     {
       "id": 102098,
@@ -347,21 +385,24 @@
       "name": "Federico Addiechi",
       "dob": "1967-04-04",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Mar del Plata, Argentina"
     },
     {
       "id": 102430,
       "name": "José Luis \"Indio\" Barrionuevo",
       "dob": "1960-06-06",
       "height": 185,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Rosario"
     },
     {
       "id": 102516,
       "name": "Adrian Marcelo Bialy",
       "dob": "1972-09-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 102517,
@@ -382,21 +423,24 @@
       "name": "Tomas Ameigeiras",
       "dob": "1975-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 102520,
       "name": "Andres Soriano",
       "dob": "1976-04-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata, Argentina"
     },
     {
       "id": 102524,
       "name": "Ariel Alejandro Olmedo",
       "dob": "1968-01-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rosario"
     },
     {
       "id": 102872,
@@ -417,7 +461,8 @@
       "name": "Pablo Bernardi",
       "dob": "1979-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 102875,
@@ -445,7 +490,8 @@
       "name": "Pablo Miguel Suarez",
       "dob": "1981-12-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104579,
@@ -459,7 +505,8 @@
       "name": "Pierino Bautista Accastelli",
       "dob": "1976-12-21",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Olauarria"
     },
     {
       "id": 104584,
@@ -473,14 +520,16 @@
       "name": "Gabriel Carbone",
       "dob": "1981-03-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires, Argentina"
     },
     {
       "id": 104587,
       "name": "Julian Posodente",
       "dob": "1973-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 104594,
@@ -494,21 +543,24 @@
       "name": "Pablo Javier Blanco",
       "dob": "1979-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104596,
       "name": "Alejandro Pablo Cayrol",
       "dob": "1979-03-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104597,
       "name": "Gonzalo Aristizabal",
       "dob": "1978-10-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104598,
@@ -529,49 +581,59 @@
       "name": "Mauricio Omar Garcia",
       "dob": "1976-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "9 de Julio"
     },
     {
       "id": 104601,
       "name": "Mariano Ariel Maidana",
       "dob": "1977-01-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104602,
       "name": "Facundo Del Coto",
       "dob": "1984-10-15",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Arg",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104603,
       "name": "Nicolas martin Sass",
       "dob": "1980-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 104604,
       "name": "Carlos Enrique Bros",
       "dob": "1968-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Entre Rios"
     },
     {
       "id": 104605,
       "name": "Carlos Miguel Dombraski",
       "dob": "1973-09-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rosario"
     },
     {
       "id": 104606,
       "name": "Rafael Posodente",
       "dob": "1979-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 104607,
@@ -585,28 +647,34 @@
       "name": "Alan Manuel Mehamed",
       "dob": "1981-06-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar Del Plata, Argentina"
     },
     {
       "id": 104610,
       "name": "Esteban Soriano",
       "dob": "1983-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 104611,
       "name": "Santiago Etchegaray",
       "dob": "1985-08-23",
       "height": 183,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "MAR DEL Plata"
     },
     {
       "id": 112849,
       "name": "Pablo Bianchi",
       "dob": "1983-05-12",
       "height": 196,
-      "weight": 82
+      "weight": 82,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117543,
@@ -627,7 +695,8 @@
       "name": "Hernán Valcarce",
       "dob": "1975-08-19",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 117577,
@@ -669,7 +738,8 @@
       "name": "Carlos Damián Siri",
       "dob": "1978-08-16",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Avellaneda"
     },
     {
       "id": 117592,
@@ -683,7 +753,8 @@
       "name": "Alejandro Ronconi",
       "dob": "1984-04-05",
       "height": 185,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Maria Grande Argentina"
     },
     {
       "id": 118294,
@@ -697,21 +768,24 @@
       "name": "Rafael Garzón",
       "dob": "1984-09-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catamarca"
     },
     {
       "id": 120401,
       "name": "Ignacio Batallan",
       "dob": "1984-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catamarca"
     },
     {
       "id": 120933,
       "name": "Ian Mehamed",
       "dob": "1989-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 132629,
@@ -725,7 +799,8 @@
       "name": "Gabriel Martin Ojeda Dapiaggi",
       "dob": "1983-10-14",
       "height": 186,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 134713,
@@ -733,18 +808,26 @@
       "dob": "1990-12-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Paraná - Entre Ríos",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 135142,
       "name": "Gabriel Fernandez",
       "dob": "1986-09-29",
       "height": 181,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Catamarca, Argentina"
     },
     {
       "id": 135184,
@@ -758,7 +841,8 @@
       "name": "Angel Verzzali",
       "dob": "1986-08-07",
       "height": 195,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "San Justo"
     },
     {
       "id": 135602,
@@ -779,7 +863,8 @@
       "name": "Facundo Funes",
       "dob": "1994-12-24",
       "height": 185,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 139070,
@@ -793,7 +878,8 @@
       "name": "Santiago Aulisi",
       "dob": "1996-11-04",
       "height": 183,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 142940,
@@ -801,11 +887,15 @@
       "dob": "1996-09-25",
       "height": 186,
       "weight": 85,
+      "birthPlace": "Tunuyán",
       "tour": {
         "gold": 5,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145596,
@@ -819,7 +909,8 @@
       "name": "Joel Leon",
       "dob": "1996-03-02",
       "height": 186,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Concordia"
     },
     {
       "id": 145990,
@@ -827,25 +918,34 @@
       "dob": "1995-01-15",
       "height": 202,
       "weight": 94,
+      "birthPlace": "Rosario",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 149242,
       "name": "Quiroga Sebastian Martin",
       "dob": "1991-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 155909,
       "name": "Gonzalo Aulisi",
       "dob": "1998-05-22",
       "height": 180,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 160815,
@@ -853,18 +953,24 @@
       "dob": "2000-02-29",
       "height": 186,
       "weight": 85,
+      "birthPlace": "Tunuyán - Mza",
       "tour": {
         "gold": 5,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 160816,
       "name": "Mauro Zelayeta",
       "dob": "2000-03-03",
       "height": 190,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Mar del Plata"
     },
     {
       "id": 174855,
@@ -872,95 +978,115 @@
       "dob": "2002-09-08",
       "height": 196,
       "weight": 82,
+      "birthPlace": "Rosario",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178680,
       "name": "Ramiro Sancer",
       "dob": "2004-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mendoza"
     },
     {
       "id": 182090,
       "name": "Maciel Bueno Torres",
       "dob": "2002-07-01",
       "height": 190,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Tunuyan - Mendoza",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 182132,
       "name": "Valentino Abrantes Salema",
       "dob": "2002-12-07",
       "height": 191,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Palmas de Mayorca"
     },
     {
       "id": 186674,
       "name": "Valentin Cruz Lombardo",
       "dob": "2002-09-13",
       "height": 188,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Buenos Aires"
     },
     {
       "id": 187243,
       "name": "Jose Augusto Sosaya",
       "dob": "2000-08-16",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Concepcion Tucuman"
     },
     {
       "id": 189105,
       "name": "Marcos Ezequiel Gonzalez",
       "dob": "2005-01-18",
       "height": 191,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Posadas"
     },
     {
       "id": 194462,
       "name": "Ignacio Moreno",
       "dob": "2003-11-05",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Rosario"
     },
     {
       "id": 194463,
       "name": "Enzo Lecussan",
       "dob": "2003-05-23",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Santa Fe"
     },
     {
       "id": 196739,
       "name": "Fausto Andrés Inostroza",
       "dob": "2004-04-24",
       "height": 184,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Neuquen"
     },
     {
       "id": 204512,
       "name": "Ignacio Santelli",
       "dob": "1996-11-22",
       "height": 191,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Argentina"
     },
     {
       "id": 204513,
       "name": "Rodrigo Santelli",
       "dob": "1996-11-22",
       "height": 190,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Argentina"
     },
     {
       "id": 213292,
       "name": "Brais Del Coto Redondo",
       "dob": "2008-02-16",
       "height": 195,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Palma de Mayorca"
     },
     {
       "id": 216054,
@@ -974,14 +1100,16 @@
       "name": "Zac Quimey Osatinsky",
       "dob": "2009-10-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Argentina"
     },
     {
       "id": 225811,
       "name": "Nahuel Cornejo",
       "dob": "2009-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rio Negro"
     }
   ]
 }

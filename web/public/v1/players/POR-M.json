@@ -8,11 +8,18 @@
       "dob": "1971-04-23",
       "height": 180,
       "weight": 78,
+      "birthPlace": "Paranhos",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100528,
@@ -20,11 +27,18 @@
       "dob": "1970-05-06",
       "height": 193,
       "weight": 92,
+      "birthPlace": "Espinho",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100854,
@@ -50,7 +64,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100860,
@@ -69,7 +86,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100862,
@@ -111,7 +131,8 @@
       "name": "Rui Manuel \"Tato\" Santos Fernandes",
       "dob": "1972-07-21",
       "height": 185,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "POR"
     },
     {
       "id": 100909,
@@ -146,7 +167,8 @@
       "name": "João Carlos Pinto da Silva",
       "dob": "1977-12-24",
       "height": 186,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Santo Ildefonso"
     },
     {
       "id": 100914,
@@ -174,7 +196,8 @@
       "name": "Pedro Paulo Monteiro Leal",
       "dob": "1976-03-01",
       "height": 179,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 101579,
@@ -216,35 +239,46 @@
       "name": "José Manuel Teixeira De Carvalho Dias",
       "dob": "1978-09-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Povoa de Varzim",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102006,
       "name": "José Pedrosa",
       "dob": "1978-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Castilo da Maia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102007,
       "name": "José Fernandez",
       "dob": "1974-08-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cascais"
     },
     {
       "id": 102008,
       "name": "Bruno Carvalho",
       "dob": "1975-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Deiras"
     },
     {
       "id": 102009,
       "name": "César Campos",
       "dob": "1971-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Jõao Madeira"
     },
     {
       "id": 102439,
@@ -258,28 +292,32 @@
       "name": "Luis Filipe Sousa",
       "dob": "1976-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sà (Porto)"
     },
     {
       "id": 102441,
       "name": "Arlindo Lopes",
       "dob": "1974-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Manaulos"
     },
     {
       "id": 102442,
       "name": "Ricardo Santos",
       "dob": "1976-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 102443,
       "name": "Ricardo Fonseca",
       "dob": "1977-11-19",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 102812,
@@ -293,7 +331,8 @@
       "name": "Rui Oliveira Mota Santos",
       "dob": "1978-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Espinho"
     },
     {
       "id": 102814,
@@ -321,7 +360,8 @@
       "name": "Jorge Ribeiro Picas de Carvalho",
       "dob": "1980-02-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ponte de Barca"
     },
     {
       "id": 102819,
@@ -335,7 +375,8 @@
       "name": "Nuno Palma",
       "dob": "1970-09-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisbon"
     },
     {
       "id": 102821,
@@ -363,14 +404,19 @@
       "name": "Pedro Rosas",
       "dob": "1979-09-11",
       "height": 194,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Paranhos",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103151,
       "name": "Luis Filipe Lacerda",
       "dob": "1976-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Se Porto"
     },
     {
       "id": 103152,
@@ -419,14 +465,16 @@
       "name": "Rogerio Henrique De Paula",
       "dob": "1968-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sorocaba Sao Paula"
     },
     {
       "id": 103487,
       "name": "Eden Luri Sousa Sequiera",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Angola"
     },
     {
       "id": 103580,
@@ -438,7 +486,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103581,
@@ -501,7 +552,8 @@
       "name": "Nelson Brizida",
       "dob": "1982-04-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Esmoriz"
     },
     {
       "id": 104052,
@@ -571,7 +623,8 @@
       "name": "Sandro Correia Faria",
       "dob": "1970-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brasil"
     },
     {
       "id": 104753,
@@ -662,28 +715,32 @@
       "name": "Hugo Gaspar",
       "dob": "1982-09-02",
       "height": 200,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Leiria"
     },
     {
       "id": 111894,
       "name": "Nuno Rocha",
       "dob": "1981-08-27",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Porto"
     },
     {
       "id": 111895,
       "name": "Pedro Miguel Azenha",
       "dob": "1976-04-06",
       "height": 184,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Porto"
     },
     {
       "id": 111896,
       "name": "Jorge Alves",
       "dob": "1978-02-07",
       "height": 187,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 116852,
@@ -704,7 +761,8 @@
       "name": "Andre Sa",
       "dob": "1981-07-08",
       "height": 179,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Ovar"
     },
     {
       "id": 116855,
@@ -788,7 +846,8 @@
       "name": "Hugo Sa",
       "dob": "1980-08-14",
       "height": 188,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Espinho"
     },
     {
       "id": 117941,
@@ -802,7 +861,8 @@
       "name": "Filipe Miguel Ferreira Catarino",
       "dob": "1986-11-06",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Porto"
     },
     {
       "id": 118654,
@@ -823,7 +883,8 @@
       "name": "Rui Moreira",
       "dob": "1989-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto"
     },
     {
       "id": 119272,
@@ -837,21 +898,24 @@
       "name": "Filipe Pinto",
       "dob": "1991-02-26",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Oliveira do Bairro"
     },
     {
       "id": 122845,
       "name": "Tiago Da Silva Violas",
       "dob": "1989-03-27",
       "height": 193,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Ovar"
     },
     {
       "id": 124027,
       "name": "Joao Simoes",
       "dob": "1986-06-11",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Leiria"
     },
     {
       "id": 125090,
@@ -865,7 +929,8 @@
       "name": "Jose Pedro Monteiro",
       "dob": "1991-10-21",
       "height": 185,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Espinho"
     },
     {
       "id": 132002,
@@ -901,11 +966,15 @@
       "dob": "1992-05-22",
       "height": 190,
       "weight": 72,
+      "birthPlace": "Penafiel",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132923,
@@ -919,7 +988,8 @@
       "name": "Simao Teixeira",
       "dob": "1992-10-28",
       "height": 178,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Espinho"
     },
     {
       "id": 133334,
@@ -940,7 +1010,8 @@
       "name": "Fabricio Silva",
       "dob": "1981-10-24",
       "height": 198,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Andradina, Brazil"
     },
     {
       "id": 142058,
@@ -961,7 +1032,8 @@
       "name": "Dinis Leao Ramos Correia Alves",
       "dob": "1996-05-15",
       "height": 187,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Paredes"
     },
     {
       "id": 143224,
@@ -982,7 +1054,8 @@
       "name": "Francisco Pombeiro",
       "dob": "1996-06-14",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "São Domingos de Benfica"
     },
     {
       "id": 143227,
@@ -1003,7 +1076,8 @@
       "name": "Bernardo Pontes Cabral e Silva",
       "dob": "1996-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Amadora"
     },
     {
       "id": 143329,
@@ -1017,7 +1091,8 @@
       "name": "Tiago Pereira",
       "dob": "1991-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 143335,
@@ -1066,14 +1141,16 @@
       "name": "Bernardo Leite",
       "dob": "1996-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto"
     },
     {
       "id": 147742,
       "name": "Jose Jardim",
       "dob": "1996-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 147898,
@@ -1123,11 +1200,16 @@
       "dob": "2000-05-31",
       "height": 194,
       "weight": 78,
+      "birthPlace": "Porto",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 157531,
@@ -1141,14 +1223,16 @@
       "name": "Gonçalo Sousa",
       "dob": "2000-09-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 163531,
       "name": "Guilherme Costa",
       "dob": "1989-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisbon"
     },
     {
       "id": 164474,
@@ -1156,11 +1240,16 @@
       "dob": "2000-11-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Maia",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 164531,
@@ -1174,28 +1263,32 @@
       "name": "Filipe Leite",
       "dob": "2002-01-25",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Espinho"
     },
     {
       "id": 166335,
       "name": "Rafael Santos",
       "dob": "2001-03-18",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Anadia"
     },
     {
       "id": 169663,
       "name": "Guilherme Bragança Sapage de Barbosa Maia",
       "dob": "2002-05-24",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Espinho"
     },
     {
       "id": 177358,
       "name": "Andre Roussado Sapina",
       "dob": "1998-12-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Massama"
     },
     {
       "id": 182788,

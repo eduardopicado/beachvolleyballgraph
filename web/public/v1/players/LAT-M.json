@@ -7,7 +7,8 @@
       "name": "Ugis Krastins",
       "dob": "1970-05-16",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 100476,
@@ -21,14 +22,16 @@
       "name": "Ainar Vanags",
       "dob": "1967-01-27",
       "height": 196,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Riga"
     },
     {
       "id": 100666,
       "name": "Jurijs Vlasovs",
       "dob": "1964-12-05",
       "height": 180,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Riga"
     },
     {
       "id": 100826,
@@ -36,18 +39,23 @@
       "dob": "1971-03-18",
       "height": 192,
       "weight": 81,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100851,
       "name": "Normunds Linkevicz",
       "dob": "1972-02-13",
       "height": 188,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Skrunda"
     },
     {
       "id": 101350,
@@ -62,19 +70,13 @@
           "fed": "RUS",
           "gender": "M",
           "t": 1,
-          "f": 1987,
-          "l": 1987,
+          "f": 1989,
+          "l": 1989,
           "s": [
             [
-              1987,
+              1989,
               1,
-              936
-            ]
-          ],
-          "at": [
-            [
-              1987,
-              "LAT"
+              205
             ]
           ],
           "r": 12
@@ -86,14 +88,16 @@
       "name": "Andris Alksnis",
       "dob": "1975-04-25",
       "height": 198,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Liepaza"
     },
     {
       "id": 101786,
       "name": "Ventis Didrihsons",
       "dob": "1971-11-24",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Riga"
     },
     {
       "id": 101787,
@@ -101,11 +105,15 @@
       "dob": "1976-07-27",
       "height": 186,
       "weight": 78,
+      "birthPlace": "Talsi",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 101788,
@@ -113,74 +121,91 @@
       "dob": "1977-10-08",
       "height": 188,
       "weight": 82,
+      "birthPlace": "Smiltene",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101789,
       "name": "Ringolds Stals",
       "dob": "1976-02-22",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Valka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102076,
       "name": "Juris Murnieks",
       "dob": "1956-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 102135,
       "name": "Amrins 'Zany' Vensbergs",
       "dob": "1978-07-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ventspils"
     },
     {
       "id": 102325,
       "name": "Edgars Sebezs",
       "dob": "1979-04-14",
       "height": 192,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Saldus"
     },
     {
       "id": 102326,
       "name": "Klavs Zalkalns",
       "dob": "1979-02-19",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Ventspils"
     },
     {
       "id": 102392,
       "name": "Igors Zarigins",
       "dob": "1962-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 102626,
       "name": "Juris Gendelis",
       "dob": "1972-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 103480,
       "name": "Kristians Marnics",
       "dob": "1981-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 103481,
       "name": "Tomass Marnics",
       "dob": "1982-12-25",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Riga"
     },
     {
       "id": 103523,
@@ -188,25 +213,37 @@
       "dob": "1982-03-11",
       "height": 196,
       "weight": 96,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103982,
       "name": "Lauris Iecelnieks",
       "dob": "1982-11-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sigulda",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104139,
       "name": "Artis Caics",
       "dob": "1985-10-13",
       "height": 190,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Valmiera"
     },
     {
       "id": 104140,
@@ -214,11 +251,16 @@
       "dob": "1986-04-25",
       "height": 190,
       "weight": 83,
+      "birthPlace": "Latvia, Ventspils",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104141,
@@ -233,6 +275,7 @@
       "dob": "1985-05-08",
       "height": 190,
       "weight": 92,
+      "birthPlace": "Riga",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -242,14 +285,21 @@
         "gold": 7,
         "silver": 4,
         "bronze": 8
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104356,
       "name": "Valters Ramma",
       "dob": "1985-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bauska"
     },
     {
       "id": 104357,
@@ -257,11 +307,18 @@
       "dob": "1985-04-06",
       "height": 196,
       "weight": 96,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 14,
         "silver": 8,
         "bronze": 8
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104449,
@@ -269,6 +326,7 @@
       "dob": "1987-07-31",
       "height": 191,
       "weight": 84,
+      "birthPlace": "Kuldiga",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -278,7 +336,13 @@
         "gold": 14,
         "silver": 7,
         "bronze": 8
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104450,
@@ -292,7 +356,8 @@
       "name": "Rolands Ozolins",
       "dob": "1986-05-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Latvia"
     },
     {
       "id": 104805,
@@ -320,7 +385,8 @@
       "name": "Ingars Ivanovs",
       "dob": "1987-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 105071,
@@ -334,7 +400,11 @@
       "name": "Janis Peda",
       "dob": "1985-05-18",
       "height": 198,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Riga",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 115736,
@@ -355,14 +425,16 @@
       "name": "Janis Freidenfelds",
       "dob": "1983-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 116829,
       "name": "Martins Freidenfelds",
       "dob": "1987-08-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 118049,
@@ -376,7 +448,8 @@
       "name": "Hermans Egleskalns",
       "dob": "1990-12-08",
       "height": 203,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Riga"
     },
     {
       "id": 119323,
@@ -411,7 +484,8 @@
       "name": "Viktors Korzenevics",
       "dob": "1986-07-09",
       "height": 203,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Riga"
     },
     {
       "id": 120777,
@@ -425,14 +499,16 @@
       "name": "Ralfs Ozolins",
       "dob": "1989-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 121453,
       "name": "Romans Sauss",
       "dob": "1989-06-27",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Kraslava"
     },
     {
       "id": 124796,
@@ -440,11 +516,16 @@
       "dob": "1992-07-06",
       "height": 197,
       "weight": 88,
+      "birthPlace": "Krāslava",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 124810,
@@ -458,14 +539,16 @@
       "name": "Andis Cimoska",
       "dob": "1991-07-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lietuva"
     },
     {
       "id": 124843,
       "name": "Martins Jansons",
       "dob": "1991-03-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Balvi"
     },
     {
       "id": 124844,
@@ -480,18 +563,26 @@
       "dob": "1991-01-11",
       "height": 203,
       "weight": 108,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132669,
       "name": "Rihards Finsters",
       "dob": "1991-05-21",
       "height": 191,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Liepaja",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132685,
@@ -505,7 +596,8 @@
       "name": "Reinis Pekmans",
       "dob": "1993-06-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Talsi"
     },
     {
       "id": 132692,
@@ -520,11 +612,18 @@
       "dob": "1988-11-29",
       "height": 196,
       "weight": 94,
+      "birthPlace": "Madona",
       "tour": {
         "gold": 3,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 136117,
@@ -552,7 +651,8 @@
       "name": "Pavels Jemeljanovs",
       "dob": "1997-03-13",
       "height": 196,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Jēkabpils"
     },
     {
       "id": 139598,
@@ -573,7 +673,8 @@
       "name": "Edvarts Buivids",
       "dob": "1993-12-04",
       "height": 200,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Sigulda"
     },
     {
       "id": 142516,
@@ -644,32 +745,39 @@
       "dob": "1998-02-20",
       "height": 201,
       "weight": 101,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147143,
       "name": "Rihards Lazdins",
       "dob": "1999-05-14",
       "height": 193,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Limbazi"
     },
     {
       "id": 147144,
       "name": "Atvars Ozolins",
       "dob": "1998-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 149767,
       "name": "Martins Dauburs",
       "dob": "1988-04-28",
       "height": 193,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Riga"
     },
     {
       "id": 151386,
@@ -681,7 +789,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151406,
@@ -702,7 +813,8 @@
       "name": "Kristaps Smits",
       "dob": "1998-03-31",
       "height": 184,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Kuldīga"
     },
     {
       "id": 156967,
@@ -716,7 +828,8 @@
       "name": "Janis Jansons",
       "dob": "2000-08-31",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Kuldīga"
     },
     {
       "id": 158194,
@@ -731,18 +844,23 @@
       "dob": "2000-07-10",
       "height": 194,
       "weight": null,
+      "birthPlace": "Valmiera",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 159414,
       "name": "Matiss Gabdullins",
       "dob": "1992-11-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gulbene"
     },
     {
       "id": 162778,
@@ -764,18 +882,23 @@
       "dob": "2001-01-11",
       "height": 190,
       "weight": 84,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163589,
       "name": "Rudolfs Stankevics",
       "dob": "2001-04-23",
       "height": 194,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Riga"
     },
     {
       "id": 163590,
@@ -815,7 +938,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173607,
@@ -823,18 +949,23 @@
       "dob": "2004-02-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 0,
         "silver": 0,
-        "bronze": 3
-      }
+        "bronze": 4
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173608,
       "name": "Davis Teteris",
       "dob": "2004-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 179113,
@@ -849,11 +980,16 @@
       "dob": "2005-01-31",
       "height": null,
       "weight": null,
+      "birthPlace": "Kuldiga",
       "tour": {
         "gold": 4,
         "silver": 2,
         "bronze": 6
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 179133,
@@ -861,18 +997,23 @@
       "dob": "2004-12-26",
       "height": 196,
       "weight": 83,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179136,
       "name": "Karlis Abelitis",
       "dob": "2003-06-21",
       "height": 197,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Riga"
     },
     {
       "id": 181719,
@@ -880,11 +1021,15 @@
       "dob": "2004-12-21",
       "height": 200,
       "weight": 92,
+      "birthPlace": "Valmiera",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181726,
@@ -920,18 +1065,23 @@
       "dob": "2005-03-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Riga",
       "tour": {
         "gold": 3,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 184409,
       "name": "Miloss Donavans",
       "dob": "1999-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 190317,
@@ -945,14 +1095,16 @@
       "name": "Ernests Gūtmanis",
       "dob": "2005-06-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jelgava"
     },
     {
       "id": 190909,
       "name": "Matīss Šalkovskis",
       "dob": "2006-04-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Daugavpils"
     },
     {
       "id": 190910,
@@ -980,7 +1132,8 @@
       "name": "Eduards Dūdens",
       "dob": "2007-11-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ogre"
     },
     {
       "id": 201541,
@@ -994,14 +1147,16 @@
       "name": "Gustavs Druska",
       "dob": "2007-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Riga"
     },
     {
       "id": 208106,
       "name": "Tomass Silavs",
       "dob": "2009-10-20",
       "height": 195,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Ventspils"
     },
     {
       "id": 211966,
@@ -1009,18 +1164,23 @@
       "dob": "2006-07-08",
       "height": 194,
       "weight": 78,
+      "birthPlace": "Jurmala",
       "tour": {
         "gold": 0,
         "silver": 0,
-        "bronze": 1
-      }
+        "bronze": 2
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 211968,
       "name": "Rīčards Kārlis Zemītis",
       "dob": "2008-08-24",
       "height": 188,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Riga"
     },
     {
       "id": 211992,
@@ -1034,7 +1194,8 @@
       "name": "Bruno Liepiņš",
       "dob": "2008-08-29",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rīga"
     },
     {
       "id": 212793,
@@ -1048,14 +1209,16 @@
       "name": "Renārs Lasmanis",
       "dob": "2009-12-11",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Riga"
     },
     {
       "id": 218022,
       "name": "Ernests Pastars",
       "dob": "2010-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cēsis"
     }
   ]
 }

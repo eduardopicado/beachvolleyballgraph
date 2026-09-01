@@ -8,18 +8,30 @@
       "dob": "1969-02-19",
       "height": 190,
       "weight": 83,
+      "birthPlace": "Växjö",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100306,
       "name": "Fredrik \"Figge\" Petersson",
       "dob": "1969-10-19",
       "height": 179,
-      "weight": 77
+      "weight": 77,
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100501,
@@ -34,11 +46,18 @@
       "dob": "1972-01-24",
       "height": 195,
       "weight": 100,
+      "birthPlace": "TEG",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100841,
@@ -52,7 +71,11 @@
       "name": "Emil Norberg",
       "dob": "1973-10-23",
       "height": 182,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Nacka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100843,
@@ -66,7 +89,11 @@
       "name": "David Andersson",
       "dob": "1971-11-30",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Varsala",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100920,
@@ -80,7 +107,11 @@
       "name": "Per \"Pelle\" Magnusson",
       "dob": "1972-04-20",
       "height": 194,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Ljungby",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100922,
@@ -102,11 +133,18 @@
       "dob": "1975-02-06",
       "height": 183,
       "weight": 82,
+      "birthPlace": "Skövde",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102121,
@@ -114,32 +152,42 @@
       "dob": "1971-05-04",
       "height": 190,
       "weight": 88,
+      "birthPlace": "Pajala",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102453,
       "name": "Viktor Norberg",
       "dob": "1977-09-04",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Skövde",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102454,
       "name": "Andreas \"Andy\" Wahlström",
       "dob": "1975-01-22",
       "height": 185,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Tierp"
     },
     {
       "id": 102628,
       "name": "Matis Skagerlind",
       "dob": "1964-11-20",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Stockholm"
     },
     {
       "id": 102629,
@@ -151,28 +199,38 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102630,
       "name": "Robert Svensson",
       "dob": "1976-03-26",
       "height": 187,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Huddinge",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102787,
       "name": "Johan Svensson",
       "dob": "1975-05-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Skovde"
     },
     {
       "id": 102788,
       "name": "David Ottosson",
       "dob": "1976-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Odevalla"
     },
     {
       "id": 102789,
@@ -186,7 +244,8 @@
       "name": "Johan Rininsland",
       "dob": "1974-05-06",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Molndal"
     },
     {
       "id": 102949,
@@ -221,14 +280,16 @@
       "name": "Mikael \"Micke\" Oestberg",
       "dob": "1974-12-30",
       "height": 182,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Soderhamn"
     },
     {
       "id": 103022,
       "name": "Martin Woxlin",
       "dob": "1975-12-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bollnäs"
     },
     {
       "id": 103066,
@@ -242,7 +303,8 @@
       "name": "Stefan Esselius",
       "dob": "1974-08-07",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Sweden"
     },
     {
       "id": 103286,
@@ -263,14 +325,16 @@
       "name": "Magnus Willner",
       "dob": "1974-12-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varberg"
     },
     {
       "id": 103289,
       "name": "Magnus Emmens",
       "dob": "1971-03-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalmar"
     },
     {
       "id": 103390,
@@ -298,14 +362,16 @@
       "name": "Peter Nilsson",
       "dob": "1968-09-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bürlov"
     },
     {
       "id": 103694,
       "name": "Mike Fredriksson",
       "dob": "1981-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Växjö"
     },
     {
       "id": 103695,
@@ -313,11 +379,16 @@
       "dob": "1982-06-29",
       "height": 202,
       "weight": 93,
+      "birthPlace": "Kalvsvik",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103863,
@@ -325,53 +396,67 @@
       "dob": "1978-07-09",
       "height": 197,
       "weight": 94,
+      "birthPlace": "A Engelbrekt, Stockholm",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103864,
       "name": "Andreas Gilbertsson",
       "dob": "1976-07-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ronneby",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104243,
       "name": "Staffan Sahlberg",
       "dob": "1977-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "W. St. Kobarb"
     },
     {
       "id": 104244,
       "name": "Robert Frisk",
       "dob": "1972-09-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gothenburg"
     },
     {
       "id": 104310,
       "name": "Rasmus Jonsson",
       "dob": "1980-07-24",
       "height": 180,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Karlskona"
     },
     {
       "id": 104311,
       "name": "Marten Christiansson",
       "dob": "1981-11-13",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Vastervik"
     },
     {
       "id": 104380,
       "name": "Mattias Andersson",
       "dob": "1983-07-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karlskrona"
     },
     {
       "id": 104381,
@@ -392,7 +477,8 @@
       "name": "Ola Kvist",
       "dob": "1982-04-02",
       "height": 182,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Molndal"
     },
     {
       "id": 104736,
@@ -420,7 +506,8 @@
       "name": "Petter Jonsson",
       "dob": "1984-10-12",
       "height": 187,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Karlskrona"
     },
     {
       "id": 105155,
@@ -434,14 +521,16 @@
       "name": "Gustav Svensson",
       "dob": "1981-02-09",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Gothenburg"
     },
     {
       "id": 115729,
       "name": "Mika Päiväniemi",
       "dob": "1974-07-20",
       "height": 184,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Växjö"
     },
     {
       "id": 115730,
@@ -497,7 +586,8 @@
       "name": "Daniel Andersson",
       "dob": null,
       "height": 191,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Vaxjo"
     },
     {
       "id": 118623,
@@ -546,7 +636,8 @@
       "name": "Björn Huitfeldt",
       "dob": "1986-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Umeå"
     },
     {
       "id": 122045,
@@ -588,7 +679,8 @@
       "name": "Jakob Wijk Tegenrot",
       "dob": "1992-03-10",
       "height": 187,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "V Skravlinge"
     },
     {
       "id": 132535,
@@ -609,7 +701,8 @@
       "name": "Viktor Jonsson",
       "dob": "1987-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamra"
     },
     {
       "id": 137169,
@@ -623,21 +716,24 @@
       "name": "Wilhelm Nilsson",
       "dob": "1994-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Skrea"
     },
     {
       "id": 140039,
       "name": "Christofer Lewin",
       "dob": "1993-01-28",
       "height": 188,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hudiksvall"
     },
     {
       "id": 140743,
       "name": "Peter Lundgren",
       "dob": "1987-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Timmersdala"
     },
     {
       "id": 141852,
@@ -658,14 +754,16 @@
       "name": "Martin Appelgren",
       "dob": "1990-04-29",
       "height": 188,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Götlunda"
     },
     {
       "id": 144516,
       "name": "Alexander Herrmann",
       "dob": "1991-12-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fässberg"
     },
     {
       "id": 145060,
@@ -673,11 +771,15 @@
       "dob": "1993-07-04",
       "height": 204,
       "weight": 87,
+      "birthPlace": "Partille",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145062,
@@ -691,7 +793,8 @@
       "name": "Martin Barrefalk",
       "dob": "1986-02-07",
       "height": 207,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Sundsvall"
     },
     {
       "id": 148484,
@@ -705,28 +808,32 @@
       "name": "Sebastian Åkesson-Holm",
       "dob": "1984-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Konga"
     },
     {
       "id": 149464,
       "name": "Linus Frantzich",
       "dob": "1992-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kullings-Sk"
     },
     {
       "id": 151197,
       "name": "Ludvig Simonsson",
       "dob": "1991-11-23",
       "height": 184,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "HEL Trefald"
     },
     {
       "id": 153912,
       "name": "Linus Tholse",
       "dob": "1989-04-27",
       "height": 196,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Tystberga"
     },
     {
       "id": 160555,
@@ -734,6 +841,7 @@
       "dob": "2001-12-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Umeå SF",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -748,7 +856,13 @@
         "gold": 13,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166274,
@@ -756,6 +870,7 @@
       "dob": "2001-10-05",
       "height": 194,
       "weight": 85,
+      "birthPlace": "Lidingö",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -770,7 +885,13 @@
         "gold": 13,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 166287,
@@ -778,11 +899,15 @@
       "dob": "2003-02-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Boo",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168894,
@@ -790,11 +915,15 @@
       "dob": "1991-07-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Leksberg",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 171940,
@@ -802,6 +931,7 @@
       "dob": "2005-02-13",
       "height": 200,
       "weight": 88,
+      "birthPlace": "Ystad",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -811,14 +941,19 @@
         "gold": 7,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178014,
       "name": "Fabian Isaksson",
       "dob": "1996-06-17",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Västerled"
     },
     {
       "id": 178243,
@@ -826,18 +961,23 @@
       "dob": "2003-11-05",
       "height": 186,
       "weight": 72,
+      "birthPlace": "Västerled",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182701,
       "name": "Erik Ask",
       "dob": "2005-06-11",
       "height": 206,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Sigtuna"
     },
     {
       "id": 190602,
@@ -849,7 +989,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190604,
@@ -861,7 +1004,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 201042,
@@ -876,6 +1022,7 @@
       "dob": "2006-06-26",
       "height": 191,
       "weight": 82,
+      "birthPlace": "Järstorp",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -885,21 +1032,27 @@
         "gold": 7,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 207076,
       "name": "Carl Axel Emil Algulin",
       "dob": "2007-03-19",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Slottsstaden"
     },
     {
       "id": 207080,
       "name": "Bruno Fridström",
       "dob": "2006-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Boo"
     },
     {
       "id": 207084,
@@ -913,7 +1066,8 @@
       "name": "Teddie Almblad Engvall",
       "dob": "2008-10-15",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Stockholm"
     },
     {
       "id": 210687,
@@ -932,49 +1086,74 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 223798,
       "name": "Henrik Brus",
       "dob": "2010-04-04",
       "height": 192,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Örebro"
     },
     {
       "id": 229321,
       "name": "Casper Tjernqvist",
       "dob": "2009-06-02",
       "height": 211,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jönköping"
     },
     {
       "id": 232874,
       "name": "Vincent Sundell",
       "dob": "2004-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jakobstad"
     },
     {
       "id": 234076,
       "name": "Noah Grankvist",
       "dob": "2008-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mölndal"
     },
     {
       "id": 240137,
       "name": "Valdemar Rasmusson",
       "dob": "2005-06-05",
       "height": 185,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Kävlinge"
     },
     {
       "id": 240138,
       "name": "Otto Bornäs",
       "dob": "2003-09-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Torn"
+    },
+    {
+      "id": 240399,
+      "name": "Daniel Enström",
+      "dob": "1989-07-22",
+      "height": 188,
+      "weight": 80,
+      "birthPlace": "Uddevalla"
+    },
+    {
+      "id": 240546,
+      "name": "Leo Constantin",
+      "dob": "2005-10-29",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Uddevalla"
     }
   ]
 }

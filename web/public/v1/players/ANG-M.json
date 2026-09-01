@@ -28,7 +28,12 @@
       "name": "Emanuel Fernandes",
       "dob": "1967-07-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Namibe",
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101301,
@@ -49,21 +54,34 @@
       "name": "Miguel Xisto",
       "dob": "1964-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Luanda",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104209,
       "name": "Mario Silva",
       "dob": "1980-06-23",
       "height": 193,
-      "weight": 91
+      "weight": 91,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118532,
       "name": "Morais Abreu",
       "dob": "1968-07-10",
       "height": 183,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Moxico",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

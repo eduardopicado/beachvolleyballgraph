@@ -63,14 +63,16 @@
       "name": "Mathaly In",
       "dob": "1999-05-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kandal Province"
     },
     {
       "id": 177863,
       "name": "Saorith Von",
       "dob": "1998-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Banteaymeanchey Province"
     }
   ]
 }

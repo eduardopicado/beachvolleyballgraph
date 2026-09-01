@@ -7,14 +7,16 @@
       "name": "Tamara Kenkovski",
       "dob": "2001-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Serbia"
     },
     {
       "id": 213807,
       "name": "Mikaela Galea",
       "dob": "2000-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malta"
     }
   ]
 }

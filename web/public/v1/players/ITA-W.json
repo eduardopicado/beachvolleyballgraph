@@ -8,25 +8,37 @@
       "dob": "1970-12-24",
       "height": 162,
       "weight": 65,
+      "birthPlace": "Vasto",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100587,
       "name": "Laura Bruschini",
       "dob": "1966-08-26",
       "height": 174,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Lecco",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100588,
       "name": "Cristiana Parenzan",
       "dob": "1970-02-02",
       "height": 168,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Pescara (PE)"
     },
     {
       "id": 100590,
@@ -34,11 +46,18 @@
       "dob": "1975-11-19",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Ravenna",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100619,
@@ -46,6 +65,12 @@
       "dob": "1965-12-10",
       "height": 175,
       "weight": 60,
+      "birthPlace": "Ancona",
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 102285,
@@ -62,12 +87,6 @@
               304
             ]
           ],
-          "at": [
-            [
-              2001,
-              "BRA"
-            ]
-          ],
           "r": 13
         }
       ]
@@ -77,7 +96,11 @@
       "name": "Consuelo Turetta",
       "dob": "1961-07-07",
       "height": 177,
-      "weight": 66
+      "weight": 66,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101449,
@@ -85,11 +108,18 @@
       "dob": "1975-06-03",
       "height": 178,
       "weight": 61,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101450,
@@ -103,7 +133,11 @@
       "name": "Elisa Folco",
       "dob": "1974-06-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Savona",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101452,
@@ -111,11 +145,16 @@
       "dob": "1969-12-11",
       "height": 182,
       "weight": 65,
+      "birthPlace": "Sãnto Andre",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 102285,
@@ -137,16 +176,6 @@
               306
             ]
           ],
-          "at": [
-            [
-              1998,
-              "BRA"
-            ],
-            [
-              2000,
-              "BRA"
-            ]
-          ],
           "r": 25
         }
       ]
@@ -156,7 +185,8 @@
       "name": "Noemy Gizzi",
       "dob": "1975-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Termoli"
     },
     {
       "id": 101454,
@@ -185,11 +215,16 @@
       "dob": "1973-10-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101832,
@@ -210,7 +245,8 @@
       "name": "Monica Aondio",
       "dob": "1974-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lecco"
     },
     {
       "id": 102220,
@@ -231,14 +267,21 @@
       "name": "Fulvia Grimaldi",
       "dob": "1973-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Milano",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102243,
       "name": "Roberta Minunni",
       "dob": "1973-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102290,
@@ -262,12 +305,6 @@
               183
             ]
           ],
-          "at": [
-            [
-              1998,
-              "BRA"
-            ]
-          ],
           "r": 37
         }
       ]
@@ -278,6 +315,7 @@
       "dob": "1975-10-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Novara",
       "away": [
         {
           "id": 102285,
@@ -292,12 +330,6 @@
               1998,
               1,
               203
-            ]
-          ],
-          "at": [
-            [
-              1998,
-              "BRA"
             ]
           ],
           "r": 41
@@ -317,18 +349,23 @@
       "dob": "1979-06-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Catania",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102744,
       "name": "Irene Isidori",
       "dob": "1976-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mondolfo"
     },
     {
       "id": 102745,
@@ -363,7 +400,8 @@
       "name": "Donatella Impieri",
       "dob": "1973-11-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praia amare"
     },
     {
       "id": 102762,
@@ -385,11 +423,15 @@
       "dob": "1980-11-05",
       "height": 180,
       "weight": 75,
+      "birthPlace": "Napoli",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103034,
@@ -397,6 +439,7 @@
       "dob": "1977-06-21",
       "height": 181,
       "weight": 65,
+      "birthPlace": "Rome",
       "away": [
         {
           "id": 102285,
@@ -418,16 +461,6 @@
               211
             ]
           ],
-          "at": [
-            [
-              2002,
-              "BRA"
-            ],
-            [
-              2003,
-              "BRA"
-            ]
-          ],
           "r": 17
         }
       ]
@@ -438,11 +471,15 @@
       "dob": "1976-03-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Catania",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103373,
@@ -456,63 +493,72 @@
       "name": "Laura Menon",
       "dob": "1967-08-17",
       "height": 173,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Torino"
     },
     {
       "id": 103767,
       "name": "Claudia Pica",
       "dob": "1974-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 103940,
       "name": "Eleonora Galie",
       "dob": "1983-08-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Benederto del Tronto"
     },
     {
       "id": 103941,
       "name": "Monica Illuminati",
       "dob": "1983-01-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Benedetto del Tronto"
     },
     {
       "id": 103942,
       "name": "Rosemary Ricciardi",
       "dob": "1983-12-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 103943,
       "name": "Silvia De Rossi",
       "dob": "2002-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bracciano"
     },
     {
       "id": 103970,
       "name": "Graziella Lore",
       "dob": "1984-07-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 103971,
       "name": "Rosaria Casale",
       "dob": "1982-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Messina"
     },
     {
       "id": 103995,
       "name": "Manuela Matricciani",
       "dob": "1981-06-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giulianova (TE)"
     },
     {
       "id": 104260,
@@ -527,39 +573,48 @@
       "dob": "1979-07-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Pione di Sacco",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104405,
       "name": "Tatiana Lombardo",
       "dob": "1983-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 104406,
       "name": "Vanessa Torrisi",
       "dob": "1983-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Catania"
     },
     {
       "id": 104407,
       "name": "Marzia Golinelli",
       "dob": "1983-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Modena"
     },
     {
       "id": 104408,
       "name": "Alessia Golinelli",
       "dob": "1987-01-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Modena"
     },
     {
       "id": 104531,
@@ -573,35 +628,43 @@
       "name": "Giulia Momoli",
       "dob": "1981-08-30",
       "height": 182,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Asolo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104533,
       "name": "Silvia Bottazzi",
       "dob": "1971-12-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Piacenza"
     },
     {
       "id": 104534,
       "name": "Manuela Broccolini",
       "dob": "1973-02-25",
       "height": 176,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Piacenza"
     },
     {
       "id": 104539,
       "name": "Cinzia Dulbecco",
       "dob": "1979-10-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Imperia"
     },
     {
       "id": 104540,
       "name": "Valentina Pico",
       "dob": "1983-05-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Imperia"
     },
     {
       "id": 104831,
@@ -629,7 +692,10 @@
       "name": "Nicoletta Luciani",
       "dob": "1979-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104836,
@@ -685,7 +751,8 @@
       "name": "Grazziella Lo Re",
       "dob": "1984-11-07",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Catania"
     },
     {
       "id": 105121,
@@ -713,28 +780,32 @@
       "name": "Francesca Giogoli",
       "dob": "1983-03-20",
       "height": 174,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Bologna"
     },
     {
       "id": 112518,
       "name": "Raffaella Calloni",
       "dob": "1983-05-04",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Busto Arsizio"
     },
     {
       "id": 113624,
       "name": "Paola Paggi",
       "dob": "1976-12-06",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Ivrea (TO), ITA"
     },
     {
       "id": 113633,
       "name": "Maurizia Cacciatori",
       "dob": "1973-04-06",
       "height": 178,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Carrara, ITA"
     },
     {
       "id": 114309,
@@ -742,11 +813,16 @@
       "dob": "1981-10-24",
       "height": 183,
       "weight": 67,
+      "birthPlace": "Biella",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 115572,
@@ -761,11 +837,16 @@
       "dob": "1979-07-04",
       "height": 183,
       "weight": 64,
+      "birthPlace": "Borgomanero (NO)",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 115575,
@@ -892,11 +973,18 @@
       "dob": "1990-08-16",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Rovigo",
       "tour": {
         "gold": 3,
         "silver": 10,
         "bronze": 8
-      }
+      },
+      "olympicGames": 4,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118205,
@@ -910,7 +998,8 @@
       "name": "Federica Tonon",
       "dob": "1978-04-22",
       "height": 178,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Motta Di Livenza (TV)"
     },
     {
       "id": 118281,
@@ -929,7 +1018,13 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118775,
@@ -937,18 +1032,26 @@
       "dob": "1990-08-14",
       "height": 185,
       "weight": 79,
+      "birthPlace": "Budapest",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 5
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119188,
       "name": "Enrica Merlo",
       "dob": "1988-12-28",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Este (PD)"
     },
     {
       "id": 119338,
@@ -969,7 +1072,8 @@
       "name": "Laura Cavalluzzi",
       "dob": "1981-07-31",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Rome"
     },
     {
       "id": 120239,
@@ -997,7 +1101,8 @@
       "name": "Silvia Costantini",
       "dob": "1992-06-16",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Penne (Pescara) Ita"
     },
     {
       "id": 120771,
@@ -1026,11 +1131,18 @@
       "dob": "1982-08-23",
       "height": 180,
       "weight": 65,
+      "birthPlace": "Osio Sotto (BG)",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 124696,
@@ -1044,7 +1156,8 @@
       "name": "Giulia Toti",
       "dob": "1989-02-09",
       "height": 180,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Roma"
     },
     {
       "id": 125443,
@@ -1058,7 +1171,8 @@
       "name": "Debora Allegretti",
       "dob": "1990-08-12",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Rome"
     },
     {
       "id": 132037,
@@ -1066,25 +1180,34 @@
       "dob": "1991-11-30",
       "height": 177,
       "weight": 67,
+      "birthPlace": "Roma",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132038,
       "name": "Marta Bechis",
       "dob": "1989-09-04",
       "height": 181,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Carmagnola (TO)"
     },
     {
       "id": 132555,
       "name": "Giada Benazzi",
       "dob": "1992-09-18",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Castel San Pietro Terme (BO)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 132676,
@@ -1119,14 +1242,19 @@
       "name": "Carolina Del Pilar Costagrande",
       "dob": "1980-10-15",
       "height": 187,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Argentina"
     },
     {
       "id": 135252,
       "name": "Rebecca Diane Perry",
       "dob": "1988-12-29",
       "height": 188,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "California, USA",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135616,
@@ -1161,7 +1289,8 @@
       "name": "Gilda Lombardo",
       "dob": "1989-07-02",
       "height": 183,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Catania"
     },
     {
       "id": 139570,
@@ -1173,7 +1302,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139572,
@@ -1181,11 +1313,16 @@
       "dob": "1995-07-26",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Treviso",
       "tour": {
         "gold": 5,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139599,
@@ -1199,28 +1336,32 @@
       "name": "Elisa Cella",
       "dob": "1982-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prato"
     },
     {
       "id": 140680,
       "name": "Lucia Lunghi",
       "dob": "1987-11-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pesaro"
     },
     {
       "id": 141237,
       "name": "Indre Sorokaite",
       "dob": "1988-07-02",
       "height": 188,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Kaunas"
     },
     {
       "id": 141714,
       "name": "Valeria Caracuta",
       "dob": "1987-12-14",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "San Pietro Vernotico"
     },
     {
       "id": 143124,
@@ -1246,14 +1387,18 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146336,
       "name": "Sara Menghi",
       "dob": "1983-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mantova"
     },
     {
       "id": 146852,
@@ -1261,11 +1406,16 @@
       "dob": "1999-02-12",
       "height": 178,
       "weight": 65,
+      "birthPlace": "Székesfehérvár",
       "tour": {
-        "gold": 2,
+        "gold": 3,
         "silver": 4,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147026,
@@ -1279,7 +1429,8 @@
       "name": "Silvia D'Este",
       "dob": "1998-12-20",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Venice"
     },
     {
       "id": 148507,
@@ -1294,11 +1445,15 @@
       "dob": "1997-02-05",
       "height": 182,
       "weight": 70,
+      "birthPlace": "Milano",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 149000,
@@ -1334,11 +1489,15 @@
       "dob": "1997-03-07",
       "height": 185,
       "weight": null,
+      "birthPlace": "Rome",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153248,
@@ -1357,7 +1516,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153250,
@@ -1369,7 +1531,10 @@
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153809,
@@ -1377,11 +1542,16 @@
       "dob": "2000-04-05",
       "height": 178,
       "weight": 58,
+      "birthPlace": "Vasto",
       "tour": {
         "gold": 6,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 156925,
@@ -1407,7 +1577,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161621,
@@ -1415,18 +1588,23 @@
       "dob": "1991-07-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Pesaro",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161809,
       "name": "Giulia Tamagnone",
       "dob": "1997-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bologna"
     },
     {
       "id": 164212,
@@ -1452,7 +1630,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164518,
@@ -1480,7 +1661,8 @@
       "name": "Giada Godenzoni",
       "dob": "1995-11-11",
       "height": 170,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Cattolica"
     },
     {
       "id": 165089,
@@ -1506,7 +1688,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169378,
@@ -1518,7 +1703,11 @@
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 169580,
@@ -1526,11 +1715,16 @@
       "dob": "1997-04-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Cagliari",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 169792,
@@ -1551,14 +1745,16 @@
       "name": "Giulia Rastelli",
       "dob": "1990-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mirandola"
     },
     {
       "id": 172606,
       "name": "Alessia Zaniboni",
       "dob": "1990-06-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bologna"
     },
     {
       "id": 173745,
@@ -1579,21 +1775,32 @@
       "name": "Anna Pelloia",
       "dob": "2002-11-30",
       "height": 183,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Portogruaro (VE)",
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179100,
       "name": "Camilla Sanguigni",
       "dob": "2001-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fondi"
     },
     {
       "id": 179285,
       "name": "Domiziana Mazzoni",
       "dob": "1996-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rome"
     },
     {
       "id": 179521,
@@ -1601,11 +1808,15 @@
       "dob": "2003-06-09",
       "height": 180,
       "weight": 60,
+      "birthPlace": "Merate (LC)",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179522,
@@ -1613,11 +1824,16 @@
       "dob": "2004-08-17",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Pescara",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 181183,
@@ -1625,53 +1841,66 @@
       "dob": "2002-11-19",
       "height": 184,
       "weight": null,
+      "birthPlace": "Modena",
       "tour": {
-        "gold": 3,
+        "gold": 4,
         "silver": 5,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 181233,
       "name": "Valeria Tallevi Diotallevi",
       "dob": "1989-08-27",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Fano"
     },
     {
       "id": 182937,
       "name": "Giulia Rubini",
       "dob": "1990-07-03",
       "height": 181,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bologna"
     },
     {
       "id": 183110,
       "name": "Luna Cicola",
       "dob": "2004-01-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lamezia Terme"
     },
     {
       "id": 189669,
       "name": "Giulia Pietrelli",
       "dob": "1988-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fano"
     },
     {
       "id": 191169,
       "name": "Selene Richiusa",
       "dob": "1993-11-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Palermo"
     },
     {
       "id": 192145,
       "name": "Sofia Balducci",
       "dob": "1999-08-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ravenna"
     },
     {
       "id": 192146,
@@ -1682,8 +1911,11 @@
       "tour": {
         "gold": 0,
         "silver": 0,
-        "bronze": 2
-      }
+        "bronze": 3
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192258,
@@ -1691,18 +1923,23 @@
       "dob": "2002-10-26",
       "height": 188,
       "weight": 75,
+      "birthPlace": "Bibbiena",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192779,
       "name": "Linda Moretti",
       "dob": "2007-04-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alessandria"
     },
     {
       "id": 193650,
@@ -1716,14 +1953,24 @@
       "name": "Gaia Novello",
       "dob": "2007-01-09",
       "height": 188,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Mirano"
     },
     {
       "id": 204623,
       "name": "Cindy Lee Fezzi",
       "dob": "1997-01-03",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Lecco"
+    },
+    {
+      "id": 212468,
+      "name": "Jessica Belliero Piccinin",
+      "dob": "1991-03-04",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Padova"
     },
     {
       "id": 212717,
@@ -1737,35 +1984,40 @@
       "name": "Deizi Nika",
       "dob": "2005-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ravenna"
     },
     {
       "id": 222083,
       "name": "Jessica Lanari",
       "dob": "1993-12-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ronciglione"
     },
     {
       "id": 226837,
       "name": "Micol Lafuenti",
       "dob": "2009-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roma"
     },
     {
       "id": 227126,
       "name": "Margherita Coretti",
       "dob": "2009-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Trieste"
     },
     {
       "id": 239519,
       "name": "Giulia Concetti",
       "dob": "1998-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Asti"
     }
   ]
 }

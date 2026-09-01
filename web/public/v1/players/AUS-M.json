@@ -8,11 +8,18 @@
       "dob": "1972-06-11",
       "height": 193,
       "weight": 105,
+      "birthPlace": "Bunbury, West Australia",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 8
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100040,
@@ -24,7 +31,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100065,
@@ -52,7 +63,10 @@
       "name": "Joel Durrant",
       "dob": "1968-02-06",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100117,
@@ -101,7 +115,11 @@
       "name": "Peter \"Chook\" Hreszczuk",
       "dob": "1961-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sydney",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100130,
@@ -179,11 +197,18 @@
       "dob": "1974-03-13",
       "height": 199,
       "weight": 92,
+      "birthPlace": "Brisbane",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 6
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100695,
@@ -191,6 +216,7 @@
       "dob": "1973-05-22",
       "height": 191,
       "weight": 95,
+      "birthPlace": "Adelaïde",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -200,7 +226,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100775,
@@ -214,7 +246,11 @@
       "name": "Peter \"Chico\" Jones",
       "dob": "1968-10-10",
       "height": 196,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Bendigo (Victoria)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101395,
@@ -228,14 +264,22 @@
       "name": "Victor Anfilloff",
       "dob": "1973-05-28",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Canberra",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101495,
       "name": "Mark \"Sqid Lucky\" Lukowicz",
       "dob": "1975-11-15",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Adelaide",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101496,
@@ -249,28 +293,43 @@
       "name": "Alan John Hinchley",
       "dob": "1971-04-24",
       "height": 182,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Perth"
     },
     {
       "id": 101684,
       "name": "Matthew Grinlaubs",
       "dob": "1971-06-09",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Christchurch (NZL)",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101685,
       "name": "Rowan Searle",
       "dob": "1975-08-04",
       "height": 191,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Brisbane",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101704,
       "name": "Tristan \"Tristo\" Boyd",
       "dob": "1975-09-10",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Melbourne, AUS",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101897,
@@ -291,21 +350,27 @@
       "name": "Shaun Blackman",
       "dob": "1975-03-14",
       "height": 191,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Auburn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102173,
       "name": "Ryan William \"Cookie\" Cook",
       "dob": "1974-01-21",
       "height": 188,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "East Fremantle"
     },
     {
       "id": 102250,
       "name": "Paul \"Gods\" Godwin",
       "dob": "1974-04-12",
       "height": 189,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Zimbabwe"
     },
     {
       "id": 102551,
@@ -313,6 +378,7 @@
       "dob": "1976-12-16",
       "height": 191,
       "weight": 88,
+      "birthPlace": "Brisbane",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -322,21 +388,35 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102552,
       "name": "Simon McCloy",
       "dob": "1975-11-29",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "New Castle",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102603,
       "name": "Patrick \"Pat\" Gulline",
       "dob": "1969-05-30",
       "height": 187,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Hobart",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102786,
@@ -344,11 +424,16 @@
       "dob": "1977-06-05",
       "height": 197,
       "weight": 90,
+      "birthPlace": "Horsholm",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 104338,
@@ -396,10 +481,6 @@
             ]
           ],
           "at": [
-            [
-              2006,
-              "AUS"
-            ],
             [
               2007,
               "DEN"
@@ -462,28 +543,6 @@
               247
             ]
           ],
-          "at": [
-            [
-              1999,
-              "AUS"
-            ],
-            [
-              2000,
-              "AUS"
-            ],
-            [
-              2001,
-              "DEN"
-            ],
-            [
-              2002,
-              "AUS"
-            ],
-            [
-              2003,
-              "AUS"
-            ]
-          ],
           "r": 33
         },
         {
@@ -524,12 +583,6 @@
               179
             ]
           ],
-          "at": [
-            [
-              2001,
-              "AUS"
-            ]
-          ],
           "r": 89
         }
       ]
@@ -546,28 +599,35 @@
       "name": "Jarrod Novosel",
       "dob": "1977-06-07",
       "height": 187,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Charters Towers, ALD",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103397,
       "name": "Oliver Cole",
       "dob": "1976-07-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ausrtralia"
     },
     {
       "id": 103418,
       "name": "Michael Bikicki",
       "dob": "1982-04-29",
       "height": 188,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "East Melbourne"
     },
     {
       "id": 103431,
       "name": "Martin Suan",
       "dob": "1981-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Coventry"
     },
     {
       "id": 103495,
@@ -588,7 +648,8 @@
       "name": "Andrew Mccombe",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dunedin"
     },
     {
       "id": 103834,
@@ -602,49 +663,59 @@
       "name": "John Byron",
       "dob": "1983-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Australia"
     },
     {
       "id": 103910,
       "name": "Brett Richardson",
       "dob": "1981-09-07",
       "height": 198,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Australia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103911,
       "name": "Allister Lyne",
       "dob": "1975-10-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Carlton"
     },
     {
       "id": 103912,
       "name": "Matt Jones",
       "dob": "1981-06-05",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Bundaberg,Qld"
     },
     {
       "id": 103913,
       "name": "Andrew Adamson",
       "dob": "1983-12-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 104128,
       "name": "Christian Matheson",
       "dob": "1985-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Townsville, QLD"
     },
     {
       "id": 104213,
       "name": "Gregory A Jury",
       "dob": "1974-03-20",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Perth, Australia"
     },
     {
       "id": 104214,
@@ -659,11 +730,18 @@
       "dob": "1979-01-27",
       "height": 197,
       "weight": 87,
+      "birthPlace": "Australia",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
       },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 102087,
@@ -695,21 +773,27 @@
       "name": "Brad Tutton",
       "dob": "1986-07-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 104469,
       "name": "Sam Boehm",
       "dob": "1988-03-04",
       "height": 192,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Adelaide",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104675,
       "name": "Adam Maskall",
       "dob": "1979-11-16",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 104773,
@@ -730,28 +814,32 @@
       "name": "Stuart Maycock",
       "dob": "1984-09-30",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 105001,
       "name": "Shaun Howard",
       "dob": "1987-09-29",
       "height": 187,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Murray Bridge S. Australia"
     },
     {
       "id": 113666,
       "name": "Luke Campbell",
       "dob": "1979-11-08",
       "height": 202,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Melbourne, Australia"
     },
     {
       "id": 114207,
       "name": "Philip Austin",
       "dob": "1986-10-29",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Rose Park, Australia"
     },
     {
       "id": 114846,
@@ -765,7 +853,8 @@
       "name": "Bradley Smith",
       "dob": "1983-08-18",
       "height": 198,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Bendigo, Vic, Australia"
     },
     {
       "id": 114848,
@@ -786,28 +875,32 @@
       "name": "Andrew Wyer",
       "dob": "1980-04-28",
       "height": 187,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 115320,
       "name": "Nathan Roberts",
       "dob": "1986-02-17",
       "height": 199,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Adelaide, Australia"
     },
     {
       "id": 115322,
       "name": "Aden Tutton",
       "dob": "1984-12-06",
       "height": 182,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Glenelg, Australia"
     },
     {
       "id": 116641,
       "name": "Greg Sukochev",
       "dob": "1988-02-18",
       "height": 196,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Tashkent"
     },
     {
       "id": 116643,
@@ -828,7 +921,8 @@
       "name": "Anthony Wardrop",
       "dob": "1982-06-10",
       "height": 200,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Bundaberg"
     },
     {
       "id": 117923,
@@ -856,7 +950,8 @@
       "name": "Michael Carrett",
       "dob": "1979-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairns"
     },
     {
       "id": 118115,
@@ -864,11 +959,18 @@
       "dob": "1989-08-31",
       "height": 197,
       "weight": 100,
+      "birthPlace": "Pambula",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118116,
@@ -882,7 +984,8 @@
       "name": "Harrison Peacock",
       "dob": "1991-01-31",
       "height": 192,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Mount Barker, AUS"
     },
     {
       "id": 118628,
@@ -896,7 +999,8 @@
       "name": "Gregory Mann",
       "dob": "1989-02-24",
       "height": 200,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Blacktown"
     },
     {
       "id": 119043,
@@ -904,11 +1008,16 @@
       "dob": "1985-07-23",
       "height": 200,
       "weight": 97,
+      "birthPlace": "Mackay",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119354,
@@ -922,7 +1031,8 @@
       "name": "Cedric Legrand",
       "dob": "1988-09-02",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Noble Park, AUS"
     },
     {
       "id": 120181,
@@ -950,7 +1060,8 @@
       "name": "Chris Burns",
       "dob": "1981-02-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Melbourne"
     },
     {
       "id": 120201,
@@ -971,7 +1082,8 @@
       "name": "John Stock",
       "dob": "1989-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mornington"
     },
     {
       "id": 120505,
@@ -985,14 +1097,16 @@
       "name": "Luke Smith",
       "dob": "1990-08-30",
       "height": 204,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Jakarta"
     },
     {
       "id": 120521,
       "name": "William Mercer",
       "dob": "1991-05-28",
       "height": 199,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 122190,
@@ -1014,25 +1128,32 @@
       "dob": "1991-11-08",
       "height": 198,
       "weight": 95,
+      "birthPlace": "Johannesburg, South Africa",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125174,
       "name": "Hamish Moore",
       "dob": "1992-04-09",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Loxton, SA"
     },
     {
       "id": 125479,
       "name": "Benjamin Bell",
       "dob": "1990-02-24",
       "height": 200,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Redcliffe"
     },
     {
       "id": 132055,
@@ -1040,11 +1161,18 @@
       "dob": "1987-11-12",
       "height": null,
       "weight": null,
+      "birthPlace": "Australia",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132381,
@@ -1072,7 +1200,8 @@
       "name": "Benjamin Nichols",
       "dob": "1980-02-27",
       "height": 200,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Adelaide"
     },
     {
       "id": 132428,
@@ -1086,21 +1215,24 @@
       "name": "Lincoln Alexander Williams",
       "dob": "1993-10-06",
       "height": 200,
-      "weight": 104
+      "weight": 104,
+      "birthPlace": "Brisbane, QLD"
     },
     {
       "id": 133657,
       "name": "Brad Millers",
       "dob": "1994-05-24",
       "height": 201,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 135532,
       "name": "Max Staples",
       "dob": "1994-07-27",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Subiaco"
     },
     {
       "id": 138641,
@@ -1114,21 +1246,27 @@
       "name": "Joshua Court",
       "dob": "1989-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Perth, Western Australia",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139052,
       "name": "Malachi Murch",
       "dob": "1995-01-04",
       "height": 197,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Stirling"
     },
     {
       "id": 139053,
       "name": "Samuel Walker",
       "dob": "1995-02-19",
       "height": 208,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bangkok"
     },
     {
       "id": 142130,
@@ -1136,11 +1274,18 @@
       "dob": "1994-07-04",
       "height": 197,
       "weight": 95,
+      "birthPlace": "East Melbourne",
       "tour": {
         "gold": 2,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142151,
@@ -1148,11 +1293,18 @@
       "dob": "1995-12-23",
       "height": 198,
       "weight": 80,
+      "birthPlace": "Loxton",
       "tour": {
         "gold": 1,
         "silver": 5,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142166,
@@ -1160,11 +1312,15 @@
       "dob": "1996-09-07",
       "height": 204,
       "weight": 100,
+      "birthPlace": "Ashford",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142167,
@@ -1185,7 +1341,8 @@
       "name": "Matthew Willmot",
       "dob": "1994-05-18",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Gladstone, Australi"
     },
     {
       "id": 145100,
@@ -1199,7 +1356,8 @@
       "name": "Regan Fathers",
       "dob": "1996-11-11",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "East Fremantle"
     },
     {
       "id": 146809,
@@ -1220,14 +1378,16 @@
       "name": "Jonathan Hunt",
       "dob": "1996-01-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Murdoch"
     },
     {
       "id": 146812,
       "name": "Bryce Poland",
       "dob": "1998-03-09",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "New Lambton Heights, NSW"
     },
     {
       "id": 146813,
@@ -1241,7 +1401,8 @@
       "name": "Jack Gregory",
       "dob": "1998-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ballarat"
     },
     {
       "id": 146815,
@@ -1255,21 +1416,24 @@
       "name": "Gareth Mann",
       "dob": "1991-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sydney"
     },
     {
       "id": 155480,
       "name": "Samuel Halley",
       "dob": "1993-12-23",
       "height": 176,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Canberra"
     },
     {
       "id": 155503,
       "name": "Christopher Blake",
       "dob": "1993-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Redcliffe"
     },
     {
       "id": 155509,
@@ -1277,25 +1441,31 @@
       "dob": "1998-02-05",
       "height": 181,
       "weight": 80,
+      "birthPlace": "Ferntree Gully",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155510,
       "name": "Patrick Tang",
       "dob": "1994-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Clayton"
     },
     {
       "id": 155523,
       "name": "Mitchell Field",
       "dob": "2000-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Subiaco"
     },
     {
       "id": 155530,
@@ -1303,39 +1473,50 @@
       "dob": "2000-07-20",
       "height": 185,
       "weight": null,
+      "birthPlace": "Auchenflower",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155531,
       "name": "Brad Sting",
       "dob": "2000-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Redcliffe"
     },
     {
       "id": 155542,
       "name": "James Takken",
       "dob": "2000-06-25",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 155575,
       "name": "Marcus Ferguson",
       "dob": "1998-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 155744,
       "name": "Ky Landers",
       "dob": "2001-02-25",
       "height": 185,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Joondalup"
     },
     {
       "id": 155747,
@@ -1343,18 +1524,24 @@
       "dob": "1998-01-12",
       "height": null,
       "weight": null,
+      "birthPlace": "London",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155756,
       "name": "Daniel Piggott",
       "dob": "1995-12-11",
       "height": 195,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Perth"
     },
     {
       "id": 155849,
@@ -1368,21 +1555,24 @@
       "name": "Robert Reeves",
       "dob": "1990-07-05",
       "height": 200,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Attadale"
     },
     {
       "id": 160669,
       "name": "Tim Gregory",
       "dob": "1996-09-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ballarat"
     },
     {
       "id": 160861,
       "name": "Garang Anyang",
       "dob": "1995-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Panyido"
     },
     {
       "id": 160863,
@@ -1396,7 +1586,8 @@
       "name": "Thomas Heptinstall",
       "dob": "1999-03-01",
       "height": 209,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Bunbury"
     },
     {
       "id": 168642,
@@ -1404,18 +1595,26 @@
       "dob": "1999-09-14",
       "height": 199,
       "weight": 95,
+      "birthPlace": "St Leonards",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172206,
       "name": "Jarrah Brownhill",
       "dob": "1999-09-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Randwick"
     },
     {
       "id": 172528,
@@ -1434,7 +1633,11 @@
         "gold": 3,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 178254,
@@ -1442,11 +1645,15 @@
       "dob": "2002-08-29",
       "height": 204,
       "weight": 99,
+      "birthPlace": "North Adelaide",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178265,
@@ -1458,14 +1665,18 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178269,
       "name": "Tom Dempsey",
       "dob": "2002-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Subiaco"
     },
     {
       "id": 180610,
@@ -1479,14 +1690,16 @@
       "name": "Dakota Lipton",
       "dob": "1997-12-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 180613,
       "name": "Ruben Gale",
       "dob": "2001-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sandgate"
     },
     {
       "id": 180708,
@@ -1507,21 +1720,24 @@
       "name": "Seth Chen",
       "dob": "2001-06-01",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Randwick"
     },
     {
       "id": 180782,
       "name": "Thomas Smith",
       "dob": "2003-02-16",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "North Sydney"
     },
     {
       "id": 181572,
       "name": "Lucas Josefsen",
       "dob": "2003-02-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bodo"
     },
     {
       "id": 186858,
@@ -1529,88 +1745,104 @@
       "dob": "2004-06-22",
       "height": 197,
       "weight": 95,
+      "birthPlace": "Toowoomba",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 186870,
       "name": "Mitchell Croft",
       "dob": "2005-05-12",
       "height": 207,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Carlton"
     },
     {
       "id": 186872,
       "name": "Samuel Chen",
       "dob": "2005-03-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Randwick"
     },
     {
       "id": 186874,
       "name": "Timothy Ebbs",
       "dob": "2004-01-21",
       "height": 198,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Port Macquarie"
     },
     {
       "id": 186898,
       "name": "Jarvis Page",
       "dob": "2003-12-30",
       "height": 203,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Manly"
     },
     {
       "id": 186910,
       "name": "Jacob Baird",
       "dob": "2003-03-01",
       "height": 208,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "South Brisbane"
     },
     {
       "id": 186911,
       "name": "Harley Sinclair",
       "dob": "2005-07-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sydney"
     },
     {
       "id": 186915,
       "name": "Kaia Clarkin",
       "dob": "2003-11-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Liverpool"
     },
     {
       "id": 186922,
       "name": "William Kay",
       "dob": "2004-07-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malvern"
     },
     {
       "id": 186930,
       "name": "Declan Tiso",
       "dob": "1994-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Paddington"
     },
     {
       "id": 187162,
       "name": "Killian Donovan",
       "dob": "2006-02-28",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "North Sydney"
     },
     {
       "id": 187272,
       "name": "Adam Fejes",
       "dob": "2006-11-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St Leonards"
     },
     {
       "id": 187277,
@@ -1631,7 +1863,8 @@
       "name": "Jett Rocker-Graham",
       "dob": "2006-09-03",
       "height": 194,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "St Leonards"
     },
     {
       "id": 187399,
@@ -1639,18 +1872,24 @@
       "dob": "2003-07-29",
       "height": null,
       "weight": null,
+      "birthPlace": "North Adelaide",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 187447,
       "name": "Toby Bergh",
       "dob": "2004-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Herston"
     },
     {
       "id": 188144,
@@ -1658,18 +1897,24 @@
       "dob": "2004-11-10",
       "height": 197,
       "weight": 96,
+      "birthPlace": "South Brisbane",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 198969,
       "name": "Xander Van Driel",
       "dob": "2005-04-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pietersburg"
     },
     {
       "id": 199505,
@@ -1677,11 +1922,15 @@
       "dob": "2004-04-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Murdoch",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199771,
@@ -1702,7 +1951,8 @@
       "name": "Felix Birke",
       "dob": "2007-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Basel"
     },
     {
       "id": 199790,
@@ -1710,11 +1960,15 @@
       "dob": "2006-09-20",
       "height": 200,
       "weight": 85,
+      "birthPlace": "Gloucestershire",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199837,
@@ -1735,14 +1989,16 @@
       "name": "Ethan Grocott",
       "dob": "2008-01-18",
       "height": 193,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Gold Coast"
     },
     {
       "id": 206167,
       "name": "Benjamin Carroll",
       "dob": "2005-02-05",
       "height": 195,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Clayton"
     },
     {
       "id": 209071,
@@ -1770,7 +2026,8 @@
       "name": "Ryan Edgar",
       "dob": "2009-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Herston"
     },
     {
       "id": 209253,
@@ -1784,7 +2041,10 @@
       "name": "Oliver Merritt",
       "dob": "2001-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 209646,
@@ -1833,42 +2093,48 @@
       "name": "Thomas Turner",
       "dob": "2009-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nambour"
     },
     {
       "id": 220364,
       "name": "Julian Spence",
       "dob": "2007-04-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 220365,
       "name": "Jack Patten",
       "dob": "2006-12-11",
       "height": 200,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Brisbane"
     },
     {
       "id": 231845,
       "name": "Nicholas Neshev",
       "dob": "2007-04-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Canberra"
     },
     {
       "id": 231846,
       "name": "Matthew-Kyle Gigliotti",
       "dob": "1999-06-07",
       "height": 195,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Figtree"
     },
     {
       "id": 236739,
       "name": "Jack Rolleston",
       "dob": "2008-12-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Australia"
     }
   ]
 }

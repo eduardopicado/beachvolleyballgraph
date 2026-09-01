@@ -7,7 +7,8 @@
       "name": "Xisto Mira Conge",
       "dob": "1982-09-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 103687,
@@ -21,14 +22,19 @@
       "name": "Manuel Francisco",
       "dob": "1984-11-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 104354,
       "name": "Delcio Soares",
       "dob": "1986-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118298,
@@ -42,7 +48,10 @@
       "name": "Justino Tovela",
       "dob": "1989-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135161,
@@ -56,7 +65,11 @@
       "name": "aldevino Nguvo",
       "dob": "1993-05-06",
       "height": 190,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146948,
@@ -70,28 +83,41 @@
       "name": "Osvaldo Mungoi",
       "dob": "1999-02-01",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 149876,
       "name": "Ronaldo Andela",
       "dob": "1997-09-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cidade de Maputo"
     },
     {
       "id": 157140,
       "name": "José Alberto Mondlane",
       "dob": "1999-01-02",
       "height": null,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168289,
       "name": "Jorge Monjane",
       "dob": "2000-04-22",
       "height": null,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Maputo",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 168292,
@@ -105,35 +131,43 @@
       "name": "Rafael Munguambe Junior",
       "dob": "2004-10-02",
       "height": 161,
-      "weight": 49
+      "weight": 49,
+      "birthPlace": "Maputo"
     },
     {
       "id": 178684,
       "name": "Denilson Sergio Sitoe",
       "dob": "2004-03-25",
       "height": null,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Maputo"
     },
     {
       "id": 179145,
       "name": "Ainadino Martinho",
       "dob": "1997-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Quelimane",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 181202,
       "name": "Helton Andrade Guvo",
       "dob": "2005-03-31",
       "height": 173,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 181314,
       "name": "Ednilson José Tivane",
       "dob": "2005-03-09",
       "height": 174,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     }
   ]
 }

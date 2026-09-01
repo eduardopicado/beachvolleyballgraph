@@ -7,7 +7,8 @@
       "name": "Tahani \"Toto\" Toson",
       "dob": "1971-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mania"
     },
     {
       "id": 102317,
@@ -35,161 +36,206 @@
       "name": "Farida Elaskalany Ahmed",
       "dob": "1995-02-14",
       "height": 184,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 123666,
       "name": "Randa Radwan",
       "dob": "1993-05-15",
       "height": 174,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "SAU",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 143657,
       "name": "Nada Ahmed Houssameldein",
       "dob": "1998-04-12",
       "height": 180,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Cairo",
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 151097,
       "name": "Doaa Elghobashy",
       "dob": "1996-08-11",
       "height": 180,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Cairo",
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 152274,
       "name": "Maya Mohamed Mamdouh",
       "dob": "1998-03-08",
       "height": 178,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 162679,
       "name": "Marwa Abdelhady",
       "dob": "1997-12-22",
       "height": 184,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Cairo",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 167546,
       "name": "Nariman Yasser Elsayed Ahmed Luxor",
       "dob": "2000-03-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cairo"
     },
     {
       "id": 167548,
       "name": "Nada Hamdy Samir Mahmoud Hamdy",
       "dob": "2003-12-04",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Giza",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172320,
       "name": "Malak Hatem Mahmoud Mohamed Semeda",
       "dob": "1999-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 174054,
       "name": "Hadeer Ewais",
       "dob": "2000-02-22",
       "height": 178,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Cairo"
     },
     {
       "id": 175250,
       "name": "Sama Mohamed",
       "dob": "2002-01-10",
       "height": 177,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Cairo"
     },
     {
       "id": 181662,
       "name": "Farida Hesham Elnady",
       "dob": "2004-04-30",
       "height": 184,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 184793,
       "name": "Rowaida Ghazy",
       "dob": "2003-04-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "USA"
     },
     {
       "id": 188710,
       "name": "Habiba Mostafa",
       "dob": "2005-12-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 202998,
       "name": "Logain Kamel",
       "dob": "2005-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 202999,
       "name": "Mariam Ibrahim",
       "dob": "2005-02-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Giza"
     },
     {
       "id": 203006,
       "name": "Rawan Abdelmaguid",
       "dob": "2006-04-11",
       "height": 176,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Cairo"
     },
     {
       "id": 203009,
       "name": "Gody Madin",
       "dob": "2006-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alexandria"
     },
     {
       "id": 203226,
       "name": "Loujain Shebl",
       "dob": "2003-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alexandria"
     },
     {
       "id": 203227,
       "name": "Mariam Saleh",
       "dob": "2005-04-17",
       "height": 179,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Giza"
     },
     {
       "id": 203518,
       "name": "Rowan Ali",
       "dob": "2003-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alexandria"
     },
     {
       "id": 224953,
       "name": "Marwa Mamdouh Salem Saleh",
       "dob": "2009-10-23",
       "height": 186,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "October"
     },
     {
       "id": 226544,
       "name": "Safy Mostafa",
       "dob": "2008-06-01",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Cairo"
     }
   ]
 }

@@ -7,21 +7,24 @@
       "name": "Katarina Mizdosova",
       "dob": "1975-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kezmarok"
     },
     {
       "id": 102577,
       "name": "Katarina Rimovska",
       "dob": "1971-09-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zilina"
     },
     {
       "id": 102710,
       "name": "Zuzana Opatovska",
       "dob": "1979-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Slovakia"
     },
     {
       "id": 102711,
@@ -35,21 +38,30 @@
       "name": "Katarina Srobarova",
       "dob": "1979-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 103800,
       "name": "Tina Turnerova",
       "dob": "1975-01-28",
       "height": 172,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Bratislava",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 114808,
       "name": "Gabriela Tomašeková",
       "dob": "1983-09-20",
       "height": 184,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Bratislava",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118177,
@@ -57,18 +69,24 @@
       "dob": "1984-12-12",
       "height": 178,
       "weight": 62,
+      "birthPlace": "Bratislava",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118178,
       "name": "Lucia Michalovicova",
       "dob": "1985-12-14",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Malacky"
     },
     {
       "id": 118188,
@@ -103,7 +121,8 @@
       "name": "Andrea Gorcova",
       "dob": "1977-12-26",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 119278,
@@ -132,11 +151,16 @@
       "dob": "1990-07-05",
       "height": 189,
       "weight": 75,
+      "birthPlace": "Bratislava",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120336,
@@ -150,7 +174,8 @@
       "name": "Dana Baumann",
       "dob": "1984-10-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 120573,
@@ -164,14 +189,16 @@
       "name": "Andrea Dudikova",
       "dob": "1989-03-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 123872,
       "name": "Nina Wienand Herelova",
       "dob": "1993-07-30",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Bojnice"
     },
     {
       "id": 124679,
@@ -192,7 +219,8 @@
       "name": "Silvia Poszmikova",
       "dob": "1987-10-11",
       "height": 179,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Dunajska Streda"
     },
     {
       "id": 136722,
@@ -200,11 +228,16 @@
       "dob": "1995-12-25",
       "height": 180,
       "weight": 66,
+      "birthPlace": "Hnusta",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 137170,
@@ -218,7 +251,8 @@
       "name": "Lesia Slezakova",
       "dob": "1996-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malacky"
     },
     {
       "id": 144172,
@@ -246,14 +280,16 @@
       "name": "Barbora Tokosova",
       "dob": "1995-08-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Slovakia"
     },
     {
       "id": 150300,
       "name": "Jana Simanicova",
       "dob": "1993-05-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Čadca"
     },
     {
       "id": 150688,
@@ -274,7 +310,8 @@
       "name": "Emma Erteltova",
       "dob": "1999-05-31",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Zilina"
     },
     {
       "id": 152478,
@@ -288,7 +325,8 @@
       "name": "Andrea Bojnanska",
       "dob": "1971-08-23",
       "height": 170,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 158117,
@@ -302,21 +340,24 @@
       "name": "Martina Terenova",
       "dob": "1999-03-06",
       "height": 183,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 160991,
       "name": "Iveta Miranda",
       "dob": "1989-04-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Komarno"
     },
     {
       "id": 161260,
       "name": "Eva Nemec Elekova",
       "dob": "1991-01-16",
       "height": 168,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Zvolen"
     },
     {
       "id": 161694,
@@ -337,7 +378,8 @@
       "name": "Andrea Bundzelova",
       "dob": "1988-09-23",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 166953,
@@ -365,7 +407,8 @@
       "name": "Veronika Podhradska",
       "dob": "2003-08-11",
       "height": 177,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Myjava"
     },
     {
       "id": 172617,
@@ -400,21 +443,24 @@
       "name": "Viktoria Nemlaha",
       "dob": "1990-06-09",
       "height": 171,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Slovakia"
     },
     {
       "id": 207294,
       "name": "Hana Graffingerova",
       "dob": "2009-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava-Petrzalka"
     },
     {
       "id": 233444,
       "name": "Lana Mackovich",
       "dob": "2009-01-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bratislava"
     }
   ]
 }

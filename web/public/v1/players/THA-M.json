@@ -7,28 +7,32 @@
       "name": "Thaweep Thongkamnerd",
       "dob": "1971-12-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nakhonnayok"
     },
     {
       "id": 102330,
       "name": "Sataporn Sawangreung",
       "dob": "1979-04-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Angtong"
     },
     {
       "id": 102331,
       "name": "Sudjai Naktamna",
       "dob": "1977-01-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Khonkaen"
     },
     {
       "id": 102332,
       "name": "Reungsak Reungwongngam",
       "dob": "1971-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nakornratchasima"
     },
     {
       "id": 104372,
@@ -70,14 +74,16 @@
       "name": "Sittichai Sangkhachot",
       "dob": "1987-08-20",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Nakhonsiteemmarat"
     },
     {
       "id": 125593,
       "name": "Prathip Sukto",
       "dob": "1990-01-01",
       "height": 184,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Sisaket"
     },
     {
       "id": 139445,
@@ -106,11 +112,15 @@
       "dob": "1995-08-20",
       "height": 188,
       "weight": 89,
+      "birthPlace": "Nakhon Ratchasima",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139613,
@@ -118,11 +128,16 @@
       "dob": "1996-05-03",
       "height": 186,
       "weight": 76,
+      "birthPlace": "Samutprakan",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 141603,
@@ -130,11 +145,15 @@
       "dob": "1993-01-16",
       "height": 188,
       "weight": 84,
+      "birthPlace": "KhonKhan",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145996,
@@ -142,18 +161,24 @@
       "dob": "1996-07-10",
       "height": 192,
       "weight": 76,
+      "birthPlace": "Petchaburi",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 145998,
       "name": "Kitti Duangjinda",
       "dob": "1995-08-18",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Pathum Thani"
     },
     {
       "id": 150539,
@@ -161,11 +186,15 @@
       "dob": "1990-07-26",
       "height": 200,
       "weight": 89,
+      "birthPlace": "ROI ET",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 150563,
@@ -173,11 +202,15 @@
       "dob": "1992-03-23",
       "height": 180,
       "weight": 80,
+      "birthPlace": "Chiang RAI",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155907,
@@ -199,11 +232,15 @@
       "dob": "1996-11-13",
       "height": 181,
       "weight": 74,
+      "birthPlace": "Nakhon Sawan",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156414,
@@ -231,42 +268,48 @@
       "name": "Keattisak Naksompoi",
       "dob": "1998-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chaiyaphum"
     },
     {
       "id": 156545,
       "name": "Konsiphong Vaikuntha-anuchit",
       "dob": "1998-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalasin"
     },
     {
       "id": 156546,
       "name": "Akkarapon Tumdee",
       "dob": "1999-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maha Sarakham"
     },
     {
       "id": 156549,
       "name": "Santitham Khruttha",
       "dob": "1999-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prachuap Khiri Khan"
     },
     {
       "id": 161349,
       "name": "Jatoopon Saenyoot",
       "dob": "1999-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ubon Ratchathani"
     },
     {
       "id": 166571,
       "name": "Patiphan Chambuntha",
       "dob": "1995-06-08",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Bangkok"
     },
     {
       "id": 167226,
@@ -274,11 +317,16 @@
       "dob": "1998-09-04",
       "height": 194,
       "weight": 88,
+      "birthPlace": "Lopburi",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 172216,
@@ -290,7 +338,11 @@
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 177865,
@@ -298,11 +350,15 @@
       "dob": "2002-01-26",
       "height": null,
       "weight": null,
+      "birthPlace": "Nong Bua Lam Phu",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 177866,
@@ -310,95 +366,111 @@
       "dob": "2002-04-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Suphanburi",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 177868,
       "name": "Veerayut Sopati",
       "dob": "2002-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Roi-et"
     },
     {
       "id": 177869,
       "name": "Phuthanet Khamtao",
       "dob": "2004-08-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Phetchabun"
     },
     {
       "id": 177870,
       "name": "Watanyoo Jaita",
       "dob": "2003-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalasin"
     },
     {
       "id": 177871,
       "name": "Anucha Promdee",
       "dob": "2002-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nakhon Ratchasima"
     },
     {
       "id": 177872,
       "name": "Nopphawit Puttharong",
       "dob": "2003-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Phatthalung"
     },
     {
       "id": 177890,
       "name": "Narakorn Chumaphai",
       "dob": "2004-01-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sisaket"
     },
     {
       "id": 187680,
       "name": "Chatchawan Janchuen",
       "dob": "2000-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nong Bua Lam Phu"
     },
     {
       "id": 189227,
       "name": "Saiphirun Ruairung",
       "dob": "2005-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Petchburi"
     },
     {
       "id": 189235,
       "name": "Wichaya Wisetkan",
       "dob": "2005-12-21",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Roi Et"
     },
     {
       "id": 192418,
       "name": "Chaloemdet Bunrot",
       "dob": "2005-05-31",
       "height": 186,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Trang"
     },
     {
       "id": 201368,
       "name": "Kittipoom Ruchisuk",
       "dob": "2004-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nakhonratchasima"
     },
     {
       "id": 201369,
       "name": "Supanai Uthaijaeng",
       "dob": "2006-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nakhon Si Thammarat"
     },
     {
       "id": 209620,
@@ -426,28 +498,32 @@
       "name": "Adithep Fakwilai",
       "dob": "2008-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chaiyaphum"
     },
     {
       "id": 227844,
       "name": "Kittiwat Suwansirirat",
       "dob": "2009-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Phra Nakhon Si Ayutthaya"
     },
     {
       "id": 233930,
       "name": "Kulwisit Lunkthong",
       "dob": "2011-01-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Udonthani"
     },
     {
       "id": 234095,
       "name": "Ritthikon Khunphathi",
       "dob": "2010-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maha Sarakham"
     }
   ]
 }

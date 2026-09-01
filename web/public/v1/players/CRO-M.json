@@ -7,28 +7,32 @@
       "name": "Sinisa Momic",
       "dob": "1973-10-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 102177,
       "name": "Sasa Momic",
       "dob": "1977-01-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 102178,
       "name": "Tomislav Karaula",
       "dob": "1970-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vukovar"
     },
     {
       "id": 102179,
       "name": "Pero Krizanovic",
       "dob": "1976-06-11",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Split"
     },
     {
       "id": 103398,
@@ -42,21 +46,24 @@
       "name": "Grga Trimcevski",
       "dob": "1980-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 103812,
       "name": "Kresimir Peric",
       "dob": "1976-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 103813,
       "name": "Dejan Laninovic",
       "dob": "1971-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 104253,
@@ -70,35 +77,40 @@
       "name": "Aco Momcilovic",
       "dob": "1980-02-03",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 104681,
       "name": "Berislav Bobus",
       "dob": "1978-07-04",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 104682,
       "name": "Toni Ivkovic",
       "dob": "1976-06-10",
       "height": 197,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Split"
     },
     {
       "id": 104683,
       "name": "Ivan Radovcic",
       "dob": null,
       "height": 183,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Split"
     },
     {
       "id": 104705,
       "name": "Sinisa Viculin",
       "dob": "1979-09-26",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Split"
     },
     {
       "id": 104839,
@@ -119,7 +131,8 @@
       "name": "Tomislav Steinocher",
       "dob": "1973-11-16",
       "height": 191,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 105014,
@@ -210,7 +223,8 @@
       "name": "Antonio Surac",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zadar"
     },
     {
       "id": 115609,
@@ -329,7 +343,8 @@
       "name": "Niksa Dellorco",
       "dob": "1992-05-03",
       "height": 189,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Split"
     },
     {
       "id": 120317,
@@ -350,7 +365,8 @@
       "name": "Darko Nojic",
       "dob": "1984-06-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb,Croatia"
     },
     {
       "id": 120331,
@@ -399,7 +415,8 @@
       "name": "Matej Mudrovcic",
       "dob": "1991-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 123441,
@@ -434,42 +451,48 @@
       "name": "Mario Boras",
       "dob": "1994-05-07",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Split"
     },
     {
       "id": 135663,
       "name": "Ivan Zeljkovic",
       "dob": "1994-08-31",
       "height": 185,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Split"
     },
     {
       "id": 139533,
       "name": "Kresimir Karaula",
       "dob": "1996-08-20",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Split"
     },
     {
       "id": 141878,
       "name": "Hrvoje Pervan",
       "dob": "1994-12-08",
       "height": 187,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Split"
     },
     {
       "id": 146155,
       "name": "Josip Pribanic",
       "dob": "1995-04-22",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Rijeka"
     },
     {
       "id": 146206,
       "name": "Filip Silic",
       "dob": "1990-04-04",
       "height": 205,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Varazdin"
     },
     {
       "id": 148861,
@@ -483,28 +506,32 @@
       "name": "Marin Jercic",
       "dob": "1996-08-24",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Split"
     },
     {
       "id": 156898,
       "name": "Marko Matic",
       "dob": "1981-06-08",
       "height": 181,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Rijeka"
     },
     {
       "id": 156899,
       "name": "Marko Vujnovic",
       "dob": "1981-12-02",
       "height": 193,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Rijeka"
     },
     {
       "id": 158426,
       "name": "Bruno Šimunić",
       "dob": "1993-04-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zadar"
     },
     {
       "id": 158643,
@@ -525,7 +552,8 @@
       "name": "Ivan Perisic",
       "dob": "1989-02-02",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Split"
     },
     {
       "id": 163017,
@@ -539,42 +567,48 @@
       "name": "Igor Sapina",
       "dob": "2000-03-08",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 170635,
       "name": "Tino Hanžić",
       "dob": "2000-10-24",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 173333,
       "name": "Marko Repek",
       "dob": "2003-06-30",
       "height": 188,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 182098,
       "name": "Tin Devald",
       "dob": "2005-12-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zagreb"
     },
     {
       "id": 217643,
       "name": "Šimun Lozančić",
       "dob": "2010-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Osijek"
     },
     {
       "id": 217676,
       "name": "Viktor Olja Vidović",
       "dob": "2010-05-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varaždin"
     }
   ]
 }

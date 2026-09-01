@@ -7,49 +7,56 @@
       "name": "Tong Iok I",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Macau"
     },
     {
       "id": 103232,
       "name": "Fong Pou Lai",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Macau"
     },
     {
       "id": 103233,
       "name": "Cheang Wing Yee",
       "dob": "1986-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Macau"
     },
     {
       "id": 103234,
       "name": "Cheang Hoi Neng",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Macau"
     },
     {
       "id": 115685,
       "name": "Kin Teng Tam",
       "dob": "1989-03-20",
       "height": 170,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Macao, China"
     },
     {
       "id": 149343,
       "name": "On Ieng Leong",
       "dob": "1996-04-20",
       "height": 171,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Macao"
     },
     {
       "id": 149344,
       "name": "Weng Sam Law",
       "dob": "1998-02-13",
       "height": 170,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Macao"
     },
     {
       "id": 199654,

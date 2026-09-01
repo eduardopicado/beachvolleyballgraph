@@ -24,12 +24,6 @@
               235
             ]
           ],
-          "at": [
-            [
-              2006,
-              "MLD"
-            ]
-          ],
           "r": 25
         }
       ]
@@ -39,14 +33,16 @@
       "name": "Polina Voleanin",
       "dob": "1992-09-11",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Moldova, Chisinau"
     },
     {
       "id": 146377,
       "name": "Ecaterina Arabadji",
       "dob": "1992-06-28",
       "height": 179,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Chisinau"
     }
   ]
 }

@@ -14,21 +14,24 @@
       "name": "Mianda Ania Dorcas",
       "dob": "2002-03-23",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Kinshasa"
     },
     {
       "id": 212586,
       "name": "Ekete Moseka",
       "dob": "2009-04-08",
       "height": 194,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kinshasa"
     },
     {
       "id": 224098,
       "name": "Matatanu Mayala",
       "dob": "2009-03-08",
       "height": 168,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Kinshasa"
     }
   ]
 }

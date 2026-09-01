@@ -21,7 +21,8 @@
       "name": "Mayra Ferrer Del Valle",
       "dob": "1969-05-14",
       "height": 177,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Santiago de Cuba"
     },
     {
       "id": 100263,
@@ -35,7 +36,8 @@
       "name": "Noemi Blanco Duran",
       "dob": "1969-09-09",
       "height": 176,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Guantanamo"
     },
     {
       "id": 100629,
@@ -56,7 +58,8 @@
       "name": "Maria Eugenia \"Maru\" Quevedo Lavastida",
       "dob": "1971-04-25",
       "height": 178,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Ciudad Habana"
     },
     {
       "id": 102155,
@@ -64,25 +67,34 @@
       "dob": "1973-11-25",
       "height": 183,
       "weight": 71,
+      "birthPlace": "Ciudad Habana",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102531,
       "name": "Ana Amalia Armat Vázquez",
       "dob": "1968-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago de Cuba"
     },
     {
       "id": 102532,
       "name": "Mercedes Hilda Hechavarria Sardiñas",
       "dob": "1967-11-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ciudad Habana"
     },
     {
       "id": 102871,
@@ -90,46 +102,73 @@
       "dob": "1977-11-26",
       "height": 177,
       "weight": 65,
+      "birthPlace": "Guantanamo",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103246,
       "name": "Yoselin Roque Palacios",
       "dob": "1975-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Spiritud"
     },
     {
       "id": 103485,
       "name": "Milagros Victoria Crespo Valle",
       "dob": "1979-02-04",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Cabaiguan",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 103803,
       "name": "Belkis Palacio Arteaga",
       "dob": "1981-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santi Spiritus"
     },
     {
       "id": 104227,
       "name": "Imara Esteves Ribalta",
       "dob": "1978-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "C. Habana",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 139684,
       "name": "Lidianny Echeverria Benitez",
       "dob": "1996-03-19",
       "height": 182,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Güines",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 139686,
@@ -137,18 +176,24 @@
       "dob": "1993-11-23",
       "height": 181,
       "weight": 70,
+      "birthPlace": "Santiago de Cuba",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 144259,
       "name": "Yanisleidis Sanchez Vinent",
       "dob": "1996-02-22",
       "height": null,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Guantanamo"
     },
     {
       "id": 148574,
@@ -160,7 +205,13 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     }
   ]
 }

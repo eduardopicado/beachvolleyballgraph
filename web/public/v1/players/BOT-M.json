@@ -7,14 +7,16 @@
       "name": "George Simata Chiswaniso",
       "dob": "1999-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kasane"
     },
     {
       "id": 181501,
       "name": "Sekao Boifang Jack",
       "dob": "1996-03-23",
       "height": null,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Maun"
     }
   ]
 }

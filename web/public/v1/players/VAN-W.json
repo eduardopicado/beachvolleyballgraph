@@ -8,11 +8,16 @@
       "dob": "1988-06-11",
       "height": 175,
       "weight": 60,
+      "birthPlace": "Mota Lava",
       "tour": {
         "gold": 3,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120176,
@@ -20,18 +25,24 @@
       "dob": "1985-06-19",
       "height": 171,
       "weight": 78,
+      "birthPlace": "Vanuatu",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125184,
       "name": "Joyce Joshua",
       "dob": "1986-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Port Vila"
     },
     {
       "id": 125186,
@@ -39,11 +50,16 @@
       "dob": "1991-03-23",
       "height": 170,
       "weight": null,
+      "birthPlace": "Vanuatu",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 141691,
@@ -51,11 +67,15 @@
       "dob": "1997-03-11",
       "height": 170,
       "weight": 62,
+      "birthPlace": "Port Vila",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155454,
@@ -63,11 +83,15 @@
       "dob": "1997-08-10",
       "height": 170,
       "weight": null,
+      "birthPlace": "Nduindui",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164429,
@@ -89,11 +113,15 @@
       "dob": "2001-11-14",
       "height": 175,
       "weight": null,
+      "birthPlace": "Luganville",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 175438,

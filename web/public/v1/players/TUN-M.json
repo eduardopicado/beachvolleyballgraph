@@ -7,56 +7,73 @@
       "name": "Khalil \"Kalilo\" Essadik",
       "dob": "1974-07-21",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Tunis"
     },
     {
       "id": 102197,
       "name": "Fathi \"Sidibou\" Zorai",
       "dob": "1971-11-21",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Marseille"
     },
     {
       "id": 102450,
       "name": "Bouafif Faouzi",
       "dob": "1972-03-07",
       "height": 182,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Kelibia"
     },
     {
       "id": 102451,
       "name": "Lahnef Maoula",
       "dob": "1976-03-25",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Kelibia"
     },
     {
       "id": 142118,
       "name": "Arfaoui Chokri",
       "dob": "1994-10-26",
       "height": 191,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Nabeul"
     },
     {
       "id": 142119,
       "name": "Korbi Wael",
       "dob": "1993-06-24",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Menzel Temim"
     },
     {
       "id": 150101,
       "name": "choaib Belhaj Salah",
       "dob": "1987-06-04",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 150102,
       "name": "Mohamed Arafet Naceur",
       "dob": "1988-11-04",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Hammam Laghzaz",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     }
   ]
 }

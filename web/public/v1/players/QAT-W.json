@@ -7,63 +7,72 @@
       "name": "Damla Yagmur",
       "dob": "2003-11-14",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Turkey"
     },
     {
       "id": 199022,
       "name": "Leyla Mohammad Bahmanzadeh",
       "dob": "2000-07-22",
       "height": 170,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Doha"
     },
     {
       "id": 203597,
       "name": "Rehanna Al-Tobaishi",
       "dob": "2003-02-22",
       "height": 165,
-      "weight": 50
+      "weight": 50,
+      "birthPlace": "Austria"
     },
     {
       "id": 203602,
       "name": "Sheqaf Ismail",
       "dob": "1998-09-29",
       "height": 171,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Doha"
     },
     {
       "id": 204595,
       "name": "Maha Al-Kuwari",
       "dob": "2003-05-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Qatar"
     },
     {
       "id": 217665,
       "name": "Lujain Mahmoud",
       "dob": "2008-11-11",
       "height": 165,
-      "weight": 50
+      "weight": 50,
+      "birthPlace": "Doha"
     },
     {
       "id": 217666,
       "name": "Meriem Mouhoub",
       "dob": "2010-03-10",
       "height": 162,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Doha"
     },
     {
       "id": 225248,
       "name": "Celine Mahmoud Fattouh",
       "dob": "2010-03-29",
       "height": 165,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Doha"
     },
     {
       "id": 225251,
       "name": "Penda Fatma Gadiaga",
       "dob": "2008-10-10",
-      "height": null,
-      "weight": null
+      "height": 165,
+      "weight": 50,
+      "birthPlace": "Doha"
     }
   ]
 }

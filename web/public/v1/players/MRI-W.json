@@ -7,42 +7,63 @@
       "name": "Elodie Li Yuk Lo",
       "dob": "1982-09-29",
       "height": 173,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Mauritius",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 120936,
       "name": "Natacha Rigobert",
       "dob": "1980-07-10",
       "height": 180,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Curepipe, Mauritius",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 138855,
       "name": "Marie Nathalie Jacqueline Letendrie",
       "dob": "1988-11-23",
       "height": 173,
-      "weight": 73
+      "weight": 73,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 146709,
       "name": "Valentine Paul",
       "dob": "1995-12-05",
       "height": 173,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Mauritius"
     },
     {
       "id": 156217,
       "name": "Maita Cousin",
       "dob": "1980-09-06",
       "height": 174,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Pamplemousses",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 172464,
       "name": "Liza Bonne",
       "dob": "1994-10-14",
       "height": 169,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Quatre Bornes"
     }
   ]
 }

@@ -7,14 +7,16 @@
       "name": "Rafael Francisco \"Tribilin\" Vargas Coreas",
       "dob": "1975-09-20",
       "height": 183,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "San Salvador"
     },
     {
       "id": 102554,
       "name": "Jeovanny Ademir \"Camello\" Medrano Valle",
       "dob": "1975-06-02",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "S.Francisco Gotera"
     },
     {
       "id": 102908,
@@ -28,7 +30,11 @@
       "name": "David Vargas",
       "dob": "1981-01-06",
       "height": 181,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "San Salvador",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 121033,
@@ -42,35 +48,43 @@
       "name": "Carlos Escobar",
       "dob": "1985-02-19",
       "height": 191,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "San Salvador",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139055,
       "name": "Franklin Orlando Flores Giron",
       "dob": "1991-09-17",
       "height": 191,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "San Salvador"
     },
     {
       "id": 176908,
       "name": "Gabriel Baltazar Vargas Romero",
       "dob": "2004-04-21",
       "height": 186,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "San Salvador"
     },
     {
       "id": 193077,
       "name": "Rafael Alberto Vargas Landaverde",
       "dob": "2006-11-23",
       "height": 182,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "San Salvador"
     },
     {
       "id": 215179,
       "name": "Fernando Javier Ortiz Ponce",
       "dob": "2006-07-08",
       "height": 192,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "San Salvador"
     }
   ]
 }

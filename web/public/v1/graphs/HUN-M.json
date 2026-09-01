@@ -40,16 +40,16 @@
       "name": "Jozsef Gonczi",
       "short": "Gonczi",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1989
     },
     {
       "id": 101073,
       "name": "Zoltan Konyari",
       "short": "Konyari",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1989,
+      "last": 1989
     },
     {
       "id": 101532,
@@ -271,7 +271,7 @@
       "id": 161607,
       "name": "Artúr Hajós",
       "short": "Hajós",
-      "tournaments": 44,
+      "tournaments": 45,
       "first": 2018,
       "last": 2026
     },
@@ -343,7 +343,7 @@
       "id": 181697,
       "name": "Boldizsár Borbély",
       "short": "Borbély",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2022,
       "last": 2026
     },
@@ -351,7 +351,7 @@
       "id": 181706,
       "name": "Ákos Veress",
       "short": "Veress",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2022,
       "last": 2026
     },
@@ -383,7 +383,7 @@
       "id": 182047,
       "name": "Bálint Bogáncs",
       "short": "Bogáncs",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -499,13 +499,13 @@
       "a": 101062,
       "b": 101073,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1989,
+      "l": 1989,
       "s": [
         [
-          1987,
+          1989,
           1,
-          936
+          205
         ]
       ],
       "r": 20
@@ -1033,14 +1033,14 @@
     {
       "a": 161607,
       "b": 181706,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          231
+          2,
+          239
         ]
       ],
       "r": 9
@@ -1338,7 +1338,7 @@
     {
       "a": 181697,
       "b": 182047,
-      "t": 5,
+      "t": 6,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -1349,11 +1349,11 @@
         ],
         [
           2026,
-          4,
-          183
+          5,
+          239
         ]
       ],
-      "r": 9
+      "r": 5
     },
     {
       "a": 181706,

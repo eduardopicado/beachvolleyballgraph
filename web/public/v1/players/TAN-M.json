@@ -7,21 +7,24 @@
       "name": "Ford Edward",
       "dob": "1992-01-11",
       "height": 189,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Bunda, Mara - Tanzania"
     },
     {
       "id": 178250,
       "name": "Geofrey David Kitila",
       "dob": "1994-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shinyanga"
     },
     {
       "id": 180497,
       "name": "Joseph Mafuru",
       "dob": "2000-04-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mwanza"
     },
     {
       "id": 181863,
@@ -56,21 +59,24 @@
       "name": "David Everist Neeke",
       "dob": "1996-06-29",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Bukoba"
     },
     {
       "id": 204537,
       "name": "Omary Bure Hassan",
       "dob": "2003-03-23",
       "height": 198,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Kigoma"
     },
     {
       "id": 214524,
       "name": "Allan Gradstone Mori",
       "dob": "2001-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dodoma"
     }
   ]
 }

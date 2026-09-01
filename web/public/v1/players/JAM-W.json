@@ -7,14 +7,16 @@
       "name": "Tionna Graham",
       "dob": "1999-03-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kingston"
     },
     {
       "id": 141974,
       "name": "Lisanne Roofe",
       "dob": "1999-03-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St Catherine"
     }
   ]
 }

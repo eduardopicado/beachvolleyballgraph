@@ -8,15 +8,20 @@
       "dob": "1965-01-31",
       "height": 190,
       "weight": 86,
+      "birthPlace": "Portland",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100051,
-      "name": "Troy \"T2\" Tanner SUSPENDED",
+      "name": "Troy \"T2\" Tanner",
       "dob": "1963-10-31",
       "height": 193,
       "weight": 86,
@@ -24,7 +29,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100052,
@@ -36,7 +45,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100064,
@@ -62,7 +74,10 @@
         "gold": 10,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100100,
@@ -70,11 +85,18 @@
       "dob": "1957-05-07",
       "height": 191,
       "weight": 93,
+      "birthPlace": "Los Angeles",
       "tour": {
         "gold": 10,
         "silver": 7,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100101,
@@ -86,7 +108,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100102,
@@ -97,7 +122,7 @@
     },
     {
       "id": 100131,
-      "name": "Tim \"The Hov\" Hovland SUSPENDED",
+      "name": "Tim \"The Hov\" Hovland",
       "dob": "1959-02-23",
       "height": 193,
       "weight": null,
@@ -105,7 +130,10 @@
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100132,
@@ -127,7 +155,13 @@
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100133,
@@ -135,6 +169,7 @@
       "dob": "1957-08-20",
       "height": 193,
       "weight": 78,
+      "birthPlace": "Manhattan Beach",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -144,7 +179,13 @@
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100134,
@@ -163,7 +204,10 @@
         "gold": 1,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100160,
@@ -196,7 +240,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100188,
@@ -215,7 +262,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100219,
@@ -234,7 +284,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100236,
@@ -253,7 +306,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100316,
@@ -265,7 +321,10 @@
         "gold": 0,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100323,
@@ -277,7 +336,10 @@
         "gold": 0,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100324,
@@ -327,28 +389,13 @@
           "fed": "PUR",
           "gender": "M",
           "t": 3,
-          "f": 1993,
+          "f": 1994,
           "l": 1994,
           "s": [
             [
-              1993,
-              1,
-              382
-            ],
-            [
               1994,
-              2,
+              3,
               243
-            ]
-          ],
-          "at": [
-            [
-              1993,
-              "USA"
-            ],
-            [
-              1994,
-              "USA"
             ]
           ],
           "r": 13
@@ -368,12 +415,6 @@
               313
             ]
           ],
-          "at": [
-            [
-              1995,
-              "PUR"
-            ]
-          ],
           "r": 17
         }
       ]
@@ -391,6 +432,7 @@
       "dob": "1971-11-28",
       "height": 187,
       "weight": 88,
+      "birthPlace": "Laguna Beach CA",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -405,7 +447,13 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100340,
@@ -441,6 +489,7 @@
       "dob": "1962-05-18",
       "height": 200,
       "weight": 97,
+      "birthPlace": "San Diego",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -455,7 +504,13 @@
         "gold": 2,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100367,
@@ -467,11 +522,14 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100368,
-      "name": "Christopher J. Young SUSPENDED",
+      "name": "Christopher J. Young",
       "dob": "1967-02-26",
       "height": null,
       "weight": null
@@ -482,11 +540,16 @@
       "dob": "1970-09-02",
       "height": null,
       "weight": null,
+      "birthPlace": "Cambridge (MA)",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100387,
@@ -498,7 +561,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100393,
@@ -506,6 +572,7 @@
       "dob": "1969-07-06",
       "height": 191,
       "weight": 100,
+      "birthPlace": "Torrance (CA- USA)",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -515,21 +582,29 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100401,
       "name": "Barton Goetz",
       "dob": "1969-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Boonton"
     },
     {
       "id": 100403,
       "name": "Gerald \"Jerry\" Graham",
       "dob": "1971-02-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Carson City, MI"
     },
     {
       "id": 100407,
@@ -548,7 +623,10 @@
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100414,
@@ -556,11 +634,18 @@
       "dob": "1969-06-03",
       "height": 200,
       "weight": 100,
+      "birthPlace": "Berkeley",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100415,
@@ -568,11 +653,18 @@
       "dob": "1969-08-16",
       "height": 199,
       "weight": 96,
+      "birthPlace": "Torrance",
       "tour": {
         "gold": 0,
         "silver": 5,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100418,
@@ -580,6 +672,7 @@
       "dob": "1972-04-09",
       "height": 191,
       "weight": 96,
+      "birthPlace": "Santa Barbara",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -589,7 +682,13 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100425,
@@ -597,6 +696,7 @@
       "dob": "1973-09-30",
       "height": 187,
       "weight": 90,
+      "birthPlace": "Santa Barbara, CA",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -611,7 +711,13 @@
         "gold": 22,
         "silver": 7,
         "bronze": 10
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100433,
@@ -623,7 +729,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100441,
@@ -644,7 +753,11 @@
       "name": "David Swatik",
       "dob": "1973-02-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rockford",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100447,
@@ -656,7 +769,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100457,
@@ -671,6 +787,7 @@
       "dob": "1960-11-03",
       "height": 188,
       "weight": 93,
+      "birthPlace": "Jackson MI",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -680,7 +797,13 @@
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100545,
@@ -708,14 +831,18 @@
       "name": "Michael \"The Rock\" Mattarocci",
       "dob": "1969-10-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Diego (CA)"
     },
     {
       "id": 100656,
       "name": "Brian \"Lewy\" Lewis",
       "dob": "1968-03-22",
       "height": 185,
-      "weight": 84
+      "weight": 84,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100657,
@@ -727,7 +854,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100698,
@@ -735,11 +865,16 @@
       "dob": "1965-12-24",
       "height": 191,
       "weight": 95,
+      "birthPlace": "Santa Monica",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100699,
@@ -782,6 +917,7 @@
       "dob": "1972-06-21",
       "height": 195,
       "weight": 94,
+      "birthPlace": "Torrance, CA",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -791,25 +927,30 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100872,
       "name": "Brent Doble",
       "dob": "1970-01-03",
       "height": 193,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Dubugue ia"
     },
     {
       "id": 100873,
-      "name": "Brent Frohoff SUSPENDED",
+      "name": "Brent Frohoff",
       "dob": "1963-10-05",
       "height": 190,
       "weight": 86
     },
     {
       "id": 100875,
-      "name": "Kevin \"K-Mart\" Martin SUSPENDED",
+      "name": "Kevin \"K-Mart\" Martin",
       "dob": "1968-12-24",
       "height": 188,
       "weight": 88
@@ -837,7 +978,7 @@
     },
     {
       "id": 100881,
-      "name": "Matt Unger SUSPENDED",
+      "name": "Matt Unger",
       "dob": "1970-06-24",
       "height": 180,
       "weight": 81
@@ -848,11 +989,18 @@
       "dob": "1972-09-12",
       "height": 200,
       "weight": 88,
+      "birthPlace": "Honolulu",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101065,
@@ -885,7 +1033,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 101460,
@@ -906,28 +1057,35 @@
       "name": "Christian McCaw",
       "dob": "1973-03-24",
       "height": 190,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Chicago, Illinois",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101624,
       "name": "Curtis Rollins",
       "dob": "1972-11-23",
       "height": 189,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Pal Beach Gardens"
     },
     {
       "id": 101654,
       "name": "James \"Jim\" Van Zwieten",
       "dob": "1977-09-25",
       "height": 198,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Pompano Beach, FL, USA"
     },
     {
       "id": 101680,
       "name": "David Fischer",
       "dob": "1972-04-09",
       "height": 192,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Santa Barbara"
     },
     {
       "id": 101806,
@@ -946,7 +1104,11 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101942,
@@ -972,14 +1134,19 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102077,
       "name": "David DiPierro",
       "dob": "1975-11-06",
       "height": 185,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Fort Lauderdale FL"
     },
     {
       "id": 102087,
@@ -987,6 +1154,7 @@
       "dob": "1972-11-17",
       "height": 193,
       "weight": 95,
+      "birthPlace": "Hawaii, USA",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -997,6 +1165,12 @@
         "silver": 4,
         "bronze": 7
       },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 104215,
@@ -1035,14 +1209,16 @@
       "name": "Scott Kiedaisch",
       "dob": "1971-10-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Jose CA"
     },
     {
       "id": 102092,
       "name": "Matthew Sokolowski",
       "dob": "1974-08-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St-Petersburg FL"
     },
     {
       "id": 102106,
@@ -1056,49 +1232,59 @@
       "name": "David Findley",
       "dob": "1976-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tampa"
     },
     {
       "id": 102142,
       "name": "Scott Irwin",
       "dob": "1971-11-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Camden"
     },
     {
       "id": 102143,
       "name": "John Vestal",
       "dob": "1974-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Royal Oak"
     },
     {
       "id": 102144,
       "name": "Eric Lazowski",
       "dob": "1973-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saginaw"
     },
     {
       "id": 102512,
       "name": "Adam Kristofer \"AJ\" Jewell",
       "dob": "1975-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Torrance"
     },
     {
       "id": 102564,
       "name": "Scott Davenport",
       "dob": "1971-12-09",
       "height": 185,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Rochester (NY)"
     },
     {
       "id": 102565,
       "name": "Sean Scott",
       "dob": "1973-06-29",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Honolulu (HI)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102615,
@@ -1106,53 +1292,69 @@
       "dob": "1974-10-28",
       "height": 185,
       "weight": 80,
+      "birthPlace": "Miami",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102659,
       "name": "Colin Wellman",
       "dob": "1974-12-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Monica",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102660,
       "name": "Jeffrey Long",
       "dob": "1973-09-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lancaster",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102668,
       "name": "Leland Quinn",
       "dob": "1972-04-03",
       "height": 206,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Moscow, Idaho"
     },
     {
       "id": 102741,
       "name": "Collin Smith",
       "dob": "1975-05-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Clara, CA"
     },
     {
       "id": 102794,
       "name": "Peter \"The Golden Child\" Goers",
       "dob": "1973-06-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chicago"
     },
     {
       "id": 102795,
       "name": "Brad Torsone",
       "dob": "1975-01-14",
       "height": 198,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Rochester, New York"
     },
     {
       "id": 102904,
@@ -1160,25 +1362,31 @@
       "dob": "1976-01-25",
       "height": 186,
       "weight": 81,
+      "birthPlace": "Michigan, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102905,
       "name": "Jeff \"Smithers\" Smith",
       "dob": "1972-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kansas,"
     },
     {
       "id": 102907,
       "name": "Eli \"Big Country\" Fairfield",
       "dob": "1979-02-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Diego"
     },
     {
       "id": 102935,
@@ -1186,67 +1394,79 @@
       "dob": "1975-01-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Ft Myers, FL",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102943,
       "name": "Dan Ortega",
       "dob": "1974-08-15",
       "height": 186,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Castro Valley, CA"
     },
     {
       "id": 102944,
       "name": "Kurt Nelson",
       "dob": "1977-01-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Laguana Beach"
     },
     {
       "id": 102980,
       "name": "Christopher Makos",
       "dob": "1973-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Syrcuse, NY"
     },
     {
       "id": 102982,
       "name": "Michael DiPierro",
       "dob": "1980-12-10",
       "height": 198,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ft Lauderdale, FL"
     },
     {
       "id": 102983,
       "name": "Jacob \"Jake\" Elliot",
       "dob": "1975-09-27",
       "height": 180,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Georgetown"
     },
     {
       "id": 103141,
       "name": "Steven Ho",
       "dob": "1972-11-26",
       "height": 186,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Mountain View USA"
     },
     {
       "id": 103162,
       "name": "Stephen Van Zwieten",
       "dob": "1984-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pompano Beach, Florida"
     },
     {
       "id": 103173,
       "name": "Eric Seiffert",
       "dob": "1975-03-06",
       "height": 200,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "San Pedro CA"
     },
     {
       "id": 103190,
@@ -1254,11 +1474,15 @@
       "dob": "1979-07-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Santa Maria",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103191,
@@ -1279,7 +1503,8 @@
       "name": "Chad Turner",
       "dob": "1972-04-14",
       "height": 198,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "St. Petersburgh, FL"
     },
     {
       "id": 103214,
@@ -1294,11 +1519,18 @@
       "dob": "1972-08-03",
       "height": 204,
       "weight": 95,
+      "birthPlace": "Madison, Wisconsin",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103269,
@@ -1320,11 +1552,16 @@
       "dob": "1975-10-07",
       "height": 190,
       "weight": 86,
+      "birthPlace": "Reno, NV",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103375,
@@ -1353,53 +1590,64 @@
       "dob": "1972-10-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Florida, USA",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103965,
       "name": "Jared Godinez",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ventura, CA"
     },
     {
       "id": 103966,
       "name": "Jeffrey Urton",
       "dob": "1983-01-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Orange, CA"
     },
     {
       "id": 104066,
       "name": "Glenn Adolpho",
       "dob": "1986-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kahuku, Hawaii"
     },
     {
       "id": 104067,
       "name": "Paul Baxter",
       "dob": "1972-01-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fridley, MN"
     },
     {
       "id": 104089,
       "name": "Kyle Gregory",
       "dob": "1985-07-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Naples, Florida, USA"
     },
     {
       "id": 104090,
       "name": "Mark Van Zwieten",
       "dob": "1987-07-05",
       "height": 184,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Florida, USA"
     },
     {
       "id": 104114,
@@ -1421,11 +1669,16 @@
       "dob": "1974-01-24",
       "height": 202,
       "weight": 93,
+      "birthPlace": "Toronto",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104268,
@@ -1433,11 +1686,18 @@
       "dob": "1980-06-19",
       "height": 191,
       "weight": 91,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 10,
         "silver": 6,
         "bronze": 4
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104342,
@@ -1451,7 +1711,8 @@
       "name": "Anthony Mihalic",
       "dob": "1976-05-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nephine"
     },
     {
       "id": 104552,
@@ -1459,25 +1720,34 @@
       "dob": "1976-02-06",
       "height": 201,
       "weight": 93,
+      "birthPlace": "Utah, USA",
       "tour": {
         "gold": 7,
         "silver": 8,
         "bronze": 8
-      }
+      },
+      "olympicGames": 4,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104553,
       "name": "Ty Loomis",
       "dob": "1979-05-01",
       "height": 192,
-      "weight": 180
+      "weight": 180,
+      "birthPlace": "Wisconsin, USA"
     },
     {
       "id": 104555,
       "name": "Ed Ratledge",
       "dob": "1976-12-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Missouri, USA"
     },
     {
       "id": 104999,
@@ -1492,6 +1762,7 @@
       "dob": "1980-01-26",
       "height": 205,
       "weight": 90,
+      "birthPlace": "Switzerland",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -1506,7 +1777,13 @@
         "gold": 36,
         "silver": 16,
         "bronze": 13
-      }
+      },
+      "olympicGames": 4,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 111142,
@@ -1514,11 +1791,16 @@
       "dob": "1974-04-14",
       "height": 198,
       "weight": 93,
+      "birthPlace": "Hawaii",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 111626,
@@ -1526,11 +1808,15 @@
       "dob": "1977-10-01",
       "height": 194,
       "weight": 89,
+      "birthPlace": "Virgina, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 111911,
@@ -1538,18 +1824,23 @@
       "dob": "1977-09-28",
       "height": 196,
       "weight": 100,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 111969,
       "name": "Riley Salmon",
       "dob": "1976-07-02",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Texas"
     },
     {
       "id": 113734,
@@ -1557,11 +1848,15 @@
       "dob": "1979-07-05",
       "height": 193,
       "weight": 95,
+      "birthPlace": "Colorado, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 116058,
@@ -1569,11 +1864,16 @@
       "dob": "1985-03-17",
       "height": 201,
       "weight": 91,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 3,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116065,
@@ -1581,11 +1881,15 @@
       "dob": "1985-11-03",
       "height": 200,
       "weight": 95,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 116602,
@@ -1593,25 +1897,34 @@
       "dob": "1979-09-22",
       "height": 175,
       "weight": 61,
+      "birthPlace": "Florida, USA",
       "tour": {
         "gold": 9,
         "silver": 11,
         "bronze": 6
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116637,
       "name": "David Lee",
       "dob": "1982-03-08",
       "height": 203,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "California, USA"
     },
     {
       "id": 116638,
       "name": "Curt Toppel",
       "dob": "1980-09-19",
       "height": 206,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "California, USA"
     },
     {
       "id": 117407,
@@ -1639,14 +1952,16 @@
       "name": "Carlos Macias",
       "dob": "1985-10-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Miami, Fl"
     },
     {
       "id": 118173,
       "name": "Austin Rester",
       "dob": "1982-03-31",
       "height": 203,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Texas, USA"
     },
     {
       "id": 118220,
@@ -1660,7 +1975,8 @@
       "name": "Sean Rooney",
       "dob": "1982-11-13",
       "height": 206,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Illinois"
     },
     {
       "id": 118271,
@@ -1674,7 +1990,8 @@
       "name": "Riley McKibbin",
       "dob": "1988-09-09",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Hawaii, USA"
     },
     {
       "id": 118273,
@@ -1695,7 +2012,11 @@
       "name": "Jason Ring",
       "dob": "1974-07-21",
       "height": 191,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "California",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118931,
@@ -1709,28 +2030,32 @@
       "name": "Devon Hatcher",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 119270,
       "name": "William Montgomery",
       "dob": "1990-01-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Barbara, CA, USA"
     },
     {
       "id": 119726,
       "name": "Kyle Friend",
       "dob": "1989-01-21",
       "height": 193,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Florida, USA"
     },
     {
       "id": 119729,
       "name": "Bradley Lawson",
       "dob": "1989-08-02",
       "height": 201,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Hawaii, USA"
     },
     {
       "id": 119736,
@@ -1738,11 +2063,18 @@
       "dob": "1989-06-20",
       "height": 195,
       "weight": 84,
+      "birthPlace": "Hawaii, USA",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119753,
@@ -1763,7 +2095,8 @@
       "name": "Jeff Murrell",
       "dob": null,
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Diego"
     },
     {
       "id": 120193,
@@ -1777,7 +2110,8 @@
       "name": "Maddison McKibbin",
       "dob": "1990-11-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hawaii, USA"
     },
     {
       "id": 120740,
@@ -1791,7 +2125,8 @@
       "name": "Jeremy Casebeer",
       "dob": "1989-01-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 120878,
@@ -1812,14 +2147,19 @@
       "name": "Bradley Keenan",
       "dob": "1981-08-10",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Fullerton, CA",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 124537,
       "name": "Antonio Ciarelli",
       "dob": "1990-04-13",
       "height": 183,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "California, USA"
     },
     {
       "id": 124881,
@@ -1827,18 +2167,27 @@
       "dob": "1992-01-26",
       "height": 185,
       "weight": 76,
+      "birthPlace": "Hawaii, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 124941,
       "name": "Taylor Sander",
       "dob": "1992-03-17",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "California, USA",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 125112,
@@ -1866,14 +2215,16 @@
       "name": "Kyle Stevenson",
       "dob": "1992-08-16",
       "height": 195,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "California, USA"
     },
     {
       "id": 125120,
       "name": "Jace Olsen",
       "dob": "1992-01-14",
       "height": 201,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Arizona, USA"
     },
     {
       "id": 125126,
@@ -1887,7 +2238,8 @@
       "name": "Matthew Olson",
       "dob": "1980-01-02",
       "height": 189,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Diego"
     },
     {
       "id": 125599,
@@ -1909,18 +2261,24 @@
       "dob": "1982-06-11",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 130109,
       "name": "Timothy May",
       "dob": "1979-07-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New York, USA"
     },
     {
       "id": 130697,
@@ -1934,21 +2292,24 @@
       "name": "Duncan Budinger Jr.",
       "dob": "1984-06-15",
       "height": 205,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "California, USA"
     },
     {
       "id": 131616,
       "name": "Kevin McColloch",
       "dob": "1984-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 131702,
       "name": "Mark Edwin Burik",
       "dob": "1985-08-12",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "New York, USA"
     },
     {
       "id": 131994,
@@ -1956,11 +2317,18 @@
       "dob": "1986-04-23",
       "height": 196,
       "weight": 88,
+      "birthPlace": "Red Deer, Ab/Can",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 5
       },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 104994,
@@ -2106,7 +2474,8 @@
       "name": "David Ryan Vander Meer",
       "dob": "1992-04-10",
       "height": 176,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Grand Rapids"
     },
     {
       "id": 132800,
@@ -2128,32 +2497,42 @@
       "dob": "1980-04-20",
       "height": 201,
       "weight": 88,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 133293,
       "name": "Connor Hughes",
       "dob": "1990-07-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 133294,
       "name": "Evan Barry",
       "dob": "1990-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 135572,
       "name": "Skyler McCoy",
       "dob": "1993-04-26",
       "height": 188,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 135573,
@@ -2174,14 +2553,16 @@
       "name": "Christopher Long",
       "dob": "1993-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Newport Beach, Ca"
     },
     {
       "id": 135577,
       "name": "William Jackson Bantle",
       "dob": "1995-07-20",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "New York, USA"
     },
     {
       "id": 135578,
@@ -2196,11 +2577,15 @@
       "dob": "1993-03-28",
       "height": 198,
       "weight": 86,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 136078,
@@ -2208,32 +2593,40 @@
       "dob": "1994-03-05",
       "height": 203,
       "weight": 98,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 136384,
       "name": "Steven Irvin",
       "dob": "1991-08-11",
       "height": 195,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "California, USA"
     },
     {
       "id": 136385,
       "name": "Robart Page",
       "dob": "1992-07-10",
       "height": 215,
-      "weight": 104
+      "weight": 104,
+      "birthPlace": "New York, USA"
     },
     {
       "id": 137406,
       "name": "Brandon Joyner",
       "dob": "1988-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Virginia, USA"
     },
     {
       "id": 137417,
@@ -2241,25 +2634,31 @@
       "dob": "1991-07-09",
       "height": null,
       "weight": null,
+      "birthPlace": "Fort Worth, Texas",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137420,
       "name": "Ian Satterfield",
       "dob": "1991-08-08",
       "height": 196,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Virginia, USA"
     },
     {
       "id": 137421,
       "name": "Vaun Lennon",
       "dob": "1992-01-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Monica"
     },
     {
       "id": 138626,
@@ -2267,11 +2666,15 @@
       "dob": "1986-09-07",
       "height": 195,
       "weight": 91,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138660,
@@ -2279,18 +2682,24 @@
       "dob": "1985-01-04",
       "height": 203,
       "weight": 97,
+      "birthPlace": "Minnesota, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 138879,
       "name": "Skylar Del Sol",
       "dob": "1990-10-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Colorado, USA"
     },
     {
       "id": 139253,
@@ -2304,7 +2713,8 @@
       "name": "Torey Defalco",
       "dob": "1997-04-10",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Missouri, USA"
     },
     {
       "id": 139258,
@@ -2323,14 +2733,18 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139946,
       "name": "Alex Jones",
       "dob": "1992-04-12",
       "height": 193,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "California, USA"
     },
     {
       "id": 139969,
@@ -2344,7 +2758,8 @@
       "name": "Jon Mesko",
       "dob": "1977-03-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Texas, USA"
     },
     {
       "id": 141629,
@@ -2352,39 +2767,48 @@
       "dob": "1984-02-02",
       "height": 214,
       "weight": 104,
+      "birthPlace": "New Jersey, USA",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142835,
       "name": "David Oliver Martin",
       "dob": "1995-03-30",
       "height": 208,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "California, USA"
     },
     {
       "id": 142836,
       "name": "Louis Richard",
       "dob": "1996-08-04",
       "height": 188,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "California, USA"
     },
     {
       "id": 142837,
       "name": "Lucas Yoder",
       "dob": "1995-02-19",
       "height": 194,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "California, USA"
     },
     {
       "id": 142850,
       "name": "Branden Clemens",
       "dob": "1994-06-25",
       "height": 200,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Bradenton, FL"
     },
     {
       "id": 143022,
@@ -2398,14 +2822,16 @@
       "name": "Derek Olson",
       "dob": "1984-03-30",
       "height": 185,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Eugene, Oregon"
     },
     {
       "id": 144985,
       "name": "Robert McLean",
       "dob": "1990-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New York"
     },
     {
       "id": 145056,
@@ -2413,18 +2839,23 @@
       "dob": "1991-05-29",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146696,
       "name": "Clay Paullin",
       "dob": "1992-01-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 146697,
@@ -2432,39 +2863,47 @@
       "dob": "1986-08-06",
       "height": null,
       "weight": null,
+      "birthPlace": "Wisconsin, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146718,
       "name": "Robert Mullahey",
       "dob": "1998-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 146719,
       "name": "Lucas Lossone",
       "dob": "1998-04-21",
       "height": 202,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "California, USA"
     },
     {
       "id": 146796,
       "name": "Martin Lorenz",
       "dob": "1990-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Washington, USA"
     },
     {
       "id": 147025,
       "name": "Aidan Brown",
       "dob": "1998-04-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Mexico, USA"
     },
     {
       "id": 147191,
@@ -2478,7 +2917,8 @@
       "name": "Kyle Skinner",
       "dob": "1997-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 147317,
@@ -2486,11 +2926,15 @@
       "dob": "1995-04-10",
       "height": 186,
       "weight": 89,
+      "birthPlace": "Santa Monica",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147688,
@@ -2498,11 +2942,16 @@
       "dob": "1981-10-15",
       "height": 188,
       "weight": 84,
+      "birthPlace": "Oceanside, CA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147689,
@@ -2510,11 +2959,16 @@
       "dob": "1989-09-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Hawaii, USA",
       "tour": {
         "gold": 5,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147719,
@@ -2522,18 +2976,26 @@
       "dob": "1995-03-14",
       "height": 203,
       "weight": 89,
+      "birthPlace": "Colorado, USA",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 149718,
       "name": "Hudson Bates",
       "dob": "1985-03-11",
       "height": 196,
-      "weight": 110
+      "weight": 110,
+      "birthPlace": "Portugal"
     },
     {
       "id": 149719,
@@ -2548,25 +3010,34 @@
       "dob": "1989-11-12",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 2,
         "silver": 6,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 153856,
       "name": "Raffe Paulis",
       "dob": "1986-05-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Illinois, USA"
     },
     {
       "id": 154160,
       "name": "Andrew Dentler",
       "dob": "1989-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pennysylvania, USA"
     },
     {
       "id": 154281,
@@ -2587,14 +3058,16 @@
       "name": "Michael Boag",
       "dob": "1989-12-27",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "California, USA"
     },
     {
       "id": 156221,
       "name": "Nathanael Vander Meer",
       "dob": "1996-05-08",
       "height": 196,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Michigan, USA"
     },
     {
       "id": 156222,
@@ -2602,39 +3075,47 @@
       "dob": "1996-10-26",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156223,
       "name": "Cameron Rodrigues",
       "dob": "1997-08-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Virgina, USA"
     },
     {
       "id": 157022,
       "name": "Clay Messenger",
       "dob": "1999-08-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida, USA"
     },
     {
       "id": 157023,
       "name": "Adam Wienckowski",
       "dob": "1999-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Illinois, USA"
     },
     {
       "id": 157393,
       "name": "Marcus Partain",
       "dob": "2000-04-09",
       "height": 191,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "California, USA"
     },
     {
       "id": 157394,
@@ -2642,25 +3123,31 @@
       "dob": "2000-03-23",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157395,
       "name": "John Schwengel",
       "dob": "2000-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 157437,
       "name": "Austin Matautia",
       "dob": "1998-02-06",
       "height": 196,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Hawaii, USA"
     },
     {
       "id": 157793,
@@ -2674,7 +3161,8 @@
       "name": "Taylor Hammond",
       "dob": "1992-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 159203,
@@ -2682,18 +3170,23 @@
       "dob": "1994-04-22",
       "height": null,
       "weight": null,
+      "birthPlace": "Minnesota, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161662,
       "name": "Christopher Luers",
       "dob": "1974-07-30",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Ohio, USA"
     },
     {
       "id": 162243,
@@ -2701,11 +3194,18 @@
       "dob": "2001-12-18",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 3,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 162451,
@@ -2713,11 +3213,15 @@
       "dob": "1995-10-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Michigan, USA",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163606,
@@ -2725,18 +3229,23 @@
       "dob": "1996-01-03",
       "height": 202,
       "weight": 99,
+      "birthPlace": "Illinois, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 165163,
       "name": "Eric Zaun",
       "dob": "1993-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Jersey, USA"
     },
     {
       "id": 166409,
@@ -2744,18 +3253,23 @@
       "dob": "1993-12-21",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167042,
       "name": "Spencer Sauter",
       "dob": "1994-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Illinois, USA"
     },
     {
       "id": 167494,
@@ -2763,32 +3277,42 @@
       "dob": "1988-05-22",
       "height": null,
       "weight": null,
+      "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
         "silver": 5,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 167895,
       "name": "Torin Jeffreys",
       "dob": "1992-12-15",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "San Diego"
     },
     {
       "id": 167896,
       "name": "Shawn Ledig",
       "dob": "1975-10-27",
       "height": 196,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Lafayette"
     },
     {
       "id": 167897,
       "name": "Brian Miller",
       "dob": "1994-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Jersey, USA"
     },
     {
       "id": 167898,
@@ -2802,7 +3326,8 @@
       "name": "John Michael Plummer",
       "dob": "1990-03-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Missouri, USA"
     },
     {
       "id": 167902,
@@ -2851,7 +3376,8 @@
       "name": "Jonathan Drake",
       "dob": "1989-10-25",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Cincinnati"
     },
     {
       "id": 167909,
@@ -2859,11 +3385,15 @@
       "dob": "1994-08-15",
       "height": 194,
       "weight": 86,
+      "birthPlace": "New Jersey, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167910,
@@ -2920,11 +3450,15 @@
       "dob": "1990-08-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Maryland, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167918,
@@ -2994,35 +3528,40 @@
       "name": "Kenneth Matthews",
       "dob": "1989-05-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nevada, USA"
     },
     {
       "id": 168248,
       "name": "Jason Gibbs",
       "dob": "2000-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oregon, USA"
     },
     {
       "id": 168249,
       "name": "Jacob Titus",
       "dob": "2000-05-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tennessee, USA"
     },
     {
       "id": 168576,
       "name": "Jonathan Justice",
       "dob": "1997-09-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 170674,
       "name": "Christian Honer",
       "dob": "1995-05-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arizona, USA"
     },
     {
       "id": 172124,
@@ -3036,7 +3575,8 @@
       "name": "Ryan Wilcox",
       "dob": "1999-11-27",
       "height": 188,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Hawaii, USA"
     },
     {
       "id": 182391,
@@ -3050,7 +3590,8 @@
       "name": "Adam Hartmann",
       "dob": "2002-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida, USA"
     },
     {
       "id": 182393,
@@ -3058,11 +3599,15 @@
       "dob": "2002-07-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Michigan, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182395,
@@ -3070,11 +3615,15 @@
       "dob": "2003-08-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Colorado, USA",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182396,
@@ -3082,18 +3631,23 @@
       "dob": "2004-06-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Texas, USA",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182522,
       "name": "Matthew Gentry",
       "dob": "2001-03-22",
       "height": 200,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ohio, USA"
     },
     {
       "id": 182530,
@@ -3107,14 +3661,16 @@
       "name": "Ayden Keeter",
       "dob": "2004-07-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Virginia, USA"
     },
     {
       "id": 185317,
       "name": "Carson Barnes",
       "dob": "2003-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Delaware, USA"
     },
     {
       "id": 186891,
@@ -3129,39 +3685,47 @@
       "dob": "1997-11-14",
       "height": 192,
       "weight": 95,
+      "birthPlace": "Louisiana, USA",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 189128,
       "name": "Caleb Blanchette",
       "dob": "2006-02-08",
       "height": 196,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "California, USA"
     },
     {
       "id": 189153,
       "name": "Tread Rosenthal",
       "dob": "2006-07-03",
       "height": 208,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Texas, USA"
     },
     {
       "id": 192028,
       "name": "Zephyr Dew",
       "dob": "2005-03-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 192033,
       "name": "Jackson Herbert",
       "dob": "2005-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Virginia, USA"
     },
     {
       "id": 192695,
@@ -3169,11 +3733,15 @@
       "dob": "1999-06-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Hawaii, USA",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192696,
@@ -3181,18 +3749,23 @@
       "dob": "1999-02-20",
       "height": null,
       "weight": null,
+      "birthPlace": "New York, USA",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192697,
       "name": "Ryan Smith",
       "dob": "2001-09-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Colorado, USA"
     },
     {
       "id": 199437,
@@ -3200,11 +3773,15 @@
       "dob": "1997-04-16",
       "height": 193,
       "weight": 86,
+      "birthPlace": "Wisconsin, USA",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199776,
@@ -3218,49 +3795,56 @@
       "name": "Mark Bucknam",
       "dob": "1997-04-22",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rhode Island"
     },
     {
       "id": 200669,
       "name": "Ryan Rapini",
       "dob": "1992-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ohio, USA"
     },
     {
       "id": 200670,
       "name": "Samuel Massari",
       "dob": "1992-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ohio, USA"
     },
     {
       "id": 201043,
       "name": "Cash Adamsen",
       "dob": "2000-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 202126,
       "name": "Grant Lamoureux",
       "dob": "2007-05-27",
       "height": 208,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "North Carolina"
     },
     {
       "id": 203282,
       "name": "Bradord Harman",
       "dob": "2005-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 207375,
       "name": "Nathaniel Miller",
       "dob": "1997-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pennsylvania, USA"
     },
     {
       "id": 208790,
@@ -3268,25 +3852,31 @@
       "dob": "2004-05-02",
       "height": null,
       "weight": null,
+      "birthPlace": "California",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 208791,
       "name": "Kevin Coyle",
       "dob": "1995-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 208939,
       "name": "Nathaniel Pugh",
       "dob": "1993-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Louisiana"
     },
     {
       "id": 209197,
@@ -3294,39 +3884,47 @@
       "dob": "2000-04-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Florida",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 209587,
       "name": "Leigh Sinoto",
       "dob": "1988-01-16",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Hawaii"
     },
     {
       "id": 209600,
       "name": "Cody Price",
       "dob": "2004-08-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 210343,
       "name": "Malakai Tuakoi",
       "dob": "2008-05-21",
       "height": 191,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 210806,
       "name": "Alexander Biz",
       "dob": "1999-10-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 210845,
@@ -3334,235 +3932,271 @@
       "dob": "2000-04-20",
       "height": 180,
       "weight": 170,
+      "birthPlace": "California",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 210846,
       "name": "Ryan Ierna",
       "dob": "1997-11-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 213081,
       "name": "Blake Goodwin",
       "dob": "2006-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "South Carolina, USA"
     },
     {
       "id": 213083,
       "name": "Malachi Brewington",
       "dob": "2006-12-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Missouri, USA"
     },
     {
       "id": 215250,
       "name": "Lev Priima",
       "dob": "1990-07-25",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Russia"
     },
     {
       "id": 217245,
       "name": "Andrew Holman",
       "dob": "1997-05-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 217246,
       "name": "Cody Ellmyer",
       "dob": "2005-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 217247,
       "name": "Brett Greiner",
       "dob": "1991-08-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New York"
     },
     {
       "id": 217917,
       "name": "Dillon Cox",
       "dob": "1995-06-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arizona"
     },
     {
       "id": 217934,
       "name": "Daniel Leathers",
       "dob": "1999-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 218517,
       "name": "Ian Carlson",
       "dob": "2000-05-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Colorado, USA"
     },
     {
       "id": 219467,
       "name": "Skyler Kaufman",
       "dob": "1997-05-23",
       "height": 206,
-      "weight": 110
+      "weight": 110,
+      "birthPlace": "Needham, MA"
     },
     {
       "id": 219666,
       "name": "Leor Schiffer",
       "dob": "1998-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 219906,
       "name": "Titus Lance",
       "dob": "2007-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minnesota"
     },
     {
       "id": 220074,
       "name": "Michael Groselle",
       "dob": "1990-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Texas"
     },
     {
       "id": 220075,
       "name": "Christopher Shaffer",
       "dob": "1997-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 220288,
       "name": "Riley Owen",
       "dob": "1998-12-14",
       "height": 205,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minnesota"
     },
     {
       "id": 220329,
       "name": "Kiran Costa",
       "dob": "2001-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hawaii"
     },
     {
       "id": 222241,
       "name": "Dexter Campbell",
       "dob": "2003-02-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nevada"
     },
     {
       "id": 222411,
       "name": "Owen Karlenzig",
       "dob": "1997-02-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California, USA"
     },
     {
       "id": 225606,
       "name": "Matix Williams",
       "dob": "2008-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arizona"
     },
     {
       "id": 225768,
       "name": "Jacob La Bouliere",
       "dob": "2002-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Jersey"
     },
     {
       "id": 227005,
       "name": "Cash Essert",
       "dob": "2008-01-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 227006,
       "name": "Spencer Smith",
       "dob": "2008-12-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     },
     {
       "id": 232876,
       "name": "Evan Takamiya",
       "dob": "2004-01-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saitama"
     },
     {
       "id": 233242,
       "name": "Patrick Buckel",
       "dob": "2003-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 233243,
       "name": "Justin Mckellips",
       "dob": "1999-06-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 233244,
       "name": "Raymond Wilson",
       "dob": "1985-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 233545,
       "name": "Gavin Mortensen",
       "dob": "2009-11-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arizona"
     },
     {
       "id": 233546,
       "name": "Caden Phillips",
       "dob": "2010-02-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arizona"
     },
     {
       "id": 233549,
       "name": "Hunter Lourick",
       "dob": "2009-01-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 233550,
       "name": "Camden Berry",
       "dob": "2009-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Missouri"
     },
     {
       "id": 239274,
       "name": "Mitchell Keddie",
       "dob": "2002-08-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 242029,
@@ -3570,11 +4204,15 @@
       "dob": "2002-07-02",
       "height": null,
       "weight": null,
+      "birthPlace": "California",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     }
   ]
 }

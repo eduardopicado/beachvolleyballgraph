@@ -63,7 +63,8 @@
       "name": "Ruddy Salvatierra",
       "dob": "2001-09-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santa Cruz"
     },
     {
       "id": 181502,
@@ -77,7 +78,8 @@
       "name": "Mateo Diego Nuñez Nogales",
       "dob": "2002-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cochabamba"
     },
     {
       "id": 182759,

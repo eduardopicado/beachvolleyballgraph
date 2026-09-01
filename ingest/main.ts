@@ -40,6 +40,8 @@ import {
   aggregateMedals,
   aggregatePartnerships,
   aggregateTourPodiums,
+  timelineFiltersByPlayer,
+  olympicGamesByPlayer,
   awayPartnersByPlayer,
   finishedWithoutResults,
   isCancelled,
@@ -205,6 +207,7 @@ async function main() {
       'Birthdate',
       'Height',
       'Weight',
+      'BirthPlace',
     ],
     itemTag: 'Player',
   });
@@ -219,7 +222,7 @@ async function main() {
   });
   log('entries', `${teamRows.length} team entries`);
 
-  const { partnerships, appearances, results, rejects } = aggregatePartnerships(teamRows, tournaments, players);
+  const { partnerships, appearances, results, rejects, ownFederation } = aggregatePartnerships(teamRows, tournaments, players);
   log('aggregate', `${partnerships.size} partnerships across ${appearances.size} players`);
   log('rejected', JSON.stringify(rejects));
 
@@ -257,6 +260,12 @@ async function main() {
   // World Championships say who peaked, this says who kept turning up on
   // Sundays. Levels mixed on purpose -- see aggregateTourPodiums.
   const podiumsByPlayer = aggregateTourPodiums(teamRows, tournaments);
+  // Which narrowings the timeline can offer each player, published so the card
+  // can draw the controls before it fetches a single result — the results file
+  // only loads when somebody opens a season.
+  const timelineFilters = timelineFiltersByPlayer(results, tournaments);
+  // Appearances, not medals — see olympicGamesByPlayer.
+  const olympicGames = olympicGamesByPlayer(results, tournaments);
   log('podiums', `${podiumsByPlayer.size} players with a World Tour or Beach Pro Tour podium`);
 
   // A collapse in matched entries means the upstream shape changed. Better to
@@ -287,6 +296,7 @@ async function main() {
     partnerships,
     players,
     tournaments,
+    ownFederation,
     federationConflicts,
   );
   if (federationConflicts.length > 0) {
@@ -414,9 +424,15 @@ async function main() {
           dob: p.dob,
           height: p.height,
           weight: p.weight,
+          // Omitted rather than null for the 46% without one, like the medals
+          // below: the field is absent from most players and this keeps it out
+          // of their published row entirely.
+          ...(p.birthPlace ? { birthPlace: p.birthPlace } : {}),
           olympics: m && hasMedal(m.olympics) ? m.olympics : undefined,
           worldChamps: m && hasMedal(m['world-champs']) ? m['world-champs'] : undefined,
           tour: podium && hasMedal(podium) ? podium : undefined,
+          olympicGames: olympicGames.get(node.id),
+          filters: timelineFilters.get(node.id),
           away: awayPartners.get(node.id),
         };
       }),

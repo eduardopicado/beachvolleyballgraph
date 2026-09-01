@@ -7,7 +7,13 @@
       "name": "Natalia Alfaro",
       "dob": "1987-04-08",
       "height": 165,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Heredia",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 117514,
@@ -21,7 +27,13 @@
       "name": "Karen Cope Charles",
       "dob": "1985-11-06",
       "height": 173,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "San Jose, Costa Rica",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 132212,
@@ -35,7 +47,8 @@
       "name": "Yuliana Gonzalez Alfaro",
       "dob": "1995-06-07",
       "height": 172,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Alajuela"
     },
     {
       "id": 137511,
@@ -43,6 +56,7 @@
       "dob": "1993-11-03",
       "height": 170,
       "weight": 58,
+      "birthPlace": "Atenas",
       "away": [
         {
           "id": 139047,
@@ -57,12 +71,6 @@
               2012,
               1,
               241
-            ]
-          ],
-          "at": [
-            [
-              2012,
-              "CRC"
             ]
           ],
           "r": 17
@@ -158,7 +166,11 @@
       "name": "Angel Williams Paniagua",
       "dob": "2002-02-14",
       "height": 170,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "San José",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 158704,
@@ -179,28 +191,37 @@
       "name": "Ximena Núñez Muñoz",
       "dob": "2003-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 182690,
       "name": "Isabela Rodríguez Fernández",
       "dob": "2004-03-06",
       "height": 171,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "San José"
     },
     {
       "id": 182821,
       "name": "Kianny María Araya Quesada",
       "dob": "2002-10-31",
       "height": 173,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "San Carlos",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 183083,
       "name": "Sofía Vega Barrantes",
       "dob": "2006-01-05",
       "height": 173,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "San José"
     },
     {
       "id": 192032,
@@ -214,21 +235,24 @@
       "name": "Laura Valentina Molina Alvarado",
       "dob": "2006-10-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Heredia"
     },
     {
       "id": 233862,
       "name": "Ingrid Verónica Núñez Alvarado",
       "dob": "2010-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alajuela"
     },
     {
       "id": 233864,
       "name": "Keila Vanessa Moreno Alpizar",
       "dob": "2009-12-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alajuela"
     }
   ]
 }

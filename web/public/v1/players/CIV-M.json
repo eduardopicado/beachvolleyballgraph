@@ -28,21 +28,24 @@
       "name": "Kouame Aristide",
       "dob": "1994-07-16",
       "height": 170,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Bouaké (CIV)"
     },
     {
       "id": 212890,
       "name": "Sandwidi Madi Junior",
       "dob": "2008-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Abidjan"
     },
     {
       "id": 226524,
       "name": "Coulibaly Seko Eliel Kparatiogo",
       "dob": "2008-04-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Daloa"
     }
   ]
 }

@@ -8,11 +8,18 @@
       "dob": "1964-02-27",
       "height": 193,
       "weight": 83,
+      "birthPlace": "Poitiers",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100104,
@@ -20,11 +27,18 @@
       "dob": "1966-07-08",
       "height": 186,
       "weight": 76,
+      "birthPlace": "Auxerre",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100105,
@@ -53,19 +67,13 @@
           "fed": "FRA",
           "gender": "W",
           "t": 1,
-          "f": 1987,
-          "l": 1987,
+          "f": 1989,
+          "l": 1989,
           "s": [
             [
-              1987,
+              1989,
               1,
-              779
-            ]
-          ],
-          "at": [
-            [
-              1987,
-              "FRA"
+              48
             ]
           ],
           "r": 21
@@ -106,19 +114,13 @@
           "fed": "NOR",
           "gender": "M",
           "t": 1,
-          "f": 1987,
-          "l": 1987,
+          "f": 1990,
+          "l": 1990,
           "s": [
             [
-              1987,
+              1990,
               1,
-              1303
-            ]
-          ],
-          "at": [
-            [
-              1987,
-              "FRA"
+              207
             ]
           ],
           "r": 6
@@ -130,7 +132,8 @@
       "name": "Christophe Burlas",
       "dob": "1971-07-06",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Beziers"
     },
     {
       "id": 100737,
@@ -152,12 +155,6 @@
               1995,
               1,
               124
-            ]
-          ],
-          "at": [
-            [
-              1995,
-              "FRA"
             ]
           ],
           "r": 41
@@ -197,7 +194,13 @@
       "name": "Stephane \"Mac Can\" Canet",
       "dob": "1971-06-07",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Hyères",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100792,
@@ -205,11 +208,16 @@
       "dob": "1972-05-22",
       "height": 187,
       "weight": 82,
+      "birthPlace": "Marseille",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100794,
@@ -231,18 +239,26 @@
       "dob": "1972-08-28",
       "height": 190,
       "weight": 82,
+      "birthPlace": "Caen",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100797,
       "name": "Nikolas \"Kop\" Koeppen",
       "dob": "1971-11-24",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Colombes"
     },
     {
       "id": 100798,
@@ -256,7 +272,10 @@
       "name": "Eric Meucci",
       "dob": "1964-12-18",
       "height": 178,
-      "weight": 75
+      "weight": 75,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100800,
@@ -312,7 +331,11 @@
       "name": "Eric Guissart",
       "dob": "1968-07-10",
       "height": 189,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Liège (BEL)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101027,
@@ -389,7 +412,10 @@
       "name": "Jean-Marc Ollivier",
       "dob": "1968-06-09",
       "height": 192,
-      "weight": 86
+      "weight": 86,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101364,
@@ -403,7 +429,10 @@
       "name": "Aymeric Veyre",
       "dob": "1974-07-04",
       "height": 184,
-      "weight": 76
+      "weight": 76,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101462,
@@ -417,7 +446,11 @@
       "name": "Olivier Conte",
       "dob": "1977-04-21",
       "height": 190,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Marseille",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101464,
@@ -445,14 +478,19 @@
       "name": "Benoît \"Ben\" Uguet",
       "dob": "1977-07-29",
       "height": 184,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Speyer"
     },
     {
       "id": 101515,
       "name": "Frédéric \"Crevette\" Delaye",
       "dob": "1978-03-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malo les Bains",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101516,
@@ -487,7 +525,11 @@
       "name": "Florent \"Le Denti\" Rossi",
       "dob": "1975-10-21",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Marseille",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101936,
@@ -509,11 +551,16 @@
       "dob": "1980-07-21",
       "height": 194,
       "weight": 91,
+      "birthPlace": "Savigny-sur-Orge",
       "tour": {
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101961,
@@ -521,67 +568,92 @@
       "dob": "1975-12-04",
       "height": 190,
       "weight": 90,
+      "birthPlace": "Agen",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101962,
       "name": "Grégory Znatchkowsky",
       "dob": "1976-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gassin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102040,
       "name": "Sébastien Huchard",
       "dob": "1975-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Montpellier"
     },
     {
       "id": 102129,
       "name": "Marc Schalk",
       "dob": "1973-12-03",
       "height": 197,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Toulon"
     },
     {
       "id": 102346,
       "name": "Stéphane Besse",
       "dob": "1972-11-07",
       "height": 180,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Marseille"
     },
     {
       "id": 102347,
       "name": "Maxime Bouvat-Merlin",
       "dob": "1975-10-16",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Marseille"
     },
     {
       "id": 102348,
       "name": "Sébastien Baumgartner",
       "dob": "1980-01-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Suresnes",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102349,
       "name": "Nicolas Agnese",
       "dob": "1979-01-14",
       "height": 180,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Aix-en-Provence",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102350,
       "name": "Thomas Agnese",
       "dob": "1979-12-01",
       "height": 189,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Aix-en-Provence",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102471,
@@ -602,49 +674,60 @@
       "name": "Jean-François Vernet",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102766,
       "name": "Cédric Hollander",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103130,
       "name": "David Badrignans",
       "dob": "1976-07-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sete"
     },
     {
       "id": 103131,
       "name": "Laurent Musnier",
       "dob": "1975-09-25",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Hyeres"
     },
     {
       "id": 103132,
       "name": "Pascal Morin",
       "dob": "1974-01-16",
       "height": 183,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Lyon"
     },
     {
       "id": 103133,
       "name": "Jérémy Canaut",
       "dob": "1982-11-08",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Bon-le Duc"
     },
     {
       "id": 103134,
       "name": "Cédric Blanc",
       "dob": "1982-06-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bonneville"
     },
     {
       "id": 103509,
@@ -652,11 +735,16 @@
       "dob": "1976-10-15",
       "height": 197,
       "weight": 90,
+      "birthPlace": "Montpellier",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103542,
@@ -717,11 +805,16 @@
       "dob": "1980-08-04",
       "height": 197,
       "weight": 92,
+      "birthPlace": "Marseille",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103547,
@@ -733,7 +826,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103548,
@@ -754,42 +850,48 @@
       "name": "Fabrice Laroque",
       "dob": "1981-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "ST Denis"
     },
     {
       "id": 103831,
       "name": "Christophe Le Berre",
       "dob": "1975-05-06",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Antony"
     },
     {
       "id": 103907,
       "name": "Mathieu Labbe",
       "dob": "1982-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bret"
     },
     {
       "id": 104135,
       "name": "Pierre-Marie Monneraye",
       "dob": "1985-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vannes"
     },
     {
       "id": 104136,
       "name": "Johann Maillard",
       "dob": "1986-09-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nancy, France"
     },
     {
       "id": 104417,
       "name": "Grégoire Capitaine",
       "dob": "1984-03-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Paris"
     },
     {
       "id": 104418,
@@ -797,11 +899,15 @@
       "dob": "1983-08-14",
       "height": 187,
       "weight": 79,
+      "birthPlace": "Albertville",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104427,
@@ -815,14 +921,16 @@
       "name": "Alexandre Maison",
       "dob": "1984-04-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Créteil"
     },
     {
       "id": 104512,
       "name": "Quentin Marion",
       "dob": "1984-11-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St-Germain en Longe"
     },
     {
       "id": 104735,
@@ -837,11 +945,16 @@
       "dob": "1980-03-06",
       "height": 197,
       "weight": 92,
+      "birthPlace": "Montpellier",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104887,
@@ -856,11 +969,15 @@
       "dob": "1977-01-28",
       "height": 190,
       "weight": 82,
+      "birthPlace": "Sete",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104949,
@@ -914,7 +1031,11 @@
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 112119,
@@ -922,11 +1043,16 @@
       "dob": "1982-07-03",
       "height": 196,
       "weight": 91,
+      "birthPlace": "Savigny-sur-Orge",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 115571,
@@ -934,11 +1060,15 @@
       "dob": "1975-07-21",
       "height": 195,
       "weight": 90,
+      "birthPlace": "Narbonne",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 115621,
@@ -950,7 +1080,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 115660,
@@ -965,11 +1098,16 @@
       "dob": "1988-07-20",
       "height": 190,
       "weight": 89,
+      "birthPlace": "Luxembourg",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116473,
@@ -997,7 +1135,8 @@
       "name": "Vincent Lacombe",
       "dob": "1989-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cannes"
     },
     {
       "id": 116692,
@@ -1053,7 +1192,8 @@
       "name": "Jean-Baptiste Daguerre",
       "dob": "1987-06-08",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Avignon"
     },
     {
       "id": 119795,
@@ -1061,11 +1201,18 @@
       "dob": "1989-06-19",
       "height": 193,
       "weight": 96,
+      "birthPlace": "Agadir",
       "tour": {
         "gold": 3,
         "silver": 4,
         "bronze": 5
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119798,
@@ -1073,18 +1220,26 @@
       "dob": "1990-04-15",
       "height": 192,
       "weight": 88,
+      "birthPlace": "Montpellier",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 119804,
       "name": "Benjamin Toniutti",
       "dob": "1989-10-30",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Mulhouse"
     },
     {
       "id": 120408,
@@ -1112,7 +1267,8 @@
       "name": "Yacine Louati",
       "dob": "1992-03-04",
       "height": 198,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Tourcoing"
     },
     {
       "id": 120874,
@@ -1133,14 +1289,16 @@
       "name": "Soane Falafala",
       "dob": "1993-01-16",
       "height": 199,
-      "weight": 97
+      "weight": 97,
+      "birthPlace": "Lille"
     },
     {
       "id": 124776,
       "name": "Geoffrey Pauly",
       "dob": "1993-03-19",
       "height": 192,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "St Maurice"
     },
     {
       "id": 124777,
@@ -1154,21 +1312,24 @@
       "name": "Ludovic Duée",
       "dob": "1991-06-03",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Meudon"
     },
     {
       "id": 125457,
       "name": "Nicolas Lemaitre",
       "dob": "1976-08-28",
       "height": 198,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Valenciennes"
     },
     {
       "id": 125458,
       "name": "Pierre Basset",
       "dob": "1985-07-17",
       "height": 193,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Paris"
     },
     {
       "id": 132436,
@@ -1210,7 +1371,8 @@
       "name": "Alexis Gras",
       "dob": "1993-01-07",
       "height": 191,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Toulon"
     },
     {
       "id": 135623,
@@ -1231,7 +1393,8 @@
       "name": "Tanguy Lomba",
       "dob": "1995-01-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malmedy"
     },
     {
       "id": 137231,
@@ -1243,14 +1406,18 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137485,
       "name": "Jeremy Ullmann",
       "dob": "1986-07-07",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Mulhouse"
     },
     {
       "id": 142283,
@@ -1264,7 +1431,8 @@
       "name": "Maxime Thiercy",
       "dob": "1994-09-24",
       "height": 196,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Nancy"
     },
     {
       "id": 142491,
@@ -1272,18 +1440,23 @@
       "dob": "1996-05-12",
       "height": 193,
       "weight": 87,
+      "birthPlace": "Hyères",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142693,
       "name": "Nohoraii Paofai",
       "dob": "1995-11-12",
       "height": 200,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Papeete"
     },
     {
       "id": 143033,
@@ -1302,7 +1475,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146455,
@@ -1310,6 +1486,7 @@
       "dob": "1996-10-22",
       "height": 195,
       "weight": 100,
+      "birthPlace": "Saint Maurice",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1319,7 +1496,13 @@
         "gold": 2,
         "silver": 5,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 146849,
@@ -1327,11 +1510,15 @@
       "dob": "1999-04-15",
       "height": 186,
       "weight": 85,
+      "birthPlace": "Pau",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146850,
@@ -1345,7 +1532,8 @@
       "name": "Titouan Halle",
       "dob": "1998-02-22",
       "height": 197,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Rennes"
     },
     {
       "id": 153247,
@@ -1353,11 +1541,18 @@
       "dob": "1999-02-26",
       "height": 195,
       "weight": 90,
+      "birthPlace": "Villeneuve ST Georges",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 156700,
@@ -1365,11 +1560,15 @@
       "dob": "1993-09-11",
       "height": 195,
       "weight": 89,
+      "birthPlace": "Nice",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157923,
@@ -1377,25 +1576,31 @@
       "dob": "1995-02-27",
       "height": 203,
       "weight": 102,
+      "birthPlace": "Lens",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163309,
       "name": "Théo Faure",
       "dob": "1999-10-12",
       "height": 202,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Pessac"
     },
     {
       "id": 163650,
       "name": "Paul Nicole",
       "dob": "2000-01-28",
       "height": 194,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Dijon"
     },
     {
       "id": 163651,
@@ -1410,11 +1615,15 @@
       "dob": "1995-04-08",
       "height": 199,
       "weight": 87,
+      "birthPlace": "Thionville",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167828,
@@ -1428,21 +1637,24 @@
       "name": "Jérémie Paraue",
       "dob": "1994-09-02",
       "height": 187,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Papeete"
     },
     {
       "id": 171840,
       "name": "Hevanoa Moiho Steven Vaki",
       "dob": "1995-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 175139,
       "name": "Yannick Bole",
       "dob": "1985-03-16",
       "height": null,
-      "weight": 180
+      "weight": 180,
+      "birthPlace": "Nouméa"
     },
     {
       "id": 175140,
@@ -1457,11 +1669,15 @@
       "dob": "2004-12-01",
       "height": 192,
       "weight": 73,
+      "birthPlace": "Montpellier",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 175205,
@@ -1469,6 +1685,7 @@
       "dob": "2004-04-23",
       "height": 204,
       "weight": 94,
+      "birthPlace": "Martigues",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -1478,7 +1695,11 @@
         "gold": 2,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 177303,
@@ -1486,25 +1707,32 @@
       "dob": "2001-09-21",
       "height": 197,
       "weight": 87,
+      "birthPlace": "Dunkerque",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 179150,
       "name": "Alexandre Klein",
       "dob": "1999-01-12",
       "height": 187,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Rennes"
     },
     {
       "id": 179151,
       "name": "Liam Patte",
       "dob": "2002-12-07",
       "height": 195,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Arles"
     },
     {
       "id": 179152,
@@ -1512,11 +1740,15 @@
       "dob": "2002-01-29",
       "height": 189,
       "weight": 79,
+      "birthPlace": "Metz",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179477,
@@ -1528,7 +1760,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179478,
@@ -1536,11 +1771,15 @@
       "dob": "2002-05-01",
       "height": 200,
       "weight": 93,
+      "birthPlace": "Saint Pol sur Mer",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179487,
@@ -1573,7 +1812,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 184192,
@@ -1587,21 +1829,24 @@
       "name": "Kéran Duval",
       "dob": "2007-05-28",
       "height": 200,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "La Rochelle"
     },
     {
       "id": 199089,
       "name": "Enzo Tomietto",
       "dob": "2003-03-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Argenteuil"
     },
     {
       "id": 201248,
       "name": "Charly SAMIER",
       "dob": "2004-04-12",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Paris"
     },
     {
       "id": 202250,
@@ -1622,70 +1867,80 @@
       "name": "Christopher Ariitai",
       "dob": "1998-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete Mamao"
     },
     {
       "id": 209755,
       "name": "Rautini Cary",
       "dob": "1998-08-15",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Papeete Tahiti"
     },
     {
       "id": 210254,
       "name": "Teriihopuare Hoani",
       "dob": "2007-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 211003,
       "name": "Melvin Delanghe",
       "dob": "1999-03-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fort de France"
     },
     {
       "id": 223418,
       "name": "Jerome Brysse",
       "dob": "1998-10-29",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Dunkerque"
     },
     {
       "id": 223440,
       "name": "Adrien Bezu",
       "dob": "2009-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Calais"
     },
     {
       "id": 223446,
       "name": "Quentin Hypolyte",
       "dob": "2009-10-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saint-Paul"
     },
     {
       "id": 233164,
       "name": "Miky Foster",
       "dob": "2003-05-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 233165,
       "name": "Elvis Taero",
       "dob": "1998-05-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 240087,
       "name": "Matheo Rosan",
       "dob": "2006-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pau"
     }
   ]
 }

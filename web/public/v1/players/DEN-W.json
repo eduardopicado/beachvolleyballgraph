@@ -14,35 +14,49 @@
       "name": "Pernille Joergensen",
       "dob": "1971-05-05",
       "height": 170,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Copenhagen",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101739,
       "name": "Louise Sommer Holm",
       "dob": "1971-05-30",
       "height": 177,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Odense",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102996,
       "name": "Pia Hove",
       "dob": "1977-09-30",
       "height": 180,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Hvidovre"
     },
     {
       "id": 104339,
       "name": "Iben Elholm Andersen",
       "dob": "1983-07-21",
       "height": 167,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Mariager"
     },
     {
       "id": 104341,
       "name": "Stine Andreasen Lollesgaard",
       "dob": "1984-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Odense",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104737,
@@ -56,7 +70,8 @@
       "name": "Tine Rose Eriksen",
       "dob": "1977-06-22",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Copenhagen"
     },
     {
       "id": 104740,
@@ -77,28 +92,35 @@
       "name": "Lotte Vestergaard",
       "dob": "1980-12-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Århus, Denmark",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 119715,
       "name": "Charlotte Dyhr",
       "dob": "1982-12-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gladsaxe"
     },
     {
       "id": 121519,
       "name": "Lærke Mygind Grønfeldt",
       "dob": "1988-10-29",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Copenhagen"
     },
     {
       "id": 121570,
       "name": "Eva Mielskov Bang",
       "dob": "1990-12-20",
       "height": 179,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Copenhagen"
     },
     {
       "id": 124680,
@@ -120,11 +142,15 @@
       "dob": "1992-10-23",
       "height": 168,
       "weight": 60,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132631,
@@ -132,18 +158,23 @@
       "dob": "1989-09-08",
       "height": 179,
       "weight": 68,
+      "birthPlace": "Vejle",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 144475,
       "name": "Helle Søndergård",
       "dob": "1988-09-19",
       "height": 181,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Varde"
     },
     {
       "id": 144487,
@@ -155,21 +186,26 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 144514,
       "name": "Julie Guldager Jensen",
       "dob": "1992-07-14",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Ishøj"
     },
     {
       "id": 146878,
       "name": "Anneka Hastings",
       "dob": "1985-09-25",
       "height": 181,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Dunfermline"
     },
     {
       "id": 147199,
@@ -184,11 +220,15 @@
       "dob": "1994-01-24",
       "height": 175,
       "weight": 66,
+      "birthPlace": "Copenhagen",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156345,
@@ -209,7 +249,8 @@
       "name": "Frederikke Schade Jensen",
       "dob": "1997-07-29",
       "height": 177,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Copenhagen"
     },
     {
       "id": 156451,
@@ -224,11 +265,15 @@
       "dob": "2002-05-27",
       "height": 188,
       "weight": 74,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 158177,
@@ -236,11 +281,15 @@
       "dob": "2002-02-03",
       "height": 187,
       "weight": 68,
+      "birthPlace": "Odense",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164457,
@@ -248,39 +297,47 @@
       "dob": "2000-08-26",
       "height": 175,
       "weight": 75,
+      "birthPlace": "Odense, Denmark",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179473,
       "name": "Anna Juhl Staal Hauge",
       "dob": "2003-11-12",
       "height": 176,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Odense"
     },
     {
       "id": 179479,
       "name": "Frida Meincke Lyø",
       "dob": "2004-05-27",
       "height": 174,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Frederiksberg"
     },
     {
       "id": 181125,
       "name": "Charlene Manuella Mayo Johnsen",
       "dob": "2000-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cameroon"
     },
     {
       "id": 192226,
       "name": "Cirkeline Roed Høg",
       "dob": "2004-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sonderborg"
     }
   ]
 }

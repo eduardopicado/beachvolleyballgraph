@@ -154,6 +154,29 @@ export interface AwayPartner {
   r?: number;
 }
 
+/**
+ * A narrowing the timeline offers, when the player has anything to show for it.
+ *
+ * Deliberately not derived from the medal counts above. Those record what a
+ * player *won*; these record what they *entered*, and the two come apart hard:
+ * 412 of the 488 published Olympians (84.4%) never reached an Olympic podium,
+ * so a control driven by medals would be missing for five Olympians in six.
+ * `tour-podium` is the exception and does mean ranks 1-3, because that is the
+ * question worth asking of a tour career.
+ */
+export type TimelineFilter = 'olympics' | 'world-champs' | 'tour-podium';
+
+/**
+ * The two tiers that together are "the tour" — the World Tour up to 2021 and
+ * the Beach Pro Tour after it.
+ *
+ * Shared rather than defined twice: the ingest decides which podiums the Tour
+ * podiums tile counts, and the card decides which events the matching filter
+ * shows. Two copies of this would eventually disagree, and the disagreement
+ * would look like a data bug rather than a drifted constant.
+ */
+export const TOUR_TIERS: ReadonlySet<Tier> = new Set<Tier>(['world-tour', 'beach-pro-tour']);
+
 /** Lazy-loaded detail for every player in one country x gender slice. */
 export interface PlayerDetail {
   id: number;
@@ -165,11 +188,32 @@ export interface PlayerDetail {
   /** Kilograms, `null` when unknown. */
   weight: number | null;
   /**
+   * Where FIVB says they were born, as free text — "Curitiba, PR", "Berlin".
+   * Absent for the 46% of players VIS has no usable birth place for.
+   */
+  birthPlace?: string;
+  /**
+   * Which timeline narrowings have anything to show for this player, so the
+   * card can draw the controls before it has fetched a single result. The
+   * results file is only loaded when somebody opens a season, and a control
+   * that appeared after that click would be no control at all.
+   *
+   * Absent for the great majority who have none.
+   */
+  filters?: TimelineFilter[];
+  /**
    * Present only when the player won at least one medal at a real, senior
    * Olympic Games. Omitted (not zeroed) for the vast majority of players who
    * never medalled, to keep the common case free.
    */
   olympics?: MedalCounts;
+  /**
+   * Olympic Games competed at, medal or not — 488 published players have one,
+   * and only 76 of them medalled. Separate from `olympics` above because they
+   * answer different questions and the card shows both: the medals, and the
+   * Games that produced them.
+   */
+  olympicGames?: number;
   /** Present only when the player won at least one FIVB World Championships medal. */
   worldChamps?: MedalCounts;
   /**

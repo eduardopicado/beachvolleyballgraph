@@ -7,28 +7,32 @@
       "name": "Fernand Phezo",
       "dob": "1998-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kinshasa"
     },
     {
       "id": 175335,
       "name": "Luamba Perpetu Sala Sala",
       "dob": "2000-06-29",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kinshasa"
     },
     {
       "id": 212596,
       "name": "Mulapwa Sakeni Jonathan",
       "dob": "2009-03-07",
       "height": 188,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Lubumbashi"
     },
     {
       "id": 212597,
       "name": "Mutendi Nzazi",
       "dob": "2009-10-26",
       "height": 198,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Kinshasa"
     }
   ]
 }

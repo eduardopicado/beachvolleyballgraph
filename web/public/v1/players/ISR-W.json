@@ -14,35 +14,40 @@
       "name": "Keren Oigman",
       "dob": "1973-09-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tel Aviv"
     },
     {
       "id": 103047,
       "name": "Yamit Haba",
       "dob": "1980-02-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Haif"
     },
     {
       "id": 103048,
       "name": "Tali Raichbard",
       "dob": "1978-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 103049,
       "name": "Einav Muharer",
       "dob": "1979-08-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 103050,
       "name": "Victoria \"Vira\" Klimoshenko",
       "dob": "1979-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ukraine"
     },
     {
       "id": 103644,
@@ -56,14 +61,16 @@
       "name": "Inessa Birman-Vysotski",
       "dob": "1978-08-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Russia"
     },
     {
       "id": 104671,
       "name": "Gisela Rodriguez",
       "dob": "1985-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Isr"
     },
     {
       "id": 118063,
@@ -133,14 +140,16 @@
       "name": "Viktoria Katzen (nesterov)",
       "dob": "1993-01-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Russian Federation"
     },
     {
       "id": 144007,
       "name": "Katrina Zilberman",
       "dob": "1997-07-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 144008,
@@ -155,11 +164,15 @@
       "dob": "1994-06-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Israel",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146195,
@@ -171,14 +184,18 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147106,
       "name": "Michal Barannik",
       "dob": "1998-11-06",
       "height": 172,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Israel"
     },
     {
       "id": 147372,
@@ -199,7 +216,8 @@
       "name": "Shahar Rosner",
       "dob": "1999-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 156508,
@@ -262,35 +280,40 @@
       "name": "Shira Tal",
       "dob": "2005-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 181349,
       "name": "Daniela Gonzalez",
       "dob": "2008-12-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 182769,
       "name": "Ronni Rivka Lavie",
       "dob": "2006-07-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 182952,
       "name": "Victoria Gonzalez",
       "dob": "1979-10-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 210909,
       "name": "Shiray Danenberg",
       "dob": "2006-10-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 210910,

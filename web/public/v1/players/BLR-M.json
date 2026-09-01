@@ -7,7 +7,8 @@
       "name": "Aliaksandr Kavalenka",
       "dob": "1978-10-12",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Legnica, Poland"
     },
     {
       "id": 101766,
@@ -35,7 +36,8 @@
       "name": "Andrei Zavaichynski",
       "dob": "1976-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minsk"
     },
     {
       "id": 102175,
@@ -56,7 +58,8 @@
       "name": "Vyacheslav Pokhilko",
       "dob": "1976-07-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minsk"
     },
     {
       "id": 103520,
@@ -70,49 +73,56 @@
       "name": "Vasili Kurdziuk",
       "dob": "1982-03-23",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Minsk"
     },
     {
       "id": 103906,
       "name": "Andrei Zharykau",
       "dob": "1982-04-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Grodno"
     },
     {
       "id": 103984,
       "name": "Ihar Bury",
       "dob": "1972-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Belarus"
     },
     {
       "id": 103985,
       "name": "Siarhei Vasileuski",
       "dob": "1981-02-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Republic of Belarus"
     },
     {
       "id": 104315,
       "name": "Dzianis Shustau",
       "dob": "1984-01-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Minsk"
     },
     {
       "id": 104316,
       "name": "Dzmitry Kot",
       "dob": "1975-03-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Grodno"
     },
     {
       "id": 104816,
       "name": "Alexandr Smirnov",
       "dob": "1977-11-07",
       "height": 183,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Russia Chitinskaia reg t Yletu"
     },
     {
       "id": 104817,
@@ -126,21 +136,24 @@
       "name": "Dzmitry Likharad",
       "dob": "1977-05-09",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Minsk"
     },
     {
       "id": 114570,
       "name": "Viktar Beksha",
       "dob": "1974-04-29",
       "height": 201,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Grodno"
     },
     {
       "id": 114571,
       "name": "Aleh Akhrem",
       "dob": "1983-03-12",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Grodno"
     },
     {
       "id": 116392,
@@ -155,11 +168,15 @@
       "dob": "1990-02-20",
       "height": 190,
       "weight": 88,
+      "birthPlace": "Bobruisk, Belarus",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 118973,
@@ -173,7 +190,8 @@
       "name": "Oleg Mikanovich",
       "dob": "1975-10-07",
       "height": 192,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Minsk"
     },
     {
       "id": 132101,
@@ -187,21 +205,24 @@
       "name": "Yauheni Yesaulenka",
       "dob": "1992-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bobruisk"
     },
     {
       "id": 132192,
       "name": "Anton Dedkov",
       "dob": "1994-01-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bobruisk"
     },
     {
       "id": 139024,
       "name": "Anton Sinhayeuski",
       "dob": "1994-08-12",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Minsk"
     },
     {
       "id": 143539,
@@ -215,7 +236,8 @@
       "name": "Uladzislau Drapchynski",
       "dob": "1996-03-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Grodno"
     },
     {
       "id": 146865,
@@ -230,11 +252,15 @@
       "dob": "1993-09-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Minsk",
       "tour": {
         "gold": 3,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     }
   ]
 }

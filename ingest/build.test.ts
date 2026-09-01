@@ -13,8 +13,13 @@ import {
   pairKey,
   awayPartnersByPlayer,
   sliceByCountryAndGender,
+  seasonFor,
+  seasonRange,
   startOffsetFor,
   tidyName,
+  tidyBirthPlace,
+  timelineFiltersByPlayer,
+  olympicGamesByPlayer,
 } from './build.js';
 import type { VisRow } from './vis.js';
 
@@ -124,6 +129,31 @@ describe('normaliseTournaments', () => {
     expect(normaliseTournaments(rows).size).toBe(4);
   });
 
+  it('renames a championship after its host, whatever FIVB called it', () => {
+    // The wiring, not the maps: olympics.test.ts and worlds.test.ts already
+    // check what each map holds, and both would still pass if the build never
+    // consulted one of them. Names are the real ones from VIS.
+    const rows = [
+      { ...tournament('1', 2012), Type: '5', Name: 'Olympic Games 2012' },
+      { ...tournament('2', 2025), Type: '4', Name: 'FIVB Beach Volleyball World Championships' },
+    ];
+    const kept = normaliseTournaments(rows);
+    expect(kept.get('1')!.name).toBe('London 2012');
+    expect(kept.get('2')!.name).toBe('Adelaide');
+  });
+
+  it('leaves every other tier named as FIVB named it', () => {
+    // A tour stop in an Olympic season must not pick up the Games' name, and
+    // a championship season the maps have not been told about keeps FIVB's.
+    const rows = [
+      { ...tournament('1', 2012), Name: 'Gstaad' }, // Beach Pro Tour, London year
+      { ...tournament('2', 2029), Type: '4', Name: 'FIVB Beach Volleyball World Championships' },
+    ];
+    const kept = normaliseTournaments(rows);
+    expect(kept.get('1')!.name).toBe('Gstaad');
+    expect(kept.get('2')!.name).toBe('FIVB Beach Volleyball World Championships');
+  });
+
   it('drops snow volleyball, seminars and multi-sport games', () => {
     const rows = ['36', '35', '44', '50'].map((t, i) => ({
       ...tournament(String(100 + i), 2024),
@@ -180,6 +210,121 @@ describe('tidyName', () => {
   });
 });
 
+describe('tidyBirthPlace', () => {
+  it('keeps a birth place as VIS wrote it', () => {
+    // Four conventions, none of them fixable, all of them shown verbatim:
+    // nothing separates a city from a province, and nothing says which country
+    // a bare "Berlin" is in.
+    expect(tidyBirthPlace('Curitiba, PR')).toBe('Curitiba, PR');
+    expect(tidyBirthPlace('Berlin')).toBe('Berlin');
+    expect(tidyBirthPlace('Juiz de Fora (BRA)')).toBe('Juiz de Fora (BRA)');
+    expect(tidyBirthPlace('Resende-Rio de Janeiro')).toBe('Resende-Rio de Janeiro');
+  });
+
+  it('keeps a district or department number, which is a real answer', () => {
+    // The reason the rules are narrow rather than "reject anything with a
+    // digit": these are 6 of the 16 published records containing one, and all
+    // of them say where somebody was born.
+    expect(tidyBirthPlace('Paris 14e')).toBe('Paris 14e');
+    expect(tidyBirthPlace('Praha 4')).toBe('Praha 4');
+    expect(tidyBirthPlace('Sèvres (92)')).toBe('Sèvres (92)');
+    expect(tidyBirthPlace('St Brieul (12)')).toBe('St Brieul (12)');
+    expect(tidyBirthPlace('Auckland N2')).toBe('Auckland N2');
+    expect(tidyBirthPlace('Steyr 1007')).toBe('Steyr 1007');
+  });
+
+  it('drops a date typed into the birth place field', () => {
+    // All four published cases, each punctuated differently.
+    expect(tidyBirthPlace('21.08.77')).toBeNull();
+    expect(tidyBirthPlace('03/09/1988')).toBeNull();
+    expect(tidyBirthPlace('06-05-1991')).toBeNull();
+    expect(tidyBirthPlace('17/01/1992')).toBeNull();
+  });
+
+  it('drops a date only when the whole value is one', () => {
+    // No published record tells the anchored rule from an unanchored one today
+    // — both drop the same four. The anchor is a guard against a value that
+    // mixes a real place with a date, which is exactly the shape this field
+    // keeps producing, so it is pinned here rather than left to be loosened by
+    // someone who checks only that the four still go.
+    expect(tidyBirthPlace('Sao Paulo 12/05/1990')).toBe('Sao Paulo 12/05/1990');
+    expect(tidyBirthPlace('12/05/1990')).toBeNull();
+  });
+
+  it('drops a bare postcode', () => {
+    expect(tidyBirthPlace('30019')).toBeNull();
+    expect(tidyBirthPlace('98278')).toBeNull();
+  });
+
+  it('drops an internal note that should never have left the database', () => {
+    expect(tidyBirthPlace('to be Merged with (#164181) as')).toBeNull();
+  });
+
+  it('normalises capitals and strips the quotes FIVB stored', () => {
+    // 444 published birth places shout; "9 de JULIO" is a real Argentine town
+    // wearing quotation marks.
+    expect(tidyBirthPlace('BUENOS AIRES')).toBe('Buenos Aires');
+    expect(tidyBirthPlace('"9 de JULIO"')).toBe('9 de Julio');
+    expect(tidyBirthPlace('  Roma  ')).toBe('Roma');
+  });
+
+  it('normalises a value that has no capitals either', () => {
+    // The mirror of the shout rule, and the same failure: a free-text box
+    // filled in with caps lock in the other state. 102 published places have no
+    // capital anywhere.
+    expect(tidyBirthPlace('rio de janeiro')).toBe('Rio de Janeiro');
+    expect(tidyBirthPlace('buenos aires')).toBe('Buenos Aires');
+    expect(tidyBirthPlace('salvador')).toBe('Salvador');
+    expect(tidyBirthPlace('st-gallen')).toBe('St-Gallen');
+  });
+
+  it('keeps a particle lower case, but only between two words', () => {
+    // "el" is a particle in the middle and the start of a name at the front;
+    // a trailing token is far likelier to be a region than a preposition. So
+    // first and last are always capitalised, which is also what makes the rule
+    // safe on a one-word value.
+    expect(tidyBirthPlace('santiago de cuba')).toBe('Santiago de Cuba');
+    expect(tidyBirthPlace('yacoub el mansour')).toBe('Yacoub el Mansour');
+    expect(tidyBirthPlace('pione di sacco')).toBe('Pione di Sacco');
+    expect(tidyBirthPlace('el jadida')).toBe('El Jadida');
+    expect(tidyBirthPlace('de')).toBe('De');
+  });
+
+  it('leaves a value that already carries mixed capitals', () => {
+    // Mixed case is a choice somebody made; only a uniformly-cased value has
+    // lost the information. Touching these would mean deciding that
+    // "St-jean-sur-richelieu" is wrong and "St-Gallen" is right, which is a
+    // different and much less certain rule.
+    expect(tidyBirthPlace('St-Gallen')).toBe('St-Gallen');
+    expect(tidyBirthPlace('Adelaide, SA')).toBe('Adelaide, SA');
+    expect(tidyBirthPlace('Arendal, norway')).toBe('Arendal, norway');
+  });
+
+  it('capitalises after a bracket or a comma, not only after a hyphen', () => {
+    // FIVB stores these as single space-free tokens, so de-shouting them used
+    // to lower-case everything past the punctuation: "Poltana (urss)" and
+    // "Aktau,kazakhstan" were published that way, which reads as a different
+    // mistake from the one being fixed.
+    expect(tidyBirthPlace('Poltana (URSS)')).toBe('Poltana (Urss)');
+    expect(tidyBirthPlace('AKTAU,KAZAKHSTAN')).toBe('Aktau,Kazakhstan');
+    expect(tidyBirthPlace('camaguan (edo) guarico')).toBe('Camaguan (Edo) Guarico');
+  });
+
+  it('still protects a short code in either direction', () => {
+    // The length gate only has to hold where a code can exist, which is the
+    // upper-case direction — a value with no capitals cannot be hiding one.
+    expect(tidyBirthPlace('Curitiba, PR')).toBe('Curitiba, PR');
+    expect(tidyBirthPlace('Juiz de Fora (BRA)')).toBe('Juiz de Fora (BRA)');
+    expect(tidyBirthPlace('TN')).toBe('TN');
+  });
+
+  it('is null for the 46% who have nothing', () => {
+    expect(tidyBirthPlace('')).toBeNull();
+    expect(tidyBirthPlace(undefined)).toBeNull();
+    expect(tidyBirthPlace('   ')).toBeNull();
+  });
+});
+
 describe('normalisePlayers', () => {
   it('converts VIS units and rejects impossible values', () => {
     const map = normalisePlayers([
@@ -207,6 +352,31 @@ describe('normalisePlayers', () => {
     // SMA/FIV don't resolve to a real, confidently-identifiable country.
     const map = normalisePlayers([player(11, '0', 'SMA'), player(12, '1', 'FIV')]);
     expect(map.size).toBe(0);
+  });
+
+  it('strips a competition status out of the name and the short label', () => {
+    // Hovland's record exactly: appended to `LastName` behind a double space,
+    // and standing alone as the whole of `TeamName`. Both fields have to be
+    // handled — stripping only the surname leaves the graph label reading
+    // "Suspended", which is the defect readers actually saw.
+    const map = normalisePlayers([
+      {
+        ...player(13, '0', 'USA'),
+        FirstName: 'Tim "The Hov"',
+        LastName: 'Hovland  SUSPENDED',
+        TeamName: 'Suspended',
+      },
+    ]);
+    expect(map.get(13)).toMatchObject({ name: 'Tim "The Hov" Hovland', short: 'Hovland' });
+  });
+
+  it('leaves a populated team name alone', () => {
+    // Frohoff's record: the surname carries the status, `TeamName` does not.
+    // The strip must not cost him the label VIS got right.
+    const map = normalisePlayers([
+      { ...player(14, '0', 'USA'), FirstName: 'Brent', LastName: 'Frohoff  SUSPENDED', TeamName: 'Frohoff' },
+    ]);
+    expect(map.get(14)).toMatchObject({ name: 'Brent Frohoff', short: 'Frohoff' });
   });
 });
 
@@ -479,6 +649,65 @@ describe('orderResults', () => {
   });
 });
 
+describe('seasonRange', () => {
+  it('reads a two-digit end, which is the only form VIS uses', () => {
+    // All 70 ranged rows look like these six.
+    expect(seasonRange('1987-91')).toEqual({ from: 1987, to: 1991 });
+    expect(seasonRange('1995-96')).toEqual({ from: 1995, to: 1996 });
+  });
+
+  it('rolls the century forward rather than reading an empty span', () => {
+    // No row looks like this today. Without the roll it would parse as
+    // 1999-1900, which is empty, and every date would fall outside it.
+    expect(seasonRange('1999-00')).toEqual({ from: 1999, to: 2000 });
+  });
+
+  it('is null for a plain year, which is 9,200 rows of 9,270', () => {
+    expect(seasonRange('2024')).toBeNull();
+    expect(seasonRange('')).toBeNull();
+    expect(seasonRange(undefined)).toBeNull();
+  });
+});
+
+describe('seasonFor', () => {
+  const row = (season: string, start?: string): VisRow => ({
+    No: '1',
+    Season: season,
+    ...(start ? { StartDateMainDraw: start } : {}),
+  });
+
+  it('dates a ranged season by when the event was actually played', () => {
+    // The four annual Rio events all sat in VIS season "1987-91" and all
+    // published as 1987. Their codes — MRIO1988 to MRIO1991 — said otherwise,
+    // and so did their dates.
+    expect(seasonFor(row('1987-91', '1988-02-20'))).toBe(1988);
+    expect(seasonFor(row('1987-91', '1991-02-12'))).toBe(1991);
+    expect(seasonFor(row('1995-96', '1996-01-01'))).toBe(1996);
+  });
+
+  it('leaves a single-year season alone even when the date disagrees', () => {
+    // The asymmetry is the point. A southern season opens in the previous
+    // December, so this row is filed exactly right and `startOffset` goes
+    // negative to say so. Only a range has lost information.
+    expect(seasonFor(row('2020', '2019-12-06'))).toBe(2020);
+    expect(seasonFor(row('2024', '2024-05-02'))).toBe(2024);
+  });
+
+  it('keeps the range start when the date falls outside the range', () => {
+    // A date outside the span it is meant to disambiguate is not a better
+    // answer than the span. No published row is like this; the bound is here
+    // so a future bad date cannot move an event decades.
+    expect(seasonFor(row('1987-91', '2015-06-01'))).toBe(1987);
+    expect(seasonFor(row('1987-91', '1980-06-01'))).toBe(1987);
+    expect(seasonFor(row('1987-91'))).toBe(1987);
+  });
+
+  it('is null when there is no usable season at all', () => {
+    expect(seasonFor(row(''))).toBeNull();
+    expect(seasonFor(row('not-a-year'))).toBeNull();
+  });
+});
+
 describe('startOffsetFor', () => {
   it('counts days from 1 January of the season', () => {
     expect(startOffsetFor('2024-01-01', 2024)).toBe(0);
@@ -569,12 +798,12 @@ describe('a partnership\u2019s best finish, end to end', () => {
 
   it('reaches an away partner as `r` too, so the two lists agree', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
-    const { partnerships } = aggregatePartnerships(
+    const { partnerships, ownFederation } = aggregatePartnerships(
       [placed('t1', 1, 2, 9), placed('t2', 1, 2, 2)],
       tournaments,
       people,
     );
-    const away = awayPartnersByPlayer(partnerships, people, tournaments);
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
     expect(away.get(1)![0]!.r).toBe(2);
     expect(away.get(2)![0]!.r).toBe(2);
   });
@@ -612,8 +841,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('records a partnership split across federations on both players', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2), entry('t2', 1, 2)], tournaments, people);
-    const away = awayPartnersByPlayer(partnerships, people, tournaments);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2), entry('t2', 1, 2)], tournaments, people);
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
 
     expect(away.get(1)).toEqual([
       {
@@ -638,8 +867,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('ignores a partnership the graph already shows', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'BRA')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).size).toBe(0);
   });
 
   it('treats a different gender under the same federation as away too', () => {
@@ -647,8 +876,8 @@ describe('awayPartnersByPlayer', () => {
     // Carrying the partner's gender is what lets the card link to the right
     // slice rather than guessing.
     const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '1', 'BRA')]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).get(1)).toMatchObject([{ id: 2, gender: 'W' }]);
   });
 
   it('orders a player\'s away partners by tournaments together, then name', () => {
@@ -657,12 +886,12 @@ describe('awayPartnersByPlayer', () => {
       player(2, '0', 'ARG'),
       player(3, '0', 'ARG'),
     ]);
-    const { partnerships } = aggregatePartnerships(
+    const { partnerships, ownFederation } = aggregatePartnerships(
       [entry('t1', 1, 2), entry('t1', 1, 3), entry('t2', 1, 3)],
       tournaments,
       people,
     );
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).get(1)!.map((a) => [a.id, a.t])).toEqual([
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).get(1)!.map((a) => [a.id, a.t])).toEqual([
       [3, 2],
       [2, 1],
     ]);
@@ -670,8 +899,8 @@ describe('awayPartnersByPlayer', () => {
 
   it('skips players with no federation on file', () => {
     const people = normalisePlayers([player(1, '0', 'BRA'), { ...player(2, '0', 'ARG'), FederationCode: '' }]);
-    const { partnerships } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
-    expect(awayPartnersByPlayer(partnerships, people, tournaments).size).toBe(0);
+    const { partnerships, ownFederation } = aggregatePartnerships([entry('t1', 1, 2)], tournaments, people);
+    expect(awayPartnersByPlayer(partnerships, people, tournaments, ownFederation).size).toBe(0);
   });
 });
 
@@ -1355,5 +1584,446 @@ describe('the published player names', () => {
     // are names like "Katharina HETZENDORFER" and "MUKUNZI Christ Ornel".
     const marked = names.filter((n) => words(n).some(shouts) && words(n).some((w) => !shouts(w)));
     expect(marked.length).toBeGreaterThan(20);
+  });
+});
+
+/**
+ * A competition status is not a name — asserted on the artifact, not a fixture.
+ *
+ * `SUSPENDED` reaches us in two fields at once, and the one that did the damage
+ * was `TeamName`: five of the six affected players were labelled "Suspended" on
+ * the USA-M graph, which is the label the node draws and the card headlines.
+ * A fixture proves the strip works; only the artifact proves it is reached on
+ * both fields, and the short label is not in `search.json` unless it differs
+ * from the full name — so this reads the graphs.
+ */
+describe('the published names carry no competition status', () => {
+  const dir = new URL('../web/public/v1/graphs', import.meta.url);
+  const labels: string[] = [];
+  for (const f of readdirSync(dir)) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/graphs/${f}`, import.meta.url), 'utf8'));
+    for (const node of file.nodes as { name: string; short: string }[]) {
+      labels.push(node.name, node.short);
+    }
+  }
+
+  it('covers every published node, name and short label alike', () => {
+    // Vacuity guard: the assertion below passes trivially on an empty list.
+    expect(labels.length).toBeGreaterThan(20_000);
+  });
+
+  it('never says a player is suspended', () => {
+    // Six before this: Tanner, Hovland, Young, Frohoff, Martin and Unger.
+    expect(labels.filter((n) => /(?<!\p{L})suspended(?!\p{L})/iu.test(n))).toEqual([]);
+  });
+
+  it('kept the players themselves', () => {
+    // Guard the guard: deleting the six records would also pass the assertion
+    // above. Hovland's six tournaments and Frohoff's two are still published.
+    expect(labels).toContain('Tim "The Hov" Hovland');
+    expect(labels).toContain('Hovland');
+    expect(labels).toContain('Brent Frohoff');
+  });
+});
+
+/**
+ * A federation claim survives only where the partner's own record backs it.
+ *
+ * `spansFor` reads the code stamped on the team row, and on a mixed-nationality
+ * pair that code belongs to player 1 alone (quirks §6c) — so without this the
+ * card told readers that Gisi Gavio's Italian partners represented Brazil.
+ */
+describe('corroborating a partnership\u2019s federation', () => {
+  const tournaments = normaliseTournaments([tournament('t1', 2002), tournament('t2', 2003)]);
+
+  /** A team row with an explicit federation and an explicit player order. */
+  const stamped = (tour: string, first: number, second: number, fed: string): VisRow => ({
+    NoTournament: tour,
+    NoPlayer1: String(first),
+    NoPlayer2: String(second),
+    FederationCode: fed,
+    Rank: '5',
+  });
+
+  it('keeps a span the partner\u2019s own record agrees with', () => {
+    // Both Brazilian, both listed first somewhere: nothing in dispute.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 1, 'BRA')],
+      tournaments,
+      people,
+    );
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
+    // Player 2 was listed first on t2 under BRA, so BRA is corroborated for them.
+    expect(away.get(1)![0]!.at).toBeTruthy();
+  });
+
+  it('drops a span the partner was never in', () => {
+    // The Gisi shape: player 1 is Brazilian and listed first every time, so
+    // every row is stamped BRA — while player 2 is Italian on their own rows.
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ITA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    const row = away.get(1)?.find((a) => a.id === 2);
+    expect(row, 'the partnership should still be listed').toBeTruthy();
+    // ...but it must not say the Italian represented Brazil.
+    expect(row!.at).toBeUndefined();
+  });
+
+  /**
+   * Written first as "answers differently in each direction, which is the
+   * point", asserting that the Italian's card could still say the Brazilian
+   * was Brazilian. That was wrong, and wrong in the way this whole area keeps
+   * being wrong.
+   *
+   * Player 1's code is the *only* evidence of player 1's federation, so a
+   * player who is always listed first and never partners a compatriot has no
+   * independent record at all — every row saying BRA says it because they were
+   * player 1 on it. Gisi Gavio is exactly that: fifteen rows, listed first on
+   * all fifteen, never once partnered a Brazilian. An asymmetric rule reads
+   * that as corroboration and is measuring its own input.
+   */
+  it('stays silent in both directions when only one side is established', () => {
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ITA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t2', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toBeUndefined();
+    expect(away.get(2)?.find((a) => a.id === 1)?.at).toBeUndefined();
+  });
+
+  it('keeps a span both players are independently in', () => {
+    // Two Brazilians who each have their own BRA row, one of whom later moves.
+    // This is the Solberg/Tiago shape, and it must survive: it is the case the
+    // field exists for.
+    const roster = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'QAT'), player(3, '0', 'BRA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA'), stamped('t1', 2, 3, 'BRA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toEqual([[2002, 'BRA']]);
+  });
+
+  it('says nothing rather than guessing when the partner was never listed first', () => {
+    // 31.5% of players never appear as player 1, so their federation cannot be
+    // read from any row. Silence is the honest answer, not the team code.
+    const people = normalisePlayers([player(1, '0', 'BRA'), player(2, '0', 'ARG')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t1', 1, 2, 'BRA')],
+      tournaments,
+      people,
+    );
+    const away = awayPartnersByPlayer(partnerships, people, tournaments, ownFederation);
+    expect(away.get(1)![0]!.at).toBeUndefined();
+  });
+
+  it('accepts a neighbouring season, since nobody transfers for one event', () => {
+    // Both established as Italian — one in 2003 directly, the other in 2002 —
+    // so the 2003 span stands on the nearby record rather than needing an
+    // exact-season row from each.
+    const roster = normalisePlayers([player(1, '0', 'ITA'), player(2, '0', 'BRA'), player(3, '0', 'ITA')]);
+    const { partnerships, ownFederation } = aggregatePartnerships(
+      [stamped('t2', 1, 2, 'ITA'), stamped('t1', 2, 3, 'ITA')],
+      tournaments,
+      roster,
+    );
+    const away = awayPartnersByPlayer(partnerships, roster, tournaments, ownFederation);
+    expect(away.get(1)?.find((a) => a.id === 2)?.at).toEqual([[2003, 'ITA']]);
+  });
+});
+
+/**
+ * What actually got published, rather than what the rule does on a fixture.
+ *
+ * `tidyBirthPlace` is unit-tested above, but nothing there proves it is
+ * *reached*: the value travels through `normalisePlayers` and the publish step
+ * before it reaches a card, and a field that stopped being cleaned on the way
+ * would still publish perfectly plausible-looking places.
+ */
+describe('the published birth places', () => {
+  const dir = new URL('../web/public/v1/players', import.meta.url);
+  const places: string[] = [];
+  let players = 0;
+  for (const f of readdirSync(dir)) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/players/${f}`, import.meta.url), 'utf8'));
+    for (const p of file.players as { birthPlace?: string }[]) {
+      players++;
+      if (p.birthPlace !== undefined) places.push(p.birthPlace);
+    }
+  }
+
+  it('covers about half the archive', () => {
+    // Vacuity guard and a floor. 6,489 of 12,074 at the time of writing; a drop
+    // past 40% is the field breaking, not the archive changing.
+    expect(players).toBeGreaterThan(10_000);
+    expect(places.length / players).toBeGreaterThan(0.4);
+  });
+
+  it('never publishes an empty string', () => {
+    // The absent case must be an absent key, not a blank line under the date.
+    expect(places.filter((p) => !p.trim())).toEqual([]);
+  });
+
+  it('publishes no bare date and no bare postcode', () => {
+    expect(places.filter((p) => /^\d{1,4}[./-]\d{1,2}[./-]\d{1,4}$/.test(p))).toEqual([]);
+    expect(places.filter((p) => !/\p{L}/u.test(p))).toEqual([]);
+  });
+
+  it('publishes no internal note', () => {
+    expect(places.filter((p) => /\bto be merged\b|#\d{3,}/i.test(p))).toEqual([]);
+  });
+
+  it('publishes nothing that shouts a whole word', () => {
+    // 444 did before this. Short upper-case tokens are codes and stay — the
+    // "PR" in "Curitiba, PR" is not shouting.
+    const shouting = places.filter((p) =>
+      p.split(' ').some((w) => {
+        const letters = w.replace(/[^\p{L}]/gu, '');
+        return letters.length >= 4 && w === w.toUpperCase() && w !== w.toLowerCase();
+      }),
+    );
+    expect(shouting).toEqual([]);
+  });
+
+  it('publishes nothing entirely in lower case', () => {
+    // 102 did before this: "rio de janeiro", "salvador". The mirror of the
+    // assertion above, and the reason the rule runs in both directions.
+    expect(places.filter((p) => p === p.toLowerCase() && /\p{Ll}/u.test(p))).toEqual([]);
+  });
+
+  it('still keeps the province and country codes', () => {
+    // The guard on the guard: a rule that simply title-cased everything would
+    // pass every assertion above and quietly turn "PR" into "Pr".
+    expect(places.filter((p) => /\b[A-Z]{2,3}\b/.test(p)).length).toBeGreaterThan(20);
+  });
+});
+
+/**
+ * The published artifact, not the rule on a fixture.
+ *
+ * `seasonFor` is unit-tested above, but nothing there proves a ranged `Season`
+ * ever reaches it — and while one did not, the damage was invisible in the
+ * season itself and showed up two fields away, in an offset that is supposed to
+ * be a few dozen days.
+ */
+describe('the published seasons', () => {
+  const file = JSON.parse(readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'));
+  const rows = Object.values(file.tournaments) as [string, number, string, number | null, string][];
+
+  it('keeps every start offset inside a single year', () => {
+    // The whole symptom. 18 rows ran past 400 days and MSYD1991 reached 1,533,
+    // because it was filed under the 1987 its "1987-91" season bucket starts
+    // in. A season is a year, so an offset from its 1 January cannot be two.
+    const wild = rows.filter(([, , , offset]) => offset !== null && Math.abs(offset) > 400);
+    expect(wild).toEqual([]);
+  });
+
+  it('agrees with the year in FIVB\u2019s own code, bar the six that disagree', () => {
+    // Not an equality: three codes are genuinely wrong (WCAR1991 was played in
+    // 1994, the two Cape Town rows in 2020), the two Tokyo rows are named for
+    // 2020 and were played in 2021, and MSAN1995 is a January event whose code
+    // names the season it opened. Everything else lines up, which is what a
+    // ranged season used to break on 25 rows.
+    const off = rows.filter(([, season, , , code]) => {
+      const year = /(\d{4})$/.exec(code ?? '');
+      return year && Number(year[1]) !== season;
+    });
+    expect(off.length).toBeLessThanOrEqual(6);
+  });
+
+  it('has more than one season in the years a range used to swallow', () => {
+    // Guards the guard. Taking the range start put five annual Rio editions in
+    // 1987; if that came back, 1988 to 1991 would empty out again.
+    for (const season of [1988, 1989, 1990, 1991]) {
+      expect(rows.filter((r) => r[1] === season).length).toBeGreaterThan(0);
+    }
+  });
+});
+
+describe('timelineFiltersByPlayer', () => {
+  // Numeric ids, because a published result entry carries the tournament
+  // number as a number and the lookup stringifies it — 't1' would never match.
+  const tours = normaliseTournaments([
+    { ...tournament('1', 2004), Type: '5' }, // Olympics
+    { ...tournament('2', 2003), Type: '4' }, // World Championships
+    { ...tournament('3', 2005), Type: '52' }, // Beach Pro Tour Elite16
+    { ...tournament('4', 2006), Type: '1' }, // World Tour
+  ]);
+
+  const filtersFor = (entries: [number, number, number][]) =>
+    timelineFiltersByPlayer(new Map([[1, entries]]), tours).get(1);
+
+  it('offers the Games to anyone who was there, medal or not', () => {
+    // The point of the whole field: 412 of the 488 published Olympians never
+    // reached a podium, and a control driven by medals would be missing for
+    // all of them.
+    expect(filtersFor([[1, 2, 19]])).toEqual(['olympics']);
+  });
+
+  it('offers Worlds on the same terms', () => {
+    expect(filtersFor([[2, 2, 25]])).toEqual(['world-champs']);
+  });
+
+  it('offers tour podiums only for a podium', () => {
+    expect(filtersFor([[4, 2, 3]])).toEqual(['tour-podium']);
+    expect(filtersFor([[4, 2, 4]])).toBeUndefined();
+  });
+
+  it('counts a Beach Pro Tour podium, not just a World Tour one', () => {
+    // The tour is two tiers and has been the Beach Pro Tour since 2022. Using
+    // 'world-tour' alone would drop every podium from then on.
+    expect(filtersFor([[3, 2, 1]])).toEqual(['tour-podium']);
+  });
+
+  it('does not turn an Olympic or World placing into a tour podium', () => {
+    // An Olympic gold is rank 1, but it is not a week on tour — the Tour
+    // podiums tile does not count it, and neither may the chip beside it.
+    expect(filtersFor([[1, 2, 1]])).toEqual(['olympics']);
+    expect(filtersFor([[2, 2, 1]])).toEqual(['world-champs']);
+  });
+
+  it('lists them in a fixed order, whatever order the events arrive in', () => {
+    expect(filtersFor([[4, 2, 1], [2, 2, 9], [1, 2, 5]])).toEqual([
+      'olympics',
+      'world-champs',
+      'tour-podium',
+    ]);
+  });
+
+  it('says nothing at all for the great majority', () => {
+    expect(filtersFor([[4, 2, 17]])).toBeUndefined();
+    expect(timelineFiltersByPlayer(new Map(), tours).size).toBe(0);
+  });
+});
+
+describe('olympicGamesByPlayer', () => {
+  const tours = normaliseTournaments([
+    { ...tournament('1', 2004), Type: '5' }, // Olympics
+    { ...tournament('2', 2008), Type: '5' }, // Olympics
+    { ...tournament('3', 2003), Type: '4' }, // World Championships
+    { ...tournament('4', 2006), Type: '1' }, // World Tour
+  ]);
+  const gamesFor = (entries: [number, number, number][]) =>
+    olympicGamesByPlayer(new Map([[1, entries]]), tours).get(1);
+
+  it('counts a Games whatever the finish', () => {
+    // The whole point: 412 of the 488 published Olympians never medalled, and
+    // the tile was invisible for every one of them.
+    expect(gamesFor([[1, 2, 19]])).toBe(1);
+    expect(gamesFor([[1, 2, 1]])).toBe(1);
+  });
+
+  it('counts each Games once, not each row', () => {
+    // A player has one entry per Games in practice, but a row records a pair
+    // and nothing upstream forbids a second entry — counting rows would turn
+    // that into a second Games.
+    expect(gamesFor([[1, 2, 9], [1, 3, 9]])).toBe(1);
+    expect(gamesFor([[1, 2, 9], [2, 3, 5]])).toBe(2);
+  });
+
+  it('counts nothing but the Olympics', () => {
+    expect(gamesFor([[3, 2, 1], [4, 2, 1]])).toBeUndefined();
+    expect(gamesFor([[1, 2, 9], [3, 2, 1], [4, 2, 2]])).toBe(1);
+  });
+
+  it('says nothing for the 96% who never went', () => {
+    expect(gamesFor([[4, 2, 5]])).toBeUndefined();
+    expect(olympicGamesByPlayer(new Map(), tours).size).toBe(0);
+  });
+});
+
+/**
+ * The published artifact, not the rule on a fixture.
+ *
+ * A medal without an appearance would be incoherent — you cannot medal at a
+ * Games you did not attend — so it is worth asserting on the real data rather
+ * than trusting that two derivations of the same archive agree.
+ */
+describe('the published Olympic appearances', () => {
+  const players: { olympics?: unknown; olympicGames?: number }[] = [];
+  for (const f of readdirSync(new URL('../web/public/v1/players', import.meta.url))) {
+    const file = JSON.parse(readFileSync(new URL(`../web/public/v1/players/${f}`, import.meta.url), 'utf8'));
+    players.push(...file.players);
+  }
+
+  it('reaches far more players than the medal tally does', () => {
+    const games = players.filter((p) => p.olympicGames !== undefined);
+    const medals = players.filter((p) => p.olympics !== undefined);
+    expect(games.length).toBeGreaterThan(300);
+    expect(games.length).toBeGreaterThan(medals.length * 3);
+  });
+
+  it('never records a medal without a Games to have won it at', () => {
+    expect(players.filter((p) => p.olympics !== undefined && p.olympicGames === undefined)).toEqual([]);
+  });
+
+  it('is always a positive whole number', () => {
+    const bad = players.filter(
+      (p) => p.olympicGames !== undefined && (!Number.isInteger(p.olympicGames) || p.olympicGames < 1),
+    );
+    expect(bad).toEqual([]);
+  });
+
+  it('never claims more Games than have been held', () => {
+    // Eight editions in the archive; nobody can have attended more.
+    expect(players.filter((p) => (p.olympicGames ?? 0) > 8)).toEqual([]);
+  });
+});
+
+/**
+ * What actually got published, rather than what the maps hold.
+ *
+ * `olympics.ts` and `worlds.ts` are unit-tested, and `normaliseTournaments`
+ * is tested for consulting them, but neither proves the names *survive* to
+ * `tournaments.json` — the value travels through the publish step, and a name
+ * that stopped being substituted on the way would publish "FIVB Beach
+ * Volleyball World Championships" against every 2025 and 2027 row without
+ * anything looking obviously wrong.
+ */
+describe('the published championship names', () => {
+  const file = JSON.parse(readFileSync(new URL('../web/public/v1/tournaments.json', import.meta.url), 'utf8'));
+  const rows = Object.values(file.tournaments) as [string, number, string][];
+  const named = (tier: string) => rows.filter((r) => r[2] === tier).map((r) => r[0]);
+  const worlds = named('world-champs');
+  const olympics = named('olympics');
+
+  it('publishes both draws of every edition', () => {
+    // Vacuity guard, and the premise of keying by season: a men's draw and a
+    // women's, and nothing else, in each season either map covers.
+    expect(worlds.length).toBe(32);
+    expect(olympics.length).toBe(16);
+  });
+
+  it('names each edition after its host and nothing else', () => {
+    // The whole point. Every one of these substrings is in a name FIVB
+    // actually published, and none should reach a card.
+    const noise = /world championship|WCH|FIVB|Olympic|beach volleyball|\d/i;
+    expect(worlds.filter((n) => noise.test(n))).toEqual([]);
+  });
+
+  it('gives the men and the women the same name', () => {
+    // FIVB does not: the 2023 draws differ by a comma, "Tlaxcala Mexico"
+    // against "Tlaxcala, Mexico". Two spellings of one edition would read as
+    // two events on a timeline.
+    //
+    // Grouped by season rather than counted, because a host can and does
+    // recur — Rome held 2011 and 2022, the Netherlands 2015 and 2027 — so it
+    // is the season that must have one name, not the archive.
+    const bySeason = new Map<string, Set<string>>();
+    for (const [name, season, tier] of rows) {
+      if (tier !== 'world-champs' && tier !== 'olympics') continue;
+      const key = `${tier} ${season}`;
+      (bySeason.get(key) ?? bySeason.set(key, new Set()).get(key)!).add(name);
+    }
+    expect([...bySeason].filter(([, names]) => names.size > 1)).toEqual([]);
   });
 });

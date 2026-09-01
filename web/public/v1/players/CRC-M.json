@@ -7,14 +7,20 @@
       "name": "Alexander Villegas Gonzalez",
       "dob": "1974-02-27",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100682,
       "name": "Zlatko Crespo Piskulich",
       "dob": "1973-12-22",
       "height": 190,
-      "weight": 95
+      "weight": 95,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 117431,
@@ -80,12 +86,6 @@
               241
             ]
           ],
-          "at": [
-            [
-              2012,
-              "CRC"
-            ]
-          ],
           "r": 17
         }
       ]
@@ -102,7 +102,8 @@
       "name": "Sebastian Valenciano",
       "dob": "1996-04-09",
       "height": 187,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "San Jose"
     },
     {
       "id": 142979,
@@ -151,7 +152,8 @@
       "name": "Daniel Dyner Villa",
       "dob": "2000-08-17",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "San Jose"
     },
     {
       "id": 183085,
@@ -165,21 +167,24 @@
       "name": "Julián Araya Alas",
       "dob": "2006-09-08",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Heredia"
     },
     {
       "id": 189424,
       "name": "Stanley Grant Brown",
       "dob": "2007-08-19",
       "height": 199,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Limón"
     },
     {
       "id": 202969,
       "name": "Victorio Esteban González Flores",
       "dob": "2005-06-29",
       "height": 183,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "San José"
     },
     {
       "id": 220940,

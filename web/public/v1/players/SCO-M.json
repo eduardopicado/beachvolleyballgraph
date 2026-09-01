@@ -190,21 +190,24 @@
       "name": "Seain Cook",
       "dob": "1991-11-19",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Dundee"
     },
     {
       "id": 139716,
       "name": "James McHardy",
       "dob": "1992-04-21",
       "height": 193,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Edinburgh"
     },
     {
       "id": 146880,
       "name": "Barry McGuigan",
       "dob": "1979-02-14",
       "height": 188,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Bellshill"
     },
     {
       "id": 151775,
@@ -218,7 +221,8 @@
       "name": "Connor Boyle",
       "dob": "1993-07-30",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Dunfermline, Scotland"
     },
     {
       "id": 156674,
@@ -232,14 +236,16 @@
       "name": "Callum Stewart",
       "dob": "1990-08-15",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Glasgow"
     },
     {
       "id": 176411,
       "name": "Euan Mackenzie Fraser",
       "dob": "2001-08-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aberdeen"
     },
     {
       "id": 181582,

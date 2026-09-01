@@ -24,12 +24,6 @@
               354
             ]
           ],
-          "at": [
-            [
-              1995,
-              "RSA"
-            ]
-          ],
           "r": 37
         }
       ]
@@ -74,7 +68,8 @@
       "name": "Tin Hlupic",
       "dob": "1994-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 146117,
@@ -95,35 +90,40 @@
       "name": "Daniel Pfeifer",
       "dob": "1998-08-10",
       "height": 179,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 157095,
       "name": "Fabian Pfeifer",
       "dob": "1998-08-10",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 188209,
       "name": "Luca Kesselmann",
       "dob": "2006-01-30",
       "height": 182,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 188238,
       "name": "Max Krafft",
       "dob": "2006-04-28",
       "height": 189,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Windhoek"
     },
     {
       "id": 200273,
       "name": "Jura Krafft",
       "dob": "2008-09-16",
       "height": 192,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Windhoek"
     }
   ]
 }

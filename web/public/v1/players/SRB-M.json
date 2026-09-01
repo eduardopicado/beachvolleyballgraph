@@ -21,14 +21,16 @@
       "name": "Ivan \"Gagi\" Bugarcic",
       "dob": "1976-05-14",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Beograd"
     },
     {
       "id": 101813,
       "name": "Ivan \"Ica\" Vladisavljevic",
       "dob": "1972-02-11",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Beograd"
     },
     {
       "id": 102198,
@@ -49,7 +51,8 @@
       "name": "Slobodan Kovac",
       "dob": "1967-09-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Veliko Gradiste"
     },
     {
       "id": 104645,
@@ -91,7 +94,8 @@
       "name": "Nenad Tatic",
       "dob": "1983-04-04",
       "height": 190,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 104697,
@@ -112,7 +116,8 @@
       "name": "Zoran Jovanovic",
       "dob": "1984-05-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tuzla"
     },
     {
       "id": 104700,
@@ -175,7 +180,8 @@
       "name": "Jovan Sajnberger",
       "dob": "1986-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 124261,
@@ -183,18 +189,23 @@
       "dob": "1990-03-28",
       "height": 199,
       "weight": 97,
+      "birthPlace": "Novi Sad",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 124414,
       "name": "Marko Nikolic",
       "dob": "1990-06-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Beograd"
     },
     {
       "id": 132456,
@@ -208,21 +219,24 @@
       "name": "Marko Galesev",
       "dob": "1982-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 134816,
       "name": "Jovan Markovic",
       "dob": "1975-11-02",
       "height": 195,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Smederevo"
     },
     {
       "id": 135451,
       "name": "Nemanja Komar",
       "dob": "1985-12-14",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 139351,
@@ -230,11 +244,15 @@
       "dob": "1995-06-16",
       "height": 192,
       "weight": 90,
+      "birthPlace": "Novi Sad",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139352,
@@ -242,18 +260,23 @@
       "dob": "1994-10-12",
       "height": 193,
       "weight": 91,
+      "birthPlace": "Novi Sad",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139367,
       "name": "Dusan Bogunovic",
       "dob": "1994-08-30",
       "height": 199,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 140110,
@@ -267,7 +290,8 @@
       "name": "Ivan Lozic",
       "dob": "1995-01-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Novi Sad"
     },
     {
       "id": 144726,
@@ -281,7 +305,8 @@
       "name": "Aleksandar Gavrilov",
       "dob": "1988-05-16",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Pancevo"
     },
     {
       "id": 157845,
@@ -289,32 +314,39 @@
       "dob": "1992-10-17",
       "height": 195,
       "weight": 90,
+      "birthPlace": "Pancevo",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 165941,
       "name": "Marko Plavsic",
       "dob": "1990-09-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sarajevo"
     },
     {
       "id": 170024,
       "name": "Vukasin Rajkovic",
       "dob": "1995-02-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nis"
     },
     {
       "id": 171669,
       "name": "Velimir Braculj",
       "dob": "1982-11-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sombor"
     },
     {
       "id": 173634,
@@ -322,18 +354,23 @@
       "dob": "2001-09-09",
       "height": 194,
       "weight": 85,
+      "birthPlace": "Novi Sad",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173768,
       "name": "Vlastimir Lukic",
       "dob": "1999-08-23",
       "height": 195,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Senta"
     }
   ]
 }

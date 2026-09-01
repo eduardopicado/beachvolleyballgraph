@@ -7,7 +7,11 @@
       "name": "Muchammad \"Mufid\" Nurmufid",
       "dob": "1969-06-07",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100042,
@@ -21,14 +25,21 @@
       "name": "Markoji \"Koji\" Markoji",
       "dob": "1973-04-10",
       "height": 182,
-      "weight": 75
+      "weight": 75,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 101191,
       "name": "Anjas Asmara",
       "dob": "1972-09-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101192,
@@ -49,14 +60,21 @@
       "name": "Agus Salim",
       "dob": "1973-08-16",
       "height": 187,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Mataram",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101196,
       "name": "Irilkhum \"Iril\" Sofana",
       "dob": "1974-12-14",
       "height": 179,
-      "weight": 67
+      "weight": 67,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101197,
@@ -84,14 +102,18 @@
       "name": "Iwan Sumoyo",
       "dob": "1972-06-26",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101636,
       "name": "Supriadi Supriadi",
       "dob": "1975-07-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pasurvan"
     },
     {
       "id": 101637,
@@ -147,28 +169,32 @@
       "name": "Andi Ardiansyam",
       "dob": "1978-12-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Surabaya"
     },
     {
       "id": 118535,
       "name": "Andy Ardiyansah",
       "dob": "1978-09-25",
       "height": 185,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Surabaya"
     },
     {
       "id": 118536,
       "name": "Koko Prasetyo Darkuncoro",
       "dob": "1981-10-02",
       "height": 185,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Yogyakarta"
     },
     {
       "id": 119682,
       "name": "Suratna Suratna",
       "dob": "1984-10-11",
       "height": 181,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Yogyakarta"
     },
     {
       "id": 125616,
@@ -183,18 +209,24 @@
       "dob": "1992-12-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Yogyakarta",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142853,
       "name": "Rendy Licardo",
       "dob": "1996-11-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Malang"
     },
     {
       "id": 142854,
@@ -202,11 +234,16 @@
       "dob": "1996-05-19",
       "height": null,
       "weight": null,
+      "birthPlace": "Sidoarjo",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 154704,
@@ -220,7 +257,8 @@
       "name": "Danangsyah Pribadi",
       "dob": "1995-05-12",
       "height": 185,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Dompu"
     },
     {
       "id": 161378,
@@ -242,11 +280,15 @@
       "dob": "2001-03-05",
       "height": 185,
       "weight": 85,
+      "birthPlace": "Mojokerto",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167131,
@@ -275,11 +317,15 @@
       "dob": "2003-04-06",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Mataram",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     }
   ]
 }

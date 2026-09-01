@@ -14,7 +14,8 @@
       "name": "Idris Bedzeti",
       "dob": "1977-12-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tetovo"
     },
     {
       "id": 103595,
@@ -35,7 +36,8 @@
       "name": "Habil Ajeti",
       "dob": "1980-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tetovo"
     }
   ]
 }

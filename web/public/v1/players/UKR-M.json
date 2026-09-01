@@ -42,14 +42,16 @@
       "name": "Anatoly Yanushchyk",
       "dob": "1963-08-06",
       "height": 183,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kharkiv"
     },
     {
       "id": 101978,
       "name": "Arkadiy Fedorov",
       "dob": "1974-08-03",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Simferopol"
     },
     {
       "id": 101979,
@@ -63,63 +65,72 @@
       "name": "Sergey Shchekoldin Anatolevich",
       "dob": "1974-11-16",
       "height": 192,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Vorehovo"
     },
     {
       "id": 101981,
       "name": "Andrey Sofronov",
       "dob": "1965-05-08",
       "height": 194,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Simferopol"
     },
     {
       "id": 101983,
       "name": "Igor Olefir",
       "dob": "1961-08-23",
       "height": 206,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Mykolayiv"
     },
     {
       "id": 101984,
       "name": "Yuriy Pavlov",
       "dob": "1966-07-10",
       "height": 196,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Nickolaev"
     },
     {
       "id": 102171,
       "name": "Roman Klimenkov Vladimirovich",
       "dob": "1978-09-17",
       "height": 183,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Shevichenko"
     },
     {
       "id": 102293,
       "name": "Andriy Bukin",
       "dob": "1975-10-21",
       "height": 186,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Zaporozhye"
     },
     {
       "id": 102294,
       "name": "Yuriy Simonenko",
       "dob": "1960-07-23",
       "height": 193,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Zaporozhye"
     },
     {
       "id": 102399,
       "name": "Oleksiy Ababilov",
       "dob": "1976-10-14",
       "height": 194,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Nikolaev"
     },
     {
       "id": 102400,
       "name": "Sergii Lotoha",
       "dob": "1976-03-24",
       "height": 189,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Chernovzy"
     },
     {
       "id": 102401,
@@ -127,60 +138,71 @@
       "dob": "1975-02-02",
       "height": 189,
       "weight": 88,
+      "birthPlace": "Dnepropetrovsk",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 102730,
       "name": "Oleg \"Evoenyovieh\" Rak",
       "dob": "1978-05-28",
       "height": 183,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Simferopol"
     },
     {
       "id": 102731,
       "name": "Oleg Bilynskyy",
       "dob": "1973-05-05",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Odessa"
     },
     {
       "id": 102732,
       "name": "Danylo Konstantinov",
       "dob": "1971-12-07",
       "height": 198,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Vinnitsa"
     },
     {
       "id": 102733,
       "name": "Oleksandr \"Klim\" Klymenko",
       "dob": "1972-04-18",
       "height": 193,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Kyiv"
     },
     {
       "id": 102734,
       "name": "Oleksandr \"Odessa\" Yefimov",
       "dob": "1977-06-16",
       "height": 184,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Tashkent"
     },
     {
       "id": 102735,
       "name": "Oleksandr Panin",
       "dob": "1973-04-30",
       "height": 183,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Kiev"
     },
     {
       "id": 102783,
       "name": "Yevgeniy Moroz",
       "dob": "1978-05-19",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Chernigivska Reg"
     },
     {
       "id": 102995,
@@ -188,11 +210,16 @@
       "dob": "1980-10-16",
       "height": 198,
       "weight": 88,
+      "birthPlace": "Mykolaiv",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103530,
@@ -200,11 +227,15 @@
       "dob": "1980-06-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Kiev",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103531,
@@ -212,11 +243,15 @@
       "dob": "1982-01-30",
       "height": 194,
       "weight": 88,
+      "birthPlace": "Zaporizzya",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103532,
@@ -224,25 +259,31 @@
       "dob": "1982-05-27",
       "height": 186,
       "weight": 86,
+      "birthPlace": "Zaporizzya",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103533,
       "name": "Andriy Volik",
       "dob": "1973-10-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kharkiv"
     },
     {
       "id": 103534,
       "name": "Yuriy Yermakov",
       "dob": "1981-05-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sokal, Lviv Region"
     },
     {
       "id": 103535,
@@ -285,11 +326,15 @@
       "dob": "1980-05-18",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Sumy",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103541,
@@ -297,46 +342,55 @@
       "dob": "1980-10-23",
       "height": 196,
       "weight": 82,
+      "birthPlace": "Sumy",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103987,
       "name": "Roman Lopa",
       "dob": "1981-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zhovty Vody"
     },
     {
       "id": 103988,
       "name": "Andriy Chayka",
       "dob": "1980-07-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krementchuk"
     },
     {
       "id": 104344,
       "name": "Gennadiy Kryshen",
       "dob": "1983-05-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dnipropetrovsk"
     },
     {
       "id": 104347,
       "name": "Kostyantyn Medyanyk",
       "dob": "1983-09-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dnipropetrovsk"
     },
     {
       "id": 104795,
       "name": "Sergiy Mykhayldv",
       "dob": "1984-12-19",
       "height": 192,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Zaporizzya"
     },
     {
       "id": 104796,
@@ -358,6 +412,7 @@
       "dob": "1987-04-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Rivne, Ukraine",
       "away": [
         {
           "id": 120577,
@@ -389,7 +444,8 @@
       "name": "Andrii Kutsmus",
       "dob": "1986-12-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rivne, Ukraine"
     },
     {
       "id": 104800,
@@ -397,6 +453,9 @@
       "dob": "1986-06-26",
       "height": 192,
       "weight": 88,
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 120577,
@@ -449,42 +508,48 @@
       "name": "Volodymyr Borysenko",
       "dob": "1988-02-06",
       "height": 187,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Chernigiv"
     },
     {
       "id": 116455,
       "name": "Pavlo Ostapenko",
       "dob": "1989-11-25",
       "height": 191,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Chernigiv"
     },
     {
       "id": 116456,
       "name": "Oleksandr Beloblodsky",
       "dob": "1975-03-19",
       "height": 186,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Zaporizhya"
     },
     {
       "id": 116457,
       "name": "Oleksandr Poltorazky",
       "dob": "1986-10-20",
       "height": 186,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Feodosiya"
     },
     {
       "id": 116458,
       "name": "Oleksiy Rudenko",
       "dob": "1984-02-16",
       "height": 185,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Kyiv"
     },
     {
       "id": 116459,
       "name": "Mykhaylo Zelenko",
       "dob": "1971-02-07",
       "height": 183,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kyiv"
     },
     {
       "id": 116596,
@@ -505,21 +570,27 @@
       "name": "Bohdan Sereda",
       "dob": "1983-03-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Khmelnytsk region"
     },
     {
       "id": 117885,
       "name": "Oleksandr Dergunov",
       "dob": "1984-04-07",
       "height": 201,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Donetsk region"
     },
     {
       "id": 117886,
       "name": "Sergiy Mykhaylov",
       "dob": "1984-12-19",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Zaporizhya",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 119075,
@@ -547,7 +618,8 @@
       "name": "Mykhailo Pronin",
       "dob": "1989-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sumy"
     },
     {
       "id": 120578,
@@ -560,6 +632,10 @@
         "silver": 3,
         "bronze": 1
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 120577,
@@ -672,11 +748,15 @@
       "dob": "1992-12-21",
       "height": 205,
       "weight": 85,
+      "birthPlace": "UKR",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 2
       },
+      "filters": [
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 120577,
@@ -708,7 +788,8 @@
       "name": "Vladyslav Didenko",
       "dob": "1992-09-29",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Lviv region"
     },
     {
       "id": 132659,
@@ -729,7 +810,8 @@
       "name": "Andriy Levchenko",
       "dob": "1985-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kharkiv"
     },
     {
       "id": 134837,
@@ -743,7 +825,8 @@
       "name": "Ruslan Baranov",
       "dob": "1990-10-01",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kiev"
     },
     {
       "id": 135530,
@@ -758,18 +841,24 @@
       "dob": "1989-06-14",
       "height": 207,
       "weight": 115,
+      "birthPlace": "Odessa/ UKR",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 142220,
       "name": "Illa Kovalov",
       "dob": "1996-08-31",
       "height": 190,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Rivne"
     },
     {
       "id": 143285,
@@ -784,11 +873,15 @@
       "dob": "1996-10-15",
       "height": 190,
       "weight": 87,
+      "birthPlace": "UKR",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143287,
@@ -809,21 +902,24 @@
       "name": "Mykola Khomyn",
       "dob": "1995-03-08",
       "height": 197,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Zakarpattya region"
     },
     {
       "id": 143996,
       "name": "Oleh Plotnytskyi",
       "dob": "1997-06-05",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "UKR"
     },
     {
       "id": 148447,
       "name": "Tymofii Poluian",
       "dob": "1998-01-10",
       "height": 198,
-      "weight": 101
+      "weight": 101,
+      "birthPlace": "Kharkov"
     },
     {
       "id": 148548,
@@ -831,18 +927,23 @@
       "dob": "1992-03-02",
       "height": 196,
       "weight": 104,
+      "birthPlace": "Sverdlovsk",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 148853,
       "name": "Vladyslav Pavliuk",
       "dob": "2000-03-29",
       "height": 193,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Rivne"
     },
     {
       "id": 149370,
@@ -856,7 +957,8 @@
       "name": "Dmytro Viietskyi",
       "dob": "1998-02-19",
       "height": 201,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Vinnytsia region"
     },
     {
       "id": 157052,
@@ -877,7 +979,8 @@
       "name": "Vladyslav Khrystov",
       "dob": "1995-08-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Odessa region"
     },
     {
       "id": 162955,
@@ -906,11 +1009,15 @@
       "dob": "1996-06-02",
       "height": 190,
       "weight": 86,
+      "birthPlace": "Kyiv",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 171672,
@@ -929,21 +1036,26 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179524,
       "name": "Kyrylo Tereshchenko",
       "dob": "2004-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pervomaiskii"
     },
     {
       "id": 179527,
       "name": "Yevhenii Boiko",
       "dob": "2005-02-28",
       "height": 185,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Nova Kahovka"
     },
     {
       "id": 181126,
@@ -955,7 +1067,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182775,
@@ -963,11 +1078,15 @@
       "dob": "2004-02-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Kyiv",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 187007,
@@ -975,25 +1094,31 @@
       "dob": "1998-07-26",
       "height": 197,
       "weight": 95,
+      "birthPlace": "Kyiv",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 188626,
       "name": "Dmytro Hladyr",
       "dob": "2003-01-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Zaporizhya"
     },
     {
       "id": 192246,
       "name": "Yaroslav Tymchenko",
       "dob": "2004-03-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chernihiv"
     },
     {
       "id": 192781,
@@ -1001,11 +1126,15 @@
       "dob": "2006-06-30",
       "height": 196,
       "weight": 93,
+      "birthPlace": "Donetsk",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 200610,
@@ -1017,7 +1146,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203692,
@@ -1038,21 +1170,24 @@
       "name": "Sviatoslav Nahornyi",
       "dob": "2006-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Rivne"
     },
     {
       "id": 217817,
       "name": "Andrii Merkulov",
       "dob": "2010-07-02",
       "height": 192,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Kirovogradska"
     },
     {
       "id": 239929,
       "name": "Oleksandr Khomenko",
       "dob": "2009-02-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kirovohradska region"
     }
   ]
 }

@@ -8,11 +8,18 @@
       "dob": "1973-01-06",
       "height": 182,
       "weight": 72,
+      "birthPlace": "Athens",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101830,
@@ -20,18 +27,26 @@
       "dob": "1971-01-08",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Piraeus",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102708,
       "name": "Slavroula \"Roula\" Theodorou",
       "dob": "1981-10-17",
       "height": 177,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Athens"
     },
     {
       "id": 102709,
@@ -39,18 +54,26 @@
       "dob": "1982-10-07",
       "height": 179,
       "weight": 67,
+      "birthPlace": "Volos",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103051,
       "name": "Polyxeni Kitsou",
       "dob": "1972-03-31",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Athens"
     },
     {
       "id": 103052,
@@ -64,14 +87,16 @@
       "name": "Anastasia-Maria Chounta",
       "dob": "1978-01-13",
       "height": 176,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Athens"
     },
     {
       "id": 103081,
       "name": "Emmanouela Skoula",
       "dob": "1973-04-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 103082,
@@ -93,18 +118,26 @@
       "dob": "1980-10-21",
       "height": 180,
       "weight": 68,
+      "birthPlace": "Thessaloniki",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103085,
       "name": "Maria Lazaridou",
       "dob": "1979-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tashkent"
     },
     {
       "id": 103086,
@@ -125,21 +158,24 @@
       "name": "Eleftheria \"Ria\" Koukou",
       "dob": "1979-03-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kavala"
     },
     {
       "id": 103089,
       "name": "Rodi \"Rodi\" Ordoulidou",
       "dob": "1979-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 103090,
       "name": "Katerina Vassilaki",
       "dob": "1976-07-15",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Athens"
     },
     {
       "id": 103091,
@@ -153,7 +189,11 @@
       "name": "Aikaterini \"Katerina\" Nikolaidou",
       "dob": "1976-12-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103479,
@@ -168,46 +208,58 @@
       "dob": "1985-03-17",
       "height": 176,
       "weight": 68,
+      "birthPlace": "Athens",
       "tour": {
         "gold": 3,
         "silver": 3,
         "bronze": 0
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103934,
       "name": "Elpida Tiktapanidou",
       "dob": "1982-11-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Larisa"
     },
     {
       "id": 103935,
       "name": "Christina Paraskeyaidou",
       "dob": "1984-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 104008,
       "name": "Areti Bouzounieraki",
       "dob": "1985-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 104009,
       "name": "Faviola Kostami",
       "dob": "1985-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Volos"
     },
     {
       "id": 104010,
       "name": "Elisavet Kostami",
       "dob": "1985-04-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Volos"
     },
     {
       "id": 104011,
@@ -221,28 +273,32 @@
       "name": "Mili-Joanna Prokopiou",
       "dob": "1979-03-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 104013,
       "name": "Ioanna Kouloumenta",
       "dob": "1979-01-06",
       "height": 172,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 104014,
       "name": "Foteini Michou",
       "dob": "1979-06-12",
       "height": 172,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Moschato, Attikis"
     },
     {
       "id": 104174,
       "name": "Maria Chaskou",
       "dob": "1985-04-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 104175,
@@ -270,28 +326,32 @@
       "name": "Maria Lagiou",
       "dob": "1977-10-14",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Athens"
     },
     {
       "id": 104383,
       "name": "Flora Ioannidou",
       "dob": "1985-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 104687,
       "name": "Kleio Petridou",
       "dob": "1969-11-06",
       "height": 177,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Budapest, Hungary"
     },
     {
       "id": 104688,
       "name": "Eleni Exindaveloni",
       "dob": "1979-09-13",
       "height": 170,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 104689,
@@ -326,14 +386,16 @@
       "name": "Ellina Domnidou",
       "dob": "1991-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lougansk"
     },
     {
       "id": 117116,
       "name": "Foteini Ourania Papageorgiou",
       "dob": "1981-02-16",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Athens"
     },
     {
       "id": 117909,
@@ -375,14 +437,16 @@
       "name": "Joanna Papageorgiou",
       "dob": "1979-08-24",
       "height": 183,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Davenport, Iowa, USA"
     },
     {
       "id": 118755,
       "name": "Christina Roubanis",
       "dob": "1983-04-07",
       "height": 181,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Los Angeles, CA USA"
     },
     {
       "id": 119249,
@@ -403,7 +467,8 @@
       "name": "Athina Papafotiou",
       "dob": "1989-08-23",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Amarousio / GRE"
     },
     {
       "id": 120567,
@@ -431,7 +496,11 @@
       "name": "Eydoxia Argiropoulou",
       "dob": "1986-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Germany",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 125188,
@@ -452,14 +521,16 @@
       "name": "Konstantina Vlachaki",
       "dob": "1995-05-08",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Chania"
     },
     {
       "id": 132682,
       "name": "Anna Spanou",
       "dob": "1995-11-18",
       "height": 187,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Chalkida"
     },
     {
       "id": 139889,
@@ -474,11 +545,16 @@
       "dob": "1993-07-01",
       "height": 187,
       "weight": 73,
+      "birthPlace": "Maroussi",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 146196,
@@ -493,11 +569,15 @@
       "dob": "1997-02-17",
       "height": 178,
       "weight": 62,
+      "birthPlace": "Thessaloniki",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146730,
@@ -511,7 +591,8 @@
       "name": "Maria Klepkou",
       "dob": "2000-05-13",
       "height": 178,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 147693,
@@ -519,11 +600,15 @@
       "dob": "1993-06-05",
       "height": 182,
       "weight": 62,
+      "birthPlace": "Thessaloniki",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 148564,
@@ -537,14 +622,16 @@
       "name": "Athina Georgopoulou",
       "dob": "1996-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Heraklion"
     },
     {
       "id": 153963,
       "name": "Aliki Alexandra Spiliotopoulou",
       "dob": "1995-10-06",
       "height": 177,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Patras"
     },
     {
       "id": 162241,
@@ -570,28 +657,34 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168227,
       "name": "Eleni Baka",
       "dob": "2001-10-15",
       "height": 186,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 168761,
       "name": "Ifigeneia Sampati",
       "dob": "1998-08-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kalamata"
     },
     {
       "id": 168807,
       "name": "Maria Apostolaki",
       "dob": "1997-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Athens"
     },
     {
       "id": 168810,
@@ -619,42 +712,48 @@
       "name": "Mirto Kalamaridou",
       "dob": "1996-02-19",
       "height": 181,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Amarousio"
     },
     {
       "id": 173494,
       "name": "Ioanna Perdikaki",
       "dob": "2002-08-05",
       "height": 175,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Heraklion"
     },
     {
       "id": 173495,
       "name": "Georgia Maria Antonakaki",
       "dob": "2002-09-16",
       "height": 175,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Heraklion"
     },
     {
       "id": 182233,
       "name": "Paraskevi Zafeiriou",
       "dob": "2006-07-08",
       "height": 177,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 182234,
       "name": "Elpida Pitsigkoni",
       "dob": "2005-05-20",
       "height": 176,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 184770,
       "name": "Anastasia Shirinina",
       "dob": "1995-10-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saratov"
     },
     {
       "id": 188986,
@@ -668,14 +767,16 @@
       "name": "Rodanthi Mariatou Metaxa",
       "dob": "1998-08-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Heraklion"
     },
     {
       "id": 190191,
       "name": "Eleni Chantzi",
       "dob": "2001-05-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Patra"
     },
     {
       "id": 190547,
@@ -689,28 +790,32 @@
       "name": "Myrto Paschalaki",
       "dob": "2008-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 192618,
       "name": "Eleni Alexoglou",
       "dob": "2010-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Thessaloniki"
     },
     {
       "id": 211803,
       "name": "Aikaterini Fragkioudaki",
       "dob": "2009-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chania"
     },
     {
       "id": 222939,
       "name": "Angeliki Charissaki",
       "dob": "2011-07-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chania"
     }
   ]
 }

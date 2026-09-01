@@ -7,14 +7,26 @@
       "name": "Audrey Cooper",
       "dob": "1964-12-07",
       "height": 168,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Whitburn (Scotland)",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100264,
       "name": "Amanda Jane \"Mo\" Glover",
       "dob": "1970-07-16",
       "height": 180,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Weymouth",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100712,
@@ -22,11 +34,16 @@
       "dob": "1966-12-19",
       "height": 176,
       "weight": 63,
+      "birthPlace": "Los Angeles",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 101683,
@@ -48,16 +65,6 @@
               71
             ]
           ],
-          "at": [
-            [
-              1996,
-              "ENG"
-            ],
-            [
-              1997,
-              "USA"
-            ]
-          ],
           "r": 9
         },
         {
@@ -73,12 +80,6 @@
               1996,
               2,
               249
-            ]
-          ],
-          "at": [
-            [
-              1996,
-              "USA"
             ]
           ],
           "r": 7
@@ -98,12 +99,6 @@
               124
             ]
           ],
-          "at": [
-            [
-              1995,
-              "USA"
-            ]
-          ],
           "r": 25
         },
         {
@@ -121,12 +116,6 @@
               98
             ]
           ],
-          "at": [
-            [
-              1999,
-              "ENG"
-            ]
-          ],
           "r": 25
         }
       ]
@@ -136,7 +125,10 @@
       "name": "Vanessa Malone",
       "dob": "1971-07-31",
       "height": 176,
-      "weight": 68
+      "weight": 68,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100939,
@@ -151,11 +143,16 @@
       "dob": "1968-06-21",
       "height": 178,
       "weight": 68,
+      "birthPlace": "Rossendale",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103376,
@@ -169,7 +166,8 @@
       "name": "Kerri Olding",
       "dob": "1985-09-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aylesbury"
     },
     {
       "id": 104149,
@@ -184,6 +182,10 @@
       "dob": "1978-12-09",
       "height": 185,
       "weight": 68,
+      "birthPlace": "Luxembourg",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 118753,
@@ -215,7 +217,11 @@
       "name": "Lucy Boulton",
       "dob": "1986-01-02",
       "height": 174,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Romford",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118190,
@@ -223,6 +229,12 @@
       "dob": "1986-06-10",
       "height": 178,
       "weight": 65,
+      "birthPlace": "Poole",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ],
       "away": [
         {
           "id": 118753,
@@ -283,10 +295,6 @@
             ],
             [
               2011,
-              "GBR"
-            ],
-            [
-              2012,
               "GBR"
             ]
           ],
@@ -355,12 +363,6 @@
               247
             ]
           ],
-          "at": [
-            [
-              2008,
-              "GBR"
-            ]
-          ],
           "r": 19
         }
       ]
@@ -370,7 +372,8 @@
       "name": "Susan Hoare",
       "dob": "1990-12-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maputo"
     },
     {
       "id": 120913,
@@ -378,11 +381,15 @@
       "dob": "1991-03-16",
       "height": 175,
       "weight": 75,
+      "birthPlace": "Leeds",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125533,
@@ -411,11 +418,15 @@
       "dob": "1986-06-24",
       "height": 178,
       "weight": 70,
+      "birthPlace": "Poole",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 133882,
@@ -423,6 +434,7 @@
       "dob": "1987-08-19",
       "height": null,
       "weight": null,
+      "birthPlace": "London",
       "away": [
         {
           "id": 119356,
@@ -437,12 +449,6 @@
               2007,
               2,
               247
-            ]
-          ],
-          "at": [
-            [
-              2007,
-              "AUS"
             ]
           ],
           "r": 29
@@ -478,18 +484,23 @@
       "dob": "1998-10-13",
       "height": 172,
       "weight": 61,
+      "birthPlace": "North Devon",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 145733,
       "name": "Leah Best",
       "dob": "1991-09-12",
       "height": 198,
-      "weight": 200
+      "weight": 200,
+      "birthPlace": "Hammersmith, London"
     },
     {
       "id": 146889,
@@ -504,11 +515,15 @@
       "dob": "2001-07-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Barnstaple, Devon",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155116,
@@ -522,14 +537,16 @@
       "name": "Zoe Baxter",
       "dob": "1998-05-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Los Angeles, USA"
     },
     {
       "id": 157756,
       "name": "Katie Keefe",
       "dob": "2003-02-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "London"
     },
     {
       "id": 173510,
@@ -544,32 +561,39 @@
       "dob": "1992-01-16",
       "height": 185,
       "weight": 75,
+      "birthPlace": "London",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181666,
       "name": "Alana Snow",
       "dob": "1999-03-14",
       "height": 175,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Chertsey"
     },
     {
       "id": 197785,
       "name": "Alice Jagielska",
       "dob": "2007-06-06",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Hammersmith"
     },
     {
       "id": 197795,
       "name": "Molly Quinn",
       "dob": "2009-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "England"
     },
     {
       "id": 203559,
@@ -581,7 +605,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 205758,
@@ -595,7 +622,8 @@
       "name": "Robyn Clifford",
       "dob": "2009-11-05",
       "height": 184,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Bethesda"
     },
     {
       "id": 216034,
@@ -609,14 +637,16 @@
       "name": "Lucy Knott",
       "dob": "2003-07-03",
       "height": 165,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kingston-Upon-Thames"
     },
     {
       "id": 223161,
       "name": "Lauren Thorn",
       "dob": "2009-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leeds"
     }
   ]
 }

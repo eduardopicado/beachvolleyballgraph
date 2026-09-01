@@ -84,7 +84,8 @@
       "name": "Mireya Solange Duarte",
       "dob": "1969-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Marseille"
     },
     {
       "id": 100627,
@@ -183,14 +184,21 @@
       "name": "Maria Francisca Rivas Zapata",
       "dob": "1988-01-11",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135093,
       "name": "Chris Vorpahl Villablanca",
       "dob": "1990-10-04",
       "height": 174,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Santiago",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 135189,
@@ -239,14 +247,16 @@
       "name": "Danae Robert",
       "dob": "2004-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 182194,
       "name": "Marcela Robert",
       "dob": "2004-06-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 182882,
@@ -260,49 +270,56 @@
       "name": "Karen Vania Santander Pasten",
       "dob": "1999-10-10",
       "height": 173,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Coquimbo"
     },
     {
       "id": 194457,
       "name": "Amanda Recart",
       "dob": "2001-04-05",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Santiago"
     },
     {
       "id": 208852,
       "name": "Valentina Vasquez Silva",
       "dob": "2009-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chilena"
     },
     {
       "id": 210830,
       "name": "Mariana Guerrero",
       "dob": "2008-11-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 217309,
       "name": "Gabriela Copier",
       "dob": "2002-11-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "LA Serena"
     },
     {
       "id": 220026,
       "name": "Alejandra Dubost Orrico",
       "dob": "2003-02-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 220284,
       "name": "Josefa Dawson Vargas",
       "dob": "2010-09-29",
       "height": 173,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vitacura"
     }
   ]
 }

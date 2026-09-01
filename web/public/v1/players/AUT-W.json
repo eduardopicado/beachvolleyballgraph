@@ -7,28 +7,40 @@
       "name": "Eveline Stremitzer",
       "dob": "1974-12-01",
       "height": 167,
-      "weight": 58
+      "weight": 58,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101903,
       "name": "Christine \"Knuffi\" Mellitzer",
       "dob": "1976-03-21",
       "height": 168,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Vienna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101946,
       "name": "Anna Irmgard \"Anni\" Sagmeister",
       "dob": "1968-08-25",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Klagenfurt"
     },
     {
       "id": 102042,
       "name": "Dagmar Wittner",
       "dob": "1976-03-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Steyr",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102146,
@@ -42,35 +54,46 @@
       "name": "Michaela 'Mika' Meissinger",
       "dob": "1966-10-07",
       "height": 169,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Vienna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102148,
       "name": "Verena Kaiser",
       "dob": "1975-03-08",
       "height": 169,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Innsbruck"
     },
     {
       "id": 102149,
       "name": "Katharina Münchmeyer",
       "dob": "1979-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Neunkirchen"
     },
     {
       "id": 102200,
       "name": "Claudia Derflinger",
       "dob": "1975-03-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 102201,
       "name": "Sabina Basagic",
       "dob": "1977-01-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102202,
@@ -78,11 +101,16 @@
       "dob": "1975-03-23",
       "height": 175,
       "weight": 67,
+      "birthPlace": "Vienna",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102203,
@@ -90,11 +118,16 @@
       "dob": "1978-12-02",
       "height": 170,
       "weight": 69,
+      "birthPlace": "Innsbruck",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102204,
@@ -109,11 +142,16 @@
       "dob": "1982-05-01",
       "height": 182,
       "weight": 65,
+      "birthPlace": "Vienna",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102948,
@@ -142,11 +180,16 @@
       "dob": "1980-05-20",
       "height": 176,
       "weight": 70,
+      "birthPlace": "Vienna",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103113,
@@ -160,63 +203,84 @@
       "name": "Brigitte \"Gitti\" Stampfer",
       "dob": "1976-10-21",
       "height": 176,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Klagenfurt",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103243,
       "name": "Mira Mateja Trampusch",
       "dob": "1981-02-23",
       "height": 173,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Klagenfurt"
     },
     {
       "id": 103249,
       "name": "Irina \"Iri\" Ananeva",
       "dob": "1966-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tula"
     },
     {
       "id": 103291,
       "name": "Dagmar Fischer",
       "dob": "1969-06-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 103292,
       "name": "Rosa Maria \"Rosi\" Stefanek",
       "dob": "1965-02-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Schutzen (GER)"
     },
     {
       "id": 103293,
       "name": "Nicole \"Nicki\" Scharf",
       "dob": "1970-09-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dusseldorf (GER)",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103294,
       "name": "Birgit \"Birgit\" Beinsen",
       "dob": "1976-04-16",
       "height": null,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Vienna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103356,
       "name": "Sigrid Sumper",
       "dob": "1980-03-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Klagenfurt",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103478,
       "name": "Eva Marko",
       "dob": "1981-04-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Linz"
     },
     {
       "id": 103486,
@@ -224,6 +288,10 @@
       "dob": "1981-08-18",
       "height": 176,
       "weight": 69,
+      "birthPlace": "Wolfsberg",
+      "filters": [
+        "world-champs"
+      ],
       "away": [
         {
           "id": 118318,
@@ -240,12 +308,6 @@
               210
             ]
           ],
-          "at": [
-            [
-              2004,
-              "AUT"
-            ]
-          ],
           "r": 41
         }
       ]
@@ -256,60 +318,72 @@
       "dob": "1983-09-18",
       "height": 186,
       "weight": 74,
+      "birthPlace": "Oberndorf",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103650,
       "name": "Marianne Wöchtl",
       "dob": "1984-11-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Klosterneuburg"
     },
     {
       "id": 103744,
       "name": "Yasmin Buchacher",
       "dob": "1981-08-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 103754,
       "name": "Julia Hansel",
       "dob": "1981-08-25",
       "height": 177,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Oberndorf"
     },
     {
       "id": 103755,
       "name": "Ines Reichel",
       "dob": "1982-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 103756,
       "name": "Regine Silberberger",
       "dob": "1984-12-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kitzbühel"
     },
     {
       "id": 103797,
       "name": "Irina Bogdanova",
       "dob": "1967-06-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hova Astrachan"
     },
     {
       "id": 103899,
       "name": "Michaela Oberhuber",
       "dob": "1982-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tulln"
     },
     {
       "id": 104118,
@@ -317,11 +391,18 @@
       "dob": "1985-02-28",
       "height": 171,
       "weight": 55,
+      "birthPlace": "Allensteig",
       "tour": {
         "gold": 0,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104119,
@@ -329,25 +410,34 @@
       "dob": "1986-08-07",
       "height": 182,
       "weight": 64,
+      "birthPlace": "Allensteig",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104248,
       "name": "Irina Brandstetter",
       "dob": "1966-02-05",
       "height": 183,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Tula"
     },
     {
       "id": 104326,
       "name": "Jill Jasbar",
       "dob": "1981-01-29",
       "height": 181,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Vienna"
     },
     {
       "id": 104397,
@@ -368,7 +458,8 @@
       "name": "Stefanie Frotschnig",
       "dob": "1986-09-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Innsbruck"
     },
     {
       "id": 104484,
@@ -396,7 +487,8 @@
       "name": "Annabelle Borchard",
       "dob": "1984-09-28",
       "height": 177,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Munic"
     },
     {
       "id": 104775,
@@ -410,21 +502,24 @@
       "name": "Elisabeth Klopf",
       "dob": "1980-04-21",
       "height": 176,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Steyr 1007"
     },
     {
       "id": 104871,
       "name": "Natalie Pavelka",
       "dob": "1984-12-29",
       "height": 178,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Wels, Austria"
     },
     {
       "id": 104907,
       "name": "Magdalena Jirak",
       "dob": "1986-10-24",
       "height": 174,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Linz"
     },
     {
       "id": 105074,
@@ -438,7 +533,8 @@
       "name": "Bianca Gasser",
       "dob": "1988-11-09",
       "height": null,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Innsbruck"
     },
     {
       "id": 116034,
@@ -459,7 +555,8 @@
       "name": "Simone Lercher",
       "dob": "1986-07-09",
       "height": 170,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Innsbruck/Tirol"
     },
     {
       "id": 118102,
@@ -480,7 +577,8 @@
       "name": "Lina Gorbach",
       "dob": "1988-10-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lustenau"
     },
     {
       "id": 119292,
@@ -522,14 +620,16 @@
       "name": "Isabella Mai",
       "dob": "1978-12-17",
       "height": 184,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "St. Pölten"
     },
     {
       "id": 120652,
       "name": "Verena Puhr",
       "dob": "1984-11-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Melk"
     },
     {
       "id": 120653,
@@ -543,7 +643,8 @@
       "name": "Laura Horvath",
       "dob": "1988-03-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Eisenstadt"
     },
     {
       "id": 120655,
@@ -576,7 +677,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 122925,
@@ -618,7 +722,8 @@
       "name": "Bianca Zass",
       "dob": "1985-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kitzbühel"
     },
     {
       "id": 132663,
@@ -626,11 +731,16 @@
       "dob": "1993-10-04",
       "height": 184,
       "weight": 68,
+      "birthPlace": "Graz",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132684,
@@ -645,11 +755,16 @@
       "dob": "1993-09-22",
       "height": 175,
       "weight": 73,
+      "birthPlace": "Oberwart",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 134963,
@@ -663,7 +778,8 @@
       "name": "Saria Gschöpf",
       "dob": "1995-10-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 135618,
@@ -671,11 +787,15 @@
       "dob": "1993-06-14",
       "height": 176,
       "weight": 64,
+      "birthPlace": "Villach",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137275,
@@ -687,7 +807,11 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 137276,
@@ -699,7 +823,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138880,
@@ -749,18 +876,23 @@
       "dob": "1997-09-29",
       "height": 183,
       "weight": null,
+      "birthPlace": "Vienna",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142432,
       "name": "Julia Radl",
       "dob": "1996-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Feldbach"
     },
     {
       "id": 142438,
@@ -774,14 +906,16 @@
       "name": "Sophie Haselsteiner",
       "dob": "1989-01-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Waidhofen/Ybbs"
     },
     {
       "id": 143899,
       "name": "Viktoria Fink",
       "dob": "1996-03-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 146001,
@@ -789,11 +923,15 @@
       "dob": "1989-04-30",
       "height": 174,
       "weight": null,
+      "birthPlace": "Braunau/Inn",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146217,
@@ -801,11 +939,16 @@
       "dob": "1998-06-29",
       "height": 186,
       "weight": 80,
+      "birthPlace": "Villach",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147801,
@@ -824,7 +967,11 @@
         "gold": 3,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 148498,
@@ -832,25 +979,31 @@
       "dob": "1992-04-08",
       "height": 172,
       "weight": 60,
+      "birthPlace": "Wels",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 149898,
       "name": "Kora Schaberl",
       "dob": "1998-10-03",
       "height": 182,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Feldbach"
     },
     {
       "id": 150022,
       "name": "Victoria Deisl",
       "dob": "1999-11-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Salzburg"
     },
     {
       "id": 152367,
@@ -872,11 +1025,16 @@
       "dob": "2000-05-22",
       "height": 177,
       "weight": 70,
+      "birthPlace": "Feldkirchen in Kärnten",
       "tour": {
         "gold": 3,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 154036,
@@ -890,7 +1048,8 @@
       "name": "Martina Guggi",
       "dob": "1987-10-25",
       "height": 173,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Graz"
     },
     {
       "id": 157658,
@@ -911,14 +1070,16 @@
       "name": "Sarah Kastenberger",
       "dob": "2000-07-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Scheibbs"
     },
     {
       "id": 160239,
       "name": "Sofija Saric",
       "dob": "2002-03-04",
       "height": 179,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Vienna"
     },
     {
       "id": 160438,
@@ -932,7 +1093,8 @@
       "name": "Anja Trailovic",
       "dob": "2003-12-23",
       "height": 180,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Villach"
     },
     {
       "id": 169103,
@@ -947,18 +1109,23 @@
       "dob": "1998-09-16",
       "height": 183,
       "weight": null,
+      "birthPlace": "Amstetten",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 170523,
       "name": "Karin Elsner",
       "dob": "1995-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vienna"
     },
     {
       "id": 170524,
@@ -979,7 +1146,8 @@
       "name": "Marie Bruckner",
       "dob": "2004-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hartberg"
     },
     {
       "id": 173533,
@@ -987,18 +1155,23 @@
       "dob": "2003-08-14",
       "height": 175,
       "weight": 65,
+      "birthPlace": "St. Veit an der Glan",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 177631,
       "name": "Emma Hohenauer",
       "dob": "2005-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wiener Neustadt"
     },
     {
       "id": 179271,
@@ -1020,11 +1193,15 @@
       "dob": "2007-07-28",
       "height": 181,
       "weight": 65,
+      "birthPlace": "Vienna",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 180823,
@@ -1032,11 +1209,15 @@
       "dob": "2007-02-09",
       "height": 178,
       "weight": 62,
+      "birthPlace": "Wiener Neustadt",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190904,
@@ -1044,18 +1225,23 @@
       "dob": "2008-03-05",
       "height": null,
       "weight": null,
+      "birthPlace": "Mykolaiv",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 191159,
       "name": "Anna Hammarberg",
       "dob": "2008-02-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wiener Neustadt"
     },
     {
       "id": 200776,
@@ -1076,14 +1262,16 @@
       "name": "Helena FERSTL-SCHMID",
       "dob": "2010-01-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Korneubeurg"
     },
     {
       "id": 212700,
       "name": "Emily Grusch",
       "dob": "2009-03-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tulln/nd"
     }
   ]
 }

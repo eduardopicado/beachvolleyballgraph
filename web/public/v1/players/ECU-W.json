@@ -7,7 +7,11 @@
       "name": "Ariana Estefanía Vilela Becerra",
       "dob": "1989-03-06",
       "height": 174,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Esmeraldas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 145870,
@@ -42,56 +46,67 @@
       "name": "Karelys Simisterra Ortiz",
       "dob": "2002-08-07",
       "height": 176,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Esmerladas",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 178422,
       "name": "Stephany Valeska Cherrez Yucailla",
       "dob": "2005-08-04",
       "height": 174,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Guayaquil"
     },
     {
       "id": 193630,
       "name": "Isabel Alejandra Loayza Garcia",
       "dob": "2006-04-07",
       "height": 168,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Guayaquil"
     },
     {
       "id": 196866,
       "name": "Ilanna Dvorquez Saman",
       "dob": "2008-05-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Eeuu"
     },
     {
       "id": 210716,
       "name": "Valentina Carrion Artunduaga",
       "dob": "2007-12-12",
       "height": 169,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Quito"
     },
     {
       "id": 210724,
       "name": "Xiomara Marina Becerra Nazareno",
       "dob": "2007-04-05",
       "height": 177,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Esmeraldas"
     },
     {
       "id": 213388,
       "name": "Carla Nuñez Folleco",
       "dob": "2008-07-10",
       "height": 189,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Quito"
     },
     {
       "id": 225835,
       "name": "Valentina Valenzuela Bravo",
       "dob": "2008-11-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Florida"
     }
   ]
 }

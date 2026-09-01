@@ -7,63 +7,84 @@
       "name": "Oleg \"Oleg\" Aristarkhov",
       "dob": "1975-03-28",
       "height": 191,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Almaty",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102598,
       "name": "Yevgeniy \"Zhenya\" Mashebin",
       "dob": "1975-01-26",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Almatinskaya Obl",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102599,
       "name": "Denis \"Den\" Rovkin",
       "dob": "1976-08-19",
       "height": 182,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Temirtau",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102600,
       "name": "Andrey \"Dryulya\" Ryukhov",
       "dob": "1973-08-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karagandinskaya Obl.",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102888,
       "name": "Dmitriy Vorobyev",
       "dob": "1974-09-26",
       "height": 202,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Almatinskaya Obl."
     },
     {
       "id": 102998,
       "name": "Sergey \"Seryi\" Sinkevich",
       "dob": "1974-12-27",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Almaty"
     },
     {
       "id": 103350,
       "name": "Pavel Zabuslayev",
       "dob": "1978-05-11",
       "height": 186,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Russian Fed"
     },
     {
       "id": 104223,
       "name": "Oleg Kisselev",
       "dob": "1967-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Almaty"
     },
     {
       "id": 104317,
       "name": "Pavel Saulko",
       "dob": "1982-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Almaty"
     },
     {
       "id": 104644,
@@ -77,7 +98,8 @@
       "name": "Nikolay Yudakov",
       "dob": "1983-02-14",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Almaty"
     },
     {
       "id": 104679,
@@ -92,11 +114,16 @@
       "dob": "1983-08-26",
       "height": 200,
       "weight": 95,
+      "birthPlace": "Pavlodar",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104876,
@@ -110,7 +137,8 @@
       "name": "Daniil Semeyev",
       "dob": "1971-11-24",
       "height": 205,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Tula, Russia"
     },
     {
       "id": 117867,
@@ -118,25 +146,38 @@
       "dob": "1980-10-23",
       "height": 195,
       "weight": 82,
+      "birthPlace": "Sumi",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117868,
       "name": "Alexey Kulinich",
       "dob": "1980-05-18",
       "height": 195,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Ukraine",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118547,
       "name": "Alexey Kuleshov",
       "dob": "1987-09-14",
       "height": 191,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Aktau, Kazakhstan",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118553,
@@ -164,7 +205,8 @@
       "name": "Babichev Alexandr",
       "dob": "1989-05-25",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Aktau,Kazakhstan"
     },
     {
       "id": 120441,
@@ -179,11 +221,16 @@
       "dob": "1988-01-18",
       "height": 191,
       "weight": 91,
+      "birthPlace": "Kazakhstan",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122476,
@@ -205,11 +252,15 @@
       "dob": "1993-02-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Kazakhstan",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 122479,
@@ -307,7 +358,8 @@
       "name": "Nurdos Aldash",
       "dob": "2000-04-09",
       "height": 200,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 155636,
@@ -356,35 +408,40 @@
       "name": "Klim Ryukhov",
       "dob": "2005-08-14",
       "height": 209,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Aktau"
     },
     {
       "id": 201799,
       "name": "Vladislav Mastikhin",
       "dob": "2007-05-23",
       "height": 195,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 205048,
       "name": "Nurboldy Kulboldyyev",
       "dob": "2007-02-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 217918,
       "name": "Orazali Sagynysh",
       "dob": "2009-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     },
     {
       "id": 222594,
       "name": "Alikhan Agabek",
       "dob": "2009-01-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kazakhstan"
     }
   ]
 }

@@ -15,10 +15,14 @@ import type {
   ResultEntry,
   SeasonTally,
   Tier,
+  TimelineFilter,
 } from '../web/src/schema.js';
+import { TOUR_TIERS } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
+import { olympicName } from './olympics.js';
+import { worldChampionshipName } from './worlds.js';
 import {
   federationSpans,
   resolveFederation,
@@ -69,11 +73,16 @@ export interface Tournament {
  * `YYYY-MM-DD` -> days from 1 January of `season`.
  *
  * `StartDateMainDraw` is populated on every tournament VIS returns (checked:
- * 9,264 of 9,264), so the null path is for a malformed value rather than a
+ * 9,270 of 9,270), so the null path is for a malformed value rather than a
  * missing one. Qualification can start earlier, but `StartDateQualification`
  * is populated on barely a third of them, so using it would order some
  * seasons by one field and some by another — worse than being uniformly
  * approximate by a day or two.
+ *
+ * The two or three digits this promises depend on `season` being the year the
+ * event was played. While a ranged `Season` was taken at its leading year, 18
+ * offsets ran to four digits — `MSYD1991` sat 1,533 days after 1 January of
+ * the 1987 it was filed under. `seasonFor` is what keeps that honest.
  */
 export function startOffsetFor(raw: string | undefined, season: number): number | null {
   if (!raw) return null;
@@ -93,6 +102,8 @@ export interface Player {
   dob: string | null;
   height: number | null;
   weight: number | null;
+  /** Free-text birth place, `null` when VIS has none worth showing. */
+  birthPlace: string | null;
 }
 
 /** A canonical unordered pair key: always "smaller:larger" by numeric id. */
@@ -148,6 +159,54 @@ export function parseSeason(raw: string | undefined): number | null {
 }
 
 /**
+ * The span a ranged `Season` covers, or `null` when it names a single year.
+ *
+ * The end is written with two digits ("1987-91", "1995-96") on every one of the
+ * 70 rows that has a range, but the four-digit form is accepted too rather than
+ * relying on that holding. A two-digit end takes its century from the start and
+ * rolls forward if that would put it earlier, so a hypothetical "1999-00" reads
+ * as 1999-2000 rather than an empty span.
+ */
+export function seasonRange(raw: string | undefined): { from: number; to: number } | null {
+  const match = /^\s*(\d{4})\s*-\s*(\d{2}|\d{4})\s*$/.exec(raw ?? '');
+  if (!match) return null;
+  const from = Number(match[1]);
+  const tail = match[2]!;
+  let to = tail.length === 4 ? Number(tail) : Math.floor(from / 100) * 100 + Number(tail);
+  if (to < from) to += 100;
+  return from >= 1985 && to <= 2100 ? { from, to } : null;
+}
+
+/**
+ * Which year a tournament belongs to.
+ *
+ * `Season` answers this on 9,200 of the 9,270 rows. On the other 70 it is a
+ * *range* — "1995-96" for a season crossing new year, and "1987-91" for five
+ * of them in one bucket — and taking its leading year filed the four annual Rio
+ * de Janeiro events coded MRIO1988 through MRIO1991 all under 1987. 26 rows
+ * were dated one to four years before they were played.
+ *
+ * So a range defers to `StartDateMainDraw`, which is populated on every row
+ * (quirks §14) and on all 70 of these lands inside the range the season
+ * declares. The bound is the point: a date outside the span is not a better
+ * answer than the span, so the range start still wins there.
+ *
+ * A **single-year** `Season` is authoritative even when the date disagrees, and
+ * that asymmetry is deliberate. A southern-hemisphere season opens in the
+ * previous December, so an event dated 2019-12-05 in season 2020 is filed
+ * exactly right — `startOffset` exists to carry that, and goes negative to say
+ * so. Only a range has lost information; a year has not.
+ */
+export function seasonFor(row: VisRow): number | null {
+  const declared = parseSeason(row.Season);
+  if (declared === null) return null;
+  const range = seasonRange(row.Season);
+  if (!range) return declared;
+  const played = Number((row.StartDateMainDraw ?? '').slice(0, 4));
+  return played >= range.from && played <= range.to ? played : declared;
+}
+
+/**
  * Was this tournament called off?
  *
  * VIS records it in the display name rather than a status field —
@@ -166,6 +225,23 @@ export function isCancelled(row: VisRow): boolean {
   return /cancel/i.test(row.Name ?? '');
 }
 
+/**
+ * The name we hold for a season of a championship, or `null` to keep FIVB's.
+ *
+ * Two tiers get one. Both are events whose editions are known years ahead and
+ * named after their host by convention, and in both FIVB's own naming broke
+ * down often enough that a reader scanning a timeline could not tell what they
+ * were looking at — "Olympic Games 2012" never says London, "FIVB Beach
+ * Volleyball World Championships" never says Adelaide. Every other tier keeps
+ * whatever FIVB typed: there are 1,600-odd of those, they carry no fixed
+ * designation, and a map of them would be a second dataset to maintain.
+ */
+function curatedName(tier: Tier, season: number): string | null {
+  if (tier === 'olympics') return olympicName(season);
+  if (tier === 'world-champs') return worldChampionshipName(season);
+  return null;
+}
+
 export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
   const out = new Map<string, Tournament>();
   for (const row of rows) {
@@ -176,7 +252,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
     // was still counted in `manifest.totals.tournaments`, which is the one
     // published number that claimed otherwise. 131 of them, mostly 2020.
     if (isCancelled(row)) continue;
-    const season = parseSeason(row.Season);
+    const season = seasonFor(row);
     if (season === null) continue;
     const no = (row.No ?? '').trim();
     if (!no) continue;
@@ -185,7 +261,13 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       // Trimmed because some do carry trailing spaces ("FIVB Beach Volleyball
       // World Championships  "), and numbered rather than left blank because a
       // nameless row on the card would be indistinguishable from a bug.
-      name: (row.Name ?? '').trim() || `Tournament ${no}`,
+      //
+      // The Olympics and the World Championships get the host we hold for the
+      // season instead of whatever FIVB typed, because several editions do not
+      // name their host at all — 2012 is filed as "Olympic Games 2012", which
+      // never says London. See `curatedName` above; an edition neither map has
+      // been told about keeps FIVB's name.
+      name: curatedName(tier, season) ?? ((row.Name ?? '').trim() || `Tournament ${no}`),
       code: (row.Code ?? '').trim(),
       tier,
       level: levelFor(row.Type),
@@ -307,7 +389,7 @@ export function aggregateMedals(
  * would flatter the wrong careers. The Olympics and the World Championships
  * are excluded because they are counted separately and more precisely.
  */
-const TOUR_TIERS = new Set<Tier>(['world-tour', 'beach-pro-tour']);
+
 
 /**
  * Per-player podium counts across the tour: 1,552 of the 1,688 qualifying
@@ -401,25 +483,234 @@ export function tidyName(value: string): string {
   const substantial = shoutable.some((w) => w.replace(/[^\p{L}]/gu, '').length >= 4);
   if (!substantial || shoutable.length === 0 || !shoutable.every(isShouted)) return collapsed;
 
+  return words.map((word) => (word.includes('.') ? word : titleCaseWord(word))).join(' ');
+}
+
+/**
+ * One word, lower-cased with each part capitalised.
+ *
+ * A part starts at any letter not preceded by another letter: Hsin-Tung,
+ * D'Almeida, O'Brien — and also `(Urss)` and `Aktau,Kazakhstan`, which the
+ * narrower "start, hyphen or apostrophe" rule this replaces got wrong. FIVB
+ * stores "Poltana (URSS)" and "AKTAU,KAZAKHSTAN" as single space-free tokens;
+ * lower-casing them and then only capitalising after the three characters that
+ * rule knew about published "Poltana (urss)" and "Aktau,kazakhstan", which
+ * reads as a different mistake from the shouting it was fixing.
+ */
+function titleCaseWord(word: string): string {
+  return word.toLowerCase().replace(/(?<!\p{L})\p{L}/gu, (letter) => letter.toUpperCase());
+}
+
+/**
+ * Where a player was born, when VIS holds something worth showing.
+ *
+ * `BirthPlace` is one free-text field with no separate city or country, filled
+ * in by hand at a couple of hundred federations, and it holds four conventions
+ * at once: "Curitiba, PR", "Berlin", "Juiz de Fora (BRA)",
+ * "Resende-Rio de Janeiro". None of that is fixable — nothing separates a city
+ * from a province, and nothing says which country a bare "Portland" is in — so
+ * the value is published verbatim apart from the tidying below.
+ *
+ * It is far cleaner than it first looks. Measured over the 6,496 published
+ * players who have one, **21 are unusable (0.32%)**, and most of those are only
+ * suspicious rather than wrong: "Paris 14e", "Praha 4", "Sèvres (92)" and
+ * "St Brieul (12)" are arrondissements and department numbers, which are real
+ * answers to where somebody was born. Rejecting anything containing a digit
+ * would throw all of those away to catch the seven records that are actually
+ * broken, so the rules are narrow and each one names its cases:
+ *
+ *  - a date in the birth *place* field — "21.08.77", "03/09/1988",
+ *    "06-05-1991", "17/01/1992" (4 records);
+ *  - a bare postcode with nothing else — "30019", "98278" (2);
+ *  - an internal note that should never have left the database —
+ *    "to be Merged with (#164181) as" (1).
+ *
+ * Capitals are normalised in both directions. 444 published birth places shout,
+ * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 102 more have no
+ * capital at all — "rio de janeiro", "salvador" — which is the same box filled
+ * in with caps lock the other way. Only a value that is uniformly one case is
+ * touched: mixed capitals are a choice somebody made, and "St-Gallen" or
+ * "Adelaide, SA" is already right.
+ *
+ * Stray quotation marks are stripped, which is one record — `"9 de JULIO"` is a
+ * real Argentine town wearing the quotes FIVB stored it with.
+ */
+export function tidyBirthPlace(value: string | undefined): string | null {
+  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^["']+|["']+$/g, '').trim();
+  if (!raw) return null;
+
+  // A whole date, however it is punctuated. Anchored, so "Paris 14e" and
+  // "Sèvres (92)" — which merely contain digits — survive.
+  if (/^\d{1,4}[./-]\d{1,2}[./-]\d{1,4}$/.test(raw)) return null;
+  // Digits and separators only: a postcode, never a place name.
+  if (!/\p{L}/u.test(raw)) return null;
+  // An editing note aimed at whoever maintains the record, not at a reader.
+  if (/\bto be merged\b|\bmerge[dr]?\s+with\b|#\d{3,}|\bduplicate\b/i.test(raw)) return null;
+
+  // A value with no capital in it anywhere has lost its casing rather than
+  // chosen it: "rio de janeiro", "buenos aires", "salvador". 102 published
+  // places are like this, against 444 that shout, and both are the same
+  // failure — a federation typing into a free-text box with caps lock in one
+  // state or the other.
+  //
+  // Handled before the shout rule because the two need opposite treatment of
+  // short words. Nothing here is a code: a code is upper case, and a value with
+  // no capitals cannot be hiding one, so "arg" simply becomes "Arg". What the
+  // length gate below protects does not exist in this direction.
+  if (!/\p{Lu}/u.test(raw)) return titleCasePlace(raw) || null;
+
+  // Capitals are normalised per *word* here, not per string as in `tidyName`.
+  // A name uses partial capitals to mark the family name (§6.5) and that has to
+  // survive; a place has no such convention, so "9 de JULIO" should become
+  // "9 de Julio" even though "de" is already lower case.
+  //
+  // The length gate is what makes per-word safe: a short upper-case token in a
+  // place name is a code, not a shout — the "PR" in "Curitiba, PR", the "BRA"
+  // in "Juiz de Fora (BRA)", the whole of "TN", the "N2" in "Auckland N2".
+  // Title-casing those would turn a province code into a word.
+  return (
+    raw
+      .split(' ')
+      .map((word) => {
+        const letters = word.replace(/[^\p{L}]/gu, '');
+        const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
+        return shouts ? titleCaseWord(word) : word;
+      })
+      .join(' ') || null
+  );
+}
+
+/**
+ * Words that stay lower case inside a place name: "Rio de Janeiro", not "Rio De
+ * Janeiro". Kept deliberately small — every entry is one that actually occurs
+ * in the published data.
+ */
+const PLACE_PARTICLES = new Set(['de', 'del', 'di', 'da', 'do', 'la', 'le', 'el', 'y']);
+
+/**
+ * Title-case a place that arrived with no capitals at all.
+ *
+ * A particle is only left alone **between** two other words. That position test
+ * is doing real work, because the same two letters are a particle in the middle
+ * and something else at either end: "el" is a particle in "Yacoub el Mansour"
+ * and the start of "El Jadida", and a trailing token is far more likely to be a
+ * region or country than a preposition. First and last are therefore always
+ * capitalised, which is also what makes this safe to run on a one-word value.
+ */
+function titleCasePlace(value: string): string {
+  const words = value.split(' ');
   return words
-    .map((word) =>
-      word.includes('.')
-        ? word
-        : // A letter starts a new part of a name when it opens the word or
-          // follows a hyphen or apostrophe: Hsin-Tung, D'Almeida, O'Brien.
-          word.toLowerCase().replace(/(^|[-'’])(\p{L})/gu, (_, sep: string, letter: string) => sep + letter.toUpperCase()),
-    )
+    .map((word, i) => {
+      const interior = i > 0 && i < words.length - 1;
+      if (interior && PLACE_PARTICLES.has(word)) return word;
+      return titleCaseWord(word);
+    })
     .join(' ');
 }
 
+/**
+ * Which timeline narrowings a player has anything for.
+ *
+ * Read from the deduplicated results rather than the raw rows, so it agrees
+ * exactly with what expanding a season will show — a filter that offers a chip
+ * and then renders an empty list is worse than no chip.
+ *
+ * `tour-podium` asks for ranks 1-3; the other two ask only that the player was
+ * there. That asymmetry is the point: 412 of the 488 published Olympians never
+ * medalled, and they are precisely the careers this control exists to make
+ * legible.
+ */
+export function timelineFiltersByPlayer(
+  results: ReadonlyMap<number, ResultEntry[]>,
+  tournaments: ReadonlyMap<string, Tournament>,
+): Map<number, TimelineFilter[]> {
+  const out = new Map<number, TimelineFilter[]>();
+  for (const [player, entries] of results) {
+    let olympics = false;
+    let worlds = false;
+    let podium = false;
+    for (const [no, , rank] of entries) {
+      const tier = tournaments.get(String(no))?.tier;
+      if (tier === 'olympics') olympics = true;
+      else if (tier === 'world-champs') worlds = true;
+      // TOUR_TIERS, not 'world-tour' alone: the tour is two tiers, and the
+      // Beach Pro Tour is the whole of it from 2022 on. This has to be the same
+      // set `aggregateTourPodiums` uses, or the chip and the Tour podiums tile
+      // beside it would be counting different events.
+      else if (tier && TOUR_TIERS.has(tier) && rank >= 1 && rank <= 3) podium = true;
+    }
+    const filters: TimelineFilter[] = [];
+    if (olympics) filters.push('olympics');
+    if (worlds) filters.push('world-champs');
+    if (podium) filters.push('tour-podium');
+    if (filters.length) out.set(player, filters);
+  }
+  return out;
+}
+
+/**
+ * How many Olympic Games each player competed at.
+ *
+ * The card has always had an Olympics tile, but it was drawn from the medal
+ * tally, so it appeared for 76 players and vanished for the other 412 — a tile
+ * headed "Olympics" absent for 84.4% of the people who went to the Olympics.
+ * Martin Alejo Conde has four Games and no tile at all. Being an Olympian is
+ * the achievement; the medal is a separate one.
+ *
+ * Counted over distinct tournaments rather than result rows. A player has one
+ * entry per Games in practice, but the pair is what a row records, and nothing
+ * upstream guarantees a player is never entered twice — counting rows would
+ * turn that into a second Games.
+ *
+ * Deliberately not extended to the World Championships. That reaches 1,359
+ * players against 488 here, and a first-round exit twice over is not the same
+ * kind of fact; the Worlds tile stays a medal tally.
+ */
+export function olympicGamesByPlayer(
+  results: ReadonlyMap<number, ResultEntry[]>,
+  tournaments: ReadonlyMap<string, Tournament>,
+): Map<number, number> {
+  const out = new Map<number, number>();
+  for (const [player, entries] of results) {
+    const games = new Set<number>();
+    for (const [no] of entries) {
+      if (tournaments.get(String(no))?.tier === 'olympics') games.add(no);
+    }
+    if (games.size > 0) out.set(player, games.size);
+  }
+  return out;
+}
+
+/**
+ * A name field with a competition status stripped off it.
+ *
+ * Six VIS player records carry `SUSPENDED` inside the name itself — appended to
+ * `LastName` ("Hovland  SUSPENDED"), and standing alone as the whole of
+ * `TeamName` ("Suspended"). All six are American men whose careers ran through
+ * the AVP-era disputes of the mid-nineties, and all six reach our graph: five
+ * of them are labelled **"Suspended"** on the USA-M graph today, Tim Hovland
+ * among them, because `TeamName` is where the short label comes from.
+ *
+ * Measured over all 131,021 VIS player records, `SUSPENDED` is the only
+ * competition status written into a name. The other 19 records whose names read
+ * as annotations rather than people are test and dummy accounts ("Dummy1
+ * Dummy1", "Dev-Test-Firstname"), and none of those has ever entered a
+ * tournament, so none reaches the artifact and none is this function's problem.
+ * That is why this strips one word and not a family of them: one word is what
+ * the data has.
+ */
+function stripCompetitionStatus(value: string): string {
+  return value.replace(/(?<!\p{L})SUSPENDED(?!\p{L})/giu, '');
+}
+
 function fullName(row: VisRow): string {
-  const first = (row.FirstName ?? '').trim();
-  const last = (row.LastName ?? '').trim();
+  const first = stripCompetitionStatus((row.FirstName ?? '').trim());
+  const last = stripCompetitionStatus((row.LastName ?? '').trim());
   // Tidied as one string rather than field by field, so the shout test sees the
   // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
   // "HETZENDORFER" on its own looks like a name that simply shouts.
   const joined = tidyName(`${first} ${last}`);
-  return joined || tidyName(row.TeamName ?? '') || `Player ${row.No}`;
+  return joined || tidyName(stripCompetitionStatus(row.TeamName ?? '')) || `Player ${row.No}`;
 }
 
 /**
@@ -427,11 +718,13 @@ function fullName(row: VisRow): string {
  * is not always populated — fall back to the surname, then the full name.
  */
 function shortName(row: VisRow, full: string): string {
-  const team = tidyName(row.TeamName ?? '');
+  // A `TeamName` of nothing but "Suspended" is emptied by the strip, and so
+  // falls through to the surname the same way an unpopulated one does.
+  const team = tidyName(stripCompetitionStatus(row.TeamName ?? ''));
   if (team) return team;
   // From the raw field rather than sliced out of `full`, which is already
   // tidied and may have been title-cased as part of a longer name.
-  const last = tidyName(row.LastName ?? '');
+  const last = tidyName(stripCompetitionStatus(row.LastName ?? ''));
   return last || full;
 }
 
@@ -457,6 +750,7 @@ export function normalisePlayers(rows: VisRow[]): Map<number, Player> {
       dob: /^\d{4}-\d{2}-\d{2}$/.test(dob) && !dob.startsWith('0001') ? dob : null,
       height: toCentimetres(row.Height),
       weight: toKilograms(row.Weight),
+      birthPlace: tidyBirthPlace(row.BirthPlace),
       // VIS also has an `IsActive` flag, deliberately not carried through: it is
       // not beach-specific (it tracks a player's overall FIVB registration
       // across beach/indoor/snow) and is not reliably updated for retired
@@ -480,6 +774,21 @@ export interface AggregateResult {
    */
   results: Map<number, ResultEntry[]>;
   rejects: RejectCounts;
+  /**
+   * player id -> season -> federation code -> how many times.
+   *
+   * Counted only from rows where VIS listed the player first — the nearest
+   * thing to a *player's* own federation a team row offers, since a mixed pair
+   * carries one code and it usually follows player 1.
+   *
+   * "Usually" is the honest word. §6c measures it at 207 of 296 (69.9%) on
+   * mixed rows, so 30.1% follow player 2 instead. It is far safer than it
+   * sounds for this use: the overwhelming majority of rows are *not* mixed,
+   * and on those both players share the code, so reading it as player 1's is
+   * trivially right. The 69.9% bites only where a player's rows are mostly
+   * mixed — Gisi being the extreme, which is why she stays unresolved.
+   */
+  ownFederation: Map<number, Map<number, Map<string, number>>>;
 }
 
 /**
@@ -549,6 +858,12 @@ export function aggregatePartnerships(
    * legend was published as Azerbaijani with nothing to disagree with.
    */
   const fedCodesByPair = new Map<string, Set<string>>();
+  /**
+   * Each player's own federation by season, counted only from rows where VIS
+   * listed them first. See the capture below for why that is the only place
+   * this can come from.
+   */
+  const ownFederation = new Map<number, Map<number, Map<string, number>>>();
   const rejects: RejectCounts = {
     missingPlayer: 0,
     selfPair: 0,
@@ -616,6 +931,26 @@ export function aggregatePartnerships(
       let codes = fedCodesByPair.get(fedKey);
       if (!codes) fedCodesByPair.set(fedKey, (codes = new Set()));
       codes.add(stamped);
+
+      // The same code, filed under whoever VIS listed *first* on the row.
+      //
+      // This is the only per-player federation signal in the data, and it
+      // exists because of §6c: a team gets one code, and on a mixed pair that
+      // code follows player 1 about seven times in ten (207 of 296 measured;
+      // the rest follow player 2). So a row where a player is listed first says
+      // something about *them*; a row where they are listed second says
+      // something about their partner. `pair.a`/`pair.b` are the numeric
+      // minimum and maximum and cannot answer this, which is why it is
+      // captured here rather than derived later.
+      const first = Number(row.NoPlayer1);
+      const season = tournament.season;
+      if (Number.isFinite(first) && first > 0) {
+        let seasons = ownFederation.get(first);
+        if (!seasons) ownFederation.set(first, (seasons = new Map()));
+        let tally = seasons.get(season);
+        if (!tally) seasons.set(season, (tally = new Map()));
+        tally.set(stamped, (tally.get(stamped) ?? 0) + 1);
+      }
     }
 
     const rank = Number(row.Rank);
@@ -667,7 +1002,7 @@ export function aggregatePartnerships(
     if (pair) pair.best = best;
   }
 
-  return { partnerships, appearances, results: ordered, rejects };
+  return { partnerships, appearances, results: ordered, rejects, ownFederation };
 }
 
 /**
@@ -779,6 +1114,7 @@ export function awayPartnersByPlayer(
   partnerships: Map<string, Partnership>,
   players: Map<number, Player>,
   tournaments: Map<string, Tournament>,
+  ownFederation: Map<number, Map<number, Map<string, number>>>,
   conflicts: FederationConflict[] = [],
 ): Map<number, AwayPartner[]> {
   const out = new Map<number, AwayPartner[]>();
@@ -806,6 +1142,37 @@ export function awayPartnersByPlayer(
       }
     }
   }
+
+  /**
+   * A player's own federation in a season, from the rows where VIS listed them
+   * first — the closest a team row comes to naming that player's own
+   * federation (§6c, and see `ownFederation` for how close that is).
+   *
+   * Falls back to the nearest season they have a record for, because a player
+   * does not change federation for one event and back: a partnership in 2003
+   * is corroborated by that player being Italian in 2002 and 2004. Returns
+   * null when they were never listed first at all, which is 31.5% of players —
+   * and null means "cannot corroborate", never "disagrees".
+   */
+  const ownFedAt = (id: number, season: number): string | null => {
+    const seasons = ownFederation.get(id);
+    if (!seasons) return null;
+    let best: string | null = null;
+    let bestDistance = Infinity;
+    let bestCount = 0;
+    for (const [year, tally] of seasons) {
+      const distance = Math.abs(year - season);
+      if (distance > bestDistance) continue;
+      for (const [code, count] of tally) {
+        if (distance < bestDistance || count > bestCount) {
+          best = code;
+          bestDistance = distance;
+          bestCount = count;
+        }
+      }
+    }
+    return best;
+  };
 
   /** The federation a pair represented, season by season. */
   const spansFor = (pair: Partnership): [number, string][] => {
@@ -852,6 +1219,52 @@ export function awayPartnersByPlayer(
       [a, b],
       [b, a],
     ] as const) {
+      // Only claim a federation for the partnership where *both* players'
+      // own records agree with it.
+      //
+      // `spansFor` returns the code stamped on the team row, and on a mixed
+      // pair that code describes one player rather than the pair (§6c) — so on
+      // Gisi Gavio's card it said her Italian partners represented Brazil, and
+      // the flag pair rendered from it read as a transfer none of them made.
+      //
+      // Measured on the published rows, the filter drops 154 spans: 100 where a
+      // player's own record names a *different* federation, so the claim was
+      // simply wrong, and 54 where nobody disagrees and one side merely has no
+      // record. Away rows carrying a federation go 221 -> 111, and rows drawing
+      // a transfer arrow 116 -> 58.
+      //
+      // Symmetric on purpose, and an asymmetric version of this was wrong.
+      // Checking only the partner looks like it gives a pleasingly different
+      // answer per direction — nothing about Cicola on Gisi's card, but Gisi
+      // still Brazilian on Cicola's. That second half is the code vouching for
+      // itself: Gisi is listed first on all fifteen of her rows, is never
+      // listed second, and never once partnered a Brazilian, so every row
+      // saying BRA is a row whose BRA came from her being player 1 on it.
+      // There is no independent evidence of her federation in this data at
+      // all, and a rule that produces one is measuring its own input.
+      //
+      // Requiring both sides also makes the field mean what it says. "The
+      // federation the pair represented" is only true of a pair who were both
+      // in it; where they were not, there is no such federation to name.
+      //
+      // What this is *not* is proof the surviving codes are historically true.
+      // Both sides of the test read the same field, written by the same people,
+      // and §6d measures how little independence there is between two rows: the
+      // biggest single write covers 21,580 rows spanning 1996 to 2024, 303 bulk
+      // writes rewrite rows a decade or more apart in one operation, and 60.0%
+      // of players have their whole player-1 record written in one transaction
+      // — Gisi's fifteen rows among them. Rows concurring is usually one
+      // assertion consulted repeatedly. So this catches rows that *disagree*,
+      // which is the case that produced the 31 false transfers, and it cannot
+      // catch a code that was wrong, or retroactively made wrong, everywhere at
+      // once. Only a source outside VIS could.
+      //
+      // Silence is the fallback, not a guess. A row with no span shows the
+      // partner's current federation and nothing about the past, which is
+      // exactly what we know.
+      const corroborated = spans.filter(
+        ([season, code]) => ownFedAt(self.id, season) === code && ownFedAt(other.id, season) === code,
+      );
       const list = out.get(self.id) ?? [];
       list.push({
         id: other.id,
@@ -862,7 +1275,7 @@ export function awayPartnersByPlayer(
         f: pair.firstSeason,
         l: pair.lastSeason,
         s: seasonTallies(pair.tournaments, tournaments),
-        at: spans.length > 0 ? spans : undefined,
+        at: corroborated.length > 0 ? corroborated : undefined,
         ...(pair.best === null ? {} : { r: pair.best }),
       });
       out.set(self.id, list);

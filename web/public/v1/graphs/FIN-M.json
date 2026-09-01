@@ -8,7 +8,7 @@
       "name": "Petri Sainio",
       "short": "Sainio",
       "tournaments": 5,
-      "first": 1993,
+      "first": 1994,
       "last": 1996
     },
     {
@@ -16,7 +16,7 @@
       "name": "Janne \"Elmu\" Pulkkinen",
       "short": "Pulkkinen",
       "tournaments": 4,
-      "first": 1993,
+      "first": 1994,
       "last": 1998
     },
     {
@@ -431,7 +431,7 @@
       "id": 148896,
       "name": "Pyry Topio",
       "short": "Topio, P.",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2019,
       "last": 2026
     },
@@ -439,7 +439,7 @@
       "id": 158106,
       "name": "Vili Topio",
       "short": "Topio, V.",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2019,
       "last": 2026
     },
@@ -577,13 +577,13 @@
       "a": 100420,
       "b": 100421,
       "t": 2,
-      "f": 1993,
+      "f": 1994,
       "l": 1996,
       "s": [
         [
-          1993,
+          1994,
           1,
-          396
+          31
         ],
         [
           1996,
@@ -1566,7 +1566,7 @@
     {
       "a": 148896,
       "b": 158106,
-      "t": 11,
+      "t": 12,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -1592,8 +1592,8 @@
         ],
         [
           2026,
-          3,
-          169
+          4,
+          239
         ]
       ],
       "r": 5

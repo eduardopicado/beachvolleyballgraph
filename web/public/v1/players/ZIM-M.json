@@ -7,28 +7,32 @@
       "name": "Rufaro Douglas Choto",
       "dob": "1995-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Harare"
     },
     {
       "id": 141667,
       "name": "Jonathan Panashe Mhandu",
       "dob": "1997-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Harare"
     },
     {
       "id": 173697,
       "name": "Tafadzwa Michael Mapfumo",
       "dob": "1998-12-05",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Harare"
     },
     {
       "id": 173705,
       "name": "Shamma Muneta",
       "dob": "1993-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mutare"
     }
   ]
 }

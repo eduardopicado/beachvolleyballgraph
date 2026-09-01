@@ -8,11 +8,16 @@
       "dob": "1983-09-13",
       "height": 177,
       "weight": 64,
+      "birthPlace": "Jyvaskyla",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
       },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ],
       "away": [
         {
           "id": 103670,
@@ -177,7 +182,8 @@
       "name": "Saara Loikkanen",
       "dob": "1980-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Savonwnna"
     },
     {
       "id": 104781,
@@ -189,7 +195,11 @@
         "gold": 3,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104855,
@@ -203,7 +213,8 @@
       "name": "Kirsi Hyttinen",
       "dob": "1986-01-16",
       "height": 170,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Kuopio"
     },
     {
       "id": 114627,
@@ -211,18 +222,24 @@
       "dob": "1979-07-24",
       "height": 183,
       "weight": 70,
+      "birthPlace": "Kangasala",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 114633,
       "name": "Hanna-Mari Arminen",
       "dob": "1980-05-16",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Salo"
     },
     {
       "id": 115001,
@@ -250,21 +267,24 @@
       "name": "Annikki Laine",
       "dob": "1980-05-12",
       "height": 174,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puumala"
     },
     {
       "id": 118126,
       "name": "Tia Pråhl",
       "dob": "1978-04-16",
       "height": 172,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Karkkila"
     },
     {
       "id": 118129,
       "name": "Jennamiia Ripatti",
       "dob": "1990-09-07",
       "height": 174,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Pertunmaa"
     },
     {
       "id": 118209,
@@ -285,7 +305,8 @@
       "name": "Milla Tikkanen",
       "dob": "1990-11-19",
       "height": 181,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Pielavesi"
     },
     {
       "id": 119431,
@@ -306,14 +327,16 @@
       "name": "Nette Tuominen",
       "dob": "1990-01-23",
       "height": 180,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porvoo"
     },
     {
       "id": 122834,
       "name": "Eveliina Koljonen",
       "dob": "1989-10-23",
       "height": 172,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Pihtipudas"
     },
     {
       "id": 122835,
@@ -341,14 +364,16 @@
       "name": "Pauliina Vilponen",
       "dob": "1992-02-20",
       "height": 190,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Nakkila"
     },
     {
       "id": 132778,
       "name": "Kaisa Alanko",
       "dob": "1993-01-03",
       "height": 173,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Vaasa"
     },
     {
       "id": 132779,
@@ -374,7 +399,11 @@
         "gold": 2,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139287,
@@ -393,14 +422,19 @@
         "gold": 3,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139765,
       "name": "Ida Sinisalo",
       "dob": "1997-05-09",
       "height": 177,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Imatra"
     },
     {
       "id": 140406,
@@ -408,6 +442,7 @@
       "dob": "1988-08-22",
       "height": 165,
       "weight": 59,
+      "birthPlace": "Pihtipudas",
       "away": [
         {
           "id": 103670,
@@ -422,12 +457,6 @@
               2012,
               1,
               242
-            ]
-          ],
-          "at": [
-            [
-              2012,
-              "FIN"
             ]
           ],
           "r": 25
@@ -458,21 +487,26 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169504,
       "name": "Katja Metsäkoivu",
       "dob": "1994-09-01",
       "height": 181,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Helsinki"
     },
     {
       "id": 169505,
       "name": "Tuuli Metsäkoivu",
       "dob": "1996-07-26",
       "height": 177,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Espoo"
     },
     {
       "id": 169604,
@@ -487,11 +521,15 @@
       "dob": "2004-06-23",
       "height": 182,
       "weight": 66,
+      "birthPlace": "Imatra",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173496,
@@ -499,53 +537,63 @@
       "dob": "2003-11-06",
       "height": 179,
       "weight": 67,
+      "birthPlace": "Finland",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173839,
       "name": "Anna Rantala",
       "dob": "1996-11-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Somero"
     },
     {
       "id": 179441,
       "name": "Sofia Mäkitalo",
       "dob": "2004-11-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Masku"
     },
     {
       "id": 182213,
       "name": "Linnea Hautala",
       "dob": "2004-08-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Masku"
     },
     {
       "id": 182674,
       "name": "Pinja Jokela",
       "dob": "2005-04-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mouhijärvi"
     },
     {
       "id": 185534,
       "name": "Ester Hirvonen",
       "dob": "2006-11-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Helsinki"
     },
     {
       "id": 185535,
       "name": "Peppiina Mäenpää",
       "dob": "2006-02-13",
       "height": 175,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Espoo"
     },
     {
       "id": 191058,
@@ -559,7 +607,8 @@
       "name": "Milja Henriksson",
       "dob": "2007-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vantaa"
     },
     {
       "id": 200346,
@@ -573,14 +622,16 @@
       "name": "Kirsi Aaltola",
       "dob": "1986-01-16",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Siilinjärvi"
     },
     {
       "id": 201032,
       "name": "Ida-Maria Mämmi",
       "dob": "1998-02-28",
       "height": 181,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Espoo"
     },
     {
       "id": 201254,
@@ -636,21 +687,24 @@
       "name": "Anna Laaksonen",
       "dob": "2008-06-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Helsinki"
     },
     {
       "id": 223144,
       "name": "Maisa Kyröläinen",
       "dob": "2009-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mikkeli"
     },
     {
       "id": 223145,
       "name": "Nelli Waldén",
       "dob": "2009-10-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Helsinki"
     }
   ]
 }

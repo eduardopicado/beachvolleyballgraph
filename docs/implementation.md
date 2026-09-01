@@ -49,6 +49,7 @@ flowchart TD
 | `countries.ts` | Federation code → display name, via `Intl.DisplayNames` rather than a table that would rot. |
 | `build.ts` | All the pure logic. No network, no filesystem — which is why the awkward parts are unit-testable. |
 | `regression.ts` | Refuses to publish a rebuild that looks like a broken fetch. |
+| `olympics.ts`, `worlds.ts` | Season → host for the two championships FIVB names inconsistently. Anything unmapped keeps FIVB's own name. |
 | `main.ts` | Orchestration and I/O: fetch, call `build.ts`, write, check, swap. |
 | `prerender.ts` | Post-build: 265 static pages, sitemap, robots, llms.txt. |
 
@@ -85,9 +86,18 @@ comment saying *what* the code does is noise; one saying *why it is not the
 obvious alternative* is the point. When you change the code, change the comment
 — a stale one is worse than none.
 
-**Numbers in comments are measured**, not estimated. "38% of 5,891 shared
-seasons", "89% of played rows", "156 published players". If you cannot measure
-it, say that instead.
+**Numbers in comments are measured**, not estimated. "89% of played rows", "156
+published players have a foreign partner", "49 of them have none at home". If
+you cannot measure it, say that instead.
+
+Two kinds of number live in these docs and they age differently. One describes
+**the artifact as it stands** — file sizes, row counts, how many tests there
+are — and has to be true today; those are the ones that go stale on a weekly
+refresh, and the fix is to re-measure. The other records **what an
+investigation found** — "38% of shared seasons changed order", "89% of played
+rows share a rank" — and is a dated observation that stays as written, unless
+re-measuring shows the finding itself no longer holds. Say which you mean when
+the population is the sort that grows.
 
 **Tuples where volume justifies them.** `SeasonTally`, `ResultEntry`,
 `TournamentMeta` and `SearchEntry` are positional arrays, with named tuple
@@ -100,9 +110,9 @@ who have none, which is most of them.
 
 ## Testing
 
-Two layers, 323 tests total.
+Two layers, 580 tests total.
 
-**Unit — 259 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
+**Unit — 467 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
 in `build.ts` and `web/src/lib/` is pure, so this is where the logic lives.
 Fixtures include real, awkward rows: the 1997 World Championships with two
 bronzes, the Olympic qualifier with two winners.
@@ -113,17 +123,18 @@ tested**, not tested through the DOM: `filter.ts` (the strength threshold) and
 component keeps the state and the markup; the rule it applies becomes a pure
 function with a name.
 
-**Browser — 64 tests, `npm run test:e2e`.** Playwright against `vite preview`
-of the real `dist/`, in six files:
+**Browser — 113 tests, `npm run test:e2e`.** Playwright against `vite preview`
+of the real `dist/`, in seven files:
 
 | | |
 |---|---|
 | `smoke.spec.ts` | does the page render, and does it agree with its data |
+| `routing.spec.ts` | deep links, the address bar, the canonical tag |
 | `layout.spec.ts` | five viewports; no overflow, no collapsed list |
 | `keyboard.spec.ts` | focus contract and the search combobox |
-| `filter.spec.ts` | the min-events threshold, across every panel it changes |
 | `table.spec.ts` | sorting: order, `aria-sort`, and the arrow agreeing |
-| `routing.spec.ts` | deep links, the address bar, the canonical tag |
+| `filter.spec.ts` | the min-events threshold, across every panel it changes |
+| `pointer.spec.ts` | a tap near a node opens it, at the zoom a real slice picks |
 
 The rule that makes these worth having: **every assertion is cross-checked
 against the JSON the page was built from**, never against a number typed into

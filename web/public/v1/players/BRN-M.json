@@ -35,28 +35,32 @@
       "name": "Osama Omran",
       "dob": "1972-04-11",
       "height": 184,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Muharraq"
     },
     {
       "id": 118664,
       "name": "Qader Abdulla",
       "dob": "1977-12-16",
       "height": 175,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Manama"
     },
     {
       "id": 118665,
       "name": "Yunes Hassan",
       "dob": "1978-01-01",
       "height": 179,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Shahrakan"
     },
     {
       "id": 118666,
       "name": "Sadeq Almohsen",
       "dob": "1980-05-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Muharraq"
     },
     {
       "id": 118667,
@@ -105,7 +109,8 @@
       "name": "Ayman Haroon",
       "dob": "1986-09-06",
       "height": 179,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Manama"
     },
     {
       "id": 120982,

@@ -519,7 +519,7 @@
       "id": 181615,
       "name": "Stefánia Flóra Kun",
       "short": "Kun",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2022,
       "last": 2026
     },
@@ -527,7 +527,7 @@
       "id": 181618,
       "name": "Chiara Honti-Majoros",
       "short": "Honti-Majoros",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2022,
       "last": 2026
     },
@@ -559,6 +559,14 @@
       "id": 188605,
       "name": "Laura Kállai",
       "short": "Kállai",
+      "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 188606,
+      "name": "Cecília Noémi Jámbor",
+      "short": "Jámbor",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -567,7 +575,7 @@
       "id": 191408,
       "name": "Flóra Zolnai",
       "short": "Zolnai",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2024,
       "last": 2026
     },
@@ -615,7 +623,7 @@
       "id": 212490,
       "name": "Jázmin Pesti-Tóth",
       "short": "Pesti-Tóth",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -623,7 +631,7 @@
       "id": 213054,
       "name": "Izabella Anna Szabó",
       "short": "Szabó Iz.",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -631,7 +639,7 @@
       "id": 217372,
       "name": "Lilianna Szabó",
       "short": "Szabó Li.",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2026,
       "last": 2026
     },
@@ -1834,9 +1842,9 @@
     {
       "a": 181615,
       "b": 181618,
-      "t": 2,
+      "t": 3,
       "f": 2022,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2022,
@@ -1847,6 +1855,11 @@
           2025,
           1,
           288
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 4
@@ -1903,6 +1916,21 @@
     },
     {
       "a": 188605,
+      "b": 188606,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 188605,
       "b": 239522,
       "t": 1,
       "f": 2026,
@@ -1919,14 +1947,14 @@
     {
       "a": 191408,
       "b": 217372,
-      "t": 4,
+      "t": 5,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          4,
-          190
+          5,
+          239
         ]
       ],
       "r": 13
@@ -1994,14 +2022,14 @@
     {
       "a": 212490,
       "b": 213054,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          190
+          4,
+          239
         ]
       ],
       "r": 17

@@ -7,7 +7,8 @@
       "name": "Akram Dekkiche",
       "dob": "1995-01-12",
       "height": 196,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Chlef"
     },
     {
       "id": 139343,
@@ -28,35 +29,40 @@
       "name": "Azibi Walid",
       "dob": "1998-08-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sidi Ghiles"
     },
     {
       "id": 167814,
       "name": "Hamadache Ayoub",
       "dob": "2001-03-17",
       "height": 195,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Boumerdes ,Algeria"
     },
     {
       "id": 167815,
       "name": "Kallouche Mohamed-Islem",
       "dob": "2001-04-11",
       "height": 179,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Blida"
     },
     {
       "id": 167816,
       "name": "Omar Benfetima",
       "dob": "2000-11-28",
       "height": 191,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Milia Jijel"
     },
     {
       "id": 167846,
       "name": "Tizit Farouk",
       "dob": "2000-01-13",
       "height": 196,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Akbou"
     }
   ]
 }

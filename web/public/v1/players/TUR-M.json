@@ -119,7 +119,8 @@
       "name": "Erkan Togan",
       "dob": "1974-04-11",
       "height": 200,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Eskişehir"
     },
     {
       "id": 101385,
@@ -189,21 +190,24 @@
       "name": "Serhat Tokel",
       "dob": "1971-04-05",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Tekirdag"
     },
     {
       "id": 102479,
       "name": "Seref Tekin",
       "dob": "1968-06-01",
       "height": 202,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Dalaman"
     },
     {
       "id": 102480,
       "name": "Hakan Ozkan",
       "dob": "1964-01-18",
       "height": 190,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Geyve"
     },
     {
       "id": 102488,
@@ -252,7 +256,8 @@
       "name": "Muzaffer Mete Dalan",
       "dob": "1974-06-08",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Izmir"
     },
     {
       "id": 102495,
@@ -266,7 +271,8 @@
       "name": "Ertugrul Özder",
       "dob": "1974-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Izmir"
     },
     {
       "id": 102497,
@@ -294,7 +300,8 @@
       "name": "Remzi Onur Özder",
       "dob": "1973-03-12",
       "height": 184,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Izmir"
     },
     {
       "id": 125212,
@@ -351,11 +358,15 @@
       "dob": "1987-10-15",
       "height": 198,
       "weight": 98,
+      "birthPlace": "Sinop",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132175,
@@ -363,11 +374,15 @@
       "dob": "1984-05-19",
       "height": 198,
       "weight": 92,
+      "birthPlace": "Istanbul",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132253,
@@ -375,11 +390,15 @@
       "dob": "1987-03-22",
       "height": 187,
       "weight": 86,
+      "birthPlace": "Artvin",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 133317,
@@ -421,7 +440,8 @@
       "name": "Hakan Gögtepe",
       "dob": "1985-09-29",
       "height": 185,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Istanbul, Turkey"
     },
     {
       "id": 134792,
@@ -435,28 +455,32 @@
       "name": "Nuri Sahin",
       "dob": "1980-01-01",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Tokat, Turkey"
     },
     {
       "id": 141556,
       "name": "Ersin Durgut",
       "dob": "1982-08-04",
       "height": 208,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Bursa, Turkey"
     },
     {
       "id": 143825,
       "name": "Ali Berke Sagir",
       "dob": "1993-12-17",
       "height": 203,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Istanbul, Turkey"
     },
     {
       "id": 144018,
       "name": "Yasin Baysal",
       "dob": "1994-06-08",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Ankara"
     },
     {
       "id": 144381,
@@ -485,11 +509,15 @@
       "dob": "1994-03-08",
       "height": 190,
       "weight": 82,
+      "birthPlace": "Antalya",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146272,
@@ -497,11 +525,15 @@
       "dob": "1994-11-14",
       "height": 197,
       "weight": 88,
+      "birthPlace": "Ankara",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146300,
@@ -522,7 +554,8 @@
       "name": "Koray Baytemur",
       "dob": "1993-03-25",
       "height": 194,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Yenimahalle, Turkey"
     },
     {
       "id": 146940,
@@ -543,42 +576,48 @@
       "name": "Ali Osman Nurettin",
       "dob": "1993-05-19",
       "height": 188,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Famagusta"
     },
     {
       "id": 151151,
       "name": "Mehmet Civgin",
       "dob": "1995-02-11",
       "height": 187,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Antalya, Turkey"
     },
     {
       "id": 151277,
       "name": "Burak Balibey",
       "dob": "1981-06-20",
       "height": 193,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Elazig, Turkey"
     },
     {
       "id": 152393,
       "name": "Ibrahim Cadir",
       "dob": "1988-04-04",
       "height": 192,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Kastamonu, Turkey"
     },
     {
       "id": 153725,
       "name": "Dundar Yildirim",
       "dob": "1982-11-28",
       "height": 180,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kayseri, Turkey"
     },
     {
       "id": 154696,
       "name": "Ali Cebeci",
       "dob": "2000-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Develi"
     },
     {
       "id": 154697,
@@ -586,11 +625,15 @@
       "dob": "2000-03-16",
       "height": 195,
       "weight": 94,
+      "birthPlace": "Adana",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156395,
@@ -604,14 +647,16 @@
       "name": "Emirhan Ulutas",
       "dob": "1999-01-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bursa, Turkey"
     },
     {
       "id": 156869,
       "name": "Hasan Huseyin Yildirim",
       "dob": "1999-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kırşehir"
     },
     {
       "id": 161352,
@@ -639,21 +684,24 @@
       "name": "Mustafa Susam",
       "dob": "1999-05-31",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Eskisehir"
     },
     {
       "id": 168191,
       "name": "Doğukan Ulu",
       "dob": "1995-10-30",
       "height": 205,
-      "weight": 96
+      "weight": 96,
+      "birthPlace": "Ankara"
     },
     {
       "id": 171885,
       "name": "Necmi Ayberk Gulluk",
       "dob": "2003-01-20",
       "height": 196,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Antalya"
     },
     {
       "id": 171886,
@@ -661,18 +709,23 @@
       "dob": "2003-07-12",
       "height": 191,
       "weight": 71,
+      "birthPlace": "Adana, Turkey",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 172986,
       "name": "Eren Kanli",
       "dob": "1999-01-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Alanya"
     },
     {
       "id": 179502,
@@ -686,7 +739,8 @@
       "name": "Sacit Kurt",
       "dob": "2004-04-05",
       "height": 195,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Antalya"
     },
     {
       "id": 179505,
@@ -728,21 +782,24 @@
       "name": "Onur Özkol",
       "dob": "1983-11-30",
       "height": 183,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Izmir"
     },
     {
       "id": 214342,
       "name": "Polat Kemal Eser",
       "dob": "2009-11-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Manavgat"
     },
     {
       "id": 234644,
       "name": "Freddie Jude Foks",
       "dob": "2009-03-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Droghedah"
     }
   ]
 }

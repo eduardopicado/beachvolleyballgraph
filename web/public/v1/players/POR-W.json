@@ -7,14 +7,21 @@
       "name": "Maria José Almeida Schuller",
       "dob": "1965-02-13",
       "height": 178,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Viseu",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100956,
       "name": "Solange Rodrigues",
       "dob": "1975-11-03",
       "height": 172,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Cascais"
     },
     {
       "id": 100957,
@@ -28,7 +35,8 @@
       "name": "Rita Fernandes",
       "dob": "1976-02-19",
       "height": 165,
-      "weight": 54
+      "weight": 54,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 100959,
@@ -42,21 +50,24 @@
       "name": "Adriana Costa",
       "dob": "1974-08-27",
       "height": 162,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 100961,
       "name": "Patricia \"Piri\" Lavajo",
       "dob": "1975-11-22",
       "height": 168,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 100962,
       "name": "Elisabeta \"Beta\" Lourenco",
       "dob": "1974-01-02",
       "height": 186,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 100963,
@@ -70,7 +81,13 @@
       "name": "Ana Cristina \"Sarmento\" Pereira Vieira Carmo",
       "dob": "1968-03-08",
       "height": 169,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Porto",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100965,
@@ -91,7 +108,8 @@
       "name": "Claudia Valadas",
       "dob": "1977-07-03",
       "height": 159,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 100993,
@@ -140,7 +158,8 @@
       "name": "Ana Rita Gomes Costa",
       "dob": "1975-10-29",
       "height": 167,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Porto"
     },
     {
       "id": 101556,
@@ -161,21 +180,27 @@
       "name": "Daniela Maria Costa Santos Sol",
       "dob": "1977-05-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101994,
       "name": "Sara Fernandes",
       "dob": "1980-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 101995,
       "name": "Rosa Costa",
       "dob": "1976-01-29",
       "height": 170,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Gemunde"
     },
     {
       "id": 101996,
@@ -189,49 +214,59 @@
       "name": "Ana Filipa Mesquita Duarte de Araujo Ferreira",
       "dob": "1972-09-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101998,
       "name": "Carolina \"Carol\" Coelho Duarte Nunes",
       "dob": "1979-05-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 101999,
       "name": "Lucina Matos",
       "dob": "1975-03-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Massarelos"
     },
     {
       "id": 102000,
       "name": "Ana Sofia Freches Fonseca",
       "dob": "1979-11-05",
       "height": 178,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 102409,
       "name": "Sandra Silva",
       "dob": "1980-12-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Espinho"
     },
     {
       "id": 102410,
       "name": "Ana Claudia Freitas",
       "dob": "1970-08-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Espinho"
     },
     {
       "id": 102411,
       "name": "Adriana Costa",
       "dob": "1974-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisboa"
     },
     {
       "id": 102412,
@@ -245,7 +280,8 @@
       "name": "Patricia Alexandra Ribeiro Lopes",
       "dob": "1979-08-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 102414,
@@ -259,7 +295,8 @@
       "name": "Daniela Silvia Ribeiro Lopes",
       "dob": "1983-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matoshinhos"
     },
     {
       "id": 102416,
@@ -273,7 +310,8 @@
       "name": "Natacha Sofia Pereira Lopes",
       "dob": "1981-07-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 102418,
@@ -315,7 +353,8 @@
       "name": "Daniela Fernandes",
       "dob": "1980-04-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Caracas-Venezuela"
     },
     {
       "id": 103143,
@@ -379,18 +418,23 @@
       "dob": "1972-03-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Porto",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103575,
       "name": "Marta Andrade",
       "dob": "1983-08-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto"
     },
     {
       "id": 103576,
@@ -411,7 +455,8 @@
       "name": "Paula Cristina Azevedo Trindade",
       "dob": "1977-05-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Povoa de Varzim"
     },
     {
       "id": 103579,
@@ -467,21 +512,24 @@
       "name": "Ana Paulo",
       "dob": "1980-08-05",
       "height": 177,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Guarda"
     },
     {
       "id": 114615,
       "name": "Maria Francisca Esteves",
       "dob": "1983-05-29",
       "height": 176,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Monserrate"
     },
     {
       "id": 114616,
       "name": "Susana Monteiro",
       "dob": "1984-10-10",
       "height": 184,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Espinho"
     },
     {
       "id": 115576,
@@ -489,11 +537,15 @@
       "dob": "1985-01-07",
       "height": 180,
       "weight": 67,
+      "birthPlace": "Porto",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 116750,
@@ -521,7 +573,8 @@
       "name": "Neusa Reis",
       "dob": "1981-06-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Gaia"
     },
     {
       "id": 116754,
@@ -619,14 +672,16 @@
       "name": "Carla Sousa",
       "dob": "1991-04-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "VN Famalicao"
     },
     {
       "id": 121192,
       "name": "Daniela Loureiro",
       "dob": "1987-08-17",
       "height": 166,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Espinho"
     },
     {
       "id": 125099,
@@ -661,7 +716,8 @@
       "name": "Marta Hurst",
       "dob": "1992-07-07",
       "height": 184,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Porto"
     },
     {
       "id": 132918,
@@ -696,7 +752,8 @@
       "name": "Gabriela Ramos Coelho",
       "dob": "1997-09-01",
       "height": 178,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Sanguêdo"
     },
     {
       "id": 143219,
@@ -731,14 +788,16 @@
       "name": "Vanessa Da Costa Paquete",
       "dob": "1995-03-31",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Espinho"
     },
     {
       "id": 143319,
       "name": "Joana Gonzalez",
       "dob": "1991-03-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lisbonne"
     },
     {
       "id": 143320,
@@ -759,7 +818,8 @@
       "name": "Margarida Bras Maia",
       "dob": "1997-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Avioso - S.Pedro"
     },
     {
       "id": 143708,
@@ -773,7 +833,8 @@
       "name": "Mariana Rocha Maia",
       "dob": "1996-05-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vila do conde"
     },
     {
       "id": 146235,
@@ -808,14 +869,16 @@
       "name": "Ines Castro",
       "dob": "1999-05-25",
       "height": 182,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Porto"
     },
     {
       "id": 146919,
       "name": "Beatriz Silva Pinheiro",
       "dob": "2000-05-05",
       "height": 174,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Esmoriz"
     },
     {
       "id": 147527,
@@ -850,42 +913,48 @@
       "name": "Ines Vasco",
       "dob": "2002-08-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S Felix Marinha"
     },
     {
       "id": 160589,
       "name": "Matilde Calado Rodrigues",
       "dob": "2000-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aveiro"
     },
     {
       "id": 160602,
       "name": "Mafalda Porto",
       "dob": "2001-06-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Porto"
     },
     {
       "id": 168930,
       "name": "Carolina Bras Maia",
       "dob": "1999-09-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Maia, Porto"
     },
     {
       "id": 177574,
       "name": "Ana De Melo Monteiro",
       "dob": "2005-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ovar"
     },
     {
       "id": 177605,
       "name": "Margarida Nogueira Gomes Azevedo Santos",
       "dob": "2005-07-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Matosinhos"
     },
     {
       "id": 182214,

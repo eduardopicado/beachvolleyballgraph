@@ -7,35 +7,40 @@
       "name": "Shuqin Wu",
       "dob": "1982-12-11",
       "height": 173,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Singapore"
     },
     {
       "id": 118639,
       "name": "Hui Yu Phang",
       "dob": "1984-03-23",
       "height": 167,
-      "weight": 52
+      "weight": 52,
+      "birthPlace": "Singapore"
     },
     {
       "id": 118640,
       "name": "Shiang Theng Tan",
       "dob": "1987-01-18",
       "height": 175,
-      "weight": 71
+      "weight": 71,
+      "birthPlace": "Singapore"
     },
     {
       "id": 118641,
       "name": "Angelina Bridget Scanlon",
       "dob": "1975-06-05",
       "height": 164,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Singapore"
     },
     {
       "id": 118687,
       "name": "Ho Chin Ching",
       "dob": "1979-12-20",
       "height": 165,
-      "weight": 53
+      "weight": 53,
+      "birthPlace": "Singapore"
     },
     {
       "id": 118688,
@@ -49,14 +54,16 @@
       "name": "Gladys Lee",
       "dob": "1998-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     },
     {
       "id": 161460,
       "name": "Eliza Chong",
       "dob": "1998-12-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     },
     {
       "id": 161925,
@@ -140,7 +147,8 @@
       "name": "Yan Ting Cheryl Ng",
       "dob": "2003-06-22",
       "height": 166,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Singapore"
     },
     {
       "id": 196718,
@@ -182,7 +190,8 @@
       "name": "En Ai, Grace Chua-Lim",
       "dob": "2008-09-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Singapore"
     }
   ]
 }

@@ -14,7 +14,8 @@
       "name": "Jeanne Schneider",
       "dob": "1983-07-01",
       "height": 171,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Luxembourg"
     },
     {
       "id": 120747,
@@ -22,6 +23,7 @@
       "dob": "1990-03-13",
       "height": null,
       "weight": null,
+      "birthPlace": "Rokycany",
       "away": [
         {
           "id": 120748,
@@ -36,12 +38,6 @@
               2008,
               1,
               212
-            ]
-          ],
-          "at": [
-            [
-              2008,
-              "CZE"
             ]
           ],
           "r": 19

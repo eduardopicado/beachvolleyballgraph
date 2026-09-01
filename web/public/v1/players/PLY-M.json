@@ -7,28 +7,32 @@
       "name": "Jérémie Paraue",
       "dob": "1994-09-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 189942,
       "name": "Raihau Mare",
       "dob": "1997-04-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 199525,
       "name": "Christophe Ariitai",
       "dob": "1998-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     },
     {
       "id": 199526,
       "name": "Hevanoa Vaki",
       "dob": "1995-06-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Papeete"
     }
   ]
 }

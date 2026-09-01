@@ -7,7 +7,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
-import { playerProfileUrl, TIER_BADGE } from '../schema';
+import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
 import { foldAccents } from '../lib/search';
 import {
   age,
@@ -294,6 +294,19 @@ function isFocusable(el: Element): el is Element & Pick<HTMLOrSVGElement, 'focus
   return typeof (el as Partial<HTMLOrSVGElement>).focus === 'function';
 }
 
+/**
+ * What each narrowing is called on screen.
+ *
+ * "Tour podiums" matches the vitals tile of the same name exactly, because the
+ * two count the same events — a chip called "Podiums" would promise the
+ * Olympic and World Championship podiums as well.
+ */
+const FILTER_LABEL: Record<TimelineFilter, string> = {
+  olympics: 'Olympics',
+  'world-champs': 'Worlds',
+  'tour-podium': 'Tour podiums',
+};
+
 export function PlayerCard({
   node,
   detail,
@@ -378,13 +391,10 @@ export function PlayerCard({
 
   const years = age(detail?.dob ?? null);
   // Both lists, because both are on the card. Counting only the graph's edges
-  // made a player whose partners all competed elsewhere read "0 partners, 0
-  // entries" directly above a list of six of them and a career of fifteen
-  // tournaments — the vitals describing the graph while the rest of the card
-  // described the player.
+  // made a player whose partners all competed elsewhere read "0 partners"
+  // directly above a list of six of them — the vitals describing the graph
+  // while the rest of the card described the player.
   const partnerCount = partners.length + away.length;
-  const totalTogether =
-    partners.reduce((sum, p) => sum + p.t, 0) + away.reduce((sum, a) => sum + a.partner.t, 0);
 
   const timeline = useMemo(() => buildTimeline(partners), [partners]);
   /**
@@ -435,6 +445,34 @@ export function PlayerCard({
   // year should stay in that mode as they click through partners.
   const canShowTimeline = timeline.length > 0 || awayTimeline.length > 0;
   const showing = canShowTimeline ? view : 'partners';
+
+  /**
+   * A narrowing of the timeline: the Games, the World Championships, or the
+   * weeks on tour a player finished on the podium.
+   *
+   * Which chips exist comes from the published `filters`, not from the results
+   * file, because that file is only fetched when somebody opens a season — a
+   * control that appeared after the first click would not be a control anyone
+   * could find. Picking one raises the same flag an expansion does.
+   */
+  const [filter, setFilter] = useState<TimelineFilter | null>(null);
+  const available = detail?.filters ?? [];
+
+  // A different player has different chips, and one of them may not exist here.
+  useEffect(() => setFilter(null), [node.id]);
+
+  const matchesFilter = useCallback(
+    (event: SeasonEvent) => {
+      if (filter === 'olympics') return event.tier === 'olympics';
+      if (filter === 'world-champs') return event.tier === 'world-champs';
+      // Ranks 1-3 on tour, which is what the Tour podiums tile counts.
+      if (filter === 'tour-podium') {
+        return TOUR_TIERS.has(event.tier) && event.rank >= 1 && event.rank <= 3;
+      }
+      return true;
+    },
+    [filter],
+  );
 
   // --- expanding a season into its tournaments ------------------------------
   const [openSeasons, setOpenSeasons] = useState<ReadonlySet<number>>(new Set());
@@ -500,6 +538,39 @@ export function PlayerCard({
     [eventsForSeason, awayIds],
   );
 
+  /**
+   * The timeline, narrowed to the events a chip asks for.
+   *
+   * Built from the results rather than from the partnership rows above,
+   * because those are grouped by partner and a filter is a question about
+   * *events*. Every season that survives is rendered open: a filtered list
+   * exists to show the events themselves, so making the reader open four
+   * seasons to see four Games would be the same list they already had.
+   */
+  const filteredSeasons = useMemo(() => {
+    if (!filter || results.status !== 'ready') return [];
+    const seasons = new Set<number>();
+    for (const [no] of entries ?? []) {
+      const tournament = results.data.tournaments[no];
+      if (tournament) seasons.add(tournament[1]);
+    }
+    return [...seasons]
+      .filter((season) => eventsForSeason(season).some(matchesFilter))
+      .sort((a, b) => b - a)
+      .map((season) => ({ season, partners: [], total: 0 }));
+  }, [filter, results, entries, eventsForSeason, matchesFilter]);
+
+  const filteredEventsForSeason = useCallback(
+    (season: number) => eventsForSeason(season).filter(matchesFilter),
+    [eventsForSeason, matchesFilter],
+  );
+
+  const allFilteredOpen = useMemo(
+    () => new Set(filteredSeasons.map((r) => r.season)),
+    [filteredSeasons],
+  );
+
+
   return (
     <aside
       ref={cardRef}
@@ -536,7 +607,21 @@ export function PlayerCard({
         </div>
         <div>
           <dt>Born</dt>
-          <dd>{formatDate(detail?.dob ?? null)}</dd>
+          {/* The city goes under the date rather than into a tile of its own.
+              A seventh tile would have displaced Seasons from the grid, and it
+              would have shown an em dash on the 46% of players VIS has no birth
+              place for — next to the em dash 60% of them already get for
+              height. Folded in, the absent case renders nothing at all.
+
+              Measured on the running card: 21px in the vitals block, which on
+              desktop the card absorbs entirely (it is height-matched to the
+              graph, so it stays 680px); a phone grows by 20px. The column is
+              97px, so 84.7% of birth places fit on one line and the rest wrap
+              to two, which reads fine and needs no truncation. */}
+          <dd>
+            {formatDate(detail?.dob ?? null)}
+            {detail?.birthPlace && <span className="birth-place">{detail.birthPlace}</span>}
+          </dd>
         </div>
         <div>
           <dt>Age</dt>
@@ -554,10 +639,30 @@ export function PlayerCard({
           <dt>Seasons</dt>
           <dd>{seasonSpan(node.first, node.last)}</dd>
         </div>
-        {detail?.olympics && (
+        {/* Drawn from appearances as well as medals, because the tile is headed
+            "Olympics" and used to appear only for the 76 published players who
+            medalled — absent for the other 412, which is 84.4% of the people it
+            names. Being an Olympian is the fact; the medal is a second one.
+
+            The Games count sits under the medals rather than replacing them,
+            the same shape the birth city takes under the date. A player with no
+            medal gets the count as the value, so the tile still says something
+            rather than showing an em dash. */}
+        {(detail?.olympics || detail?.olympicGames) && (
           <div>
             <dt>Olympics</dt>
-            <dd aria-label={medalAriaLabel(detail.olympics)}>{formatMedals(detail.olympics)}</dd>
+            <dd aria-label={detail.olympics ? medalAriaLabel(detail.olympics) : undefined}>
+              {detail.olympics ? (
+                <>
+                  {formatMedals(detail.olympics)}
+                  {detail.olympicGames ? (
+                    <span className="sub">{plural(detail.olympicGames, 'Game')}</span>
+                  ) : null}
+                </>
+              ) : (
+                plural(detail.olympicGames!, 'Game')
+              )}
+            </dd>
           </div>
         )}
         {detail?.worldChamps && (
@@ -583,10 +688,21 @@ export function PlayerCard({
             the card is sized to the graph beside it, so on a short window
             every row this header costs comes straight out of the list. */}
         <div className="partners-head">
-          <h3>
-            {showing === 'timeline' ? 'Timeline' : 'Partners'}{' '}
-            <span className="count">{plural(totalTogether, 'entry', 'entries')}</span>
-          </h3>
+          {/* The switch *is* the heading when there is one. Whichever half is
+              pressed names the list below it, so a separate <h3> beside it said
+              "Partners" twice on the same row. Kept for screen readers, which
+              need the section named without relying on a pressed state.
+
+              The visible fallback is for data with no per-season tallies, which
+              is what `canShowTimeline` already guards for: every one of the
+              13,820 published edges carries them today, so this branch is
+              reachable only by a slice published before that field existed. It
+              matches the guard rather than assuming the guard is dead. */}
+          {canShowTimeline ? (
+            <h3 className="sr-only">{showing === 'timeline' ? 'Timeline' : 'Partners'}</h3>
+          ) : (
+            <h3>Partners</h3>
+          )}
 
           {canShowTimeline && (
             <div className="view-switch" role="group" aria-label="Partner view">
@@ -608,16 +724,74 @@ export function PlayerCard({
           )}
         </div>
 
+        {showing === 'timeline' && available.length > 0 && (
+          /* The narrowings this player has anything for. Rendered only in the
+             timeline, because they narrow *events* and the partner list has
+             none — and only when there is something to narrow to, so most
+             cards never see them. */
+          <div className="tl-filters" role="group" aria-label="Show only">
+            <button
+              type="button"
+              className={filter === null ? 'on' : undefined}
+              aria-pressed={filter === null}
+              onClick={() => setFilter(null)}
+            >
+              All
+            </button>
+            {available.map((f) => (
+              <button
+                key={f}
+                type="button"
+                className={filter === f ? 'on' : undefined}
+                aria-pressed={filter === f}
+                onClick={() => {
+                  // Same flag an expansion raises: choosing a chip is the first
+                  // thing that needs the results file.
+                  setWantResults(true);
+                  setFilter((current) => (current === f ? null : f));
+                }}
+              >
+                {FILTER_LABEL[f]}
+              </button>
+            ))}
+          </div>
+        )}
+
         {partners.length === 0 ? (
           <p className="empty">
             {/* Says where the partnerships *are*, not just where they are not.
-                The previous wording ended on "none of them appear in the
+                An earlier wording ended on "none of them appear in the
                 ${countryName} graph" with a list of them immediately below it,
-                which reads as a contradiction rather than an explanation. */}
+                which reads as a contradiction rather than an explanation.
+
+                The pointer stays; naming its target does not. The heading is
+                the next thing on the card, so "See Partners not in this graph
+                below" would spend six words on a place the eye has already
+                reached. */}
             {away.length > 0
-              ? `None of these partnerships appear in the ${countryName} graph, which only links players from the same federation. See Other federations below.`
+              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
               : `No partnerships on record for this player.`}
           </p>
+        ) : showing === 'timeline' && filter ? (
+          results.status !== 'ready' ? (
+            <p className="events-note">Loading…</p>
+          ) : filteredSeasons.length === 0 ? (
+            /* Reachable only if the published `filters` and the results file
+               disagree, which would be a bug rather than an empty career — the
+               chip is not drawn unless the ingest found something. */
+            <p className="events-note">Nothing to show for this filter.</p>
+          ) : (
+            <SeasonList
+              rows={filteredSeasons}
+              open={allFilteredOpen}
+              onToggle={() => undefined}
+              idPrefix={`filtered-${node.id}`}
+              eventsFor={filteredEventsForSeason}
+              status={results.status}
+              onSelectPartner={onSelectPartner}
+              variant="is-filtered"
+            />
+          )
         ) : showing === 'timeline' ? (
           <SeasonList
             rows={timeline}
@@ -648,10 +822,35 @@ export function PlayerCard({
         {away.length > 0 && (
           <div className="away">
             {/* Named rather than hidden: the graph deliberately holds only
-                same-federation pairs, and a player who moved keeps their new
-                country while every partner stays behind. Without this the card
-                reads as though they never had a partner at all. */}
-            <h4>Other federations</h4>
+                same-slice pairs, and a player who moved keeps their new country
+                while every partner stays behind. Without this the card reads as
+                though they never had a partner at all.
+
+                The heading says nothing about *who* moved, because the block
+                cannot tell. It read "Now with other federations" until someone
+                opened Tiago De J Santos in Qatar and found Pedro Solberg under
+                it: they played one event in 2005, both Brazilian, and Pedro has
+                been Brazilian ever since. Tiago is the one who left. Of the 111
+                published away rows carrying a federation for the partnership,
+                53 are that way round and 54 are the other, so a heading that
+                points at the partner is wrong about as often as it is right.
+                (4 more are the GBR split into ENG and SCO, where both ends
+                moved because the federation did.)
+
+                Six rows are not a federation difference at all. Three pairs sit
+                in the same federation under opposite genders — and since FIVB
+                runs no mixed beach competition, that is an upstream error
+                rather than a category: all three played men's events
+                (`MU212012`, `MRIO1989`, `MAGA2011`). The errors differ, though,
+                and only one is the mislabel it looks like — a duplicated
+                athlete, a wrong gender, and a team row crediting the wrong
+                person entirely. Quirks §18.
+
+                So "not in this graph" is the one description true of all 221
+                rows, and it is what the row's own flags then qualify, since a
+                partner who has since moved carries an arrow to where they are
+                today. */}
+            <h4>Partners not in this graph</h4>
             {showing === 'timeline' && awayTimeline.length > 0 ? (
               <SeasonList
                 rows={awayTimeline}
@@ -670,11 +869,18 @@ export function PlayerCard({
                 // The two differ for exactly the partnerships this block was
                 // getting wrong.
                 const spans = representedAs(then);
+                // Where they are today, but only when the row does not already
+                // say it. Half the published away rows (110 of 221) end on a
+                // federation the partner has since left, and after the flags
+                // started telling the truth about *then*, nothing on the row
+                // told the reader about *now* — including the fact that
+                // selecting it navigates to another country's graph.
+                const moved = spans.length > 0 && spans[spans.length - 1]!.fed !== partner.fed;
                 const label =
                   spans.length > 0
                     ? spans
                         .map((r) => `${r.countryName}, ${r.from === r.to ? r.from : `${r.from}–${r.to}`}`)
-                        .join(' · ')
+                        .join(' · ') + (moved ? ` · now ${partnerCountry}` : '')
                     : partnerCountry;
                 const badge = spans.length > 0 ? spans.map((r) => r.flag).join('') : partnerFlag;
                 return (
@@ -684,7 +890,13 @@ export function PlayerCard({
                       <span className="name">{partner.name}</span>
                       <span className="meta">
                         <span className="fed" title={label}>
-                          <span aria-hidden="true">{badge}</span>
+                          <span aria-hidden="true">
+                            {badge}
+                            {/* The arrow carries the whole story in two
+                                characters: was there, is here now. Spelled out
+                                for a screen reader by `label`. */}
+                            {moved && <span className="moved-to">→{partnerFlag}</span>}
+                          </span>
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>
@@ -699,7 +911,13 @@ export function PlayerCard({
                       <span className="name">{partner.name}</span>
                       <span className="meta">
                         <span className="fed" title={label}>
-                          <span aria-hidden="true">{badge}</span>
+                          <span aria-hidden="true">
+                            {badge}
+                            {/* The arrow carries the whole story in two
+                                characters: was there, is here now. Spelled out
+                                for a screen reader by `label`. */}
+                            {moved && <span className="moved-to">→{partnerFlag}</span>}
+                          </span>
                           <span className="sr-only">{label}</span>
                         </span>
                         <span className="tally">{partner.t}</span>

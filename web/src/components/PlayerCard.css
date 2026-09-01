@@ -123,6 +123,83 @@
   font-weight: 600;
 }
 
+/* A second, quieter line inside a vitals tile — the Games behind a medal
+   tally. Same weight as the birth city below it: the tile's headline value is
+   the fact it is named for, and this qualifies it. */
+.vitals dd .sub {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* The birth city, under the date in the same tile. Smaller and quieter than
+   the date it hangs off: the date is the fact the tile is named for, and the
+   city is a qualifier on it, not a second value. */
+.vitals .birth-place {
+  display: block;
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* The timeline's narrowings. A row of chips rather than another segmented
+   control: these are not views of the same thing at the same level as
+   Partners/Timeline, they are a question asked *inside* the timeline, and one
+   of them can be off. */
+.tl-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 10px;
+}
+
+.tl-filters button {
+  padding: 3px 10px;
+  border: 1px solid var(--gridline);
+  border-radius: 999px;
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tl-filters button:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.tl-filters button.on {
+  background: var(--series-1-wash);
+  border-color: transparent;
+  color: var(--series-1);
+  font-weight: 600;
+}
+
+.tl-filters button:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+}
+
+/* Every event in a filtered season is on screen, so the tally beside the year
+   only repeats what the reader can already count. */
+.timeline.is-filtered .total {
+  display: none;
+}
+
+/* A filtered season cannot be collapsed — there is nothing behind it but the
+   events already on screen — so its year is a label, not a control. */
+.timeline.is-filtered .season {
+  cursor: default;
+}
+
+.timeline.is-filtered .season .caret {
+  visibility: hidden;
+}
+
 /* --- partners ------------------------------------------------------------ */
 
 .partners {
@@ -159,12 +236,6 @@
   min-width: 0;
   font-size: 13px;
   font-weight: 650;
-}
-
-.partners .count {
-  color: var(--text-muted);
-  font-size: 11px;
-  font-weight: 500;
 }
 
 .partners ul {
@@ -354,27 +425,47 @@
 .away .fed {
   font-size: 12px;
   line-height: 1;
+  /* The two flags and the arrow are one unit; without this a narrow card can
+     wrap between "was there" and "is here now", which reads as two separate
+     facts rather than one transfer. */
+  white-space: nowrap;
+}
+
+/* Where the partner is today, when that is not where the partnership was.
+   Dimmed and a size down, because the row is primarily about the partnership
+   and this is the footnote that explains why the row is in this block at all
+   — and where selecting it will take you. */
+.away .moved-to {
+  margin-left: 1px;
+  color: var(--text-muted);
+  font-size: 10px;
 }
 
 /* --- Partners / Timeline switch ----------------------------------------- */
 
+/* Fills the row now that the heading beside it is gone. It is the section's
+   label as well as its control, so it gets the width a heading had. */
 .view-switch {
   display: flex;
   gap: 2px;
-  flex-shrink: 0;
+  flex: 1;
   padding: 2px;
   border-radius: 7px;
   background: var(--series-1-wash);
 }
 
 .view-switch button {
-  padding: 4px 10px;
+  /* Equal halves, so neither view reads as the secondary one. The type steps
+     up from 11px to the 13px the heading used, because this now carries the
+     job that heading had. */
+  flex: 1;
+  padding: 6px 10px;
   border: 0;
   border-radius: 5px;
   background: transparent;
   color: var(--text-secondary);
   font: inherit;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
 }

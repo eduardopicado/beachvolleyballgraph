@@ -7,21 +7,33 @@
       "name": "Glenn Hamilton",
       "dob": "1966-08-13",
       "height": 192,
-      "weight": 93
+      "weight": 93,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100050,
       "name": "Reid Hamilton",
       "dob": "1969-04-03",
       "height": 185,
-      "weight": 82
+      "weight": 82,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100718,
       "name": "Craig John Seuseu",
       "dob": "1971-09-23",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Dunedin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100719,
@@ -56,14 +68,19 @@
       "name": "Thomas Eade",
       "dob": "1970-09-20",
       "height": 194,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Auckland",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101721,
       "name": "Mark Hendrikus Termeer",
       "dob": "1964-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Christchurch"
     },
     {
       "id": 101876,
@@ -85,11 +102,16 @@
       "dob": "1981-12-13",
       "height": 192,
       "weight": 85,
+      "birthPlace": "Whangarei",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104659,
@@ -97,18 +119,27 @@
       "dob": "1984-03-12",
       "height": 178,
       "weight": 75,
+      "birthPlace": "Tauranga",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118100,
       "name": "Michael Watson",
       "dob": "1989-02-05",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Auckland",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 118103,
@@ -122,7 +153,8 @@
       "name": "Brendon Heath",
       "dob": "1978-11-13",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Nelson"
     },
     {
       "id": 118545,
@@ -136,21 +168,24 @@
       "name": "Sam Wallace-Boyd",
       "dob": "1990-01-24",
       "height": 185,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Tauranga"
     },
     {
       "id": 119154,
       "name": "Mark Petersen",
       "dob": "1989-02-08",
       "height": 200,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Wynberg"
     },
     {
       "id": 120164,
       "name": "Damon Haenga",
       "dob": "1985-07-19",
       "height": 192,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 120166,
@@ -164,7 +199,8 @@
       "name": "Russell Watson",
       "dob": "1983-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 120168,
@@ -179,11 +215,16 @@
       "dob": "1990-11-24",
       "height": 198,
       "weight": 97,
+      "birthPlace": "Tauranga",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122248,
@@ -204,21 +245,24 @@
       "name": "Paora Morunga",
       "dob": "1992-08-28",
       "height": 195,
-      "weight": 115
+      "weight": 115,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 124997,
       "name": "Liam Munday",
       "dob": "1991-09-05",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Auckland"
     },
     {
       "id": 124998,
       "name": "Johann Timmer",
       "dob": "1991-10-25",
       "height": 198,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Takapuna"
     },
     {
       "id": 132041,
@@ -226,32 +270,40 @@
       "dob": "1992-05-06",
       "height": 196,
       "weight": 97,
+      "birthPlace": "Mount Maunganui",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 132542,
       "name": "Morgan Seymour",
       "dob": "1993-04-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 132543,
       "name": "Sonny Hirini",
       "dob": "1994-02-14",
       "height": null,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Hamilton"
     },
     {
       "id": 132544,
       "name": "Tyler Hamlin",
       "dob": "1992-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 135512,
@@ -259,11 +311,15 @@
       "dob": "1993-10-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Takapuna",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135513,
@@ -271,18 +327,23 @@
       "dob": "1993-09-27",
       "height": null,
       "weight": null,
+      "birthPlace": "Tauranga",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138957,
       "name": "Liam Matheson",
       "dob": "1995-05-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hammersmith, London, England"
     },
     {
       "id": 138958,
@@ -290,39 +351,48 @@
       "dob": "1995-10-13",
       "height": 191,
       "weight": null,
+      "birthPlace": "Tauranga",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 140905,
       "name": "Rene Kapa",
       "dob": "1992-10-19",
       "height": 199,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 141383,
       "name": "Thomas Heijs",
       "dob": "1994-09-16",
       "height": 195,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Waalwijk"
     },
     {
       "id": 141388,
       "name": "Jesse Hawkins",
       "dob": "1993-11-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 146805,
       "name": "Gregory David Vukets",
       "dob": "1999-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Henderson"
     },
     {
       "id": 146806,
@@ -336,14 +406,16 @@
       "name": "Ryan Gunn",
       "dob": "2000-08-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Elgin"
     },
     {
       "id": 155803,
       "name": "Daniel Kilpatrick",
       "dob": "1998-12-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Auckland"
     },
     {
       "id": 160610,
@@ -351,11 +423,15 @@
       "dob": "1995-08-01",
       "height": 189,
       "weight": 86,
+      "birthPlace": "Takapuna",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 161083,
@@ -377,11 +453,15 @@
       "dob": "1996-03-04",
       "height": null,
       "weight": null,
+      "birthPlace": "Whakatane",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164398,
@@ -395,7 +475,8 @@
       "name": "Keegan Maan Tai Joe",
       "dob": "2001-06-27",
       "height": 176,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "New Plymouth"
     },
     {
       "id": 166550,
@@ -424,25 +505,31 @@
       "dob": "2001-08-13",
       "height": 194,
       "weight": 85,
+      "birthPlace": "Twyford",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 166737,
       "name": "James Sadlier",
       "dob": "2003-03-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wellington"
     },
     {
       "id": 173888,
       "name": "Eric Dean Stratton",
       "dob": "2000-11-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tarzana"
     },
     {
       "id": 177656,
@@ -456,7 +543,8 @@
       "name": "Trent Webby",
       "dob": "1993-06-01",
       "height": 191,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Hamilton"
     },
     {
       "id": 178418,
@@ -505,7 +593,8 @@
       "name": "Michael Tyler",
       "dob": "2005-11-18",
       "height": 183,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Torrance"
     },
     {
       "id": 199029,
@@ -519,7 +608,8 @@
       "name": "Noah Smith",
       "dob": "2005-03-31",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Palmerston North"
     },
     {
       "id": 199359,
@@ -533,21 +623,24 @@
       "name": "Jamie Julian",
       "dob": "2005-11-10",
       "height": 185,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Whakatane"
     },
     {
       "id": 208868,
       "name": "Liam Chris Smith",
       "dob": "2007-08-20",
       "height": 184,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Hamilton"
     },
     {
       "id": 208870,
       "name": "Thomas Peter Vesty",
       "dob": "2006-12-24",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Christchurch"
     },
     {
       "id": 208875,
@@ -561,7 +654,8 @@
       "name": "Lucas Heggie",
       "dob": "2006-02-12",
       "height": 188,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "New Plymouth, New Zealand"
     },
     {
       "id": 209062,
@@ -575,7 +669,8 @@
       "name": "Seth Dylan Grant",
       "dob": "2001-10-15",
       "height": 193,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Auckland"
     },
     {
       "id": 219674,
@@ -596,21 +691,24 @@
       "name": "Flynn Schrider",
       "dob": "2006-05-28",
       "height": 194,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "New Plymouth"
     },
     {
       "id": 233262,
       "name": "Mana Barham",
       "dob": "2009-03-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "New Zealand"
     },
     {
       "id": 233503,
       "name": "Cruize Satiu",
       "dob": "2009-10-18",
       "height": 190,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "New Zealand"
     }
   ]
 }

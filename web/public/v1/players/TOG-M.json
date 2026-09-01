@@ -7,14 +7,22 @@
       "name": "Kuamivi Achille Samani",
       "dob": "1997-05-10",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Lome",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177968,
       "name": "Koffi Abraham Kotoka",
       "dob": "1996-10-04",
       "height": 179,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Lome",
+      "filters": [
+        "world-champs"
+      ]
     }
   ]
 }

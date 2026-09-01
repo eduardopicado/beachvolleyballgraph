@@ -21,28 +21,38 @@
       "name": "Mensan Tobby N Tohouegnon",
       "dob": "1990-07-23",
       "height": 190,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Lokossa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 177540,
       "name": "Yacoubou Daouda",
       "dob": "1995-07-12",
       "height": 199,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Natitingou",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 226750,
       "name": "Abdel Sadath Tchetekoua",
       "dob": "2008-05-11",
       "height": 175,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Nikki"
     },
     {
       "id": 226751,
       "name": "Abdou Kabirou Mama",
       "dob": "2010-04-24",
       "height": 157,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Parakou"
     }
   ]
 }

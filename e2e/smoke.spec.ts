@@ -148,7 +148,10 @@ test.describe('partners from other federations', () => {
     await expect(card.locator('.partners > ul > li')).toHaveCount(0);
     // ...and without this feature that was the whole story. Now it is not.
     await expect(card.locator('.away li')).toHaveCount(target!.away);
-    await expect(card.locator('.partners .empty')).toContainText('same federation');
+    // "today" is the load-bearing word: these pairs were very often compatriots
+    // at the time, and the old copy claimed the graph "only links players from
+    // the same federation" directly above a list of same-federation rows.
+    await expect(card.locator('.partners .empty')).toContainText('federation they are in today');
 
     // The vitals describe the player, not the graph. Counting only the edges
     // put "0 partners" directly above a list of them.
@@ -450,6 +453,248 @@ test('the card renders vitals from the separate player detail file', async ({ pa
   const card = page.locator('.player-card');
   const height = card.locator('.vitals div', { has: page.getByText('Height', { exact: true }) });
   await expect(height.locator('dd')).toHaveText(`${withHeight!.height} cm`);
+});
+
+/**
+ * The birth city, under the date in the Born tile.
+ *
+ * Subjects are scanned out of the published data rather than named: which
+ * players have a birth place changes as FIVB fills the field in, and 46% of
+ * them have none at all.
+ */
+test.describe('where a player was born', () => {
+  const bornTile = (page: Page) =>
+    page.locator('.player-card .vitals div', { has: page.getByText('Born', { exact: true }) });
+
+  test('sits under the date rather than in a tile of its own', async ({ page }) => {
+    const detail = players(COUNTRY, GENDER);
+    const subject = detail.players.find((p) => p.birthPlace && p.dob);
+    expect(subject, 'no player in this slice has both a birth place and a date').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    const tile = bornTile(page);
+    await expect(tile.locator('.birth-place')).toHaveText(subject!.birthPlace!);
+
+    // Under the date, in the same tile — not a seventh cell in the grid, which
+    // is what would displace Seasons.
+    await expect(tile.locator('dd')).toContainText(subject!.birthPlace!);
+    await expect(page.locator('.player-card .vitals .birth-place')).toHaveCount(1);
+  });
+
+  test('shows nothing at all for a player without one', async ({ page }) => {
+    // The reason it is folded into Born rather than given its own tile: the
+    // absent case has to render nothing, not an em dash next to the em dash
+    // that height already shows.
+    const detail = players(COUNTRY, GENDER);
+    const subject = detail.players.find((p) => !p.birthPlace);
+    expect(subject, 'every player in this slice has a birth place').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(bornTile(page).locator('dd')).toBeVisible();
+    await expect(page.locator('.player-card .vitals .birth-place')).toHaveCount(0);
+  });
+});
+
+/**
+ * The row above the partner list.
+ *
+ * It used to be a heading plus a tally: "Partners  234 entries". The tally was
+ * the sum of tournaments-per-partner, which for a pairs sport is the player's
+ * tournament count by construction — the same 234 already in the Tournaments
+ * tile two rows above, under a label that reads like a partner count while the
+ * Partners tile beside it says 9.
+ */
+test.describe('the partner list heading', () => {
+  test('shows the switch instead of a tally that repeats a tile', async ({ page }) => {
+    const detail = players(COUNTRY, GENDER);
+    const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
+    expect(busiest, 'no players in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${busiest!.id}`);
+    const head = page.locator('.partners-head');
+    await expect(head).toBeVisible();
+
+    // The tournament count is on the card exactly once, in its own tile.
+    const tile = page.locator('.player-card .vitals div', {
+      has: page.getByText('Tournaments', { exact: true }),
+    });
+    await expect(tile.locator('dd')).toHaveText(String(busiest!.tournaments));
+    await expect(head).not.toContainText(String(busiest!.tournaments));
+    await expect(head.locator('.count')).toHaveCount(0);
+
+    // And the switch is what names the section now, at the row's full width.
+    const sw = head.locator('.view-switch');
+    await expect(sw).toBeVisible();
+    const headBox = await head.boundingBox();
+    const swBox = await sw.boundingBox();
+    expect(swBox!.width, 'the switch should fill the row').toBeGreaterThan(headBox!.width * 0.9);
+
+    // Still named for assistive tech, just not drawn twice on one row.
+    await expect(head.locator('h3')).toHaveText('Partners');
+    const h3 = await head.locator('h3').boundingBox();
+    expect(h3!.width, 'the heading should be visually hidden').toBeLessThan(3);
+  });
+
+  test('opens on Partners, with Timeline one press away', async ({ page }) => {
+    const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
+    await page.goto(`./${slicePath()}?player=${busiest!.id}`);
+
+    const sw = page.locator('.partners-head .view-switch');
+    await expect(sw.getByRole('button', { name: 'Partners' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(sw.getByRole('button', { name: 'Timeline' })).toHaveAttribute('aria-pressed', 'false');
+
+    await sw.getByRole('button', { name: 'Timeline' }).click();
+    await expect(sw.getByRole('button', { name: 'Timeline' })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.partners > .timeline')).toBeVisible();
+  });
+});
+
+/**
+ * Narrowing the timeline to the Games, the Worlds, or a podium week.
+ *
+ * Subjects are scanned out of the published data: which players have which
+ * filters moves as the archive is rebuilt, and only 2,292 of 12,074 have any.
+ */
+/**
+ * The Olympics tile.
+ *
+ * It used to be drawn from the medal tally alone, so a tile headed "Olympics"
+ * was absent for 412 of the 488 published Olympians — 84.4% of the people it
+ * names. Martin Alejo Conde has four Games and had no tile at all.
+ */
+test.describe('the Olympics tile', () => {
+  const tile = (page: Page) =>
+    page.locator('.player-card .vitals div', { has: page.getByText('Olympics', { exact: true }) });
+
+  const bySlice = (want: (p: { olympics?: unknown; olympicGames?: number }) => boolean) =>
+    players(COUNTRY, GENDER).players.find(want);
+
+  const games = (n: number) => `${n} ${n === 1 ? 'Game' : 'Games'}`;
+
+  test('shows the Games for an Olympian who never medalled', async ({ page }) => {
+    const subject = bySlice((p) => p.olympicGames !== undefined && p.olympics === undefined);
+    expect(subject, 'no un-medalled Olympian in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(tile(page)).toBeVisible();
+    await expect(tile(page).locator('dd')).toHaveText(games(subject!.olympicGames!));
+  });
+
+  test('keeps the medals and adds the Games beneath them', async ({ page }) => {
+    const subject = bySlice((p) => p.olympics !== undefined && p.olympicGames !== undefined);
+    expect(subject, 'no Olympic medallist in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    const dd = tile(page).locator('dd');
+    // The medals stay the headline; the Games are the second line.
+    await expect(dd.locator('.sub')).toHaveText(games(subject!.olympicGames!));
+    // By the medal label rather than a gold glyph: the first medallist in this
+    // slice has a lone silver, and asserting 🥇 only passed by luck of who
+    // sorts first.
+    await expect(dd).toHaveAttribute('aria-label', /medal/);
+  });
+
+  test('is absent for a player who never went', async ({ page }) => {
+    // 96% of the archive. The tile has to disappear, not show a zero.
+    const subject = bySlice((p) => p.olympicGames === undefined && p.olympics === undefined);
+    expect(subject).toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await expect(page.locator('.player-card .vitals')).toBeVisible();
+    await expect(tile(page)).toHaveCount(0);
+  });
+});
+
+test.describe('narrowing the timeline', () => {
+  const chips = (page: Page) => page.locator('.tl-filters button');
+
+  const withFilter = (want: string) =>
+    players(COUNTRY, GENDER).players.find((p) => (p.filters ?? []).includes(want as never));
+
+  test('offers only the narrowings this player has something for', async ({ page }) => {
+    const subject = withFilter('olympics');
+    expect(subject, 'no Olympian in this slice').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+
+    // "All" plus one per published filter, in the published order.
+    await expect(chips(page)).toHaveCount((subject!.filters ?? []).length + 1);
+    await expect(chips(page).first()).toHaveText('All');
+  });
+
+  test('shows no chips at all for a player with none', async ({ page }) => {
+    // 9,782 of 12,074 players — the control has to be absent, not empty.
+    //
+    // The subject must have a *timeline*, or this passes for the wrong reason:
+    // a player with one tournament has no Timeline tab to open, so no chip row
+    // would render however broken the gate was. Removing the gate really does
+    // fail this test now, which the first version of it did not.
+    const withTimeline = new Set(
+      graph(COUNTRY, GENDER)
+        .nodes.filter((n) => n.tournaments >= 2)
+        .map((n) => n.id),
+    );
+    const plain = players(COUNTRY, GENDER).players.find(
+      (p) => !p.filters && withTimeline.has(p.id),
+    );
+    expect(plain, 'no player in this slice has a timeline but no filters').toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${plain!.id}`);
+    const timeline = page.getByRole('button', { name: 'Timeline' });
+    await expect(timeline).toBeVisible();
+    await timeline.click();
+    await expect(page.locator('.tl-filters')).toHaveCount(0);
+  });
+
+  test('lists every Games and nothing else', async ({ page }) => {
+    const subject = withFilter('olympics');
+    expect(subject).toBeTruthy();
+
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+    await chips(page).filter({ hasText: 'Olympics' }).click();
+
+    const list = page.locator('.timeline.is-filtered');
+    await expect(list.locator('.events > li').first()).toBeVisible();
+
+    // Every row is badged Olympics — the guard against a filter that widens
+    // instead of narrowing.
+    const badges = await list.locator('.events .badge').allInnerTexts();
+    expect(badges.length).toBeGreaterThan(0);
+    expect([...new Set(badges)]).toEqual(['Olympics']);
+
+    // Newest first, like every other timeline on the card.
+    const years = (await list.locator('.year').allInnerTexts()).map(Number);
+    expect(years).toEqual([...years].sort((a, b) => b - a));
+  });
+
+  test('names the Games rather than repeating what FIVB typed', async ({ page }) => {
+    // FIVB files the 2012 draws as "Olympic Games 2012", which never says
+    // London, and the 2021 draws under a season that is not their name.
+    const index = tournamentIndex();
+    const named = Object.values(index).filter((t) => t[2] === 'olympics').map((t) => t[0]);
+    expect(named.length, 'no Olympic tournament published').toBeGreaterThan(0);
+    for (const name of named) {
+      expect(name, `${name} still reads like FIVB's own label`).not.toMatch(/olympic|tournament|beach volleyball/i);
+    }
+    expect(named).toContain('London 2012');
+    expect(named).toContain('Tokyo 2020');
+  });
+
+  test('goes back to the whole career', async ({ page }) => {
+    const subject = withFilter('olympics');
+    await page.goto(`./${slicePath()}?player=${subject!.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+    await chips(page).filter({ hasText: 'Olympics' }).click();
+    await expect(page.locator('.timeline.is-filtered')).toBeVisible();
+
+    // Scoped to the chip row: the graph's own filter panel has an "All" too,
+    // and an unscoped role query matches both.
+    await chips(page).filter({ hasText: 'All' }).click();
+    await expect(page.locator('.timeline.is-filtered')).toHaveCount(0);
+    await expect(page.locator('.partners > .timeline')).toBeVisible();
+  });
 });
 
 test('the card counts tour podiums apart from Olympic and World Championships medals', async ({
@@ -1128,6 +1373,139 @@ test.describe('without JavaScript', () => {
  * second `.timeline` in the card, which is why every selector above had to say
  * which one it meant.
  */
+test.describe('the away block names itself for the graph, not for who moved', () => {
+  const sliceFor = (code: string, gender: 'M' | 'W') => {
+    const entry = manifest().countries.find((c) => c.code === code);
+    if (!entry) throw new Error(`${code} missing from the manifest`);
+    return `${sliceSlug(entry.name, gender)}/`;
+  };
+
+  /**
+   * A published away row whose federation-at-the-time is this slice's *own*
+   * country, so the partner is the one who left. Found by scanning the data
+   * rather than pinned to a player, so it survives the weekly ingest.
+   *
+   * 54 of the 111 away rows that carry a federation are this way round. The
+   * other 53 are `movedAwayRow()` below, and the two together are why the
+   * heading cannot name whoever moved.
+   */
+  const homeFlagRow = () => {
+    for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length > 0 && at.every(([, fed]) => fed === country.code) && a.fed !== country.code) {
+              return { code: country.code, gender, id: p.id, partner: a.name, now: a.fed };
+            }
+          }
+        }
+      }
+    }
+    return null;
+  };
+
+  /**
+   * The mirror case: the pair played under the *partner's* federation, and the
+   * partner is still in it — so the player whose card this is, is the one who
+   * left. Tiago De J Santos in Qatar is the reported instance; his only away
+   * partner is Pedro Solberg, Brazilian in 2005 and Brazilian now.
+   */
+  const movedAwayRow = () => {
+    for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length === 0) continue;
+            const played = at[at.length - 1]![1];
+            // Played under the partner's federation, which is still theirs.
+            if (played === a.fed && played !== country.code) {
+              return { code: country.code, gender, id: p.id, partner: a.name };
+            }
+          }
+        }
+      }
+    }
+    return null;
+  };
+
+  test('names the block the same way whichever of the two moved', async ({ page }) => {
+    const stayed = homeFlagRow();
+    const left = movedAwayRow();
+    // Guard the guard: without both, this asserts one heading twice.
+    expect(stayed, 'no away row where the partner is the one who moved').not.toBeNull();
+    expect(left, 'no away row where the card\u2019s own player is the one who moved').not.toBeNull();
+    expect(`${stayed!.code}-${stayed!.id}`).not.toBe(`${left!.code}-${left!.id}`);
+
+    // The heading may not claim the partner moved: on `left` they did not, and
+    // a heading reading "now with other federations" is simply false there.
+    // What still distinguishes the two cases is the row's own arrow, which
+    // "a partner who never left gets one flag and no arrow" below pins.
+    for (const row of [stayed!, left!]) {
+      await page.goto(`./${sliceFor(row.code, row.gender)}?player=${row.id}`);
+      const card = page.locator('.player-card');
+      await expect(card).toBeVisible();
+      await expect(card.locator('.away h4')).toHaveText('Partners not in this graph');
+    }
+  });
+
+  test('a partner who moved shows both flags, not just the one', async ({ page }) => {
+    const row = homeFlagRow();
+    await page.goto(`./${sliceFor(row!.code, row!.gender)}?player=${row!.id}`);
+
+    const fed = page.locator('.away li', { hasText: row!.partner }).locator('.fed');
+    await expect(fed).toBeVisible();
+    // Where they are today had become invisible once the flag started telling
+    // the truth about then — including the fact that this row navigates there.
+    await expect(fed.locator('.moved-to')).toHaveCount(1);
+    await expect(fed).toHaveAttribute('title', /· now /);
+  });
+
+  test('a partner who never left gets one flag and no arrow', async ({ page }) => {
+    // Guards the guard: without this, rendering the arrow unconditionally
+    // would pass every assertion above.
+    let found: { code: string; gender: 'M' | 'W'; id: number; partner: string } | null = null;
+    outer: for (const country of manifest().countries) {
+      for (const gender of ['M', 'W'] as const) {
+        let file;
+        try {
+          file = players(country.code, gender);
+        } catch {
+          continue;
+        }
+        for (const p of file.players) {
+          for (const a of p.away ?? []) {
+            const at = a.at ?? [];
+            if (at.length > 0 && at.every(([, fed]) => fed === a.fed)) {
+              found = { code: country.code, gender, id: p.id, partner: a.name };
+              break outer;
+            }
+          }
+        }
+      }
+    }
+    expect(found, 'no away partnership stayed in one federation').not.toBeNull();
+
+    await page.goto(`./${sliceFor(found!.code, found!.gender)}?player=${found!.id}`);
+    const fed = page.locator('.away li', { hasText: found!.partner }).locator('.fed');
+    await expect(fed).toBeVisible();
+    await expect(fed.locator('.moved-to')).toHaveCount(0);
+  });
+});
+
 test.describe('other federations', () => {
   const tab = (page: import('@playwright/test').Page, name: 'Partners' | 'Timeline') =>
     page.getByRole('group', { name: 'Partner view' }).getByRole('button', { name, exact: true });
@@ -1178,6 +1556,16 @@ test.describe('other federations', () => {
     await tab(page, 'Timeline').click();
     const timeline = page.locator('.away .timeline.is-away');
     await timeline.locator('> li').first().locator('.season').click();
+
+    // Wait for the season's events to arrive before reading them. Expanding a
+    // season *fetches* its tournaments, and `allInnerTexts` does not auto-wait
+    // — it returns whatever is in the DOM at that instant, which on a slow
+    // fetch is nothing, and the assertion below then fails on an empty list
+    // rather than on a wrong name. This flaked twice on CI before it was
+    // diagnosed; delaying the results response by 800ms reproduces it every
+    // time. Waiting on `.events > li` rather than `.with` because the partner
+    // span is only rendered when the event names one.
+    await expect(timeline.locator('.events > li').first()).toBeVisible();
 
     const withs = await timeline.locator('.events .with').allInnerTexts();
     expect(withs.length, 'need at least one event to check').toBeGreaterThan(0);

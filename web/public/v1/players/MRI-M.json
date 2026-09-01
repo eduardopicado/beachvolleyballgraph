@@ -7,7 +7,8 @@
       "name": "Gilbert Alfred",
       "dob": "1981-09-07",
       "height": 190,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Mauritius"
     },
     {
       "id": 122856,
@@ -21,14 +22,16 @@
       "name": "Jean David Gregory Benedict Howard Carcasse",
       "dob": "1987-05-06",
       "height": 180,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Mauritius"
     },
     {
       "id": 136620,
       "name": "Nicholas Herisson",
       "dob": "1984-09-28",
       "height": null,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Plaines wilhems"
     }
   ]
 }

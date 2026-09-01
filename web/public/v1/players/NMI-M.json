@@ -7,14 +7,16 @@
       "name": "Logan Jon Mister",
       "dob": "2001-08-10",
       "height": 193,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Saipan"
     },
     {
       "id": 189639,
       "name": "Andrew Scott Johnson",
       "dob": "1996-10-09",
       "height": 185,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Northern Mariana Islands"
     }
   ]
 }

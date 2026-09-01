@@ -28,7 +28,8 @@
       "name": "Fernanda Maida Eterovic",
       "dob": "1998-05-18",
       "height": 183,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Cochabamba"
     },
     {
       "id": 146759,
@@ -77,7 +78,8 @@
       "name": "Jeisy Velasquez",
       "dob": "2006-01-26",
       "height": 165,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Cochabamba"
     }
   ]
 }

@@ -8,7 +8,7 @@
       "name": "Christian Tiemann",
       "short": "Tiemann",
       "tournaments": 3,
-      "first": 1991,
+      "first": 1992,
       "last": 1996
     },
     {
@@ -56,7 +56,7 @@
       "name": "Jan Fell",
       "short": "Fell",
       "tournaments": 6,
-      "first": 1987,
+      "first": 1990,
       "last": 1996
     },
     {
@@ -72,7 +72,7 @@
       "name": "Thomas Brall",
       "short": "Brall",
       "tournaments": 4,
-      "first": 1987,
+      "first": 1990,
       "last": 1995
     },
     {
@@ -80,7 +80,7 @@
       "name": "Lars-Bjorn Freier",
       "short": "Freier",
       "tournaments": 5,
-      "first": 1992,
+      "first": 1993,
       "last": 1999
     },
     {
@@ -232,24 +232,24 @@
       "name": "Humbertus Platt",
       "short": "Platt",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101105,
       "name": "Paul Schmeing",
       "short": "Schmeing",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101203,
       "name": "Roman Schwarz",
       "short": "Schwarz",
       "tournaments": 1,
-      "first": 1987,
-      "last": 1987
+      "first": 1990,
+      "last": 1990
     },
     {
       "id": 101255,
@@ -312,7 +312,7 @@
       "name": "Oliver Oetke",
       "short": "Oetke",
       "tournaments": 49,
-      "first": 1987,
+      "first": 1990,
       "last": 2002
     },
     {
@@ -1423,9 +1423,9 @@
       "id": 160092,
       "name": "Johannes Kirsten",
       "short": "Kirsten",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2023,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 163563,
@@ -1647,7 +1647,7 @@
       "id": 184141,
       "name": "Lorenz Teege",
       "short": "Teege",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -1783,7 +1783,7 @@
       "id": 211379,
       "name": "Nicola Kössler",
       "short": "Kössler",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2024,
       "last": 2026
     },
@@ -1847,7 +1847,7 @@
       "id": 223294,
       "name": "Arne Robert Brendel",
       "short": "Brendel",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -1895,7 +1895,7 @@
       "id": 231058,
       "name": "Lasse Hüper",
       "short": "Hüper",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1903,7 +1903,7 @@
       "id": 232640,
       "name": "Hannes Ludwig",
       "short": "Ludwig",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -1929,13 +1929,13 @@
       "a": 100035,
       "b": 100212,
       "t": 1,
-      "f": 1991,
-      "l": 1991,
+      "f": 1992,
+      "l": 1992,
       "s": [
         [
-          1991,
+          1992,
           1,
-          414
+          49
         ]
       ],
       "r": 17
@@ -1944,13 +1944,13 @@
       "a": 100035,
       "b": 100242,
       "t": 1,
-      "f": 1992,
-      "l": 1992,
+      "f": 1993,
+      "l": 1993,
       "s": [
         [
-          1992,
+          1993,
           1,
-          405
+          39
         ]
       ],
       "r": 21
@@ -2139,13 +2139,13 @@
       "a": 100212,
       "b": 100224,
       "t": 3,
-      "f": 1987,
+      "f": 1990,
       "l": 1992,
       "s": [
         [
-          1987,
+          1990,
           2,
-          1308
+          212
         ],
         [
           1992,
@@ -2244,17 +2244,17 @@
       "s": [
         [
           1994,
-          4,
-          411
+          3,
+          243
         ],
         [
           1995,
           17,
-          365
+          354
         ],
         [
           1996,
-          12,
+          13,
           347
         ],
         [
@@ -2769,13 +2769,13 @@
       "a": 101098,
       "b": 101203,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1308
+          212
         ]
       ],
       "r": 18
@@ -2784,13 +2784,13 @@
       "a": 101105,
       "b": 101477,
       "t": 1,
-      "f": 1987,
-      "l": 1987,
+      "f": 1990,
+      "l": 1990,
       "s": [
         [
-          1987,
+          1990,
           1,
-          1308
+          212
         ]
       ],
       "r": 17
@@ -7023,9 +7023,9 @@
     {
       "a": 160092,
       "b": 211379,
-      "t": 5,
+      "t": 6,
       "f": 2024,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2024,
@@ -7036,6 +7036,11 @@
           2025,
           4,
           218
+        ],
+        [
+          2026,
+          1,
+          239
         ]
       ],
       "r": 13
@@ -7713,7 +7718,7 @@
     {
       "a": 184141,
       "b": 223294,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -7724,8 +7729,8 @@
         ],
         [
           2026,
-          5,
-          176
+          6,
+          239
         ]
       ],
       "r": 13
@@ -8159,6 +8164,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 231058,
+      "b": 232640,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          239
+        ]
+      ],
+      "r": 17
     }
   ]
 }

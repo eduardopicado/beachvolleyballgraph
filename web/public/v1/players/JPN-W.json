@@ -21,7 +21,10 @@
       "name": "Maya Hashimoto",
       "dob": "1970-01-25",
       "height": 172,
-      "weight": 64
+      "weight": 64,
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100266,
@@ -35,7 +38,13 @@
       "name": "Teruko \"Peko\" Nakano",
       "dob": "1965-03-10",
       "height": 174,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Tokyo",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100473,
@@ -43,18 +52,29 @@
       "dob": "1968-03-14",
       "height": 165,
       "weight": 55,
+      "birthPlace": "Kanagawa",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100479,
       "name": "Sachiko Fujita",
       "dob": "1968-01-09",
       "height": 173,
-      "weight": 59
+      "weight": 59,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 100506,
@@ -62,11 +82,18 @@
       "dob": "1967-11-12",
       "height": 168,
       "weight": 54,
+      "birthPlace": "Kanagawa",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100507,
@@ -122,7 +149,11 @@
       "name": "Kaori Tsuchiya",
       "dob": "1969-10-14",
       "height": 176,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Kanagawa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101523,
@@ -144,74 +175,108 @@
       "dob": "1971-09-25",
       "height": 172,
       "weight": 63,
+      "birthPlace": "Ehime, Matsuyama",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101734,
       "name": "Chie \"Rii\" Seike",
       "dob": "1974-05-04",
       "height": 175,
-      "weight": 68
+      "weight": 68,
+      "birthPlace": "Ehime, Kikuma-machi",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101738,
       "name": "Ryoko \"Ryo\" Tokuno",
       "dob": "1974-08-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ehime",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101954,
       "name": "Noriko Miyoshi",
       "dob": "1970-05-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tottori"
     },
     {
       "id": 101955,
       "name": "Tomoko Ukigaya",
       "dob": "1973-09-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Chiba"
     },
     {
       "id": 102159,
       "name": "Chiaki Kusuhara",
       "dob": "1975-11-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ehime",
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 102345,
       "name": "Emiko Tamamushi",
       "dob": "1967-09-13",
       "height": 180,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Saitama"
     },
     {
       "id": 102363,
       "name": "Akiyo Higuchi",
       "dob": "1973-11-04",
       "height": 169,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 102807,
       "name": "Chiho \"Reach\" Torii",
       "dob": "1970-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kyoto",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 102808,
       "name": "Natsuko Komatsu",
       "dob": "1979-07-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kochi"
     },
     {
       "id": 102809,
@@ -302,7 +367,11 @@
       "name": "Misaki Yamakawa",
       "dob": "1973-10-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sizuoka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103611,
@@ -344,7 +413,8 @@
       "name": "Nao Kato",
       "dob": "1976-07-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fukushima"
     },
     {
       "id": 103786,
@@ -358,42 +428,51 @@
       "name": "Naomi Murakami",
       "dob": "1981-09-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Osaka"
     },
     {
       "id": 103792,
       "name": "Satoko Urata",
       "dob": "1980-12-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Saga",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103793,
       "name": "Sanae Tsubakimoto",
       "dob": "1966-12-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokushima"
     },
     {
       "id": 103794,
       "name": "Noriko Aoki",
       "dob": "1971-08-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Japan"
     },
     {
       "id": 104000,
       "name": "Junko Makabe",
       "dob": "1976-07-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 104001,
       "name": "Miho Makabe",
       "dob": "1978-10-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 104161,
@@ -419,14 +498,19 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104229,
       "name": "Kanako Nishimura",
       "dob": "1977-02-06",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fukuoka"
     },
     {
       "id": 104230,
@@ -440,7 +524,8 @@
       "name": "Sachie Oguri",
       "dob": "1978-11-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 104286,
@@ -448,11 +533,16 @@
       "dob": "1975-07-28",
       "height": null,
       "weight": null,
+      "birthPlace": "Saitama",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104520,
@@ -466,7 +556,8 @@
       "name": "Junko Suzuki",
       "dob": "1977-10-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Miyagi"
     },
     {
       "id": 104522,
@@ -494,7 +585,8 @@
       "name": "Miwa Asao",
       "dob": "1986-02-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mie, Japan"
     },
     {
       "id": 104972,
@@ -506,7 +598,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104973,
@@ -520,7 +615,8 @@
       "name": "Hiroyo Kaneda",
       "dob": "1985-02-07",
       "height": 167,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "OSAKA-City"
     },
     {
       "id": 104975,
@@ -535,11 +631,15 @@
       "dob": "1981-08-20",
       "height": null,
       "weight": null,
+      "birthPlace": "Nagano, Japan",
       "tour": {
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 117848,
@@ -617,11 +717,16 @@
       "dob": "1990-07-16",
       "height": 176,
       "weight": 65,
+      "birthPlace": "Tokyo",
       "tour": {
         "gold": 2,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122325,
@@ -657,11 +762,15 @@
       "dob": "1992-05-15",
       "height": 180,
       "weight": 66,
+      "birthPlace": "Kanagawa pref., Japan",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125420,
@@ -669,11 +778,15 @@
       "dob": "1990-10-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Tokyo",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 125597,
@@ -692,7 +805,13 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 135227,
@@ -704,14 +823,18 @@
         "gold": 3,
         "silver": 1,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135228,
       "name": "Anjiera Ishida",
       "dob": "1991-12-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Japan"
     },
     {
       "id": 135522,
@@ -744,14 +867,18 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142363,
       "name": "Nozomi Itoh",
       "dob": "1995-02-16",
       "height": 178,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Nagasaki, Japan"
     },
     {
       "id": 142857,
@@ -763,14 +890,18 @@
         "gold": 2,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143186,
       "name": "Samaa Miyagawa",
       "dob": "1983-08-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Yamanashi, Japan"
     },
     {
       "id": 146165,
@@ -782,7 +913,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146166,
@@ -822,7 +956,13 @@
         "gold": 2,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 150058,
@@ -830,11 +970,18 @@
       "dob": "1985-11-30",
       "height": null,
       "weight": null,
+      "birthPlace": "Tokyo",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 150533,
@@ -846,7 +993,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 151852,
@@ -875,11 +1025,16 @@
       "dob": "1997-01-10",
       "height": 173,
       "weight": 62,
+      "birthPlace": "Hyogo",
       "tour": {
         "gold": 2,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 155924,
@@ -891,7 +1046,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 155925,
@@ -903,7 +1061,10 @@
         "gold": 1,
         "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156856,
@@ -915,7 +1076,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156896,
@@ -930,11 +1094,16 @@
       "dob": "1995-09-18",
       "height": null,
       "weight": null,
+      "birthPlace": "Kanagawa",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 157550,
@@ -946,7 +1115,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157552,
@@ -958,7 +1130,11 @@
         "gold": 2,
         "silver": 1,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 157779,
@@ -984,7 +1160,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163373,
@@ -1013,11 +1192,15 @@
       "dob": "1996-04-23",
       "height": 165,
       "weight": 58,
+      "birthPlace": "Japan",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168073,
@@ -1029,7 +1212,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168074,
@@ -1083,14 +1269,18 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173555,
       "name": "Ami Shirahata",
       "dob": "1995-10-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokyo"
     },
     {
       "id": 173556,
@@ -1104,7 +1294,8 @@
       "name": "Wakana Akishige",
       "dob": "2002-10-23",
       "height": 171,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Osaka"
     },
     {
       "id": 181658,
@@ -1116,7 +1307,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 181659,
@@ -1128,7 +1322,10 @@
         "gold": 2,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 185921,
@@ -1147,7 +1344,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 186496,
@@ -1159,7 +1359,10 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 188749,
@@ -1167,18 +1370,23 @@
       "dob": "1991-12-23",
       "height": null,
       "weight": null,
+      "birthPlace": "Kanagawa",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 189515,
       "name": "Riri Kasai",
       "dob": "2005-04-22",
       "height": 175,
-      "weight": 63
+      "weight": 63,
+      "birthPlace": "Hokkaido"
     },
     {
       "id": 189723,
@@ -1204,7 +1412,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192901,
@@ -1212,25 +1423,31 @@
       "dob": "2001-05-24",
       "height": null,
       "weight": null,
+      "birthPlace": "Chiba",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 192902,
       "name": "Noa Kinugasa",
       "dob": "2001-08-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Shiga"
     },
     {
       "id": 192903,
       "name": "Suzuna Fukuda",
       "dob": "2002-01-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 193534,
@@ -1251,7 +1468,8 @@
       "name": "Waka Yada",
       "dob": "2006-04-28",
       "height": 185,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Niihama City, Ehime"
     },
     {
       "id": 204287,
@@ -1265,7 +1483,8 @@
       "name": "Kazuha Mizukami",
       "dob": "1995-07-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokyo"
     },
     {
       "id": 210053,
@@ -1280,11 +1499,15 @@
       "dob": "2003-03-29",
       "height": null,
       "weight": null,
+      "birthPlace": "Tokyo",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 211125,
@@ -1334,46 +1557,55 @@
       "dob": "2002-07-24",
       "height": null,
       "weight": null,
+      "birthPlace": "日本",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 227435,
       "name": "Moeri Utsunomiya",
       "dob": "2008-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kanagawa"
     },
     {
       "id": 227437,
       "name": "Uta Sawano",
       "dob": "2008-01-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kyoto"
     },
     {
       "id": 233354,
       "name": "Aimi Oba",
       "dob": "2003-12-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Japan"
     },
     {
       "id": 233732,
       "name": "Ririka Imai",
       "dob": "2009-04-29",
       "height": 172,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tokyo"
     },
     {
       "id": 234156,
       "name": "Hazuki Ichiyanagi",
       "dob": "2009-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hyogo"
     }
   ]
 }

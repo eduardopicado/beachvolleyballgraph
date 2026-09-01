@@ -8,11 +8,16 @@
       "dob": "1970-05-04",
       "height": 191,
       "weight": 91,
+      "birthPlace": "Redondo Beach",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102513,
@@ -20,11 +25,16 @@
       "dob": "1972-01-12",
       "height": 197,
       "weight": 86,
+      "birthPlace": "Redondo Beach",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     }
   ]
 }

@@ -21,7 +21,8 @@
       "name": "Burkhard Sude",
       "dob": "1957-08-18",
       "height": 193,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Vöhl-Dorfitter"
     },
     {
       "id": 100159,
@@ -70,7 +71,8 @@
       "name": "Lars-Bjorn Freier",
       "dob": "1971-07-02",
       "height": 207,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Potsdam"
     },
     {
       "id": 100494,
@@ -78,6 +80,7 @@
       "dob": "1966-02-12",
       "height": 190,
       "weight": 87,
+      "birthPlace": "Grevenbroich",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -87,7 +90,13 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100495,
@@ -95,6 +104,7 @@
       "dob": "1969-03-14",
       "height": 202,
       "weight": 95,
+      "birthPlace": "Burg auf Fehmarn",
       "olympics": {
         "gold": 0,
         "silver": 0,
@@ -104,7 +114,13 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100503,
@@ -119,18 +135,26 @@
       "dob": "1967-07-13",
       "height": 196,
       "weight": 81,
+      "birthPlace": "Alpirsbach",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100804,
       "name": "Ralph Bergmann",
       "dob": "1970-05-26",
       "height": 206,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Ostfildern"
     },
     {
       "id": 100805,
@@ -149,7 +173,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 100807,
@@ -163,7 +190,8 @@
       "name": "Malte \"Supergrobi\" Homeyer",
       "dob": "1972-05-08",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Braunschweig"
     },
     {
       "id": 100809,
@@ -184,21 +212,24 @@
       "name": "Thorsten \"Schulle\" Schulz",
       "dob": "1969-02-02",
       "height": 188,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Berlin"
     },
     {
       "id": 100812,
       "name": "Thilo Von Hagen",
       "dob": "1971-09-24",
       "height": 183,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Osnabrück"
     },
     {
       "id": 100813,
       "name": "Matthias \"Matthi\" Walter",
       "dob": "1969-04-25",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Willigen"
     },
     {
       "id": 100814,
@@ -212,7 +243,8 @@
       "name": "Falk Zimmermann",
       "dob": "1971-06-09",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Berlin"
     },
     {
       "id": 101049,
@@ -261,21 +293,30 @@
       "name": "Martin \"Sunny\" Peiske",
       "dob": "1971-05-14",
       "height": 196,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Wolfen"
     },
     {
       "id": 101472,
       "name": "Sven \"Susi\" Anton",
       "dob": "1970-06-07",
       "height": 202,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Waren",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101473,
       "name": "Stefan Pomerenke",
       "dob": "1973-07-04",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Neurrupin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101474,
@@ -296,14 +337,24 @@
       "name": "Edgar Krank",
       "dob": "1967-04-14",
       "height": 190,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Creglingen",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101477,
       "name": "Oliver Oetke",
       "dob": "1968-08-18",
       "height": 198,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Stuttgart",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101478,
@@ -325,11 +376,18 @@
       "dob": "1976-01-07",
       "height": 189,
       "weight": 78,
+      "birthPlace": "Bonn",
       "tour": {
         "gold": 2,
         "silver": 7,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101481,
@@ -337,11 +395,18 @@
       "dob": "1976-01-07",
       "height": 198,
       "weight": 89,
+      "birthPlace": "Bonn",
       "tour": {
         "gold": 5,
         "silver": 4,
         "bronze": 4
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101482,
@@ -362,7 +427,8 @@
       "name": "Dirk \"Olde\" Oldenburg",
       "dob": "1967-02-11",
       "height": 198,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Crivitz"
     },
     {
       "id": 101917,
@@ -370,6 +436,7 @@
       "dob": "1976-10-04",
       "height": 199,
       "weight": 88,
+      "birthPlace": "Kiel",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -379,7 +446,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101918,
@@ -393,77 +464,88 @@
       "name": "Oliver Heiming",
       "dob": "1969-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stuttgart"
     },
     {
       "id": 102298,
       "name": "Daniel Sander",
       "dob": "1970-01-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Stuttgart"
     },
     {
       "id": 102299,
       "name": "Bernard Gau",
       "dob": "1975-12-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "St-Priest (FRA)"
     },
     {
       "id": 102300,
       "name": "Erik Schmidt",
       "dob": "1975-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Worms"
     },
     {
       "id": 102301,
       "name": "Vincent Lange",
       "dob": "1974-06-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 102303,
       "name": "Dietmar Bauer",
       "dob": "1973-07-05",
       "height": 197,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Friedrichshafen"
     },
     {
       "id": 102703,
       "name": "Niclas \"Hille\" Hildebrand",
       "dob": "1980-08-05",
       "height": 193,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 102704,
       "name": "Igor Wiederschein",
       "dob": "1980-03-02",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Berlin"
     },
     {
       "id": 102705,
       "name": "Michael \"Mike\" Raddatz",
       "dob": "1975-12-01",
       "height": 207,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Erlangen"
     },
     {
       "id": 102706,
       "name": "Jochen \"Jockel\" Wächter",
       "dob": "1971-09-22",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Neumarkt"
     },
     {
       "id": 102986,
       "name": "Rüdiger Strosik",
       "dob": "1978-06-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 103108,
@@ -471,11 +553,18 @@
       "dob": "1980-06-22",
       "height": 187,
       "weight": 82,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 1,
         "silver": 5,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103109,
@@ -483,6 +572,7 @@
       "dob": "1979-05-26",
       "height": 200,
       "weight": 97,
+      "birthPlace": "Rheine",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -497,7 +587,13 @@
         "gold": 5,
         "silver": 18,
         "bronze": 10
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103217,
@@ -505,6 +601,7 @@
       "dob": "1982-07-06",
       "height": 186,
       "weight": 86,
+      "birthPlace": "Muenster",
       "olympics": {
         "gold": 1,
         "silver": 0,
@@ -519,7 +616,13 @@
         "gold": 7,
         "silver": 11,
         "bronze": 12
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103244,
@@ -527,25 +630,32 @@
       "dob": "1982-03-03",
       "height": 207,
       "weight": 75,
+      "birthPlace": "Wesel",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103297,
       "name": "Matthias \"Charger\" Karger",
       "dob": "1982-05-10",
       "height": 197,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Friedrichshafen"
     },
     {
       "id": 103298,
       "name": "Maarten Lammens",
       "dob": "1982-10-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Leverkusen"
     },
     {
       "id": 103348,
@@ -553,6 +663,7 @@
       "dob": "1980-06-18",
       "height": 191,
       "weight": 88,
+      "birthPlace": "Berlin",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -562,7 +673,13 @@
         "gold": 1,
         "silver": 1,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103349,
@@ -583,14 +700,16 @@
       "name": "Hannes Ambelang",
       "dob": "1982-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hennigs Dorf"
     },
     {
       "id": 103443,
       "name": "Manuel Rieke",
       "dob": "1982-10-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Potsdam"
     },
     {
       "id": 103567,
@@ -604,7 +723,8 @@
       "name": "Knut Winter",
       "dob": "1966-12-17",
       "height": 196,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Solingen"
     },
     {
       "id": 103591,
@@ -625,56 +745,70 @@
       "name": "Thomas Hikel",
       "dob": "1973-01-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Eberbach"
     },
     {
       "id": 103877,
       "name": "Marvin Polte",
       "dob": "1976-02-05",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Paderborn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103878,
       "name": "Morten Klein",
       "dob": "1971-02-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Fleusburg"
     },
     {
       "id": 103879,
       "name": "Gregor Rolinski",
       "dob": "1974-06-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Breslav"
     },
     {
       "id": 103881,
       "name": "Simon Forster",
       "dob": "1982-08-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bad Ems"
     },
     {
       "id": 103882,
       "name": "Carlo Wiese",
       "dob": "1982-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bremen"
     },
     {
       "id": 104022,
       "name": "Florian Huth",
       "dob": "1983-08-05",
       "height": 196,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Alzenau",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104100,
       "name": "René Bentin",
       "dob": "1985-04-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Koenigs Wusterhausen"
     },
     {
       "id": 104101,
@@ -682,11 +816,15 @@
       "dob": "1985-02-11",
       "height": 192,
       "weight": 88,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104138,
@@ -710,12 +848,6 @@
               240
             ]
           ],
-          "at": [
-            [
-              2002,
-              "BRA"
-            ]
-          ],
           "r": 9
         }
       ]
@@ -726,25 +858,31 @@
       "dob": "1981-09-23",
       "height": 192,
       "weight": 90,
+      "birthPlace": "Karl-Marx-Stadt",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104334,
       "name": "Arvid Kinder",
       "dob": "1980-12-06",
       "height": 192,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Berlin"
     },
     {
       "id": 104335,
       "name": "Leonard Waligora",
       "dob": "1980-03-31",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 104336,
@@ -752,18 +890,29 @@
       "dob": "1981-05-16",
       "height": 194,
       "weight": 84,
+      "birthPlace": "Stralsund",
       "tour": {
         "gold": 1,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104422,
       "name": "Daniel Krug",
       "dob": "1983-05-06",
       "height": 201,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Berlin",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104423,
@@ -771,11 +920,16 @@
       "dob": "1983-03-29",
       "height": 189,
       "weight": 87,
+      "birthPlace": "Elmshorn",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104424,
@@ -783,18 +937,27 @@
       "dob": "1984-11-05",
       "height": 205,
       "weight": 90,
+      "birthPlace": "Munich",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104454,
       "name": "Sebastian Fuchs",
       "dob": "1986-07-24",
       "height": 202,
-      "weight": 105
+      "weight": 105,
+      "birthPlace": "EckernfÖrde",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104455,
@@ -802,25 +965,32 @@
       "dob": "1986-01-04",
       "height": 191,
       "weight": 83,
+      "birthPlace": "Myslowice",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104456,
       "name": "Tilo Backhaus",
       "dob": "1986-02-14",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Berlin"
     },
     {
       "id": 104457,
       "name": "Timo Wilhelm",
       "dob": "1986-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tuttlingen"
     },
     {
       "id": 104790,
@@ -834,14 +1004,19 @@
       "name": "Michael Schiewe",
       "dob": "1979-08-31",
       "height": 204,
-      "weight": 110
+      "weight": 110,
+      "birthPlace": "Flensburg"
     },
     {
       "id": 104792,
       "name": "Thorsten Schoen",
       "dob": "1972-06-25",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Nordhorn",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 105036,
@@ -867,14 +1042,19 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 105108,
       "name": "Stanislav Bakumovski",
       "dob": "1984-10-22",
       "height": 191,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Zaporizzha"
     },
     {
       "id": 105109,
@@ -882,11 +1062,15 @@
       "dob": "1986-04-28",
       "height": 212,
       "weight": 98,
+      "birthPlace": "Perleberg",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 105126,
@@ -900,14 +1084,16 @@
       "name": "Wolfgang Kuck",
       "dob": "1967-10-12",
       "height": 197,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Wülfrath"
     },
     {
       "id": 113857,
       "name": "Eugen Bakumovski",
       "dob": "1980-10-11",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Zapsrozhje (UKR)"
     },
     {
       "id": 115930,
@@ -921,7 +1107,8 @@
       "name": "Stephan Kern",
       "dob": "1976-02-12",
       "height": 197,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Essen"
     },
     {
       "id": 116660,
@@ -929,6 +1116,7 @@
       "dob": "1988-03-12",
       "height": 194,
       "weight": 96,
+      "birthPlace": "Potsdam",
       "worldChamps": {
         "gold": 0,
         "silver": 0,
@@ -938,7 +1126,13 @@
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 116662,
@@ -953,11 +1147,15 @@
       "dob": "1984-02-15",
       "height": 198,
       "weight": 95,
+      "birthPlace": "Leipzig",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 118265,
@@ -971,7 +1169,8 @@
       "name": "Thilo Späth-Westerholt",
       "dob": "1987-06-08",
       "height": 187,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Achern"
     },
     {
       "id": 119067,
@@ -985,7 +1184,8 @@
       "name": "Malte Stiel",
       "dob": "1990-07-02",
       "height": 192,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Heilbronn"
     },
     {
       "id": 119069,
@@ -1007,11 +1207,18 @@
       "dob": "1986-01-14",
       "height": 198,
       "weight": 95,
+      "birthPlace": "Hamburg",
       "tour": {
         "gold": 3,
         "silver": 4,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120049,
@@ -1025,14 +1232,16 @@
       "name": "Rene Rudolph",
       "dob": "1987-07-28",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Berlin"
     },
     {
       "id": 120757,
       "name": "Steffen Drößler",
       "dob": "1990-10-14",
       "height": 200,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Gotha"
     },
     {
       "id": 120758,
@@ -1046,7 +1255,8 @@
       "name": "Paul Becker",
       "dob": "1990-04-03",
       "height": 186,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Frankenberg"
     },
     {
       "id": 120762,
@@ -1061,18 +1271,26 @@
       "dob": "1990-05-24",
       "height": null,
       "weight": null,
+      "birthPlace": "Lich",
       "tour": {
         "gold": 3,
         "silver": 5,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 120849,
       "name": "Florian Lüdike",
       "dob": "1983-10-22",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Halle"
     },
     {
       "id": 120887,
@@ -1087,18 +1305,24 @@
       "dob": "1988-07-30",
       "height": 206,
       "weight": 98,
+      "birthPlace": "Essen",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 123014,
       "name": "Ferdinand Tille",
       "dob": "1988-12-08",
       "height": 185,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Mühldorf"
     },
     {
       "id": 124612,
@@ -1148,25 +1372,32 @@
       "dob": "1991-01-04",
       "height": 198,
       "weight": 95,
+      "birthPlace": "Osnabrück",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 125056,
       "name": "Benjamin Dollhofer",
       "dob": "1991-03-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bühl"
     },
     {
       "id": 125490,
       "name": "Finn Dittelbach",
       "dob": "1990-04-13",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Flensburg"
     },
     {
       "id": 125523,
@@ -1174,11 +1405,15 @@
       "dob": "1990-09-28",
       "height": 202,
       "weight": 92,
+      "birthPlace": "Dachau",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132666,
@@ -1186,11 +1421,15 @@
       "dob": "1992-01-10",
       "height": null,
       "weight": null,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132875,
@@ -1205,11 +1444,16 @@
       "dob": "1994-01-14",
       "height": null,
       "weight": null,
+      "birthPlace": "Kandel",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 133717,
@@ -1224,11 +1468,15 @@
       "dob": "1991-03-15",
       "height": 188,
       "weight": 78,
+      "birthPlace": "Mainz",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 135671,
@@ -1247,14 +1495,18 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 136761,
       "name": "Dirk Westphal",
       "dob": "1986-01-31",
       "height": 203,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Berlin"
     },
     {
       "id": 137151,
@@ -1273,7 +1525,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 137343,
@@ -1287,14 +1542,16 @@
       "name": "Henry Glöckner",
       "dob": "1991-09-03",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Wolgast"
     },
     {
       "id": 139386,
       "name": "Moritz Reichert",
       "dob": "1995-03-15",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Dudweiler/Saarbrücken"
     },
     {
       "id": 139387,
@@ -1316,7 +1573,13 @@
         "gold": 0,
         "silver": 5,
         "bronze": 5
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 139388,
@@ -1338,11 +1601,15 @@
       "dob": "1993-07-06",
       "height": 194,
       "weight": 88,
+      "birthPlace": "Ostercappeln",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143091,
@@ -1357,11 +1624,15 @@
       "dob": "1996-06-07",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143617,
@@ -1369,11 +1640,15 @@
       "dob": "1991-02-23",
       "height": 203,
       "weight": 94,
+      "birthPlace": "Esslingen",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143618,
@@ -1402,6 +1677,7 @@
       "dob": "1997-05-17",
       "height": null,
       "weight": null,
+      "birthPlace": "Hamburg",
       "worldChamps": {
         "gold": 0,
         "silver": 1,
@@ -1411,7 +1687,13 @@
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147930,
@@ -1419,11 +1701,16 @@
       "dob": "1998-06-21",
       "height": 197,
       "weight": 88,
+      "birthPlace": "Freiburg",
       "tour": {
         "gold": 0,
         "silver": 4,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 147931,
@@ -1431,11 +1718,15 @@
       "dob": "1998-03-14",
       "height": 202,
       "weight": null,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 152347,
@@ -1443,11 +1734,16 @@
       "dob": "1997-09-28",
       "height": 202,
       "weight": 92,
+      "birthPlace": "Erfurt",
       "tour": {
         "gold": 1,
         "silver": 4,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 153264,
@@ -1455,11 +1751,15 @@
       "dob": "1999-05-15",
       "height": 204,
       "weight": 94,
+      "birthPlace": "Wolfen",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 3
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153266,
@@ -1467,11 +1767,15 @@
       "dob": "1998-01-17",
       "height": 193,
       "weight": 90,
+      "birthPlace": "Munich",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153837,
@@ -1485,7 +1789,8 @@
       "name": "Rudy Schneider",
       "dob": "2000-10-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Port-au-Prince"
     },
     {
       "id": 153926,
@@ -1493,18 +1798,23 @@
       "dob": "1999-04-21",
       "height": 190,
       "weight": 82,
+      "birthPlace": "Landshut",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 154959,
       "name": "Martin Kaufer",
       "dob": "1987-08-28",
       "height": 194,
-      "weight": 104
+      "weight": 104,
+      "birthPlace": "Sebnitz"
     },
     {
       "id": 156567,
@@ -1512,6 +1822,7 @@
       "dob": "1994-02-04",
       "height": 210,
       "weight": 106,
+      "birthPlace": "Berlin",
       "olympics": {
         "gold": 0,
         "silver": 1,
@@ -1521,21 +1832,32 @@
         "gold": 1,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 156568,
       "name": "Thomas Kröger",
       "dob": "1979-06-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Melle",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 156598,
       "name": "Daniel Malescha",
       "dob": "1994-04-28",
       "height": 203,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "München"
     },
     {
       "id": 157173,
@@ -1550,32 +1872,40 @@
       "dob": "2000-01-13",
       "height": 193,
       "weight": 80,
+      "birthPlace": "Dachau",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 160092,
       "name": "Johannes Kirsten",
       "dob": "1995-09-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Dresden"
     },
     {
       "id": 163563,
       "name": "Filip John",
       "dob": "2001-08-01",
       "height": 204,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Trutnov"
     },
     {
       "id": 163594,
       "name": "Niko Meyer",
       "dob": "1997-09-17",
       "height": 193,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamm"
     },
     {
       "id": 164619,
@@ -1587,7 +1917,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 164645,
@@ -1620,7 +1953,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168767,
@@ -1632,14 +1968,18 @@
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168768,
       "name": "Jannis Hopt",
       "dob": "1996-08-03",
       "height": 207,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Friedrichshafen"
     },
     {
       "id": 169018,
@@ -1651,7 +1991,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169019,
@@ -1665,7 +2008,8 @@
       "name": "Ole Schwarmann",
       "dob": "1999-05-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Buxtehude"
     },
     {
       "id": 172905,
@@ -1673,11 +2017,15 @@
       "dob": "2003-11-24",
       "height": 201,
       "weight": 86,
+      "birthPlace": "Kiel",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 172907,
@@ -1685,11 +2033,16 @@
       "dob": "2002-05-22",
       "height": 186,
       "weight": 74,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 173053,
@@ -1704,18 +2057,23 @@
       "dob": "1998-02-08",
       "height": 199,
       "weight": 94,
+      "birthPlace": "Dresden",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 174292,
       "name": "Lars Winkler",
       "dob": "2000-04-24",
       "height": 180,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Schwerin"
     },
     {
       "id": 174664,
@@ -1723,11 +2081,15 @@
       "dob": "2002-11-18",
       "height": 198,
       "weight": 95,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179314,
@@ -1735,18 +2097,23 @@
       "dob": "2004-12-01",
       "height": null,
       "weight": null,
+      "birthPlace": "Niebüll",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179419,
       "name": "Laurenz Welsch",
       "dob": "2003-06-20",
       "height": 196,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "München"
     },
     {
       "id": 181184,
@@ -1754,18 +2121,23 @@
       "dob": "2002-05-22",
       "height": 206,
       "weight": 102,
+      "birthPlace": "Portland",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182343,
       "name": "Daniel Kirchner",
       "dob": "2000-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ebersberg"
     },
     {
       "id": 182345,
@@ -1777,7 +2149,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182794,
@@ -1785,11 +2160,15 @@
       "dob": "2005-10-11",
       "height": 205,
       "weight": 102,
+      "birthPlace": "Neuhaus am Rennweg",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182795,
@@ -1797,18 +2176,23 @@
       "dob": "2005-01-11",
       "height": 196,
       "weight": 78,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 184134,
       "name": "Kim Huber",
       "dob": "2001-09-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ingolstadt"
     },
     {
       "id": 184140,
@@ -1836,21 +2220,24 @@
       "name": "Lasse Fröhlich",
       "dob": "1990-10-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 184329,
       "name": "Paul Hausknecht",
       "dob": "1989-10-06",
       "height": 194,
-      "weight": 103
+      "weight": 103,
+      "birthPlace": "Berlin"
     },
     {
       "id": 184330,
       "name": "Christopher Teetz",
       "dob": "1991-03-19",
       "height": 190,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Berlin"
     },
     {
       "id": 190864,
@@ -1871,21 +2258,24 @@
       "name": "Hannes Gerken",
       "dob": "1998-05-29",
       "height": 187,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 192815,
       "name": "Bjarne Severloh",
       "dob": "2005-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kiel"
     },
     {
       "id": 198325,
       "name": "Jonathan Bungert",
       "dob": "2008-03-26",
       "height": 195,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Düsseldorf"
     },
     {
       "id": 198326,
@@ -1904,7 +2294,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199226,
@@ -1912,11 +2305,15 @@
       "dob": "2003-11-12",
       "height": 187,
       "weight": 78,
+      "birthPlace": "Lübeck",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203267,
@@ -1924,11 +2321,15 @@
       "dob": "2003-05-21",
       "height": 191,
       "weight": 86,
+      "birthPlace": "Hamburg",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 203698,
@@ -1942,21 +2343,24 @@
       "name": "Moritz Hauschild",
       "dob": "2004-04-14",
       "height": 189,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Hamburg"
     },
     {
       "id": 210742,
       "name": "Janik Sambale",
       "dob": "2005-01-21",
       "height": 189,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Hausham"
     },
     {
       "id": 211379,
       "name": "Nicola Kössler",
       "dob": "2002-02-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 213002,
@@ -1964,11 +2368,15 @@
       "dob": "2006-11-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 219583,
@@ -1982,28 +2390,32 @@
       "name": "Leo Kunath",
       "dob": "2005-07-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 219662,
       "name": "Louis Emmanuel Höfer",
       "dob": "2005-12-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 220666,
       "name": "Bockfeld Ben",
       "dob": "2009-12-03",
       "height": 189,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "München"
     },
     {
       "id": 220667,
       "name": "Faber Hendrik",
       "dob": "2010-03-10",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Aschaffenburg"
     },
     {
       "id": 222417,
@@ -2011,18 +2423,23 @@
       "dob": "2000-08-04",
       "height": null,
       "weight": null,
+      "birthPlace": "Berlin",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 223294,
       "name": "Arne Robert Brendel",
       "dob": "2005-10-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Magdeburg"
     },
     {
       "id": 223856,
@@ -2036,42 +2453,48 @@
       "name": "Linus Barth",
       "dob": "2000-03-25",
       "height": 192,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Frankfurt am Main"
     },
     {
       "id": 224058,
       "name": "Filo Wüst",
       "dob": "2009-02-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Berlin"
     },
     {
       "id": 225872,
       "name": "Dinh Long Tran",
       "dob": "2002-12-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Erfurt"
     },
     {
       "id": 225887,
       "name": "Joris Knoll",
       "dob": "2005-07-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bad Soden am Taunus"
     },
     {
       "id": 231058,
       "name": "Lasse Hüper",
       "dob": "2009-03-29",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kiel"
     },
     {
       "id": 232640,
       "name": "Hannes Ludwig",
       "dob": "2008-01-04",
       "height": 194,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Berlin"
     },
     {
       "id": 240555,

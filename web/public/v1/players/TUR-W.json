@@ -14,7 +14,8 @@
       "name": "Neriman Ozsoy",
       "dob": "1988-07-13",
       "height": 188,
-      "weight": 70
+      "weight": 70,
+      "birthPlace": "Razgrad"
     },
     {
       "id": 117934,
@@ -22,6 +23,7 @@
       "dob": "1986-08-19",
       "height": 188,
       "weight": 69,
+      "birthPlace": "Panasesti, Straseni, MLD",
       "away": [
         {
           "id": 117935,
@@ -36,12 +38,6 @@
               2006,
               1,
               235
-            ]
-          ],
-          "at": [
-            [
-              2006,
-              "MLD"
             ]
           ],
           "r": 25
@@ -60,7 +56,8 @@
       "name": "Bahanur Gokalp",
       "dob": "1991-03-06",
       "height": 178,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Tokat, Turkey"
     },
     {
       "id": 125205,
@@ -123,7 +120,8 @@
       "name": "Burcu Atasoy",
       "dob": "1991-02-27",
       "height": 175,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Ankara, Turkey"
     },
     {
       "id": 133319,
@@ -158,7 +156,8 @@
       "name": "Esra Betul Cetin",
       "dob": "1996-04-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ankara"
     },
     {
       "id": 144020,
@@ -166,18 +165,23 @@
       "dob": "1997-12-16",
       "height": null,
       "weight": null,
+      "birthPlace": "İzmir",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 144307,
       "name": "Selin Toy",
       "dob": "1996-08-27",
       "height": 180,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "Bursa"
     },
     {
       "id": 146268,
@@ -213,53 +217,63 @@
       "dob": "1998-10-05",
       "height": 183,
       "weight": 65,
+      "birthPlace": "Aydin, Turkey",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147450,
       "name": "Bahar Toksoy Guidetti",
       "dob": "1988-02-06",
       "height": 190,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Karsiyaka"
     },
     {
       "id": 148070,
       "name": "Meliha Diken",
       "dob": "1993-09-17",
       "height": 182,
-      "weight": 74
+      "weight": 74,
+      "birthPlace": "Donja Medida"
     },
     {
       "id": 149020,
       "name": "Nursel Yaren Sencel",
       "dob": "1997-06-19",
       "height": 180,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Söke"
     },
     {
       "id": 151283,
       "name": "Tugba Ozdemir",
       "dob": "1990-05-05",
       "height": 180,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Izmer, Turkey"
     },
     {
       "id": 151699,
       "name": "Ebru Karayilan",
       "dob": "1998-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ankara"
     },
     {
       "id": 151702,
       "name": "Merve Celebi",
       "dob": "1993-07-16",
       "height": 180,
-      "weight": 64
+      "weight": 64,
+      "birthPlace": "Lefkoşa, Cyprus"
     },
     {
       "id": 157485,
@@ -267,11 +281,15 @@
       "dob": "1982-12-08",
       "height": 178,
       "weight": 60,
+      "birthPlace": "Gazimagusa, Cyprus",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 157486,
@@ -285,7 +303,8 @@
       "name": "Suzan Dilara Gedikoglu",
       "dob": "2000-04-02",
       "height": 178,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Antalya"
     },
     {
       "id": 163377,
@@ -306,7 +325,8 @@
       "name": "Belinay Sari",
       "dob": "2003-08-30",
       "height": 176,
-      "weight": 55
+      "weight": 55,
+      "birthPlace": "Antalya, Turkey"
     },
     {
       "id": 163388,
@@ -334,7 +354,8 @@
       "name": "Ayse Dil",
       "dob": "1988-02-05",
       "height": 174,
-      "weight": 58
+      "weight": 58,
+      "birthPlace": "Adana, Turkey"
     },
     {
       "id": 179378,
@@ -397,7 +418,8 @@
       "name": "Irem Yener",
       "dob": "2010-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Muratpasa"
     }
   ]
 }

@@ -14,7 +14,8 @@
       "name": "David Ziri",
       "dob": "1963-12-18",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tel Aviv"
     },
     {
       "id": 103303,
@@ -28,7 +29,8 @@
       "name": "Ofir Alkobi",
       "dob": "1977-12-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 103305,
@@ -56,21 +58,24 @@
       "name": "Timour Petreaev",
       "dob": "1977-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kishinev, Moldova"
     },
     {
       "id": 103554,
       "name": "Federico Corenstein",
       "dob": "1977-05-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Argentina"
     },
     {
       "id": 104020,
       "name": "Alexander Shapranovich",
       "dob": "1983-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ukraine"
     },
     {
       "id": 104103,
@@ -78,6 +83,7 @@
       "dob": "1985-12-12",
       "height": 194,
       "weight": 96,
+      "birthPlace": "Rybnik",
       "away": [
         {
           "id": 104104,
@@ -94,12 +100,6 @@
               240
             ]
           ],
-          "at": [
-            [
-              2002,
-              "POL"
-            ]
-          ],
           "r": 4
         }
       ]
@@ -109,7 +109,8 @@
       "name": "Ariel Hilman",
       "dob": "1986-01-27",
       "height": 196,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Israel"
     },
     {
       "id": 118055,
@@ -123,7 +124,8 @@
       "name": "Alon Alkoby",
       "dob": "1988-01-20",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Isr"
     },
     {
       "id": 118069,
@@ -158,7 +160,8 @@
       "name": "Sean Faiga",
       "dob": "1988-03-12",
       "height": 203,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Haifa"
     },
     {
       "id": 124703,
@@ -166,18 +169,23 @@
       "dob": "1992-08-22",
       "height": 190,
       "weight": 87,
+      "birthPlace": "Israel",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132441,
       "name": "Alon Sendrovich",
       "dob": "1992-11-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 138587,
@@ -198,7 +206,8 @@
       "name": "Tamir Hershko",
       "dob": "1993-07-19",
       "height": 201,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Tel Aviv"
     },
     {
       "id": 152883,
@@ -238,7 +247,10 @@
         "gold": 3,
         "silver": 4,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167030,
@@ -246,11 +258,15 @@
       "dob": "2002-01-26",
       "height": 183,
       "weight": 80,
+      "birthPlace": "Israel",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168348,
@@ -258,46 +274,55 @@
       "dob": "2000-08-11",
       "height": 200,
       "weight": 95,
+      "birthPlace": "Israel, Kibbutz Gazit",
       "tour": {
         "gold": 4,
         "silver": 5,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178364,
       "name": "David Lanciano",
       "dob": "2002-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 178367,
       "name": "Nir Laufer",
       "dob": "2005-05-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 187641,
       "name": "Idan Katriel",
       "dob": "2002-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 192772,
       "name": "Yahli Hidekel Yari",
       "dob": "2006-04-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 192789,
       "name": "Barak Goldberg",
       "dob": "2007-08-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 203584,
@@ -311,21 +336,24 @@
       "name": "Omer Gozlan",
       "dob": "2009-05-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 210907,
       "name": "Yanay Benjamin Goldshmid Fisher",
       "dob": "2007-03-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     },
     {
       "id": 223605,
       "name": "Yoav Avraham Chetrit",
       "dob": "2005-02-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Israel"
     }
   ]
 }

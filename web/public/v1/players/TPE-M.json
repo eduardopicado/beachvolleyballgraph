@@ -19,7 +19,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 162317,
@@ -31,14 +34,18 @@
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 167450,
       "name": "You-Ting Chen",
       "dob": "2000-03-23",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Taiwan"
     },
     {
       "id": 167570,

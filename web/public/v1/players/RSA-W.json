@@ -14,7 +14,8 @@
       "name": "Alena Schurkova",
       "dob": "1967-02-28",
       "height": 167,
-      "weight": 62
+      "weight": 62,
+      "birthPlace": "Sumperk"
     },
     {
       "id": 100599,
@@ -70,21 +71,37 @@
       "name": "Leigh-Ann Naidoo",
       "dob": "1976-07-12",
       "height": 181,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Durban",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 104240,
       "name": "Julia Willand",
       "dob": "1972-06-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nurehberg",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 117657,
       "name": "Vitalila Nel",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "olympicGames": 1,
+      "filters": [
+        "olympics"
+      ]
     },
     {
       "id": 117659,
@@ -112,7 +129,8 @@
       "name": "Natasha Louise Webber",
       "dob": "1981-07-31",
       "height": 170,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Port Elizabeth"
     },
     {
       "id": 117663,
@@ -161,21 +179,34 @@
       "name": "Judith Augoustides",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 123445,
       "name": "Palesa Sekhonyana",
       "dob": "1986-09-03",
       "height": 177,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Bloemfontein",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 134989,
       "name": "Randy Williams",
       "dob": "1984-12-31",
       "height": 167,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "South Africa",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 139974,
@@ -189,14 +220,16 @@
       "name": "Kirsten Pocock",
       "dob": "1971-01-15",
       "height": 175,
-      "weight": 65
+      "weight": 65,
+      "birthPlace": "Johannesburg"
     },
     {
       "id": 145169,
       "name": "Sheana-Alice Abrahams",
       "dob": "1984-10-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cape Town"
     },
     {
       "id": 145407,
@@ -210,7 +243,8 @@
       "name": "Gadija Jappie",
       "dob": "1974-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Port Elizabeth"
     },
     {
       "id": 145429,
@@ -238,7 +272,8 @@
       "name": "Nicola Wenhold",
       "dob": "1981-05-26",
       "height": 168,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pretoria"
     },
     {
       "id": 161303,
@@ -259,14 +294,16 @@
       "name": "Tatiana Simopoulos",
       "dob": "2001-11-26",
       "height": 178,
-      "weight": 61
+      "weight": 61,
+      "birthPlace": "Athens, Greece"
     },
     {
       "id": 187529,
       "name": "Costandina Karina Kinsey",
       "dob": "1983-01-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Johannesburg"
     }
   ]
 }

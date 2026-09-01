@@ -7,7 +7,8 @@
       "name": "Robert Glogowski",
       "dob": "1971-07-20",
       "height": 191,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Radom"
     },
     {
       "id": 100674,
@@ -21,21 +22,30 @@
       "name": "Janusz Bulkowski",
       "dob": "1967-05-31",
       "height": 190,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Brzeg",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100907,
       "name": "Jaroslaw Piotrowski",
       "dob": "1969-12-18",
       "height": 198,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Grudziadz"
     },
     {
       "id": 100908,
       "name": "Zbigniew Zukowski",
       "dob": "1965-04-09",
       "height": 196,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Lesna",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101439,
@@ -49,14 +59,22 @@
       "name": "Bartosz Bachorski",
       "dob": "1970-11-07",
       "height": 195,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Warsaw",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101798,
       "name": "Marek Antoniuk",
       "dob": "1972-12-22",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Hajnowka",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 101799,
@@ -70,77 +88,88 @@
       "name": "Piotr Wesolowski",
       "dob": "1973-05-16",
       "height": 193,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Gdansk"
     },
     {
       "id": 101843,
       "name": "Sebastian Winiarski",
       "dob": "1975-03-19",
       "height": 192,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Gdansk"
     },
     {
       "id": 102189,
       "name": "Dariusz Parkitny",
       "dob": "1968-01-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Czestochowa"
     },
     {
       "id": 102190,
       "name": "Dariusz Luks",
       "dob": "1970-08-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Knurow"
     },
     {
       "id": 102559,
       "name": "Marek Ungehoer",
       "dob": "1958-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krakow"
     },
     {
       "id": 102560,
       "name": "Przemyslaw Ungehoer",
       "dob": "1978-11-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Krakow"
     },
     {
       "id": 102627,
       "name": "Piotr Glogowski",
       "dob": "1979-06-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Radom"
     },
     {
       "id": 103111,
       "name": "Daniel Plinski",
       "dob": "1978-12-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puck"
     },
     {
       "id": 103354,
       "name": "Damian Lisiecki",
       "dob": "1975-09-22",
       "height": 188,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Szamocin"
     },
     {
       "id": 103355,
       "name": "Michal Krymarys",
       "dob": "1980-07-21",
       "height": 195,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Bydgoszcz"
     },
     {
       "id": 103482,
       "name": "Jaroslaw Sobczynski",
       "dob": "1977-09-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Tomaszow Mazowiecki"
     },
     {
       "id": 103483,
@@ -168,28 +197,32 @@
       "name": "Marcin Wika",
       "dob": "1983-11-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puck"
     },
     {
       "id": 103953,
       "name": "Wojciech Plinski",
       "dob": null,
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puck"
     },
     {
       "id": 103955,
       "name": "Radoslaw Balabanski",
       "dob": "1982-11-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Osztyn"
     },
     {
       "id": 103975,
       "name": "Marcin Mierzejewski",
       "dob": "1982-01-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Olsztyn"
     },
     {
       "id": 104104,
@@ -197,6 +230,7 @@
       "dob": "1985-03-08",
       "height": null,
       "weight": null,
+      "birthPlace": "Rybnik",
       "away": [
         {
           "id": 104103,
@@ -213,12 +247,6 @@
               240
             ]
           ],
-          "at": [
-            [
-              2002,
-              "POL"
-            ]
-          ],
           "r": 4
         }
       ]
@@ -228,28 +256,32 @@
       "name": "Pawel Nalikowski",
       "dob": "1984-06-25",
       "height": 190,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Jaworzno"
     },
     {
       "id": 104392,
       "name": "Lukasz Jurkojc",
       "dob": "1984-08-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Pila"
     },
     {
       "id": 104535,
       "name": "Rafal Szternel",
       "dob": "1986-01-26",
       "height": 191,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Lodz"
     },
     {
       "id": 104536,
       "name": "Tomasz Sinczak",
       "dob": "1986-04-16",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Lodz"
     },
     {
       "id": 104749,
@@ -263,7 +295,8 @@
       "name": "Rafal Matusiak",
       "dob": "1980-07-03",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Lodz"
     },
     {
       "id": 104808,
@@ -277,42 +310,48 @@
       "name": "Emil Siewiorek",
       "dob": "1984-09-28",
       "height": 189,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Sosnowiec"
     },
     {
       "id": 104810,
       "name": "Wojciecu Podwojcik",
       "dob": "1981-04-27",
       "height": 193,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Warsaw"
     },
     {
       "id": 104811,
       "name": "Norbert Okun",
       "dob": "1979-10-30",
       "height": 191,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Warsaw"
     },
     {
       "id": 104812,
       "name": "Krzysztof Hajbowicz",
       "dob": "1981-07-27",
       "height": 193,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Lebork"
     },
     {
       "id": 104813,
       "name": "Dominik Witczak",
       "dob": "1983-02-01",
       "height": 198,
-      "weight": 108
+      "weight": 108,
+      "birthPlace": "Ostrow Wielkopolski"
     },
     {
       "id": 104814,
       "name": "Grzegorz Klimek",
       "dob": "1983-08-26",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Lodz"
     },
     {
       "id": 105042,
@@ -320,11 +359,18 @@
       "dob": "1987-05-11",
       "height": 186,
       "weight": 81,
+      "birthPlace": "Wadowice",
       "tour": {
         "gold": 2,
         "silver": 8,
         "bronze": 7
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 105049,
@@ -338,7 +384,8 @@
       "name": "Michal Ruciak",
       "dob": "1983-08-22",
       "height": 189,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Swinoujscie"
     },
     {
       "id": 115491,
@@ -359,28 +406,35 @@
       "name": "Piotr Marciniak",
       "dob": "1986-10-01",
       "height": 197,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Kedzierzyn Kozle"
     },
     {
       "id": 115772,
       "name": "Zbigniew Bartman",
       "dob": "1987-05-04",
       "height": 198,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Warszawa"
     },
     {
       "id": 115845,
       "name": "Michal Kubiak",
       "dob": "1988-02-23",
       "height": 191,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Walcz"
     },
     {
       "id": 116544,
       "name": "Jaroslaw Lech",
       "dob": "1984-07-29",
       "height": 197,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Wroclaw",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 116563,
@@ -408,14 +462,16 @@
       "name": "Michal Matyja",
       "dob": "1987-05-17",
       "height": 192,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Oswiecim"
     },
     {
       "id": 116651,
       "name": "Michal Zurek",
       "dob": "1988-06-03",
       "height": 182,
-      "weight": 73
+      "weight": 73,
+      "birthPlace": "Kedzierzyn-Kozle"
     },
     {
       "id": 116652,
@@ -437,11 +493,18 @@
       "dob": "1986-01-21",
       "height": 191,
       "weight": 83,
+      "birthPlace": "Rybnik",
       "tour": {
         "gold": 2,
         "silver": 4,
         "bronze": 6
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 117033,
@@ -455,7 +518,8 @@
       "name": "Marcin Dybka",
       "dob": "1977-05-06",
       "height": 202,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Kluczbork"
     },
     {
       "id": 118031,
@@ -484,18 +548,24 @@
       "dob": "1989-05-03",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Staszow",
       "tour": {
         "gold": 4,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118152,
       "name": "Karol Szczepanik",
       "dob": "1983-06-15",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kraków, Poland"
     },
     {
       "id": 118227,
@@ -517,18 +587,24 @@
       "dob": "1989-05-28",
       "height": 194,
       "weight": 83,
+      "birthPlace": "Katowice",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 118324,
       "name": "Marcin Kantor",
       "dob": "1989-02-03",
       "height": 195,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Pol"
     },
     {
       "id": 118732,
@@ -549,21 +625,27 @@
       "name": "Marek Leznicki",
       "dob": "1990-06-18",
       "height": 188,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Kielce"
     },
     {
       "id": 119263,
       "name": "Marcin Golonka",
       "dob": "1990-08-07",
       "height": 198,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Staszow"
     },
     {
       "id": 119683,
       "name": "Damian Wojtasik",
       "dob": "1990-08-06",
       "height": 193,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Sosnowiec",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 120028,
@@ -591,7 +673,8 @@
       "name": "Sebastian Sobczak",
       "dob": "1988-06-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nowe Miasto Nad Pilica"
     },
     {
       "id": 120407,
@@ -599,11 +682,15 @@
       "dob": "1988-09-09",
       "height": 200,
       "weight": 96,
+      "birthPlace": "Lodz",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 5
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 122846,
@@ -620,7 +707,13 @@
         "gold": 7,
         "silver": 11,
         "bronze": 7
-      }
+      },
+      "olympicGames": 3,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122847,
@@ -632,14 +725,21 @@
         "gold": 3,
         "silver": 7,
         "bronze": 7
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 122848,
       "name": "Pawel Pelka",
       "dob": "1993-08-06",
       "height": 202,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Lodz"
     },
     {
       "id": 122849,
@@ -653,7 +753,8 @@
       "name": "Robert Zuchowski",
       "dob": "1985-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Lodz"
     },
     {
       "id": 124677,
@@ -667,7 +768,8 @@
       "name": "Bartosz Ksiezarek",
       "dob": "1992-08-16",
       "height": 194,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Kedzierzyn-Kozle"
     },
     {
       "id": 125488,
@@ -707,7 +809,11 @@
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 137234,
@@ -731,7 +837,13 @@
         "gold": 6,
         "silver": 9,
         "bronze": 3
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 138654,
@@ -743,7 +855,11 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 138656,
@@ -764,7 +880,8 @@
       "name": "Bartosz Bernat",
       "dob": "1996-03-25",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kędzierzyn-Koźle"
     },
     {
       "id": 138659,
@@ -778,21 +895,24 @@
       "name": "Mateusz Lysikowski",
       "dob": "1996-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cieszyn"
     },
     {
       "id": 142142,
       "name": "Mateusz Paszkowski",
       "dob": "1997-05-20",
       "height": 204,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Radzyn Podlaski"
     },
     {
       "id": 142143,
       "name": "Lukasz Cyran",
       "dob": "1997-04-02",
       "height": 181,
-      "weight": 69
+      "weight": 69,
+      "birthPlace": "Bielsko-Biala"
     },
     {
       "id": 142782,
@@ -806,7 +926,8 @@
       "name": "Jakub Macura",
       "dob": "1996-01-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Cieszyn"
     },
     {
       "id": 143004,
@@ -828,11 +949,15 @@
       "dob": "1989-02-09",
       "height": 193,
       "weight": 93,
+      "birthPlace": "Opole",
       "tour": {
         "gold": 2,
         "silver": 3,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 143237,
@@ -846,21 +971,24 @@
       "name": "Stanislaw Wawrzynczyk",
       "dob": "1990-01-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wejherowo"
     },
     {
       "id": 146844,
       "name": "Adam Lenc",
       "dob": "1998-08-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puck"
     },
     {
       "id": 146845,
       "name": "Maciej Lewicki",
       "dob": "1998-01-02",
       "height": 190,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Wroclaw"
     },
     {
       "id": 147358,
@@ -874,28 +1002,32 @@
       "name": "Maciej Kaluza",
       "dob": "1987-06-28",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Bytom"
     },
     {
       "id": 149258,
       "name": "Tomasz Gortych",
       "dob": "1979-07-27",
       "height": 193,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Poland"
     },
     {
       "id": 149259,
       "name": "Szymon Tralka",
       "dob": "1979-05-15",
       "height": 200,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Rzeszow"
     },
     {
       "id": 150093,
       "name": "Marcin Konpa",
       "dob": "1988-09-21",
       "height": 189,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Mrągowo"
     },
     {
       "id": 152663,
@@ -916,14 +1048,16 @@
       "name": "Adrian Sdebel",
       "dob": "1986-09-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Jastrzebie Zdrój"
     },
     {
       "id": 156005,
       "name": "Piotr Groszek",
       "dob": "1994-01-02",
       "height": 191,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Rzeszów, Poland"
     },
     {
       "id": 156034,
@@ -951,7 +1085,8 @@
       "name": "Dominik Poznanski",
       "dob": "2000-10-13",
       "height": 188,
-      "weight": 76
+      "weight": 76,
+      "birthPlace": "Gostyń"
     },
     {
       "id": 160136,
@@ -959,18 +1094,23 @@
       "dob": "1988-07-21",
       "height": null,
       "weight": null,
+      "birthPlace": "Gdynia",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 162105,
       "name": "Lukasz Kaczmarek",
       "dob": "1994-06-29",
       "height": 204,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Krotoszyn"
     },
     {
       "id": 162925,
@@ -978,11 +1118,16 @@
       "dob": "1995-10-11",
       "height": 190,
       "weight": 86,
+      "birthPlace": "Wroclaw",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 162927,
@@ -990,11 +1135,15 @@
       "dob": "1996-07-05",
       "height": 184,
       "weight": 85,
+      "birthPlace": "Nowe Miasto nad Pilicą",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 162928,
@@ -1006,7 +1155,10 @@
         "gold": 2,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163182,
@@ -1028,11 +1180,15 @@
       "dob": "2000-09-18",
       "height": 200,
       "weight": 94,
+      "birthPlace": "Świnoujście",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 163714,
@@ -1056,6 +1212,13 @@
       "weight": null
     },
     {
+      "id": 164336,
+      "name": "Maciej Okrzeja",
+      "dob": "1993-04-20",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 164367,
       "name": "Filip Brandt",
       "dob": "1997-06-25",
@@ -1067,7 +1230,8 @@
       "name": "Andrzej Paszkowski",
       "dob": "1983-10-18",
       "height": 189,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Goldap"
     },
     {
       "id": 165620,
@@ -1079,14 +1243,18 @@
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 165934,
       "name": "Antoni Piotrowski",
       "dob": "1999-08-03",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Lodz"
     },
     {
       "id": 168981,
@@ -1112,7 +1280,10 @@
         "gold": 2,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169568,
@@ -1124,7 +1295,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169647,
@@ -1139,11 +1313,15 @@
       "dob": "1996-01-10",
       "height": 194,
       "weight": 88,
+      "birthPlace": "Wrocław",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 173160,
@@ -1178,21 +1356,24 @@
       "name": "Mateusz Podboraczynski",
       "dob": "1998-02-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Strzelce Opolskie"
     },
     {
       "id": 176256,
       "name": "Tomasz Woloszuk",
       "dob": "1988-04-11",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Lniano"
     },
     {
       "id": 179365,
       "name": "Jacek Rejno",
       "dob": "2003-07-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Wroclaw"
     },
     {
       "id": 179443,
@@ -1200,11 +1381,15 @@
       "dob": "2004-12-12",
       "height": 200,
       "weight": 90,
+      "birthPlace": "Kołobrzeg",
       "tour": {
         "gold": 2,
         "silver": 1,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179445,
@@ -1212,11 +1397,15 @@
       "dob": "2004-08-07",
       "height": null,
       "weight": null,
+      "birthPlace": "Bielsko-Biala",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179446,
@@ -1230,7 +1419,8 @@
       "name": "Igor Ciemachowski",
       "dob": "1994-06-09",
       "height": 192,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Trzcianka"
     },
     {
       "id": 182455,
@@ -1245,11 +1435,15 @@
       "dob": "2006-06-26",
       "height": 190,
       "weight": 81,
+      "birthPlace": "Grudziądz",
       "tour": {
         "gold": 2,
         "silver": 2,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182951,
@@ -1261,7 +1455,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 185563,
@@ -1269,11 +1466,15 @@
       "dob": "2005-09-16",
       "height": 186,
       "weight": 75,
+      "birthPlace": "Rivne",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 188216,
@@ -1285,28 +1486,34 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 188284,
       "name": "Szymon Beta",
       "dob": "2005-07-04",
       "height": 198,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Warszawa"
     },
     {
       "id": 201998,
       "name": "Samuel Wróbel",
       "dob": "2001-09-30",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Olsztyn"
     },
     {
       "id": 201999,
       "name": "Bartłomiej Więckiewicz",
       "dob": "1997-09-29",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Brodnica"
     },
     {
       "id": 202001,
@@ -1341,35 +1548,40 @@
       "name": "Mateusz Pyrak",
       "dob": "1998-09-21",
       "height": 185,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Stalowa Wola"
     },
     {
       "id": 202630,
       "name": "Marek Subocz",
       "dob": "1998-09-20",
       "height": 195,
-      "weight": 91
+      "weight": 91,
+      "birthPlace": "Szczecin"
     },
     {
       "id": 204747,
       "name": "Adam Głowacki",
       "dob": "1998-02-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Piotrków Trybunalski"
     },
     {
       "id": 210831,
       "name": "Tomasz Warych",
       "dob": "2007-11-14",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Warszawa"
     },
     {
       "id": 212001,
       "name": "Wiktor Musiał",
       "dob": "2007-10-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Bydgoszcz"
     },
     {
       "id": 212241,
@@ -1381,7 +1593,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 212244,
@@ -1402,42 +1617,56 @@
       "name": "Maksymilian Dymczyk",
       "dob": "2007-02-16",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Poznań"
     },
     {
       "id": 220156,
       "name": "Alan Robak",
       "dob": "2009-05-01",
       "height": 184,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Konin"
     },
     {
       "id": 221517,
       "name": "Igor Gliszczyński",
       "dob": "2009-06-19",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Rybnik"
+    },
+    {
+      "id": 221519,
+      "name": "Michał Śliwa",
+      "dob": "2009-05-08",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Tychy"
     },
     {
       "id": 223996,
       "name": "Wojciech Witkowski",
       "dob": "2010-01-05",
       "height": 196,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Poznań"
     },
     {
       "id": 224000,
       "name": "Karol Łunio",
       "dob": "2010-05-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Olsztyn"
     },
     {
       "id": 232277,
       "name": "Łukasz Czubkowski",
       "dob": "1994-02-16",
       "height": 181,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Świecie nad Wisłą"
     }
   ]
 }

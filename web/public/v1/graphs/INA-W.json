@@ -24,7 +24,7 @@
       "name": "Engel Berta \"Eta\" Kaize",
       "short": "Eta",
       "tournaments": 25,
-      "first": 1994,
+      "first": 1995,
       "last": 2005
     },
     {
@@ -32,7 +32,7 @@
       "name": "Ni Putu Timy Yudhani Rahayu",
       "short": "Timy",
       "tournaments": 34,
-      "first": 1994,
+      "first": 1995,
       "last": 2007
     },
     {
@@ -524,22 +524,17 @@
       "a": 100633,
       "b": 100634,
       "t": 22,
-      "f": 1994,
+      "f": 1995,
       "l": 2002,
       "s": [
         [
-          1994,
-          2,
-          425
-        ],
-        [
           1995,
-          8,
-          423
+          9,
+          319
         ],
         [
           1996,
-          8,
+          9,
           326
         ],
         [

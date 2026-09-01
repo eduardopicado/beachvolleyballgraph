@@ -7,91 +7,104 @@
       "name": "Admilson Melo",
       "dob": "1998-05-31",
       "height": 187,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Cabo Verde"
     },
     {
       "id": 175261,
       "name": "Danilo Ramos Evora",
       "dob": "1993-09-23",
       "height": 196,
-      "weight": 99
+      "weight": 99,
+      "birthPlace": "Mindelo"
     },
     {
       "id": 181379,
       "name": "Fabio Brito Melo",
       "dob": "1995-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sal"
     },
     {
       "id": 207821,
       "name": "Ivan Mota",
       "dob": "2001-11-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Sal"
     },
     {
       "id": 230734,
       "name": "Helder Cruz do Espirito Santo",
       "dob": "2005-09-12",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "SAL"
     },
     {
       "id": 230735,
       "name": "Zidani Tavares Dos Santos",
       "dob": "1998-11-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 230736,
       "name": "Delvino Andrade Souto Gonçalves",
       "dob": "2003-05-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 230737,
       "name": "Ricardo Luis Moreno Baptista",
       "dob": "1997-04-02",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santiago"
     },
     {
       "id": 230738,
       "name": "Hugo Miguel Soares Santos",
       "dob": "2000-09-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     },
     {
       "id": 230739,
       "name": "Aridson Rodrigues Andrade",
       "dob": "1986-12-21",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santo Antão"
     },
     {
       "id": 230771,
       "name": "Lucas Guilherme Leite Dos Santos",
       "dob": "2009-04-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santo Antão"
     },
     {
       "id": 230772,
       "name": "Leandro Maurício Dias De Pina",
       "dob": "2009-08-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Santo Antão"
     },
     {
       "id": 231556,
       "name": "Ivo Mariano dos Santos Brito",
       "dob": "2001-01-01",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "S. Vicente"
     }
   ]
 }

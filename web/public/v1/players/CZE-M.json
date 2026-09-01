@@ -7,14 +7,26 @@
       "name": "Marek \"Marco\" \"Pako\" Pakosta",
       "dob": "1969-04-21",
       "height": 202,
-      "weight": 93
+      "weight": 93,
+      "birthPlace": "Litomysl",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100584,
       "name": "Michal \"Palda\" Palinek",
       "dob": "1967-08-10",
       "height": 190,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Prerov",
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 100650,
@@ -22,11 +34,16 @@
       "dob": "1968-10-14",
       "height": 200,
       "weight": 95,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100651,
@@ -34,18 +51,27 @@
       "dob": "1970-04-07",
       "height": 190,
       "weight": 77,
+      "birthPlace": "Vyskov",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 100782,
       "name": "Milan Dzavoronok",
       "dob": "1961-11-01",
       "height": 191,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Rokycany",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 100783,
@@ -66,28 +92,32 @@
       "name": "Ondrej \"Koci\" Koudelka",
       "dob": "1971-11-29",
       "height": 187,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Brno"
     },
     {
       "id": 101285,
       "name": "Vojtech \"Koudy\" Koudelka",
       "dob": "1974-02-14",
       "height": 190,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Brno"
     },
     {
       "id": 101340,
       "name": "Jan Bijecek",
       "dob": "1965-06-04",
       "height": 195,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Brno"
     },
     {
       "id": 101341,
       "name": "Lubomir \"Lubosch\" Kuchta",
       "dob": "1965-07-28",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Slavkov u Brna"
     },
     {
       "id": 101430,
@@ -95,11 +125,18 @@
       "dob": "1973-12-16",
       "height": 202,
       "weight": 98,
+      "birthPlace": "Frydek Mistek",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 101431,
@@ -134,14 +171,21 @@
       "name": "Petr Benes",
       "dob": "1974-11-27",
       "height": 197,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Prague",
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs"
+      ]
     },
     {
       "id": 101779,
       "name": "Jan Benes",
       "dob": "1968-10-28",
       "height": 196,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Praha"
     },
     {
       "id": 101780,
@@ -155,7 +199,8 @@
       "name": "Dalibor \"Otik\" Luska",
       "dob": "1974-03-28",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Vyskov"
     },
     {
       "id": 101899,
@@ -183,14 +228,16 @@
       "name": "Marek \"Kibo\" Simko",
       "dob": "1972-10-12",
       "height": 199,
-      "weight": 101
+      "weight": 101,
+      "birthPlace": "Boskovice"
     },
     {
       "id": 102280,
       "name": "Petr \"Sob\" Sobola",
       "dob": "1976-09-16",
       "height": 194,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Brno"
     },
     {
       "id": 102514,
@@ -198,39 +245,53 @@
       "dob": "1980-04-12",
       "height": 201,
       "weight": 105,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "olympicGames": 1,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 102721,
       "name": "Richard \"Musa\" Muselik",
       "dob": "1976-03-02",
       "height": 193,
-      "weight": 86
+      "weight": 86,
+      "birthPlace": "Brno"
     },
     {
       "id": 102722,
       "name": "Vratislav \"Ziza\" Stanek",
       "dob": "1976-11-07",
       "height": 188,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Kraslice"
     },
     {
       "id": 102906,
       "name": "Pavel \" Bojda\" Novak",
       "dob": "1972-12-09",
       "height": 187,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Brno"
     },
     {
       "id": 103295,
       "name": "Stanislav Pochop",
       "dob": "1966-09-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Nove Mesto NH Morave",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 103337,
@@ -251,7 +312,8 @@
       "name": "Jan Vaclavik",
       "dob": "1985-04-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 103341,
@@ -259,11 +321,16 @@
       "dob": "1978-05-15",
       "height": null,
       "weight": null,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 103395,
@@ -285,11 +352,15 @@
       "dob": "1979-09-11",
       "height": null,
       "weight": null,
+      "birthPlace": "Uherské Hradište",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103555,
@@ -304,18 +375,23 @@
       "dob": "1979-01-01",
       "height": 188,
       "weight": 92,
+      "birthPlace": "Sumperk",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 103806,
       "name": "Stepan Smrcka",
       "dob": "1981-08-03",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ceske Budejovice"
     },
     {
       "id": 103914,
@@ -323,6 +399,7 @@
       "dob": "1985-02-03",
       "height": null,
       "weight": null,
+      "birthPlace": "Vyskov",
       "away": [
         {
           "id": 103915,
@@ -339,12 +416,6 @@
               191
             ]
           ],
-          "at": [
-            [
-              2002,
-              "CZE"
-            ]
-          ],
           "r": 9
         }
       ]
@@ -354,21 +425,27 @@
       "name": "Martin Klapal",
       "dob": "1984-02-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 103917,
       "name": "Petr Nezdaril",
       "dob": "1985-04-08",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vrskov"
     },
     {
       "id": 104212,
       "name": "Pavel Rotrekl",
       "dob": "1983-12-23",
       "height": 198,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Brno",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 104772,
@@ -376,11 +453,15 @@
       "dob": "1984-05-17",
       "height": 188,
       "weight": 93,
+      "birthPlace": "České Budějovice",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104977,
@@ -388,11 +469,16 @@
       "dob": "1987-08-28",
       "height": 193,
       "weight": 84,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 104978,
@@ -407,11 +493,15 @@
       "dob": "1986-06-07",
       "height": 190,
       "weight": 95,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 104985,
@@ -425,7 +515,8 @@
       "name": "Peter Platenik",
       "dob": "1981-03-16",
       "height": 196,
-      "weight": 88
+      "weight": 88,
+      "birthPlace": "Bratislava"
     },
     {
       "id": 117898,
@@ -439,7 +530,8 @@
       "name": "Jan Dumek",
       "dob": "1986-04-13",
       "height": 186,
-      "weight": 75
+      "weight": 75,
+      "birthPlace": "Turnov"
     },
     {
       "id": 117900,
@@ -451,7 +543,10 @@
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 117904,
@@ -472,7 +567,8 @@
       "name": "Jiri Plachy",
       "dob": "1977-10-24",
       "height": 190,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Jindrichuv Hradec"
     },
     {
       "id": 118990,
@@ -486,7 +582,8 @@
       "name": "Jirí Korínek",
       "dob": "1990-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Usti nad Labem"
     },
     {
       "id": 119311,
@@ -535,7 +632,8 @@
       "name": "Martin Cupa",
       "dob": "1989-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Usti nad Labem"
     },
     {
       "id": 120289,
@@ -549,14 +647,16 @@
       "name": "Filip Hanak",
       "dob": "1976-07-17",
       "height": 188,
-      "weight": 98
+      "weight": 98,
+      "birthPlace": "Frýdek-Místek"
     },
     {
       "id": 120295,
       "name": "Michal Provaznik",
       "dob": "1975-04-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Vyskov"
     },
     {
       "id": 120519,
@@ -591,7 +691,8 @@
       "name": "Richard Mauler",
       "dob": "1989-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Opava"
     },
     {
       "id": 124791,
@@ -619,7 +720,11 @@
       "name": "Jan Hadrava",
       "dob": "1991-06-03",
       "height": 198,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Rokycany",
+      "filters": [
+        "world-champs"
+      ]
     },
     {
       "id": 129097,
@@ -633,7 +738,8 @@
       "name": "Jakub Vesely",
       "dob": "1986-09-02",
       "height": 207,
-      "weight": 100
+      "weight": 100,
+      "birthPlace": "Šternberk"
     },
     {
       "id": 132678,
@@ -662,11 +768,15 @@
       "dob": "1990-10-23",
       "height": 187,
       "weight": 81,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 132861,
@@ -694,14 +804,16 @@
       "name": "Michal Finger",
       "dob": "1993-09-02",
       "height": 202,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Praha"
     },
     {
       "id": 135547,
       "name": "Št?pán Trojan",
       "dob": "1994-01-03",
       "height": 194,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Kladno"
     },
     {
       "id": 135548,
@@ -723,30 +835,39 @@
       "dob": "1994-09-26",
       "height": 190,
       "weight": 90,
+      "birthPlace": "Prague",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
       },
       "tour": {
-        "gold": 8,
+        "gold": 9,
         "silver": 8,
         "bronze": 3
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 137347,
       "name": "Ondrej Benes",
       "dob": "1995-10-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 138669,
       "name": "Martin David",
       "dob": "1982-11-29",
       "height": 201,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Karlovy Vary"
     },
     {
       "id": 138670,
@@ -760,14 +881,16 @@
       "name": "Michal Studnicny",
       "dob": "1983-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 138836,
       "name": "Libor Leikep",
       "dob": "1988-03-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Znojmo"
     },
     {
       "id": 139014,
@@ -775,18 +898,23 @@
       "dob": "1988-04-27",
       "height": 202,
       "weight": 93,
+      "birthPlace": "Most",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 139582,
       "name": "Michael Hadrava",
       "dob": "1995-01-10",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Plzen"
     },
     {
       "id": 139869,
@@ -794,11 +922,15 @@
       "dob": "1994-05-06",
       "height": 190,
       "weight": 72,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142008,
@@ -810,7 +942,10 @@
         "gold": 0,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147876,
@@ -818,11 +953,15 @@
       "dob": "1996-09-22",
       "height": 190,
       "weight": 80,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 147877,
@@ -850,7 +989,8 @@
       "name": "Tomas Pala",
       "dob": "1985-07-29",
       "height": 184,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Benesov"
     },
     {
       "id": 150633,
@@ -858,11 +998,15 @@
       "dob": "1997-07-23",
       "height": 202,
       "weight": 98,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 1,
         "silver": 0,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 153201,
@@ -884,6 +1028,7 @@
       "dob": "1994-06-01",
       "height": 200,
       "weight": 90,
+      "birthPlace": "Prague",
       "worldChamps": {
         "gold": 1,
         "silver": 0,
@@ -893,7 +1038,13 @@
         "gold": 8,
         "silver": 7,
         "bronze": 3
-      }
+      },
+      "olympicGames": 2,
+      "filters": [
+        "olympics",
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 154123,
@@ -901,11 +1052,15 @@
       "dob": "2000-01-19",
       "height": 193,
       "weight": 85,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 2,
-        "silver": 2,
+        "silver": 3,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 156061,
@@ -933,7 +1088,8 @@
       "name": "Patrik Manas",
       "dob": "2000-09-17",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Brno"
     },
     {
       "id": 157878,
@@ -948,11 +1104,15 @@
       "dob": "2001-09-05",
       "height": 198,
       "weight": 87,
+      "birthPlace": "Brno",
       "tour": {
         "gold": 2,
-        "silver": 2,
+        "silver": 3,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 158972,
@@ -980,7 +1140,8 @@
       "name": "Ondrej Sotola",
       "dob": "1995-04-12",
       "height": 195,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Neratovice"
     },
     {
       "id": 166881,
@@ -994,7 +1155,8 @@
       "name": "Adam Miroslav Stocek",
       "dob": "2001-12-16",
       "height": 190,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Prague"
     },
     {
       "id": 168598,
@@ -1010,17 +1172,21 @@
       "height": 190,
       "weight": 81,
       "tour": {
-        "gold": 2,
+        "gold": 3,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 168821,
       "name": "Milan Monik",
       "dob": "1988-03-15",
       "height": 190,
-      "weight": 92
+      "weight": 92,
+      "birthPlace": "Usti nad Labem"
     },
     {
       "id": 169586,
@@ -1028,18 +1194,23 @@
       "dob": "2001-07-24",
       "height": 187,
       "weight": 85,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 1,
         "silver": 1,
         "bronze": 2
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 169596,
       "name": "Matyas Jachnicki",
       "dob": "1999-05-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 169597,
@@ -1067,7 +1238,8 @@
       "name": "Jan Bercik",
       "dob": "2002-03-26",
       "height": 189,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Prague"
     },
     {
       "id": 173576,
@@ -1082,25 +1254,31 @@
       "dob": "2000-01-30",
       "height": 184,
       "weight": 79,
+      "birthPlace": "Praha",
       "tour": {
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 175537,
       "name": "Martin Pavlovsky",
       "dob": "1998-06-19",
       "height": 187,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Brno"
     },
     {
       "id": 177292,
       "name": "Jan Stefko",
       "dob": "1996-11-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ostrava"
     },
     {
       "id": 178227,
@@ -1119,7 +1297,10 @@
         "gold": 0,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 178311,
@@ -1166,21 +1347,26 @@
         "gold": 1,
         "silver": 1,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 179910,
       "name": "Jakub Malik",
       "dob": "2003-10-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Frydek-Mistek"
     },
     {
       "id": 181632,
       "name": "Richard Struska",
       "dob": "2004-07-09",
       "height": 185,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Brno"
     },
     {
       "id": 181633,
@@ -1188,11 +1374,15 @@
       "dob": "2004-06-09",
       "height": 197,
       "weight": 90,
+      "birthPlace": "Prague",
       "tour": {
         "gold": 1,
         "silver": 2,
         "bronze": 0
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182198,
@@ -1206,7 +1396,8 @@
       "name": "Michal Pribyl",
       "dob": "2004-04-27",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Opava"
     },
     {
       "id": 182377,
@@ -1225,7 +1416,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 190771,
@@ -1244,7 +1438,10 @@
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 191893,
@@ -1265,7 +1462,8 @@
       "name": "Teodor Schinko",
       "dob": "2004-08-04",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Prague"
     },
     {
       "id": 192787,
@@ -1273,6 +1471,13 @@
       "dob": "2004-03-01",
       "height": 149,
       "weight": 108
+    },
+    {
+      "id": 202726,
+      "name": "David Vyoral",
+      "dob": "2006-12-15",
+      "height": null,
+      "weight": null
     },
     {
       "id": 203268,
@@ -1303,6 +1508,13 @@
       "weight": null
     },
     {
+      "id": 209573,
+      "name": "Simon Tuma",
+      "dob": "2006-07-23",
+      "height": null,
+      "weight": null
+    },
+    {
       "id": 209643,
       "name": "Tobias Brnak",
       "dob": "2005-12-15",
@@ -1321,14 +1533,16 @@
       "name": "Karel Tusek",
       "dob": "2006-08-24",
       "height": 192,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Czech Republic"
     },
     {
       "id": 211214,
       "name": "Martin Schuma",
       "dob": "2006-08-09",
       "height": 195,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Praha"
     },
     {
       "id": 212650,
@@ -1342,14 +1556,16 @@
       "name": "Lukas Novotny",
       "dob": "2010-08-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 212652,
       "name": "Jaroslav Votava",
       "dob": "2009-07-30",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kolin"
     },
     {
       "id": 214025,
@@ -1377,35 +1593,40 @@
       "name": "Jakub Vaculik",
       "dob": "2007-10-16",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 224209,
       "name": "Bartolomej Simek",
       "dob": "2008-04-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Brno"
     },
     {
       "id": 225338,
       "name": "Kaspar Strnad",
       "dob": "2008-07-29",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 225720,
       "name": "Viktor Korbas",
       "dob": "2009-09-28",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     },
     {
       "id": 227244,
       "name": "Filip Richter",
       "dob": "2007-02-26",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Praha"
     }
   ]
 }

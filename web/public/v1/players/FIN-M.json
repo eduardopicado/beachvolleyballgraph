@@ -14,21 +14,24 @@
       "name": "Janne \"Elmu\" Pulkkinen",
       "dob": "1970-02-25",
       "height": 183,
-      "weight": 78
+      "weight": 78,
+      "birthPlace": "Kuopio"
     },
     {
       "id": 101468,
       "name": "Rami Parkkinen",
       "dob": "1968-04-18",
       "height": 194,
-      "weight": 87
+      "weight": 87,
+      "birthPlace": "Pietarsaari"
     },
     {
       "id": 102458,
       "name": "Kai \"Kaipe\" Liukkonen",
       "dob": "1974-01-15",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kangasala"
     },
     {
       "id": 103361,
@@ -42,7 +45,8 @@
       "name": "Lauri Hakala",
       "dob": "1982-08-23",
       "height": 187,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Kuusamo"
     },
     {
       "id": 103722,
@@ -56,42 +60,48 @@
       "name": "Teemu Tolonen",
       "dob": "1979-07-31",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Tampere"
     },
     {
       "id": 103848,
       "name": "Toni Tuominen",
       "dob": "1976-03-19",
       "height": 195,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Mietoinen"
     },
     {
       "id": 103926,
       "name": "Pekka Seppänen",
       "dob": "1983-04-25",
       "height": 187,
-      "weight": 77
+      "weight": 77,
+      "birthPlace": "Heinola"
     },
     {
       "id": 103927,
       "name": "Tatu Säisä",
       "dob": "1983-03-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Kuopio"
     },
     {
       "id": 104361,
       "name": "Anssi Hakala",
       "dob": "1984-05-12",
       "height": 184,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Siilinjärvi"
     },
     {
       "id": 104362,
       "name": "Ville Rantala",
       "dob": "1983-09-07",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Ylane"
     },
     {
       "id": 104363,
@@ -105,14 +115,16 @@
       "name": "Jussi Savio",
       "dob": "1980-06-26",
       "height": 196,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Pieksamaki"
     },
     {
       "id": 104845,
       "name": "Esa Ikäheimonen",
       "dob": "1980-09-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Varkaus, Finland"
     },
     {
       "id": 104846,
@@ -133,21 +145,24 @@
       "name": "Pasi Hyvärinen",
       "dob": "1987-11-22",
       "height": 184,
-      "weight": 80
+      "weight": 80,
+      "birthPlace": "Varkaus"
     },
     {
       "id": 114637,
       "name": "Mikko Esko",
       "dob": "1978-09-03",
       "height": 198,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Vammala"
     },
     {
       "id": 114660,
       "name": "Toni Kankaanpää",
       "dob": "1984-03-18",
       "height": 194,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Helsinki"
     },
     {
       "id": 114663,
@@ -168,7 +183,8 @@
       "name": "Lasse Maijala",
       "dob": "1977-08-16",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Kuopio"
     },
     {
       "id": 115555,
@@ -196,21 +212,24 @@
       "name": "Jaakko Keskitalo",
       "dob": "1981-04-03",
       "height": 192,
-      "weight": 83
+      "weight": 83,
+      "birthPlace": "Espoo"
     },
     {
       "id": 119102,
       "name": "Joona Manninen",
       "dob": "1990-01-12",
       "height": 190,
-      "weight": 79
+      "weight": 79,
+      "birthPlace": "Pieksämäki"
     },
     {
       "id": 119103,
       "name": "Markus Väisänen",
       "dob": "1990-03-06",
       "height": 195,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Jäppilä"
     },
     {
       "id": 119984,
@@ -252,7 +271,8 @@
       "name": "Erik Schmidt",
       "dob": "1975-09-14",
       "height": 188,
-      "weight": 81
+      "weight": 81,
+      "birthPlace": "Worms"
     },
     {
       "id": 120718,
@@ -266,7 +286,8 @@
       "name": "Marko Peltonen",
       "dob": "1983-06-03",
       "height": 192,
-      "weight": 85
+      "weight": 85,
+      "birthPlace": "Hyvinkää"
     },
     {
       "id": 120854,
@@ -280,7 +301,8 @@
       "name": "Teppo Pulkkinen",
       "dob": "1986-10-05",
       "height": 193,
-      "weight": 84
+      "weight": 84,
+      "birthPlace": "Vantaa"
     },
     {
       "id": 120941,
@@ -308,14 +330,16 @@
       "name": "Oskar Söderlund",
       "dob": "1989-08-18",
       "height": 198,
-      "weight": 94
+      "weight": 94,
+      "birthPlace": "Mariehamn"
     },
     {
       "id": 132823,
       "name": "Verneri Vetriö",
       "dob": "1992-10-07",
       "height": 192,
-      "weight": 82
+      "weight": 82,
+      "birthPlace": "Mariehamn"
     },
     {
       "id": 133189,
@@ -343,7 +367,8 @@
       "name": "Tommi Juhani Siirilä",
       "dob": "1993-08-05",
       "height": 203,
-      "weight": 102
+      "weight": 102,
+      "birthPlace": "Alajärvi"
     },
     {
       "id": 138813,
@@ -351,18 +376,23 @@
       "dob": "1990-11-02",
       "height": 188,
       "weight": 87,
+      "birthPlace": "Ristijärvi",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 138814,
       "name": "Pekka Piippo",
       "dob": "1983-04-07",
       "height": 201,
-      "weight": 95
+      "weight": 95,
+      "birthPlace": "Oulu"
     },
     {
       "id": 142622,
@@ -370,18 +400,23 @@
       "dob": "1996-05-15",
       "height": 194,
       "weight": 84,
+      "birthPlace": "Tampere",
       "tour": {
         "gold": 2,
         "silver": 0,
         "bronze": 4
-      }
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 144087,
       "name": "Miro Määttänen",
       "dob": "1996-06-17",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Espoo"
     },
     {
       "id": 148896,
@@ -451,21 +486,24 @@
       "name": "Samuel Vainio",
       "dob": "2003-02-09",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Mounatain View CA"
     },
     {
       "id": 179517,
       "name": "Samu Pulkkinen",
       "dob": "2003-06-17",
       "height": 193,
-      "weight": 89
+      "weight": 89,
+      "birthPlace": "Vantaa"
     },
     {
       "id": 190671,
       "name": "Aleksi Hänninen",
       "dob": "2006-04-26",
       "height": 193,
-      "weight": 90
+      "weight": 90,
+      "birthPlace": "Oulu"
     },
     {
       "id": 195935,

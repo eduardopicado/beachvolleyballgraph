@@ -7,7 +7,8 @@
       "name": "Elaine Lopez Torres",
       "dob": "1971-11-13",
       "height": 175,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "Ponce"
     },
     {
       "id": 100756,
@@ -42,7 +43,8 @@
       "name": "Sheila Conley Diaz",
       "dob": "1964-03-02",
       "height": 170,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "San Juan"
     },
     {
       "id": 101211,
@@ -70,7 +72,8 @@
       "name": "Laura Papaleo",
       "dob": "1971-10-11",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 101215,
@@ -126,21 +129,24 @@
       "name": "Yarleen Santiago",
       "dob": "1978-01-18",
       "height": 182,
-      "weight": 66
+      "weight": 66,
+      "birthPlace": "Arecibo, Puerto Rico"
     },
     {
       "id": 102045,
       "name": "Brenda Lee Quinones Pagan",
       "dob": "1976-02-05",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Arecibo"
     },
     {
       "id": 102161,
       "name": "Maria Teresa Esparza Arroyo",
       "dob": "1974-05-24",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Juan"
     },
     {
       "id": 103661,
@@ -168,7 +174,8 @@
       "name": "Yarleen Santiago",
       "dob": "1978-01-18",
       "height": 182,
-      "weight": 72
+      "weight": 72,
+      "birthPlace": "PUR"
     },
     {
       "id": 117795,
@@ -196,7 +203,8 @@
       "name": "Gabriela Roman",
       "dob": "1994-10-05",
       "height": 186,
-      "weight": 67
+      "weight": 67,
+      "birthPlace": "San Juan"
     },
     {
       "id": 144900,
@@ -239,11 +247,16 @@
       "dob": "2002-05-26",
       "height": 182,
       "weight": 75,
+      "birthPlace": "Vega Baja",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 161681,
@@ -251,53 +264,64 @@
       "dob": "2002-01-04",
       "height": 162,
       "weight": 61,
+      "birthPlace": "Manati",
       "tour": {
         "gold": 0,
         "silver": 0,
         "bronze": 1
-      }
+      },
+      "filters": [
+        "world-champs",
+        "tour-podium"
+      ]
     },
     {
       "id": 189101,
       "name": "Stephanie Marie Rondon Davila",
       "dob": "2005-03-19",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Juan"
     },
     {
       "id": 189102,
       "name": "Adriana Sofia Nieves Papaleo",
       "dob": "2004-11-20",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "San Juan"
     },
     {
       "id": 207455,
       "name": "Kalia Isabel Alvarado Rodriguez",
       "dob": "2008-05-27",
       "height": 179,
-      "weight": 59
+      "weight": 59,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 207464,
       "name": "Anabella Isabelle Valentin Miranda",
       "dob": "2010-08-23",
       "height": 176,
-      "weight": 56
+      "weight": 56,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 211337,
       "name": "Joaneliz Michelle Maisonet Rondon",
       "dob": "2008-04-04",
       "height": 177,
-      "weight": 57
+      "weight": 57,
+      "birthPlace": "Puerto Rico"
     },
     {
       "id": 224842,
       "name": "Itzamar Arana Martinez",
       "dob": "2009-09-14",
       "height": null,
-      "weight": null
+      "weight": null,
+      "birthPlace": "Puerto Rico"
     }
   ]
 }
