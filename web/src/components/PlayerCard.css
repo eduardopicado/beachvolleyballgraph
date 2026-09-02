@@ -712,8 +712,22 @@
   color: var(--text-secondary);
 }
 
+/* No longer the accent. A podium is not selected and not clickable, and the
+   medal beside it now carries the distinction — leaving it blue spent the
+   accent on a third meaning in a row that already has enough of them. Primary
+   rather than secondary keeps the placement a shade stronger than an ordinary
+   finish, which is the part worth keeping. */
 .events .finish.podium {
-  color: var(--series-1);
+  color: var(--text-primary);
+}
+
+/* Sits tight against the ordinal it qualifies, and slightly below the cap
+   height so the glyph's optical centre lines up with the digits rather than
+   riding above them. */
+.events .finish .medal {
+  margin-right: 3px;
+  font-size: 11px;
+  vertical-align: -0.5px;
 }
 
 .events .event-meta {

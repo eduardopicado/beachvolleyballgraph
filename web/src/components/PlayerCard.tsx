@@ -16,6 +16,7 @@ import {
   formatFinish,
   formatMedals,
   medalAriaLabel,
+  medalFor,
   plural,
   seasonSpan,
 } from '../lib/format';
@@ -148,6 +149,7 @@ function SeasonList({
                       <ol className="events">
                         {events.map((event) => {
                           const finish = formatFinish(event.rank);
+                          const medal = medalFor(event.rank);
                           const when = formatDayMonth(event.date);
                           // Tier first, then level. The Olympics, the World
                           // Championships and the age-group championships are
@@ -164,9 +166,16 @@ function SeasonList({
                             <li key={`${event.no}-${event.partnerId}`}>
                               <p className="event">
                                 <span className="name">{event.name}</span>
-                                <span
-                                  className={`finish${event.rank >= 1 && event.rank <= 3 ? ' podium' : ''}`}
-                                >
+                                <span className={`finish${medal ? ' podium' : ''}`}>
+                                  {/* Hidden from assistive tech, like the
+                                      ordinal beside it: `finish.label` already
+                                      says "Won the tournament", which is the
+                                      medal in words. */}
+                                  {medal && (
+                                    <span className="medal" aria-hidden="true">
+                                      {medal}
+                                    </span>
+                                  )}
                                   <span aria-hidden="true">{finish.text}</span>
                                   <span className="sr-only">{finish.label}</span>
                                 </span>

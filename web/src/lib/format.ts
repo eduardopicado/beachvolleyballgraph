@@ -154,10 +154,33 @@ interface MedalCounts {
 export function formatMedals({ gold, silver, bronze }: MedalCounts): string {
   const WORD_JOINER = '⁠';
   const parts: string[] = [];
-  if (gold) parts.push(`🥇${WORD_JOINER}${gold}`);
-  if (silver) parts.push(`🥈${WORD_JOINER}${silver}`);
-  if (bronze) parts.push(`🥉${WORD_JOINER}${bronze}`);
+  if (gold) parts.push(`${MEDALS[1]}${WORD_JOINER}${gold}`);
+  if (silver) parts.push(`${MEDALS[2]}${WORD_JOINER}${silver}`);
+  if (bronze) parts.push(`${MEDALS[3]}${WORD_JOINER}${bronze}`);
   return parts.join(' ');
+}
+
+/** Gold, silver, bronze, by the placement that earns each. */
+const MEDALS: Record<number, string> = { 1: '🥇', 2: '🥈', 3: '🥉' };
+
+/**
+ * The medal for a placement, or `''` for a finish that earns none.
+ *
+ * Emoji rather than a colour, and that is the whole decision. Medal colours
+ * measure 2.05 (gold), 1.77 (silver) and 3.06 (bronze) against the light card
+ * surface, so as text they are unreadable there while being perfectly legible
+ * on the dark one. Darkening them until they pass turns silver into #6f7275 —
+ * plain grey, indistinguishable from the secondary text beside it — because
+ * silver's whole identity is *being light*. These glyphs carry their own dark
+ * outline and hold on either ground, which is why the vitals tiles have always
+ * used them.
+ *
+ * Shares `MEDALS` with `formatMedals` deliberately: the tile counts the medals
+ * and the timeline names them, so a reader meets both on one card and they must
+ * not be able to drift apart.
+ */
+export function medalFor(rank: number): string {
+  return MEDALS[rank] ?? '';
 }
 
 /** Screen-reader text for `formatMedals`'s emoji tally. */

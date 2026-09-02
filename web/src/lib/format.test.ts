@@ -8,6 +8,7 @@ import {
   formatMedals,
   initials,
   medalAriaLabel,
+  medalFor,
   ordinal,
   plural,
   seasonSpan,
@@ -136,6 +137,30 @@ describe('formatMedals', () => {
     const result = formatMedals({ gold: 1, silver: 1, bronze: 1 });
     expect(result).toContain(' ');
     expect(result.split(' ')).toHaveLength(3);
+  });
+});
+
+describe('medalFor', () => {
+  it('gives a medal to the podium and nothing to anyone else', () => {
+    expect(medalFor(1)).toBe('🥇');
+    expect(medalFor(2)).toBe('🥈');
+    expect(medalFor(3)).toBe('🥉');
+    for (const rank of [4, 5, 9, 17, 33]) expect(medalFor(rank)).toBe('');
+  });
+
+  it('gives nothing to the ranks that are not placements at all', () => {
+    // Negative ranks are elimination codes, not finishes (quirks §3): -25 and
+    // below is qualification, -2 is a confederation quota. A lookup that read
+    // them as placements would decorate a first-round exit with a medal.
+    for (const rank of [0, -2, -25, -33]) expect(medalFor(rank)).toBe('');
+  });
+
+  it('uses the same glyphs the vitals tile counts with', () => {
+    // The tile says "🥇20" and the timeline names which twenty. A reader meets
+    // both on one card, so they must not be able to drift apart — this fails
+    // if either side is edited alone.
+    const tally = formatMedals({ gold: 1, silver: 1, bronze: 1 });
+    for (const rank of [1, 2, 3]) expect(tally).toContain(medalFor(rank));
   });
 });
 
