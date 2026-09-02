@@ -52,8 +52,10 @@
   justify-content: flex-end;
 }
 
-.table-view thead button:hover {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .table-view thead button:hover {
+    color: var(--text-primary);
+  }
 }
 
 .table-view .arrow {
@@ -70,8 +72,10 @@
   border-bottom: 0;
 }
 
-.table-view tbody tr:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .table-view tbody tr:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .table-view tbody tr.is-selected {

@@ -38,9 +38,11 @@
   border-radius: 6px;
 }
 
-.path-panel .close:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .path-panel .close:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- the two ends --------------------------------------------------------- */
@@ -217,8 +219,10 @@
   font: inherit;
 }
 
-.path-panel .chain > li > button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .path-panel .chain > li > button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .path-panel .chain .avatar {

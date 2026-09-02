@@ -51,9 +51,11 @@
   cursor: pointer;
 }
 
-.theme-toggle:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .theme-toggle:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- layout -------------------------------------------------------------- */
@@ -102,9 +104,11 @@ main.is-loading {
   cursor: pointer;
 }
 
-.relayout:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .relayout:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- legend -------------------------------------------------------------- */
