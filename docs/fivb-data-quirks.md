@@ -1444,6 +1444,77 @@ this worth reporting rather than encoding.
 
 ---
 
+## 21. A name field that holds two names and the word "or"
+
+**What.** **50 of 131,180** player records carry an unresolved alternative
+inside a name field — the data-entry equivalent of a shrug:
+
+```
+FirstName "Randolph or Randy"      LastName "Stoklos"
+FirstName "Olivier or Philippe"    LastName "Rossard"
+FirstName "Ilia"                   LastName "Ntimo Or Dimo"
+```
+
+**38 of the 50 are published**; §3's never-played rule drops the other 12. The
+split between where the pair sits is the whole story, because the two halves
+are not the same phenomenon:
+
+| Pair sits in | Count | Published | What it means |
+|---|---:|---:|---|
+| `FirstName` | 41 | **38** | Overwhelmingly a given name beside the nickname the player competed under |
+| `LastName` | 9 | **0** | Two transliterations of one surname — **all nine Greek** |
+
+**The surname cases are a transliteration cluster, and none of them reach the
+site.** `Ntompra or Dobra`, `Metousi or Metushi`, `Tserempei or Cerempei`,
+`Gkouznta or Guzda` — Greek-alphabet names romanised two ways, with the
+Greek-derived and the Albanian-derived spelling both typed into one field
+rather than one being chosen. Ten of the fifty genuine records are `GRE`,
+second only to `USA`'s sixteen, and nine of those ten are this.
+
+**The published 38 are almost all nicknames — but not all, and that is what
+stops a rule.** 35 read as a given name beside its short form: `Anthony or
+Tony Cothron`, `Charles or Chuck Coulter`, `Emanuele or Lele Fracascia`. Three
+do not:
+
+| | Player | Why it is not a nickname |
+|---|---|---|
+| 100157 | `Olivier or Philippe Rossard` | Two unrelated French given names |
+| 100058 | `Takeshi or Satoshi Matsumoto` | Two unrelated Japanese given names |
+| 100126 | `Mikiyo or Mikio Tada` | One letter apart — a spelling FIVB never settled |
+
+For those three the `or` is not shorthand, it is FIVB saying it does not know
+which name is right. Any rule that took the second half would print a guess
+about a real person; taking the first half would do the same.
+
+**A naive scan for the word overcounts by ten, and the false positives are
+instructive.** Searching for a standalone `or` returns 60, not 50. **Or** is an
+ordinary Hebrew given name — seven `ISR` records carry it (`Or Osipov`, `Or
+Covo`, `Or Podgorni`), one Canadian and one Israeli carry it as a *surname* —
+and `L'Or Ngon Ntame` (CMR) and `Thongsai-or` (THA) put the letters against an
+apostrophe and a hyphen. Requiring a letter on both sides of a spaced `or`
+(`/\p{L}\s+or\s+\p{L}/iu`) separates the two exactly; a plain word-boundary
+test does not.
+
+**Handled in.** Nothing, and unusually this was checked rather than assumed.
+
+*Search already reaches both halves.* Running the published index through
+`searchPlayers` for all 38 players under **both** readings of their name — 76
+queries, `Randolph Stoklos` and `Randy Stoklos` alike — returns the right
+player as the **top hit every time, 76 of 76**. §6.5's scattered-token match is
+why: it indexes every word of a name separately, so the intervening `or`
+costs nothing and neither half is privileged.
+
+*The graph label never carries the pair.* Nodes are drawn with `short`, which
+is the surname — `Stoklos`, `Rossard`, `Matsumoto`. There is nothing to fix
+there.
+
+So the only thing a rule could change is the string on the card, which is
+FIVB's own and is honest about its own uncertainty. Better reported than
+rewritten — especially the nine Greek surnames, where FIVB holds the original
+spelling and we never will.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1485,12 +1556,21 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   were held. A request rather than a defect report: a populated `DefaultCity`
   on the Olympics and the World Championships would retire two hand-maintained
   maps here and help every other consumer of the archive.
+- **§20**, the same athlete held under two player numbers — 14 same-federation
+  groups agreeing on name, federation and `Birthdate`, and five `FIV`↔`CUB`
+  pairs corroborated by `BirthPlace`. Listed with ids, so each is a lookup
+  rather than a search.
+- **§21**, the 50 records whose name field holds two names and the word `or`.
+  The nine Greek surnames are the part worth raising: `Ntompra or Dobra` and
+  its eight siblings are one romanisation decision each, and FIVB holds the
+  original spelling that would settle them. Note the ten false positives — the
+  Hebrew given name **Or** — before scanning for these.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email covers the first three only.** It is
-`docs/fivb-email.md` on the unsent branch (task #12), written before the dated,
-name, birth-place and championship-naming quirks were found. Anyone picking that
-task up should add the last five to its "would a list of data issues be useful"
-section before sending — it already offers exactly that list.
+**The draft introduction email now covers all of this except §1 and §21.** It
+is `docs/fivb-email.md` (task #12), and its "would a list of data issues be
+useful" section names each quirk by the section number used here — so the two
+files have to be kept in step, and a new section added above is not reported
+until it is added there too.
