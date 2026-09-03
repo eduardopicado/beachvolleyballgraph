@@ -150,6 +150,21 @@ last part is a guess — neither record has a single team row, and I have found
 nothing outside VIS naming that pair — but if the original entry list still
 exists somewhere, those are the two numbers worth comparing it against.
 
+Beyond those three, the same athlete turns up under two player numbers more
+broadly. Grouping the whole player list by birthdate and name (not requiring
+the federation code to match, since that is sometimes the field at fault)
+finds 14 pairs where both numbers reach a published graph as separate people —
+one Ukrainian case spans four numbers, one Venezuelan case three. Separately,
+five records filed under the placeholder federation `FIV` match a `CUB` record
+on birthdate and name, each corroborated by a Cuban province in the `FIV`
+record's own `BirthPlace` field — Camagüey, Villa Clara, Havana, Santiago de
+Cuba. I have not included the wider candidate list this same check turns up
+across other federation pairs, because most of those are not errors — England
+and Great Britain records for a UK athlete's dual representation, or a
+Yugoslavia record beside the Serbia one a dissolved country's athlete
+naturally gets later — and I only want to hand you ones I have individually
+checked.
+
 Four tournaments have a code whose year contradicts their own dates.
 `WCAR1991` was played 19–21 August 1994, `MCAP2023` and `WCAP2023` on 2–5
 November 2020, and `MRIO1996` carries 1–2 January 1996, which reads as a
@@ -276,6 +291,8 @@ credibility the rest of the list depends on.
 [fivb-data-quirks.md](fivb-data-quirks.md): §6c (duplicate rows disagreeing on
 federation), §7 (test records), §6.5 (name-field wear and name order), §18
 (wrong-athlete and duplicated records), §19 (codes contradicting their dates),
-§6.5a (`SUSPENDED` in the name), §6.6 (`BirthPlace`) and §6.7/§6.8
-(`DefaultCity`). That is the whole reporting list at the end of that document.
-If a new one is found, add it here too.
+§6.5a (`SUSPENDED` in the name), §6.6 (`BirthPlace`), §6.7/§6.8
+(`DefaultCity`), and §20 (the same athlete under two player numbers, checked
+individually rather than reported as the raw candidate list). That is the
+whole reporting list at the end of that document. If a new one is found, add
+it here too.
