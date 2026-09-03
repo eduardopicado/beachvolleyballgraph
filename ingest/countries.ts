@@ -126,6 +126,13 @@ export const ORPHAN_FEDERATIONS: Record<string, { name: string; iso2: string | n
   YUG: { name: 'Yugoslavia', iso2: null },
   URS: { name: 'Soviet Union', iso2: null },
   SCG: { name: 'Serbia & Montenegro', iso2: null },
+  // Was in EXCLUDED_FEDERATIONS as "unverifiable" until BirthPlace was
+  // actually checked (quirks §7): of 75 real player records (one literal
+  // "Test Test" aside), the overwhelming majority read "Saint Martin",
+  // with a handful nearby on Sint Maarten, Guadeloupe or Martinique — a
+  // small federation's normal mix, not noise. `MF` is the French part's
+  // ISO code; Sint Maarten (the Dutch side, SXM above) already has its own.
+  SMA: { name: 'Saint-Martin', iso2: 'MF' },
 };
 
 /**
@@ -140,16 +147,19 @@ export const FEDERATION_ALIASES: Record<string, string> = {
 };
 
 /**
- * Federation codes dropped entirely: not a resolvable country. SMA's player
- * sample includes a literal "Test"/"Test" entry alongside otherwise
- * unverifiable names — it reads as leftover test data, not a nationality.
- * FIV has no discernible identity of its own (FIVB is not a country) and its
- * player sample didn't resolve to one confidently either — most likely a
- * placeholder federation code for unaffiliated/neutral players. Guessing
- * either wrong would misattribute a real player's nationality, which is worse
- * than omitting them from the country breakdown.
+ * Federation codes dropped entirely: not a resolvable country. FIVB is not a
+ * country, and unlike the codes above, FIV's own player sample does not
+ * resolve to one either — checking `BirthPlace` (quirks §7) turns up Cuba,
+ * Syria, Iraq, Afghanistan, Sudan, Ethiopia, Kuwait, Pakistan, Russia,
+ * Ukraine, Venezuela and Gambia in the same 169-player pool, consistent with
+ * a placeholder for unaffiliated or neutral athletes rather than one place
+ * this table could name. Guessing wrong would misattribute a real player's
+ * nationality, which is worse than omitting them from the country breakdown.
+ *
+ * SMA used to be here on the same reasoning and was wrong: see
+ * `ORPHAN_FEDERATIONS`.
  */
-export const EXCLUDED_FEDERATIONS = new Set(['SMA', 'FIV']);
+export const EXCLUDED_FEDERATIONS = new Set(['FIV']);
 
 /** Falls back to the raw code so an unknown federation still renders sensibly. */
 export function countryName(federations: Map<string, Federation>, code: string): string {

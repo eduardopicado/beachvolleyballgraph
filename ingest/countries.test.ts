@@ -61,6 +61,9 @@ describe('countryName', () => {
   it('resolves an orphan federation code with no live federation entry', () => {
     expect(countryName(new Map(), 'GBR')).toBe('Great Britain');
     expect(countryName(new Map(), 'YUG')).toBe('Yugoslavia');
+    // Not excluded as unverifiable, once BirthPlace was actually checked
+    // (quirks §7): "Saint-Martin", not dropped as noise.
+    expect(countryName(new Map(), 'SMA')).toBe('Saint-Martin');
   });
 });
 
@@ -71,6 +74,9 @@ describe('countryIso2', () => {
 
   it('resolves an orphan federation code with a known ISO territory', () => {
     expect(countryIso2(new Map(), 'GBR')).toBe('GB');
+    // MF is Saint-Martin (French part)'s own ISO code, distinct from Sint
+    // Maarten's SX (the Dutch side, already in the table as SXM).
+    expect(countryIso2(new Map(), 'SMA')).toBe('MF');
   });
 
   it('leaves dissolved states without a flag rather than guessing one', () => {
