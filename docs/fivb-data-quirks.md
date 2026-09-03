@@ -736,15 +736,27 @@ Huamantla for 2023.
 
 ## 7. Federation codes that aren't countries
 
-- **`SMA`** — the player sample includes a literal `Test` / `Test` entry
-  alongside otherwise unverifiable names. It reads as leftover test data.
-- **`FIV`** — no discernible identity; FIVB is not a country. Most likely a
-  placeholder for unaffiliated or neutral athletes.
+- **`FIV`** — no discernible identity; FIVB is not a country. `BirthPlace`
+  across its 169 records spans Cuba, Syria, Iraq, Afghanistan, Sudan,
+  Ethiopia, Kuwait, Pakistan, Russia, Ukraine, Venezuela and Gambia —
+  consistent with a placeholder for unaffiliated or neutral athletes rather
+  than one place this could name. Five of the 169 are also double-registered
+  under `CUB` (§20), which is a narrower, individually-checked finding and
+  not a reason to resolve the other 164.
+- **`SMA`** — used to be listed here as unverifiable, on a `Test`/`Test`
+  entry and nothing more. Checking `BirthPlace` on the rest turns up
+  overwhelmingly "Saint Martin", plus a few nearby on Sint Maarten,
+  Guadeloupe or Martinique — a small federation's normal mix, not noise. It
+  is Saint-Martin, ISO code `MF`, and belongs in `ORPHAN_FEDERATIONS`
+  instead of here. It also carries the highest duplicate-registration rate
+  found anywhere in the archive (§20) — of no consequence today, because
+  none of its players has ever reached a played match.
 
-Both are dropped outright rather than guessed at: misattributing a real
+`FIV` is dropped outright rather than guessed at: misattributing a real
 person's nationality is worse than omitting them.
 
-**Handled in.** `EXCLUDED_FEDERATIONS` in `ingest/countries.ts`.
+**Handled in.** `EXCLUDED_FEDERATIONS` (`FIV`) and `ORPHAN_FEDERATIONS`
+(`SMA`) in `ingest/countries.ts`.
 
 ---
 
@@ -1326,6 +1338,109 @@ It costs us almost nothing: the season is 1996 either way, and only the event's
 position within that season on a card is affected. It is on the upstream list
 because it is a one-field correction somebody at FIVB could make in a minute,
 and because the right value is now known.
+
+---
+
+## 20. The same athlete under two different player numbers
+
+**What.** Grouping every player record by `Birthdate` and name — the letters
+of `FirstName` + `LastName` alone, sorted, so word order and a swapped given
+name/surname don't hide a match — deliberately without also requiring
+`FederationCode` to agree, because federation code is sometimes the field
+that's wrong. Two populations fall out of that.
+
+**Same federation, same person, two ids.** 14 pairs (one is a trio, one a
+quadruple) where every copy carries the same federation and reaches the
+published graph as a separate node, splitting one career's partners and
+tournament count between them:
+
+| Federation | Ids | Names as stored |
+|---|---|---|
+| POR | 100960, 102411 | Adriana Costa |
+| PUR | 101568, 113535 | Yarleen Santiago |
+| CHN | 102123, 102896 | Hua Li / Li Hua |
+| UKR | 116455, 119076 | Pavlo Ostapenko |
+| UKR | 120480, 120481, 120482, 120492 | Pronin Mykhailo / Mykhailo Pronin |
+| LAT | 120517, 124834 | Jana Jaudzema / Jaudzema Jana |
+| AUS | 122190, 122191 | Casey Grice |
+| VEN | 125498, 138671, 138729 | Gerardo Mendez |
+| CRO | 132571, 132572 | Rosko Maja / Maja Rosko |
+| SLE | 136367, 139768 | Patrick Lombi |
+| CRC | 137511, 137596 | Flores Garita Andres Felipe (§18's duplicated athlete, from this angle rather than the gender one) |
+| OMA | 138629, 152853 | Haitham Alshereiqi |
+| MEX | 143142, 144324 | Santoyo Salazar Gloria Itzel / Gloria Itzel Santoyo Salazar |
+| MAR | 167995, 167996 | Yazid Mokhantar |
+
+The Ukrainian quadruple and the Venezuelan trio are worth pointing at
+specifically: not every duplicate here is a clean pair, and a merge rule
+built only for "two ids" would leave the rest half-fixed. Six of the
+fourteen are the same name reordered, which is a stronger signal than the
+other eight, whose two records agree on everything and offer no reason at
+all beyond the coincidence to be two people — which is itself a reason to
+suspect they aren't.
+
+**Different federations, same person.** Rarer, and needs corroboration
+`(Birthdate, name)` alone can't give, because the archive is 130,000-plus
+players over 40 years and some same-name, same-birthdate pairs are exactly
+what that population produces by chance. `BirthPlace` is what separates a
+real match from a coincidence here.
+
+Five records under `FIV` (§7's unaffiliated-athlete placeholder) match a
+`CUB` record on `Birthdate` and name, and every one of the five has a Cuban
+province in `BirthPlace` — Camagüey, Villa Clara, Havana, Santiago de
+Cuba — which VIS had no reason to put there if the record weren't genuinely
+Cuban:
+
+| FIV id | CUB id(s) | Name | `BirthPlace` on the FIV record |
+|---|---|---|---|
+| 111391 | 118393 | Liana Mesa Luaces | Camagüey |
+| 111413 | 111917 | Yaniel Garay Gomez | Villa Clara (Cuba) |
+| 112024 | 118389 | Yaima Ortiz Charro | C. Habana |
+| 112325 | 131821 | Dariel Garcia Cortina | Habana |
+| 120261 | 155701, 155702, 155703 | Darienn Ferrer Delis | Santiago de Cuba |
+
+That last row is three `CUB` ids for one `FIV` id — the same athlete
+registered four times in total.
+
+**Not every same-`(Birthdate, name)` cross-federation match is this.**
+Grouping the whole archive this way, without the `BirthPlace` check, turns
+up 249 groups spanning more than one federation. Most are not errors:
+
+- **`GBR`/`ENG`/`SCO`/`WAL` pairs are FIVB's normal handling of UK dual
+  representation (§9), not a duplicate-athlete bug.** Checked directly on
+  one: Jake Sheaf's `118586` carries 19 team rows, every one `GBR`; his
+  `124858` carries 108, a mix of `ENG` and `GBR` on the rows themselves. A
+  new id for the Olympic-eligible half of a UK career, not a re-registration
+  of the same thing twice.
+- **`YUG`/`SCG` pairs against `SRB`** are a state dissolving mid-career
+  (already in `ORPHAN_FEDERATIONS`), the same shape as any other transfer
+  §6 already describes — not a data-entry duplicate.
+- The rest need the same individual check the five Cuban records got before
+  they can be called anything. `(Birthdate, name)` matching alone is a
+  candidate list, not a finding — which is exactly why only five of the 249
+  are reported above.
+
+**An unaffiliated federation can carry the same fault with nothing at
+stake.** `SMA` (§7) has 76 player records, one `Test`/`Test` aside. Of the
+remaining 75, 30 fall into 13 name-and-`Birthdate` collisions the same way
+as the table above — three of them tripled: Ashille Brooks, Kareem Brooks,
+Julien Sponsper and Skyye Brooks each hold three ids apiece, all agreeing
+on `Birthdate`. Collapsing each group to one person leaves roughly 58
+distinct athletes, so **13 of 58** carry a duplicate — against **14 of the
+roughly 12,080 distinct people** the same fault touches everywhere else
+published, close to 200 times the rate. Worth being exact about the
+consequence, though: **none of it reaches the site.** Across the whole
+archive there is exactly one team row naming an `SMA`-coded player, and its
+`Rank` is blank, so §3's never-played rule already drops it regardless of
+how many times any one of these 75 records was entered.
+
+**Handled in.** Nothing. Merging two FIVB player numbers is exactly the
+judgement about a real person this pipeline does not make (§18 says the
+same about its own duplicate), and `(Birthdate, name)` is a strong signal
+for a candidate, not proof — the UK and dissolved-state cases above are
+what a rule that merged on sight would get wrong. The ids in both tables are
+specific enough to be a lookup rather than a search, which is what makes
+this worth reporting rather than encoding.
 
 ---
 
