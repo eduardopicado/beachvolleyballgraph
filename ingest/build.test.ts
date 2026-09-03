@@ -349,9 +349,17 @@ describe('normalisePlayers', () => {
   });
 
   it('drops players under an excluded federation code entirely', () => {
-    // SMA/FIV don't resolve to a real, confidently-identifiable country.
-    const map = normalisePlayers([player(11, '0', 'SMA'), player(12, '1', 'FIV')]);
+    // FIV doesn't resolve to a real, confidently-identifiable country
+    // (quirks §7) — SMA used to be here too, but it does resolve: see below.
+    const map = normalisePlayers([player(11, '0', 'FIV')]);
     expect(map.size).toBe(0);
+  });
+
+  it('resolves SMA to Saint-Martin rather than dropping it', () => {
+    // Verified against BirthPlace, not guessed (quirks §7): SMA's real
+    // player sample reads "Saint Martin", not "unverifiable".
+    const map = normalisePlayers([player(13, '0', 'SMA')]);
+    expect(map.get(13)!.federation).toBe('SMA');
   });
 
   it('drops FIVB’s own test and dummy accounts', () => {

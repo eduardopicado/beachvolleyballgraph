@@ -1491,8 +1491,9 @@
       "id": 187295,
       "name": "Jennifer Mascrenhas",
       "dob": "2001-12-04",
-      "height": null,
-      "weight": null
+      "height": 166,
+      "weight": 63,
+      "birthPlace": "India"
     },
     {
       "id": 187296,
