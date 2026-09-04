@@ -20,18 +20,18 @@ A static site that answers one question: **who has played beach volleyball
 with whom.** Pick a country and a gender, get a force-directed graph of every
 player from that federation who has competed internationally, linked to their
 partners. Click a player for a card with their career; open a season to see
-the individual tournaments.
+the individual tournaments; ask for the chain of partnerships joining any two
+players.
 
 Live at **https://beachvolleyball.com.br**. Data from the FIVB VIS Web Service,
 rebuilt weekly.
 
-As of the last refresh:
-
-```
-1,688 tournaments      1987–2027       151 countries
-12,074 players         13,931 partnerships
-264 country × gender slices            795 published files, 12 MB
-```
+**Scale, when you need it, is read and not remembered.**
+`web/public/v1/manifest.json` carries the live totals — tournaments, players,
+partnerships, the season span and every country with its per-slice node and
+edge counts — and the site's own home page prints them. They are deliberately
+not copied here: the archive is rebuilt every Monday, so any figure written
+into this file is wrong by the following week.
 
 ## The one-paragraph architecture
 
@@ -45,15 +45,20 @@ own. See [architecture.md](architecture.md).
 
 ## Current state
 
-Everything described here is shipped and live. No open pull requests.
+Everything described here is shipped and live.
+
+**This file does not keep score.** No open pull requests, no branch list, no
+test counts, no dataset totals — anything a command or a committed file already
+answers is left to that command, because a number typed in here is only correct
+until the next push. The open tasks below are the exception, and only because
+they live in the task list rather than in the repository.
 
 **Open tasks** (in the task list, not in code):
 
 | | |
 |---|---|
-| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md` on an unmerged branch; **add the three quirks found since** — see the end of [fivb-data-quirks.md](fivb-data-quirks.md) |
+| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md`; its data-issues request names each reportable quirk by its [fivb-data-quirks.md](fivb-data-quirks.md) section, so keep the two in step. Nothing is missing — the opening paragraph is the part worth putting in the owner's own voice |
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
-| #25 | "Six degrees": partnership path between two players — parked, needs design |
 | #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
 | #28 | Ask 12ndr.at before linking out to their tournament pages |
 
@@ -75,10 +80,10 @@ rank is wrong. Quirks §5, §15.
 **3. A player's federation is a snapshot with no history.** When someone
 transfers, every partnership they built under the old flag leaves the graph
 with them — from *both* countries, since the slicing needs both endpoints in
-the same slice. 156 published players have a foreign partner, and **49 have no
-partner in their own federation at all**. (The ingest logs 157: it counts across
-every federation, including one whose slice was too small to publish.) This is
-why the player card has an *Other federations* section. Quirks §6.
+the same slice. The ingest counts and logs how many players this touches on
+every run, and a good fraction of them are left with **no partner in their own
+federation at all** — which is why the player card has an *Other federations*
+section, and why an all-foreign card needs its own empty state. Quirks §6.
 
 **4. The published data is committed to git and is the project's only durable
 copy.** FIVB is a free service with no continuity guarantee. Treat
@@ -100,10 +105,10 @@ any finished event with no ranked row; it resolves itself. Quirks §17.
 npm ci                 # install
 npm run ingest         # ~15s: fetch FIVB, rebuild every file under web/public/v1/
 npm run dev            # Vite dev server
-npm run build          # typecheck + vite build + prerender 265 pages
+npm run build          # typecheck + vite build + prerender a page per slice, plus the home page
 npm run preview        # serve the built site
-npm test               # 467 unit tests (vitest)
-npm run test:e2e       # 113 browser tests (Playwright, against the built site)
+npm test               # unit tests (vitest)
+npm run test:e2e       # browser tests (Playwright, against the built site)
 npm run lint           # eslint + stylelint
 ```
 
@@ -132,11 +137,11 @@ deliberate exclusion change), re-run with the `ALLOW_DATA_REGRESSION` input.
 
 ## Where the bodies are buried
 
-- `web/public/v1/` is 12 MB of generated JSON. Never hand-edit it.
-- 43 stale `claude/*` branches on the remote need a sweep. Two —
-  `claude/cross-federation-partners` and `claude/season-expansion` — are the
-  residue of a pull request that merged into the wrong base and should go, since
-  their existence implies work shipped from there when it did not.
+- `web/public/v1/` is generated JSON, megabytes of it. Never hand-edit it.
+- **Merged branches are not deleted automatically**, so `claude/*` accumulates
+  on the remote. Every one of them belongs to a merged pull request unless its
+  own pull request says otherwise — check that before assuming a branch name
+  implies unshipped work, and never read the pile as a to-do list.
 - `.github/workflows/deploy-cloudflare.yml` is a complete alternative to
   `deploy.yml` but **has no automatic gate**: its header says to disable the
   other workflow by hand. If you enable it, do that, or both will rebuild on
