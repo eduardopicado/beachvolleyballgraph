@@ -1137,6 +1137,15 @@ already exist and are unused, and 100156 looks like a duplicate of 111846.
 Confirming any of it needs FIVB's own entry list, not more inference from
 this side.
 
+**Gaston's other row is broken too, differently.** He holds exactly two team
+rows in the archive, and Rio 1989 is only one of them. The other is Cap d'Agde
+1991, where his partner is player 100157, `Olivier or Philippe Rossard` — a
+single record standing for **two different men** (§21a). So both appearances of
+one French player carry a fault on the person beside him, from two unrelated
+causes. That is the clearest evidence in this document that the early
+hand-entered seasons were reconciled against a player table that did not yet
+hold the people they needed.
+
 **The career shape says the same thing without the birthdate.** Worth having
 separately, because it survives the reply that it is the birthdate that is
 wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
@@ -1476,15 +1485,43 @@ stops a rule.** 35 read as a given name beside its short form: `Anthony or
 Tony Cothron`, `Charles or Chuck Coulter`, `Emanuele or Lele Fracascia`. Three
 do not:
 
-| | Player | Why it is not a nickname |
+| | Player | What the `or` is doing |
 |---|---|---|
-| 100157 | `Olivier or Philippe Rossard` | Two unrelated French given names |
-| 100058 | `Takeshi or Satoshi Matsumoto` | Two unrelated Japanese given names |
+| 100157 | `Olivier or Philippe Rossard` | **Two different men under one player number** — see below |
+| 100058 | `Takeshi or Satoshi Matsumoto` | Two unrelated Japanese given names; whether that is one man or two is unestablished |
 | 100126 | `Mikiyo or Mikio Tada` | One letter apart — a spelling FIVB never settled |
 
-For those three the `or` is not shorthand, it is FIVB saying it does not know
-which name is right. Any rule that took the second half would print a guess
-about a real person; taking the first half would do the same.
+For those three the `or` is not shorthand. Any rule that took the second half
+would print a guess about a real person; taking the first half would do the
+same. And for the first of them it would be worse than a guess.
+
+### 21a. Rossard is not an unsettled name, it is two people
+
+**Olivier Rossard and Philippe Rossard are two distinct French players**, which
+the repository owner establishes from outside VIS — nothing in the archive says
+so. That makes 100157 the exact inverse of §20: not one athlete spread across
+two player numbers, but **two athletes collapsed into one**.
+
+What VIS itself shows is consistent with it and adds the detail worth
+reporting:
+
+- **No `Olivier Rossard` and no `Philippe Rossard` record exists.** The archive
+  holds eight names containing "rossard"; three are other people entirely
+  (`Frossard`, `Brossard`) and the four real Rossards — Nicolas, Thibault,
+  Sophie, Quentin — are all born 1990 or later. Neither man has a record of his
+  own to be confused with, so a reader has no way to discover the collapse.
+- **The record carries no `Birthdate`**, which is the field that would
+  otherwise separate two men sharing a surname.
+- **It has exactly one team row**: Cap d'Agde 1991 (`MCAG1991`), 6th, partnered
+  with **Jean C. Gaston** (100156). The two ids are consecutive, so the pair was
+  entered together — and only one of the two Rossards actually played it.
+  Which one is a question only FIVB's entry list can answer.
+
+**And that is Gaston's second broken partner.** He holds two rows in the whole
+archive and neither names a partner correctly: this one, and `MRIO1989`, which
+§18 shows crediting Marion Marquet — a woman who would have been eight years
+old. One French player, two events, two different upstream faults on the person
+beside him; §18 draws the conclusion.
 
 **A naive scan for the word overcounts by ten, and the false positives are
 instructive.** Searching for a standalone `or` returns 60, not 50. **Or** is an
@@ -1508,10 +1545,15 @@ costs nothing and neither half is privileged.
 is the surname — `Stoklos`, `Rossard`, `Matsumoto`. There is nothing to fix
 there.
 
-So the only thing a rule could change is the string on the card, which is
-FIVB's own and is honest about its own uncertainty. Better reported than
-rewritten — especially the nine Greek surnames, where FIVB holds the original
-spelling and we never will.
+So the only thing a rule could change is the string on the card, and FIVB's own
+string is the better one: for 35 records it is a name and its nickname, and for
+the rest it is the archive being visibly unsure rather than quietly wrong.
+Rossard is the case that settles the argument — a rule that picked a half there
+would not be choosing between two spellings of a man, it would be **deleting
+one of two men** (§21a), and neither half of that name is safe to publish
+alone. Better reported than rewritten: 100157 because FIVB can split it and we
+cannot, the nine Greek surnames because FIVB holds the original spelling and we
+never will.
 
 ---
 
@@ -1560,11 +1602,20 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   groups agreeing on name, federation and `Birthdate`, and five `FIV`↔`CUB`
   pairs corroborated by `BirthPlace`. Listed with ids, so each is a lookup
   rather than a search.
-- **§21**, the 50 records whose name field holds two names and the word `or`.
-  The nine Greek surnames are the part worth raising: `Ntompra or Dobra` and
-  its eight siblings are one romanisation decision each, and FIVB holds the
-  original spelling that would settle them. Note the ten false positives — the
-  Hebrew given name **Or** — before scanning for these.
+- **§21**, the 50 records whose name field holds two names and the word `or`,
+  which are two separate requests:
+  - **§21a is a defect and the sharper of the two.** Player 100157,
+    `Olivier or Philippe Rossard`, is **two men under one number** — the inverse
+    of §20 — and its single row, Cap d'Agde 1991 (`MCAG1991`) alongside Jean C.
+    Gaston, was played by only one of them. FIVB's entry list for that event
+    settles it and nothing on this side can. Worth raising beside §18's
+    `MRIO1989`, because that is Gaston's *other* row and its partner is wrong
+    too: both appearances of one player carry a different fault on the person
+    beside him.
+  - **The nine Greek surnames are a cleanup request.** `Ntompra or Dobra` and
+    its eight siblings are one romanisation decision each, and FIVB holds the
+    original spelling that would settle them. Note the ten false positives — the
+    Hebrew given name **Or** — before scanning for these.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
