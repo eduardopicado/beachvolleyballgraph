@@ -1,0 +1,43 @@
+{
+  "code": "MSSF2017",
+  "teams": [
+    [1,105143,116602,"USA"],
+    [2,133285,147009,"BRA"],
+    [3,118194,120774,"ITA"],
+    [4,122846,122847,"POL"],
+    [5,101534,103677,"AUT"],
+    [5,103311,116710,"ESP"],
+    [5,104994,131994,"CAN"],
+    [5,119963,132666,"GER"],
+    [9,116058,132856,"USA"],
+    [9,116660,125523,"GER"],
+    [9,120550,139965,"BRA"],
+    [9,120749,147531,"RUS"]
+  ],
+  "players": {
+    "101534": "Clemens Doppler",
+    "103311": "Pablo Herrera Allepuz",
+    "103677": "Alexander Horst",
+    "104994": "Ben Saxton",
+    "105143": "Philip Dalhausser",
+    "116058": "Theodore Brunner",
+    "116602": "Nicholas Lucena",
+    "116660": "Jonathan Erdmann",
+    "116710": "Adrián Gavira Collado",
+    "118194": "Paolo Nicolai",
+    "119963": "Markus Böckermann",
+    "120550": "Álvaro Morais Filho",
+    "120749": "Viacheslav Krasilnikov",
+    "120774": "Daniele Lupo",
+    "122846": "Bartosz Łosiak",
+    "122847": "Piotr Kantor",
+    "125523": "Armin Dollinger",
+    "131994": "Chaim Schalk",
+    "132666": "Lorenz Schümann",
+    "132856": "Casey Patterson",
+    "133285": "Evandro Gonçalves Oliveira Júnior",
+    "139965": "Saymon Barbosa Santos",
+    "147009": "Andre Loyola Stein",
+    "147531": "Nikita Liamin"
+  }
+}

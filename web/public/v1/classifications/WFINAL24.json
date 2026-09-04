@@ -1,0 +1,37 @@
+{
+  "code": "WFINAL24",
+  "teams": [
+    [1,162432,184611,"USA"],
+    [2,162448,168251,"USA"],
+    [3,141983,141984,"LAT"],
+    [4,104438,141784,"CHN"],
+    [5,125549,153267,"GER"],
+    [5,153703,156328,"NED"],
+    [7,124979,141868,"CAN"],
+    [7,146852,181183,"ITA"],
+    [9,115287,132686,"BRA"],
+    [9,153243,162812,"ESP"]
+  ],
+  "players": {
+    "104438": "Chen Xue",
+    "115287": "Agatha Bednarczuk",
+    "124979": "Melissa Humana-Paredes",
+    "125549": "Cinja Tillmann",
+    "132686": "Rebecca Cavalcante Barbosa Silva",
+    "141784": "Xinyi Xia",
+    "141868": "Brandie Wilkerson",
+    "141983": "Tina Graudina",
+    "141984": "Anastasija Samoilova",
+    "146852": "Reka Orsi Toth",
+    "153243": "Tania Moreno Matveeva",
+    "153267": "Svenja Müller",
+    "153703": "Raïsa Schoon",
+    "156328": "Katja Stam",
+    "162432": "Kristen Cruz",
+    "162448": "Terese Cannon",
+    "162812": "Daniela Álvarez Mendoza",
+    "168251": "Megan Kraft",
+    "181183": "Valentina Gottardi",
+    "184611": "Taryn Brasher"
+  }
+}

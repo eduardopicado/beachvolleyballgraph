@@ -1,0 +1,40 @@
+{
+  "code": "WLAU2004",
+  "teams": [
+    [1,103783,104165,"NED"],
+    [2,102878,103044,"NOR"],
+    [3,102202,102203,"AUT"],
+    [4,102683,103325,"SUI"],
+    [5,102382,102387,"SUI"],
+    [5,102533,103931,"GER"],
+    [7,102695,103357,"ITA"],
+    [7,103817,104906,"SUI"],
+    [9,103049,104671,"ISR"],
+    [9,104118,104119,"AUT"],
+    [9,104760,104841,"SUI"]
+  ],
+  "players": {
+    "102202": "Sabine Swoboda",
+    "102203": "Sara \"Monti\" Montagnolli",
+    "102382": "Nadia Erni",
+    "102387": "Karin Trüssel",
+    "102533": "Judith Deister",
+    "102683": "Annik Skrivan",
+    "102695": "Margherita Chiavaro",
+    "102878": "Cecilie Kristine Josefsen",
+    "103044": "Kristine Wiig",
+    "103049": "Einav Muharer",
+    "103325": "Isabelle Forrer",
+    "103357": "Manuela Malerba",
+    "103783": "Merel Mooren",
+    "103817": "Lea Schwer",
+    "103931": "Leonie Müller",
+    "104118": "Doris Schwaiger",
+    "104119": "Stefanie Schwaiger",
+    "104165": "Sanne Keizer",
+    "104671": "Gisela Rodriguez",
+    "104760": "Virginie Leuenberger",
+    "104841": "Laure Leuenberger",
+    "104906": "Sarah Rohrer"
+  }
+}

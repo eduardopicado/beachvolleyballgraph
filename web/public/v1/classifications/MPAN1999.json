@@ -1,0 +1,43 @@
+{
+  "code": "MPAN1999",
+  "teams": [
+    [1,100722,101280,"CAN"],
+    [2,100890,100891,"BRA"],
+    [3,100059,100060,"BRA"],
+    [4,101346,101741,"CUB"],
+    [5,100151,101626,"PUR"],
+    [5,100643,102137,"MEX"],
+    [7,100203,113791,"CAN"],
+    [7,102564,102741,"USA"],
+    [7,102794,102795,"USA"],
+    [10,100681,100682,"CRC"],
+    [10,102737,102738,"HON"],
+    [10,102739,102740,"AHO"]
+  ],
+  "players": {
+    "100059": "Franco José Vieira Neto",
+    "100060": "Roberto Lopes da Costa",
+    "100151": "Willie \"El Toro\" De Jesus Torres",
+    "100203": "Brian \"Gatz\" Gatzke",
+    "100643": "Juan Alberto Rodriguez Ibarra",
+    "100681": "Alexander Villegas Gonzalez",
+    "100682": "Zlatko Crespo Piskulich",
+    "100722": "Jody Allan Holden",
+    "100890": "Luis Antonio \"Lula\" Barbosa da Silva",
+    "100891": "Francismar Adriano Dias Garrido",
+    "101280": "Conrad Leinemann",
+    "101346": "Ihosvany Chambers Hernandez",
+    "101626": "Amaury Velasco",
+    "101741": "Lazaro Javier \"Blanco\" Milian Carvajal",
+    "102137": "Joel Sotelo Villalobos",
+    "102564": "Scott Davenport",
+    "102737": "Daniel Ignasio Sanchez",
+    "102738": "Walter Anibal Sanchez",
+    "102739": "Aegidio Juliana",
+    "102740": "Otmar Kalmez",
+    "102741": "Collin Smith",
+    "102794": "Peter \"The Golden Child\" Goers",
+    "102795": "Brad Torsone",
+    "113791": "Daniel Lewis"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "code": "WBAN2005",
+  "teams": [
+    [1,103179,103632,"CHN"],
+    [2,102334,103626,"THA"],
+    [3,103625,104376,"THA"],
+    [4,100619,104261,"ITA"],
+    [5,100634,105169,"INA"],
+    [5,103224,104541,"AUS"],
+    [7,103623,103968,"THA"],
+    [7,103735,105171,"VIE"],
+    [9,100712,105172,"ENG"],
+    [9,101013,104564,"INA"],
+    [9,103641,161937,"HKG"],
+    [9,105165,105166,"USA"]
+  ],
+  "players": {
+    "100619": "Annamaria Solazzi",
+    "100634": "Ni Putu Timy Yudhani Rahayu",
+    "100712": "Monique Elizabeth \"Mo\" Oliver",
+    "101013": "Siti \"Nung\" Nurjanah",
+    "102334": "Kamoltip Kulna",
+    "103179": "Wenhui You",
+    "103224": "Megan Avery",
+    "103623": "Jarunee Sannok",
+    "103625": "Arawan Tongkamkak",
+    "103626": "Usa Tenpaksee",
+    "103632": "Linjun Ji",
+    "103641": "Wing Hung Tse",
+    "103735": "Mai Thi Hoa",
+    "103968": "Yupa Phokongploy",
+    "104261": "Diletta Lunardi",
+    "104376": "Kasinee Godtalang",
+    "104541": "Larraine Busch",
+    "104564": "Iim Mukhodimah",
+    "105165": "Nicole Midwin",
+    "105166": "Patti Scofield",
+    "105169": "Devota Saveriana Rahawarin",
+    "105171": "Hong Phan Thi Cam",
+    "105172": "Denise Johns",
+    "161937": "Cheuk Yee Kong"
+  }
+}

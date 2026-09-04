@@ -14,6 +14,7 @@ import type {
   MedalCounts,
   ResultEntry,
   SeasonTally,
+  ClassificationTeam,
   Tier,
   TimelineFilter,
 } from '../web/src/schema.js';
@@ -818,6 +819,18 @@ export interface AggregateResult {
    * mixed — Gisi being the extreme, which is why she stays unresolved.
    */
   ownFederation: Map<number, Map<number, Map<string, number>>>;
+  /**
+   * Tournament number -> every team that played it, keyed by pair so the
+   * duplicate registrations VIS keeps collapse to one row.
+   *
+   * Collected here rather than derived afterwards from `results`, and that is
+   * the point of it. `results` has already lost the team's own
+   * `FederationCode`, and rebuilding the field from it would mean re-deciding
+   * every filter this loop applies — the tournament scope, the missing and
+   * unknown players, and §3's never-played rule. A classification that
+   * disagreed with the timeline it opens from would be worse than none.
+   */
+  classifications: Map<string, Map<string, ClassificationTeam>>;
 }
 
 /**
@@ -888,6 +901,14 @@ export function aggregatePartnerships(
    */
   const fedCodesByPair = new Map<string, Set<string>>();
   /**
+   * The full field of each tournament, keyed `tournament -> pair`.
+   *
+   * Populated after the Rank filter, unlike `fedCodesByPair` above: a team
+   * that never played is not part of the classification, which is the same
+   * rule the timeline and every tally on the card already follow.
+   */
+  const classifications = new Map<string, Map<string, ClassificationTeam>>();
+  /**
    * Each player's own federation by season, counted only from rows where VIS
    * listed them first. See the capture below for why that is the only place
    * this can come from.
@@ -906,6 +927,31 @@ export function aggregatePartnerships(
     let set = appearances.get(id);
     if (!set) appearances.set(id, (set = new Set()));
     set.add(tournamentNo);
+  };
+
+  /**
+   * One team in one tournament's field.
+   *
+   * Breaks a tie between duplicate rows exactly as `noteResult` does — the
+   * larger rank wins — so a team cannot appear at one placement on the card's
+   * timeline and another in the classification the timeline opens. Larger
+   * looks like the worse result and is the right choice: the competing values
+   * are a real placement and a negative elimination code, and `9 > -25`.
+   */
+  const noteTeam = (
+    tournamentNo: string,
+    a: number,
+    b: number,
+    rank: number,
+    federation: string,
+  ) => {
+    let field = classifications.get(tournamentNo);
+    if (!field) classifications.set(tournamentNo, (field = new Map()));
+    const key = pairKey(a, b);
+    const existing = field.get(key);
+    if (!existing || rank > existing[0]) {
+      field.set(key, [rank, Math.min(a, b), Math.max(a, b), federation]);
+    }
   };
 
   const noteResult = (self: number, partner: number, tournamentNo: string, rank: number) => {
@@ -992,6 +1038,7 @@ export function aggregatePartnerships(
     noteAppearance(b, tournamentNo);
     noteResult(a, b, tournamentNo, rank);
     noteResult(b, a, tournamentNo, rank);
+    noteTeam(tournamentNo, a, b, rank, stamped);
 
     const key = pairKey(a, b);
     let pair = partnerships.get(key);
@@ -1031,7 +1078,7 @@ export function aggregatePartnerships(
     if (pair) pair.best = best;
   }
 
-  return { partnerships, appearances, results: ordered, rejects, ownFederation };
+  return { partnerships, appearances, results: ordered, rejects, ownFederation, classifications };
 }
 
 /**

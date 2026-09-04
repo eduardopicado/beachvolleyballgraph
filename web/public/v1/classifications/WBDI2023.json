@@ -1,0 +1,31 @@
+{
+  "code": "WBDI2023",
+  "teams": [
+    [1,116709,132595,"ESP"],
+    [2,146001,148498,"AUT"],
+    [3,168371,182792,"GER"],
+    [4,147106,166241,"ISR"],
+    [5,124540,142061,"KEN"],
+    [5,135291,135301,"COL"],
+    [5,183952,192742,"BDI"],
+    [5,191910,191914,"BDI"]
+  ],
+  "players": {
+    "116709": "Liliana Fernández Steiner",
+    "124540": "Gaudencia Makokha",
+    "132595": "Paula Soria Gutiérrez",
+    "135291": "Galindo Andrea",
+    "135301": "Galindo Claudia",
+    "142061": "Naomie Too",
+    "146001": "Eva Sturm",
+    "147106": "Michal Barannik",
+    "148498": "Stephanie Wiesmeyr",
+    "166241": "Yahli Ashush",
+    "168371": "Paula Schürholz",
+    "182792": "Janne Uhl",
+    "183952": "Karen Noppen",
+    "191910": "Gynette Kamwemwe",
+    "191914": "Delly Drice Kaze",
+    "192742": "Emmanuelie Ndayikengurukiye"
+  }
+}

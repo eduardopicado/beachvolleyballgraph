@@ -1,0 +1,43 @@
+{
+  "code": "WPAN1999",
+  "teams": [
+    [1,100256,100926,"BRA"],
+    [2,100989,102848,"USA"],
+    [3,100267,100635,"MEX"],
+    [4,100931,101682,"CAN"],
+    [5,100929,102501,"BRA"],
+    [5,102610,102702,"USA"],
+    [7,100210,100628,"CUB"],
+    [7,101731,102155,"CUB"],
+    [7,102742,102743,"HON"],
+    [10,100933,102056,"CAN"],
+    [10,101736,102521,"VEN"],
+    [10,102601,102602,"ESA"]
+  ],
+  "players": {
+    "100210": "Mayra Ferrer Del Valle",
+    "100256": "Adriana Brandão Behar",
+    "100267": "Laura Almaral Palafox",
+    "100628": "Noemi Blanco Duran",
+    "100635": "Mayra Huerta",
+    "100926": "Shelda Kelly Bruno Bede",
+    "100929": "Adriana Bento Buczmiejuk",
+    "100931": "Barb Broen Ouellette",
+    "100933": "Jennifer Harkness",
+    "100989": "Marsha Miller",
+    "101682": "Christine Lussier",
+    "101731": "Maria Eugenia \"Maru\" Quevedo Lavastida",
+    "101736": "Nelitza Carolina Zambrano Garcia",
+    "102056": "Susan \"Sue\" Lesage",
+    "102155": "Tamara Larrea Peraza",
+    "102501": "Mônica Paludo",
+    "102521": "Yadeizi Abreu",
+    "102601": "Ligia Elizabeth Salazar Vanegas",
+    "102602": "Ana Luz Aquino De Garcia Granados",
+    "102610": "Carrie Dodd",
+    "102702": "Liz Pagano",
+    "102742": "Patricia Janeth Castro",
+    "102743": "Sonia Yessenia Pino",
+    "102848": "Jennifer Pavley"
+  }
+}

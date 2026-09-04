@@ -1,0 +1,31 @@
+{
+  "code": "MYOK1991",
+  "teams": [
+    [1,100180,100216,"USA"],
+    [2,100083,100182,"BRA"],
+    [3,100026,100040,"AUS"],
+    [4,100032,100168,"ITA"],
+    [5,100103,100104,"FRA"],
+    [6,100239,101089,"JPN"],
+    [7,100020,100097,"ESP"],
+    [8,100186,100187,"JPN"]
+  ],
+  "players": {
+    "100020": "José Javier \"Javi\" Yuste Muniz",
+    "100026": "Julien \"Thunder\" Prosser",
+    "100032": "Marco \"Sollu\" Solustri",
+    "100040": "Andrew \"Andy\" Burdin",
+    "100083": "Andrè Lima Perlingeiro",
+    "100097": "Berenguel Segura",
+    "100103": "Christian Penigaud",
+    "100104": "Jean-Philippe \"JP\" Jodard",
+    "100168": "Gianni Mascagna",
+    "100180": "Alan P. \"Big Al\" Janc",
+    "100182": "Guilherme Luiz Marques",
+    "100186": "Yasumasu Tanaka",
+    "100187": "Kazufumi Yamamoto",
+    "100216": "Timothy or Tim Walmer",
+    "100239": "Yasunori \"Kuma\" Kumada",
+    "101089": "Eizaburo Mitsuhashi"
+  }
+}

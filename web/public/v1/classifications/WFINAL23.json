@@ -1,0 +1,37 @@
+{
+  "code": "WFINAL23",
+  "teams": [
+    [1,162432,184611,"USA"],
+    [2,125549,153267,"GER"],
+    [3,139087,147073,"BRA"],
+    [4,118988,125172,"AUS"],
+    [5,124979,141868,"CAN"],
+    [5,142873,146801,"BRA"],
+    [7,141983,141984,"LAT"],
+    [7,153703,156328,"NED"],
+    [9,132614,135579,"SUI"],
+    [9,135571,140066,"USA"]
+  ],
+  "players": {
+    "118988": "Mariafe Artacho Del Solar",
+    "124979": "Melissa Humana-Paredes",
+    "125172": "Taliqua Clancy",
+    "125549": "Cinja Tillmann",
+    "132614": "Tanja Hüberli",
+    "135571": "Sara Hughes",
+    "135579": "Nina Brunner",
+    "139087": "Eduarda Santos Lisboa",
+    "140066": "Kelly Cheng",
+    "141868": "Brandie Wilkerson",
+    "141983": "Tina Graudina",
+    "141984": "Anastasija Samoilova",
+    "142873": "Tainá Silva Bigi",
+    "146801": "Victoria Lopes Pereira Tosta",
+    "147073": "Ana Patricia Silva Ramos",
+    "153267": "Svenja Müller",
+    "153703": "Raïsa Schoon",
+    "156328": "Katja Stam",
+    "162432": "Kristen Cruz",
+    "184611": "Taryn Brasher"
+  }
+}

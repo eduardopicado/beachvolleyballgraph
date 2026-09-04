@@ -1,0 +1,37 @@
+{
+  "code": "MBPTD22",
+  "teams": [
+    [1,137127,143192,"NOR"],
+    [2,122846,137237,"POL"],
+    [3,118194,163923,"ITA"],
+    [4,118317,119991,"NED"],
+    [5,132141,150379,"ITA"],
+    [5,142889,147009,"BRA"],
+    [7,137346,153790,"CZE"],
+    [7,146481,146488,"QAT"],
+    [9,120551,156493,"BRA"],
+    [9,125329,134415,"CHI"]
+  ],
+  "players": {
+    "118194": "Paolo Nicolai",
+    "118317": "Alexander Brouwer",
+    "119991": "Robert Meeuwsen",
+    "120551": "Vitor Gonçalves Felipe",
+    "122846": "Bartosz Łosiak",
+    "125329": "Marco Grimalt",
+    "132141": "Alex Ranghieri",
+    "134415": "Esteban Grimalt",
+    "137127": "Christian Sandlie Sørum",
+    "137237": "Michal Bryl",
+    "137346": "Ondrej Perusic",
+    "142889": "George Souto Maior Wanderley",
+    "143192": "Anders Berntsen Mol",
+    "146481": "Ahmed Tijan",
+    "146488": "Cherif Younousse",
+    "147009": "Andre Loyola Stein",
+    "150379": "Adrian Ignacio Carambula Raurich",
+    "153790": "David Schweiner",
+    "156493": "Renato Andrew Lima de Carvalho",
+    "163923": "Samuele Cottafava"
+  }
+}

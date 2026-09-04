@@ -1,0 +1,43 @@
+{
+  "code": "WDAE2022",
+  "teams": [
+    [1,146052,162511,"CHN"],
+    [2,168072,168073,"JPN"],
+    [3,133435,149062,"THA"],
+    [4,156856,157550,"JPN"],
+    [5,133621,181666,"ENG"],
+    [5,149061,178347,"THA"],
+    [5,167724,167725,"USA"],
+    [5,170828,173369,"SUI"],
+    [9,120099,147691,"JPN"],
+    [9,146165,146166,"JPN"],
+    [9,173899,192154,"KOR"],
+    [9,188539,188540,"KOR"]
+  ],
+  "players": {
+    "120099": "Miyuki Matsumura",
+    "133435": "Rumpaipruet Numwong",
+    "133621": "Victoria Palmer",
+    "146052": "Lvwen Yuan",
+    "146165": "Maho Yabumi",
+    "146166": "Shion Tsubouchi",
+    "147691": "Erika Habaguchi",
+    "149061": "Galchananan Jirutchayabhornwadee",
+    "149062": "Charanrutwadee Patcharamainaruebhorn",
+    "156856": "Miyu Sakamoto",
+    "157550": "Mayu Sawame",
+    "162511": "Jie Dong",
+    "167724": "Lindsey Fuller",
+    "167725": "Kaley Melville",
+    "168072": "Harumi Sakai",
+    "168073": "Kana Motomura",
+    "170828": "Melina Hübscher",
+    "173369": "Janick Schaltegger",
+    "173899": "Jieun Shin",
+    "178347": "Woranatchayakorn Phirachayakrailert",
+    "181666": "Alana Snow",
+    "188539": "Hobin Lee",
+    "188540": "Hayeseul Park",
+    "192154": "Inyoung Kim"
+  }
+}

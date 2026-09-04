@@ -1,0 +1,37 @@
+{
+  "code": "WSSF2018",
+  "teams": [
+    [1,115287,139087,"BRA"],
+    [2,116659,120746,"CZE"],
+    [3,118988,125172,"AUS"],
+    [4,104079,105063,"BRA"],
+    [5,105040,120750,"GER"],
+    [5,120039,141868,"CAN"],
+    [7,113895,124979,"CAN"],
+    [7,120880,135571,"USA"],
+    [9,104165,116962,"NED"],
+    [9,118955,125057,"GER"]
+  ],
+  "players": {
+    "104079": "Carolina Solberg Salgado",
+    "104165": "Sanne Keizer",
+    "105040": "Julia Sude",
+    "105063": "Maria Antonelli",
+    "113895": "Sarah Pavan",
+    "115287": "Agatha Bednarczuk",
+    "116659": "Marketa Slukova",
+    "116962": "Madelein Meppelink",
+    "118955": "Victoria Bieneck",
+    "118988": "Mariafe Artacho Del Solar",
+    "120039": "Heather Bansley",
+    "120746": "Barbora Hermannová",
+    "120750": "Chantal Laboureur",
+    "120880": "Summer Ross",
+    "124979": "Melissa Humana-Paredes",
+    "125057": "Isabel Schneider",
+    "125172": "Taliqua Clancy",
+    "135571": "Sara Hughes",
+    "139087": "Eduarda Santos Lisboa",
+    "141868": "Brandie Wilkerson"
+  }
+}

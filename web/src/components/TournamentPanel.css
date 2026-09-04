@@ -1,0 +1,205 @@
+/*
+ * Sits over the card, not beside it: the card is a fixed-width column and a
+ * classification is wider than a partner row, so it takes the whole of that
+ * column and gives it back on close.
+ */
+
+.tournament-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-1);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.tournament-panel > header {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--gridline);
+  flex: none;
+}
+
+.tournament-panel .who {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tournament-panel h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.tournament-panel h3 .season {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tournament-panel .meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.tournament-panel .meta .badge {
+  background: var(--track);
+  border-radius: 5px;
+  padding: 0 6px;
+  color: var(--text-secondary);
+}
+
+.tournament-panel .close {
+  margin-left: auto;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .tournament-panel .close:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+  }
+}
+
+.tournament-panel .note {
+  margin: 0;
+  padding: 16px 14px;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}
+
+.tournament-panel .bands {
+  list-style: none;
+  margin: 0;
+  padding: 8px 14px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tournament-panel .band {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 8px;
+  padding: 6px 0;
+  align-items: start;
+}
+
+.tournament-panel .band + .band {
+  border-top: 1px solid var(--gridline);
+}
+
+.tournament-panel .place {
+  margin: 0;
+  padding-top: 1px;
+  font-size: 12.5px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.tournament-panel .band.podium .place {
+  color: var(--text-primary);
+}
+
+.tournament-panel .place .medal {
+  margin-right: 2px;
+}
+
+.tournament-panel .teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tournament-panel .team {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  min-width: 0;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+/* The reader's own player, so their eye lands on the row they came from. A
+   wash rather than a border: the row is inside a list of near-identical rows
+   and a border would read as a separate object. */
+.tournament-panel .team.is-mine {
+  background: var(--series-2-wash);
+  box-shadow: 0 0 0 4px var(--series-2-wash);
+}
+
+.tournament-panel .fed {
+  flex: none;
+  width: 46px;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+.tournament-panel .pair {
+  min-width: 0;
+}
+
+.tournament-panel .pair .sep {
+  color: var(--text-muted);
+}
+
+.tournament-panel .pair button {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--series-1);
+  cursor: pointer;
+  text-align: left;
+}
+
+@media (hover: hover) {
+  .tournament-panel .pair button:hover {
+    text-decoration: underline;
+  }
+}
+
+.tournament-panel .pair strong {
+  font-weight: 650;
+}
+
+.tournament-panel .shared-note {
+  margin: 0;
+  flex: none;
+  padding: 8px 14px 12px;
+  border-top: 1px solid var(--gridline);
+  font-size: 11.5px;
+  color: var(--text-muted);
+}

@@ -1,0 +1,28 @@
+{
+  "code": "WRUB2019",
+  "teams": [
+    [1,151976,154083,"NED"],
+    [2,132631,147933,"DEN"],
+    [3,120913,133621,"ENG"],
+    [4,135064,135065,"RWA"],
+    [5,142108,150291,"CIV"],
+    [5,164423,175290,"RWA"],
+    [5,175291,175292,"RWA"]
+  ],
+  "players": {
+    "120913": "Jessica Grimson",
+    "132631": "Cecilie Køllner Olsen",
+    "133621": "Victoria Palmer",
+    "135064": "Hakizimana Judith",
+    "135065": "Charlotte Nzayisenga",
+    "142108": "Kossia Audrey Fieny",
+    "147933": "Signe Zibrandtsen Haaning",
+    "150291": "Loyo Alice Miessan",
+    "151976": "Mexime van Driel",
+    "154083": "Iris Reinders",
+    "164423": "Penelope Musabyimana",
+    "175290": "Louise Muhoza",
+    "175291": "Christine Nyirarukundo",
+    "175292": "Pacifique Umulisa"
+  }
+}

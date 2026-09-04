@@ -1,0 +1,37 @@
+{
+  "code": "WGET2006",
+  "teams": [
+    [1,103574,115576,"POR"],
+    [2,102915,105198,"CAN"],
+    [3,103259,103873,"CAN"],
+    [4,118319,118320,"ESP"],
+    [5,101528,116753,"POR"],
+    [5,104202,118299,"ESP"],
+    [7,102156,117999,"ESP"],
+    [7,118300,118301,"ESP"],
+    [9,104150,118321,"ESP"],
+    [9,118302,118303,"ESP"]
+  ],
+  "players": {
+    "101528": "Ana Rita Gomes Costa",
+    "102156": "Susana Vega Gomez",
+    "102915": "Anouk Boileau",
+    "103259": "Line Jomphe",
+    "103574": "Sandra Castro",
+    "103873": "Rebecca Moskowitz",
+    "104150": "Jenifer Laya",
+    "104202": "Mireia Montañá",
+    "105198": "Marie-Christine Mondor",
+    "115576": "Juliana Antunes",
+    "116753": "Neusa Reis",
+    "117999": "Inmaculada García Pamplona",
+    "118299": "Aida Dominguez Font",
+    "118300": "Marina Gonzalez",
+    "118301": "Maria Sacristan",
+    "118302": "Yvonne Agirre",
+    "118303": "Beatriz Sanchez",
+    "118319": "Noelia Fernandez Franco",
+    "118320": "Miranda Salazar",
+    "118321": "Priscila Eguzkiza"
+  }
+}

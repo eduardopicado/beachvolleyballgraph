@@ -25,6 +25,14 @@ export interface SeasonEvent {
   /** FIVB's placement. See `formatFinish` for what the negatives mean. */
   rank: number;
   /**
+   * FIVB's tournament code — `MPAR2024`. Null on the oldest rows, where the
+   * published tuple is too short to carry one.
+   *
+   * Carried because it is what addresses the event's published classification,
+   * and a row without one has nothing to open.
+   */
+  code: string | null;
+  /**
    * What FIVB called this event's level at the time — "4-star", "Elite16",
    * "Grand Slam". Null for the Olympics, the World Championships and the
    * age-group championships, which the card badges by tier instead.
@@ -67,6 +75,7 @@ export function seasonEvents(
     // Positional read rather than a destructure: the tuple has four arities
     // and only the longest carries a level.
     const level = meta.length > 5 ? (meta[5] ?? null) : null;
+    const code = meta.length > 4 ? (meta[4] ?? null) : null;
     out.push({
       no,
       name,
@@ -76,6 +85,7 @@ export function seasonEvents(
       partner: nameOf(partner),
       rank,
       level,
+      code,
     });
   }
   return out;

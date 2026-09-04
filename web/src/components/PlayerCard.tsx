@@ -6,7 +6,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
+import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../schema';
 import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
 import { foldAccents } from '../lib/search';
 import {
@@ -22,10 +22,12 @@ import {
 } from '../lib/format';
 import { Avatar } from './Avatar';
 import { PortraitLightbox } from './PortraitLightbox';
+import { TournamentPanel } from './TournamentPanel';
 import { buildTimeline, type TimelineSeason } from '../lib/timeline';
 import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { prefersReducedMotion } from '../lib/motion';
 import { useResults } from '../lib/useResults';
+import { useClassification } from '../lib/useClassification';
 import './PlayerCard.css';
 
 export interface PartnerRow {
@@ -62,6 +64,13 @@ interface SeasonListProps {
   status: 'idle' | 'loading' | 'ready' | 'failed';
   onSelectPartner: (id: number) => void;
   /**
+   * Opens a tournament's full field. Takes the season from the row rather than
+   * from the event's own date: the date is null on malformed rows, and on a
+   * ranged season (§19) the two can legitimately differ — the row's season is
+   * the one the timeline is showing.
+   */
+  onOpenEvent: (event: SeasonEvent, season: number) => void;
+  /**
    * Extra class on the <ol>. The card renders two of these now, and without
    * something to tell them apart `.timeline` matches both — which is not a
    * styling problem but a correctness one for anything selecting on it.
@@ -77,6 +86,7 @@ function SeasonList({
   eventsFor,
   status,
   onSelectPartner,
+  onOpenEvent,
   variant,
 }: SeasonListProps) {
   return (
@@ -166,7 +176,22 @@ function SeasonList({
                           return (
                             <li key={`${event.no}-${event.partnerId}`}>
                               <p className="event">
-                                <span className="name">{event.name}</span>
+                                {/* The name opens the field that played this
+                                    event. A row without a published code —
+                                    only the oldest, whose tuple is too short
+                                    to carry one — stays plain text rather than
+                                    offering a button that cannot answer. */}
+                                {event.code ? (
+                                  <button
+                                    type="button"
+                                    className="name is-open"
+                                    onClick={() => onOpenEvent(event, row.season)}
+                                  >
+                                    {event.name}
+                                  </button>
+                                ) : (
+                                  <span className="name">{event.name}</span>
+                                )}
                                 <span className={`finish${medal ? ' podium' : ''}`}>
                                   {/* Hidden from assistive tech, like the
                                       ordinal beside it: `finish.label` already
@@ -281,6 +306,8 @@ interface Props {
   gender: Gender;
   countryName: string;
   flag: string;
+  /** Federation code -> ISO-2, for flags on federations other than this one. */
+  iso2Of: (federation: string) => string | null;
   /**
    * Every player in the slice, unfiltered — the "min events together" control
    * hides edges, and an expanded season still has to be able to name the
@@ -326,6 +353,7 @@ export function PlayerCard({
   gender,
   countryName,
   flag,
+  iso2Of,
   names,
   onSelectPartner,
   onSelectAway,
@@ -503,6 +531,33 @@ export function PlayerCard({
   // name.
   const [portraitOpen, setPortraitOpen] = useState(false);
 
+  // --- a tournament's full field --------------------------------------------
+  // The event's whole header is kept, not just its code, so the panel can draw
+  // itself before the fetch lands: all of it is already in the timeline row
+  // that opened it, and re-reading it from the classification would mean
+  // waiting on a request to show a heading we already have.
+  const [openEvent, setOpenEvent] = useState<{
+    code: string;
+    name: string;
+    season: number;
+    tier: Tier;
+    level: string | null;
+    when: string | null;
+  } | null>(null);
+  const classification = useClassification(openEvent?.code ?? null);
+
+  const openEventPanel = useCallback((event: SeasonEvent, season: number) => {
+    if (!event.code) return;
+    setOpenEvent({
+      code: event.code,
+      name: event.name,
+      season,
+      tier: event.tier,
+      level: event.level,
+      when: formatDayMonth(event.date),
+    });
+  }, []);
+
   // A different player's seasons are not this player's, so start them closed —
   // but leave `view` alone, so someone reading careers year by year stays in
   // the timeline as they click through.
@@ -510,6 +565,7 @@ export function PlayerCard({
     setOpenSeasons(new Set());
     setOpenAwaySeasons(new Set());
     setPortraitOpen(false);
+    setOpenEvent(null);
   }, [node.id]);
 
   const toggleAwaySeason = useCallback((season: number) => {
@@ -814,6 +870,7 @@ export function PlayerCard({
               eventsFor={filteredEventsForSeason}
               status={results.status}
               onSelectPartner={onSelectPartner}
+              onOpenEvent={openEventPanel}
               variant="is-filtered"
             />
           )
@@ -826,6 +883,7 @@ export function PlayerCard({
             eventsFor={eventsForSeason}
             status={results.status}
             onSelectPartner={onSelectPartner}
+            onOpenEvent={openEventPanel}
           />
         ) : (
           <ul>
@@ -885,6 +943,7 @@ export function PlayerCard({
                 eventsFor={awayEventsForSeason}
                 status={results.status}
                 onSelectPartner={onSelectAwayById}
+                onOpenEvent={openEventPanel}
                 variant="is-away"
               />
             ) : (
@@ -983,6 +1042,23 @@ export function PlayerCard({
           FIVB profile ↗
         </a>
       </div>
+      {openEvent && (
+        <TournamentPanel
+          name={openEvent.name}
+          season={openEvent.season}
+          tier={openEvent.tier}
+          level={openEvent.level}
+          when={openEvent.when}
+          state={classification}
+          iso2Of={iso2Of}
+          highlightId={node.id}
+          onSelectPlayer={(id) => {
+            setOpenEvent(null);
+            onSelectPartner(id);
+          }}
+          onClose={() => setOpenEvent(null)}
+        />
+      )}
       {portraitOpen && (
         <PortraitLightbox
           id={node.id}

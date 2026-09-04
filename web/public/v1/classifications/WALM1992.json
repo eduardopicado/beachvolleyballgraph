@@ -1,0 +1,37 @@
+{
+  "code": "WALM1992",
+  "teams": [
+    [1,100012,100074,"USA"],
+    [2,100075,100977,"USA"],
+    [3,100069,100612,"BRA"],
+    [4,100250,100254,"BRA"],
+    [5,100025,100037,"AUS"],
+    [6,100062,100063,"AUS"],
+    [7,100076,100077,"HUN"],
+    [8,100061,100246,"GER"],
+    [9,100070,100071,"ESP"],
+    [10,100072,100073,"ESP"]
+  ],
+  "players": {
+    "100012": "Karolyn \"KK\" Kirby",
+    "100025": "Anita \"Neet\" Spring (Palm)",
+    "100037": "Jacqui or Jac Vukosa",
+    "100061": "Alexandra Bruhn",
+    "100062": "Lisa Narelle Willcocks",
+    "100063": "Christine Eleanor \"Chris\" Wilson",
+    "100069": "Roseli Ana Timm",
+    "100070": "Monica Batalle Del Prado",
+    "100071": "Liliana Solis Diaz",
+    "100072": "Immaculada Gonzalez Casado",
+    "100073": "Virginia Tapia Cardona",
+    "100074": "Nancy Reno",
+    "100075": "Angela \"The Rock\" Rock",
+    "100076": "Gyöngyi Polanyi",
+    "100077": "Jurdit Danada",
+    "100246": "Ariane Radfan",
+    "100250": "Jacqueline Louise \"Jackie\" Cruz Silva",
+    "100254": "Maria Isabel Barroso Salgado",
+    "100612": "Rosemary \"Rose\" Moreira Poucas",
+    "100977": "Linda \"Chisy\" Chisholm Carillo"
+  }
+}

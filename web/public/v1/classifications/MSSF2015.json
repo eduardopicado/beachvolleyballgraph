@@ -1,0 +1,37 @@
+{
+  "code": "MSSF2015",
+  "teams": [
+    [1,117474,118267,"BRA"],
+    [2,105143,116602,"USA"],
+    [3,104073,133285,"BRA"],
+    [4,118317,119991,"NED"],
+    [5,116556,119235,"NED"],
+    [5,118194,120774,"ITA"],
+    [7,104552,132856,"USA"],
+    [7,104994,131994,"CAN"],
+    [9,101534,103677,"AUT"],
+    [9,103311,116710,"ESP"]
+  ],
+  "players": {
+    "101534": "Clemens Doppler",
+    "103311": "Pablo Herrera Allepuz",
+    "103677": "Alexander Horst",
+    "104073": "Pedro Solberg",
+    "104552": "Jacob Gibb",
+    "104994": "Ben Saxton",
+    "105143": "Philip Dalhausser",
+    "116556": "Reinder Nummerdor",
+    "116602": "Nicholas Lucena",
+    "116710": "Adrián Gavira Collado",
+    "117474": "Bruno Oscar Schmidt",
+    "118194": "Paolo Nicolai",
+    "118267": "Alison Cerutti",
+    "118317": "Alexander Brouwer",
+    "119235": "Christiaan Varenhorst",
+    "119991": "Robert Meeuwsen",
+    "120774": "Daniele Lupo",
+    "131994": "Chaim Schalk",
+    "132856": "Casey Patterson",
+    "133285": "Evandro Gonçalves Oliveira Júnior"
+  }
+}

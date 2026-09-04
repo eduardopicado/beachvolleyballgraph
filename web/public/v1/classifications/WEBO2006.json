@@ -1,0 +1,43 @@
+{
+  "code": "WEBO2006",
+  "teams": [
+    [1,103826,103895,"CAN"],
+    [2,102665,103331,"SWE"],
+    [3,104189,104190,"CAN"],
+    [4,117981,118281,"ITA"],
+    [5,104088,105095,"CAN"],
+    [5,115224,115599,"CAN"],
+    [7,103080,103085,"GRE"],
+    [9,103995,115939,"ITA"],
+    [9,118200,137138,"ITA"],
+    [9,118203,118204,"ITA"],
+    [13,102750,118136,"ITA"],
+    [13,118201,118202,"ITA"]
+  ],
+  "players": {
+    "102665": "Karin Lundqvist",
+    "102750": "Donatella Impieri",
+    "103080": "Anastasia-Maria Chounta",
+    "103085": "Maria Lazaridou",
+    "103331": "Sara Uddstahl",
+    "103826": "Annie Martin",
+    "103895": "Katherine Zakrzewski",
+    "103995": "Manuela Matricciani",
+    "104088": "Johany Roy",
+    "104189": "Sara Pothaar",
+    "104190": "Sarah Hogarth",
+    "105095": "Isabelle Rancourt",
+    "115224": "Marie-Christine Pruneau",
+    "115599": "Caroline Fiset",
+    "115939": "Adelaide Salerno",
+    "117981": "Silvia Fanella",
+    "118136": "Debora Terenzi",
+    "118200": "Cecilia Bianchi",
+    "118201": "Carlotta Freddi",
+    "118202": "Francesca Valentini",
+    "118203": "Debora Pini",
+    "118204": "Marta Menegatti",
+    "118281": "Cristiana Giovannini",
+    "137138": "Gilda Lombardo"
+  }
+}

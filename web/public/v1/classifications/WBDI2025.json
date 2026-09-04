@@ -1,0 +1,40 @@
+{
+  "code": "WBDI2025",
+  "teams": [
+    [1,153211,179308,"SLO"],
+    [2,153733,200707,"GER"],
+    [3,173362,178041,"USA"],
+    [4,150070,154900,"MAR"],
+    [5,122481,211614,"JPN"],
+    [5,173031,188700,"GHA"],
+    [5,183952,191910,"BDI"],
+    [5,210546,225804,"GER"],
+    [9,124540,185151,"KEN"],
+    [9,192200,192742,"BDI"],
+    [9,194227,223517,"BDI"]
+  ],
+  "players": {
+    "122481": "Keiko Urata",
+    "124540": "Gaudencia Makokha",
+    "150070": "Mahassine Siad",
+    "153211": "Tajda Lovsin",
+    "153733": "Sandra Ferger",
+    "154900": "Dina Mellal",
+    "173031": "Rashaka Katadat",
+    "173362": "Jade Race",
+    "178041": "Katie Lindstrom",
+    "179308": "Živa Javornik",
+    "183952": "Karen Noppen",
+    "185151": "Marion Makonjo Indeche",
+    "188700": "Benedicta Mawuse Akorli",
+    "191910": "Gynette Kamwemwe",
+    "192200": "Pamella Irakoze",
+    "192742": "Emmanuelie Ndayikengurukiye",
+    "194227": "Nadia Buntubwimana",
+    "200707": "Rika Dieckmann",
+    "210546": "Geeske Camp",
+    "211614": "Minami Asano",
+    "223517": "IGIRANEZA Emelyne",
+    "225804": "Nika Elaine Reddin"
+  }
+}

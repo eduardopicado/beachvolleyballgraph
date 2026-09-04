@@ -264,6 +264,17 @@ export default function App() {
    * publish (fewer than two players): the partner is real and still worth
    * naming, but there is no page to send anyone to.
    */
+  /**
+   * Federation code -> ISO-2, for flags on federations that are not the slice's
+   * own. The manifest is the only place that mapping exists on the client, and
+   * a tournament's classification is full of them: Paris 2024 alone draws teams
+   * from fourteen federations.
+   */
+  const iso2Of = useCallback(
+    (code: string) => manifest?.countries.find((c) => c.code === code)?.iso2 ?? null,
+    [manifest],
+  );
+
   const awayRows: AwayRow[] = useMemo(() => {
     const list = selectedId ? (detailsById.get(selectedId)?.away ?? []) : [];
     const named = (code: string) => {
@@ -591,6 +602,7 @@ export default function App() {
                 detail={detailsById.get(selectedNode.id)}
                 partners={partnersByPlayer.get(selectedNode.id) ?? []}
                 away={awayRows}
+                iso2Of={iso2Of}
                 // From the graph, not the selection: the two differ for a
                 // render while an away partner's slice loads.
                 country={graph?.country ?? country}

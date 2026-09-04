@@ -1,0 +1,40 @@
+{
+  "code": "MENO1990",
+  "teams": [
+    [1,100367,100412,"USA"],
+    [2,100180,100216,"USA"],
+    [3,100017,100032,"ITA"],
+    [4,101047,101060,"FRA"],
+    [5,100059,100060,"BRA"],
+    [6,100043,100044,"BRA"],
+    [7,100858,101231,"RUS"],
+    [8,101122,101123,"KOR"],
+    [9,100053,100055,"JPN"],
+    [10,100237,100240,"JPN"],
+    [11,101120,101232,"CHN"]
+  ],
+  "players": {
+    "100017": "Dionisio \"Dio\" Lequaglie",
+    "100032": "Marco \"Sollu\" Solustri",
+    "100043": "Carlos Eduardo Dias Garrido",
+    "100044": "Roberto Duarte Dias Moreira",
+    "100053": "Kazuyuki \"Takye\" Takao",
+    "100055": "Shoji Setoyama",
+    "100059": "Franco José Vieira Neto",
+    "100060": "Roberto Lopes da Costa",
+    "100180": "Alan P. \"Big Al\" Janc",
+    "100216": "Timothy or Tim Walmer",
+    "100237": "Masafumi Oura",
+    "100240": "Masaji Ogino",
+    "100367": "Eric \"Rocket Squirrel\" Wurts",
+    "100412": "Leif \"H\" Hanson",
+    "100858": "Dmitri Kouvitchka",
+    "101047": "Philippe Blain",
+    "101060": "Alain Fabiani",
+    "101120": "Lu Cheng",
+    "101122": "Man-Soo Kang",
+    "101123": "Park Hyung-Yong",
+    "101231": "Ivan Zagorsky",
+    "101232": "Meng Qi"
+  }
+}

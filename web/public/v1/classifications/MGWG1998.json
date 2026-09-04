@@ -1,0 +1,31 @@
+{
+  "code": "MGWG1998",
+  "teams": [
+    [1,100182,100564,"BRA"],
+    [2,100010,100458,"USA"],
+    [3,100018,100148,"ARG"],
+    [4,100026,100668,"AUS"],
+    [5,100016,100110,"NOR"],
+    [6,100002,100088,"CAN"],
+    [7,100529,100530,"SUI"],
+    [8,100100,100657,"USA"]
+  ],
+  "players": {
+    "100002": "John Child",
+    "100010": "Adam \"A.J.\" Johnson",
+    "100016": "Jan Kvalheim",
+    "100018": "Eduardo Esteban \"Mono\" Martinez",
+    "100026": "Julien \"Thunder\" Prosser",
+    "100088": "Mark Heese",
+    "100100": "Christopher St. John \"Sinjin\" Smith",
+    "100110": "Björn Maaseide",
+    "100148": "Martin Alejo Conde",
+    "100182": "Guilherme Luiz Marques",
+    "100458": "Karch Kiraly",
+    "100529": "Martin Laciga",
+    "100530": "Paul Laciga",
+    "100564": "Rogério \"Pará\" de Souza Ferreira",
+    "100657": "Ricci Luyties",
+    "100668": "Lee \"Leo\" Zahner"
+  }
+}

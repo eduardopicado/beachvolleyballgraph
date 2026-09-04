@@ -1,0 +1,37 @@
+{
+  "code": "MFINAL24",
+  "teams": [
+    [1,137127,143192,"NOR"],
+    [2,160555,166274,"SWE"],
+    [3,146481,146488,"QAT"],
+    [4,162761,168503,"NED"],
+    [5,133285,145393,"BRA"],
+    [5,139387,156567,"GER"],
+    [7,137346,153790,"CZE"],
+    [7,156657,156658,"ENG"],
+    [9,118194,163923,"ITA"],
+    [9,138207,166947,"NED"]
+  ],
+  "players": {
+    "118194": "Paolo Nicolai",
+    "133285": "Evandro Gonçalves Oliveira Júnior",
+    "137127": "Christian Sandlie Sørum",
+    "137346": "Ondrej Perusic",
+    "138207": "Steven van de Velde",
+    "139387": "Clemens Wickler",
+    "143192": "Anders Berntsen Mol",
+    "145393": "Arthur Diego Mariano Lanci",
+    "146481": "Ahmed Tijan",
+    "146488": "Cherif Younousse",
+    "153790": "David Schweiner",
+    "156567": "Nils Ehlers",
+    "156657": "Joaquin Bello",
+    "156658": "Javier Bello",
+    "160555": "David Åhman",
+    "162761": "Yorick de Groot",
+    "163923": "Samuele Cottafava",
+    "166274": "Jonatan Hellvig",
+    "166947": "Matthew Immers",
+    "168503": "Stefan Boermans"
+  }
+}

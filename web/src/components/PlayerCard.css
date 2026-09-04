@@ -1,4 +1,8 @@
 .player-card {
+  /* The anchor for the tournament panel, which covers the card rather than
+     the page: this is a column beside the graph, and a classification that
+     escaped it would sit over the graph the reader is using to navigate. */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -702,6 +706,30 @@
   white-space: nowrap;
   font-size: 12px;
   font-weight: 600;
+}
+
+/* The tournament name opens its full classification. Styled as the same text
+   it replaced rather than as a link: every row in the list is now clickable, so
+   colouring them all would make the list read as a wall of links and lose the
+   emphasis the finish beside it needs. The affordance is the pointer and the
+   underline on hover, with focus-visible carrying the keyboard case. */
+.events button.name {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .events button.name:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 }
 
 .events .finish {
