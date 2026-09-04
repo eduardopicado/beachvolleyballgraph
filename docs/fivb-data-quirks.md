@@ -1487,13 +1487,15 @@ do not:
 
 | | Player | What the `or` is doing |
 |---|---|---|
-| 100157 | `Olivier or Philippe Rossard` | **Two different men under one player number** — see below |
-| 100058 | `Takeshi or Satoshi Matsumoto` | Two unrelated Japanese given names; whether that is one man or two is unestablished |
-| 100126 | `Mikiyo or Mikio Tada` | One letter apart — a spelling FIVB never settled |
+| 100157 | `Olivier or Philippe Rossard` | **Two different men under one player number** (§21a) |
+| 100058 | `Takeshi or Satoshi Matsumoto` | One man. His name is **Takeshi** (§21b) |
+| 100126 | `Mikiyo or Mikio Tada` | One man. His name is **Mikiyo** (§21b) |
 
-For those three the `or` is not shorthand. Any rule that took the second half
-would print a guess about a real person; taking the first half would do the
-same. And for the first of them it would be worse than a guess.
+For those three the `or` is not shorthand, and they do not even fail the same
+way: one is two people wearing one record, and two are one person whose name
+FIVB simply never resolved — where somebody else did. Both cases are reasons
+not to write a rule. The first would delete a man; the second would be a
+coin-flip on a question that has an answer.
 
 ### 21a. Rossard is not an unsettled name, it is two people
 
@@ -1523,6 +1525,47 @@ archive and neither names a partner correctly: this one, and `MRIO1989`, which
 old. One French player, two events, two different upstream faults on the person
 beside him; §18 draws the conclusion.
 
+### 21b. Matsumoto and Tada are one man each, and both names are known
+
+The other two are the opposite case, and they are **answerable**. bvbinfo holds
+a record for each, and each commits to one name where VIS offers two:
+
+| VIS | bvbinfo | |
+|---|---|---|
+| 100058 `Takeshi or Satoshi Matsumoto` | [**Takeshi Matsumoto**](http://www.bvbinfo.com/player.asp?ID=788) | born 11 May 1969, Japan |
+| 100126 `Mikiyo or Mikio Tada` | [**Mikiyo Tada**](http://www.bvbinfo.com/player.asp?ID=839) | Japan, no birth date either side |
+
+**Both are the same records, beyond doubt.** Matsumoto's seven results match
+ours exactly — every date, partner and placement:
+
+| | bvbinfo | ours |
+|---|---|---|
+| 1987 | 2/17–22 Rio de Janeiro, Tatsukawa, 12th | `MRIO1987` 17 Feb, `... Tatsukawa`, 12 |
+| 1988 | 2/20–28 Rio de Janeiro, Hiromichi Kageyama, 23rd | `MRIO1988` 20 Feb, Hiromichi Kageyama, 23 |
+| 1989 | 8/4–6 Enoshima, Shunichi Kawai, 8th | `MENO1989` 4 Aug, Shunichi Kawai, 8 |
+| 1991 | 2/12–23 Rio de Janeiro, Mikiyo Tada, 16th | `MRIO1991` 12 Feb, `Mikiyo or Mikio Tada`, 16 |
+| 1992 | 7/28–30 Enoshima, Hiroshi Seki, 13th | `MENO1992` 28 Jul, Hiroshi Seki, 13 |
+| 1993 | 7/29–8/1 Enoshima, Hiroshi Seki, 13th | `MENO1993` 29 Jul, Hiroshi Seki, 13 |
+| 1994 | 8/4–7 Enoshima, Hiroshi Seki, 13th | `MENO1994` 4 Aug, Hiroshi Seki, 13 |
+
+Tada's three match the same way, including the Rio row where the two men played
+together — bvbinfo lists Matsumoto's partner as "Mikiyo Tada" and Tada's as
+"Takeshi Matsumoto", resolving both records from either direction.
+
+**And the exact roster match is why the name carries weight, not in spite of
+it.** §6d sets the standard: bvbinfo's rosters match FIVB's, errors included, so
+it can never corroborate a roster — but it *can* corroborate a field where it
+disagrees with VIS, because agreement there cannot be an echo. The rosters here
+agree completely, which fixes the identity of the two records and proves
+nothing else. The **name** is the one field where the two sources part company:
+where FIVB writes two names and a conjunction, bvbinfo writes one. Whatever
+resolved it is not visible from here, so this is evidence and not proof — but
+for Matsumoto it comes with a birthdate that agrees to the day.
+
+So the reportable form is unusually strong: not "this record is ambiguous"
+but "this record is Takeshi Matsumoto, born 11 May 1969, and here are his seven
+results and an outside record agreeing on all of them."
+
 **A naive scan for the word overcounts by ten, and the false positives are
 instructive.** Searching for a standalone `or` returns 60, not 50. **Or** is an
 ordinary Hebrew given name — seven `ISR` records carry it (`Or Osipov`, `Or
@@ -1551,9 +1594,24 @@ the rest it is the archive being visibly unsure rather than quietly wrong.
 Rossard is the case that settles the argument — a rule that picked a half there
 would not be choosing between two spellings of a man, it would be **deleting
 one of two men** (§21a), and neither half of that name is safe to publish
-alone. Better reported than rewritten: 100157 because FIVB can split it and we
-cannot, the nine Greek surnames because FIVB holds the original spelling and we
-never will.
+alone. Matsumoto and Tada settle it from the other side: their names *are*
+knowable, and the answer came from outside VIS (§21b) — precisely where a rule
+reading the string could never have reached.
+
+**And the two halves do not mean the same thing from one record to the next**,
+which is what makes any positional rule unsound rather than merely risky. Take
+the first half and you get Takeshi and Mikiyo, both correct — and `Randolph
+Stoklos`, a man who competed for a decade as Randy. Take the second and you get
+Randy, correct — and Satoshi and Mikio, both wrong. The first half is the legal
+name in the 35 nickname records and the correct name in these two; the second
+is the competing name in the 35 and a misspelling in these two. No position
+wins, because the syntax is one operator standing in for several different
+uncertainties.
+
+Better reported than rewritten, and the three cases ask FIVB for three
+different things: 100157 to be **split**, because only FIVB can; 100058 and
+100126 to be **resolved to the name already known**; the nine Greek surnames to
+be **decided**, because FIVB holds the original spelling and we never will.
 
 ---
 
@@ -1612,6 +1670,11 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
     `MRIO1989`, because that is Gaston's *other* row and its partner is wrong
     too: both appearances of one player carry a different fault on the person
     beside him.
+  - **§21b is two records with the answer already attached.** 100058 is
+    **Takeshi** Matsumoto, born 11 May 1969, and 100126 is **Mikiyo** Tada —
+    bvbinfo holds a record for each committing to one name, and every one of
+    their ten combined results matches ours to the date, partner and placement.
+    These need no investigation at FIVB's end, only the correction.
   - **The nine Greek surnames are a cleanup request.** `Ntompra or Dobra` and
     its eight siblings are one romanisation decision each, and FIVB holds the
     original spelling that would settle them. Note the ten false positives — the
