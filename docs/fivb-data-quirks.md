@@ -1444,6 +1444,57 @@ this worth reporting rather than encoding.
 
 ---
 
+## 22. `...` is a placeholder for a name nobody knew
+
+**What.** **37 of the 131,187** player records carry a `FirstName` of exactly
+`"..."` — three literal full stops where a given name should be. **30 of them
+publish.** Every one is a low-numbered record from the hand-entered seasons and
+none carries a `Birthdate`:
+
+```
+FirstName "..."   LastName "Grimalt"        CHI    4 tournaments
+FirstName "..."   LastName "Tatsukawa"      JPN    1 tournament
+FirstName "..."   LastName "Grandvuillemin" FRA
+FirstName "..."   LastName "Ojeda"          ARG    (two separate records)
+```
+
+It is the same era and the same shape as §18's mis-resolved entries: somebody
+holding a paper entry list with a surname on it and no more, filling the field
+with a mark that means *missing* rather than leaving it empty.
+
+**It was not inert, and the sort is the worst of it.** The graph was always
+right — `shortName` draws the surname, so nodes read `Grimalt` — which is
+exactly why this survived: the visible half of the site looked fine.
+
+| Where the full name is used | Before |
+|---|---|
+| Card heading, every search row | `... Grimalt` |
+| `initials()` for the avatar | `.G` — the dot taken for a given-name initial |
+| Any alphabetical ordering | `.` sorts before every letter, so **all 30 sit at the head of the archive** |
+
+That last one is the reason to fix rather than document. The first thirty names
+in an alphabetical listing of 12,096 players were thirty records with no name.
+
+**Handled in `blankUnknownName` (`ingest/build.ts`).** A name field that is
+nothing but dots is blanked before the parts are joined, so `... Grimalt`
+publishes as `Grimalt` and takes the single-name path the archive already has
+for mononyms — the initials become `G`, and the sort puts him among the Gs.
+
+**Tested on the whole field, never stripped as a substring**, which is the only
+real risk here. **536 records carry a single dot inside a genuine name** —
+`N. Aihara`, `Jean C. Gaston`, `Christopher St. John "Sinjin" Smith`,
+`Adam "A.J." Johnson` — so a rule that deleted dots instead of testing the field
+would damage 536 names to repair 37. Both directions are asserted against the
+published artifact, and each fails a different test.
+
+**Not to be confused with the other dots.** Three fields contain an ellipsis
+character as *encoding damage* inside a real surname — `M…Ttus` (almost
+certainly Möttus) and `B…Hme` (Böhme), plus a `TeamName` of `YU..N`. Those keep
+their letters, so the whole-field test never reaches them, and they are a
+different fault: a mangled character, not a missing name.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1485,6 +1536,12 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   were held. A request rather than a defect report: a populated `DefaultCity`
   on the Olympics and the World Championships would retire two hand-maintained
   maps here and help every other consumer of the archive.
+- **§22**, the 37 records whose `FirstName` is `"..."`. Worked around here, but
+  worth raising for two reasons: an empty field would carry the same meaning
+  without leaking a placeholder into every consumer's display, and 30 of these
+  men played FIVB events — the entry lists that named them presumably still
+  exist. Also in that neighbourhood, three fields where a character has been
+  mangled rather than left out: `M…Ttus` and `B…Hme` read as Möttus and Böhme.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
