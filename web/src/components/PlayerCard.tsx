@@ -21,6 +21,7 @@ import {
   seasonSpan,
 } from '../lib/format';
 import { Avatar } from './Avatar';
+import { PortraitLightbox } from './PortraitLightbox';
 import { buildTimeline, type TimelineSeason } from '../lib/timeline';
 import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { prefersReducedMotion } from '../lib/motion';
@@ -494,12 +495,21 @@ export function PlayerCard({
   // questions, and a 2015 opened in one is not a 2015 opened in the other.
   const [openAwaySeasons, setOpenAwaySeasons] = useState<ReadonlySet<number>>(new Set());
 
+  // --- the portrait, large --------------------------------------------------
+  // Reset with the seasons below on every change of node: a partner row is
+  // clickable from behind the scrim on nothing, but the card *does* change
+  // player underneath an open portrait via the graph and the search box, and
+  // leaving it open would show one player's photo captioned with another's
+  // name.
+  const [portraitOpen, setPortraitOpen] = useState(false);
+
   // A different player's seasons are not this player's, so start them closed —
   // but leave `view` alone, so someone reading careers year by year stays in
   // the timeline as they click through.
   useEffect(() => {
     setOpenSeasons(new Set());
     setOpenAwaySeasons(new Set());
+    setPortraitOpen(false);
   }, [node.id]);
 
   const toggleAwaySeason = useCallback((season: number) => {
@@ -589,7 +599,13 @@ export function PlayerCard({
       aria-label={`Profile: ${node.name}`}
     >
       <header>
-        <Avatar id={node.id} name={node.name} width={200} className="player-photo" />
+        <Avatar
+          id={node.id}
+          name={node.name}
+          width={200}
+          className="player-photo"
+          onExpand={() => setPortraitOpen(true)}
+        />
         <div className="who">
           <h2>{node.name}</h2>
           {/* The name the graph draws, when it is not simply this one cut
@@ -967,6 +983,15 @@ export function PlayerCard({
           FIVB profile ↗
         </a>
       </div>
+      {portraitOpen && (
+        <PortraitLightbox
+          id={node.id}
+          name={node.name}
+          flag={flag}
+          countryName={countryName}
+          onClose={() => setPortraitOpen(false)}
+        />
+      )}
     </aside>
   );
 }

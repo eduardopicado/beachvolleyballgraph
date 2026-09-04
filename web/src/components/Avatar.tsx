@@ -28,9 +28,23 @@ interface Props {
   width: number;
   /** Base class; the fallback also gets `is-fallback`. */
   className: string;
+  /**
+   * Makes the portrait open something — the card passes the lightbox opener.
+   *
+   * Handled here rather than by wrapping an `<Avatar>` at the call site,
+   * because whether there *is* a portrait to enlarge is this component's own
+   * state and nobody else's: `failed` is set by an `onError` only reached
+   * after the fetch. A caller that wrapped it would have to render a button
+   * around the initials fallback too, offering a reader a larger view of two
+   * letters.
+   *
+   * Omitted by the search results and the path panel, where the avatar is a
+   * 32px identifier inside a row that already does something when clicked.
+   */
+  onExpand?: () => void;
 }
 
-export function Avatar({ id, name, width, className }: Props) {
+export function Avatar({ id, name, width, className, onExpand }: Props) {
   const [failed, setFailed] = useState(false);
   const src = playerPhotoUrl(id, width);
   // A new player means a new URL: reset so a previous 404 doesn't stick to the
@@ -44,7 +58,7 @@ export function Avatar({ id, name, width, className }: Props) {
       </div>
     );
   }
-  return (
+  const img = (
     <img
       className={className}
       src={src}
@@ -56,5 +70,19 @@ export function Avatar({ id, name, width, className }: Props) {
       decoding="async"
       onError={() => setFailed(true)}
     />
+  );
+  if (!onExpand) return img;
+  // The class stays on the image so its size, shape and border are unchanged;
+  // the button is a transparent wrapper that only adds the hit area and the
+  // accessible name the image deliberately does not have.
+  return (
+    <button
+      type="button"
+      className="portrait-trigger"
+      onClick={onExpand}
+      aria-label={`Show a larger portrait of ${name}`}
+    >
+      {img}
+    </button>
   );
 }
