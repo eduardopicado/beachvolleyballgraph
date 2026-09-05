@@ -15,6 +15,11 @@
  * (quirks §5, §15). Eight teams finish 9th at the Olympics; six finish 19th.
  * Listing them as separate rows would invent an order FIVB does not publish,
  * so each placement is one heading with its teams under it.
+ *
+ * The grouping is left to say that on its own. A footnote spelling it out sat
+ * here first and was cut: four teams drawn under one "5th" is not ambiguous,
+ * and a line of explanation under every classification is a tax on the reader
+ * who understood the first one.
  */
 
 import { useEffect, useMemo, useRef } from 'react';
@@ -172,12 +177,6 @@ export function TournamentPanel({
         </ol>
       )}
 
-      {state.status === 'ready' && bands.length > 0 && (
-        <p className="shared-note">
-          Placements are shared: beach volleyball reports brackets, so several teams finish on the
-          same number. Shown as FIVB publishes them.
-        </p>
-      )}
     </div>
   );
 }
