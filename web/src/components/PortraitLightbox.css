@@ -1,0 +1,117 @@
+/*
+ * The dimmed layer is deliberately not a theme token. It is a scrim over
+ * whatever the page happens to be, and it has to darken a white card and a
+ * near-black one alike, so it stays one colour in both themes — the portrait
+ * and its caption sit on the scrim, not on the page, and take their colours
+ * from it rather than from --surface-1.
+ */
+
+.portrait-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(6, 6, 6, 0.72);
+  animation: portrait-in 140ms ease-out;
+}
+
+@keyframes portrait-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.portrait-lightbox figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.portrait-lightbox img {
+  display: block;
+  /* Bounded by the shorter axis so a tall viewport does not push the caption
+     off the bottom, and never enlarged past the 600px that was fetched. */
+  width: min(420px, 100%, 60vh);
+  height: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+}
+
+.portrait-lightbox figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  max-width: 420px;
+}
+
+.portrait-lightbox figcaption strong {
+  color: #fff;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+.portrait-lightbox figcaption span {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.portrait-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.portrait-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .portrait-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* The trigger the avatar becomes when there is a portrait to enlarge. A bare
+   wrapper: the image keeps its own class, so its size and shape are unchanged
+   whether or not it is clickable. */
+.portrait-trigger {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  line-height: 0;
+  border-radius: 50%;
+  cursor: zoom-in;
+}
+
+.portrait-trigger:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .portrait-trigger:hover img {
+    border-color: var(--series-1);
+  }
+}

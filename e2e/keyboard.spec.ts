@@ -209,3 +209,106 @@ test.describe('search result portraits', () => {
     expect(Math.round(box2.width)).toBe(32);
   });
 });
+
+/**
+ * The portrait, enlarged.
+ *
+ * A lightbox is mostly focus contract, and every part of that contract is
+ * invisible when it regresses: the trap still looks right, Escape still
+ * appears to work, and only a keyboard reader finds out that focus walked into
+ * the page behind the scrim or was dropped on the floor when it closed.
+ *
+ * The nesting is the subtle part and the reason these exist. The card already
+ * closes on Escape, from its own listener on `window`. So does this. One key
+ * must close exactly one of them — the one the reader opened last — which is
+ * why the lightbox listens in the capture phase and stops the event. Nothing
+ * about that is visible in the markup, and getting it wrong dismisses the card
+ * out from under the portrait.
+ */
+test.describe('the portrait lightbox', () => {
+  const openCard = async (page: import('@playwright/test').Page) => {
+    await page.goto(`./${slicePath()}`);
+    await expect(page.locator('.table-view tbody tr').first()).toBeVisible();
+    await page.locator('.table-view tbody tr').first().click();
+    await expect(page.locator('.player-card')).toBeVisible();
+  };
+
+  test('opens from the card portrait, holds focus, and hands it back on Escape', async ({ page }) => {
+    await openCard(page);
+
+    const trigger = page.locator('.player-card .portrait-trigger');
+    await expect(trigger).toBeVisible();
+    await trigger.focus();
+    await trigger.press('Enter');
+
+    const dialog = page.locator('.portrait-lightbox');
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toHaveAttribute('aria-modal', 'true');
+
+    // Focus moves into the dialog, and Tab cannot take it out. Without the
+    // trap, Tab walks into the card behind the scrim — reachable by keyboard,
+    // invisible to the reader, and hidden from a screen reader by aria-modal.
+    await expect.poll(async () => (await focused(page)).label).toBe('Close portrait');
+    await page.keyboard.press('Tab');
+    expect((await focused(page)).label).toBe('Close portrait');
+    await page.keyboard.press('Shift+Tab');
+    expect((await focused(page)).label).toBe('Close portrait');
+
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+
+    // Back to the portrait that opened it, not dropped to <body> — the element
+    // holding focus has just been removed, which is exactly when that happens.
+    const after = await focused(page);
+    expect(after.tag, 'focus was dropped to the document body').not.toBe('BODY');
+    expect(after.label).toContain('larger portrait');
+  });
+
+  test('Escape closes the portrait and leaves the card open', async ({ page }) => {
+    await openCard(page);
+    await page.locator('.player-card .portrait-trigger').click();
+    await expect(page.locator('.portrait-lightbox')).toBeVisible();
+
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.portrait-lightbox')).toHaveCount(0);
+    // The card's own Escape handler must not have fired as well. One press,
+    // one thing closed.
+    await expect(page.locator('.player-card')).toBeVisible();
+
+    // And a second press still reaches the card, so the capture handler let go.
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.player-card')).toHaveCount(0);
+  });
+
+  test('a click on the backdrop closes it, a click on the photo does not', async ({ page }) => {
+    await openCard(page);
+    await page.locator('.player-card .portrait-trigger').click();
+    const dialog = page.locator('.portrait-lightbox');
+    await expect(dialog).toBeVisible();
+
+    // The photo is inside the backdrop, so without the stopPropagation the
+    // gesture that means "look closer" would dismiss the thing being looked at.
+    await dialog.locator('figure img').click();
+    await expect(dialog).toBeVisible();
+
+    // A corner of the scrim, well clear of the figure.
+    await dialog.click({ position: { x: 6, y: 6 } });
+    await expect(dialog).toHaveCount(0);
+  });
+
+  test('a player with no photo has nothing to enlarge', async ({ page }) => {
+    // Guard the guard: every assertion above would pass just as well if the
+    // trigger were rendered around the initials fallback, offering a reader a
+    // larger view of two letters. Registered after the fixture's blanket stub,
+    // so it wins for this one player.
+    const target = [...graph(COUNTRY, GENDER).nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+    await page.route(`**://sharp.fivb.com/**No=${target.id}**`, (route) =>
+      route.fulfill({ status: 404, contentType: 'text/plain', body: 'no photo' }),
+    );
+
+    await page.goto(`./${slicePath()}?player=${target.id}`);
+    await expect(page.locator('.player-card')).toBeVisible();
+    await expect(page.locator('.player-card .player-photo.is-fallback')).toBeVisible();
+    await expect(page.locator('.player-card .portrait-trigger')).toHaveCount(0);
+  });
+});
