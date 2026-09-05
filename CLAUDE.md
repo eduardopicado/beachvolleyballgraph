@@ -21,16 +21,13 @@ commit is actually an ancestor of `origin/main` before touching anything else,
 and never push a follow-up onto a branch that has already merged: that commit
 strands silently where nobody will look for it again.
 
-**Subscribe to every PR you open, as you open it.** Nothing about a merge, a
-CI failure or a review reaches a session that has not subscribed — a PR merged
-an hour ago looks exactly like one nobody has touched, and the first sign is
-the owner asking why you did not notice. Two PRs merged and one fell into
-conflict before this was written down.
+**Subscribe to every PR you open, as you open it.** Nothing — a merge, a CI
+failure, a review — reaches a session that has not subscribed, so a merged PR
+looks exactly like an untouched one. Two merged and one hit a conflict before
+anyone noticed.
 
-**PR titles and bodies are plain text, not HTML.** `&quot;` and `&#39;` arrive
-on the page as those literal characters, so a title with a quote or an
-apostrophe in it reads as mangled encoding to everyone who sees it. Write the
-punctuation itself.
+**PR titles and bodies are plain text, not HTML.** `&quot;` renders as those
+six characters. Write the punctuation.
 
 ## Prove a regression test fails
 
@@ -53,23 +50,15 @@ something already written down, the written thing is what changes.
 
 ## The published tree is regenerated, never merged
 
-A conflict anywhere under `web/public/v1/` is resolved by running
-`npm run ingest` over the merged source, never by choosing lines out of two
-machine-written files. `manifest.json` and `search.json` are the two that
-actually conflict, and neither has a meaningful "theirs".
+A conflict under `web/public/v1/` is resolved by running `npm run ingest` over
+the merged source, never by choosing lines out of two machine-written files.
 
-**A clean merge is not evidence the tree is right**, and that is the half worth
-remembering. When a branch *adds* generated files, git has nothing to conflict
-with and merges them silently — so a branch that regenerated before a name fix
-landed on main will happily reintroduce the names the fix removed, in the new
-files, while the old files merge to the corrected version and look fine. That
-happened: 35 placeholder names came back inside new classification files, and
-no diff, conflict or test failure would have shown it.
-
-So after merging main into anything that touches the ingest or the published
-tree, regenerate and then **grep the artifact for whatever main just fixed**.
-The regenerate is also what removes the unrelated drift a second FIVB fetch
-picks up, so the diff says what the branch actually changed.
+**A clean merge is not evidence the tree is right.** A branch that *adds*
+generated files has nothing to conflict with, so one that regenerated before a
+fix landed on main will reintroduce what the fix removed — 35 placeholder names
+came back that way inside new classification files, past a clean merge and a
+green suite. After merging main into anything touching the ingest, regenerate
+and grep the artifact for whatever main just fixed.
 
 ## Design changes get a mockup first
 
@@ -80,16 +69,9 @@ so the choice can be recorded on the page itself rather than in chat, and build
 the static comparison first: the capability is granted per viewer and may not
 resolve, and the page has to be readable either way.
 
-**When the decision is about an interaction, make the mockup do it.** A
-still of the finished state answers "what does it look like" and silently
-skips "what does it feel like to open" — which is the actual question when
-the options are a lightbox against an inline expansion, or a panel against a
-nested list. The portrait and tournament mockups both drew the thing already
-open, so the owner could compare two end states and could not click either
-one; that is the half of the design they were being asked about.
-
-A mockup is a page with a script in it, so this costs a few lines: make the
-portrait open on click, the panel slide over on a tournament, the thing close
-on Escape. Keep the resting state complete either way — the page still has to
-read as a document to someone who never clicks, and to the first frame a
-thumbnail captures.
+**When the decision is about an interaction, make the mockup do it.** A still
+of the finished state skips the question being asked: "lightbox or inline
+expansion" is about what *opening* feels like. Both mockups drew the thing
+already open, so the owner compared two end states and could click neither. It
+is a page with a script in it — opening on click costs a few lines. Keep the
+resting state complete, for the reader who never clicks and for the thumbnail.
