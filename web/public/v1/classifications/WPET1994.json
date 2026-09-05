@@ -1,0 +1,31 @@
+{
+  "code": "WPET1994",
+  "teams": [
+    [1,100012,100019,"USA"],
+    [2,100252,100253,"BRA"],
+    [3,100273,100274,"USA"],
+    [4,100069,100254,"BRA"],
+    [5,100025,100251,"AUS"],
+    [6,100479,100506,"JPN"],
+    [7,101218,101219,"RUS"],
+    [8,100269,100270,"NED"]
+  ],
+  "players": {
+    "100012": "Karolyn \"KK\" Kirby",
+    "100019": "Elizabeth \"Liz\" Masakayan",
+    "100025": "Anita \"Neet\" Spring (Palm)",
+    "100069": "Roseli Ana Timm",
+    "100251": "Natalie \"Nat\" Cook",
+    "100252": "Mônica Rodrigues",
+    "100253": "Adriana Samuel Ramos",
+    "100254": "Maria Isabel Barroso Salgado",
+    "100269": "Simone Kooy",
+    "100270": "Claire Patricia \"Klep\" Paterson",
+    "100273": "Barbra Fontana",
+    "100274": "Lori Forsythe",
+    "100479": "Sachiko Fujita",
+    "100506": "Yukiko Takahashi",
+    "101218": "Natalya Belousova",
+    "101219": "Mariya Kopylova"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "code": "WSSF2016",
+  "teams": [
+    [1,104461,118951,"GER"],
+    [2,104409,124153,"SUI"],
+    [3,103325,124999,"SUI"],
+    [4,103892,103903,"BRA"],
+    [5,103242,118426,"USA"],
+    [5,105040,120750,"GER"],
+    [5,112614,120037,"ARG"],
+    [5,121925,125172,"AUS"],
+    [9,105016,125322,"CAN"],
+    [9,116709,119015,"ESP"],
+    [9,118204,118285,"ITA"],
+    [9,120039,141868,"CAN"]
+  ],
+  "players": {
+    "103242": "Kerri Walsh Jennings",
+    "103325": "Isabelle Forrer",
+    "103892": "Talita Da Rocha Antunes",
+    "103903": "Larissa França Maestrini",
+    "104409": "Nadine Zumkehr",
+    "104461": "Laura Ludwig",
+    "105016": "Jamie Lynn Broder",
+    "105040": "Julia Sude",
+    "112614": "Georgina Klug",
+    "116709": "Liliana Fernández Steiner",
+    "118204": "Marta Menegatti",
+    "118285": "Laura Giombini",
+    "118426": "April Ross",
+    "118951": "Kira Walkenhorst",
+    "119015": "Elsa Baquerizo McMillan",
+    "120037": "Ana Gallay",
+    "120039": "Heather Bansley",
+    "120750": "Chantal Laboureur",
+    "121925": "Louise Bawden",
+    "124153": "Joana Mäder",
+    "124999": "Anouk Vergé-Dépré",
+    "125172": "Taliqua Clancy",
+    "125322": "Kristina May",
+    "141868": "Brandie Wilkerson"
+  }
+}

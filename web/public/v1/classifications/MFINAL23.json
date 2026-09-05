@@ -1,0 +1,37 @@
+{
+  "code": "MFINAL23",
+  "teams": [
+    [1,160555,166274,"SWE"],
+    [2,137127,143192,"NOR"],
+    [3,142889,147009,"BRA"],
+    [4,146481,146488,"QAT"],
+    [5,118194,163923,"ITA"],
+    [5,137346,153790,"CZE"],
+    [7,122846,137237,"POL"],
+    [7,139387,156567,"GER"],
+    [9,132141,150379,"ITA"],
+    [9,147719,162243,"USA"]
+  ],
+  "players": {
+    "118194": "Paolo Nicolai",
+    "122846": "Bartosz Łosiak",
+    "132141": "Alex Ranghieri",
+    "137127": "Christian Sandlie Sørum",
+    "137237": "Michal Bryl",
+    "137346": "Ondrej Perusic",
+    "139387": "Clemens Wickler",
+    "142889": "George Souto Maior Wanderley",
+    "143192": "Anders Berntsen Mol",
+    "146481": "Ahmed Tijan",
+    "146488": "Cherif Younousse",
+    "147009": "Andre Loyola Stein",
+    "147719": "Andrew Benesh",
+    "150379": "Adrian Ignacio Carambula Raurich",
+    "153790": "David Schweiner",
+    "156567": "Nils Ehlers",
+    "160555": "David Åhman",
+    "162243": "Miles Partain",
+    "163923": "Samuele Cottafava",
+    "166274": "Jonatan Hellvig"
+  }
+}

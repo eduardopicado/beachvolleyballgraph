@@ -1,0 +1,31 @@
+{
+  "code": "MENO1989",
+  "teams": [
+    [1,100101,100458,"USA"],
+    [2,101087,101109,"BRA"],
+    [3,100053,100054,"JPN"],
+    [4,101068,101089,"JPN"],
+    [5,100898,101041,"ITA"],
+    [6,101233,101234,"RUS"],
+    [7,100108,101162,"JPN"],
+    [8,100058,101337,"JPN"]
+  ],
+  "players": {
+    "100053": "Kazuyuki \"Takye\" Takao",
+    "100054": "Koichiro Kanno",
+    "100058": "Takeshi or Satoshi Matsumoto",
+    "100101": "Steve Timmons",
+    "100108": "Shiuchi Sawada",
+    "100458": "Karch Kiraly",
+    "100898": "Emanuele or Lele Fracascia",
+    "101041": "Fabrizio \"Basti\" Bastianelli",
+    "101068": "Akihiro Iwashima",
+    "101087": "Edmundo \"Edinho\" de Mattos Goncalves Ar",
+    "101089": "Eizaburo Mitsuhashi",
+    "101109": "Eduardo Muniz Barreto Tinoco",
+    "101162": "Shinichi Koizumi",
+    "101233": "Igor Abdrakhmanov",
+    "101234": "Alexandr Ovsiannikov",
+    "101337": "Shunichi Kawai"
+  }
+}

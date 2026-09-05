@@ -1,0 +1,28 @@
+{
+  "code": "WBUJ2026",
+  "teams": [
+    [1,153211,157843,"SLO"],
+    [2,146165,186496,"JPN"],
+    [3,172468,226549,"JPN"],
+    [4,193534,214142,"JPN"],
+    [5,191914,194227,"BDI"],
+    [5,225804,226516,"GER"],
+    [7,178693,214953,"TAN"]
+  ],
+  "players": {
+    "146165": "Maho Yabumi",
+    "153211": "Tajda Lovsin",
+    "157843": "Tjasa Kotnik",
+    "172468": "Riko Tsujimura",
+    "178693": "Mariam Omari",
+    "186496": "Miharu Kashihara",
+    "191914": "Delly Drice Kaze",
+    "193534": "Yu Okuno",
+    "194227": "Nadia Buntubwimana",
+    "214142": "Nozomi Sekiguchi",
+    "214953": "Victoria Mwita Samson",
+    "225804": "Nika Elaine Reddin",
+    "226516": "Emilia Antonia Bruno",
+    "226549": "Kako Yajima"
+  }
+}

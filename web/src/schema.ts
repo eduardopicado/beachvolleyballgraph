@@ -330,6 +330,51 @@ export interface ResultsFile {
 }
 
 /**
+ * One team in a tournament's final classification:
+ * `[rank, player A, player B, federation]`.
+ *
+ * **The federation is the team's, taken from its own row, and not either
+ * player's.** VIS stamps one `FederationCode` per team entry, and a player's
+ * record only ever holds their federation *today* (§6). A classification is a
+ * historical document: reading a flag off the player record would show Taiana
+ * Lima under Azerbaijan at a 2010 event she played for Brazil, and would
+ * silently rewrite the flags of every athlete who has ever transferred.
+ *
+ * `rank` is shared, not unique — see `ResultEntry`. A tournament's teams come
+ * back grouped by placement for exactly that reason.
+ */
+export type ClassificationTeam = [rank: number, a: number, b: number, federation: string];
+
+/**
+ * The full final classification of one tournament — every team that played it,
+ * whatever federation they came from.
+ *
+ * One small file per tournament rather than one large file for all of them, or
+ * one per season. The panel that reads this opens for a single event, so the
+ * fetch should be that event and nothing else: measured over the archive, a
+ * tournament averages 3.9 KB and the largest is 10.4 KB, against 146 KB for an
+ * average season and 6 MB for the lot.
+ *
+ * Self-contained on purpose, and that is what `players` is for. The obvious
+ * saving is to drop the names and look them up in `search.json`, which already
+ * holds every player in the archive — but that file is 390 KB and is
+ * deliberately not fetched until someone uses the search box. Depending on it
+ * here would mean pulling 390 KB to read a 2 KB classification.
+ *
+ * Carries no name, season or date for the tournament itself: `tournaments.json`
+ * has them, is already loaded by anything that can open this, and duplicating
+ * them would be two places to disagree.
+ */
+export interface ClassificationFile {
+  /** FIVB's tournament code, echoing the filename — `MPAR2024`. */
+  code: string;
+  /** Every team that played, best placement first. */
+  teams: ClassificationTeam[];
+  /** Player id -> display name, for every player named in `teams`. */
+  players: Record<string, string>;
+}
+
+/**
  * One player in the search index: `[id, name, tournaments]`, plus the graph's
  * label for them when that label cannot be reached by typing their name.
  *
@@ -439,6 +484,15 @@ export const resultsPath = (base: string, country: string, gender: Gender) =>
 export const tournamentsPath = (base: string) => `${base}${DATA_VERSION}/tournaments.json`;
 
 export const searchPath = (base: string) => `${base}${DATA_VERSION}/search.json`;
+
+/**
+ * Keyed by FIVB's tournament code rather than its number: the code is the
+ * archive's only durable public identifier (see `Tournament.code`), so
+ * `/v1/classifications/MPAR2024.json` means something to anyone reading the
+ * contract, where the internal number would not.
+ */
+export const classificationPath = (base: string, code: string) =>
+  `${base}${DATA_VERSION}/classifications/${code}.json`;
 
 /** `"BRA-M"` -> `{ country: "BRA", gender: "M" }`. Federation codes can contain a dash. */
 export function parseSliceKey(key: string): { country: string; gender: Gender } | null {

@@ -1,0 +1,31 @@
+{
+  "code": "WBDI2024",
+  "teams": [
+    [1,186496,211108,"JPN"],
+    [2,189221,203046,"USA"],
+    [3,146199,167348,"GRE"],
+    [4,192200,192742,"BDI"],
+    [5,118369,124540,"KEN"],
+    [5,172146,179830,"KEN"],
+    [5,193298,194227,"BDI"],
+    [5,214521,214953,"TAN"]
+  ],
+  "players": {
+    "118369": "Brackcides Khadambi",
+    "124540": "Gaudencia Makokha",
+    "146199": "Dimitra Manavi",
+    "167348": "Elisavet Triantafillidi",
+    "172146": "Sharleen Maywa",
+    "179830": "Mercy Iminza Likhayo",
+    "186496": "Miharu Kashihara",
+    "189221": "Tiffany Svenssohn",
+    "192200": "Pamella Irakoze",
+    "192742": "Emmanuelie Ndayikengurukiye",
+    "193298": "Emelyne Igiraneza",
+    "194227": "Nadia Buntubwimana",
+    "203046": "Kelly Kool",
+    "211108": "Izumi Ishihara",
+    "214521": "Leah Emmanuel Steven",
+    "214953": "Victoria Mwita Samson"
+  }
+}

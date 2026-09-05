@@ -1,0 +1,37 @@
+{
+  "code": "WSSF2015",
+  "teams": [
+    [1,103892,103903,"BRA"],
+    [2,104461,118951,"GER"],
+    [3,104505,115287,"BRA"],
+    [4,113895,120039,"CAN"],
+    [5,104487,116962,"NED"],
+    [5,104862,118426,"USA"],
+    [7,103011,133360,"USA"],
+    [7,116709,119015,"ESP"],
+    [9,105016,125322,"CAN"],
+    [9,105040,120750,"GER"]
+  ],
+  "players": {
+    "103011": "Jennifer Kessy",
+    "103892": "Talita Da Rocha Antunes",
+    "103903": "Larissa França Maestrini",
+    "104461": "Laura Ludwig",
+    "104487": "Marleen Ramond-van Iersel",
+    "104505": "Barbara Seixas de Freitas",
+    "104862": "Lauren Fendrick",
+    "105016": "Jamie Lynn Broder",
+    "105040": "Julia Sude",
+    "113895": "Sarah Pavan",
+    "115287": "Agatha Bednarczuk",
+    "116709": "Liliana Fernández Steiner",
+    "116962": "Madelein Meppelink",
+    "118426": "April Ross",
+    "118951": "Kira Walkenhorst",
+    "119015": "Elsa Baquerizo McMillan",
+    "120039": "Heather Bansley",
+    "120750": "Chantal Laboureur",
+    "125322": "Kristina May",
+    "133360": "Emily Capers"
+  }
+}

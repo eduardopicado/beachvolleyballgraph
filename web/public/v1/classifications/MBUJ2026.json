@@ -1,0 +1,43 @@
+{
+  "code": "MBUJ2026",
+  "teams": [
+    [1,201399,210037,"NOR"],
+    [2,156222,242029,"USA"],
+    [3,190440,190772,"CZE"],
+    [4,214061,214062,"BDI"],
+    [5,173509,187549,"DEN"],
+    [5,192199,211939,"BDI"],
+    [5,193529,218533,"JPN"],
+    [5,210034,232806,"NOR"],
+    [9,138642,222813,"NOR"],
+    [9,178300,242058,"JPN"],
+    [9,204927,204932,"BDI"],
+    [9,225872,242460,"GER"]
+  ],
+  "players": {
+    "138642": "Stian Opsahl",
+    "156222": "Benjamin Vaught",
+    "173509": "Jacob Hejlsvig Petersen",
+    "178300": "Kouma Tomita",
+    "187549": "Villads Flügge Napier",
+    "190440": "Jiri Dostal",
+    "190772": "Filip Rydval",
+    "192199": "Don Diamel Ndayisaba",
+    "193529": "Shuma Watanabe",
+    "201399": "Jonah Andre Lyngaas Kjemperud",
+    "204927": "Ishimwe Dan Jordy",
+    "204932": "Haragakiza Below",
+    "210034": "Mathias Damian Smørholm",
+    "210037": "Sebastian Lyngaas Kjemperud",
+    "211939": "Igiraneza Engambe",
+    "214061": "Gakiza Don Carmel",
+    "214062": "Manariyo Florian",
+    "218533": "Takuya Toda",
+    "222813": "Mon Mathys",
+    "225872": "Dinh Long Tran",
+    "232806": "Mikael Beckman Dos Santos",
+    "242029": "Wesley Jensen",
+    "242058": "Yuma Takasaki",
+    "242460": "Nikolai Terpe"
+  }
+}

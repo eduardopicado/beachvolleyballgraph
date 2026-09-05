@@ -1,0 +1,37 @@
+{
+  "code": "WRIO1993",
+  "teams": [
+    [1,100012,100074,"USA"],
+    [2,100252,100253,"BRA"],
+    [3,100250,100257,"BRA"],
+    [4,100019,100977,"USA"],
+    [5,100069,100254,"BRA"],
+    [6,100025,100037,"AUS"],
+    [7,100261,101208,"BRA"],
+    [8,100028,100263,"CUB"],
+    [9,100014,100039,"GER"],
+    [10,100013,100022,"JPN"]
+  ],
+  "players": {
+    "100012": "Karolyn \"KK\" Kirby",
+    "100013": "Kimie Kanda",
+    "100014": "Tina Klappenbach",
+    "100019": "Elizabeth \"Liz\" Masakayan",
+    "100022": "Kazumi Nakajima",
+    "100025": "Anita \"Neet\" Spring (Palm)",
+    "100028": "Nivris Rojas",
+    "100037": "Jacqui or Jac Vukosa",
+    "100039": "Cordula Borger",
+    "100069": "Roseli Ana Timm",
+    "100074": "Nancy Reno",
+    "100250": "Jacqueline Louise \"Jackie\" Cruz Silva",
+    "100252": "Mônica Rodrigues",
+    "100253": "Adriana Samuel Ramos",
+    "100254": "Maria Isabel Barroso Salgado",
+    "100257": "Karina Lins e Silva",
+    "100261": "Claudia Glaser Lupion",
+    "100263": "Lazara Martinez",
+    "100977": "Linda \"Chisy\" Chisholm Carillo",
+    "101208": "Cristina Wallerstein Mignone"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "code": "WBPTD22",
+  "teams": [
+    [1,135571,140066,"USA"],
+    [2,139087,147073,"BRA"],
+    [3,153703,156328,"NED"],
+    [4,118988,125172,"AUS"],
+    [5,132614,135579,"SUI"],
+    [5,162432,184611,"USA"],
+    [7,104079,104505,"BRA"],
+    [7,141983,141984,"LAT"],
+    [9,113895,139270,"CAN"],
+    [9,125549,153267,"GER"]
+  ],
+  "players": {
+    "104079": "Carolina Solberg Salgado",
+    "104505": "Barbara Seixas de Freitas",
+    "113895": "Sarah Pavan",
+    "118988": "Mariafe Artacho Del Solar",
+    "125172": "Taliqua Clancy",
+    "125549": "Cinja Tillmann",
+    "132614": "Tanja Hüberli",
+    "135571": "Sara Hughes",
+    "135579": "Nina Brunner",
+    "139087": "Eduarda Santos Lisboa",
+    "139270": "Sophie Bukovec",
+    "140066": "Kelly Cheng",
+    "141983": "Tina Graudina",
+    "141984": "Anastasija Samoilova",
+    "147073": "Ana Patricia Silva Ramos",
+    "153267": "Svenja Müller",
+    "153703": "Raïsa Schoon",
+    "156328": "Katja Stam",
+    "162432": "Kristen Cruz",
+    "184611": "Taryn Brasher"
+  }
+}

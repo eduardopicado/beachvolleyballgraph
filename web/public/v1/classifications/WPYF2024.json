@@ -1,0 +1,37 @@
+{
+  "code": "WPYF2024",
+  "teams": [
+    [1,170643,209692,"USA"],
+    [2,189221,203046,"USA"],
+    [3,103670,187623,"CYP"],
+    [4,194470,209828,"FRA"],
+    [5,124758,181601,"NED"],
+    [5,167725,169891,"USA"],
+    [5,180619,180744,"AUS"],
+    [5,181976,209753,"FRA"],
+    [9,167962,191602,"USA"],
+    [9,209754,209756,"FRA"]
+  ],
+  "players": {
+    "103670": "Erika Nyström",
+    "124758": "Fiona van Diepen",
+    "167725": "Kaley Melville",
+    "167962": "Jessica McGuire",
+    "169891": "Melissa Powell",
+    "170643": "Molly Shaw",
+    "180619": "Bailee Kendall",
+    "180744": "Ruby Vanloo",
+    "181601": "Danieke Prins",
+    "181976": "Anastasia Teikihuavanaka",
+    "187623": "Alexandra Gusarova",
+    "189221": "Tiffany Svenssohn",
+    "191602": "Logan Beitler",
+    "194470": "Céline Collette",
+    "203046": "Kelly Kool",
+    "209692": "Chloe Loreen",
+    "209753": "Kumuhei Heitaa",
+    "209754": "Taiana Tere",
+    "209756": "Lokelani Vero",
+    "209828": "Eléonore Johansen"
+  }
+}

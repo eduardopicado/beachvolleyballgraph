@@ -1,0 +1,43 @@
+{
+  "code": "MSSF2016",
+  "teams": [
+    [1,117474,118267,"BRA"],
+    [2,104073,133285,"BRA"],
+    [3,103810,119736,"USA"],
+    [4,104994,131994,"CAN"],
+    [5,104357,104449,"LAT"],
+    [5,105042,116715,"POL"],
+    [5,105143,116602,"USA"],
+    [5,122846,122847,"POL"],
+    [9,103945,104509,"MEX"],
+    [9,104220,120717,"CAN"],
+    [9,118317,119991,"NED"],
+    [9,132141,150379,"ITA"]
+  ],
+  "players": {
+    "103810": "John Hyden",
+    "103945": "Rodolfo Lombardo Ontiveros",
+    "104073": "Pedro Solberg",
+    "104220": "Josh Binstock",
+    "104357": "Aleksandrs Samoilovs",
+    "104449": "Janis Smedins",
+    "104509": "Juan Ramón Virgen Pulido",
+    "104994": "Ben Saxton",
+    "105042": "Grzegorz Fijalek",
+    "105143": "Philip Dalhausser",
+    "116602": "Nicholas Lucena",
+    "116715": "Mariusz Prudel",
+    "117474": "Bruno Oscar Schmidt",
+    "118267": "Alison Cerutti",
+    "118317": "Alexander Brouwer",
+    "119736": "Tri Bourne",
+    "119991": "Robert Meeuwsen",
+    "120717": "Samuel Schachter",
+    "122846": "Bartosz Łosiak",
+    "122847": "Piotr Kantor",
+    "131994": "Chaim Schalk",
+    "132141": "Alex Ranghieri",
+    "133285": "Evandro Gonçalves Oliveira Júnior",
+    "150379": "Adrian Ignacio Carambula Raurich"
+  }
+}

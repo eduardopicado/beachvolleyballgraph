@@ -1,0 +1,43 @@
+{
+  "code": "WHAC2008",
+  "teams": [
+    [1,104862,119657,"USA"],
+    [2,102695,104261,"ITA"],
+    [3,103325,104721,"SUI"],
+    [4,104654,120555,"UKR"],
+    [5,103387,103405,"ESP"],
+    [5,105018,116962,"NED"],
+    [7,118120,120882,"SWE"],
+    [7,120493,120494,"ESP"],
+    [9,104738,119715,"DEN"],
+    [9,117737,117946,"SWE"],
+    [9,118101,118260,"ITA"],
+    [9,118992,120662,"GBR"]
+  ],
+  "players": {
+    "102695": "Margherita Chiavaro",
+    "103325": "Isabelle Forrer",
+    "103387": "Patricia Barrio Cendoya",
+    "103405": "Veronica Zamora Granja",
+    "104261": "Diletta Lunardi",
+    "104654": "Natalia Shumeiko",
+    "104721": "Sarah Meyer Suarez",
+    "104738": "Tine Rose Eriksen",
+    "104862": "Lauren Fendrick",
+    "105018": "Margo Wiltens",
+    "116962": "Madelein Meppelink",
+    "117737": "Camilla Nilsson",
+    "117946": "Frida Stahre",
+    "118101": "Alessandra Pinese",
+    "118120": "Rivia Oliveira",
+    "118260": "Federica Tonon",
+    "118992": "Helen Brown",
+    "119657": "Ashley Ivy",
+    "119715": "Charlotte Dyhr",
+    "120493": "Patricia Macías",
+    "120494": "Maria Jose Ruiz Estevez",
+    "120555": "Alona Malysheva",
+    "120662": "Rachel Turner",
+    "120882": "Tora Hansson"
+  }
+}

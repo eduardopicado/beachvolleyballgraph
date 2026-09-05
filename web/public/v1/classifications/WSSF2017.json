@@ -1,0 +1,43 @@
+{
+  "code": "WSSF2017",
+  "teams": [
+    [1,104461,118951,"GER"],
+    [2,115287,139087,"BRA"],
+    [3,103892,103903,"BRA"],
+    [4,113895,124979,"CAN"],
+    [5,105040,120750,"GER"],
+    [5,116659,120746,"CZE"],
+    [5,124153,124999,"SUI"],
+    [5,132614,135579,"SUI"],
+    [9,104862,118426,"USA"],
+    [9,118054,120745,"CZE"],
+    [9,120039,141868,"CAN"],
+    [9,120880,125124,"USA"]
+  ],
+  "players": {
+    "103892": "Talita Da Rocha Antunes",
+    "103903": "Larissa França Maestrini",
+    "104461": "Laura Ludwig",
+    "104862": "Lauren Fendrick",
+    "105040": "Julia Sude",
+    "113895": "Sarah Pavan",
+    "115287": "Agatha Bednarczuk",
+    "116659": "Marketa Slukova",
+    "118054": "Kristyna Kolocova",
+    "118426": "April Ross",
+    "118951": "Kira Walkenhorst",
+    "120039": "Heather Bansley",
+    "120745": "Michala Frank",
+    "120746": "Barbora Hermannová",
+    "120750": "Chantal Laboureur",
+    "120880": "Summer Ross",
+    "124153": "Joana Mäder",
+    "124979": "Melissa Humana-Paredes",
+    "124999": "Anouk Vergé-Dépré",
+    "125124": "Brooke Sweat",
+    "132614": "Tanja Hüberli",
+    "135579": "Nina Brunner",
+    "139087": "Eduarda Santos Lisboa",
+    "141868": "Brandie Wilkerson"
+  }
+}

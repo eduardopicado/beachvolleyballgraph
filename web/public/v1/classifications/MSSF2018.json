@@ -1,0 +1,37 @@
+{
+  "code": "MSSF2018",
+  "teams": [
+    [1,137127,143192,"NOR"],
+    [2,105042,137237,"POL"],
+    [3,122846,122847,"POL"],
+    [4,139387,147665,"GER"],
+    [5,104142,133228,"LAT"],
+    [5,118194,120774,"ITA"],
+    [7,118317,119991,"NED"],
+    [7,139166,141535,"RUS"],
+    [9,103311,116710,"ESP"],
+    [9,104357,104449,"LAT"]
+  ],
+  "players": {
+    "103311": "Pablo Herrera Allepuz",
+    "104142": "Martins Plavins",
+    "104357": "Aleksandrs Samoilovs",
+    "104449": "Janis Smedins",
+    "105042": "Grzegorz Fijalek",
+    "116710": "Adrián Gavira Collado",
+    "118194": "Paolo Nicolai",
+    "118317": "Alexander Brouwer",
+    "119991": "Robert Meeuwsen",
+    "120774": "Daniele Lupo",
+    "122846": "Bartosz Łosiak",
+    "122847": "Piotr Kantor",
+    "133228": "Edgars Tocs",
+    "137127": "Christian Sandlie Sørum",
+    "137237": "Michal Bryl",
+    "139166": "Igor Velichko",
+    "139387": "Clemens Wickler",
+    "141535": "Oleg Stoyanovskiy",
+    "143192": "Anders Berntsen Mol",
+    "147665": "Julius Thole"
+  }
+}

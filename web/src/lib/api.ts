@@ -12,6 +12,7 @@ import type {
   PlayersFile,
   ResultsFile,
   SearchIndex,
+  ClassificationFile,
   TournamentsFile,
   Gender,
 } from '../schema';
@@ -21,6 +22,7 @@ import {
   playersPath,
   resultsPath,
   searchPath,
+  classificationPath,
   tournamentsPath,
 } from '../schema';
 
@@ -64,6 +66,14 @@ export const fetchPlayers = (country: string, gender: Gender) =>
  * visits never need.
  */
 export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
+
+/**
+ * One tournament's full field. A few kilobytes, fetched when a reader opens
+ * that tournament and never before — see `ClassificationFile` for why it is
+ * one file per event rather than a slice of a larger one.
+ */
+export const fetchClassification = (code: string) =>
+  load<ClassificationFile>(classificationPath(BASE, code));
 
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([
