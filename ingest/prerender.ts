@@ -305,6 +305,8 @@ ${headFor(url, title, description)}
 
 <p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a> and is rebuilt weekly. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
 
+<p>Player photographs are FIVB's as well, and none are stored here — your browser fetches each one from FIVB's image service as you open a player. Most players have no photo on file, and those show initials instead.</p>
+
 <p>Not affiliated with or endorsed by the FIVB.</p>
 
 <h2>Counting rules</h2>
@@ -322,9 +324,9 @@ ${headFor(url, title, description)}
 
 <p>For a wrong number, a link to the page and what you expected to see is the fastest route to a fix.</p>
 
-<h2>Code and reuse</h2>
+<h2>Copyright</h2>
 
-<p>© 2026 Eduardo Picado. All rights reserved. This project's source is publicly viewable for portfolio and reference purposes; no permission is granted to copy, modify or redistribute it without prior written permission. Ask at the address above.</p>
+<p>© 2026 Eduardo Picado. All rights reserved.</p>
 
 <p><a href="${esc(BASE)}">← Back to the graph</a></p>
 </main>
