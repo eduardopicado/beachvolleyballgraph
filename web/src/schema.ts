@@ -374,14 +374,12 @@ export interface ClassificationFile {
    *
    * Stored rather than read off the code, which *usually* starts with the
    * gender letter — `WBUS2026` — but does not always: `Rio2016M` and
-   * `Rio2016W` put it at the end, and taking the first character would send
-   * every reader of the 2016 Olympic women's field to a men's page.
+   * `Rio2016W` put it at the end, and `WWRS2022` is a men's event under a `W`.
+   * Taking the first character would send every reader of the 2016 Olympic
+   * women's field to a men's page. Quirks §23.
    *
-   * Taken from the field itself, as the gender the majority of these players
-   * are published under. That is the same value the slices are keyed by, which
-   * is what makes it usable below; it also absorbs the three team rows FIVB
-   * files under the wrong gender (quirks §18) rather than being derailed by
-   * them.
+   * Comes from VIS's own `Gender` on the tournament, which is populated on all
+   * 9,272 it holds and has both of those right.
    */
   gender: Gender;
   /** Every team that played, best placement first. */

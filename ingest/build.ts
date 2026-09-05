@@ -38,8 +38,20 @@ export interface Tournament {
    * tournament in the archive (checked: 1,688 of 1,688, no duplicates), which
    * makes it the only durable public identifier an outside reference can key
    * on. `no` is stable too but means nothing outside VIS.
+   *
+   * **Do not read the gender off it.** Two tournaments break the pattern —
+   * `Rio2016M` and `Rio2016W` carry the letter at the end, and `WWRS2022` is a
+   * men's event under a `W` — so the first character is right on 1,686 of the
+   * 1,688 and silently wrong on the Olympics. `gender` below is the field to
+   * use; quirks §23.
    */
   code: string;
+  /**
+   * Men's or women's draw. VIS gives it directly (`Gender`, 0 or 1) and has it
+   * populated on all 9,272 tournaments it returns, including the two whose
+   * code disagrees.
+   */
+  gender: Gender;
   /**
    * Display name as VIS gives it — "BPT Elite16 Hamburg", "Gstaad". Short
    * (median 9 characters), and the gender is not in it: FIVB numbers the men's
@@ -273,6 +285,11 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       tier,
       level: levelFor(row.Type),
       season,
+      // Same encoding as a player's: 0 men, 1 women. Anything else is
+      // unreachable — every tournament VIS returns carries one of the two —
+      // and defaulting to men rather than dropping the event keeps a malformed
+      // row's results in the archive.
+      gender: row.Gender === '1' ? 'W' : 'M',
       version: (row.Version ?? '').trim(),
       endsOn: /^\d{4}-\d{2}-\d{2}/.test(row.EndDateMainDraw ?? '')
         ? row.EndDateMainDraw!.slice(0, 10)

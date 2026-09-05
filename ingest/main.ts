@@ -564,17 +564,10 @@ async function main() {
       }
     }
 
-    // The event's gender, by majority of its own field. Not the code's first
-    // letter: `Rio2016M` and `Rio2016W` carry it at the end, and not the
-    // tournament record, which has no gender field at all. Majority rather
-    // than any one player's, so the three team rows FIVB files under the wrong
-    // gender (quirks §18) cannot flip a whole field — 105 teams is the largest,
-    // one wrong row the worst case.
-    let men = 0;
-    for (const id of Object.keys(named)) {
-      if (players.get(Number(id))?.gender === 'M') men++;
-    }
-    const gender: Gender = men * 2 >= Object.keys(named).length ? 'M' : 'W';
+    // Published on the file so a classification can be read on its own, and
+    // taken from VIS rather than from the code's first letter, which lies on
+    // two tournaments — quirks §23.
+    const gender = tournament.gender;
 
     // Where each name sends a reader, kept as the corrections to a guess: the
     // team's own federation plus the gender above. See ClassificationFile in

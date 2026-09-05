@@ -1678,23 +1678,28 @@ and unique on all **1,688** qualifying tournaments.
 | Code | What it actually is |
 |---|---|
 | `Rio2016M` / `Rio2016W` | The 2016 Olympic tournaments, with the gender letter at the **end**. Read the first character and both are men's events. |
-| `WWRS2022` | Warsaw 2022 Futures — a field of **54 men**, every one of them published in a men's slice, under a `W`. There is no `MWRS2022`; the season's other Warsaw Futures is coded `MWAR2022`/`WWAR2022`. |
+| `WWRS2022` | Warsaw 2022 Futures — a field of **54 men**, every one of them published in a men's slice, under a `W`. VIS's own `Gender` on that tournament is 0. There is no `MWRS2022`; the season's other Warsaw Futures is coded `MWAR2022`/`WWAR2022`. |
 
 So the first character is right on 1,686 of 1,688 tournaments, which is exactly
 the failure shape worth writing down: a rule that works on 99.88% of the
 archive and is silently wrong on the Olympics.
 
-**Not used as a gender anywhere.** `classifications/*.json` publishes a
-`gender` field instead, taken from the field itself — the gender the majority
-of that tournament's players are published under. Majority rather than any one
-player's, because §18's three mislabelled team rows are in this data too, and a
-single wrong row must not be able to flip a 105-team field.
+**The data is right; only the code is wrong.** VIS returns a `Gender` field on
+the tournament itself — the same 0/1 encoding a player carries — populated on
+all **9,272** tournaments it holds, and it has both of these correct:
+`Rio2016W` is 1, `WWRS2022` is 0. So this is a naming quirk in one field, not
+a mislabelled event.
 
-**Only the classification needs it.** Everywhere else the gender arrives with
-the player record (`Gender`, 0 or 1), which is authoritative and always
-present. This is the one place a tournament has to name its own gender, because
-a classification is read on its own — see `ClassificationFile` in
+**Read from there, and published on the classification.**
+`classifications/*.json` carries a `gender` taken straight from that field,
+because a classification is read on its own — see `ClassificationFile` in
 `web/src/schema.ts` for why the file is deliberately self-contained.
+
+Cross-checked against the archive: for all 1,608 tournaments with a published
+field, VIS's gender is the same as the gender the majority of that
+tournament's players are published under. The two agree everywhere, including
+on §18's three mislabelled team rows, which are individual players filed under
+the wrong gender rather than events.
 
 ---
 
@@ -1768,11 +1773,11 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   men played FIVB events — the entry lists that named them presumably still
   exist. Also in that neighbourhood, three fields where a character has been
   mangled rather than left out: `M…Ttus` and `B…Hme` read as Möttus and Böhme.
-- **§23**, the two tournament codes whose gender letter is wrong. `Rio2016M` and
-  `Rio2016W` carry it at the end rather than the start, and `WWRS2022` is a
-  field of 54 men under a `W`. Small, and cheap for FIVB to check against its
-  own entry lists; worth raising because the code is the identifier anyone
-  outside VIS keys on.
+- **§23**, the two tournament codes whose gender letter is wrong. `Rio2016M`
+  and `Rio2016W` carry it at the end rather than the start, and `WWRS2022` is a
+  field of 54 men under a `W` — on an event VIS's own `Gender` field correctly
+  calls men's. So it is a rename rather than a data correction, and worth
+  raising because the code is the identifier anyone outside VIS keys on.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
