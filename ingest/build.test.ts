@@ -2088,6 +2088,59 @@ describe('the published championship names', () => {
 });
 
 /**
+ * A placeholder is not a name, and dots are the placeholder in the early
+ * seasons.
+ *
+ * Quirks §22: 37 player records carry a `FirstName` of exactly `"..."`, 30 of
+ * them published. The graph was never wrong — `shortName` draws the surname —
+ * so the fault lived only where the full name is used: the card heading, every
+ * search row, the avatar's initials, and the sort, where `.` orders before
+ * every letter and put all thirty at the head of the archive.
+ *
+ * Asserted on the artifact rather than a fixture, because a fixture proves the
+ * blanking works and only the artifact proves it is reached on the field that
+ * actually carries it.
+ */
+describe('the published names carry no placeholder for an unknown name', () => {
+  const index = JSON.parse(readFileSync(new URL('../web/public/v1/search.json', import.meta.url), 'utf8'));
+  const names: string[] = [];
+  for (const entries of Object.values(index.slices as Record<string, SearchEntry[]>)) {
+    for (const [, name, , short] of entries) {
+      names.push(name);
+      if (short) names.push(short);
+    }
+  }
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on an empty list.
+    expect(names.length).toBeGreaterThan(10_000);
+  });
+
+  it('has no name that is or begins with a run of dots', () => {
+    // 30 before this: "... Guerber", "... Grimalt", "... Tatsukawa".
+    expect(names.filter((n) => /(^|\s)[.…]+(\s|$)/u.test(n))).toEqual([]);
+  });
+
+  it('kept the players themselves, under their surnames', () => {
+    // Guard the guard: dropping the 30 records would also satisfy the
+    // assertion above. Grimalt played four tournaments, Tatsukawa one.
+    for (const surname of ['Grimalt', 'Tatsukawa', 'Guerber', 'Grandvuillemin']) {
+      expect(names).toContain(surname);
+    }
+  });
+
+  it('leaves a dot that belongs to a real name alone', () => {
+    // The boundary, and the whole risk: 536 records carry a single dot inside
+    // a genuine name. A rule that stripped dots rather than testing the whole
+    // field would take these with it.
+    expect(names).toContain('N. Aihara');
+    expect(names).toContain('Jean C. Gaston');
+    expect(names.some((n) => n.includes('St. John'))).toBe(true);
+    expect(names.some((n) => n.includes('A.J.'))).toBe(true);
+  });
+});
+
+/**
  * A name that offers two alternatives is findable under either of them.
  *
  * Quirks §21: 38 published records hold a given name beside the name the
