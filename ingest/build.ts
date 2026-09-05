@@ -731,9 +731,48 @@ function stripCompetitionStatus(value: string): string {
   return value.replace(/(?<!\p{L})SUSPENDED(?!\p{L})/giu, '');
 }
 
+/**
+ * A name field that is nothing but dots says "we do not know this name". It is
+ * blanked here so it is never printed as one.
+ *
+ * 37 of the 131,180 player records carry a `FirstName` of exactly `"..."`, and
+ * **30 of them publish**: `... Guerber`, `... Grimalt`, `... Tatsukawa`. Every
+ * one is a low-numbered record from the hand-entered seasons with no
+ * `Birthdate` — the same era, and the same missing-person shape, as the
+ * mis-resolved entries in quirks §18.
+ *
+ * Left in, the placeholder is not inert:
+ *
+ *  - it headlines the player card and every search row;
+ *  - `initials()` takes the dot for a given-name initial and draws ".G" in the
+ *    avatar, where a surname-only name would correctly give "G";
+ *  - and `.` sorts before every letter, so all 30 sit at the very top of any
+ *    alphabetical listing of the archive. The first thirty names a reader
+ *    meets are thirty records with no name.
+ *
+ * The graph label was already right — `shortName` draws the surname — which is
+ * exactly why this survived: the nodes look fine and only the card, the search
+ * and the sort carry it.
+ *
+ * **Tested on the whole field, never stripped as a substring**, and that is the
+ * entire risk in this function. 536 records carry a single dot inside a real
+ * name — `N. Aihara`, `Jean C. Gaston`, `Christopher St. John "Sinjin" Smith`,
+ * `Adam "A.J." Johnson` — so a rule that removed dots rather than testing the
+ * field would damage 536 names to repair 37.
+ *
+ * The ellipsis character is admitted alongside the three-dot form for the same
+ * reason the test is anchored: it costs nothing and cannot reach a real name.
+ * Only `"..."` occurs in the archive today; `…` appears in two records, but as
+ * encoding damage inside real surnames (`M…Ttus`, `B…Hme`), which keeps its
+ * letters and so is never matched here.
+ */
+function blankUnknownName(value: string): string {
+  return /^[.…]+$/u.test(value.trim()) ? '' : value;
+}
+
 function fullName(row: VisRow): string {
-  const first = stripCompetitionStatus((row.FirstName ?? '').trim());
-  const last = stripCompetitionStatus((row.LastName ?? '').trim());
+  const first = blankUnknownName(stripCompetitionStatus((row.FirstName ?? '').trim()));
+  const last = blankUnknownName(stripCompetitionStatus((row.LastName ?? '').trim()));
   // Tidied as one string rather than field by field, so the shout test sees the
   // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
   // "HETZENDORFER" on its own looks like a name that simply shouts.
@@ -748,11 +787,11 @@ function fullName(row: VisRow): string {
 function shortName(row: VisRow, full: string): string {
   // A `TeamName` of nothing but "Suspended" is emptied by the strip, and so
   // falls through to the surname the same way an unpopulated one does.
-  const team = tidyName(stripCompetitionStatus(row.TeamName ?? ''));
+  const team = tidyName(blankUnknownName(stripCompetitionStatus(row.TeamName ?? '')));
   if (team) return team;
   // From the raw field rather than sliced out of `full`, which is already
   // tidied and may have been title-cased as part of a longer name.
-  const last = tidyName(stripCompetitionStatus(row.LastName ?? ''));
+  const last = tidyName(blankUnknownName(stripCompetitionStatus(row.LastName ?? '')));
   return last || full;
 }
 
