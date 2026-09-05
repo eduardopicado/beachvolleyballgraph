@@ -1,5 +1,6 @@
 {
   "code": "MMOS2012",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,116554,116556,"NED"],
@@ -159,5 +160,9 @@
     "133285": "Evandro Gonçalves Oliveira Júnior",
     "135226": "Maverick Hatch",
     "135858": "Anton Ermishenkov"
+  },
+  "elsewhere": {
+    "104434": "AZE-M",
+    "118567": "ENG-M"
   }
 }

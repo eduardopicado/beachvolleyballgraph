@@ -1,5 +1,6 @@
 {
   "code": "MMRS2008",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,103921,104662,"CHN"],
@@ -165,5 +166,11 @@
     "120549": "abdullah Kaabi",
     "120723": "Ali Mohammad",
     "120727": "ahmad matar"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

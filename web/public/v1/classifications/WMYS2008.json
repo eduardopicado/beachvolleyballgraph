@@ -1,5 +1,6 @@
 {
   "code": "WMYS2008",
+  "gender": "W",
   "teams": [
     [1,103212,104079,"BRA"],
     [2,104157,104425,"GER"],
@@ -165,5 +166,13 @@
     "120927": "Grazyna Urbanska",
     "120932": "Barbara Bawol",
     "133621": "Victoria Palmer"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118993": "ENG-W",
+    "133621": "ENG-W"
   }
 }

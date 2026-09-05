@@ -1,5 +1,6 @@
 {
   "code": "WOSK2004",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100251,102145,"AUS"],
@@ -167,5 +168,8 @@
     "104615": "Nadia Campisi",
     "113911": "Sandra Wiegers",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

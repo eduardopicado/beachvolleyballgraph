@@ -1,5 +1,6 @@
 {
   "code": "MU192008",
+  "gender": "M",
   "teams": [
     [1,119274,122920,"EST"],
     [2,120740,124537,"USA"],
@@ -75,5 +76,8 @@
     "122920": "Oliver Venno",
     "124537": "Antonio Ciarelli",
     "148569": "Sergio Reynaldo Gonzalez Bayard"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WCAR1996",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100250,100258,"BRA"],
@@ -99,5 +100,9 @@
     "101452": "Cilene Vieira Nascimento",
     "101566": "Lisa Cepeliauskas",
     "101567": "Bryce Barry"
+  },
+  "elsewhere": {
+    "100621": "USA-W",
+    "100686": "USA-W"
   }
 }

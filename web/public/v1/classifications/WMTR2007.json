@@ -1,5 +1,6 @@
 {
   "code": "WMTR2007",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103653,104438,"CHN"],
@@ -146,5 +147,10 @@
     "118985": "Zina Stone",
     "118987": "Taylor Schulz",
     "118988": "Mariafe Artacho Del Solar"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

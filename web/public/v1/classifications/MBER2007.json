@@ -1,5 +1,6 @@
 {
   "code": "MBER2007",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,103108,104336,"GER"],
@@ -171,5 +172,8 @@
     "117861": "Jorge Terceiro",
     "119043": "Isaac Kapa",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

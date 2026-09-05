@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,116642,121925,"AUS"],
@@ -189,5 +190,14 @@
     "124696": "Alessia Lombardi",
     "133728": "Carolina Del Pilar Costagrande",
     "143351": "Lyudmila Issayeva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "119620": "AZE-W"
   }
 }

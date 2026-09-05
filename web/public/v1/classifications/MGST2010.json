@@ -1,5 +1,6 @@
 {
   "code": "MGST2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,103108,104336,"GER"],
@@ -180,5 +181,8 @@
     "129963": "Igor Spencer Hernandez Colina",
     "131860": "Konstantin Semenov",
     "131975": "Yong Liu"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

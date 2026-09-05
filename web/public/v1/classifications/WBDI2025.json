@@ -1,5 +1,6 @@
 {
   "code": "WBDI2025",
+  "gender": "W",
   "teams": [
     [1,153211,179308,"SLO"],
     [2,153733,200707,"GER"],
@@ -36,5 +37,8 @@
     "211614": "Minami Asano",
     "223517": "IGIRANEZA Emelyne",
     "225804": "Nika Elaine Reddin"
+  },
+  "elsewhere": {
+    "183952": "NED-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MESP2000",
+  "gender": "M",
   "teams": [
     [1,100426,100997,"BRA"],
     [2,100218,100427,"BRA"],
@@ -195,5 +196,8 @@
     "103156": "Joao Santos",
     "103157": "Marco Silva",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

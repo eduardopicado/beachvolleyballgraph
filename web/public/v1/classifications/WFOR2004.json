@@ -1,5 +1,6 @@
 {
   "code": "WFOR2004",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,100256,100926,"BRA"],
@@ -170,5 +171,8 @@
     "104617": "Luiza Amélia Ramos",
     "104643": "Luciana Rosario",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

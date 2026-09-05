@@ -1,5 +1,6 @@
 {
   "code": "WCHE2010",
+  "gender": "W",
   "teams": [
     [1,104460,118951,"GER"],
     [2,118182,118335,"GER"],
@@ -105,5 +106,9 @@
     "134085": "Leena Sandamali Somarathna",
     "134086": "Geethika Lalani Gunawardana",
     "143351": "Lyudmila Issayeva"
+  },
+  "elsewhere": {
+    "120112": "CHI-W",
+    "122369": "AZE-W"
   }
 }

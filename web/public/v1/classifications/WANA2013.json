@@ -1,5 +1,6 @@
 {
   "code": "WANA2013",
+  "gender": "W",
   "teams": [
     [1,117997,120468,"RUS"],
     [2,120751,125057,"GER"],
@@ -99,5 +100,8 @@
     "141926": "Anastasiia Strugova",
     "143186": "Samaa Miyagawa",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

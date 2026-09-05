@@ -1,5 +1,6 @@
 {
   "code": "WKRI2008",
+  "gender": "W",
   "teams": [
     [1,103865,105063,"BRA"],
     [2,103001,103218,"NOR"],
@@ -156,5 +157,13 @@
     "120936": "Natacha Rigobert",
     "133621": "Victoria Palmer",
     "151089": "Hannah Ross"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118993": "ENG-W",
+    "133621": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WHAG2011",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102850,103242,"USA"],
@@ -195,5 +196,9 @@
     "135465": "Inga Ikauniece",
     "135482": "Berta Antequera Feixa",
     "137154": "Vivian Jimenez"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "119620": "AZE-W"
   }
 }

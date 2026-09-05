@@ -1,5 +1,6 @@
 {
   "code": "MMAL2001",
+  "gender": "M",
   "teams": [
     [1,100427,102071,"BRA"],
     [2,100148,101345,"ARG"],
@@ -171,5 +172,8 @@
     "103742": "Lluis Badosa",
     "103743": "Diego Nota",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

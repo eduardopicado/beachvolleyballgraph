@@ -1,5 +1,6 @@
 {
   "code": "MSTA2009",
+  "gender": "M",
   "teams": [
     [1,103109,103217,"GER"],
     [2,101669,118267,"BRA"],
@@ -147,5 +148,8 @@
     "118561": "Oivind Hordvik",
     "118942": "Martin Spinnangr",
     "122133": "Bradley Keenan"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

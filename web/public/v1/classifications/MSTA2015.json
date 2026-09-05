@@ -1,5 +1,6 @@
 {
   "code": "MSTA2015",
+  "gender": "M",
   "teams": [
     [1,104073,133285,"BRA"],
     [2,122846,122847,"POL"],
@@ -174,5 +175,8 @@
     "143189": "Mathias Berntsen",
     "146272": "Hasan Huseyin Mermer",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

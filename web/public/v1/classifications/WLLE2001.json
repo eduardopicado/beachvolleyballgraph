@@ -1,5 +1,6 @@
 {
   "code": "WLLE2001",
+  "gender": "W",
   "teams": [
     [1,100926,103212,"BRA"],
     [2,102687,103663,"RUS"],
@@ -75,5 +76,8 @@
     "103672": "Ganna Sergeyeva",
     "103673": "Viktoriia Polishchuk",
     "103681": "Dorota Wojtczak"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

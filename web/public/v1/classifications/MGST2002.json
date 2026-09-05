@@ -1,5 +1,6 @@
 {
   "code": "MGST2002",
+  "gender": "M",
   "teams": [
     [1,100148,101345,"ARG"],
     [2,101591,102082,"BRA"],
@@ -318,5 +319,8 @@
     "117217": "Jose Martell",
     "118536": "Koko Prasetyo Darkuncoro",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WU212006",
+  "gender": "W",
   "teams": [
     [1,104505,105053,"BRA"],
     [2,104460,105040,"GER"],
@@ -123,5 +124,10 @@
     "137138": "Gilda Lombardo",
     "145698": "Jekaterina Loheisa",
     "161937": "Cheuk Yee Kong"
+  },
+  "elsewhere": {
+    "117934": "TUR-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

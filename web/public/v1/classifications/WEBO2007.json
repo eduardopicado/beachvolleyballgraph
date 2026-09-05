@@ -1,5 +1,6 @@
 {
   "code": "WEBO2007",
+  "gender": "W",
   "teams": [
     [1,103865,105063,"BRA"],
     [2,103997,104616,"BRA"],
@@ -81,5 +82,8 @@
     "119539": "Jill Dorsey",
     "119620": "Vivian Danielle da Conceição Cunha",
     "137138": "Gilda Lombardo"
+  },
+  "elsewhere": {
+    "119620": "AZE-W"
   }
 }

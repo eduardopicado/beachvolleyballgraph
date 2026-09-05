@@ -1,5 +1,6 @@
 {
   "code": "WU192008",
+  "gender": "W",
   "teams": [
     [1,119066,120750,"GER"],
     [2,120367,120682,"NED"],
@@ -75,5 +76,9 @@
     "120772": "Francesca Gonnelli",
     "124073": "Quirine Oosterveld",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "120747": "LUX-W",
+    "147368": "AZE-W"
   }
 }

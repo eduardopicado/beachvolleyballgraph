@@ -1,5 +1,6 @@
 {
   "code": "WLLE2004",
+  "gender": "W",
   "teams": [
     [1,102356,103778,"FRA"],
     [2,103670,103671,"FIN"],
@@ -66,5 +67,8 @@
     "104944": "Leonie Penninga",
     "104957": "Kadri Puri",
     "104958": "Oksana Bosjanok"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

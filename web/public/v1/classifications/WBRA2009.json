@@ -1,5 +1,6 @@
 {
   "code": "WBRA2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103011,118426,"USA"],
@@ -129,5 +130,11 @@
     "122122": "Claudinere Bento Sabino",
     "122130": "Maria Aparecida Santos",
     "122131": "Érica Letícia Freitas Almeida"
+  },
+  "elsewhere": {
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

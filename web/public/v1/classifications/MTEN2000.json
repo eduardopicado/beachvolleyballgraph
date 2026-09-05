@@ -1,5 +1,6 @@
 {
   "code": "MTEN2000",
+  "gender": "M",
   "teams": [
     [1,100529,100530,"SUI"],
     [2,101591,102082,"BRA"],
@@ -189,5 +190,8 @@
     "103042": "Antonio Rojas Padron",
     "111911": "Richard Brandon Taliaferro",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

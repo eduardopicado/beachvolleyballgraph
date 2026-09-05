@@ -1,5 +1,6 @@
 {
   "code": "MDOH2014",
+  "gender": "M",
   "teams": [
     [1,135407,143617,"GER"],
     [2,104220,120717,"CAN"],
@@ -126,5 +127,8 @@
     "146488": "Cherif Younousse",
     "147689": "Trevor Crabb",
     "148548": "Oleksii Denin"
+  },
+  "elsewhere": {
+    "115975": "MAR-M"
   }
 }

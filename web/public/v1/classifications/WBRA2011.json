@@ -1,5 +1,6 @@
 {
   "code": "WBRA2011",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102850,103242,"USA"],
@@ -177,5 +178,12 @@
     "134964": "Ekaterina Syrtseva",
     "135291": "Galindo Andrea",
     "135301": "Galindo Claudia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

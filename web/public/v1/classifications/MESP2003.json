@@ -1,5 +1,6 @@
 {
   "code": "MESP2003",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100302,100844,"NOR"],
@@ -231,5 +232,9 @@
     "114637": "Mikko Esko",
     "118536": "Koko Prasetyo Darkuncoro",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M",
+    "103278": "ITA-M"
   }
 }

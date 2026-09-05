@@ -1,5 +1,6 @@
 {
   "code": "WALA2007",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102166,104032,"CHN"],
@@ -159,5 +160,12 @@
     "119992": "Feldmane Agnese",
     "133882": "Joanna Grance Healy",
     "145698": "Jekaterina Loheisa"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "133882": "ENG-W"
   }
 }

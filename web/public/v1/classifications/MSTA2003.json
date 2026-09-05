@@ -1,5 +1,6 @@
 {
   "code": "MSTA2003",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100148,101345,"ARG"],
@@ -279,5 +280,9 @@
     "118536": "Koko Prasetyo Darkuncoro",
     "122172": "Jefferson Bellaguarda",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "102646": "DEN-M",
+    "103215": "BRA-M"
   }
 }

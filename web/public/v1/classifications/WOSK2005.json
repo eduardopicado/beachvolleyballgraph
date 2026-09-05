@@ -1,5 +1,6 @@
 {
   "code": "WOSK2005",
+  "gender": "W",
   "teams": [
     [1,100926,102527,"BRA"],
     [2,103903,103904,"BRA"],
@@ -149,5 +150,8 @@
     "114845": "Christie Mokotupu",
     "115224": "Marie-Christine Pruneau",
     "135458": "Radmila Beresneva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

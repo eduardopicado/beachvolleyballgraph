@@ -1,5 +1,6 @@
 {
   "code": "WRIO1998",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100371,101725,"AUS"],
@@ -126,5 +127,8 @@
     "102118": "Sandra Sá Correia De",
     "102119": "Faiza Costa Nacif Da",
     "102120": "Samira Costa Nacif Da"
+  },
+  "elsewhere": {
+    "100063": "AUS-W"
   }
 }

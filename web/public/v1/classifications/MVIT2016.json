@@ -1,5 +1,6 @@
 {
   "code": "MVIT2016",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,118194,120774,"ITA"],
@@ -159,5 +160,8 @@
     "147009": "Andre Loyola Stein",
     "147531": "Nikita Liamin",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MBRN2008",
+  "gender": "M",
   "teams": [
     [1,117537,118267,"BRA"],
     [2,105050,120477,"BRA"],
@@ -144,5 +145,11 @@
     "120556": "Alexander Berger",
     "120768": "Viktors Korzenevics",
     "122920": "Oliver Venno"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

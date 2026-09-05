@@ -1,5 +1,6 @@
 {
   "code": "MLIE2007",
+  "gender": "M",
   "teams": [
     [1,100670,101846,"SUI"],
     [2,104101,119963,"GER"],
@@ -81,5 +82,9 @@
     "119963": "Markus Böckermann",
     "121987": "Roland Rademaker",
     "134075": "Jan Lux"
+  },
+  "elsewhere": {
+    "118584": "SCO-M",
+    "119906": "ENG-M"
   }
 }

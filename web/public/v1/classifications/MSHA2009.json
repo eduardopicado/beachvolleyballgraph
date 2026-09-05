@@ -1,5 +1,6 @@
 {
   "code": "MSHA2009",
+  "gender": "M",
   "teams": [
     [1,101669,118267,"BRA"],
     [2,103680,104073,"BRA"],
@@ -156,5 +157,10 @@
     "122190": "Casey Grice",
     "122231": "Keisuke Imai",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

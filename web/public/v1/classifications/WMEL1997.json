@@ -1,5 +1,6 @@
 {
   "code": "WMEL1997",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100256,100926,"BRA"],
@@ -99,5 +100,9 @@
     "101728": "Janine Wendy \"J9\" Carpenter",
     "101729": "Nicola \"Nik\" Fake",
     "101730": "Paula \"PT\" Townsend"
+  },
+  "elsewhere": {
+    "100063": "AUS-W",
+    "100712": "ENG-W"
   }
 }

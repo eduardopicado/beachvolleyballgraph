@@ -1,5 +1,6 @@
 {
   "code": "WFUZ2013",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,116709,119015,"ESP"],
@@ -138,5 +139,8 @@
     "135301": "Galindo Claudia",
     "135383": "Jingjing Ding",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

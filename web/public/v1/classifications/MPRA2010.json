@@ -1,5 +1,6 @@
 {
   "code": "MPRA2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,100427,118267,"BRA"],
@@ -279,5 +280,12 @@
     "132184": "Robert Majzel",
     "132185": "Tomas Krisko",
     "132349": "Mauricio Mugnaini"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118584": "SCO-M",
+    "131994": "USA-M"
   }
 }

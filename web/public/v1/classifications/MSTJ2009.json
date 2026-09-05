@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2009",
+  "gender": "M",
   "teams": [
     [1,102082,104073,"BRA"],
     [2,103109,103217,"GER"],
@@ -219,5 +220,12 @@
     "124250": "Valentin Dimov",
     "125397": "Gabriele Ghiga",
     "125423": "Jeroen van Zwieten"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M",
+    "120577": "RUS-M"
   }
 }

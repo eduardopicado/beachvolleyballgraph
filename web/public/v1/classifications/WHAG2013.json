@@ -1,5 +1,6 @@
 {
   "code": "WHAG2013",
+  "gender": "W",
   "teams": [
     [1,103892,103997,"BRA"],
     [2,103212,104079,"BRA"],
@@ -141,5 +142,9 @@
     "139049": "Jessyka Ngauamo",
     "141673": "Panagiota Karagkouni",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "147368": "AZE-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MXYL2000",
+  "gender": "M",
   "teams": [
     [1,101846,101847,"SUI"],
     [2,100021,122172,"BRA"],
@@ -111,5 +112,8 @@
     "103099": "Pantelinickos Tsakogias",
     "111911": "Richard Brandon Taliaferro",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

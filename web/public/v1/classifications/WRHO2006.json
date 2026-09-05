@@ -1,5 +1,6 @@
 {
   "code": "WRHO2006",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103178,103632,"CHN"],
@@ -197,5 +198,8 @@
     "117909": "Maria Gkaragkouni",
     "117910": "Konstantina Nastou",
     "117911": "Anastasia Kokkinou"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

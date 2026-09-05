@@ -1,5 +1,6 @@
 {
   "code": "WSQP2003",
+  "gender": "W",
   "teams": [
     [1,103663,103961,"RUS"],
     [2,104333,104425,"GER"],
@@ -93,5 +94,8 @@
     "104432": "Lana Sorokina",
     "104433": "Dace Grabovska",
     "122273": "Nira Pérez Cabrera"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

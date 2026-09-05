@@ -1,5 +1,6 @@
 {
   "code": "WMOS2014",
+  "gender": "W",
   "teams": [
     [1,103242,118426,"USA"],
     [2,103892,103997,"BRA"],
@@ -129,5 +130,8 @@
     "141624": "Daria Rudykh",
     "141744": "Yuanyuan Wang",
     "141784": "Xinyi Xia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

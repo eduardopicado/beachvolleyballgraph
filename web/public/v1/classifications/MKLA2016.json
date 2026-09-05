@@ -1,5 +1,6 @@
 {
   "code": "MKLA2016",
+  "gender": "M",
   "teams": [
     [1,104357,104449,"LAT"],
     [2,132705,139965,"BRA"],
@@ -192,5 +193,8 @@
     "147689": "Trevor Crabb",
     "149492": "Vinícius Gomes Cardoso de Araújo",
     "151252": "Carlo Bonifazi"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

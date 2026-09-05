@@ -1,5 +1,6 @@
 {
   "code": "MMAN2008",
+  "gender": "M",
   "teams": [
     [1,103680,118267,"BRA"],
     [2,101960,112119,"FRA"],
@@ -138,5 +139,9 @@
     "120985": "Hassan Ali Marhoon Mohd",
     "120992": "Björn Huitfeldt",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

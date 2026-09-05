@@ -1,5 +1,6 @@
 {
   "code": "MSTP2015",
+  "gender": "M",
   "teams": [
     [1,104552,132856,"USA"],
     [2,116556,119235,"NED"],
@@ -147,5 +148,8 @@
     "147435": "Daneil Williams",
     "147689": "Trevor Crabb",
     "149718": "Hudson Bates"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

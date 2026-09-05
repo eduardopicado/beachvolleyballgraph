@@ -1,5 +1,6 @@
 {
   "code": "MCAR1994",
+  "gender": "M",
   "teams": [
     [1,100021,100060,"BRA"],
     [2,100100,100447,"USA"],
@@ -84,5 +85,8 @@
     "100830": "Joel Patria Perez Correa",
     "101025": "Obin Mendez",
     "101031": "Maximiliano Costa"
+  },
+  "elsewhere": {
+    "100303": "PUR-M"
   }
 }

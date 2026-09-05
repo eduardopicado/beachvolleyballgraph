@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2008",
+  "gender": "W",
   "teams": [
     [1,100926,102527,"BRA"],
     [2,103033,117540,"USA"],
@@ -218,5 +219,11 @@
     "120340": "Zuzanna Kaczkowska",
     "120425": "Jelizaveta Sicova",
     "123710": "Marina Storozhenko"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

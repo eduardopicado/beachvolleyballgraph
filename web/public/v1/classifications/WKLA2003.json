@@ -1,5 +1,6 @@
 {
   "code": "WKLA2003",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,100258,102527,"BRA"],
@@ -174,5 +175,8 @@
     "104485": "Veronika Torker",
     "104486": "Monika Eineter",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103034": "ITA-W"
   }
 }

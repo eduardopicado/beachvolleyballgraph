@@ -1,5 +1,6 @@
 {
   "code": "MMOS2010",
+  "gender": "M",
   "teams": [
     [1,103921,104662,"CHN"],
     [2,100425,105143,"USA"],
@@ -177,5 +178,10 @@
     "131860": "Konstantin Semenov",
     "131975": "Yong Liu",
     "132141": "Alex Ranghieri"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118584": "SCO-M"
   }
 }

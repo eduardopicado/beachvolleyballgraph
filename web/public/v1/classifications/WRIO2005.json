@@ -1,5 +1,6 @@
 {
   "code": "WRIO2005",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103903,103904,"BRA"],
@@ -134,5 +135,8 @@
     "117539": "Makare Wilson",
     "117540": "Tyra Turner",
     "117573": "Asta Baltakys"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

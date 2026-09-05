@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2014",
+  "gender": "M",
   "teams": [
     [1,104073,120550,"BRA"],
     [2,104357,104449,"LAT"],
@@ -135,5 +136,8 @@
     "145124": "Jefferson Santos Pereira",
     "145125": "Tiago De J Santos",
     "147531": "Nikita Liamin"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

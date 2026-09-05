@@ -1,5 +1,6 @@
 {
   "code": "MDOH2016",
+  "gender": "M",
   "teams": [
     [1,132141,150379,"ITA"],
     [2,104102,123528,"AUT"],
@@ -165,5 +166,8 @@
     "149120": "Mart Tiisaar",
     "150379": "Adrian Ignacio Carambula Raurich",
     "155460": "Kusti Nõlvak"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

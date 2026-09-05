@@ -1,5 +1,6 @@
 {
   "code": "MSAN2009",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103921,104662,"CHN"],
@@ -150,5 +151,9 @@
     "125616": "Dian Putra Santosa",
     "129963": "Igor Spencer Hernandez Colina",
     "131860": "Konstantin Semenov"
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "118584": "SCO-M"
   }
 }

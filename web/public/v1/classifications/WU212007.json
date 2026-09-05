@@ -1,5 +1,6 @@
 {
   "code": "WU212007",
+  "gender": "W",
   "teams": [
     [1,104505,116870,"BRA"],
     [2,104470,116642,"AUS"],
@@ -126,5 +127,10 @@
     "145698": "Jekaterina Loheisa",
     "147368": "Irina Abbaszade",
     "147392": "Iveta Halbichova"
+  },
+  "elsewhere": {
+    "120112": "CHI-W",
+    "133882": "ENG-W",
+    "147368": "AZE-W"
   }
 }

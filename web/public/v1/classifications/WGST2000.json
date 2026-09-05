@@ -1,5 +1,6 @@
 {
   "code": "WGST2000",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100715,102850,"USA"],
@@ -168,5 +169,8 @@
     "102962": "Maria Holzman",
     "102963": "Cinzia \"Tchi\" Crettenand",
     "103016": "Marika Teknedzjanova"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

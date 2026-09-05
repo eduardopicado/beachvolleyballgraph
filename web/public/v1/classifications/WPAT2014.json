@@ -1,5 +1,6 @@
 {
   "code": "WPAT2014",
+  "gender": "W",
   "teams": [
     [1,120175,125186,"VAN"],
     [2,117847,122247,"JPN"],
@@ -108,5 +109,9 @@
     "149062": "Charanrutwadee Patcharamainaruebhorn",
     "149293": "Megan Chetwood",
     "149294": "Tiffany Marinos"
+  },
+  "elsewhere": {
+    "131694": "UKR-W",
+    "147381": "UKR-W"
   }
 }

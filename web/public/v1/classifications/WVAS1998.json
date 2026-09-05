@@ -1,5 +1,6 @@
 {
   "code": "WVAS1998",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100250,100252,"BRA"],
@@ -201,5 +202,9 @@
     "102290": "Mirella Sesti Nunes",
     "113436": "Lucie Svarcova",
     "113554": "Marina Kalaydjieva"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "102290": "ITA-W"
   }
 }

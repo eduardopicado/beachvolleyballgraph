@@ -1,5 +1,6 @@
 {
   "code": "MMRS2003",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100529,100530,"SUI"],
@@ -180,5 +181,8 @@
     "104427": "Stéphane Vukajlovic",
     "122172": "Jefferson Bellaguarda",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

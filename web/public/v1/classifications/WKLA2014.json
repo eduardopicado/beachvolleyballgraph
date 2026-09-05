@@ -1,5 +1,6 @@
 {
   "code": "WKLA2014",
+  "gender": "W",
   "teams": [
     [1,103892,103903,"BRA"],
     [2,103904,105063,"BRA"],
@@ -141,5 +142,8 @@
     "138681": "Taylor Pischke",
     "139570": "Agata Zuccarelli",
     "141784": "Xinyi Xia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

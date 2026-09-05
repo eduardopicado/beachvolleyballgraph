@@ -23,8 +23,8 @@
  */
 
 import { useEffect, useMemo, useRef } from 'react';
-import type { ClassificationFile, Tier } from '../schema';
-import { TIER_BADGE } from '../schema';
+import type { ClassificationFile, Gender, Tier } from '../schema';
+import { fieldPlayerSlice, TIER_BADGE } from '../schema';
 import { flagEmoji, formatFinish, medalFor, ordinal, plural } from '../lib/format';
 import './TournamentPanel.css';
 
@@ -43,7 +43,15 @@ interface Props {
   iso2Of: (federation: string) => string | null;
   /** The player whose card this is, marked in the field so they can be found. */
   highlightId: number;
-  onSelectPlayer: (id: number) => void;
+  /**
+   * Opens a player from the field, on whatever page they are published on.
+   *
+   * The slice travels with the id because most of this field is not on the
+   * page the reader is looking at — Paris 2024 draws teams from fourteen
+   * federations — and a bare id is only meaningful against a slice that
+   * already holds it.
+   */
+  onSelectPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
   onClose: () => void;
 }
 
@@ -154,18 +162,32 @@ export function TournamentPanel({
                           <span aria-hidden="true">{flagEmoji(iso2, federation)}</span> {federation}
                         </span>
                         <span className="pair">
-                          {[a, b].map((id, at) => (
-                            <span key={id}>
-                              {at === 1 && <span className="sep"> / </span>}
-                              {id === highlightId ? (
-                                <strong>{state.data.players[id] ?? `Player ${id}`}</strong>
-                              ) : (
-                                <button type="button" onClick={() => onSelectPlayer(id)}>
-                                  {state.data.players[id] ?? `Player ${id}`}
-                                </button>
-                              )}
-                            </span>
-                          ))}
+                          {[a, b].map((id, at) => {
+                            const name = state.data.players[id] ?? `Player ${id}`;
+                            // Null for a player with no page: their slice held
+                            // too few players to publish one. Five names in the
+                            // whole archive, and offering them as a link would
+                            // send a reader to a country page with nobody on
+                            // it — the same test the away partners already use.
+                            const to =
+                              id === highlightId
+                                ? null
+                                : fieldPlayerSlice(state.data, id, federation);
+                            return (
+                              <span key={id}>
+                                {at === 1 && <span className="sep"> / </span>}
+                                {id === highlightId ? (
+                                  <strong>{name}</strong>
+                                ) : to ? (
+                                  <button type="button" onClick={() => onSelectPlayer(id, to)}>
+                                    {name}
+                                  </button>
+                                ) : (
+                                  <span className="unlinked">{name}</span>
+                                )}
+                              </span>
+                            );
+                          })}
                         </span>
                       </li>
                     );

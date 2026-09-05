@@ -1,5 +1,6 @@
 {
   "code": "WATH2005",
+  "gender": "W",
   "teams": [
     [1,103704,103892,"BRA"],
     [2,103903,103904,"BRA"],
@@ -129,5 +130,8 @@
     "116752": "Octavia Oliveira",
     "116753": "Neusa Reis",
     "117116": "Foteini Ourania Papageorgiou"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

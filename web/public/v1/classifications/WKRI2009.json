@@ -1,5 +1,6 @@
 {
   "code": "WKRI2009",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,104118,104119,"AUT"],
@@ -138,5 +139,14 @@
     "124680": "Sanne Godthaab Olesen",
     "124707": "Mari Bergum Berget",
     "125063": "Hazel Margrethe Perrens"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "119620": "AZE-W"
   }
 }

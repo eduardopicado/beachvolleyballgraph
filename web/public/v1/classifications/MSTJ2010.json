@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,103109,103217,"GER"],
@@ -168,5 +169,8 @@
     "125488": "Michal Makowski",
     "131860": "Konstantin Semenov",
     "132141": "Alex Ranghieri"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

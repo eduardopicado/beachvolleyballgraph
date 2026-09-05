@@ -1,5 +1,6 @@
 {
   "code": "MBRA2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,100427,118267,"BRA"],
@@ -183,5 +184,11 @@
     "129963": "Igor Spencer Hernandez Colina",
     "131860": "Konstantin Semenov",
     "131999": "Pablo Ronchi"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "104434": "AZE-M",
+    "118584": "SCO-M"
   }
 }

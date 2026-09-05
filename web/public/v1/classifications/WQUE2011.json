@@ -1,5 +1,6 @@
 {
   "code": "WQUE2011",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,103212,104079,"BRA"],
@@ -123,5 +124,8 @@
     "136272": "Catherine Martin",
     "136368": "Sara Fraija",
     "139522": "Jennifer Cross"
+  },
+  "elsewhere": {
+    "119620": "AZE-W"
   }
 }

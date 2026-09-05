@@ -1,5 +1,6 @@
 {
   "code": "WSTP2006",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103653,104438,"CHN"],
@@ -156,5 +157,8 @@
     "118021": "Alexandra Chigrinova",
     "123710": "Marina Storozhenko",
     "135458": "Radmila Beresneva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MPRA2011",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,100425,105143,"USA"],
@@ -291,5 +292,13 @@
     "134838": "Ruslan Baranov",
     "135226": "Maverick Hatch",
     "135464": "Filip Kramar"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "104434": "AZE-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M",
+    "131994": "USA-M"
   }
 }

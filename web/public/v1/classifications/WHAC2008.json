@@ -1,5 +1,6 @@
 {
   "code": "WHAC2008",
+  "gender": "W",
   "teams": [
     [1,104862,119657,"USA"],
     [2,102695,104261,"ITA"],
@@ -39,5 +40,8 @@
     "120555": "Alona Malysheva",
     "120662": "Rachel Turner",
     "120882": "Tora Hansson"
+  },
+  "elsewhere": {
+    "118992": "ENG-W"
   }
 }

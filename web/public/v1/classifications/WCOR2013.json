@@ -1,5 +1,6 @@
 {
   "code": "WCOR2013",
+  "gender": "W",
   "teams": [
     [1,116962,120367,"NED"],
     [2,105063,115287,"BRA"],
@@ -129,5 +130,8 @@
     "142068": "Alejandra Graiño",
     "142069": "Florencia Di Cesare",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

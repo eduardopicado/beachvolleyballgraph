@@ -1,5 +1,6 @@
 {
   "code": "WMRS2007",
+  "gender": "W",
   "teams": [
     [1,103704,103892,"BRA"],
     [2,103653,104438,"CHN"],
@@ -174,5 +175,10 @@
     "118754": "Joanna Papageorgiou",
     "118755": "Christina Roubanis",
     "119130": "Andrea Gorcova"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

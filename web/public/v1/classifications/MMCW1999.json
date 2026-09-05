@@ -1,5 +1,6 @@
 {
   "code": "MMCW1999",
+  "gender": "M",
   "teams": [
     [1,100527,100528,"POR"],
     [2,100426,100997,"BRA"],
@@ -225,5 +226,8 @@
     "102633": "Pavel Zaitsev",
     "113791": "Daniel Lewis",
     "149100": "Oleg Antonov"
+  },
+  "elsewhere": {
+    "149100": "ITA-M"
   }
 }

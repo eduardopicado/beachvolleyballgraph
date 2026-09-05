@@ -1,5 +1,6 @@
 {
   "code": "WTOK2020",
+  "gender": "W",
   "teams": [
     [1,115846,118426,"USA"],
     [2,118988,125172,"AUS"],
@@ -75,5 +76,9 @@
     "153703": "Raïsa Schoon",
     "156328": "Katja Stam",
     "166926": "Fernanda Pereyra"
+  },
+  "elsewhere": {
+    "139121": "RUS-W",
+    "145664": "RUS-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WMAL2004",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,100518,103327,"GER"],
@@ -165,5 +166,9 @@
     "104844": "Maria Lindgren-Oman",
     "118318": "Izzy Czerveniak",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118318": "CAN-W"
   }
 }

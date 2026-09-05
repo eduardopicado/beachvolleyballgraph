@@ -1,5 +1,6 @@
 {
   "code": "WSEO2010",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,104549,117540,"USA"],
@@ -177,5 +178,10 @@
     "145942": "Olaya Perez Pazo",
     "152984": "Nai-Han Kou",
     "161937": "Cheuk Yee Kong"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118190": "ENG-W",
+    "145942": "VEN-W"
   }
 }

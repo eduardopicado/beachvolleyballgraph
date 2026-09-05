@@ -1,5 +1,6 @@
 {
   "code": "MGST2011",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,100425,105143,"USA"],
@@ -177,5 +178,8 @@
     "132253": "Volkan Gögtepe",
     "132856": "Casey Patterson",
     "132883": "Matteo Martino"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

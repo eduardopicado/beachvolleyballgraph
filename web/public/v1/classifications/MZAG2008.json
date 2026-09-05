@@ -1,5 +1,6 @@
 {
   "code": "MZAG2008",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103921,104662,"CHN"],
@@ -231,5 +232,8 @@
     "120358": "Matija Sulc",
     "129963": "Igor Spencer Hernandez Colina",
     "139014": "Filip Habr"
+  },
+  "elsewhere": {
+    "104215": "AUS-M"
   }
 }

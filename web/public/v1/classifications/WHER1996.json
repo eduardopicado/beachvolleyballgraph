@@ -1,5 +1,6 @@
 {
   "code": "WHER1996",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100252,100253,"BRA"],
@@ -120,5 +121,8 @@
     "101412": "Nancy Brookhart",
     "101413": "Athena Gerochristodoulou",
     "101414": "Kristina Vanaselja"
+  },
+  "elsewhere": {
+    "101400": "AUS-W"
   }
 }

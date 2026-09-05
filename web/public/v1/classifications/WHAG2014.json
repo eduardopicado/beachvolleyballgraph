@@ -1,5 +1,6 @@
 {
   "code": "WHAG2014",
+  "gender": "W",
   "teams": [
     [1,103997,112638,"BRA"],
     [2,104157,104425,"GER"],
@@ -147,5 +148,8 @@
     "139121": "Nadezda Makroguzova",
     "141624": "Daria Rudykh",
     "141784": "Xinyi Xia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

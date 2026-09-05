@@ -1,5 +1,6 @@
 {
   "code": "MSAO2014",
+  "gender": "M",
   "teams": [
     [1,116556,119235,"NED"],
     [2,100427,100997,"BRA"],
@@ -105,5 +106,8 @@
     "139387": "Clemens Wickler",
     "142652": "Allison Cittadin Francioni",
     "147531": "Nikita Liamin"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

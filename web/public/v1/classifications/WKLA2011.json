@@ -1,5 +1,6 @@
 {
   "code": "WKLA2011",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103653,104438,"CHN"],
@@ -174,5 +175,10 @@
     "132575": "Inna Makhno",
     "132583": "Zuzana Sajmovicova",
     "137170": "Martina Slavikova"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

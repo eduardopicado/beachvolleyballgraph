@@ -1,5 +1,6 @@
 {
   "code": "WLIE2008",
+  "gender": "W",
   "teams": [
     [1,104862,119657,"USA"],
     [2,104158,105040,"GER"],
@@ -84,5 +85,10 @@
     "120662": "Rachel Turner",
     "120802": "Ilke Meertens",
     "133621": "Victoria Palmer"
+  },
+  "elsewhere": {
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "133621": "ENG-W"
   }
 }

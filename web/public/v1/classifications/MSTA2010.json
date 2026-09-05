@@ -1,5 +1,6 @@
 {
   "code": "MSTA2010",
+  "gender": "M",
   "teams": [
     [1,103108,104336,"GER"],
     [2,102374,118942,"NOR"],
@@ -177,5 +178,8 @@
     "129963": "Igor Spencer Hernandez Colina",
     "131860": "Konstantin Semenov",
     "132141": "Alex Ranghieri"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

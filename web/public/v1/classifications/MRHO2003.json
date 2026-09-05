@@ -1,5 +1,6 @@
 {
   "code": "MRHO2003",
+  "gender": "M",
   "teams": [
     [1,100334,103245,"USA"],
     [2,101591,102082,"BRA"],
@@ -306,5 +307,9 @@
     "104279": "Panagiotis Fotopoulos",
     "114637": "Mikko Esko",
     "117217": "Jose Martell"
+  },
+  "elsewhere": {
+    "102646": "DEN-M",
+    "103278": "ITA-M"
   }
 }

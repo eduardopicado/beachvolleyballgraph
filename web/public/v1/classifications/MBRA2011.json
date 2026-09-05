@@ -1,5 +1,6 @@
 {
   "code": "MBRA2011",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,100427,118267,"BRA"],
@@ -222,5 +223,11 @@
     "135283": "Florian Schnetzer",
     "135297": "Yussef Manzur Lara",
     "135382": "Christophe Van de Plas"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "104434": "AZE-M",
+    "118567": "ENG-M"
   }
 }

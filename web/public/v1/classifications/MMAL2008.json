@@ -1,5 +1,6 @@
 {
   "code": "MMAL2008",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,103108,104336,"GER"],
@@ -165,5 +166,10 @@
     "120925": "Nestor Adrian Serron Machado",
     "120933": "Ian Mehamed",
     "120940": "Josef Buskhe"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "118584": "SCO-M"
   }
 }

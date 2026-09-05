@@ -1,5 +1,6 @@
 {
   "code": "WKLA2012",
+  "gender": "W",
   "teams": [
     [1,117997,120468,"RUS"],
     [2,116962,120367,"NED"],
@@ -177,5 +178,9 @@
     "137275": "Teresa Strauss",
     "137276": "Nadine Strauss",
     "138833": "Tamara Borko"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "119620": "AZE-W"
   }
 }

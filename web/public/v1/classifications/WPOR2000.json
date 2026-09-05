@@ -1,5 +1,6 @@
 {
   "code": "WPOR2000",
+  "gender": "W",
   "teams": [
     [1,100019,101905,"USA"],
     [2,100273,100615,"USA"],
@@ -168,5 +169,8 @@
     "103146": "Joana Almeida",
     "103147": "Joana Figueiras",
     "103163": "Paula Semedo"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

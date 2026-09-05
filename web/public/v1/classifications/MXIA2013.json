@@ -1,5 +1,6 @@
 {
   "code": "MXIA2013",
+  "gender": "M",
   "teams": [
     [1,118267,120551,"BRA"],
     [2,118317,119991,"NED"],
@@ -129,5 +130,8 @@
     "141781": "Cong Yang",
     "145099": "Matthew Willmot",
     "145100": "Benjamin Abbott"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

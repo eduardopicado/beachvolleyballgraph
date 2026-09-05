@@ -1,5 +1,6 @@
 {
   "code": "MCAG2005",
+  "gender": "M",
   "teams": [
     [1,103348,104320,"GER"],
     [2,102558,103103,"ITA"],
@@ -105,5 +106,8 @@
     "116531": "Balsamo Yuri",
     "116618": "Mario Bonamici",
     "132772": "Francesc Llenas"
+  },
+  "elsewhere": {
+    "104434": "AZE-M"
   }
 }

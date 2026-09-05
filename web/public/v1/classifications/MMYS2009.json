@@ -1,5 +1,6 @@
 {
   "code": "MMYS2009",
+  "gender": "M",
   "teams": [
     [1,101669,118267,"BRA"],
     [2,103316,104267,"USA"],
@@ -231,5 +232,9 @@
     "122863": "Robert Zuchowski",
     "129963": "Igor Spencer Hernandez Colina",
     "135495": "Jernej Potočnik"
+  },
+  "elsewhere": {
+    "118584": "SCO-M",
+    "120577": "RUS-M"
   }
 }

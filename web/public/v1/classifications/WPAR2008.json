@@ -1,5 +1,6 @@
 {
   "code": "WPAR2008",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103033,117540,"USA"],
@@ -173,5 +174,8 @@
     "118630": "Heidi Ilustre",
     "118747": "Judith Augoustides",
     "120121": "Cintha Boersma"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

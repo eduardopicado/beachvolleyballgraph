@@ -1,5 +1,6 @@
 {
   "code": "MBER2008",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100425,105143,"USA"],
@@ -168,5 +169,9 @@
     "119963": "Markus Böckermann",
     "120511": "Ivan Zaytsev",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "104215": "AUS-M"
   }
 }

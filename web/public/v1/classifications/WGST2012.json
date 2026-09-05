@@ -1,5 +1,6 @@
 {
   "code": "WGST2012",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,104165,104487,"NED"],
@@ -147,5 +148,8 @@
     "135482": "Berta Antequera Feixa",
     "138986": "Adèle Bardouillet",
     "138987": "Fanny Menissier"
+  },
+  "elsewhere": {
+    "119620": "AZE-W"
   }
 }

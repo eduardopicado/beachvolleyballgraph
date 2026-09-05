@@ -1,5 +1,6 @@
 {
   "code": "MTOK2020",
+  "gender": "M",
   "teams": [
     [1,137127,143192,"NOR"],
     [2,120749,141535,"ROC"],
@@ -75,5 +76,11 @@
     "150379": "Adrian Ignacio Carambula Raurich",
     "153790": "David Schweiner",
     "162769": "Yusuke Ishijima"
+  },
+  "elsewhere": {
+    "120749": "RUS-M",
+    "131860": "RUS-M",
+    "141535": "RUS-M",
+    "143169": "RUS-M"
   }
 }

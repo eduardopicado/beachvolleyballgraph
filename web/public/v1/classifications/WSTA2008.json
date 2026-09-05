@@ -1,5 +1,6 @@
 {
   "code": "WSTA2008",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,101829,103656,"GRE"],
@@ -173,5 +174,8 @@
     "119434": "Hanne Haugen Zylstra",
     "119979": "Siri Bjørkesett",
     "120298": "Arnhild Myhr"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

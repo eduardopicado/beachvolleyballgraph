@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2013",
+  "gender": "M",
   "teams": [
     [1,118317,119991,"NED"],
     [2,100997,120550,"BRA"],
@@ -147,5 +148,9 @@
     "141407": "Michiel van Dorsten",
     "141629": "Ryan Doherty",
     "141941": "Javier Monfort Minaya"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

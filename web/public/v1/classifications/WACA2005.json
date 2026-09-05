@@ -1,5 +1,6 @@
 {
   "code": "WACA2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102850,103242,"USA"],
@@ -156,5 +157,10 @@
     "117573": "Asta Baltakys",
     "117637": "Indira Melissa Inestroza Espinal",
     "117684": "Valeria Cerna"
+  },
+  "elsewhere": {
+    "100712": "ENG-W",
+    "103670": "CYP-W",
+    "105172": "ENG-W"
   }
 }

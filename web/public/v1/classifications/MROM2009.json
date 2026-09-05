@@ -1,5 +1,6 @@
 {
   "code": "MROM2009",
+  "gender": "M",
   "teams": [
     [1,103109,103217,"GER"],
     [2,103680,104073,"BRA"],
@@ -228,5 +229,10 @@
     "122530": "Matthew Fugard",
     "129963": "Igor Spencer Hernandez Colina",
     "135495": "Jernej Potočnik"
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MPAR2007",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100059,103680,"BRA"],
@@ -177,5 +178,8 @@
     "118576": "Leonel Munder Misiñan",
     "118781": "Jason Ring",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

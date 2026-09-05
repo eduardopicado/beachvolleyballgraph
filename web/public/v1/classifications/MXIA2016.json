@@ -1,5 +1,6 @@
 {
   "code": "MXIA2016",
+  "gender": "M",
   "teams": [
     [1,103311,116710,"ESP"],
     [2,103810,119736,"USA"],
@@ -153,5 +154,8 @@
     "151536": "Xiaofeng He",
     "151537": "Zhijie Zhou",
     "155970": "Warren Sieberts"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

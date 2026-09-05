@@ -1,5 +1,6 @@
 {
   "code": "MANA2013",
+  "gender": "M",
   "teams": [
     [1,104041,131860,"RUS"],
     [2,120763,120888,"GER"],
@@ -120,5 +121,8 @@
     "141542": "Yaroslav Ostrakhovskiy",
     "142944": "Igor Sandu",
     "143185": "Dmitrii Sericov"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

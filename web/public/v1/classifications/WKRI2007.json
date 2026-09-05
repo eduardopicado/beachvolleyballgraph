@@ -1,5 +1,6 @@
 {
   "code": "WKRI2007",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103653,104438,"CHN"],
@@ -164,5 +165,11 @@
     "119894": "Rita Eritsland",
     "119954": "Maiken Bømvik",
     "119955": "Kristina Maaseide"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

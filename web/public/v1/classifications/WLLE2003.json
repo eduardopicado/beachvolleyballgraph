@@ -1,5 +1,6 @@
 {
   "code": "WLLE2003",
+  "gender": "W",
   "teams": [
     [1,103670,103671,"FIN"],
     [2,104232,104233,"UKR"],
@@ -42,5 +43,8 @@
     "104233": "Svitlana Baburina",
     "104419": "Eva Hamzaoui",
     "104527": "Aurelie Beaucé"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

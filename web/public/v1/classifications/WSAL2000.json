@@ -1,5 +1,6 @@
 {
   "code": "WSAL2000",
+  "gender": "W",
   "teams": [
     [1,100715,102850,"USA"],
     [2,100253,100258,"BRA"],
@@ -99,5 +100,8 @@
     "103203": "Erika Alcione França do Nascimento",
     "103212": "Maria Clara Salgado Solberg",
     "117232": "Selena Barajas"
+  },
+  "elsewhere": {
+    "101452": "ITA-W"
   }
 }

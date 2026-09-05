@@ -1,5 +1,6 @@
 {
   "code": "WPUS1996",
+  "gender": "W",
   "teams": [
     [1,100615,100715,"USA"],
     [2,100473,100506,"JPN"],
@@ -42,5 +43,8 @@
     "101452": "Cilene Vieira Nascimento",
     "101553": "Mi-Sook Kim",
     "101554": "Sun-Jin Ju"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

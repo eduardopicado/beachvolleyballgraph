@@ -1,5 +1,6 @@
 {
   "code": "MPAR2006",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,104268,104552,"USA"],
@@ -183,5 +184,8 @@
     "117860": "Renato Gomes",
     "117861": "Jorge Terceiro",
     "121989": "Mathijs Mast"
+  },
+  "elsewhere": {
+    "104338": "DEN-M"
   }
 }

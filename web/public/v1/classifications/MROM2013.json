@@ -1,5 +1,6 @@
 {
   "code": "MROM2013",
+  "gender": "M",
   "teams": [
     [1,104268,105143,"USA"],
     [2,104357,104449,"LAT"],
@@ -147,5 +148,9 @@
     "135919": "Matteo Cecchini",
     "141629": "Ryan Doherty",
     "142043": "Federico Morichelli"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

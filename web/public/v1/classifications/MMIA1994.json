@@ -1,5 +1,6 @@
 {
   "code": "MMIA1994",
+  "gender": "M",
   "teams": [
     [1,100016,100110,"NOR"],
     [2,100059,100060,"BRA"],
@@ -84,5 +85,8 @@
     "100330": "Luis \"Fenito\" Rodriguez",
     "100594": "Carlos Cartaya",
     "101244": "Rojas \"Luis\" Nacero"
+  },
+  "elsewhere": {
+    "100303": "PUR-M"
   }
 }

@@ -14,8 +14,18 @@
  * holds them at the placement their own timeline claims.
  */
 
-import { test, expect, classification, graph, manifest, results, tournamentIndex } from './fixtures.js';
+import {
+  test,
+  expect,
+  classification,
+  graph,
+  manifest,
+  results,
+  searchIndex,
+  tournamentIndex,
+} from './fixtures.js';
 import { sliceSlug } from '../web/src/lib/slug.js';
+import { parseSliceKey } from '../web/src/schema.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;
@@ -215,6 +225,58 @@ test.describe('a tournament’s final classification', () => {
     await expect(page.locator('.tournament-panel')).toHaveCount(0);
     // One press, one thing closed — the card listens for Escape too.
     await expect(page.locator('.player-card')).toBeVisible();
+  });
+
+  test('a name from another federation opens that player, on their own page', async ({ page }) => {
+    /*
+     * The field is not the slice, and this is the difference.
+     *
+     * Paris 2024 holds teams from fourteen federations, so most names in a
+     * classification are not on the page the reader is looking at. Selecting
+     * one by id alone left the app pointing at somebody the loaded slice has
+     * never heard of: the card unmounted and the reader was dropped back on a
+     * bare country page, having asked to see a player.
+     *
+     * Deliberately picks a player from *another* federation — the test above
+     * picks one from this slice, which is the case that always worked.
+     */
+    const { node, code, name } = subject();
+    const file = classification(code);
+    const index = searchIndex();
+    const sliceOf = new Map<number, string>();
+    for (const [key, entries] of Object.entries(index)) {
+      for (const [id] of entries) sliceOf.set(id, key);
+    }
+
+    const away = file.teams
+      .flatMap(([, a, b]) => [a, b])
+      .find((id) => {
+        const slice = sliceOf.get(id);
+        return slice !== undefined && slice !== `${COUNTRY}-${GENDER}`;
+      });
+    test.skip(away === undefined, 'no published player from elsewhere in this field');
+    const target = parseSliceKey(sliceOf.get(away!)!);
+    const country = manifest().countries.find((c) => c.code === target!.country);
+
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    await page.getByRole('button', { name: 'Timeline' }).click();
+    const trigger = page.locator('.events button.name', { hasText: name }).first();
+    for (const season of await page.locator('.timeline .season').all()) {
+      await season.click();
+      if (await trigger.count()) break;
+    }
+    await trigger.click();
+
+    const panel = page.locator('.tournament-panel');
+    await expect(panel).toBeVisible();
+    await panel.locator('.pair button', { hasText: file.players[away!] }).first().click();
+
+    // The card is still here, showing the player who was clicked — and the
+    // page has moved to the one they are actually published on.
+    await expect(page.locator('.tournament-panel')).toHaveCount(0);
+    await expect(page.locator('.player-card h2')).toHaveText(file.players[away!]!);
+    await expect(page.locator('.graph-section .section-head h2')).toContainText(country!.name);
+    await expect(page).toHaveURL(new RegExp(`/${sliceSlug(country!.name, target!.gender)}/`));
   });
 
   test('a name in the field opens that player', async ({ page }) => {

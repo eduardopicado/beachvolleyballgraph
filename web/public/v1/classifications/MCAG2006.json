@@ -1,5 +1,6 @@
 {
   "code": "MCAG2006",
+  "gender": "M",
   "teams": [
     [1,102716,104102,"AUT"],
     [2,102558,102648,"ITA"],
@@ -87,5 +88,8 @@
     "117464": "Martin Simonsen",
     "117983": "Daniele Rossi",
     "121989": "Mathijs Mast"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

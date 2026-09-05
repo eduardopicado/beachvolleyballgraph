@@ -1,5 +1,6 @@
 {
   "code": "WOSK1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100075,100319,"USA"],
@@ -99,5 +100,8 @@
     "100954": "Norma Teresa 'Teresita' Villareal Saenz",
     "100971": "Evguenia Artamonova",
     "100972": "Elena Batoukhtina"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

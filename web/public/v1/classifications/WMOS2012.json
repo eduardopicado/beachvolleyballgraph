@@ -1,5 +1,6 @@
 {
   "code": "WMOS2012",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,102850,103242,"USA"],
@@ -159,5 +160,11 @@
     "134963": "Sabrina Csrnko",
     "135482": "Berta Antequera Feixa",
     "138880": "Sarah Falta"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "119620": "AZE-W"
   }
 }

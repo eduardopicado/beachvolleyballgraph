@@ -1,5 +1,6 @@
 {
   "code": "MESP2007",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100059,103680,"BRA"],
@@ -225,5 +226,9 @@
     "118751": "Rafael Garzón",
     "119050": "Yoshiumi Hasegawa",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "118567": "ENG-M"
   }
 }

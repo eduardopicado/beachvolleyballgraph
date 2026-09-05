@@ -1,5 +1,6 @@
 {
   "code": "WCHI2000",
+  "gender": "W",
   "teams": [
     [1,100715,102850,"USA"],
     [2,100256,100926,"BRA"],
@@ -150,5 +151,8 @@
     "102948": "Renate Kleinhappl",
     "103011": "Jennifer Kessy",
     "103031": "Allison \"Ali\" Block"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

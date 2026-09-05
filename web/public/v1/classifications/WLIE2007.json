@@ -1,5 +1,6 @@
 {
   "code": "WLIE2007",
+  "gender": "W",
   "teams": [
     [1,103865,105063,"BRA"],
     [2,104158,105040,"GER"],
@@ -57,5 +58,11 @@
     "120038": "Katie Tyzuk",
     "133621": "Victoria Palmer",
     "143351": "Lyudmila Issayeva"
+  },
+  "elsewhere": {
+    "104148": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "133621": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MMOS2015",
+  "gender": "M",
   "teams": [
     [1,103311,116710,"ESP"],
     [2,104073,133285,"BRA"],
@@ -180,5 +181,8 @@
     "143169": "Ilya Leshukov",
     "150379": "Adrian Ignacio Carambula Raurich",
     "150576": "Ayman Shoukry"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WSHA2004",
+  "gender": "W",
   "teams": [
     [1,100715,101905,"USA"],
     [2,101712,101718,"USA"],
@@ -176,5 +177,8 @@
     "113911": "Sandra Wiegers",
     "123710": "Marina Storozhenko",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

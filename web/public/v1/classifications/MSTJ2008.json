@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2008",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,105034,116710,"ESP"],
@@ -225,5 +226,12 @@
     "129963": "Igor Spencer Hernandez Colina",
     "139014": "Filip Habr",
     "168821": "Milan Monik"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

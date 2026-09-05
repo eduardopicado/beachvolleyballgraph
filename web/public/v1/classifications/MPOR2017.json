@@ -1,5 +1,6 @@
 {
   "code": "MPOR2017",
+  "gender": "M",
   "teams": [
     [1,104073,132705,"BRA"],
     [2,118194,120774,"ITA"],
@@ -150,5 +151,8 @@
     "162351": "Matej Cickovic",
     "163016": "Ivan Perisic",
     "163017": "Niksa Dell'Orco"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

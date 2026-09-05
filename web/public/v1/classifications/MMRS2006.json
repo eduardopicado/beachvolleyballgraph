@@ -1,5 +1,6 @@
 {
   "code": "MMRS2006",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,101591,104207,"BRA"],
@@ -225,5 +226,8 @@
     "118049": "Janis Jeskevics",
     "121989": "Mathijs Mast",
     "132772": "Francesc Llenas"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

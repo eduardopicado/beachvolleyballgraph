@@ -1,5 +1,6 @@
 {
   "code": "MMAN2007",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,100059,103680,"BRA"],
@@ -195,5 +196,8 @@
     "118672": "Issa Mohamed",
     "118673": "Sayed Ali Sayed Khalaf",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

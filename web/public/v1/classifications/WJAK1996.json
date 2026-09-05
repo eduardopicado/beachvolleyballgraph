@@ -1,5 +1,6 @@
 {
   "code": "WJAK1996",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100518,101446,"GER"],
@@ -90,5 +91,9 @@
     "101664": "Beatrix \"Betty\" Renyaan",
     "101665": "Fransina \"Sien\" Une Putty",
     "101683": "Jennifer \"Jen\" Meredith"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "101683": "USA-W"
   }
 }

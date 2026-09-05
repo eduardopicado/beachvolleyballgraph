@@ -1,5 +1,6 @@
 {
   "code": "W232013",
+  "gender": "W",
   "teams": [
     [1,118955,125057,"GER"],
     [2,138309,139087,"BRA"],
@@ -99,5 +100,8 @@
     "142359": "Meg Norton",
     "142971": "Laine Cielena",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

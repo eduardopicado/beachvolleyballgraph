@@ -1,5 +1,6 @@
 {
   "code": "MMRS2007",
+  "gender": "M",
   "teams": [
     [1,100059,103680,"BRA"],
     [2,100148,101345,"ARG"],
@@ -231,5 +232,12 @@
     "119358": "Niels van de Sande",
     "119398": "Jean-Baptiste Daguerre",
     "121987": "Roland Rademaker"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

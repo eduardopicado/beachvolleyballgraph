@@ -1,5 +1,6 @@
 {
   "code": "WGST2013",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,104505,116870,"BRA"],
@@ -138,5 +139,9 @@
     "141673": "Panagiota Karagkouni",
     "143020": "Cosima Wieland",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "147368": "AZE-W"
   }
 }

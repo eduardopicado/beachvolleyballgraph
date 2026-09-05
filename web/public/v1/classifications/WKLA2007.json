@@ -1,5 +1,6 @@
 {
   "code": "WKLA2007",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103903,103904,"BRA"],
@@ -179,5 +180,10 @@
     "118630": "Heidi Ilustre",
     "118747": "Judith Augoustides",
     "118748": "Evelina Tcholakova"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

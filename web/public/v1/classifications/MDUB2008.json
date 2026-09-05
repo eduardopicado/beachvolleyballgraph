@@ -1,5 +1,6 @@
 {
   "code": "MDUB2008",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103109,104423,"GER"],
@@ -132,5 +133,12 @@
     "120963": "Ahmed Al houli",
     "120972": "Rashed Hassan",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

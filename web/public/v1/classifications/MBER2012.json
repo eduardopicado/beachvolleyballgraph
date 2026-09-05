@@ -1,5 +1,6 @@
 {
   "code": "MBER2012",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,104268,104552,"USA"],
@@ -177,5 +178,10 @@
     "132661": "Lorenz Petutschnig",
     "133228": "Edgars Tocs",
     "133285": "Evandro Gonçalves Oliveira Júnior"
+  },
+  "elsewhere": {
+    "104434": "AZE-M",
+    "118567": "ENG-M",
+    "120577": "RUS-M"
   }
 }

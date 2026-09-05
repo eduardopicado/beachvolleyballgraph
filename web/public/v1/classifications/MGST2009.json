@@ -1,5 +1,6 @@
 {
   "code": "MGST2009",
+  "gender": "M",
   "teams": [
     [1,103109,103217,"GER"],
     [2,100427,100997,"BRA"],
@@ -183,5 +184,10 @@
     "122133": "Bradley Keenan",
     "122172": "Jefferson Bellaguarda",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

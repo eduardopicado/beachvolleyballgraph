@@ -1,5 +1,6 @@
 {
   "code": "MU212012",
+  "gender": "M",
   "teams": [
     [1,122846,122847,"POL"],
     [2,132521,132524,"SUI"],
@@ -84,5 +85,8 @@
     "139946": "Alex Jones",
     "139969": "Weston Carico",
     "140039": "Christofer Lewin"
+  },
+  "elsewhere": {
+    "137511": "CRC-W"
   }
 }

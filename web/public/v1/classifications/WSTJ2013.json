@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2013",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,118261,119108,"GER"],
@@ -147,5 +148,8 @@
     "139049": "Jessyka Ngauamo",
     "141366": "Michelle Sharon Valiente Amarilla",
     "141673": "Panagiota Karagkouni"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

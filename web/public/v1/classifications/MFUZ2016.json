@@ -1,5 +1,6 @@
 {
   "code": "MFUZ2016",
+  "gender": "M",
   "teams": [
     [1,105143,116602,"USA"],
     [2,118194,120774,"ITA"],
@@ -153,5 +154,8 @@
     "147531": "Nikita Liamin",
     "148837": "Keisuke Shimizu",
     "155970": "Warren Sieberts"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

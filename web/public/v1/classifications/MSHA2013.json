@@ -1,5 +1,6 @@
 {
   "code": "MSHA2013",
+  "gender": "M",
   "teams": [
     [1,104552,132856,"USA"],
     [2,104073,117474,"BRA"],
@@ -171,5 +172,9 @@
     "139355": "Jonathan Golindano",
     "140902": "Yuya Ageba",
     "141629": "Ryan Doherty"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

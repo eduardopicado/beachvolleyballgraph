@@ -1,5 +1,6 @@
 {
   "code": "WBAL2005",
+  "gender": "W",
   "teams": [
     [1,103704,103892,"BRA"],
     [2,100256,100926,"BRA"],
@@ -111,5 +112,8 @@
     "113416": "Tamsin Hinchley",
     "117511": "Ike Prasetya",
     "117532": "Henny Diliana"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WOSK1997",
+  "gender": "W",
   "teams": [
     [1,100252,100253,"BRA"],
     [2,100518,101446,"GER"],
@@ -108,5 +109,8 @@
     "101952": "Tonya Williams",
     "101954": "Noriko Miyoshi",
     "101955": "Tomoko Ukigaya"
+  },
+  "elsewhere": {
+    "100063": "AUS-W"
   }
 }

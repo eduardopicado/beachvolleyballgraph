@@ -316,6 +316,16 @@ interface Props {
   names: ReadonlyMap<number, string>;
   onSelectPartner: (id: number) => void;
   onSelectAway: (partner: AwayPartner) => void;
+  /**
+   * Opens a player from an open tournament's field, on the page they are
+   * published on.
+   *
+   * Separate from `onSelectPartner`, which takes a bare id and means "somebody
+   * else in this slice". A classification is not a slice — Paris 2024 holds
+   * teams from fourteen federations — so a name in it needs the page to go to
+   * as well as the player, the same way an away partner does.
+   */
+  onSelectFieldPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
   /** Opens the partnership path panel with this player as the near end. */
   onFindPath: () => void;
   onClose: () => void;
@@ -357,6 +367,7 @@ export function PlayerCard({
   names,
   onSelectPartner,
   onSelectAway,
+  onSelectFieldPlayer,
   onFindPath,
   onClose,
 }: Props) {
@@ -1052,9 +1063,9 @@ export function PlayerCard({
           state={classification}
           iso2Of={iso2Of}
           highlightId={node.id}
-          onSelectPlayer={(id) => {
+          onSelectPlayer={(id, slice) => {
             setOpenEvent(null);
-            onSelectPartner(id);
+            onSelectFieldPlayer(id, slice);
           }}
           onClose={() => setOpenEvent(null)}
         />

@@ -1,5 +1,6 @@
 {
   "code": "WCAP2005",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103903,103904,"BRA"],
@@ -114,5 +115,8 @@
     "117712": "Charlotte Mdlesse",
     "117713": "Amelia Luyt",
     "123445": "Palesa Sekhonyana"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

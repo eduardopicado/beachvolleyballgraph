@@ -1,5 +1,6 @@
 {
   "code": "MSTA2007",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,116554,116556,"NED"],
@@ -171,5 +172,8 @@
     "118576": "Leonel Munder Misiñan",
     "118781": "Jason Ring",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

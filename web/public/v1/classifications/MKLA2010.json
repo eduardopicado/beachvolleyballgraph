@@ -1,5 +1,6 @@
 {
   "code": "MKLA2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,104267,116602,"USA"],
@@ -177,5 +178,8 @@
     "131975": "Yong Liu",
     "132141": "Alex Ranghieri",
     "132798": "David Lenc"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

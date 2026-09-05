@@ -1,5 +1,6 @@
 {
   "code": "MMOS2014",
+  "gender": "M",
   "teams": [
     [1,120749,131860,"RUS"],
     [2,105042,116715,"POL"],
@@ -147,5 +148,8 @@
     "141629": "Ryan Doherty",
     "142220": "Illa Kovalov",
     "145802": "Jonathan Scott Sarpong"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MITA2012",
+  "gender": "M",
   "teams": [
     [1,104268,104552,"USA"],
     [2,100427,118267,"BRA"],
@@ -180,5 +181,11 @@
     "132661": "Lorenz Petutschnig",
     "133285": "Evandro Gonçalves Oliveira Júnior",
     "138664": "Andrea D'Avanzo"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "104434": "AZE-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

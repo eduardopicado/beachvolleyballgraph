@@ -1,5 +1,6 @@
 {
   "code": "MSHA2008",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,103921,104662,"CHN"],
@@ -150,5 +151,8 @@
     "120235": "Weizai Jin",
     "120236": "Jian Bao",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

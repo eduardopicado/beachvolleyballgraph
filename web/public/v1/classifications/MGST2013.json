@@ -1,5 +1,6 @@
 {
   "code": "MGST2013",
+  "gender": "M",
   "teams": [
     [1,100997,120550,"BRA"],
     [2,104073,117474,"BRA"],
@@ -144,5 +145,9 @@
     "135226": "Maverick Hatch",
     "135484": "Maciej Rudol",
     "141629": "Ryan Doherty"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

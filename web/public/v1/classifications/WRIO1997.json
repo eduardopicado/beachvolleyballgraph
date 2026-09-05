@@ -1,5 +1,6 @@
 {
   "code": "WRIO1997",
+  "gender": "W",
   "teams": [
     [1,100252,100253,"BRA"],
     [2,100615,100715,"USA"],
@@ -90,5 +91,8 @@
     "101708": "Amanda \"Milly\" Evison",
     "101709": "Evely Vumba",
     "101719": "Tatiana Minello"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

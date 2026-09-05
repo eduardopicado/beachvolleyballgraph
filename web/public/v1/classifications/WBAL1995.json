@@ -1,5 +1,6 @@
 {
   "code": "WBAL1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100250,100258,"BRA"],
@@ -105,5 +106,8 @@
     "101013": "Siti \"Nung\" Nurjanah",
     "101014": "Yohana Elisabeth \"Libeth\" Marawali",
     "101015": "Trisiwi \"Sulis\" Susilowati"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

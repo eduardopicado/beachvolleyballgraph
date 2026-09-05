@@ -1,5 +1,6 @@
 {
   "code": "MLAU2005",
+  "gender": "M",
   "teams": [
     [1,101846,101847,"SUI"],
     [2,102266,103693,"SUI"],
@@ -87,5 +88,9 @@
     "117287": "Riccardo Bizzotto",
     "117462": "Mirco Guidolin",
     "121989": "Mathijs Mast"
+  },
+  "elsewhere": {
+    "102666": "SMR-M",
+    "104434": "AZE-M"
   }
 }

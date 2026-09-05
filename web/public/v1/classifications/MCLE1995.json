@@ -1,5 +1,6 @@
 {
   "code": "MCLE1995",
+  "gender": "M",
   "teams": [
     [1,100059,100060,"BRA"],
     [2,100426,100427,"BRA"],
@@ -144,5 +145,8 @@
     "100743": "Michael Diehl",
     "100753": "Joseph A. \"Pelito\" Gil Rivera",
     "100754": "David M. Quinonez Correa"
+  },
+  "elsewhere": {
+    "100736": "MEX-M"
   }
 }

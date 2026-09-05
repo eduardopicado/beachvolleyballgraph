@@ -1,5 +1,6 @@
 {
   "code": "WRHO2004",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,100715,101905,"USA"],
@@ -218,5 +219,9 @@
     "104689": "Katerina Vasilaki",
     "118318": "Izzy Czerveniak",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118318": "CAN-W"
   }
 }

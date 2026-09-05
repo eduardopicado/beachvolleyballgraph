@@ -1,5 +1,6 @@
 {
   "code": "MFOR2002",
+  "gender": "M",
   "teams": [
     [1,101591,102082,"BRA"],
     [2,100882,102087,"USA"],
@@ -114,5 +115,8 @@
     "104207": "Fabio Luiz de Jesus Magalhães",
     "114260": "Jose Luis Lobato",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

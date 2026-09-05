@@ -1,5 +1,6 @@
 {
   "code": "MKLA2009",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,101669,118267,"BRA"],
@@ -183,5 +184,10 @@
     "120569": "Matej Hukel",
     "122172": "Jefferson Bellaguarda",
     "123528": "Robin Seidl"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WSTA2006",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,100256,100926,"BRA"],
@@ -188,5 +189,8 @@
     "117939": "Eydis Dalen",
     "117954": "Janne Kongshavn",
     "117955": "Ragnhild Aas"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

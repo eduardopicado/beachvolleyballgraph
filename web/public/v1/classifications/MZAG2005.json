@@ -1,5 +1,6 @@
 {
   "code": "MZAG2005",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,101480,103109,"GER"],
@@ -276,5 +277,8 @@
     "115621": "Mathieu Daguerre",
     "115623": "Stanley Cès",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "115623": null
   }
 }

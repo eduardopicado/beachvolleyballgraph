@@ -1,5 +1,6 @@
 {
   "code": "MBER2002",
+  "gender": "M",
   "teams": [
     [1,100564,101669,"BRA"],
     [2,100148,101345,"ARG"],
@@ -303,5 +304,9 @@
     "117217": "Jose Martell",
     "118536": "Koko Prasetyo Darkuncoro",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "102646": "DEN-M",
+    "103215": "BRA-M"
   }
 }

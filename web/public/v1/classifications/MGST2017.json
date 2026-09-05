@@ -1,5 +1,6 @@
 {
   "code": "MGST2017",
+  "gender": "M",
   "teams": [
     [1,105143,116602,"USA"],
     [2,122846,122847,"POL"],
@@ -147,5 +148,8 @@
     "147689": "Trevor Crabb",
     "148569": "Sergio Reynaldo Gonzalez Bayard",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

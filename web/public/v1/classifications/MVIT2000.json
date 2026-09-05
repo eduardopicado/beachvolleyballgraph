@@ -1,5 +1,6 @@
 {
   "code": "MVIT2000",
+  "gender": "M",
   "teams": [
     [1,101591,102082,"BRA"],
     [2,100427,102071,"BRA"],
@@ -147,5 +148,8 @@
     "117217": "Jose Martell",
     "122172": "Jefferson Bellaguarda",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

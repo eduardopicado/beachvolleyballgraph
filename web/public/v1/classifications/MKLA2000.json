@@ -1,5 +1,6 @@
 {
   "code": "MKLA2000",
+  "gender": "M",
   "teams": [
     [1,100218,100427,"BRA"],
     [2,100426,100997,"BRA"],
@@ -210,5 +211,8 @@
     "102886": "Pavlos \"Beli\" Beligratis",
     "102904": "Adam Roberts",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

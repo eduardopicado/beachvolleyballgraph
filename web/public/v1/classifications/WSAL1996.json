@@ -1,5 +1,6 @@
 {
   "code": "WSAL1996",
+  "gender": "W",
   "teams": [
     [1,100252,100253,"BRA"],
     [2,100250,100258,"BRA"],
@@ -75,5 +76,8 @@
     "101676": "Elenice Felipe",
     "101677": "Maria Albetiza Olinda Rodrigues",
     "101678": "Sandra Silva"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

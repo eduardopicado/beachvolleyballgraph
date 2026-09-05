@@ -1,5 +1,6 @@
 {
   "code": "MCAR1995",
+  "gender": "M",
   "teams": [
     [1,100675,100676,"CUB"],
     [2,100365,100393,"USA"],
@@ -141,5 +142,8 @@
     "101286": "Zachary or Zack Caiger Graves",
     "101292": "Leonardo or Leo Jimenez Soto",
     "101293": "Jorge L. Perez"
+  },
+  "elsewhere": {
+    "100330": "USA-M"
   }
 }

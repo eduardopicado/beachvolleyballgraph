@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2007",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100148,101345,"ARG"],
@@ -174,5 +175,10 @@
     "120088": "Adam Lukasik",
     "120127": "Massimiliano Falaschetti",
     "120132": "Jon Magnus Jørstad Jørstad"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

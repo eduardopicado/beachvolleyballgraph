@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2010",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103653,104438,"CHN"],
@@ -174,5 +175,12 @@
     "131978": "Angelina Hübner-Grün",
     "132178": "Åsa Gustavsson",
     "140441": "Elisa Cella"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "103997": "BRA-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "122369": "AZE-W"
   }
 }

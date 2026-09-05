@@ -1,5 +1,6 @@
 {
   "code": "MVIT2001",
+  "gender": "M",
   "teams": [
     [1,100427,102071,"BRA"],
     [2,100218,100997,"BRA"],
@@ -120,5 +121,8 @@
     "103751": "Luiz Dulinski",
     "103752": "Celso V. Brunholi",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

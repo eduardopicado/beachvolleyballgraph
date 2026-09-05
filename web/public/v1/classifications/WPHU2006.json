@@ -1,5 +1,6 @@
 {
   "code": "WPHU2006",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,102166,104032,"CHN"],
@@ -153,5 +154,9 @@
     "118464": "plunjit kleebjumpee",
     "118467": "niphaporn kaewpila",
     "123710": "Marina Storozhenko"
+  },
+  "elsewhere": {
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

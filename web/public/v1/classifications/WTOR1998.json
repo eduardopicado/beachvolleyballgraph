@@ -1,5 +1,6 @@
 {
   "code": "WTOR1998",
+  "gender": "W",
   "teams": [
     [1,100253,100258,"BRA"],
     [2,100256,100926,"BRA"],
@@ -186,5 +187,8 @@
     "102163": "Annika Granström",
     "102235": "Rachel Manley Casimir",
     "102236": "Kirsten Manley Casimir"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

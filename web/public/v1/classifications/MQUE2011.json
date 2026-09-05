@@ -1,5 +1,6 @@
 {
   "code": "MQUE2011",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,104267,116602,"USA"],
@@ -144,5 +145,14 @@
     "136350": "Charles-Antoine Séguin",
     "136371": "Samuel Surprenant",
     "137035": "Felipe Humana-Paredes"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "104434": "AZE-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M",
+    "131994": "USA-M"
   }
 }

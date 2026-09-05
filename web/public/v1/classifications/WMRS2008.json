@@ -1,5 +1,6 @@
 {
   "code": "WMRS2008",
+  "gender": "W",
   "teams": [
     [1,102215,103117,"GER"],
     [2,103865,105063,"BRA"],
@@ -153,5 +154,11 @@
     "120464": "Jantine van der Vlist",
     "120557": "Ana Catarina Carvalho",
     "120562": "Nellina Mazzulla"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

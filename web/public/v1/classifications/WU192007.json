@@ -1,5 +1,6 @@
 {
   "code": "WU192007",
+  "gender": "W",
   "teams": [
     [1,117207,117209,"NED"],
     [2,118204,137138,"ITA"],
@@ -111,5 +112,8 @@
     "147368": "Irina Abbaszade",
     "147392": "Iveta Halbichova",
     "169560": "Zuzana Markova"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

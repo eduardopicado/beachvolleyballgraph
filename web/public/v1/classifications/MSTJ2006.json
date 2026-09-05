@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2006",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100059,103680,"BRA"],
@@ -189,5 +190,8 @@
     "118134": "Krzysztof Kadziola",
     "118135": "Jakub Szalankiewicz",
     "118227": "Michal Michalak"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

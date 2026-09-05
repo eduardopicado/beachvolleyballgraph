@@ -1,5 +1,6 @@
 {
   "code": "WMRS2004",
+  "gender": "W",
   "teams": [
     [1,103033,103242,"USA"],
     [2,101712,101718,"USA"],
@@ -153,5 +154,8 @@
     "104775": "Jasmin Carina Moser",
     "104867": "Mallorie Langlet",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

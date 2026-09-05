@@ -1,5 +1,6 @@
 {
   "code": "WLUC2015",
+  "gender": "W",
   "teams": [
     [1,118261,119108,"GER"],
     [2,104487,116962,"NED"],
@@ -195,5 +196,10 @@
     "147672": "Raquel Goncalves Ferreira",
     "149061": "Galchananan Jirutchayabhornwadee",
     "150814": "Antea Tadic"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "131694": "UKR-W",
+    "147381": "UKR-W"
   }
 }

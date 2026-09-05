@@ -1,5 +1,6 @@
 {
   "code": "MMOS2013",
+  "gender": "M",
   "teams": [
     [1,104357,104449,"LAT"],
     [2,100427,133285,"BRA"],
@@ -141,5 +142,9 @@
     "134713": "Julian Amado Azaad",
     "135226": "Maverick Hatch",
     "138626": "James Avery Drost"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

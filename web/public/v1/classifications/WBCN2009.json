@@ -1,5 +1,6 @@
 {
   "code": "WBCN2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103892,105063,"BRA"],
@@ -147,5 +148,9 @@
     "125322": "Kristina May",
     "125442": "Lara Pedrós Bloom",
     "152148": "Carolina Pérez Moral"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "119620": "AZE-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WSHA2013",
+  "gender": "W",
   "teams": [
     [1,103892,103997,"BRA"],
     [2,104118,104119,"AUT"],
@@ -147,5 +148,9 @@
     "135488": "Monika Paulikiene",
     "138962": "Taravadee Naraphornrapat",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "147368": "AZE-W"
   }
 }

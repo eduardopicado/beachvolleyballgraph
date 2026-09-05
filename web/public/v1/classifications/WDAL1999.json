@@ -1,5 +1,6 @@
 {
   "code": "WDAL1999",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,101712,101718,"USA"],
@@ -141,5 +142,8 @@
     "102778": "Yan Song",
     "102779": "Rezi Wanguli Simayi",
     "102780": "Rui Ge"
+  },
+  "elsewhere": {
+    "100358": "AUS-W"
   }
 }

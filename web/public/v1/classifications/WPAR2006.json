@@ -1,5 +1,6 @@
 {
   "code": "WPAR2006",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102850,103242,"USA"],
@@ -189,5 +190,8 @@
     "117840": "Michaela Eckl",
     "117848": "Hiromi Suzuki",
     "117939": "Eydis Dalen"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

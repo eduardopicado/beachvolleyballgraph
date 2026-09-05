@@ -1,5 +1,6 @@
 {
   "code": "WCAG2000",
+  "gender": "W",
   "teams": [
     [1,100252,102527,"BRA"],
     [2,101712,101718,"USA"],
@@ -126,5 +127,9 @@
     "102923": "Krisztina Nagy",
     "102924": "Rita Wolf",
     "102929": "Antonella Del Core"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "101452": "ITA-W"
   }
 }

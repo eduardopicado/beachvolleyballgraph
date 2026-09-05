@@ -1,5 +1,6 @@
 {
   "code": "WSNS1995",
+  "gender": "W",
   "teams": [
     [1,100273,100319,"USA"],
     [2,100075,100715,"USA"],
@@ -105,5 +106,8 @@
     "101269": "Ivanise Santos De Jesus Dos",
     "101270": "Rejane Maria da Graca Secches Cannes",
     "101271": "Siomara Marcia de Souza"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

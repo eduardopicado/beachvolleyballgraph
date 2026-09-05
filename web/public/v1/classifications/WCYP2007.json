@@ -1,5 +1,6 @@
 {
   "code": "WCYP2007",
+  "gender": "W",
   "teams": [
     [1,104157,104425,"GER"],
     [2,103865,105063,"BRA"],
@@ -69,5 +70,8 @@
     "119656": "Claire Robertson",
     "119657": "Ashley Ivy",
     "119658": "Stacy Rouwenhorst"
+  },
+  "elsewhere": {
+    "118190": "ENG-W"
   }
 }

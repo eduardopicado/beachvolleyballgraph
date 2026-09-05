@@ -1,5 +1,6 @@
 {
   "code": "MHAG2010",
+  "gender": "M",
   "teams": [
     [1,100882,103316,"USA"],
     [2,102082,117474,"BRA"],
@@ -225,5 +226,10 @@
     "132800": "Eyal Zimet",
     "132861": "Michael Placek",
     "132883": "Matteo Martino"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "104434": "AZE-M"
   }
 }

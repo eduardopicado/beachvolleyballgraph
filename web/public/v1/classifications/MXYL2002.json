@@ -1,5 +1,6 @@
 {
   "code": "MXYL2002",
+  "gender": "M",
   "teams": [
     [1,104072,104073,"BRA"],
     [2,103502,104122,"GRE"],
@@ -75,5 +76,9 @@
     "104180": "Grigoris Belitsos",
     "114195": "Everaldo Lucena da Silva",
     "115320": "Nathan Roberts"
+  },
+  "elsewhere": {
+    "104103": "ISR-M",
+    "104138": "GER-M"
   }
 }

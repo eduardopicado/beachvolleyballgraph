@@ -1,5 +1,6 @@
 {
   "code": "MSSF2016",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,104073,133285,"BRA"],
@@ -39,5 +40,8 @@
     "132141": "Alex Ranghieri",
     "133285": "Evandro Gonçalves Oliveira Júnior",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

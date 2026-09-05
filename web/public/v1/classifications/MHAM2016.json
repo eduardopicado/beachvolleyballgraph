@@ -1,5 +1,6 @@
 {
   "code": "MHAM2016",
+  "gender": "M",
   "teams": [
     [1,105143,116602,"USA"],
     [2,118317,119991,"NED"],
@@ -171,5 +172,8 @@
     "150379": "Adrian Ignacio Carambula Raurich",
     "151263": "Valerio Del Carpio",
     "155625": "Davide Boncompagni"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

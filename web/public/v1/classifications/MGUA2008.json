@@ -1,5 +1,6 @@
 {
   "code": "MGUA2008",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,101481,103217,"GER"],
@@ -84,5 +85,11 @@
     "120514": "Matt Zbyszewski",
     "125468": "Julio Bardales",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MMOS2011",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,101846,122172,"SUI"],
@@ -153,5 +154,8 @@
     "132175": "Selçuk Sekerci",
     "132253": "Volkan Gögtepe",
     "132883": "Matteo Martino"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MMAR2000",
+  "gender": "M",
   "teams": [
     [1,100426,100997,"BRA"],
     [2,100302,100844,"NOR"],
@@ -234,5 +235,8 @@
     "103133": "Jérémy Canaut",
     "103134": "Cédric Blanc",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

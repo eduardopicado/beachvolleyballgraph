@@ -1,5 +1,6 @@
 {
   "code": "WBCN2008",
+  "gender": "W",
   "teams": [
     [1,101905,104863,"USA"],
     [2,103704,103892,"BRA"],
@@ -242,5 +243,10 @@
     "120399": "Siri Herredsvela",
     "133728": "Carolina Del Pilar Costagrande",
     "140680": "Lucia Lunghi"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

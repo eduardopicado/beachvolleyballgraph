@@ -1,5 +1,6 @@
 {
   "code": "WGUA2008",
+  "gender": "W",
   "teams": [
     [1,103903,119620,"BRA"],
     [2,100926,115287,"BRA"],
@@ -95,5 +96,11 @@
     "120719": "Elizabeth Maloney",
     "120934": "Cindie Valeriano",
     "120937": "Elize Secomandi Maia"
+  },
+  "elsewhere": {
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

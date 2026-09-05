@@ -1,5 +1,6 @@
 {
   "code": "WSTA2014",
+  "gender": "W",
   "teams": [
     [1,103242,118426,"USA"],
     [2,116709,119015,"ESP"],
@@ -141,5 +142,8 @@
     "141744": "Yuanyuan Wang",
     "141784": "Xinyi Xia",
     "144473": "Ingrid Tunby-Lunde"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

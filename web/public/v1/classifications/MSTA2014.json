@@ -1,5 +1,6 @@
 {
   "code": "MSTA2014",
+  "gender": "M",
   "teams": [
     [1,104268,105143,"USA"],
     [2,100997,120550,"BRA"],
@@ -147,5 +148,8 @@
     "141781": "Cong Yang",
     "143189": "Mathias Berntsen",
     "143192": "Anders Berntsen Mol"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

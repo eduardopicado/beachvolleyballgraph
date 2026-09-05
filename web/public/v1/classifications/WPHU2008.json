@@ -1,5 +1,6 @@
 {
   "code": "WPHU2008",
+  "gender": "W",
   "teams": [
     [1,103011,118426,"USA"],
     [2,104863,117540,"USA"],
@@ -108,5 +109,9 @@
     "120871": "Aunchalee Yunsuwan",
     "120882": "Tora Hansson",
     "120964": "Gretchen Duffner"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W"
   }
 }

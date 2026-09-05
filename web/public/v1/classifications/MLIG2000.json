@@ -1,5 +1,6 @@
 {
   "code": "MLIG2000",
+  "gender": "M",
   "teams": [
     [1,100426,100997,"BRA"],
     [2,100529,100530,"SUI"],
@@ -255,5 +256,8 @@
     "103104": "Marco Martinelli",
     "103105": "Vittorio Bortini",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

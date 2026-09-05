@@ -1,5 +1,6 @@
 {
   "code": "MSAN2008",
+  "gender": "M",
   "teams": [
     [1,101669,102082,"BRA"],
     [2,103680,105050,"BRA"],
@@ -120,5 +121,10 @@
     "120990": "Shibo Zhong",
     "120991": "Jingrong Ma",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WMAO2003",
+  "gender": "W",
   "teams": [
     [1,101895,103253,"NED"],
     [2,100518,103327,"GER"],
@@ -162,5 +163,8 @@
     "104463": "Xiaoyan Hu",
     "115438": "Liesbet Van Breedam",
     "161937": "Cheuk Yee Kong"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

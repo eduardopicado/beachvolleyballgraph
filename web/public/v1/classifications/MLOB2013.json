@@ -1,5 +1,6 @@
 {
   "code": "MLOB2013",
+  "gender": "M",
   "teams": [
     [1,104268,105143,"USA"],
     [2,103311,116710,"ESP"],
@@ -108,5 +109,8 @@
     "138660": "Stafford Slick",
     "141629": "Ryan Doherty",
     "141941": "Javier Monfort Minaya"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

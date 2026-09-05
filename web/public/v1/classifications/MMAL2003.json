@@ -1,5 +1,6 @@
 {
   "code": "MMAL2003",
+  "gender": "M",
   "teams": [
     [1,101591,102082,"BRA"],
     [2,101480,103109,"GER"],
@@ -222,5 +223,8 @@
     "104529": "Seyed Yousef Doban Deh Rezaei",
     "104530": "Mario Steinöker",
     "104573": "José Luis Oliva Diaz"
+  },
+  "elsewhere": {
+    "102646": "DEN-M"
   }
 }

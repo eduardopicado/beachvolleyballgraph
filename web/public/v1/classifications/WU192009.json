@@ -1,5 +1,6 @@
 {
   "code": "WU192009",
+  "gender": "W",
   "teams": [
     [1,118955,124766,"GER"],
     [2,118023,147368,"RUS"],
@@ -111,5 +112,8 @@
     "133934": "Jane Croson",
     "135982": "Natalie Hagglund",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "147368": "AZE-W"
   }
 }

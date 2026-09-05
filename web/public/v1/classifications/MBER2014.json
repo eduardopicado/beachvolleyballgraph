@@ -1,5 +1,6 @@
 {
   "code": "MBER2014",
+  "gender": "M",
   "teams": [
     [1,103810,119736,"USA"],
     [2,116602,141629,"USA"],
@@ -147,5 +148,8 @@
     "144474": "Mads Rosager",
     "145124": "Jefferson Santos Pereira",
     "145125": "Tiago De J Santos"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

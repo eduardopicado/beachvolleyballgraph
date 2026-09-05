@@ -1,5 +1,6 @@
 {
   "code": "MSTA2000",
+  "gender": "M",
   "teams": [
     [1,100426,100997,"BRA"],
     [2,101591,102082,"BRA"],
@@ -180,5 +181,8 @@
     "102950": "Per Kohler",
     "103092": "Morten Draegebo",
     "103093": "Oystein Hjellset"
+  },
+  "elsewhere": {
+    "102646": "DEN-M"
   }
 }

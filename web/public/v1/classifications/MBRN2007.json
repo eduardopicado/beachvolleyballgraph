@@ -1,5 +1,6 @@
 {
   "code": "MBRN2007",
+  "gender": "M",
   "teams": [
     [1,102514,103341,"CZE"],
     [2,105097,117113,"CAN"],
@@ -153,5 +154,11 @@
     "118990": "Michal Rucka",
     "119016": "Bence Bagics",
     "121987": "Roland Rademaker"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MMRS2001",
+  "gender": "M",
   "teams": [
     [1,100148,101345,"ARG"],
     [2,100427,102071,"BRA"],
@@ -261,5 +262,9 @@
     "116494": "Richard Rademaker",
     "121987": "Roland Rademaker",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "102604": "BEL-M",
+    "122172": "SUI-M"
   }
 }

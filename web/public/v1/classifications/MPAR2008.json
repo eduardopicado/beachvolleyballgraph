@@ -1,5 +1,6 @@
 {
   "code": "MPAR2008",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,116554,116556,"NED"],
@@ -165,5 +166,9 @@
     "117868": "Alexey Kulinich",
     "118532": "Morais Abreu",
     "120511": "Ivan Zaytsev"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "104215": "AUS-M"
   }
 }
