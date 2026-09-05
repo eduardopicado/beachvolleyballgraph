@@ -51,6 +51,26 @@ under time pressure: every count in a comment, document or PR description is
 measured against live VIS data, not estimated. When a measurement contradicts
 something already written down, the written thing is what changes.
 
+## The published tree is regenerated, never merged
+
+A conflict anywhere under `web/public/v1/` is resolved by running
+`npm run ingest` over the merged source, never by choosing lines out of two
+machine-written files. `manifest.json` and `search.json` are the two that
+actually conflict, and neither has a meaningful "theirs".
+
+**A clean merge is not evidence the tree is right**, and that is the half worth
+remembering. When a branch *adds* generated files, git has nothing to conflict
+with and merges them silently — so a branch that regenerated before a name fix
+landed on main will happily reintroduce the names the fix removed, in the new
+files, while the old files merge to the corrected version and look fine. That
+happened: 35 placeholder names came back inside new classification files, and
+no diff, conflict or test failure would have shown it.
+
+So after merging main into anything that touches the ingest or the published
+tree, regenerate and then **grep the artifact for whatever main just fixed**.
+The regenerate is also what removes the unrelated drift a second FIVB fetch
+picks up, so the diff says what the branch actually changed.
+
 ## Design changes get a mockup first
 
 Anything that changes how the site looks goes to the owner as a published
