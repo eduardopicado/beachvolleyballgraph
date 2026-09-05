@@ -21,6 +21,17 @@ commit is actually an ancestor of `origin/main` before touching anything else,
 and never push a follow-up onto a branch that has already merged: that commit
 strands silently where nobody will look for it again.
 
+**Subscribe to every PR you open, as you open it.** Nothing about a merge, a
+CI failure or a review reaches a session that has not subscribed — a PR merged
+an hour ago looks exactly like one nobody has touched, and the first sign is
+the owner asking why you did not notice. Two PRs merged and one fell into
+conflict before this was written down.
+
+**PR titles and bodies are plain text, not HTML.** `&quot;` and `&#39;` arrive
+on the page as those literal characters, so a title with a quote or an
+apostrophe in it reads as mangled encoding to everyone who sees it. Write the
+punctuation itself.
+
 ## Prove a regression test fails
 
 A test written alongside a fix is worth nothing until you have watched it fail.
@@ -48,3 +59,17 @@ both themes, with the options side by side. Declare the `artifact` capability
 so the choice can be recorded on the page itself rather than in chat, and build
 the static comparison first: the capability is granted per viewer and may not
 resolve, and the page has to be readable either way.
+
+**When the decision is about an interaction, make the mockup do it.** A
+still of the finished state answers "what does it look like" and silently
+skips "what does it feel like to open" — which is the actual question when
+the options are a lightbox against an inline expansion, or a panel against a
+nested list. The portrait and tournament mockups both drew the thing already
+open, so the owner could compare two end states and could not click either
+one; that is the half of the design they were being asked about.
+
+A mockup is a page with a script in it, so this costs a few lines: make the
+portrait open on click, the panel slide over on a tournament, the thing close
+on Escape. Keep the resting state complete either way — the page still has to
+read as a document to someone who never clicks, and to the first frame a
+thumbnail captures.
