@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import type { SearchEntry } from '../web/src/schema.js';
+import { indexPlayers, searchPlayers, type SearchablePlayer } from '../web/src/lib/search.js';
+import { parseSliceKey, type SearchEntry } from '../web/src/schema.js';
 import {
   aggregateMedals,
   aggregatePartnerships,
@@ -2136,5 +2137,82 @@ describe('the published names carry no placeholder for an unknown name', () => {
     expect(names).toContain('Jean C. Gaston');
     expect(names.some((n) => n.includes('St. John'))).toBe(true);
     expect(names.some((n) => n.includes('A.J.'))).toBe(true);
+  });
+});
+
+/**
+ * A name that offers two alternatives is findable under either of them.
+ *
+ * Quirks §21: 38 published records hold a given name beside the name the
+ * player actually competed under, joined by the word "or" — `Randolph or
+ * Randy Stoklos`, `Timothy or Tim Walmer`. FIVB writes them that way and we
+ * publish them unchanged, because for three of the 38 the "or" is not
+ * shorthand but genuine uncertainty between two different names, and picking
+ * a half would print a guess about a real person.
+ *
+ * That non-fix is only defensible while *both* halves reach the player, which
+ * is what this asserts. It works today through §6.5's scattered-token match:
+ * every word of a name is indexed separately, so the intervening "or" costs
+ * nothing and neither half is privileged. Nothing named that consequence, so
+ * a change to the ranking could quietly make half of these names unreachable
+ * and leave §21's reasoning standing on nothing.
+ *
+ * Asserted on the artifact rather than a fixture, because the claim is about
+ * the index the site actually ships.
+ */
+describe('a published name offering two alternatives', () => {
+  const index = JSON.parse(readFileSync(new URL('../web/public/v1/search.json', import.meta.url), 'utf8'));
+
+  const all: SearchablePlayer[] = [];
+  for (const [key, entries] of Object.entries(index.slices as Record<string, SearchEntry[]>)) {
+    const slice = parseSliceKey(key);
+    if (!slice) continue;
+    for (const [id, name, tournaments, short, alsoKnownAs] of entries) {
+      all.push({ id, name, tournaments, slice, short, alsoKnownAs });
+    }
+  }
+  const indexed = indexPlayers(all);
+
+  // A letter on each side of a spaced "or", which is what separates the real
+  // pairs from the ten false positives §21 lists -- the Hebrew given name
+  // "Or", and the letters sitting against an apostrophe in "L'Or Ngon Ntame"
+  // or a hyphen in "Thongsai-or".
+  const EITHER_OR = /(\p{L})\s+or\s+(\p{L})/iu;
+  const pairs = all.filter((p) => EITHER_OR.test(p.name));
+
+  /** "Randolph or Randy Stoklos" -> ["Randolph Stoklos", "Randy Stoklos"]. */
+  const bothReadings = (name: string): [string, string] => {
+    const match = /^(.*?)\s+or\s+(.*)$/iu.exec(name);
+    if (!match) throw new Error(`not an either/or name: ${name}`);
+    const [, head = '', tail = ''] = match;
+    const surname = tail.split(/\s+/).slice(1).join(' ');
+    return [`${head} ${surname}`.trim(), tail.trim()];
+  };
+
+  it('is a real population, not an empty list', () => {
+    // Vacuity guard: every assertion below passes trivially on no players.
+    // 38 today; the archive grows, so this asserts the order of magnitude.
+    expect(pairs.length).toBeGreaterThan(30);
+    expect(indexed.length).toBeGreaterThan(10_000);
+  });
+
+  it('splits into two readings that are genuinely different', () => {
+    // Guards the helper, not the search: a bug that returned the same string
+    // twice would make the real assertion below pass for the wrong reason.
+    for (const p of pairs) {
+      const [a, b] = bothReadings(p.name);
+      expect(a).not.toBe(b);
+      expect(a.length).toBeGreaterThan(0);
+      expect(b.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('is the top hit under either reading of the name', () => {
+    const missed = pairs.flatMap((p) =>
+      bothReadings(p.name)
+        .filter((q) => searchPlayers(indexed, q, p.slice, 20).matches[0]?.id !== p.id)
+        .map((q) => `${q} -> ${p.name}`),
+    );
+    expect(missed).toEqual([]);
   });
 });
