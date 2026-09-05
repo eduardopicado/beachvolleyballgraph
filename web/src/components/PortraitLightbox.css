@@ -29,14 +29,24 @@
   flex-direction: column;
   align-items: center;
   gap: 12px;
-  max-width: 100%;
+  /* The size lives here rather than on the photo, and that is what keeps the
+     backdrop clickable. Sized by its contents, this box took the portrait's
+     *intrinsic* width — 600px, what FIVB was asked for — while the photo
+     rendered at the 420px below it, because a percentage width inside a
+     shrink-to-fit parent is cyclic and resolves against max-content. The
+     figure swallows clicks by design, so those 90px either side of the photo
+     were a strip that looked like backdrop and did nothing; on a short
+     landscape window it was 174px. Fixing the figure instead makes it hug the
+     photo at every size, so "outside the photo" is backdrop everywhere.
+
+     Bounded by the shorter axis so a tall viewport does not push the caption
+     off the bottom, and never enlarged past the 600px that was fetched. */
+  width: min(420px, 100%, 60vh);
 }
 
 .portrait-lightbox img {
   display: block;
-  /* Bounded by the shorter axis so a tall viewport does not push the caption
-     off the bottom, and never enlarged past the 600px that was fetched. */
-  width: min(420px, 100%, 60vh);
+  width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: var(--shadow-lg);
@@ -47,7 +57,7 @@
 .portrait-missing {
   display: grid;
   place-items: center;
-  width: min(420px, 100%, 60vh);
+  width: 100%;
   aspect-ratio: 1;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.08);

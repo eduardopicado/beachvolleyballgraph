@@ -115,6 +115,42 @@ test.describe('the card’s portrait', () => {
     await expect(lightbox.locator('img')).toHaveCount(0);
   });
 
+  test('closes on a click just outside the photo, not only far from it', async ({ page }) => {
+    /*
+     * The backdrop closes the dialog and the figure deliberately does not, so
+     * everything turns on where the figure's box actually ends. Sized by its
+     * contents, it took the portrait's *intrinsic* width — 600px, what FIVB
+     * was asked for — while the photo rendered at the 420px cap, leaving 90px
+     * either side that looked like backdrop and swallowed the click. On a
+     * short landscape window it was 174px.
+     *
+     * The stub has to be larger than that cap or the bug cannot exist: with a
+     * small image the figure hugs it and the strip is zero, which is how this
+     * went unnoticed. 600x800 is the shape FIVB actually returns.
+     */
+    const node = subject();
+    await page.route(PHOTOS, (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: 'image/svg+xml',
+        body: '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800"><rect width="600" height="800" fill="#456"/></svg>',
+      }),
+    );
+
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    await page.locator('.player-photo .portrait-trigger').click();
+    const lightbox = page.locator('.portrait-lightbox');
+    await expect(lightbox).toBeVisible();
+
+    const photo = await lightbox.locator('img').boundingBox();
+    expect(photo, 'the portrait should be laid out').not.toBeNull();
+
+    // Eight pixels past the photo's edge, level with its middle: unmistakably
+    // outside the picture, and the first place a reader tries.
+    await page.mouse.click(photo!.x - 8, photo!.y + photo!.height / 2);
+    await expect(lightbox).toHaveCount(0);
+  });
+
   test('fetches the card’s portrait rather than deferring it', async ({ page }) => {
     // `loading="lazy"` on the one image the reader just asked for is latency
     // for nothing, and on a card that opens below the fold it is a request the
