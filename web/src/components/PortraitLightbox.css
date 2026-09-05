@@ -42,6 +42,21 @@
   box-shadow: var(--shadow-lg);
 }
 
+/* The 600px request failed where the card's 200px one did not — rare, and only
+   ever a second request going wrong. Same box as the photo it stands in for. */
+.portrait-missing {
+  display: grid;
+  place-items: center;
+  width: min(420px, 100%, 60vh);
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 72px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+}
+
 .portrait-lightbox figcaption {
   display: flex;
   flex-direction: column;

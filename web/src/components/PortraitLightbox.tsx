@@ -15,12 +15,20 @@
  * on an extension.
  *
  * Only reachable when a portrait actually loaded — `Avatar` owns that state and
- * only renders its trigger on success, so this is never opened on the initials
- * fallback.
+ * only renders its trigger once a `load` has fired, so this is never opened on
+ * the initials fallback.
+ *
+ * It still handles its own failure, because "a portrait loaded" is not quite
+ * the same statement as "this request will succeed": the card asks for 200px
+ * and this asks for 600, a second request that can fail on its own — a dropped
+ * connection, or FIVB holding one width and not the other. Without it the
+ * dialog draws the browser's broken-image glyph over a black page, which is
+ * what a reader saw before `Avatar` stopped offering the trigger too early.
  */
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { playerPhotoUrl } from '../schema';
+import { initials } from '../lib/format';
 import './PortraitLightbox.css';
 
 interface Props {
@@ -35,6 +43,7 @@ interface Props {
 export function PortraitLightbox({ id, name, flag, countryName, onClose }: Props) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     // Whatever opened this — the portrait button, in every path that exists
@@ -93,7 +102,21 @@ export function PortraitLightbox({ id, name, flag, countryName, onClose }: Props
       onClick={onClose}
     >
       <figure onClick={(event) => event.stopPropagation()}>
-        <img src={playerPhotoUrl(id, 600)} alt={`${name}, ${countryName}`} decoding="async" />
+        {failed ? (
+          // The same initials the card draws, at this size. The caption below
+          // still names the player, so the dialog says who it is about rather
+          // than showing the browser's broken-image glyph and nothing else.
+          <div className="portrait-missing" aria-hidden="true">
+            {initials(name)}
+          </div>
+        ) : (
+          <img
+            src={playerPhotoUrl(id, 600)}
+            alt={`${name}, ${countryName}`}
+            decoding="async"
+            onError={() => setFailed(true)}
+          />
+        )}
         <figcaption>
           <strong>{name}</strong>
           <span>

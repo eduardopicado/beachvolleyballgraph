@@ -97,6 +97,24 @@ test.describe('the card’s portrait', () => {
     await expect(page.locator('.portrait-lightbox')).toHaveCount(0);
   });
 
+  test('says who the portrait is of when the large one fails on its own', async ({ page }) => {
+    // The card asks FIVB for 200px and the lightbox for 600 — a second request,
+    // which can fail where the first did not. Before this the dialog drew the
+    // browser's broken-image glyph on a black page.
+    const node = subject();
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    // Only the large request fails, so the card's portrait still loads and the
+    // trigger is still offered.
+    await page.route(/width=600/, (route) => route.fulfill({ status: 404, body: '' }));
+    await page.locator('.player-photo .portrait-trigger').click();
+
+    const lightbox = page.locator('.portrait-lightbox');
+    await expect(lightbox).toBeVisible();
+    await expect(lightbox.locator('.portrait-missing')).toHaveText(initials(node.name));
+    await expect(lightbox.locator('figcaption')).toContainText(node.name);
+    await expect(lightbox.locator('img')).toHaveCount(0);
+  });
+
   test('fetches the card’s portrait rather than deferring it', async ({ page }) => {
     // `loading="lazy"` on the one image the reader just asked for is latency
     // for nothing, and on a card that opens below the fold it is a request the
