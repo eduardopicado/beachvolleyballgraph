@@ -38,15 +38,13 @@
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
   background: var(--series-1-wash);
   border: 1px solid var(--border);
 }
 
+/* No photo on file, or none yet — see Avatar.css for why those are one case
+   as far as this circle is concerned. */
 .player-photo.is-fallback {
-  display: grid;
-  place-items: center;
   color: var(--series-1);
   font-size: 22px;
   font-weight: 650;

@@ -296,14 +296,11 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  object-fit: cover;
   background: var(--series-1-wash);
 }
 
 /* No photo on file, which is common rather than exceptional — see Avatar.tsx. */
 .player-search-results .avatar.is-fallback {
-  display: grid;
-  place-items: center;
   color: var(--series-1);
   font-size: 11px;
   font-weight: 600;
