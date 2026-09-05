@@ -1137,6 +1137,15 @@ already exist and are unused, and 100156 looks like a duplicate of 111846.
 Confirming any of it needs FIVB's own entry list, not more inference from
 this side.
 
+**Gaston's other row is broken too, differently.** He holds exactly two team
+rows in the archive, and Rio 1989 is only one of them. The other is Cap d'Agde
+1991, where his partner is player 100157, `Olivier or Philippe Rossard` — a
+single record standing for **two different men** (§21a). So both appearances of
+one French player carry a fault on the person beside him, from two unrelated
+causes. That is the clearest evidence in this document that the early
+hand-entered seasons were reconciled against a player table that did not yet
+hold the people they needed.
+
 **The career shape says the same thing without the birthdate.** Worth having
 separately, because it survives the reply that it is the birthdate that is
 wrong. Her record is two events eleven years apart: Rio in 1989, then Marseille
@@ -1444,6 +1453,168 @@ this worth reporting rather than encoding.
 
 ---
 
+## 21. A name field that holds two names and the word "or"
+
+**What.** **50 of 131,180** player records carry an unresolved alternative
+inside a name field — the data-entry equivalent of a shrug:
+
+```
+FirstName "Randolph or Randy"      LastName "Stoklos"
+FirstName "Olivier or Philippe"    LastName "Rossard"
+FirstName "Ilia"                   LastName "Ntimo Or Dimo"
+```
+
+**38 of the 50 are published**; §3's never-played rule drops the other 12. The
+split between where the pair sits is the whole story, because the two halves
+are not the same phenomenon:
+
+| Pair sits in | Count | Published | What it means |
+|---|---:|---:|---|
+| `FirstName` | 41 | **38** | Overwhelmingly a given name beside the nickname the player competed under |
+| `LastName` | 9 | **0** | Two transliterations of one surname — **all nine Greek** |
+
+**The surname cases are a transliteration cluster, and none of them reach the
+site.** `Ntompra or Dobra`, `Metousi or Metushi`, `Tserempei or Cerempei`,
+`Gkouznta or Guzda` — Greek-alphabet names romanised two ways, with the
+Greek-derived and the Albanian-derived spelling both typed into one field
+rather than one being chosen. Ten of the fifty genuine records are `GRE`,
+second only to `USA`'s sixteen, and nine of those ten are this.
+
+**The published 38 are almost all nicknames — but not all, and that is what
+stops a rule.** 35 read as a given name beside its short form: `Anthony or
+Tony Cothron`, `Charles or Chuck Coulter`, `Emanuele or Lele Fracascia`. Three
+do not:
+
+| | Player | What the `or` is doing |
+|---|---|---|
+| 100157 | `Olivier or Philippe Rossard` | **Two different men under one player number** (§21a) |
+| 100058 | `Takeshi or Satoshi Matsumoto` | One man. His name is **Takeshi** (§21b) |
+| 100126 | `Mikiyo or Mikio Tada` | One man. His name is **Mikiyo** (§21b) |
+
+For those three the `or` is not shorthand, and they do not even fail the same
+way: one is two people wearing one record, and two are one person whose name
+FIVB simply never resolved — where somebody else did. Both cases are reasons
+not to write a rule. The first would delete a man; the second would be a
+coin-flip on a question that has an answer.
+
+### 21a. Rossard is not an unsettled name, it is two people
+
+**Olivier Rossard and Philippe Rossard are two distinct French players**, which
+the repository owner establishes from outside VIS — nothing in the archive says
+so. That makes 100157 the exact inverse of §20: not one athlete spread across
+two player numbers, but **two athletes collapsed into one**.
+
+What VIS itself shows is consistent with it and adds the detail worth
+reporting:
+
+- **No `Olivier Rossard` and no `Philippe Rossard` record exists.** The archive
+  holds eight names containing "rossard"; three are other people entirely
+  (`Frossard`, `Brossard`) and the four real Rossards — Nicolas, Thibault,
+  Sophie, Quentin — are all born 1990 or later. Neither man has a record of his
+  own to be confused with, so a reader has no way to discover the collapse.
+- **The record carries no `Birthdate`**, which is the field that would
+  otherwise separate two men sharing a surname.
+- **It has exactly one team row**: Cap d'Agde 1991 (`MCAG1991`), 6th, partnered
+  with **Jean C. Gaston** (100156). The two ids are consecutive, so the pair was
+  entered together — and only one of the two Rossards actually played it.
+  Which one is a question only FIVB's entry list can answer.
+
+**And that is Gaston's second broken partner.** He holds two rows in the whole
+archive and neither names a partner correctly: this one, and `MRIO1989`, which
+§18 shows crediting Marion Marquet — a woman who would have been eight years
+old. One French player, two events, two different upstream faults on the person
+beside him; §18 draws the conclusion.
+
+### 21b. Matsumoto and Tada are one man each, and both names are known
+
+The other two are the opposite case, and they are **answerable**. bvbinfo holds
+a record for each, and each commits to one name where VIS offers two:
+
+| VIS | bvbinfo | |
+|---|---|---|
+| 100058 `Takeshi or Satoshi Matsumoto` | [**Takeshi Matsumoto**](http://www.bvbinfo.com/player.asp?ID=788) | born 11 May 1969, Japan |
+| 100126 `Mikiyo or Mikio Tada` | [**Mikiyo Tada**](http://www.bvbinfo.com/player.asp?ID=839) | Japan, no birth date either side |
+
+**Both are the same records, beyond doubt.** Matsumoto's seven results match
+ours exactly — every date, partner and placement:
+
+| | bvbinfo | ours |
+|---|---|---|
+| 1987 | 2/17–22 Rio de Janeiro, Tatsukawa, 12th | `MRIO1987` 17 Feb, `... Tatsukawa`, 12 |
+| 1988 | 2/20–28 Rio de Janeiro, Hiromichi Kageyama, 23rd | `MRIO1988` 20 Feb, Hiromichi Kageyama, 23 |
+| 1989 | 8/4–6 Enoshima, Shunichi Kawai, 8th | `MENO1989` 4 Aug, Shunichi Kawai, 8 |
+| 1991 | 2/12–23 Rio de Janeiro, Mikiyo Tada, 16th | `MRIO1991` 12 Feb, `Mikiyo or Mikio Tada`, 16 |
+| 1992 | 7/28–30 Enoshima, Hiroshi Seki, 13th | `MENO1992` 28 Jul, Hiroshi Seki, 13 |
+| 1993 | 7/29–8/1 Enoshima, Hiroshi Seki, 13th | `MENO1993` 29 Jul, Hiroshi Seki, 13 |
+| 1994 | 8/4–7 Enoshima, Hiroshi Seki, 13th | `MENO1994` 4 Aug, Hiroshi Seki, 13 |
+
+Tada's three match the same way, including the Rio row where the two men played
+together — bvbinfo lists Matsumoto's partner as "Mikiyo Tada" and Tada's as
+"Takeshi Matsumoto", resolving both records from either direction.
+
+**And the exact roster match is why the name carries weight, not in spite of
+it.** §6d sets the standard: bvbinfo's rosters match FIVB's, errors included, so
+it can never corroborate a roster — but it *can* corroborate a field where it
+disagrees with VIS, because agreement there cannot be an echo. The rosters here
+agree completely, which fixes the identity of the two records and proves
+nothing else. The **name** is the one field where the two sources part company:
+where FIVB writes two names and a conjunction, bvbinfo writes one. Whatever
+resolved it is not visible from here, so this is evidence and not proof — but
+for Matsumoto it comes with a birthdate that agrees to the day.
+
+So the reportable form is unusually strong: not "this record is ambiguous"
+but "this record is Takeshi Matsumoto, born 11 May 1969, and here are his seven
+results and an outside record agreeing on all of them."
+
+**A naive scan for the word overcounts by ten, and the false positives are
+instructive.** Searching for a standalone `or` returns 60, not 50. **Or** is an
+ordinary Hebrew given name — seven `ISR` records carry it (`Or Osipov`, `Or
+Covo`, `Or Podgorni`), one Canadian and one Israeli carry it as a *surname* —
+and `L'Or Ngon Ntame` (CMR) and `Thongsai-or` (THA) put the letters against an
+apostrophe and a hyphen. Requiring a letter on both sides of a spaced `or`
+(`/\p{L}\s+or\s+\p{L}/iu`) separates the two exactly; a plain word-boundary
+test does not.
+
+**Handled in.** Nothing, and unusually this was checked rather than assumed.
+
+*Search already reaches both halves.* Running the published index through
+`searchPlayers` for all 38 players under **both** readings of their name — 76
+queries, `Randolph Stoklos` and `Randy Stoklos` alike — returns the right
+player as the **top hit every time, 76 of 76**. §6.5's scattered-token match is
+why: it indexes every word of a name separately, so the intervening `or`
+costs nothing and neither half is privileged.
+
+*The graph label never carries the pair.* Nodes are drawn with `short`, which
+is the surname — `Stoklos`, `Rossard`, `Matsumoto`. There is nothing to fix
+there.
+
+So the only thing a rule could change is the string on the card, and FIVB's own
+string is the better one: for 35 records it is a name and its nickname, and for
+the rest it is the archive being visibly unsure rather than quietly wrong.
+Rossard is the case that settles the argument — a rule that picked a half there
+would not be choosing between two spellings of a man, it would be **deleting
+one of two men** (§21a), and neither half of that name is safe to publish
+alone. Matsumoto and Tada settle it from the other side: their names *are*
+knowable, and the answer came from outside VIS (§21b) — precisely where a rule
+reading the string could never have reached.
+
+**And the two halves do not mean the same thing from one record to the next**,
+which is what makes any positional rule unsound rather than merely risky. Take
+the first half and you get Takeshi and Mikiyo, both correct — and `Randolph
+Stoklos`, a man who competed for a decade as Randy. Take the second and you get
+Randy, correct — and Satoshi and Mikio, both wrong. The first half is the legal
+name in the 35 nickname records and the correct name in these two; the second
+is the competing name in the 35 and a misspelling in these two. No position
+wins, because the syntax is one operator standing in for several different
+uncertainties.
+
+Better reported than rewritten, and the three cases ask FIVB for three
+different things: 100157 to be **split**, because only FIVB can; 100058 and
+100126 to be **resolved to the name already known**; the nine Greek surnames to
+be **decided**, because FIVB holds the original spelling and we never will.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1485,12 +1656,35 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   were held. A request rather than a defect report: a populated `DefaultCity`
   on the Olympics and the World Championships would retire two hand-maintained
   maps here and help every other consumer of the archive.
+- **§20**, the same athlete held under two player numbers — 14 same-federation
+  groups agreeing on name, federation and `Birthdate`, and five `FIV`↔`CUB`
+  pairs corroborated by `BirthPlace`. Listed with ids, so each is a lookup
+  rather than a search.
+- **§21**, the 50 records whose name field holds two names and the word `or`,
+  which are two separate requests:
+  - **§21a is a defect and the sharper of the two.** Player 100157,
+    `Olivier or Philippe Rossard`, is **two men under one number** — the inverse
+    of §20 — and its single row, Cap d'Agde 1991 (`MCAG1991`) alongside Jean C.
+    Gaston, was played by only one of them. FIVB's entry list for that event
+    settles it and nothing on this side can. Worth raising beside §18's
+    `MRIO1989`, because that is Gaston's *other* row and its partner is wrong
+    too: both appearances of one player carry a different fault on the person
+    beside him.
+  - **§21b is two records with the answer already attached.** 100058 is
+    **Takeshi** Matsumoto, born 11 May 1969, and 100126 is **Mikiyo** Tada —
+    bvbinfo holds a record for each committing to one name, and every one of
+    their ten combined results matches ours to the date, partner and placement.
+    These need no investigation at FIVB's end, only the correction.
+  - **The nine Greek surnames are a cleanup request.** `Ntompra or Dobra` and
+    its eight siblings are one romanisation decision each, and FIVB holds the
+    original spelling that would settle them. Note the ten false positives — the
+    Hebrew given name **Or** — before scanning for these.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email covers the first three only.** It is
-`docs/fivb-email.md` on the unsent branch (task #12), written before the dated,
-name, birth-place and championship-naming quirks were found. Anyone picking that
-task up should add the last five to its "would a list of data issues be useful"
-section before sending — it already offers exactly that list.
+**The draft introduction email now covers all of this except §1 and §21.** It
+is `docs/fivb-email.md` (task #12), and its "would a list of data issues be
+useful" section names each quirk by the section number used here — so the two
+files have to be kept in step, and a new section added above is not reported
+until it is added there too.
