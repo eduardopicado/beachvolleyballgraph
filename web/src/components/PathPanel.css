@@ -230,13 +230,10 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  object-fit: cover;
   background: var(--series-1-wash);
 }
 
 .path-panel .chain .avatar.is-fallback {
-  display: grid;
-  place-items: center;
   color: var(--series-1);
   font-size: 10px;
   font-weight: 600;

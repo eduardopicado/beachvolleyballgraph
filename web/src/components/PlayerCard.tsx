@@ -660,6 +660,11 @@ export function PlayerCard({
           name={node.name}
           width={200}
           className="player-photo"
+          // The reader clicked a player to get here, and this is that player's
+          // face: there is nothing to defer it behind. Lazily, a card opened
+          // below the fold — which is where it lands on a phone, and at some
+          // zoom levels on a desktop — never started the request at all.
+          eager
           onExpand={() => setPortraitOpen(true)}
         />
         <div className="who">

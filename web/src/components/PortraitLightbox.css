@@ -92,16 +92,16 @@
   }
 }
 
-/* The trigger the avatar becomes when there is a portrait to enlarge. A bare
-   wrapper: the image keeps its own class, so its size and shape are unchanged
-   whether or not it is clickable. */
+/* The hit area the avatar gains once there is a portrait to enlarge. A
+   transparent disc laid over the photo rather than a wrapper around it, so
+   the image keeps its place in the DOM — and its decode — when it loads. */
 .portrait-trigger {
-  display: block;
+  position: absolute;
+  inset: 0;
   padding: 0;
   border: 0;
+  border-radius: inherit;
   background: none;
-  line-height: 0;
-  border-radius: 50%;
   cursor: zoom-in;
 }
 
@@ -111,7 +111,10 @@
 }
 
 @media (hover: hover) {
-  .portrait-trigger:hover img {
-    border-color: var(--series-1);
+  /* Reads as the photo's own border turning accent-coloured. The disc's edge
+     is the *inside* of that border — `inset: 0` is the padding box — so the
+     ring is spread outwards over it rather than drawn as a second one in. */
+  .portrait-trigger:hover {
+    box-shadow: 0 0 0 1px var(--series-1);
   }
 }
