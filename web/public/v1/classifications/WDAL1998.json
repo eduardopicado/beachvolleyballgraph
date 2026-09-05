@@ -1,5 +1,6 @@
 {
   "code": "WDAL1998",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100615,100715,"USA"],
@@ -129,5 +130,8 @@
     "102343": "Jie Yang",
     "102344": "Na Zhang",
     "102362": "Risma Siswardini"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

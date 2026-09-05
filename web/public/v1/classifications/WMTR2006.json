@@ -1,5 +1,6 @@
 {
   "code": "WMTR2006",
+  "gender": "W",
   "teams": [
     [1,102527,103762,"BRA"],
     [2,103903,103904,"BRA"],
@@ -165,5 +166,8 @@
     "118004": "Gina Kirstein",
     "118005": "Franci Van Zwieten",
     "181775": "Sarah White"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

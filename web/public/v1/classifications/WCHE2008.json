@@ -1,5 +1,6 @@
 {
   "code": "WCHE2008",
+  "gender": "W",
   "teams": [
     [1,103623,103626,"THA"],
     [2,102334,103968,"THA"],
@@ -51,5 +52,8 @@
     "120793": "Tharanga Sewwandi",
     "120794": "Sagari Gunasinghe",
     "120796": "Sujeewa Ww"
+  },
+  "elsewhere": {
+    "118992": "ENG-W"
   }
 }

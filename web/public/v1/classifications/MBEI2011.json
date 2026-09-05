@@ -1,5 +1,6 @@
 {
   "code": "MBEI2011",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,103109,103217,"GER"],
@@ -174,5 +175,9 @@
     "132856": "Casey Patterson",
     "132883": "Matteo Martino",
     "135284": "Lei Li"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "131994": "USA-M"
   }
 }

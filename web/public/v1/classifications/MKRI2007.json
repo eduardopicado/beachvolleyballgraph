@@ -1,5 +1,6 @@
 {
   "code": "MKRI2007",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,103109,104423,"GER"],
@@ -186,5 +187,11 @@
     "118938": "Petter Bjorbak",
     "118942": "Martin Spinnangr",
     "119043": "Isaac Kapa"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

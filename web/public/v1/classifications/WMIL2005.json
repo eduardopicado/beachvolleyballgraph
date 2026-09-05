@@ -1,5 +1,6 @@
 {
   "code": "WMIL2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,101829,103656,"GRE"],
@@ -230,5 +231,8 @@
     "115939": "Adelaide Salerno",
     "116022": "Daniela Fonicello",
     "116266": "Andrea Dos Santos Teixeira"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

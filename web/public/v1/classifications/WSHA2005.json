@@ -1,5 +1,6 @@
 {
   "code": "WSHA2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,100256,100926,"BRA"],
@@ -161,5 +162,8 @@
     "115224": "Marie-Christine Pruneau",
     "115225": "Dominique Duchaine",
     "115287": "Agatha Bednarczuk"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

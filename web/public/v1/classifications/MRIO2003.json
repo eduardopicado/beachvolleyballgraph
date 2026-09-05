@@ -1,5 +1,6 @@
 {
   "code": "MRIO2003",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100418,102087,"USA"],
@@ -147,5 +148,8 @@
     "104209": "Mario Silva",
     "104215": "Mark Williams",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

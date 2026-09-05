@@ -1,5 +1,6 @@
 {
   "code": "WBER2013",
+  "gender": "W",
   "teams": [
     [1,103892,103997,"BRA"],
     [2,104157,104425,"GER"],
@@ -144,5 +145,8 @@
     "135301": "Galindo Claudia",
     "135551": "Patricia Missottenová",
     "141673": "Panagiota Karagkouni"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

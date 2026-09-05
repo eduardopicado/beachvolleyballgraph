@@ -1,5 +1,6 @@
 {
   "code": "MPRA2008",
+  "gender": "M",
   "teams": [
     [1,104268,104552,"USA"],
     [2,101481,103217,"GER"],
@@ -240,5 +241,8 @@
     "120127": "Massimiliano Falaschetti",
     "120289": "Petr Sedlacek",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

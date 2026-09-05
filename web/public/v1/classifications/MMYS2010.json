@@ -1,5 +1,6 @@
 {
   "code": "MMYS2010",
+  "gender": "M",
   "teams": [
     [1,100425,105143,"USA"],
     [2,103311,116710,"ESP"],
@@ -297,5 +298,12 @@
     "132099": "Maciej Kosiak",
     "132101": "Siarhei Kazantsau",
     "132141": "Alex Ranghieri"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118584": "SCO-M",
+    "131994": "USA-M"
   }
 }

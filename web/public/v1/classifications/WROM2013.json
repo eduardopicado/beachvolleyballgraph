@@ -1,5 +1,6 @@
 {
   "code": "WROM2013",
+  "gender": "W",
   "teams": [
     [1,103892,103997,"BRA"],
     [2,103011,118426,"USA"],
@@ -138,5 +139,8 @@
     "133360": "Emily Capers",
     "135551": "Patricia Missottenová",
     "141673": "Panagiota Karagkouni"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

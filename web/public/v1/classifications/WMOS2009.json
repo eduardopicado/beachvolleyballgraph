@@ -1,5 +1,6 @@
 {
   "code": "WMOS2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103704,103865,"BRA"],
@@ -150,5 +151,13 @@
     "120559": "Anna Vozakova",
     "121925": "Louise Bawden",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W",
+    "147368": "AZE-W"
   }
 }

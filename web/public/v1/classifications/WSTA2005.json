@@ -1,5 +1,6 @@
 {
   "code": "WSTA2005",
+  "gender": "W",
   "teams": [
     [1,101829,103656,"GRE"],
     [2,103903,103904,"BRA"],
@@ -173,5 +174,8 @@
     "116037": "Mette Jensen Flügge",
     "116074": "Randi Holberg",
     "116075": "Sigrid Aasen"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

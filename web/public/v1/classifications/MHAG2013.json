@@ -1,5 +1,6 @@
 {
   "code": "MHAG2013",
+  "gender": "M",
   "teams": [
     [1,104073,117474,"BRA"],
     [2,104357,104449,"LAT"],
@@ -147,5 +148,8 @@
     "139052": "Malachi Murch",
     "141407": "Michiel van Dorsten",
     "141629": "Ryan Doherty"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

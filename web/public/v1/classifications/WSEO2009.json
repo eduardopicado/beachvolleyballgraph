@@ -1,5 +1,6 @@
 {
   "code": "WSEO2009",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,103011,118426,"USA"],
@@ -162,5 +163,8 @@
     "122738": "Hyo-Sil Jang",
     "122739": "Ka-Yeon Kim",
     "133728": "Carolina Del Pilar Costagrande"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

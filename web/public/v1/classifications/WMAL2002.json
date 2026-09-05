@@ -1,5 +1,6 @@
 {
   "code": "WMAL2002",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,102850,103242,"USA"],
@@ -210,5 +211,9 @@
     "104184": "Carol Triguero",
     "115438": "Liesbet Van Breedam",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103034": "ITA-W",
+    "103670": "CYP-W"
   }
 }

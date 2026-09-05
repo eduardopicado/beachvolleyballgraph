@@ -1,5 +1,6 @@
 {
   "code": "WFOR2001",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100715,103242,"USA"],
@@ -116,5 +117,8 @@
     "103704": "Renata Martins Ribeiro",
     "103744": "Yasmin Buchacher",
     "103746": "Kerri Eich"
+  },
+  "elsewhere": {
+    "100619": "ITA-W"
   }
 }

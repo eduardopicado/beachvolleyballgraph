@@ -1,5 +1,6 @@
 {
   "code": "MU212010",
+  "gender": "M",
   "teams": [
     [1,120717,124978,"CAN"],
     [2,120550,120551,"BRA"],
@@ -126,5 +127,8 @@
     "133359": "Raffaele Cionna",
     "136485": "Zlatan Yordanov",
     "145795": "Joalisson Laurindo Gomes"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MCIN2016",
+  "gender": "M",
   "teams": [
     [1,132705,139965,"BRA"],
     [2,104220,120717,"CAN"],
@@ -126,5 +127,8 @@
     "149259": "Szymon Tralka",
     "153856": "Raffe Paulis",
     "154217": "Marcin Jagoda"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

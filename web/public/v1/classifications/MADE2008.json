@@ -1,5 +1,6 @@
 {
   "code": "MADE2008",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,103921,104662,"CHN"],
@@ -195,5 +196,13 @@
     "120204": "James Carey",
     "120247": "John Stock",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "104215": "AUS-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

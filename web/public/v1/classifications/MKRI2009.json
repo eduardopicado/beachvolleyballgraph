@@ -1,5 +1,6 @@
 {
   "code": "MKRI2009",
+  "gender": "M",
   "teams": [
     [1,102631,112228,"RUS"],
     [2,103523,104357,"LAT"],
@@ -171,5 +172,11 @@
     "122268": "Peter Anundgård",
     "124005": "John Garcia-Thompson",
     "124762": "Jørn Olav Gamlemoen"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

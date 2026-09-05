@@ -1,5 +1,6 @@
 {
   "code": "WSAN2008",
+  "gender": "W",
   "teams": [
     [1,103011,118426,"USA"],
     [2,103653,120080,"CHN"],
@@ -102,5 +103,8 @@
     "120993": "Chunmei Huang",
     "120994": "Jingxian Situ",
     "120995": "Whitney Pavlik"
+  },
+  "elsewhere": {
+    "105172": "ENG-W"
   }
 }

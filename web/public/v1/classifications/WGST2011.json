@@ -1,5 +1,6 @@
 {
   "code": "WGST2011",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103653,104438,"CHN"],
@@ -186,5 +187,12 @@
     "132254": "Mélody Benhamou",
     "134504": "Priscilla Eckstein Lese Lima",
     "134964": "Ekaterina Syrtseva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

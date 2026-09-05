@@ -1,5 +1,6 @@
 {
   "code": "MKIE2002",
+  "gender": "M",
   "teams": [
     [1,103215,122172,"SUI"],
     [2,102995,103531,"UKR"],
@@ -123,5 +124,8 @@
     "114560": "Dzmitry Likharad",
     "121360": "Oleg Mikanovich",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

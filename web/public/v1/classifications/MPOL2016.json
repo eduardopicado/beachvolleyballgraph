@@ -1,5 +1,6 @@
 {
   "code": "MPOL2016",
+  "gender": "M",
   "teams": [
     [1,104357,104449,"LAT"],
     [2,117474,118267,"BRA"],
@@ -150,5 +151,8 @@
     "147705": "Tamás Meszlényi",
     "149583": "Tomas Pala",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

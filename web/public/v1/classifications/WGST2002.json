@@ -1,5 +1,6 @@
 {
   "code": "WGST2002",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,100256,100926,"BRA"],
@@ -288,5 +289,8 @@
     "115429": "Frauke Dirickx",
     "115438": "Liesbet Van Breedam",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103034": "ITA-W"
   }
 }

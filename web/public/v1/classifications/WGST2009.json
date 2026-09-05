@@ -1,5 +1,6 @@
 {
   "code": "WGST2009",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,103903,103904,"BRA"],
@@ -171,5 +172,12 @@
     "120134": "Anna Harrison",
     "120367": "Sophie van Gestel",
     "121925": "Louise Bawden"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

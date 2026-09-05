@@ -1,5 +1,6 @@
 {
   "code": "MFOR1994",
+  "gender": "M",
   "teams": [
     [1,100059,100060,"BRA"],
     [2,100016,100110,"NOR"],
@@ -90,5 +91,8 @@
     "100583": "Marek \"Marco\" \"Pako\" Pakosta",
     "100584": "Michal \"Palda\" Palinek",
     "101204": "Paulo Emilio Silva Azevedo"
+  },
+  "elsewhere": {
+    "100303": "PUR-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MSTJ2005",
+  "gender": "M",
   "teams": [
     [1,100529,101398,"SUI"],
     [2,101480,103109,"GER"],
@@ -291,5 +292,8 @@
     "116608": "Marcin Iglewski",
     "116715": "Mariusz Prudel",
     "117033": "Sikora Tomasz"
+  },
+  "elsewhere": {
+    "115623": null
   }
 }

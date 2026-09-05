@@ -1,5 +1,6 @@
 {
   "code": "WBER2014",
+  "gender": "W",
   "teams": [
     [1,116659,118054,"CZE"],
     [2,103904,105063,"BRA"],
@@ -138,5 +139,8 @@
     "141544": "Olga Motrich",
     "141744": "Yuanyuan Wang",
     "141784": "Xinyi Xia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

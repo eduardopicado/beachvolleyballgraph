@@ -1,5 +1,6 @@
 {
   "code": "Rio2016M",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,118194,120774,"ITA"],
@@ -75,5 +76,8 @@
     "150101": "choaib Belhaj Salah",
     "150102": "Mohamed Arafet Naceur",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

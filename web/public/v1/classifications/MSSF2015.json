@@ -1,5 +1,6 @@
 {
   "code": "MSSF2015",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,105143,116602,"USA"],
@@ -33,5 +34,8 @@
     "131994": "Chaim Schalk",
     "132856": "Casey Patterson",
     "133285": "Evandro Gonçalves Oliveira Júnior"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

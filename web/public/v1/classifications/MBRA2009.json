@@ -1,5 +1,6 @@
 {
   "code": "MBRA2009",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,101669,118267,"BRA"],
@@ -165,5 +166,9 @@
     "122133": "Bradley Keenan",
     "122210": "Steve Corothers",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "118584": "SCO-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MKLA1999",
+  "gender": "M",
   "teams": [
     [1,100218,100427,"BRA"],
     [2,100426,100997,"BRA"],
@@ -240,5 +241,8 @@
     "102730": "Oleg \"Evoenyovieh\" Rak",
     "102731": "Oleg Bilynskyy",
     "102732": "Danylo Konstantinov"
+  },
+  "elsewhere": {
+    "102667": "ITA-M"
   }
 }

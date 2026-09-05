@@ -1,5 +1,6 @@
 {
   "code": "WVIT2000",
+  "gender": "W",
   "teams": [
     [1,100019,101905,"USA"],
     [2,100253,100258,"BRA"],
@@ -150,5 +151,8 @@
     "102869": "Wendy Martin",
     "102870": "Teri Van Dyke",
     "102871": "Dalixia Fernandez Grasset"
+  },
+  "elsewhere": {
+    "100358": "AUS-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WKLA2006",
+  "gender": "W",
   "teams": [
     [1,102166,104032,"CHN"],
     [2,103903,103904,"BRA"],
@@ -198,5 +199,8 @@
     "117848": "Hiromi Suzuki",
     "117939": "Eydis Dalen",
     "118102": "Gabriele Pemmer"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

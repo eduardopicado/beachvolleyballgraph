@@ -1,5 +1,6 @@
 {
   "code": "MU192024",
+  "gender": "M",
   "teams": [
     [1,182741,188216,"POL"],
     [2,190909,192792,"LAT"],
@@ -138,5 +139,9 @@
     "213081": "Blake Goodwin",
     "213083": "Malachi Brewington",
     "213587": "Chen Yang"
+  },
+  "elsewhere": {
+    "201849": "LIB-M",
+    "210016": "LIB-M"
   }
 }

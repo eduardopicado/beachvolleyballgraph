@@ -1,5 +1,6 @@
 {
   "code": "MMOS2016",
+  "gender": "M",
   "teams": [
     [1,116556,119235,"NED"],
     [2,117474,118267,"BRA"],
@@ -165,5 +166,8 @@
     "151263": "Valerio Del Carpio",
     "155460": "Kusti Nõlvak",
     "155625": "Davide Boncompagni"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

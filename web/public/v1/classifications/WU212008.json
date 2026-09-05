@@ -1,5 +1,6 @@
 {
   "code": "WU212008",
+  "gender": "W",
   "teams": [
     [1,104487,117209,"NED"],
     [2,117207,120367,"NED"],
@@ -75,5 +76,10 @@
     "120938": "Nazaret Florian",
     "133934": "Jane Croson",
     "137138": "Gilda Lombardo"
+  },
+  "elsewhere": {
+    "120911": "ENG-W",
+    "120912": "ENG-W",
+    "120913": "ENG-W"
   }
 }

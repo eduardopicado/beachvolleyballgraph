@@ -1,5 +1,6 @@
 {
   "code": "MU192026",
+  "gender": "M",
   "teams": [
     [1,224058,231058,"GER"],
     [2,209081,219921,"AUS"],
@@ -144,5 +145,8 @@
     "239915": "Maurizio Bezemer",
     "239929": "Oleksandr Khomenko",
     "241665": "Lukas Gumbelevicius"
+  },
+  "elsewhere": {
+    "228566": "CAN-M"
   }
 }

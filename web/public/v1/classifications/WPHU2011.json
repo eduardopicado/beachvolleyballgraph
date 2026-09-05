@@ -1,5 +1,6 @@
 {
   "code": "WPHU2011",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,103011,118426,"USA"],
@@ -162,5 +163,12 @@
     "133435": "Rumpaipruet Numwong",
     "133551": "Megumi Murakami",
     "136980": "Diana Lunina"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

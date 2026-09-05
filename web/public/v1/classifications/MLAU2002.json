@@ -1,5 +1,6 @@
 {
   "code": "MLAU2002",
+  "gender": "M",
   "teams": [
     [1,100148,101345,"ARG"],
     [2,101358,102266,"SUI"],
@@ -99,5 +100,8 @@
     "116494": "Richard Rademaker",
     "121987": "Roland Rademaker",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

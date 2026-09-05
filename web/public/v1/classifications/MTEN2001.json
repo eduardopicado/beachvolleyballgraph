@@ -1,5 +1,6 @@
 {
   "code": "MTEN2001",
+  "gender": "M",
   "teams": [
     [1,100427,102071,"BRA"],
     [2,100529,100530,"SUI"],
@@ -234,5 +235,9 @@
     "103343": "Pablo Carballo",
     "110494": "Raul Davila",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "102604": "BEL-M",
+    "122172": "SUI-M"
   }
 }

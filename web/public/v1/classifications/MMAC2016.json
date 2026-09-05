@@ -1,5 +1,6 @@
 {
   "code": "MMAC2016",
+  "gender": "M",
   "teams": [
     [1,105143,116602,"USA"],
     [2,104073,133285,"BRA"],
@@ -138,5 +139,8 @@
     "147010": "Vinicius Rezende Costa Freitas",
     "147531": "Nikita Liamin",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

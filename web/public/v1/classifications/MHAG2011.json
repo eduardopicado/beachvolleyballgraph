@@ -1,5 +1,6 @@
 {
   "code": "MHAG2011",
+  "gender": "M",
   "teams": [
     [1,100997,103680,"BRA"],
     [2,116554,116556,"NED"],
@@ -246,5 +247,13 @@
     "135346": "Ryan Vandenburg",
     "136448": "Viktor Jonsson",
     "137169": "Mårten Norman"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "104434": "AZE-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

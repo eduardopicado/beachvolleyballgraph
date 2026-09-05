@@ -1,5 +1,6 @@
 {
   "code": "WCLE1995",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100012,100019,"USA"],
@@ -135,5 +136,9 @@
     "100759": "Stella \"Maris\" Rivera Varada",
     "100760": "Sheila Conley Diaz",
     "101211": "Amarilis Flores Ruiz"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "100712": "ENG-W"
   }
 }

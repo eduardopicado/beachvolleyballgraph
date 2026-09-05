@@ -1,5 +1,6 @@
 {
   "code": "MZAG2007",
+  "gender": "M",
   "teams": [
     [1,100788,103981,"EST"],
     [2,100670,101846,"SUI"],
@@ -258,5 +259,8 @@
     "118723": "Ivo Jurisic",
     "119050": "Yoshiumi Hasegawa",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

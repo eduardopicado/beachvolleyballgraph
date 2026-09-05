@@ -1,5 +1,6 @@
 {
   "code": "WLAX1997",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100615,100715,"USA"],
@@ -138,5 +139,8 @@
     "102039": "Tzvetelina \"Lina\" Yanchulova",
     "102042": "Dagmar Wittner",
     "102043": "Michaela Grohmann"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

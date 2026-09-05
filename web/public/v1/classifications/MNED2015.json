@@ -1,5 +1,6 @@
 {
   "code": "MNED2015",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,116556,119235,"NED"],
@@ -147,5 +148,8 @@
     "150101": "choaib Belhaj Salah",
     "150102": "Mohamed Arafet Naceur",
     "150576": "Ayman Shoukry"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

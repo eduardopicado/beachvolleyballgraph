@@ -1,7 +1,12 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { indexPlayers, searchPlayers, type SearchablePlayer } from '../web/src/lib/search.js';
-import { parseSliceKey, type SearchEntry } from '../web/src/schema.js';
+import {
+  fieldPlayerSlice,
+  parseSliceKey,
+  type ClassificationFile,
+  type SearchEntry,
+} from '../web/src/schema.js';
 import {
   aggregateMedals,
   aggregatePartnerships,
@@ -2214,5 +2219,107 @@ describe('a published name offering two alternatives', () => {
         .map((q) => `${q} -> ${p.name}`),
     );
     expect(missed).toEqual([]);
+  });
+});
+
+/**
+ * Every name in a tournament's field can be resolved to the page it opens.
+ *
+ * The panel lists the whole field, and a name in it is a link to that player.
+ * The page it opens is a country x gender slice, and a classification is not a
+ * slice — Paris 2024 holds teams from fourteen federations — so the two have to
+ * be reconciled by something. That something is the team's own federation plus
+ * the file's gender, with `elsewhere` correcting the appearances a transfer,
+ * the GBR split or an unpublished slice would send to a page that cannot show
+ * them.
+ *
+ * Asserted across the whole archive against `search.json`, which is built by a
+ * different route through the ingest — the slice loop, keyed by player, rather
+ * than the classification loop, keyed by tournament. Nothing here can pass by
+ * agreeing with itself: a fault in the classification writer moves one side
+ * only.
+ */
+describe('a player named in a tournament’s field', () => {
+  const DATA = new URL('../web/public/v1/', import.meta.url);
+  const read = (rel: string) => JSON.parse(readFileSync(new URL(rel, DATA), 'utf8'));
+
+  /** Player id -> the slice they are published in, from the search index. */
+  const publishedOn = new Map<number, string>();
+  for (const [key, entries] of Object.entries(read('search.json').slices as Record<string, SearchEntry[]>)) {
+    for (const [id] of entries) publishedOn.set(id, key);
+  }
+
+  const files = readdirSync(new URL('classifications/', DATA)).map(
+    (name) => read(`classifications/${name}`) as ClassificationFile,
+  );
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on nothing.
+    expect(files.length).toBeGreaterThan(1_500);
+    expect(publishedOn.size).toBeGreaterThan(10_000);
+    expect(files.reduce((n, f) => n + f.teams.length, 0)).toBeGreaterThan(60_000);
+  });
+
+  it('is sent to a page that actually holds them', () => {
+    const wrong: string[] = [];
+    let resolved = 0;
+    for (const file of files) {
+      for (const [, a, b, federation] of file.teams) {
+        for (const id of [a, b]) {
+          const slice = fieldPlayerSlice(file, id, federation);
+          const actual = publishedOn.get(id) ?? null;
+          const key = slice && `${slice.country}-${slice.gender}`;
+          if (key !== actual) {
+            wrong.push(`${file.code}: ${id} resolves to ${key ?? 'nowhere'}, published in ${actual ?? 'nowhere'}`);
+          } else if (key) {
+            resolved++;
+          }
+        }
+      }
+    }
+    expect(wrong.slice(0, 10)).toEqual([]);
+    expect(resolved).toBeGreaterThan(120_000);
+  });
+
+  it('is offered no link at all when they have no page', () => {
+    // The five appearances with nowhere to go — a slice of fewer than two
+    // players is never published. `null` is the file saying so; a missing
+    // entry would be read as "the guess is right" and open an empty page.
+    const nowhere = files.flatMap((file) =>
+      file.teams.flatMap(([, a, b, federation]) =>
+        [a, b].filter((id) => fieldPlayerSlice(file, id, federation) === null),
+      ),
+    );
+    expect(nowhere).not.toHaveLength(0);
+    for (const id of nowhere) expect(publishedOn.has(id)).toBe(false);
+  });
+
+  it('carries a correction only where the federation and gender do not answer', () => {
+    // What keeps the published shape worth having: an `elsewhere` that had
+    // drifted into holding every player would still resolve correctly above
+    // and would have grown the archive by 1.3 MB to do it.
+    const redundant: string[] = [];
+    for (const file of files) {
+      for (const [, a, b, federation] of file.teams) {
+        for (const id of [a, b]) {
+          const override = file.elsewhere?.[id];
+          if (override !== undefined && override === `${federation}-${file.gender}`) {
+            redundant.push(`${file.code}: ${id} is corrected to the value it already had`);
+          }
+        }
+      }
+    }
+    expect(redundant.slice(0, 10)).toEqual([]);
+  });
+
+  it('reads its gender from the file rather than from the code', () => {
+    // Quirks §23. The code usually opens with the gender letter — `WBUS2026` —
+    // and on two tournaments that letter is not the gender: `Rio2016W` carries
+    // it at the end, and `WWRS2022` is a field of 54 men under a W. Reading
+    // the first character would send every reader of the 2016 Olympic women's
+    // field to a men's page.
+    const byCode = files.filter((f) => f.gender !== (f.code.startsWith('W') ? 'W' : 'M'));
+    expect(byCode.map((f) => f.code).sort()).toEqual(['Rio2016W', 'WWRS2022']);
+    for (const file of files) expect(['M', 'W']).toContain(file.gender);
   });
 });

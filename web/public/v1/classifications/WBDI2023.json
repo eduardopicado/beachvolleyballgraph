@@ -1,5 +1,6 @@
 {
   "code": "WBDI2023",
+  "gender": "W",
   "teams": [
     [1,116709,132595,"ESP"],
     [2,146001,148498,"AUT"],
@@ -27,5 +28,8 @@
     "191910": "Gynette Kamwemwe",
     "191914": "Delly Drice Kaze",
     "192742": "Emmanuelie Ndayikengurukiye"
+  },
+  "elsewhere": {
+    "183952": "NED-W"
   }
 }

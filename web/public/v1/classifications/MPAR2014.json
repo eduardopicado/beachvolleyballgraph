@@ -1,5 +1,6 @@
 {
   "code": "MPAR2014",
+  "gender": "M",
   "teams": [
     [1,104220,120717,"CAN"],
     [2,125329,134415,"CHI"],
@@ -99,5 +100,8 @@
     "149242": "Quiroga Sebastian Martin",
     "149258": "Tomasz Gortych",
     "149259": "Szymon Tralka"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

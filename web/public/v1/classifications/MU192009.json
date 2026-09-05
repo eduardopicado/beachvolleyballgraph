@@ -1,5 +1,6 @@
 {
   "code": "MU192009",
+  "gender": "M",
   "teams": [
     [1,120577,120578,"UKR"],
     [2,124028,124030,"RUS"],
@@ -117,5 +118,8 @@
     "125334": "Kamal Goreishi",
     "125395": "Audrius Aleknavicius",
     "125445": "Giuseppe Ottaviani"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

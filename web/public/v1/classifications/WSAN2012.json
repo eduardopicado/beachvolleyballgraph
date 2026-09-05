@@ -1,5 +1,6 @@
 {
   "code": "WSAN2012",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,103903,103904,"BRA"],
@@ -177,5 +178,11 @@
     "134611": "Gabriela Albano",
     "134692": "Pi Hsin Liu",
     "135383": "Jingjing Ding"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

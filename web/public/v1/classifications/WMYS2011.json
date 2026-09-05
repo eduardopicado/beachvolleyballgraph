@@ -1,5 +1,6 @@
 {
   "code": "WMYS2011",
+  "gender": "W",
   "teams": [
     [1,104165,104487,"NED"],
     [2,118204,122400,"ITA"],
@@ -228,5 +229,10 @@
     "134504": "Priscilla Eckstein Lese Lima",
     "134964": "Ekaterina Syrtseva",
     "135450": "Agata Wawrzynczyk"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118190": "ENG-W",
+    "122369": "AZE-W"
   }
 }

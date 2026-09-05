@@ -195,3 +195,10 @@
   font-weight: 650;
 }
 
+/* A player with no page to open — their slice held too few players to publish
+   one. Drawn as plain text rather than as a link that goes nowhere; the same
+   choice the away partners make. Five names in the whole archive. */
+.tournament-panel .pair .unlinked {
+  color: var(--text-secondary);
+}
+

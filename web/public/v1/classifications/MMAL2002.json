@@ -1,5 +1,6 @@
 {
   "code": "MMAL2002",
+  "gender": "M",
   "teams": [
     [1,100529,100530,"SUI"],
     [2,101591,102082,"BRA"],
@@ -237,5 +238,8 @@
     "116494": "Richard Rademaker",
     "117217": "Jose Martell",
     "121987": "Roland Rademaker"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

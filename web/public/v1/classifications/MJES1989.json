@@ -1,5 +1,6 @@
 {
   "code": "MJES1989",
+  "gender": "M",
   "teams": [
     [1,100099,100100,"USA"],
     [2,100017,100176,"ITA"],
@@ -63,5 +64,9 @@
     "101227": "Valts Mihelsons",
     "101350": "Viktor Artamonov",
     "113306": "Andrea Anastasi"
+  },
+  "elsewhere": {
+    "101059": "ITA-M",
+    "101227": "RUS-M"
   }
 }

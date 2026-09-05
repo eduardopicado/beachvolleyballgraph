@@ -1,5 +1,6 @@
 {
   "code": "WDUB2008",
+  "gender": "W",
   "teams": [
     [1,103242,104863,"USA"],
     [2,103011,118426,"USA"],
@@ -102,5 +103,11 @@
     "119657": "Ashley Ivy",
     "120134": "Anna Harrison",
     "120635": "Irina Tsimbalova"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118190": "ENG-W",
+    "118993": "ENG-W"
   }
 }

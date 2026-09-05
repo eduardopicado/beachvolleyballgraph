@@ -1,5 +1,6 @@
 {
   "code": "WESP2005",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,102709,103084,"GRE"],
@@ -207,5 +208,8 @@
     "116756": "Andreia Anselmo",
     "116757": "Selma Malta",
     "116815": "Ligia Amaro"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

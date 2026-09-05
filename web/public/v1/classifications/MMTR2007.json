@@ -1,5 +1,6 @@
 {
   "code": "MMTR2007",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,100695,102551,"AUS"],
@@ -156,5 +157,8 @@
     "118986": "Gregory Mann",
     "119043": "Isaac Kapa",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

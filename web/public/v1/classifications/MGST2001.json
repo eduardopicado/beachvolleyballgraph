@@ -1,5 +1,6 @@
 {
   "code": "MGST2001",
+  "gender": "M",
   "teams": [
     [1,100882,102087,"USA"],
     [2,100529,100530,"SUI"],
@@ -279,5 +280,8 @@
     "103371": "Eddie Coleman",
     "122172": "Jefferson Bellaguarda",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

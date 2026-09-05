@@ -1,5 +1,6 @@
 {
   "code": "WPAR2014",
+  "gender": "W",
   "teams": [
     [1,103892,103903,"BRA"],
     [2,103212,104079,"BRA"],
@@ -105,5 +106,9 @@
     "149305": "Maria Loreto Sancer Navarro",
     "149307": "Maria Virginia Cappelletti",
     "149371": "Eliza Maricel Cabó Cedrés"
+  },
+  "elsewhere": {
+    "131694": "UKR-W",
+    "147381": "UKR-W"
   }
 }

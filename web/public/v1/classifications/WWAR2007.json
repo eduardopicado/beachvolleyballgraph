@@ -1,5 +1,6 @@
 {
   "code": "WWAR2007",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,100256,100926,"BRA"],
@@ -233,5 +234,10 @@
     "118715": "Tarina Gilen",
     "118716": "Caroline Toledo",
     "123710": "Marina Storozhenko"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

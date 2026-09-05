@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2012",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,118204,122400,"ITA"],
@@ -177,5 +178,8 @@
     "139804": "Dorota Strag",
     "139813": "Agnieszka Pregowska",
     "140029": "Agnieszka Gruczek"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

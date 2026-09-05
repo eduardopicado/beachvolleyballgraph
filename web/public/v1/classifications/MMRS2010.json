@@ -1,5 +1,6 @@
 {
   "code": "MMRS2010",
+  "gender": "M",
   "teams": [
     [1,103921,104662,"CHN"],
     [2,104142,104449,"LAT"],
@@ -213,5 +214,9 @@
     "132436": "Remi Lacaze",
     "132463": "Jérôme Schumacher",
     "139429": "Steven Marshall"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "104434": "AZE-M"
   }
 }

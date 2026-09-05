@@ -1,5 +1,6 @@
 {
   "code": "MGST2014",
+  "gender": "M",
   "teams": [
     [1,104268,105143,"USA"],
     [2,117474,118267,"BRA"],
@@ -147,5 +148,8 @@
     "145124": "Jefferson Santos Pereira",
     "145125": "Tiago De J Santos",
     "147531": "Nikita Liamin"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

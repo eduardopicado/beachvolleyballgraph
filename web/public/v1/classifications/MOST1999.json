@@ -1,5 +1,6 @@
 {
   "code": "MOST1999",
+  "gender": "M",
   "teams": [
     [1,100218,100427,"BRA"],
     [2,100426,100997,"BRA"],
@@ -246,5 +247,8 @@
     "102827": "Tom Andelhof",
     "102828": "Olivier Goffin",
     "102829": "Ward Coucke"
+  },
+  "elsewhere": {
+    "102646": "DEN-M"
   }
 }

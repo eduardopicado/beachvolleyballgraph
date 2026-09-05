@@ -1,5 +1,6 @@
 {
   "code": "MLIG2001",
+  "gender": "M",
   "teams": [
     [1,100148,101345,"ARG"],
     [2,100218,100997,"BRA"],
@@ -270,5 +271,9 @@
     "103507": "Paolo Amari",
     "103508": "Maurizio Latelli",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "102604": "BEL-M",
+    "122172": "SUI-M"
   }
 }

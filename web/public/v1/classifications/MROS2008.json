@@ -1,5 +1,6 @@
 {
   "code": "MROS2008",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,101481,103217,"GER"],
@@ -249,5 +250,10 @@
     "119043": "Isaac Kapa",
     "120127": "Massimiliano Falaschetti",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "104215": "AUS-M",
+    "118567": "ENG-M"
   }
 }

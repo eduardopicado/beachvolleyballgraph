@@ -1,5 +1,6 @@
 {
   "code": "MROS2006",
+  "gender": "M",
   "teams": [
     [1,101846,101847,"SUI"],
     [2,100427,100997,"BRA"],
@@ -300,5 +301,8 @@
     "118536": "Koko Prasetyo Darkuncoro",
     "121989": "Mathijs Mast",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

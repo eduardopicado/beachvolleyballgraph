@@ -1,5 +1,6 @@
 {
   "code": "WPAR2005",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103903,103904,"BRA"],
@@ -180,5 +181,8 @@
     "115224": "Marie-Christine Pruneau",
     "115287": "Agatha Bednarczuk",
     "115599": "Caroline Fiset"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

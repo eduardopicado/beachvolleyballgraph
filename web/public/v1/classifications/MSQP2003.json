@@ -1,5 +1,6 @@
 {
   "code": "MSQP2003",
+  "gender": "M",
   "teams": [
     [1,103680,104073,"BRA"],
     [2,104422,104423,"GER"],
@@ -111,5 +112,8 @@
     "114982": "Janis Peda",
     "115322": "Aden Tutton",
     "121985": "Damir Šabec"
+  },
+  "elsewhere": {
+    "104436": "BRA-M"
   }
 }

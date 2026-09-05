@@ -1,5 +1,6 @@
 {
   "code": "WSHA2010",
+  "gender": "W",
   "teams": [
     [1,103011,118426,"USA"],
     [2,103903,103904,"BRA"],
@@ -186,5 +187,12 @@
     "131978": "Angelina Hübner-Grün",
     "132000": "Ève Marie Dansereau Laberge Dansereau Laberge",
     "145942": "Olaya Perez Pazo"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "145942": "VEN-W"
   }
 }

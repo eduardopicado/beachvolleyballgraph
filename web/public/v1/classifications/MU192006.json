@@ -1,5 +1,6 @@
 {
   "code": "MU192006",
+  "gender": "M",
   "teams": [
     [1,116660,118265,"GER"],
     [2,117430,118194,"ITA"],
@@ -81,5 +82,8 @@
     "119798": "Julien Lyneel",
     "123014": "Ferdinand Tille",
     "145124": "Jefferson Santos Pereira"
+  },
+  "elsewhere": {
+    "145124": "QAT-M"
   }
 }

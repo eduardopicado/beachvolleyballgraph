@@ -1,5 +1,6 @@
 {
   "code": "WPHU2010",
+  "gender": "W",
   "teams": [
     [1,103242,104863,"USA"],
     [2,114309,118204,"ITA"],
@@ -204,5 +205,15 @@
     "134284": "Jaimi Gregory",
     "143351": "Lyudmila Issayeva",
     "147368": "Irina Abbaszade"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "122369": "AZE-W",
+    "147368": "AZE-W"
   }
 }

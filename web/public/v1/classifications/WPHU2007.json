@@ -1,5 +1,6 @@
 {
   "code": "WPHU2007",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,101905,104863,"USA"],
@@ -156,5 +157,10 @@
     "120121": "Cintha Boersma",
     "123710": "Marina Storozhenko",
     "143351": "Lyudmila Issayeva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

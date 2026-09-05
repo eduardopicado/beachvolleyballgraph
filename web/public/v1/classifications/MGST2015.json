@@ -1,5 +1,6 @@
 {
   "code": "MGST2015",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,104357,104449,"LAT"],
@@ -174,5 +175,8 @@
     "146206": "Filip Silic",
     "146353": "Marco Caminati",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

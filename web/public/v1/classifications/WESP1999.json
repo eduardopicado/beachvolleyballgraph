@@ -1,5 +1,6 @@
 {
   "code": "WESP1999",
+  "gender": "W",
   "teams": [
     [1,101712,101718,"USA"],
     [2,100251,100371,"AUS"],
@@ -183,5 +184,8 @@
     "102800": "Isabel Oliveira",
     "102801": "Marta Massada",
     "102802": "Daniela Fernandes"
+  },
+  "elsewhere": {
+    "100358": "AUS-W"
   }
 }

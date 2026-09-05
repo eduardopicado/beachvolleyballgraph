@@ -1,5 +1,6 @@
 {
   "code": "MGST2016",
+  "gender": "M",
   "teams": [
     [1,104073,133285,"BRA"],
     [2,105143,116602,"USA"],
@@ -174,5 +175,8 @@
     "147689": "Trevor Crabb",
     "150379": "Adrian Ignacio Carambula Raurich",
     "151357": "Luca Müller"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

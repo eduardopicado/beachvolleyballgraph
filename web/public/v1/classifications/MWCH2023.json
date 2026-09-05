@@ -1,5 +1,6 @@
 {
   "code": "MWCH2023",
+  "gender": "M",
   "teams": [
     [1,137346,153790,"CZE"],
     [2,160555,166274,"SWE"],
@@ -147,5 +148,9 @@
     "174855": "Tomas Capogrosso",
     "179145": "Ainadino Martinho",
     "181857": "Noslen Diaz Amaro"
+  },
+  "elsewhere": {
+    "119151": "VEN-M",
+    "141944": "VEN-M"
   }
 }

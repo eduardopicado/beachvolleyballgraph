@@ -1,5 +1,6 @@
 {
   "code": "MMIL2007",
+  "gender": "M",
   "teams": [
     [1,102786,104338,"DEN"],
     [2,105147,118325,"BRA"],
@@ -117,5 +118,8 @@
     "120046": "Tamás Farkas",
     "120047": "Norman Koch",
     "120058": "Matteo La Rocca"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

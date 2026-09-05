@@ -1,5 +1,6 @@
 {
   "code": "MPOR2016",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,101534,103677,"AUT"],
@@ -159,5 +160,8 @@
     "150595": "Marin Jercic",
     "156898": "Marko Matic",
     "156899": "Marko Vujnovic"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

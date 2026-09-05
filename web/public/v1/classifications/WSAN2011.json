@@ -1,5 +1,6 @@
 {
   "code": "WSAN2011",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103653,104438,"CHN"],
@@ -201,5 +202,12 @@
     "132187": "Fan Wang",
     "132254": "Mélody Benhamou",
     "134964": "Ekaterina Syrtseva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "122369": "AZE-W"
   }
 }

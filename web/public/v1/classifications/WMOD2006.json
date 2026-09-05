@@ -1,5 +1,6 @@
 {
   "code": "WMOD2006",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102850,103242,"USA"],
@@ -227,5 +228,8 @@
     "117847": "Takemi Nishibori",
     "117848": "Hiromi Suzuki",
     "117850": "Chiara Leonardi"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

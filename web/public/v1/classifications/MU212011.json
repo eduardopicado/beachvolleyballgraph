@@ -1,5 +1,6 @@
 {
   "code": "MU212011",
+  "gender": "M",
   "teams": [
     [1,120577,120578,"UKR"],
     [2,122846,122847,"POL"],
@@ -84,5 +85,8 @@
     "137420": "Ian Satterfield",
     "137421": "Vaun Lennon",
     "140042": "Danny Demyanenko"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

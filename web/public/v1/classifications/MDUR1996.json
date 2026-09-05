@@ -1,5 +1,6 @@
 {
   "code": "MDUR1996",
+  "gender": "M",
   "teams": [
     [1,100182,100564,"BRA"],
     [2,100133,100365,"USA"],
@@ -141,5 +142,9 @@
     "101700": "Shane James",
     "101701": "Douglas Payne",
     "101702": "Paul Smajda"
+  },
+  "elsewhere": {
+    "101333": "CAN-M",
+    "101671": "SMR-M"
   }
 }

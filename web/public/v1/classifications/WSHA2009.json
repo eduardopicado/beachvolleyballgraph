@@ -1,5 +1,6 @@
 {
   "code": "WSHA2009",
+  "gender": "W",
   "teams": [
     [1,103892,105063,"BRA"],
     [2,104032,104465,"CHN"],
@@ -108,5 +109,10 @@
     "120719": "Elizabeth Maloney",
     "120802": "Ilke Meertens",
     "121925": "Louise Bawden"
+  },
+  "elsewhere": {
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

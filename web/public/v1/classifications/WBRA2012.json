@@ -1,5 +1,6 @@
 {
   "code": "WBRA2012",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,103892,105063,"BRA"],
@@ -201,5 +202,12 @@
     "134611": "Gabriela Albano",
     "135291": "Galindo Andrea",
     "135301": "Galindo Claudia"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

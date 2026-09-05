@@ -1,5 +1,6 @@
 {
   "code": "WWAR2006",
+  "gender": "W",
   "teams": [
     [1,102166,104032,"CHN"],
     [2,103653,104438,"CHN"],
@@ -174,5 +175,8 @@
     "118248": "Monika Brzostek",
     "118249": "Weronika Kurek",
     "123710": "Marina Storozhenko"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

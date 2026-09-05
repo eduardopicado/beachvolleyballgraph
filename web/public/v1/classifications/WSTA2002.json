@@ -1,5 +1,6 @@
 {
   "code": "WSTA2002",
+  "gender": "W",
   "teams": [
     [1,100715,101905,"USA"],
     [2,100251,100371,"AUS"],
@@ -207,5 +208,8 @@
     "103803": "Belkis Palacio Arteaga",
     "103805": "Lena Malm",
     "115438": "Liesbet Van Breedam"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

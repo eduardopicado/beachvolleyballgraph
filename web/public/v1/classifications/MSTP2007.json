@@ -1,5 +1,6 @@
 {
   "code": "MSTP2007",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,102631,112228,"RUS"],
@@ -180,5 +181,11 @@
     "120033": "Vasiliy Buralev",
     "120034": "Alexander Samoshkin",
     "120114": "Sergei Semjonov"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MCYP2007",
+  "gender": "M",
   "teams": [
     [1,102082,104934,"BRA"],
     [2,103523,104449,"LAT"],
@@ -105,5 +106,10 @@
     "119648": "Dimitris Apostolou",
     "119984": "Timo Haavisto",
     "121987": "Roland Rademaker"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

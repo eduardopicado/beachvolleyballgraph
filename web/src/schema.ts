@@ -368,10 +368,61 @@ export type ClassificationTeam = [rank: number, a: number, b: number, federation
 export interface ClassificationFile {
   /** FIVB's tournament code, echoing the filename — `MPAR2024`. */
   code: string;
+  /**
+   * The event's gender, so a name in the field can be resolved to the page it
+   * belongs to without a second file.
+   *
+   * Stored rather than read off the code, which *usually* starts with the
+   * gender letter — `WBUS2026` — but does not always: `Rio2016M` and
+   * `Rio2016W` put it at the end, and `WWRS2022` is a men's event under a `W`.
+   * Taking the first character would send every reader of the 2016 Olympic
+   * women's field to a men's page. Quirks §23.
+   *
+   * Comes from VIS's own `Gender` on the tournament, which is populated on all
+   * 9,272 it holds and has both of those right.
+   */
+  gender: Gender;
   /** Every team that played, best placement first. */
   teams: ClassificationTeam[];
   /** Player id -> display name, for every player named in `teams`. */
   players: Record<string, string>;
+  /**
+   * Where a player's page is, for the few whose page is not where their team's
+   * flag says it is. `null` means they have no published page at all.
+   *
+   * A name in the field opens that player, and the page it opens is a country
+   * x gender slice — which for 99.17% of the archive's 128,118 field
+   * appearances is exactly the team's own federation and the gender above, no
+   * lookup required. The other 1,066 are what a guess gets wrong: mostly a
+   * player who has since transferred, because a classification is historical
+   * and a slice is current (§6), plus the GBR split into ENG and SCO, and the
+   * five players with no published page at all.
+   *
+   * The exceptions rather than every player's slice, because that is what it
+   * costs: 30 KB across the archive against 1.3 MB, on files whose whole point
+   * is being small enough to fetch one at a time. 496 of the 1,608 tournaments
+   * carry one, and the largest has eight entries.
+   */
+  elsewhere?: Record<string, string | null>;
+}
+
+/**
+ * The published page a player in a tournament's field belongs to, or null when
+ * they have none — their slice held too few players for one to be built.
+ *
+ * The team's federation and the event's gender, unless the file says
+ * otherwise. See `ClassificationFile.elsewhere` for why that is a guess with a
+ * correction list rather than a slice stored against every name.
+ */
+export function fieldPlayerSlice(
+  file: ClassificationFile,
+  id: number,
+  federation: string,
+): { country: string; gender: Gender } | null {
+  const override = file.elsewhere?.[id];
+  // `undefined` is "not an exception"; `null` is "nowhere to send them".
+  const key = override === undefined ? `${federation}-${file.gender}` : override;
+  return key === null ? null : parseSliceKey(key);
 }
 
 /**

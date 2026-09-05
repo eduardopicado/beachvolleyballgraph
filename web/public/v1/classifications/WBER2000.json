@@ -1,5 +1,6 @@
 {
   "code": "WBER2000",
+  "gender": "W",
   "teams": [
     [1,100715,102850,"USA"],
     [2,101400,101725,"AUS"],
@@ -183,5 +184,8 @@
     "103120": "Beate Wand",
     "103121": "Gabriele Freytag",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MSTA2001",
+  "gender": "M",
   "teams": [
     [1,100427,102071,"BRA"],
     [2,100529,100530,"SUI"],
@@ -213,5 +214,9 @@
     "103391": "Jonas Backstrom",
     "103393": "Daniel Martin-Vivaldi",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "122172": "SUI-M"
   }
 }

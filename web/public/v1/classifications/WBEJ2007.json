@@ -1,5 +1,6 @@
 {
   "code": "WBEJ2007",
+  "gender": "W",
   "teams": [
     [1,104574,119620,"BRA"],
     [2,117864,117865,"CHN"],
@@ -75,5 +76,8 @@
     "120106": "Zhaochen Wei",
     "120109": "Qian Guo",
     "120110": "Rongrong Shen"
+  },
+  "elsewhere": {
+    "119620": "AZE-W"
   }
 }

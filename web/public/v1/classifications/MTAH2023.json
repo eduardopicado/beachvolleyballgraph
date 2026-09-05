@@ -1,5 +1,6 @@
 {
   "code": "MTAH2023",
+  "gender": "M",
   "teams": [
     [1,124712,151113,"ITA"],
     [2,150051,165191,"JPN"],
@@ -54,5 +55,11 @@
     "199525": "Christophe Ariitai",
     "199526": "Hevanoa Vaki",
     "200155": "Mark Bucknam"
+  },
+  "elsewhere": {
+    "189941": "PLY-M",
+    "189942": "PLY-M",
+    "199525": "PLY-M",
+    "199526": "PLY-M"
   }
 }

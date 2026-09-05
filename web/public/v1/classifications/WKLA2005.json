@@ -1,5 +1,6 @@
 {
   "code": "WKLA2005",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,101905,103033,"USA"],
@@ -168,5 +169,8 @@
     "115599": "Caroline Fiset",
     "116686": "Birgit Schmidt",
     "116700": "Simone Lercher"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MALA2009",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103109,103217,"GER"],
@@ -213,5 +214,10 @@
     "124005": "John Garcia-Thompson",
     "125118": "William Chenoweth",
     "131304": "Duncan Budinger Jr."
+  },
+  "elsewhere": {
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

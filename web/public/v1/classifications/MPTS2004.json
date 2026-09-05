@@ -1,5 +1,6 @@
 {
   "code": "MPTS2004",
+  "gender": "M",
   "teams": [
     [2,104140,104356,"LAT"],
     [3,104073,104434,"BRA"],
@@ -96,5 +97,8 @@
     "105163": "Nelio José Monteiro Mendonça",
     "115322": "Aden Tutton",
     "121989": "Mathijs Mast"
+  },
+  "elsewhere": {
+    "104434": "AZE-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WBEI2011",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,104157,104425,"GER"],
@@ -168,5 +169,12 @@
     "131978": "Angelina Hübner-Grün",
     "132187": "Fan Wang",
     "132254": "Mélody Benhamou"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WCYP2008",
+  "gender": "W",
   "teams": [
     [1,102915,105198,"CAN"],
     [2,120639,120640,"SLO"],
@@ -63,5 +64,9 @@
     "120711": "Maya Miguel",
     "120719": "Elizabeth Maloney",
     "120769": "Elina Papadopoulou"
+  },
+  "elsewhere": {
+    "118992": "ENG-W",
+    "118993": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MKRI2008",
+  "gender": "M",
   "teams": [
     [1,103310,103311,"ESP"],
     [2,105149,117474,"BRA"],
@@ -162,5 +163,12 @@
     "120866": "Rossano Bertocco",
     "120867": "Francesco Sposato",
     "120869": "Teppo Pulkkinen"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

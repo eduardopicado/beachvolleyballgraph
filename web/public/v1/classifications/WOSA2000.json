@@ -1,5 +1,6 @@
 {
   "code": "WOSA2000",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100506,101733,"JPN"],
@@ -102,5 +103,8 @@
     "103170": "Nakai Eri",
     "103171": "Aoki Misae",
     "103172": "Noriko Nakamura"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

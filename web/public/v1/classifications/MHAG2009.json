@@ -1,5 +1,6 @@
 {
   "code": "MHAG2009",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103311,116710,"ESP"],
@@ -192,5 +193,10 @@
     "122954": "Maarten Deroey",
     "124027": "Joao Simoes",
     "125050": "Helmut Moser"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

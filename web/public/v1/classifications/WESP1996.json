@@ -1,5 +1,6 @@
 {
   "code": "WESP1996",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100252,100253,"BRA"],
@@ -87,5 +88,8 @@
     "101528": "Ana Rita Gomes Costa",
     "101556": "Carla Sofia Santos Ferreira",
     "101557": "Sonia Fernandes"
+  },
+  "elsewhere": {
+    "100712": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MKLA2008",
+  "gender": "M",
   "teams": [
     [1,102631,112228,"RUS"],
     [2,102087,104215,"USA"],
@@ -150,5 +151,9 @@
     "118194": "Paolo Nicolai",
     "118267": "Alison Cerutti",
     "120398": "Bart Bolsterlee"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "104215": "AUS-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WMTR2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103704,103892,"BRA"],
@@ -126,5 +127,8 @@
     "115599": "Caroline Fiset",
     "117034": "Katie Bickerton",
     "117068": "Carla Kleverlaan"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

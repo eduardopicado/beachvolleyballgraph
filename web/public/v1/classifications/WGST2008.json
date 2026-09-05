@@ -1,5 +1,6 @@
 {
   "code": "WGST2008",
+  "gender": "W",
   "teams": [
     [1,100926,102527,"BRA"],
     [2,102166,104032,"CHN"],
@@ -120,5 +121,8 @@
     "120172": "Hayley Griffiths",
     "120239": "Claudia Ciavarelli",
     "120367": "Sophie van Gestel"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

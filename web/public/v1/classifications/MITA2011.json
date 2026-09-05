@@ -1,5 +1,6 @@
 {
   "code": "MITA2011",
+  "gender": "M",
   "teams": [
     [1,100427,118267,"BRA"],
     [2,100997,101591,"BRA"],
@@ -147,5 +148,8 @@
     "122172": "Jefferson Bellaguarda",
     "131860": "Konstantin Semenov",
     "132883": "Matteo Martino"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

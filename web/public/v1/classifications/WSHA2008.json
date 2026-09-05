@@ -1,5 +1,6 @@
 {
   "code": "WSHA2008",
+  "gender": "W",
   "teams": [
     [1,103704,103892,"BRA"],
     [2,103903,103904,"BRA"],
@@ -183,5 +184,11 @@
     "120117": "Nicole Smith",
     "120121": "Cintha Boersma",
     "120134": "Anna Harrison"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

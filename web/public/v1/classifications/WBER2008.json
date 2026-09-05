@@ -1,5 +1,6 @@
 {
   "code": "WBER2008",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,102166,104032,"CHN"],
@@ -179,5 +180,8 @@
     "118630": "Heidi Ilustre",
     "118647": "Lotte Vestergaard",
     "118747": "Judith Augoustides"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MWUC2016",
+  "gender": "M",
   "teams": [
     [1,137237,138654,"POL"],
     [2,132524,143493,"SUI"],
@@ -99,5 +100,11 @@
     "157803": "Andreas Chrysostomou",
     "157830": "Faqiang Feng",
     "157831": "Mingfa Huang"
+  },
+  "elsewhere": {
+    "149832": "ENG-M",
+    "149846": "ENG-M",
+    "150829": "ENG-M",
+    "151196": "ENG-M"
   }
 }

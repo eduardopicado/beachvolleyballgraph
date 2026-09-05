@@ -1,5 +1,6 @@
 {
   "code": "WPHU2009",
+  "gender": "W",
   "teams": [
     [1,103011,118426,"USA"],
     [2,104549,117540,"USA"],
@@ -201,5 +202,12 @@
     "125620": "Fitri Wijayanti",
     "125621": "Riris Irawati",
     "125622": "Eva Sri Susilowati"
+  },
+  "elsewhere": {
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W"
   }
 }

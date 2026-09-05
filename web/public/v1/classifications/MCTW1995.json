@@ -1,5 +1,6 @@
 {
   "code": "MCTW1995",
+  "gender": "M",
   "teams": [
     [1,100426,100427,"BRA"],
     [2,100018,100148,"ARG"],
@@ -129,5 +130,9 @@
     "101334": "Dan Farr",
     "101335": "Gary Fortuin",
     "101336": "Rashid Toefy"
+  },
+  "elsewhere": {
+    "101303": "NAM-M",
+    "101332": "RSA-M"
   }
 }

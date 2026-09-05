@@ -1,5 +1,6 @@
 {
   "code": "WTOR2000",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100715,102850,"USA"],
@@ -159,5 +160,8 @@
     "102941": "Cindy Phillips",
     "102942": "Darlene Cort",
     "103010": "Ciria Salazar"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

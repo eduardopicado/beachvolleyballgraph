@@ -1,5 +1,6 @@
 {
   "code": "WSTP2007",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103011,118426,"USA"],
@@ -147,5 +148,12 @@
     "119992": "Feldmane Agnese",
     "123710": "Marina Storozhenko",
     "133882": "Joanna Grance Healy"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "133882": "ENG-W"
   }
 }

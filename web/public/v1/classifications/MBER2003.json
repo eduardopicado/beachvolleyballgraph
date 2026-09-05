@@ -1,5 +1,6 @@
 {
   "code": "MBER2003",
+  "gender": "M",
   "teams": [
     [1,100059,101669,"BRA"],
     [2,100148,101345,"ARG"],
@@ -258,5 +259,8 @@
     "121360": "Oleg Mikanovich",
     "122172": "Jefferson Bellaguarda",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "103215": "BRA-M"
   }
 }

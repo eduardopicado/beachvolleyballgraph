@@ -1,5 +1,6 @@
 {
   "code": "WFOR2007",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103903,103904,"BRA"],
@@ -167,5 +168,11 @@
     "119620": "Vivian Danielle da Conceição Cunha",
     "120037": "Ana Gallay",
     "120121": "Cintha Boersma"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "119620": "AZE-W"
   }
 }

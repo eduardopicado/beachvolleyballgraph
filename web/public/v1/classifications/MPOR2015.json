@@ -1,5 +1,6 @@
 {
   "code": "MPOR2015",
+  "gender": "M",
   "teams": [
     [1,118317,119991,"NED"],
     [2,104220,120717,"CAN"],
@@ -186,5 +187,8 @@
     "148861": "Ivan Djordjevic",
     "150379": "Adrian Ignacio Carambula Raurich",
     "150595": "Marin Jercic"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

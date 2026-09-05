@@ -1,5 +1,6 @@
 {
   "code": "MRIO2017",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,122846,122847,"POL"],
@@ -123,5 +124,8 @@
     "148569": "Sergio Reynaldo Gonzalez Bayard",
     "150379": "Adrian Ignacio Carambula Raurich",
     "157923": "Quincy Aye"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

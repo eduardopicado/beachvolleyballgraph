@@ -1,5 +1,6 @@
 {
   "code": "WOSK1999",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100251,100371,"AUS"],
@@ -132,5 +133,8 @@
     "102810": "Hisako Hamada",
     "102811": "Chiho Miyaji",
     "103172": "Noriko Nakamura"
+  },
+  "elsewhere": {
+    "100358": "AUS-W"
   }
 }

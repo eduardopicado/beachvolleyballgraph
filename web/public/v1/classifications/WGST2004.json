@@ -1,5 +1,6 @@
 {
   "code": "WGST2004",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,100256,100926,"BRA"],
@@ -212,5 +213,8 @@
     "104764": "Agnieszka Gliwa Woloszyn",
     "113644": "Ingrid Visser",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

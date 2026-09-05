@@ -1,5 +1,6 @@
 {
   "code": "WKLA2008",
+  "gender": "W",
   "teams": [
     [1,100926,102527,"BRA"],
     [2,104232,104233,"UKR"],
@@ -138,5 +139,8 @@
     "120653": "Julia Maier",
     "120654": "Laura Horvath",
     "120802": "Ilke Meertens"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MSET1990",
+  "gender": "M",
   "teams": [
     [1,100083,100182,"BRA"],
     [2,100154,100387,"USA"],
@@ -57,5 +58,8 @@
     "101103": "Thomas or Tom Ribarich",
     "101113": "Benjamin Vicedo Mayor",
     "101337": "Shunichi Kawai"
+  },
+  "elsewhere": {
+    "100016": "NOR-M"
   }
 }

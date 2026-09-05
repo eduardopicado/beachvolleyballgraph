@@ -1,5 +1,6 @@
 {
   "code": "MLON2012",
+  "gender": "M",
   "teams": [
     [1,103109,103217,"GER"],
     [2,100427,118267,"BRA"],
@@ -75,5 +76,8 @@
     "124005": "John Garcia-Thompson",
     "129963": "Igor Spencer Hernandez Colina",
     "131860": "Konstantin Semenov"
+  },
+  "elsewhere": {
+    "118567": "ENG-M"
   }
 }

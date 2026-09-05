@@ -1,5 +1,6 @@
 {
   "code": "MALA2007",
+  "gender": "M",
   "teams": [
     [1,101669,104073,"BRA"],
     [2,103109,104423,"GER"],
@@ -189,5 +190,11 @@
     "119985": "Toni Vahela",
     "119986": "Niko Salonoja",
     "119987": "Jyri Linnikko"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

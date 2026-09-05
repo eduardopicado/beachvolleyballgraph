@@ -1,5 +1,6 @@
 {
   "code": "WOSK1996",
+  "gender": "W",
   "teams": [
     [1,100251,100371,"AUS"],
     [2,100672,100983,"USA"],
@@ -45,5 +46,8 @@
     "101522": "Kaori Tsuchiya",
     "101523": "Yukiko \"Kon\" Hashimoto",
     "101524": "Junko Minai"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WSTJ2014",
+  "gender": "W",
   "teams": [
     [1,103892,103903,"BRA"],
     [2,104461,105040,"GER"],
@@ -135,5 +136,8 @@
     "145942": "Olaya Perez Pazo",
     "146446": "Agnieszka Adamek",
     "146846": "Martyna Kloda"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WLOB2013",
+  "gender": "W",
   "teams": [
     [1,103892,103997,"BRA"],
     [2,103212,104079,"BRA"],
@@ -111,5 +112,8 @@
     "139813": "Agnieszka Pregowska",
     "139950": "Julia Hamer",
     "143687": "Jurja Vlašic"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

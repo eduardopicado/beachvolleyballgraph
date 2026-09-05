@@ -1,5 +1,6 @@
 {
   "code": "MESP2002",
+  "gender": "M",
   "teams": [
     [1,100882,102087,"USA"],
     [2,101591,102082,"BRA"],
@@ -243,5 +244,8 @@
     "117217": "Jose Martell",
     "122596": "Kristof Hoho",
     "147905": "Rui Castro"
+  },
+  "elsewhere": {
+    "102604": "BEL-M"
   }
 }

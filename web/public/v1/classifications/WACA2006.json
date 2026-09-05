@@ -1,5 +1,6 @@
 {
   "code": "WACA2006",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103704,103892,"BRA"],
@@ -171,5 +172,10 @@
     "118475": "ana chavez",
     "118476": "gabriela contreras",
     "118478": "geraldine solorio"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

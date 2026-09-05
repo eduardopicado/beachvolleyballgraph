@@ -1,5 +1,6 @@
 {
   "code": "MGST2005",
+  "gender": "M",
   "teams": [
     [1,100427,100997,"BRA"],
     [2,101669,102082,"BRA"],
@@ -276,5 +277,8 @@
     "116046": "Wilfredo Villar Casazayas",
     "132772": "Francesc Llenas",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "115623": null
   }
 }

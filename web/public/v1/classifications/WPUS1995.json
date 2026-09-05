@@ -1,5 +1,6 @@
 {
   "code": "WPUS1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100012,100019,"USA"],
@@ -105,5 +106,8 @@
     "100937": "Pernille Joergensen",
     "100950": "Blanca Nelia Trevino Flores",
     "100954": "Norma Teresa 'Teresita' Villareal Saenz"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

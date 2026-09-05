@@ -1,5 +1,6 @@
 {
   "code": "WBAI2005",
+  "gender": "W",
   "teams": [
     [1,102202,102203,"AUT"],
     [2,102624,103261,"CAN"],
@@ -63,5 +64,10 @@
     "117563": "María Celina Oppezzo",
     "117601": "Guerrero Mariana",
     "117602": "Gomez Virginia"
+  },
+  "elsewhere": {
+    "100712": "ENG-W",
+    "103670": "CYP-W",
+    "105172": "ENG-W"
   }
 }

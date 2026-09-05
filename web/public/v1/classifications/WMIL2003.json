@@ -1,5 +1,6 @@
 {
   "code": "WMIL2003",
+  "gender": "W",
   "teams": [
     [1,102166,102341,"CHN"],
     [2,100256,100926,"BRA"],
@@ -197,5 +198,8 @@
     "104540": "Valentina Pico",
     "113633": "Maurizia Cacciatori",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

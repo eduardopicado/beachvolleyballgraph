@@ -1,5 +1,6 @@
 {
   "code": "WGST2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,102166,102341,"CHN"],
@@ -236,5 +237,8 @@
     "115626": "Malgorzata Sobolewska",
     "115627": "Iwona Gosko",
     "115701": "Sabrina Metzger"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

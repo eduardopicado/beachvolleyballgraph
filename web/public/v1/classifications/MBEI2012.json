@@ -1,5 +1,6 @@
 {
   "code": "MBEI2012",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,118194,120774,"ITA"],
@@ -177,5 +178,11 @@
     "133285": "Evandro Gonçalves Oliveira Júnior",
     "135226": "Maverick Hatch",
     "138252": "Wuqin Lin"
+  },
+  "elsewhere": {
+    "102786": "AUS-M",
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M"
   }
 }

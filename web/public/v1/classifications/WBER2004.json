@@ -1,5 +1,6 @@
 {
   "code": "WBER2004",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,102155,102871,"CUB"],
@@ -179,5 +180,8 @@
     "104459": "Sandra - Patrizia Piasecki",
     "104549": "Angela Akers",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MLOB2014",
+  "gender": "M",
   "teams": [
     [1,104268,105143,"USA"],
     [2,105042,116715,"POL"],
@@ -141,5 +142,8 @@
     "145802": "Jonathan Scott Sarpong",
     "147304": "Gareth Mann",
     "147894": "Shamsu Awudu"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

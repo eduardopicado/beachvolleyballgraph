@@ -1,5 +1,6 @@
 {
   "code": "WRIO1996",
+  "gender": "W",
   "teams": [
     [1,100250,100258,"BRA"],
     [2,100251,100371,"AUS"],
@@ -75,5 +76,8 @@
     "100931": "Barb Broen Ouellette",
     "100944": "Brigitte Lesage",
     "100945": "Anabelle Prawerman"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

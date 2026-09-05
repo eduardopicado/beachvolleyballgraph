@@ -1,5 +1,6 @@
 {
   "code": "MPOL2017",
+  "gender": "M",
   "teams": [
     [1,119963,120763,"GER"],
     [2,103810,141629,"USA"],
@@ -147,5 +148,8 @@
     "153790": "David Schweiner",
     "162928": "Marcin Ociepski",
     "173160": "Piotr Łukasik"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

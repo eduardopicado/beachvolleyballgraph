@@ -1,5 +1,6 @@
 {
   "code": "WADE2008",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103704,103892,"BRA"],
@@ -189,5 +190,11 @@
     "133621": "Victoria Palmer",
     "143351": "Lyudmila Issayeva",
     "151089": "Hannah Ross"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118190": "ENG-W",
+    "118993": "ENG-W",
+    "133621": "ENG-W"
   }
 }

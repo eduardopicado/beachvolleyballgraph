@@ -1,5 +1,6 @@
 {
   "code": "WESP1998",
+  "gender": "W",
   "teams": [
     [1,100273,100319,"USA"],
     [2,100253,100258,"BRA"],
@@ -207,5 +208,8 @@
     "113420": "Eva Stepancikova",
     "113423": "Marcela Ritschelova",
     "113436": "Lucie Svarcova"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WTOR1999",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100256,100926,"BRA"],
@@ -186,5 +187,8 @@
     "102625": "Marie-Hélène Simon",
     "102653": "Maria Guadalupe Morales Perez",
     "102669": "Franziska Frei Hebersax"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WALA2011",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,102850,103242,"USA"],
@@ -201,5 +202,12 @@
     "135482": "Berta Antequera Feixa",
     "137154": "Vivian Jimenez",
     "137181": "Kajsa Edebjörk"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "119620": "AZE-W"
   }
 }

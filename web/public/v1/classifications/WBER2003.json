@@ -1,5 +1,6 @@
 {
   "code": "WBER2003",
+  "gender": "W",
   "teams": [
     [1,100258,102527,"BRA"],
     [2,100715,101905,"USA"],
@@ -249,5 +250,9 @@
     "115423": "Liesbet Vindevoghel",
     "115438": "Liesbet Van Breedam",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103034": "ITA-W",
+    "103670": "CYP-W"
   }
 }

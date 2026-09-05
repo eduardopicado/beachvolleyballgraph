@@ -1,5 +1,6 @@
 {
   "code": "MBER2013",
+  "gender": "M",
   "teams": [
     [1,120551,133285,"BRA"],
     [2,120749,131860,"RUS"],
@@ -147,5 +148,9 @@
     "141407": "Michiel van Dorsten",
     "141629": "Ryan Doherty",
     "141941": "Javier Monfort Minaya"
+  },
+  "elsewhere": {
+    "120577": "RUS-M",
+    "131994": "USA-M"
   }
 }

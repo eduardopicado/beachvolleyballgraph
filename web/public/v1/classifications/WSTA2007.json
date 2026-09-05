@@ -1,5 +1,6 @@
 {
   "code": "WSTA2007",
+  "gender": "W",
   "teams": [
     [1,103011,118426,"USA"],
     [2,102166,104032,"CHN"],
@@ -185,5 +186,10 @@
     "118747": "Judith Augoustides",
     "118748": "Evelina Tcholakova",
     "123445": "Palesa Sekhonyana"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WCAR1995",
+  "gender": "W",
   "teams": [
     [1,100012,100074,"USA"],
     [2,100250,100258,"BRA"],
@@ -114,5 +115,8 @@
     "101274": "Mei Ling Izquierdo",
     "101276": "Idamys Soto",
     "101277": "Nelida or Nelly Torres"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

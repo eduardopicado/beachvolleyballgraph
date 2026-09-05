@@ -1,5 +1,6 @@
 {
   "code": "WROS2000",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100715,102850,"USA"],
@@ -174,5 +175,8 @@
     "102967": "Guadalupe \"Menchaca\" Romero",
     "102969": "Miriam Famoso Alvarez",
     "102979": "Marcela Romero"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

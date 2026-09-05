@@ -1,5 +1,6 @@
 {
   "code": "MRIM2005",
+  "gender": "M",
   "teams": [
     [1,102080,104621,"BRA"],
     [2,100900,102648,"ITA"],
@@ -129,5 +130,8 @@
     "116474": "Mickael Lapinta",
     "116532": "Cavaliere Rodolfo",
     "116891": "Francesco Mattioli"
+  },
+  "elsewhere": {
+    "104434": "AZE-M"
   }
 }

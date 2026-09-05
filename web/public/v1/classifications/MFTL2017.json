@@ -1,5 +1,6 @@
 {
   "code": "MFTL2017",
+  "gender": "M",
   "teams": [
     [1,120550,139965,"BRA"],
     [2,133285,147009,"BRA"],
@@ -147,5 +148,8 @@
     "153790": "David Schweiner",
     "155460": "Kusti Nõlvak",
     "157923": "Quincy Aye"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

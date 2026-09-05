@@ -1,5 +1,6 @@
 {
   "code": "WESP1997",
+  "gender": "W",
   "teams": [
     [1,100252,100253,"BRA"],
     [2,100256,100926,"BRA"],
@@ -174,5 +175,8 @@
     "101998": "Carolina \"Carol\" Coelho Duarte Nunes",
     "101999": "Lucina Matos",
     "102000": "Ana Sofia Freches Fonseca"
+  },
+  "elsewhere": {
+    "100063": "AUS-W"
   }
 }

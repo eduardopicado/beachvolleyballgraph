@@ -1,5 +1,6 @@
 {
   "code": "WGST2014",
+  "gender": "W",
   "teams": [
     [1,104157,104425,"GER"],
     [2,118261,119108,"GER"],
@@ -147,5 +148,8 @@
     "141624": "Daria Rudykh",
     "141784": "Xinyi Xia",
     "142116": "Kim Huber"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

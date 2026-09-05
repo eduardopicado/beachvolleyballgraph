@@ -1,5 +1,6 @@
 {
   "code": "MOST2001",
+  "gender": "M",
   "teams": [
     [1,100427,102071,"BRA"],
     [2,100218,100997,"BRA"],
@@ -225,5 +226,8 @@
     "116494": "Richard Rademaker",
     "121987": "Roland Rademaker",
     "122172": "Jefferson Bellaguarda"
+  },
+  "elsewhere": {
+    "122172": "SUI-M"
   }
 }

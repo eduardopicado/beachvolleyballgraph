@@ -1,5 +1,6 @@
 {
   "code": "WPRA2014",
+  "gender": "W",
   "teams": [
     [1,116659,118054,"CZE"],
     [2,104157,104425,"GER"],
@@ -153,5 +154,8 @@
     "144173": "Lucia Behunova",
     "144473": "Ingrid Tunby-Lunde",
     "145514": "Martina Jakubsova"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

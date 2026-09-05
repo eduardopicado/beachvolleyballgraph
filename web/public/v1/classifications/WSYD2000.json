@@ -1,5 +1,6 @@
 {
   "code": "WSYD2000",
+  "gender": "W",
   "teams": [
     [1,100251,100371,"AUS"],
     [2,100256,100926,"BRA"],
@@ -75,5 +76,8 @@
     "102566": "Hilda Gaxiola",
     "102850": "Misty May-Treanor",
     "102871": "Dalixia Fernandez Grasset"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

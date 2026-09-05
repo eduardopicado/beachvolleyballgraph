@@ -1,5 +1,6 @@
 {
   "code": "WLON2012",
+  "gender": "W",
   "teams": [
     [1,102850,103242,"USA"],
     [2,103011,118426,"USA"],
@@ -75,5 +76,8 @@
     "121925": "Louise Bawden",
     "122400": "Greta Cicolari",
     "134609": "Maria Virginia Zonta"
+  },
+  "elsewhere": {
+    "118190": "ENG-W"
   }
 }

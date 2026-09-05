@@ -1,5 +1,6 @@
 {
   "code": "MVIT2006",
+  "gender": "M",
   "teams": [
     [1,101481,103217,"GER"],
     [2,104268,104552,"USA"],
@@ -141,5 +142,8 @@
     "121989": "Mathijs Mast",
     "129963": "Igor Spencer Hernandez Colina",
     "132629": "Juan Simon Zorrilla"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

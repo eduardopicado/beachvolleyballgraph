@@ -1,5 +1,6 @@
 {
   "code": "WHER1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100250,100258,"BRA"],
@@ -147,5 +148,8 @@
     "100983": "Patricia \"Pat\" Keller - Killiany",
     "100990": "Stephanie or Steph Nelson",
     "101211": "Amarilis Flores Ruiz"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

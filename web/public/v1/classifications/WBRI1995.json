@@ -1,5 +1,6 @@
 {
   "code": "WBRI1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100250,100258,"BRA"],
@@ -105,5 +106,8 @@
     "101007": "Debbie \"Marrs Bar\" Marr Turner",
     "101009": "Beth Williams",
     "101010": "Michelle \"Mitch\" Perkins"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

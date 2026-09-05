@@ -1,5 +1,6 @@
 {
   "code": "MALM1992",
+  "gender": "M",
   "teams": [
     [1,100099,100100,"USA"],
     [2,100043,100044,"BRA"],
@@ -75,5 +76,8 @@
     "101204": "Paulo Emilio Silva Azevedo",
     "113208": "Wolfgang Kuck",
     "149100": "Oleg Antonov"
+  },
+  "elsewhere": {
+    "149100": "ITA-M"
   }
 }

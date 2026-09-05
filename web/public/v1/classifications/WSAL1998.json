@@ -1,5 +1,6 @@
 {
   "code": "WSAL1998",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100273,100319,"USA"],
@@ -144,5 +145,9 @@
     "102505": "Maria Elena Evangelista",
     "102506": "Alejandra Elisabet \"Jana\" Ortiz Echague",
     "102507": "Maria del Carmen Rangel"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "101452": "ITA-W"
   }
 }

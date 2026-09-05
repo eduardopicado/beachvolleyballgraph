@@ -1,5 +1,6 @@
 {
   "code": "WPOR2015",
+  "gender": "W",
   "teams": [
     [1,103892,103903,"BRA"],
     [2,113895,120039,"CAN"],
@@ -195,5 +196,8 @@
     "149061": "Galchananan Jirutchayabhornwadee",
     "150814": "Antea Tadic",
     "168331": "MeiMei Lin"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

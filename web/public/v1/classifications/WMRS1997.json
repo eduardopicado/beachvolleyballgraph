@@ -1,5 +1,6 @@
 {
   "code": "WMRS1997",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100615,100715,"USA"],
@@ -165,5 +166,8 @@
     "101969": "Carine Verney",
     "101970": "Florence \"Flo\" Moinard",
     "101971": "Gaëlle Lopez"
+  },
+  "elsewhere": {
+    "100063": "AUS-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WOSK2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103892,105063,"BRA"],
@@ -165,5 +166,11 @@
     "122442": "Chie Iwana",
     "122481": "Keiko Urata",
     "133728": "Carolina Del Pilar Costagrande"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MKLA2011",
+  "gender": "M",
   "teams": [
     [1,100997,103680,"BRA"],
     [2,103109,103217,"GER"],
@@ -162,5 +163,8 @@
     "123528": "Robin Seidl",
     "125050": "Helmut Moser",
     "131860": "Konstantin Semenov"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

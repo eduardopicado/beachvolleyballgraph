@@ -1,5 +1,6 @@
 {
   "code": "WMIL2004",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100926,103704,"BRA"],
@@ -146,5 +147,8 @@
     "105085": "Nuria Pla Villenia",
     "105146": "Ornella Fumagalli",
     "135465": "Inga Ikauniece"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

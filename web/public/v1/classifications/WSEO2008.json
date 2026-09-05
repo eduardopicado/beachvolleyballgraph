@@ -1,5 +1,6 @@
 {
   "code": "WSEO2008",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,100926,102527,"BRA"],
@@ -179,5 +180,10 @@
     "120411": "Hyung-Soon Woo",
     "120428": "Eun-A Lee",
     "123710": "Marina Storozhenko"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WU212009",
+  "gender": "W",
   "teams": [
     [1,118248,118711,"POL"],
     [2,117207,117209,"NED"],
@@ -102,5 +103,13 @@
     "139522": "Jennifer Cross",
     "147368": "Irina Abbaszade",
     "150562": "Jennifer Aliss Sadler"
+  },
+  "elsewhere": {
+    "120112": "CHI-W",
+    "120913": "ENG-W",
+    "125533": "ENG-W",
+    "125534": "ENG-W",
+    "125536": "ENG-W",
+    "147368": "AZE-W"
   }
 }

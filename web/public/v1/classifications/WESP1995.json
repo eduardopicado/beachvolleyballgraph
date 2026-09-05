@@ -1,5 +1,6 @@
 {
   "code": "WESP1995",
+  "gender": "W",
   "teams": [
     [1,100074,100715,"USA"],
     [2,100075,100319,"USA"],
@@ -126,5 +127,8 @@
     "100993": "Ines Balaco",
     "100994": "Susana Marques",
     "100995": "Maria João Monteiro"
+  },
+  "elsewhere": {
+    "100686": "USA-W"
   }
 }

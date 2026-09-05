@@ -1,5 +1,6 @@
 {
   "code": "MPRA2012",
+  "gender": "M",
   "teams": [
     [1,100997,103680,"BRA"],
     [2,100427,118267,"BRA"],
@@ -276,5 +277,11 @@
     "138819": "Michal Studnicny",
     "138836": "Libor Leikep",
     "156966": "Ondrej Pridal"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118567": "ENG-M",
+    "118584": "SCO-M"
   }
 }

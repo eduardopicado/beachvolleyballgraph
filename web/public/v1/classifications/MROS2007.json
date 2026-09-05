@@ -1,5 +1,6 @@
 {
   "code": "MROS2007",
+  "gender": "M",
   "teams": [
     [1,101591,104207,"BRA"],
     [2,100427,100997,"BRA"],
@@ -249,5 +250,9 @@
     "118650": "Christian Sacco",
     "118651": "Samuele Fioretta",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "118567": "ENG-M"
   }
 }

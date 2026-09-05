@@ -1,5 +1,6 @@
 {
   "code": "MROS2005",
+  "gender": "M",
   "teams": [
     [1,100564,102122,"BRA"],
     [2,102080,104621,"BRA"],
@@ -69,5 +70,9 @@
     "116407": "Simone Di Tommaso",
     "116549": "Emilio Maniero",
     "120127": "Massimiliano Falaschetti"
+  },
+  "elsewhere": {
+    "104434": "AZE-M",
+    "115623": null
   }
 }

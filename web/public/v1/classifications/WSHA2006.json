@@ -1,5 +1,6 @@
 {
   "code": "WSHA2006",
+  "gender": "W",
   "teams": [
     [1,103653,104438,"CHN"],
     [2,102166,104032,"CHN"],
@@ -185,5 +186,8 @@
     "117864": "Wenwen Zhang",
     "117865": "Yuan Yue",
     "117890": "Joanna Niemczewska"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

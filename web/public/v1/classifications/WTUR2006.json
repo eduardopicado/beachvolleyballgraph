@@ -1,5 +1,6 @@
 {
   "code": "WTUR2006",
+  "gender": "W",
   "teams": [
     [1,102887,102890,"LAT"],
     [2,102665,103331,"SWE"],
@@ -45,5 +46,8 @@
     "118125": "Annikki Laine",
     "118126": "Tia Pråhl",
     "118129": "Jennamiia Ripatti"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

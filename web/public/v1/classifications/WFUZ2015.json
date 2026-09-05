@@ -1,5 +1,6 @@
 {
   "code": "WFUZ2015",
+  "gender": "W",
   "teams": [
     [1,105016,125322,"CAN"],
     [2,105040,120750,"GER"],
@@ -165,5 +166,10 @@
     "150057": "Miki Ishii",
     "150058": "Akiko Hasegawa",
     "168331": "MeiMei Lin"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "131694": "UKR-W",
+    "147381": "UKR-W"
   }
 }

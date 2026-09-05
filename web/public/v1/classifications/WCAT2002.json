@@ -1,5 +1,6 @@
 {
   "code": "WCAT2002",
+  "gender": "W",
   "teams": [
     [1,103904,103997,"BRA"],
     [2,103324,103325,"SUI"],
@@ -81,5 +82,8 @@
     "103970": "Graziella Lore",
     "103971": "Rosaria Casale",
     "103997": "Taiana Lima"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

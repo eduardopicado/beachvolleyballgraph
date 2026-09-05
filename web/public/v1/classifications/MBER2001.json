@@ -1,5 +1,6 @@
 {
   "code": "MBER2001",
+  "gender": "M",
   "teams": [
     [1,100026,100668,"AUS"],
     [2,100529,100530,"SUI"],
@@ -282,5 +283,10 @@
     "121033": "Ovidio Chiquito Quintanilla",
     "122172": "Jefferson Bellaguarda",
     "156568": "Thomas Kröger"
+  },
+  "elsewhere": {
+    "100892": "DEN-M",
+    "102604": "BEL-M",
+    "122172": "SUI-M"
   }
 }

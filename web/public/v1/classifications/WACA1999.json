@@ -1,5 +1,6 @@
 {
   "code": "WACA1999",
+  "gender": "W",
   "teams": [
     [1,100256,100926,"BRA"],
     [2,100371,101725,"AUS"],
@@ -180,5 +181,9 @@
     "102568": "Celina Garcia",
     "102581": "Monica Valencia Salazar",
     "150830": "Melissa Coutts"
+  },
+  "elsewhere": {
+    "100686": "USA-W",
+    "150830": "SCO-W"
   }
 }

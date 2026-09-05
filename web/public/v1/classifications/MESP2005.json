@@ -1,5 +1,6 @@
 {
   "code": "MESP2005",
+  "gender": "M",
   "teams": [
     [1,101917,103217,"GER"],
     [2,101480,103109,"GER"],
@@ -228,5 +229,8 @@
     "116854": "Andre Sa",
     "116855": "Pedro Simoes",
     "116856": "Rui Manuel Pinto dos Santos"
+  },
+  "elsewhere": {
+    "115623": null
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MFUZ2015",
+  "gender": "M",
   "teams": [
     [1,119963,120763,"GER"],
     [2,118317,119991,"NED"],
@@ -177,5 +178,9 @@
     "146488": "Cherif Younousse",
     "146796": "Martin Lorenz",
     "147362": "Leonid Gritsai"
+  },
+  "elsewhere": {
+    "115975": "MAR-M",
+    "132129": "RUS-M"
   }
 }

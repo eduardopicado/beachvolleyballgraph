@@ -1,5 +1,6 @@
 {
   "code": "MPOL2015",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,104552,132856,"USA"],
@@ -180,5 +181,8 @@
     "147056": "Martin Barrefalk",
     "149583": "Tomas Pala",
     "150379": "Adrian Ignacio Carambula Raurich"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

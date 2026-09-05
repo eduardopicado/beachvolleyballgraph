@@ -1,5 +1,6 @@
 {
   "code": "MU212008",
+  "gender": "M",
   "teams": [
     [1,117430,118194,"ITA"],
     [2,118317,119235,"NED"],
@@ -117,5 +118,10 @@
     "139014": "Filip Habr",
     "145124": "Jefferson Santos Pereira",
     "168821": "Milan Monik"
+  },
+  "elsewhere": {
+    "120917": "ENG-M",
+    "120918": "ENG-M",
+    "145124": "QAT-M"
   }
 }

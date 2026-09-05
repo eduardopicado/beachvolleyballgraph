@@ -1,5 +1,6 @@
 {
   "code": "MLIG1999",
+  "gender": "M",
   "teams": [
     [1,100218,100427,"BRA"],
     [2,100182,100564,"BRA"],
@@ -246,5 +247,8 @@
     "102666": "Enzo Gerotto",
     "102667": "Marcello Canzian",
     "113791": "Daniel Lewis"
+  },
+  "elsewhere": {
+    "102667": "ITA-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "WSTP2005",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103704,103892,"BRA"],
@@ -156,5 +157,8 @@
     "116335": "Katri Korpisaari",
     "116336": "Taru Pokki",
     "135458": "Radmila Beresneva"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

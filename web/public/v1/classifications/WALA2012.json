@@ -1,5 +1,6 @@
 {
   "code": "WALA2012",
+  "gender": "W",
   "teams": [
     [1,104157,104425,"GER"],
     [2,116709,119015,"ESP"],
@@ -147,5 +148,8 @@
     "139889": "Georgia Paraskaki",
     "140008": "Malin Linde",
     "140406": "Saana Koljonen"
+  },
+  "elsewhere": {
+    "103670": "CYP-W"
   }
 }

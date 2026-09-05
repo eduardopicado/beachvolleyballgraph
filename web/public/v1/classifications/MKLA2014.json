@@ -1,5 +1,6 @@
 {
   "code": "MKLA2014",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,118194,120774,"ITA"],
@@ -147,5 +148,8 @@
     "141629": "Ryan Doherty",
     "144953": "Peter Dilling Kildegaard Andersen",
     "147531": "Nikita Liamin"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

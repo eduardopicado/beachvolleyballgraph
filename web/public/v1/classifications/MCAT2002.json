@@ -1,5 +1,6 @@
 {
   "code": "MCAT2002",
+  "gender": "M",
   "teams": [
     [1,103310,103311,"ESP"],
     [2,103680,103714,"BRA"],
@@ -96,5 +97,8 @@
     "115322": "Aden Tutton",
     "116494": "Richard Rademaker",
     "121987": "Roland Rademaker"
+  },
+  "elsewhere": {
+    "103915": "SUI-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MESP2006",
+  "gender": "M",
   "teams": [
     [1,101481,103217,"GER"],
     [2,100427,100997,"BRA"],
@@ -216,5 +217,8 @@
     "117952": "Matthias Pompe",
     "118536": "Koko Prasetyo Darkuncoro",
     "129963": "Igor Spencer Hernandez Colina"
+  },
+  "elsewhere": {
+    "102786": "AUS-M"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MU182025",
+  "gender": "M",
   "teams": [
     [1,203656,210037,"NOR"],
     [2,198325,224058,"GER"],
@@ -135,5 +136,8 @@
     "227951": "Jassim Mahmoud Al-Tamimi",
     "227953": "Saad Nasser Alawad",
     "228566": "Mateo Rodriguez Abello"
+  },
+  "elsewhere": {
+    "228566": "CAN-M"
   }
 }

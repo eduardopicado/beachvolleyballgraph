@@ -1,5 +1,6 @@
 {
   "code": "WSAN2007",
+  "gender": "W",
   "teams": [
     [1,104487,105019,"NED"],
     [2,118629,118630,"PHI"],
@@ -99,5 +100,10 @@
     "119341": "Cristina Vilabrille",
     "119666": "Milagros Collar",
     "152148": "Carolina Pérez Moral"
+  },
+  "elsewhere": {
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W"
   }
 }

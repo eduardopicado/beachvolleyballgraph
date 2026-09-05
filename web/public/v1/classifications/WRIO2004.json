@@ -1,5 +1,6 @@
 {
   "code": "WRIO2004",
+  "gender": "W",
   "teams": [
     [1,100258,102527,"BRA"],
     [2,100256,100926,"BRA"],
@@ -113,5 +114,9 @@
     "104671": "Gisela Rodriguez",
     "104948": "Miwa Asao",
     "105146": "Ornella Fumagalli"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "104193": "GEO-W"
   }
 }

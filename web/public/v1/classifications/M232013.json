@@ -1,5 +1,6 @@
 {
   "code": "M232013",
+  "gender": "M",
   "teams": [
     [1,122846,122847,"POL"],
     [2,120551,138859,"BRA"],
@@ -114,5 +115,8 @@
     "142107": "Thiery Mugabo",
     "142130": "Thomas Hodges",
     "154622": "alejandro jose sanoja"
+  },
+  "elsewhere": {
+    "120577": "RUS-M"
   }
 }

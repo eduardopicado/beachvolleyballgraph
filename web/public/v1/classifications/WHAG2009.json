@@ -1,5 +1,6 @@
 {
   "code": "WHAG2009",
+  "gender": "W",
   "teams": [
     [1,103903,103904,"BRA"],
     [2,103892,105063,"BRA"],
@@ -138,5 +139,12 @@
     "120882": "Tora Hansson",
     "122122": "Claudinere Bento Sabino",
     "125292": "Paulien Moekotte"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "118190": "ENG-W",
+    "118992": "ENG-W",
+    "118993": "ENG-W",
+    "119620": "AZE-W"
   }
 }

@@ -1,5 +1,6 @@
 {
   "code": "MAGA2011",
+  "gender": "M",
   "teams": [
     [1,116554,116556,"NED"],
     [2,103109,103217,"GER"],
@@ -177,5 +178,11 @@
     "137705": "Khalid Berma",
     "137706": "Mostapha Hamsi",
     "137707": "Othmane Farabi"
+  },
+  "elsewhere": {
+    "103717": "ENG-M",
+    "103720": "ENG-M",
+    "118584": "SCO-M",
+    "137685": "MAR-W"
   }
 }

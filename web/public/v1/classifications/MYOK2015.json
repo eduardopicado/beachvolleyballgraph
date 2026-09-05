@@ -1,5 +1,6 @@
 {
   "code": "MYOK2015",
+  "gender": "M",
   "teams": [
     [1,117474,118267,"BRA"],
     [2,104994,131994,"CAN"],
@@ -162,5 +163,8 @@
     "150606": "Abbas Pourasgari",
     "151850": "Hideki Yoshida",
     "151851": "Yuki Dogi"
+  },
+  "elsewhere": {
+    "131994": "USA-M"
   }
 }

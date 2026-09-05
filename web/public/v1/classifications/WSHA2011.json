@@ -1,5 +1,6 @@
 {
   "code": "WSHA2011",
+  "gender": "W",
   "teams": [
     [1,104165,104487,"NED"],
     [2,103011,118426,"USA"],
@@ -225,5 +226,12 @@
     "134964": "Ekaterina Syrtseva",
     "135341": "Xijun Hou",
     "140441": "Elisa Cella"
+  },
+  "elsewhere": {
+    "103670": "CYP-W",
+    "105172": "ENG-W",
+    "118001": "ENG-W",
+    "118190": "ENG-W",
+    "122369": "AZE-W"
   }
 }
