@@ -21,6 +21,14 @@ commit is actually an ancestor of `origin/main` before touching anything else,
 and never push a follow-up onto a branch that has already merged: that commit
 strands silently where nobody will look for it again.
 
+**Subscribe to every PR you open, as you open it.** Nothing — a merge, a CI
+failure, a review — reaches a session that has not subscribed, so a merged PR
+looks exactly like an untouched one. Two merged and one hit a conflict before
+anyone noticed.
+
+**PR titles and bodies are plain text, not HTML.** `&quot;` renders as those
+six characters. Write the punctuation.
+
 ## Prove a regression test fails
 
 A test written alongside a fix is worth nothing until you have watched it fail.
@@ -40,6 +48,18 @@ under time pressure: every count in a comment, document or PR description is
 measured against live VIS data, not estimated. When a measurement contradicts
 something already written down, the written thing is what changes.
 
+## The published tree is regenerated, never merged
+
+A conflict under `web/public/v1/` is resolved by running `npm run ingest` over
+the merged source, never by choosing lines out of two machine-written files.
+
+**A clean merge is not evidence the tree is right.** A branch that *adds*
+generated files has nothing to conflict with, so one that regenerated before a
+fix landed on main will reintroduce what the fix removed — 35 placeholder names
+came back that way inside new classification files, past a clean merge and a
+green suite. After merging main into anything touching the ingest, regenerate
+and grep the artifact for whatever main just fixed.
+
 ## Design changes get a mockup first
 
 Anything that changes how the site looks goes to the owner as a published
@@ -48,3 +68,10 @@ both themes, with the options side by side. Declare the `artifact` capability
 so the choice can be recorded on the page itself rather than in chat, and build
 the static comparison first: the capability is granted per viewer and may not
 resolve, and the page has to be readable either way.
+
+**When the decision is about an interaction, make the mockup do it.** A still
+of the finished state skips the question being asked: "lightbox or inline
+expansion" is about what *opening* feels like. Both mockups drew the thing
+already open, so the owner compared two end states and could click neither. It
+is a page with a script in it — opening on click costs a few lines. Keep the
+resting state complete, for the reader who never clicks and for the thumbnail.
