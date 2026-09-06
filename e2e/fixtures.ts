@@ -30,6 +30,7 @@ import type {
   PlayersFile,
   ResultsFile,
   SearchIndex,
+  ClassificationFile,
   TournamentsFile,
 } from '../web/src/schema.js';
 
@@ -47,6 +48,10 @@ export const results = (code: string, gender: string) =>
   read<ResultsFile>('results', `${code}-${gender}.json`);
 export const tournamentIndex = () => read<TournamentsFile>('tournaments.json').tournaments;
 export const searchIndex = () => read<SearchIndex>('search.json').slices;
+
+/** One tournament's published final classification, by FIVB's own code. */
+export const classification = (code: string) =>
+  read<ClassificationFile>('classifications', `${code}.json`);
 
 /**
  * A player outside the given slice whose name carries diacritics — the case

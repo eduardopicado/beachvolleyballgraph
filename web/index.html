@@ -10,6 +10,21 @@
       The title below is a fallback; prerender replaces it per page.
     -->
     <title>Beach Volleyball Partnership Graph</title>
+    <!--
+      Portraits come from FIVB's image service, which is a different origin and
+      is not touched until a reader opens a player. The first one therefore pays
+      for a DNS lookup, a TCP connection and a TLS handshake before its request
+      is even sent: measured against sharp.fivb.com, the handshake alone is
+      170-320ms and the whole first fetch 220-720ms, against 50-400ms once the
+      connection exists. Warming it while the page loads takes that out of the
+      critical path of the first click.
+
+      No `crossorigin`: an <img> without that attribute is fetched in no-CORS
+      mode, and a preconnect that does not match the mode of the request that
+      follows opens a connection nothing reuses. (Fonts are the case that needs
+      it; images are not.)
+    -->
+    <link rel="preconnect" href="https://sharp.fivb.com" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏐</text></svg>" />
   </head>
   <body>

@@ -222,7 +222,8 @@ async function main() {
   });
   log('entries', `${teamRows.length} team entries`);
 
-  const { partnerships, appearances, results, rejects, ownFederation } = aggregatePartnerships(teamRows, tournaments, players);
+  const { partnerships, appearances, results, rejects, ownFederation, classifications } =
+    aggregatePartnerships(teamRows, tournaments, players);
   log('aggregate', `${partnerships.size} partnerships across ${appearances.size} players`);
   log('rejected', JSON.stringify(rejects));
 
@@ -517,6 +518,101 @@ async function main() {
   };
   await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
+  // --- one file per tournament: the full field that played it ---------------
+  //
+  // Written outside the slice loop because a classification is not a slice's
+  // to own: Paris 2024 holds teams from fourteen federations, and the panel
+  // that reads this is opened from whichever card happens to be in front of
+  // the reader. One file each, keyed by FIVB's own code, so opening one event
+  // fetches that event and nothing else.
+  await mkdir(path.join(TMP_DIR, 'classifications'), { recursive: true });
+
+  /**
+   * Player id -> the page they are published on, for every player who has one.
+   *
+   * The same keys the search index and the graph files use, because it is the
+   * same slicing: this is where a name in a classification has to send a
+   * reader, and the answer has to be a page that exists.
+   */
+  const publishedOn = new Map<number, string>();
+  for (const slice of slices) {
+    for (const node of slice.nodes) publishedOn.set(node.id, `${slice.country}-${slice.gender}`);
+  }
+
+  let classificationFiles = 0;
+  let classifiedTeams = 0;
+  /** Field appearances, and how many of them the guess below gets right. */
+  let fieldNames = 0;
+  let guessed = 0;
+  for (const [tournamentNo, field] of classifications) {
+    const tournament = tournaments.get(tournamentNo);
+    // A tournament out of scope never reached the aggregation, so this is only
+    // reachable if the two ever disagree. Skipping beats writing a file whose
+    // name has to come from somewhere.
+    if (!tournament) continue;
+    const teams = [...field.values()].sort(
+      (x, y) =>
+        // Placements first and in order, then the eliminations below them, and
+        // the pair's own ids as a stable tie-break so the file does not churn
+        // between runs that hold the same result.
+        Number(x[0] < 0) - Number(y[0] < 0) || x[0] - y[0] || x[1] - y[1] || x[2] - y[2],
+    );
+    const named: Record<string, string> = {};
+    for (const [, a, b] of teams) {
+      for (const id of [a, b]) {
+        if (!named[id]) named[id] = players.get(id)?.name ?? `Player ${id}`;
+      }
+    }
+
+    // Published on the file so a classification can be read on its own, and
+    // taken from VIS rather than from the code's first letter, which lies on
+    // two tournaments — quirks §23.
+    const gender = tournament.gender;
+
+    // Where each name sends a reader, kept as the corrections to a guess: the
+    // team's own federation plus the gender above. See ClassificationFile in
+    // the schema for the measurement behind publishing it this way round.
+    const elsewhere: Record<string, string | null> = {};
+    for (const [, a, b, federation] of teams) {
+      for (const id of [a, b]) {
+        const actual = publishedOn.get(id) ?? null;
+        fieldNames++;
+        if (actual === `${federation}-${gender}`) guessed++;
+        else elsewhere[id] = actual;
+      }
+    }
+
+    classifiedTeams += teams.length;
+    classificationFiles++;
+    // Omitted entirely on the two thirds of tournaments whose whole field is
+    // published where its own flags say it is.
+    const corrected = Object.keys(elsewhere).length > 0;
+    await writeFile(
+      path.join(TMP_DIR, 'classifications', `${tournament.code}.json`),
+      [
+        '{',
+        `  "code": ${JSON.stringify(tournament.code)},`,
+        `  "gender": ${JSON.stringify(gender)},`,
+        // One line per team, which is the granularity a result changes at.
+        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(t)}`).join(',\n')}\n  ],`,
+        `  "players": ${jsonByKey(named, '  ')}${corrected ? ',' : ''}`,
+        ...(corrected ? [`  "elsewhere": ${jsonByKey(elsewhere, '  ')}`] : []),
+        '}',
+      ].join('\n'),
+    );
+  }
+  log(
+    'classified',
+    `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
+  );
+  // The number the published shape rests on: if the guess ever stopped being
+  // nearly always right, storing the corrections would be the wrong trade and
+  // this is where that shows.
+  log(
+    'field links',
+    `${guessed.toLocaleString()} of ${fieldNames.toLocaleString()} names (${((100 * guessed) / fieldNames).toFixed(2)}%) reach their page from the team's own federation; ${(fieldNames - guessed).toLocaleString()} corrected`,
+  );
+
   await writeFile(
     path.join(TMP_DIR, 'search.json'),
     `{\n  "slices": ${jsonByKey(searchIndex, '  ')}\n}`,
@@ -535,6 +631,16 @@ async function main() {
     if (count !== slices.length) {
       throw new Error(`Expected ${slices.length} ${dir} files, wrote ${count} — refusing to publish`);
     }
+  }
+
+  // Classifications are counted against the tournaments that produced them
+  // rather than against the slice count: there is one per event with a played
+  // field, not one per slice, and the two numbers are unrelated.
+  const classified = (await readdir(path.join(TMP_DIR, 'classifications'))).length;
+  if (classified !== classificationFiles) {
+    throw new Error(
+      `Expected ${classificationFiles} classification files, wrote ${classified} — refusing to publish`,
+    );
   }
 
   // A rebuild that lost most of its data looks the same, from these numbers
@@ -634,9 +740,12 @@ async function main() {
   }
   await rm(OLD_DIR, { recursive: true, force: true });
 
-  // graphs + players + results, plus the manifest, the tournament index
-  // and the search index.
-  log('published', `${OUT_DIR} (${written * 3 + 3} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`);
+  // graphs + players + results, one classification per tournament with a
+  // played field, plus the manifest, the tournament index and the search index.
+  log(
+    'published',
+    `${OUT_DIR} (${written * 3 + classified + 3} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+  );
   log('config', `age-group world championships ${INCLUDE_AGE_GROUP ? 'included' : 'excluded'}`);
 }
 

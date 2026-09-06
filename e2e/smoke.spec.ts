@@ -1353,6 +1353,28 @@ test.describe('without JavaScript', () => {
     }
   });
 
+  /**
+   * Portraits come from a different origin that the page does not touch until
+   * a reader opens a player, so the first one pays for a DNS lookup, a TCP
+   * connection and a TLS handshake before its request is sent. Warming that
+   * while the page loads is a one-line change in `web/index.html` — and one
+   * that is invisible in every other way, which is why it needs a test: it can
+   * be lost to a template edit, or silently made useless by a `crossorigin`
+   * that stops the connection matching the requests it is meant to serve.
+   */
+  test('the prerendered page warms the connection to FIVB’s image service', async ({ request }) => {
+    for (const path of ['./', `./${slicePath()}`]) {
+      const html = await (await request.get(path)).text();
+      const tag = /<link[^>]*rel="preconnect"[^>]*>/g;
+      const warms = (html.match(tag) ?? []).filter((t) => t.includes('sharp.fivb.com'));
+      expect(warms, `${path} does not preconnect to the portrait host`).toHaveLength(1);
+      // An <img> with no crossorigin attribute is fetched in no-CORS mode, and
+      // a preconnect in the other mode opens a connection nothing reuses — a
+      // change that costs a round trip and looks like it saves one.
+      expect(warms[0]).not.toContain('crossorigin');
+    }
+  });
+
   test('the prerendered page still carries the full player table', async ({ page }) => {
     // The crawler path. React never mounts here, so anything visible is what
     // ingest/prerender.ts wrote at build time.

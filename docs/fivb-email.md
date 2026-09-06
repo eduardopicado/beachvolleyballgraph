@@ -39,8 +39,8 @@ reach me directly if it ever causes you trouble:
 beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)
 ```
 
-I have three questions and one offer, and I have tried to keep all of them
-small.
+I have three questions, one offer and one request for permission, and I have
+tried to keep all of them small.
 
 **1. May I have an application identifier?** The documentation asks that every
 application send one in `X-FIVB-App-ID`, and at the moment I send none, which
@@ -182,12 +182,69 @@ three dates written as digits (`2003-01-02`, `17072010`, `05011992`), and two
 internal notes that have ended up in the athlete's record —
 `to be Merged with (#164181) as ` and `Duplicate`.
 
+Fifty records hold two names and the word `or` inside a single name field, and
+they are two different problems. Nine are Greek surnames awaiting one
+romanisation decision each — `Ntompra or Dobra` and its siblings — where you
+hold the original spelling that would settle them. Two have the answer already
+attached: `100058` is Takeshi Matsumoto, born 11 May 1969, and `100126` is
+Mikiyo Tada; bvbinfo commits to one name for each, and all ten of their
+combined results match yours to the date, partner and placement. The sharp one
+is `100157`, `Olivier or Philippe Rossard`, which is **two men under one
+number** — the inverse of the duplication above. Its single row, Cap d'Agde
+1991 (`MCAG1991`) alongside Jean C. Gaston, was played by only one of them, and
+only your entry list for that event can say which. Worth looking at beside
+`MRIO1989`, because that is Gaston's other row and the athlete recorded beside
+him there is wrong too.
+
+Thirty-seven player records have a `FirstName` of exactly `"..."` — three full
+stops where a given name should be — and thirty of those men played FIVB
+events, so the entry lists that named them presumably still exist. An empty
+field would carry the same meaning without putting a placeholder into every
+consumer's display; ours sorted all thirty to the head of the alphabet until we
+special-cased it. Three neighbouring records have a character mangled rather
+than missing: `M…Ttus` and `B…Hme` read as Möttus and Böhme.
+
+Two tournament codes disagree with the tournament. `Rio2016M` and `Rio2016W`
+put the gender letter at the end where every other code opens with it, and
+`WWRS2022` — Warsaw 2022 Futures — is a field of 54 men under a `W`. Your own
+`Gender` field has all three right, so this is a rename rather than a data
+correction; it matters only because the code is the identifier anyone outside
+VIS keys on.
+
+Separately from the defects, one classification question: 68 National Tour
+events carry `OrganizerType` 1, which normally marks an FIVB-organised event.
+If that is deliberate I will read it as such; it looks more like data entry
+than a decision, and it is the field I use to decide what belongs in an
+international archive.
+
 Last, a request rather than a defect. `DefaultCity` is populated on only 6 of
 the 48 Olympic and World Championship tournaments, so for most editions nothing
 in the record says where they were held — the name is "Beach Volleyball Men
 WCHs" or similar. I maintain a hand-written list of hosts to fill that gap, and
 so, I suspect, does everyone else working with the archive. Populating that one
 field would retire all of those lists at once.
+
+**5. May I show your photographs?** This one is a permission request rather
+than a question about the data.
+
+`GetImageList`, filtered by `NoTournament`, returns the tournament photography
+— 124 images for the 2008 Paris Grand Slam, 389 for Gstaad 2019 — each with a
+caption written by whoever filed it, a timestamp, and `Copyright` set to FIVB.
+Every one I have looked at carries `Publish="1"` and `AccessLevel="1"`, and
+`InSlideShow` marks a selection somebody made by hand: 32 of the 389 at
+Gstaad. Sampling fifty tournaments spread across the archive, the photography
+runs from 2006 to 2021 and there is none on either side of that.
+
+I would like to show a handful of them on each tournament page, credited to
+FIVB and served from your own image service rather than copied — the same way
+the site already shows player portraits. If that needs a licence, or a
+different form of credit, or is simply not something you grant, please say so
+and I will leave them out; I would rather ask than assume that
+`Publish="1"` means what I would like it to mean.
+
+The same records carry `NoPerson`, `TeamCode` and `NoMatch`, so the answer
+would also decide whether a player's page can show a photograph of them
+playing. I am asking about the whole set once rather than coming back per use.
 
 I have not sent anyone an unsolicited bug report and I do not intend to start.
 But if a list would be useful to whoever looks after VIS, I would be glad to
@@ -288,11 +345,18 @@ is wrong it costs them one lookup; presenting it as a finding would cost the
 credibility the rest of the list depends on.
 
 **What request 4 now covers**, against the section numbers in
-[fivb-data-quirks.md](fivb-data-quirks.md): §6c (duplicate rows disagreeing on
-federation), §7 (test records), §6.5 (name-field wear and name order), §18
-(wrong-athlete and duplicated records), §19 (codes contradicting their dates),
-§6.5a (`SUSPENDED` in the name), §6.6 (`BirthPlace`), §6.7/§6.8
-(`DefaultCity`), and §20 (the same athlete under two player numbers, checked
-individually rather than reported as the raw candidate list). That is the
-whole reporting list at the end of that document. If a new one is found, add
-it here too.
+[fivb-data-quirks.md](fivb-data-quirks.md): §1 (National Tour under
+`OrganizerType` 1), §6c (duplicate rows disagreeing on federation), §7 (test
+records), §6.5 (name-field wear and name order), §6.5a (`SUSPENDED` in the
+name), §6.6 (`BirthPlace`), §6.7/§6.8 (`DefaultCity`), §18 (wrong-athlete and
+duplicated records), §19 (codes contradicting their dates), §20 (the same
+athlete under two player numbers, checked individually rather than reported as
+the raw candidate list), §21 (two names and the word `or`), §22 (`"..."` as a
+first name) and §23 (the gender letter in a tournament code). That is the whole
+reporting list at the end of that document. If a new one is found, add it here
+too.
+
+**Request 5 is not on that list and never will be**, because it is not a
+defect: the photographs are FIVB's to license and the ask is for permission.
+It sits last deliberately — everything above it costs them nothing and offers
+them something, which is the wrong footing to spoil by leading with a favour.

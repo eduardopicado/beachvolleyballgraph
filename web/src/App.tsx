@@ -264,6 +264,17 @@ export default function App() {
    * publish (fewer than two players): the partner is real and still worth
    * naming, but there is no page to send anyone to.
    */
+  /**
+   * Federation code -> ISO-2, for flags on federations that are not the slice's
+   * own. The manifest is the only place that mapping exists on the client, and
+   * a tournament's classification is full of them: Paris 2024 alone draws teams
+   * from fourteen federations.
+   */
+  const iso2Of = useCallback(
+    (code: string) => manifest?.countries.find((c) => c.code === code)?.iso2 ?? null,
+    [manifest],
+  );
+
   const awayRows: AwayRow[] = useMemo(() => {
     const list = selectedId ? (detailsById.get(selectedId)?.away ?? []) : [];
     const named = (code: string) => {
@@ -296,6 +307,39 @@ export default function App() {
     setGender(partner.gender);
     setSelectedId(partner.id);
   }, []);
+
+  /**
+   * Open a player from a tournament's field, on the page they belong to.
+   *
+   * A classification is not a slice, and that is the whole reason this exists:
+   * Paris 2024 alone holds teams from fourteen federations, so most names in a
+   * field are not on the page the reader is looking at. Setting the id alone —
+   * which is what this used to do, sharing the graph's plain selection — left
+   * `selectedId` pointing at somebody the current slice has never heard of, and
+   * the card simply vanished. From the reader's side: click a name in a
+   * tournament, lose the card and land back on a bare country page.
+   *
+   * So it does what following an away partner does, and what the search box
+   * does for a match from elsewhere: the slice and the selection move together.
+   * `setMinTogether(1)` for the same reason `jumpToPlayer` does it — the
+   * threshold is a statement about the graph the reader was reading, and
+   * carrying it into a new country can hide the player they just asked for.
+   */
+  const selectFieldPlayer = useCallback(
+    (id: number, slice: { country: string; gender: Gender }) => {
+      if (slice.country !== country || slice.gender !== gender) {
+        setCountry(slice.country);
+        setGender(slice.gender);
+        setMinTogether(1);
+        setSelectedId(id);
+        return;
+      }
+      // Already here, and possibly hidden by the threshold rather than absent.
+      if (!nodesById.has(id)) setMinTogether(1);
+      setSelectedId(id);
+    },
+    [country, gender, nodesById],
+  );
 
   const countryEntry = manifest?.countries.find((c) => c.code === country);
   const flag = flagEmoji(countryEntry?.iso2, countryEntry?.code);
@@ -591,6 +635,7 @@ export default function App() {
                 detail={detailsById.get(selectedNode.id)}
                 partners={partnersByPlayer.get(selectedNode.id) ?? []}
                 away={awayRows}
+                iso2Of={iso2Of}
                 // From the graph, not the selection: the two differ for a
                 // render while an away partner's slice loads.
                 country={graph?.country ?? country}
@@ -600,6 +645,7 @@ export default function App() {
                 names={namesById}
                 onSelectPartner={selectPlayer}
                 onSelectAway={selectAwayPartner}
+                onSelectFieldPlayer={selectFieldPlayer}
                 onFindPath={() => setPathOpen(true)}
                 onClose={() => setSelectedId(null)}
               />

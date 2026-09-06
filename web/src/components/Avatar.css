@@ -1,0 +1,44 @@
+/*
+ * The two layers of a portrait, stacked.
+ *
+ * Size, shape, border and background stay with the class each caller passes —
+ * the card's 68px circle, a search row's 32px one — because those differ per
+ * place and always did. All this file adds is the box they share: the initials
+ * in normal flow, the photo laid over them, and a hit area over that.
+ */
+
+.avatar-slot {
+  position: relative;
+  /* Not `inline`, which is what a bare <span> would be: the caller's class
+     sets a width and a height, and an inline box ignores both. */
+  display: grid;
+  place-items: center;
+  /* Clips the photo to whatever shape the caller's border-radius describes. */
+  overflow: hidden;
+}
+
+.avatar-slot > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  /* Portraits are head-and-shoulders on a tall frame, so the middle of the
+     image is a chest. Anchor to the top and the face is in the circle. */
+  object-position: top center;
+  /* Invisible until it has actually arrived, so a portrait that is loading,
+     deferred or missing shows the initials underneath rather than a hole.
+     Left in the DOM either way: an <img> that moves loses its decode. */
+  opacity: 0;
+}
+
+.avatar-slot:not(.is-fallback) > img {
+  opacity: 1;
+}
+
+.avatar-initials {
+  /* Above the background the caller's class paints, below the photo. */
+  position: relative;
+  user-select: none;
+}

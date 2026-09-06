@@ -14,6 +14,7 @@ import type {
   MedalCounts,
   ResultEntry,
   SeasonTally,
+  ClassificationTeam,
   Tier,
   TimelineFilter,
 } from '../web/src/schema.js';
@@ -37,8 +38,20 @@ export interface Tournament {
    * tournament in the archive (checked: 1,688 of 1,688, no duplicates), which
    * makes it the only durable public identifier an outside reference can key
    * on. `no` is stable too but means nothing outside VIS.
+   *
+   * **Do not read the gender off it.** Two tournaments break the pattern —
+   * `Rio2016M` and `Rio2016W` carry the letter at the end, and `WWRS2022` is a
+   * men's event under a `W` — so the first character is right on 1,686 of the
+   * 1,688 and silently wrong on the Olympics. `gender` below is the field to
+   * use; quirks §23.
    */
   code: string;
+  /**
+   * Men's or women's draw. VIS gives it directly (`Gender`, 0 or 1) and has it
+   * populated on all 9,272 tournaments it returns, including the two whose
+   * code disagrees.
+   */
+  gender: Gender;
   /**
    * Display name as VIS gives it — "BPT Elite16 Hamburg", "Gstaad". Short
    * (median 9 characters), and the gender is not in it: FIVB numbers the men's
@@ -272,6 +285,11 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       tier,
       level: levelFor(row.Type),
       season,
+      // Same encoding as a player's: 0 men, 1 women. Anything else is
+      // unreachable — every tournament VIS returns carries one of the two —
+      // and defaulting to men rather than dropping the event keeps a malformed
+      // row's results in the archive.
+      gender: row.Gender === '1' ? 'W' : 'M',
       version: (row.Version ?? '').trim(),
       endsOn: /^\d{4}-\d{2}-\d{2}/.test(row.EndDateMainDraw ?? '')
         ? row.EndDateMainDraw!.slice(0, 10)
@@ -730,9 +748,48 @@ function stripCompetitionStatus(value: string): string {
   return value.replace(/(?<!\p{L})SUSPENDED(?!\p{L})/giu, '');
 }
 
+/**
+ * A name field that is nothing but dots says "we do not know this name". It is
+ * blanked here so it is never printed as one.
+ *
+ * 37 of the 131,180 player records carry a `FirstName` of exactly `"..."`, and
+ * **30 of them publish**: `... Guerber`, `... Grimalt`, `... Tatsukawa`. Every
+ * one is a low-numbered record from the hand-entered seasons with no
+ * `Birthdate` — the same era, and the same missing-person shape, as the
+ * mis-resolved entries in quirks §18.
+ *
+ * Left in, the placeholder is not inert:
+ *
+ *  - it headlines the player card and every search row;
+ *  - `initials()` takes the dot for a given-name initial and draws ".G" in the
+ *    avatar, where a surname-only name would correctly give "G";
+ *  - and `.` sorts before every letter, so all 30 sit at the very top of any
+ *    alphabetical listing of the archive. The first thirty names a reader
+ *    meets are thirty records with no name.
+ *
+ * The graph label was already right — `shortName` draws the surname — which is
+ * exactly why this survived: the nodes look fine and only the card, the search
+ * and the sort carry it.
+ *
+ * **Tested on the whole field, never stripped as a substring**, and that is the
+ * entire risk in this function. 536 records carry a single dot inside a real
+ * name — `N. Aihara`, `Jean C. Gaston`, `Christopher St. John "Sinjin" Smith`,
+ * `Adam "A.J." Johnson` — so a rule that removed dots rather than testing the
+ * field would damage 536 names to repair 37.
+ *
+ * The ellipsis character is admitted alongside the three-dot form for the same
+ * reason the test is anchored: it costs nothing and cannot reach a real name.
+ * Only `"..."` occurs in the archive today; `…` appears in two records, but as
+ * encoding damage inside real surnames (`M…Ttus`, `B…Hme`), which keeps its
+ * letters and so is never matched here.
+ */
+function blankUnknownName(value: string): string {
+  return /^[.…]+$/u.test(value.trim()) ? '' : value;
+}
+
 function fullName(row: VisRow): string {
-  const first = stripCompetitionStatus((row.FirstName ?? '').trim());
-  const last = stripCompetitionStatus((row.LastName ?? '').trim());
+  const first = blankUnknownName(stripCompetitionStatus((row.FirstName ?? '').trim()));
+  const last = blankUnknownName(stripCompetitionStatus((row.LastName ?? '').trim()));
   // Tidied as one string rather than field by field, so the shout test sees the
   // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
   // "HETZENDORFER" on its own looks like a name that simply shouts.
@@ -747,11 +804,11 @@ function fullName(row: VisRow): string {
 function shortName(row: VisRow, full: string): string {
   // A `TeamName` of nothing but "Suspended" is emptied by the strip, and so
   // falls through to the surname the same way an unpopulated one does.
-  const team = tidyName(stripCompetitionStatus(row.TeamName ?? ''));
+  const team = tidyName(blankUnknownName(stripCompetitionStatus(row.TeamName ?? '')));
   if (team) return team;
   // From the raw field rather than sliced out of `full`, which is already
   // tidied and may have been title-cased as part of a longer name.
-  const last = tidyName(stripCompetitionStatus(row.LastName ?? ''));
+  const last = tidyName(blankUnknownName(stripCompetitionStatus(row.LastName ?? '')));
   return last || full;
 }
 
@@ -818,6 +875,18 @@ export interface AggregateResult {
    * mixed — Gisi being the extreme, which is why she stays unresolved.
    */
   ownFederation: Map<number, Map<number, Map<string, number>>>;
+  /**
+   * Tournament number -> every team that played it, keyed by pair so the
+   * duplicate registrations VIS keeps collapse to one row.
+   *
+   * Collected here rather than derived afterwards from `results`, and that is
+   * the point of it. `results` has already lost the team's own
+   * `FederationCode`, and rebuilding the field from it would mean re-deciding
+   * every filter this loop applies — the tournament scope, the missing and
+   * unknown players, and §3's never-played rule. A classification that
+   * disagreed with the timeline it opens from would be worse than none.
+   */
+  classifications: Map<string, Map<string, ClassificationTeam>>;
 }
 
 /**
@@ -888,6 +957,14 @@ export function aggregatePartnerships(
    */
   const fedCodesByPair = new Map<string, Set<string>>();
   /**
+   * The full field of each tournament, keyed `tournament -> pair`.
+   *
+   * Populated after the Rank filter, unlike `fedCodesByPair` above: a team
+   * that never played is not part of the classification, which is the same
+   * rule the timeline and every tally on the card already follow.
+   */
+  const classifications = new Map<string, Map<string, ClassificationTeam>>();
+  /**
    * Each player's own federation by season, counted only from rows where VIS
    * listed them first. See the capture below for why that is the only place
    * this can come from.
@@ -906,6 +983,31 @@ export function aggregatePartnerships(
     let set = appearances.get(id);
     if (!set) appearances.set(id, (set = new Set()));
     set.add(tournamentNo);
+  };
+
+  /**
+   * One team in one tournament's field.
+   *
+   * Breaks a tie between duplicate rows exactly as `noteResult` does — the
+   * larger rank wins — so a team cannot appear at one placement on the card's
+   * timeline and another in the classification the timeline opens. Larger
+   * looks like the worse result and is the right choice: the competing values
+   * are a real placement and a negative elimination code, and `9 > -25`.
+   */
+  const noteTeam = (
+    tournamentNo: string,
+    a: number,
+    b: number,
+    rank: number,
+    federation: string,
+  ) => {
+    let field = classifications.get(tournamentNo);
+    if (!field) classifications.set(tournamentNo, (field = new Map()));
+    const key = pairKey(a, b);
+    const existing = field.get(key);
+    if (!existing || rank > existing[0]) {
+      field.set(key, [rank, Math.min(a, b), Math.max(a, b), federation]);
+    }
   };
 
   const noteResult = (self: number, partner: number, tournamentNo: string, rank: number) => {
@@ -992,6 +1094,7 @@ export function aggregatePartnerships(
     noteAppearance(b, tournamentNo);
     noteResult(a, b, tournamentNo, rank);
     noteResult(b, a, tournamentNo, rank);
+    noteTeam(tournamentNo, a, b, rank, stamped);
 
     const key = pairKey(a, b);
     let pair = partnerships.get(key);
@@ -1031,7 +1134,7 @@ export function aggregatePartnerships(
     if (pair) pair.best = best;
   }
 
-  return { partnerships, appearances, results: ordered, rejects, ownFederation };
+  return { partnerships, appearances, results: ordered, rejects, ownFederation, classifications };
 }
 
 /**

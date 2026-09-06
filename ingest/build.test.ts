@@ -1,5 +1,12 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { indexPlayers, searchPlayers, type SearchablePlayer } from '../web/src/lib/search.js';
+import {
+  fieldPlayerSlice,
+  parseSliceKey,
+  type ClassificationFile,
+  type SearchEntry,
+} from '../web/src/schema.js';
 import {
   aggregateMedals,
   aggregatePartnerships,
@@ -349,9 +356,17 @@ describe('normalisePlayers', () => {
   });
 
   it('drops players under an excluded federation code entirely', () => {
-    // SMA/FIV don't resolve to a real, confidently-identifiable country.
-    const map = normalisePlayers([player(11, '0', 'SMA'), player(12, '1', 'FIV')]);
+    // FIV doesn't resolve to a real, confidently-identifiable country
+    // (quirks §7) — SMA used to be here too, but it does resolve: see below.
+    const map = normalisePlayers([player(11, '0', 'FIV')]);
     expect(map.size).toBe(0);
+  });
+
+  it('resolves SMA to Saint-Martin rather than dropping it', () => {
+    // Verified against BirthPlace, not guessed (quirks §7): SMA's real
+    // player sample reads "Saint Martin", not "unverifiable".
+    const map = normalisePlayers([player(13, '0', 'SMA')]);
+    expect(map.get(13)!.federation).toBe('SMA');
   });
 
   it('drops FIVB’s own test and dummy accounts', () => {
@@ -2074,5 +2089,237 @@ describe('the published championship names', () => {
       (bySeason.get(key) ?? bySeason.set(key, new Set()).get(key)!).add(name);
     }
     expect([...bySeason].filter(([, names]) => names.size > 1)).toEqual([]);
+  });
+});
+
+/**
+ * A placeholder is not a name, and dots are the placeholder in the early
+ * seasons.
+ *
+ * Quirks §22: 37 player records carry a `FirstName` of exactly `"..."`, 30 of
+ * them published. The graph was never wrong — `shortName` draws the surname —
+ * so the fault lived only where the full name is used: the card heading, every
+ * search row, the avatar's initials, and the sort, where `.` orders before
+ * every letter and put all thirty at the head of the archive.
+ *
+ * Asserted on the artifact rather than a fixture, because a fixture proves the
+ * blanking works and only the artifact proves it is reached on the field that
+ * actually carries it.
+ */
+describe('the published names carry no placeholder for an unknown name', () => {
+  const index = JSON.parse(readFileSync(new URL('../web/public/v1/search.json', import.meta.url), 'utf8'));
+  const names: string[] = [];
+  for (const entries of Object.values(index.slices as Record<string, SearchEntry[]>)) {
+    for (const [, name, , short] of entries) {
+      names.push(name);
+      if (short) names.push(short);
+    }
+  }
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on an empty list.
+    expect(names.length).toBeGreaterThan(10_000);
+  });
+
+  it('has no name that is or begins with a run of dots', () => {
+    // 30 before this: "... Guerber", "... Grimalt", "... Tatsukawa".
+    expect(names.filter((n) => /(^|\s)[.…]+(\s|$)/u.test(n))).toEqual([]);
+  });
+
+  it('kept the players themselves, under their surnames', () => {
+    // Guard the guard: dropping the 30 records would also satisfy the
+    // assertion above. Grimalt played four tournaments, Tatsukawa one.
+    for (const surname of ['Grimalt', 'Tatsukawa', 'Guerber', 'Grandvuillemin']) {
+      expect(names).toContain(surname);
+    }
+  });
+
+  it('leaves a dot that belongs to a real name alone', () => {
+    // The boundary, and the whole risk: 536 records carry a single dot inside
+    // a genuine name. A rule that stripped dots rather than testing the whole
+    // field would take these with it.
+    expect(names).toContain('N. Aihara');
+    expect(names).toContain('Jean C. Gaston');
+    expect(names.some((n) => n.includes('St. John'))).toBe(true);
+    expect(names.some((n) => n.includes('A.J.'))).toBe(true);
+  });
+});
+
+/**
+ * A name that offers two alternatives is findable under either of them.
+ *
+ * Quirks §21: 38 published records hold a given name beside the name the
+ * player actually competed under, joined by the word "or" — `Randolph or
+ * Randy Stoklos`, `Timothy or Tim Walmer`. FIVB writes them that way and we
+ * publish them unchanged, because for three of the 38 the "or" is not
+ * shorthand but genuine uncertainty between two different names, and picking
+ * a half would print a guess about a real person.
+ *
+ * That non-fix is only defensible while *both* halves reach the player, which
+ * is what this asserts. It works today through §6.5's scattered-token match:
+ * every word of a name is indexed separately, so the intervening "or" costs
+ * nothing and neither half is privileged. Nothing named that consequence, so
+ * a change to the ranking could quietly make half of these names unreachable
+ * and leave §21's reasoning standing on nothing.
+ *
+ * Asserted on the artifact rather than a fixture, because the claim is about
+ * the index the site actually ships.
+ */
+describe('a published name offering two alternatives', () => {
+  const index = JSON.parse(readFileSync(new URL('../web/public/v1/search.json', import.meta.url), 'utf8'));
+
+  const all: SearchablePlayer[] = [];
+  for (const [key, entries] of Object.entries(index.slices as Record<string, SearchEntry[]>)) {
+    const slice = parseSliceKey(key);
+    if (!slice) continue;
+    for (const [id, name, tournaments, short, alsoKnownAs] of entries) {
+      all.push({ id, name, tournaments, slice, short, alsoKnownAs });
+    }
+  }
+  const indexed = indexPlayers(all);
+
+  // A letter on each side of a spaced "or", which is what separates the real
+  // pairs from the ten false positives §21 lists -- the Hebrew given name
+  // "Or", and the letters sitting against an apostrophe in "L'Or Ngon Ntame"
+  // or a hyphen in "Thongsai-or".
+  const EITHER_OR = /(\p{L})\s+or\s+(\p{L})/iu;
+  const pairs = all.filter((p) => EITHER_OR.test(p.name));
+
+  /** "Randolph or Randy Stoklos" -> ["Randolph Stoklos", "Randy Stoklos"]. */
+  const bothReadings = (name: string): [string, string] => {
+    const match = /^(.*?)\s+or\s+(.*)$/iu.exec(name);
+    if (!match) throw new Error(`not an either/or name: ${name}`);
+    const [, head = '', tail = ''] = match;
+    const surname = tail.split(/\s+/).slice(1).join(' ');
+    return [`${head} ${surname}`.trim(), tail.trim()];
+  };
+
+  it('is a real population, not an empty list', () => {
+    // Vacuity guard: every assertion below passes trivially on no players.
+    // 38 today; the archive grows, so this asserts the order of magnitude.
+    expect(pairs.length).toBeGreaterThan(30);
+    expect(indexed.length).toBeGreaterThan(10_000);
+  });
+
+  it('splits into two readings that are genuinely different', () => {
+    // Guards the helper, not the search: a bug that returned the same string
+    // twice would make the real assertion below pass for the wrong reason.
+    for (const p of pairs) {
+      const [a, b] = bothReadings(p.name);
+      expect(a).not.toBe(b);
+      expect(a.length).toBeGreaterThan(0);
+      expect(b.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('is the top hit under either reading of the name', () => {
+    const missed = pairs.flatMap((p) =>
+      bothReadings(p.name)
+        .filter((q) => searchPlayers(indexed, q, p.slice, 20).matches[0]?.id !== p.id)
+        .map((q) => `${q} -> ${p.name}`),
+    );
+    expect(missed).toEqual([]);
+  });
+});
+
+/**
+ * Every name in a tournament's field can be resolved to the page it opens.
+ *
+ * The panel lists the whole field, and a name in it is a link to that player.
+ * The page it opens is a country x gender slice, and a classification is not a
+ * slice — Paris 2024 holds teams from fourteen federations — so the two have to
+ * be reconciled by something. That something is the team's own federation plus
+ * the file's gender, with `elsewhere` correcting the appearances a transfer,
+ * the GBR split or an unpublished slice would send to a page that cannot show
+ * them.
+ *
+ * Asserted across the whole archive against `search.json`, which is built by a
+ * different route through the ingest — the slice loop, keyed by player, rather
+ * than the classification loop, keyed by tournament. Nothing here can pass by
+ * agreeing with itself: a fault in the classification writer moves one side
+ * only.
+ */
+describe('a player named in a tournament’s field', () => {
+  const DATA = new URL('../web/public/v1/', import.meta.url);
+  const read = (rel: string) => JSON.parse(readFileSync(new URL(rel, DATA), 'utf8'));
+
+  /** Player id -> the slice they are published in, from the search index. */
+  const publishedOn = new Map<number, string>();
+  for (const [key, entries] of Object.entries(read('search.json').slices as Record<string, SearchEntry[]>)) {
+    for (const [id] of entries) publishedOn.set(id, key);
+  }
+
+  const files = readdirSync(new URL('classifications/', DATA)).map(
+    (name) => read(`classifications/${name}`) as ClassificationFile,
+  );
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on nothing.
+    expect(files.length).toBeGreaterThan(1_500);
+    expect(publishedOn.size).toBeGreaterThan(10_000);
+    expect(files.reduce((n, f) => n + f.teams.length, 0)).toBeGreaterThan(60_000);
+  });
+
+  it('is sent to a page that actually holds them', () => {
+    const wrong: string[] = [];
+    let resolved = 0;
+    for (const file of files) {
+      for (const [, a, b, federation] of file.teams) {
+        for (const id of [a, b]) {
+          const slice = fieldPlayerSlice(file, id, federation);
+          const actual = publishedOn.get(id) ?? null;
+          const key = slice && `${slice.country}-${slice.gender}`;
+          if (key !== actual) {
+            wrong.push(`${file.code}: ${id} resolves to ${key ?? 'nowhere'}, published in ${actual ?? 'nowhere'}`);
+          } else if (key) {
+            resolved++;
+          }
+        }
+      }
+    }
+    expect(wrong.slice(0, 10)).toEqual([]);
+    expect(resolved).toBeGreaterThan(120_000);
+  });
+
+  it('is offered no link at all when they have no page', () => {
+    // The five appearances with nowhere to go — a slice of fewer than two
+    // players is never published. `null` is the file saying so; a missing
+    // entry would be read as "the guess is right" and open an empty page.
+    const nowhere = files.flatMap((file) =>
+      file.teams.flatMap(([, a, b, federation]) =>
+        [a, b].filter((id) => fieldPlayerSlice(file, id, federation) === null),
+      ),
+    );
+    expect(nowhere).not.toHaveLength(0);
+    for (const id of nowhere) expect(publishedOn.has(id)).toBe(false);
+  });
+
+  it('carries a correction only where the federation and gender do not answer', () => {
+    // What keeps the published shape worth having: an `elsewhere` that had
+    // drifted into holding every player would still resolve correctly above
+    // and would have grown the archive by 1.3 MB to do it.
+    const redundant: string[] = [];
+    for (const file of files) {
+      for (const [, a, b, federation] of file.teams) {
+        for (const id of [a, b]) {
+          const override = file.elsewhere?.[id];
+          if (override !== undefined && override === `${federation}-${file.gender}`) {
+            redundant.push(`${file.code}: ${id} is corrected to the value it already had`);
+          }
+        }
+      }
+    }
+    expect(redundant.slice(0, 10)).toEqual([]);
+  });
+
+  it('reads its gender from the file rather than from the code', () => {
+    // Quirks §23. The code usually opens with the gender letter — `WBUS2026` —
+    // and on two tournaments that letter is not the gender: `Rio2016W` carries
+    // it at the end, and `WWRS2022` is a field of 54 men under a W. Reading
+    // the first character would send every reader of the 2016 Olympic women's
+    // field to a men's page.
+    const byCode = files.filter((f) => f.gender !== (f.code.startsWith('W') ? 'W' : 'M'));
+    expect(byCode.map((f) => f.code).sort()).toEqual(['Rio2016W', 'WWRS2022']);
+    for (const file of files) expect(['M', 'W']).toContain(file.gender);
   });
 });

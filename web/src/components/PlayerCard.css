@@ -1,4 +1,8 @@
 .player-card {
+  /* The anchor for the tournament panel, which covers the card rather than
+     the page: this is a column beside the graph, and a classification that
+     escaped it would sit over the graph the reader is using to navigate. */
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -34,15 +38,13 @@
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: top center;
   background: var(--series-1-wash);
   border: 1px solid var(--border);
 }
 
+/* No photo on file, or none yet — see Avatar.css for why those are one case
+   as far as this circle is concerned. */
 .player-photo.is-fallback {
-  display: grid;
-  place-items: center;
   color: var(--series-1);
   font-size: 22px;
   font-weight: 650;
@@ -92,9 +94,11 @@
   cursor: pointer;
 }
 
-.player-card .close:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .player-card .close:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- vitals -------------------------------------------------------------- */
@@ -167,9 +171,11 @@
   cursor: pointer;
 }
 
-.tl-filters button:hover {
-  color: var(--text-primary);
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .tl-filters button:hover {
+    color: var(--text-primary);
+    border-color: var(--border-strong);
+  }
 }
 
 .tl-filters button.on {
@@ -290,8 +296,10 @@
   cursor: pointer;
 }
 
-.partners li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .partners li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .partners .name {
@@ -411,8 +419,10 @@
   cursor: pointer;
 }
 
-.away li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .away li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 /* No page to send anyone to: that country x gender slice had fewer than two
@@ -451,7 +461,12 @@
   flex: 1;
   padding: 2px;
   border-radius: 7px;
-  background: var(--series-1-wash);
+  /* Neutral, not the accent wash. The tinted track is the iOS idiom — a white
+     thumb riding a coloured groove — and it is fine alone, but `.tl-filters`
+     sits 10px below spending that same wash on the *selected* chip. Two
+     controls, one colour, opposite meanings. The groove is chrome, so it gets
+     a colour that carries no state. */
+  background: var(--track);
 }
 
 .view-switch button {
@@ -470,13 +485,20 @@
   cursor: pointer;
 }
 
-.view-switch button:hover {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .view-switch button:hover {
+    color: var(--text-primary);
+  }
 }
 
+/* Deliberately identical to `.tl-filters button.on` below, because a reader
+   scanning down the card meets both within one glance and should not have to
+   learn "selected" twice. Losing the white thumb is the cost of that, and it
+   is paid back three times over: fill, text colour and weight all move
+   together, where the thumb signalled with fill alone. */
 .view-switch button[aria-pressed='true'] {
-  background: var(--surface-1);
-  color: var(--text-primary);
+  background: var(--series-1-wash);
+  color: var(--series-1);
 }
 
 /* --- Timeline ------------------------------------------------------------ */
@@ -530,8 +552,10 @@
   cursor: pointer;
 }
 
-.timeline .season:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .timeline .season:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 .timeline .year-row {
@@ -555,17 +579,24 @@
   transition: transform 120ms ease;
 }
 
-.timeline .season:hover .caret,
+/* Open is a state, not a pointer position, so the colour stays out of the
+   hover gate below — on a phone this is the only one of the two that can ever
+   be true, and it is what says the season is open. */
 .timeline .season[aria-expanded='true'] .caret {
   color: var(--series-1);
-}
-
-.timeline .season[aria-expanded='true'] .caret {
   transform: rotate(90deg);
 }
 
-.timeline .season:hover .year {
-  color: var(--text-primary);
+@media (hover: hover) {
+  .timeline .season:hover .caret {
+    color: var(--series-1);
+  }
+}
+
+@media (hover: hover) {
+  .timeline .season:hover .year {
+    color: var(--text-primary);
+  }
 }
 
 .timeline .season[aria-expanded='true'] .year {
@@ -623,8 +654,10 @@
   cursor: pointer;
 }
 
-.timeline li button:hover {
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .timeline li button:hover {
+    background: var(--series-1-wash);
+  }
 }
 
 /* --- an expanded season -------------------------------------------------- */
@@ -644,10 +677,16 @@
   flex: none;
 }
 
+/* Neutral, for the same reason `.view-switch`'s groove is. The fill is doing
+   grouping work — it binds a venue, a placement, a date, a badge and a partner
+   into one event, which is what stops an open season reading as twenty
+   unaligned lines — but grouped content is neither selected nor clickable, and
+   painting it in the accent put four blue blocks under a blue selected chip.
+   The panel stays; only its colour stops making a claim. */
 .events > li {
   padding: 4px 8px 5px;
   border-radius: 6px;
-  background: var(--series-1-wash);
+  background: var(--track);
 }
 
 .events .event {
@@ -667,6 +706,30 @@
   font-weight: 600;
 }
 
+/* The tournament name opens its full classification. Styled as the same text
+   it replaced rather than as a link: every row in the list is now clickable, so
+   colouring them all would make the list read as a wall of links and lose the
+   emphasis the finish beside it needs. The affordance is the pointer and the
+   underline on hover, with focus-visible carrying the keyboard case. */
+.events button.name {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .events button.name:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
 .events .finish {
   flex-shrink: 0;
   font-size: 12px;
@@ -675,8 +738,22 @@
   color: var(--text-secondary);
 }
 
+/* No longer the accent. A podium is not selected and not clickable, and the
+   medal beside it now carries the distinction — leaving it blue spent the
+   accent on a third meaning in a row that already has enough of them. Primary
+   rather than secondary keeps the placement a shade stronger than an ordinary
+   finish, which is the part worth keeping. */
 .events .finish.podium {
-  color: var(--series-1);
+  color: var(--text-primary);
+}
+
+/* Sits tight against the ordinal it qualifies, and slightly below the cap
+   height so the glyph's optical centre lines up with the digits rather than
+   riding above them. */
+.events .finish .medal {
+  margin-right: 3px;
+  font-size: 11px;
+  vertical-align: -0.5px;
 }
 
 .events .event-meta {
@@ -755,10 +832,12 @@
   color: var(--series-1);
 }
 
-.find-path:hover {
-  background: var(--series-1-wash);
-  border-color: var(--series-1);
-  color: var(--text-primary);
+@media (hover: hover) {
+  .find-path:hover {
+    background: var(--series-1-wash);
+    border-color: var(--series-1);
+    color: var(--text-primary);
+  }
 }
 
 .find-path:focus-visible {
@@ -773,6 +852,8 @@
   text-decoration: none;
 }
 
-.profile-link:hover {
-  text-decoration: underline;
+@media (hover: hover) {
+  .profile-link:hover {
+    text-decoration: underline;
+  }
 }

@@ -6,7 +6,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally } from '../schema';
+import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../schema';
 import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
 import { foldAccents } from '../lib/search';
 import {
@@ -16,14 +16,18 @@ import {
   formatFinish,
   formatMedals,
   medalAriaLabel,
+  medalFor,
   plural,
   seasonSpan,
 } from '../lib/format';
 import { Avatar } from './Avatar';
+import { PortraitLightbox } from './PortraitLightbox';
+import { TournamentPanel } from './TournamentPanel';
 import { buildTimeline, type TimelineSeason } from '../lib/timeline';
 import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { prefersReducedMotion } from '../lib/motion';
 import { useResults } from '../lib/useResults';
+import { useClassification } from '../lib/useClassification';
 import './PlayerCard.css';
 
 export interface PartnerRow {
@@ -60,6 +64,13 @@ interface SeasonListProps {
   status: 'idle' | 'loading' | 'ready' | 'failed';
   onSelectPartner: (id: number) => void;
   /**
+   * Opens a tournament's full field. Takes the season from the row rather than
+   * from the event's own date: the date is null on malformed rows, and on a
+   * ranged season (§19) the two can legitimately differ — the row's season is
+   * the one the timeline is showing.
+   */
+  onOpenEvent: (event: SeasonEvent, season: number) => void;
+  /**
    * Extra class on the <ol>. The card renders two of these now, and without
    * something to tell them apart `.timeline` matches both — which is not a
    * styling problem but a correctness one for anything selecting on it.
@@ -75,6 +86,7 @@ function SeasonList({
   eventsFor,
   status,
   onSelectPartner,
+  onOpenEvent,
   variant,
 }: SeasonListProps) {
   return (
@@ -148,6 +160,7 @@ function SeasonList({
                       <ol className="events">
                         {events.map((event) => {
                           const finish = formatFinish(event.rank);
+                          const medal = medalFor(event.rank);
                           const when = formatDayMonth(event.date);
                           // Tier first, then level. The Olympics, the World
                           // Championships and the age-group championships are
@@ -163,10 +176,32 @@ function SeasonList({
                           return (
                             <li key={`${event.no}-${event.partnerId}`}>
                               <p className="event">
-                                <span className="name">{event.name}</span>
-                                <span
-                                  className={`finish${event.rank >= 1 && event.rank <= 3 ? ' podium' : ''}`}
-                                >
+                                {/* The name opens the field that played this
+                                    event. A row without a published code —
+                                    only the oldest, whose tuple is too short
+                                    to carry one — stays plain text rather than
+                                    offering a button that cannot answer. */}
+                                {event.code ? (
+                                  <button
+                                    type="button"
+                                    className="name is-open"
+                                    onClick={() => onOpenEvent(event, row.season)}
+                                  >
+                                    {event.name}
+                                  </button>
+                                ) : (
+                                  <span className="name">{event.name}</span>
+                                )}
+                                <span className={`finish${medal ? ' podium' : ''}`}>
+                                  {/* Hidden from assistive tech, like the
+                                      ordinal beside it: `finish.label` already
+                                      says "Won the tournament", which is the
+                                      medal in words. */}
+                                  {medal && (
+                                    <span className="medal" aria-hidden="true">
+                                      {medal}
+                                    </span>
+                                  )}
                                   <span aria-hidden="true">{finish.text}</span>
                                   <span className="sr-only">{finish.label}</span>
                                 </span>
@@ -271,6 +306,8 @@ interface Props {
   gender: Gender;
   countryName: string;
   flag: string;
+  /** Federation code -> ISO-2, for flags on federations other than this one. */
+  iso2Of: (federation: string) => string | null;
   /**
    * Every player in the slice, unfiltered — the "min events together" control
    * hides edges, and an expanded season still has to be able to name the
@@ -279,6 +316,16 @@ interface Props {
   names: ReadonlyMap<number, string>;
   onSelectPartner: (id: number) => void;
   onSelectAway: (partner: AwayPartner) => void;
+  /**
+   * Opens a player from an open tournament's field, on the page they are
+   * published on.
+   *
+   * Separate from `onSelectPartner`, which takes a bare id and means "somebody
+   * else in this slice". A classification is not a slice — Paris 2024 holds
+   * teams from fourteen federations — so a name in it needs the page to go to
+   * as well as the player, the same way an away partner does.
+   */
+  onSelectFieldPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
   /** Opens the partnership path panel with this player as the near end. */
   onFindPath: () => void;
   onClose: () => void;
@@ -316,9 +363,11 @@ export function PlayerCard({
   gender,
   countryName,
   flag,
+  iso2Of,
   names,
   onSelectPartner,
   onSelectAway,
+  onSelectFieldPlayer,
   onFindPath,
   onClose,
 }: Props) {
@@ -485,12 +534,49 @@ export function PlayerCard({
   // questions, and a 2015 opened in one is not a 2015 opened in the other.
   const [openAwaySeasons, setOpenAwaySeasons] = useState<ReadonlySet<number>>(new Set());
 
+  // --- the portrait, large --------------------------------------------------
+  // Reset with the seasons below on every change of node: a partner row is
+  // clickable from behind the scrim on nothing, but the card *does* change
+  // player underneath an open portrait via the graph and the search box, and
+  // leaving it open would show one player's photo captioned with another's
+  // name.
+  const [portraitOpen, setPortraitOpen] = useState(false);
+
+  // --- a tournament's full field --------------------------------------------
+  // The event's whole header is kept, not just its code, so the panel can draw
+  // itself before the fetch lands: all of it is already in the timeline row
+  // that opened it, and re-reading it from the classification would mean
+  // waiting on a request to show a heading we already have.
+  const [openEvent, setOpenEvent] = useState<{
+    code: string;
+    name: string;
+    season: number;
+    tier: Tier;
+    level: string | null;
+    when: string | null;
+  } | null>(null);
+  const classification = useClassification(openEvent?.code ?? null);
+
+  const openEventPanel = useCallback((event: SeasonEvent, season: number) => {
+    if (!event.code) return;
+    setOpenEvent({
+      code: event.code,
+      name: event.name,
+      season,
+      tier: event.tier,
+      level: event.level,
+      when: formatDayMonth(event.date),
+    });
+  }, []);
+
   // A different player's seasons are not this player's, so start them closed —
   // but leave `view` alone, so someone reading careers year by year stays in
   // the timeline as they click through.
   useEffect(() => {
     setOpenSeasons(new Set());
     setOpenAwaySeasons(new Set());
+    setPortraitOpen(false);
+    setOpenEvent(null);
   }, [node.id]);
 
   const toggleAwaySeason = useCallback((season: number) => {
@@ -580,7 +666,18 @@ export function PlayerCard({
       aria-label={`Profile: ${node.name}`}
     >
       <header>
-        <Avatar id={node.id} name={node.name} width={200} className="player-photo" />
+        <Avatar
+          id={node.id}
+          name={node.name}
+          width={200}
+          className="player-photo"
+          // The reader clicked a player to get here, and this is that player's
+          // face: there is nothing to defer it behind. Lazily, a card opened
+          // below the fold — which is where it lands on a phone, and at some
+          // zoom levels on a desktop — never started the request at all.
+          eager
+          onExpand={() => setPortraitOpen(true)}
+        />
         <div className="who">
           <h2>{node.name}</h2>
           {/* The name the graph draws, when it is not simply this one cut
@@ -789,6 +886,7 @@ export function PlayerCard({
               eventsFor={filteredEventsForSeason}
               status={results.status}
               onSelectPartner={onSelectPartner}
+              onOpenEvent={openEventPanel}
               variant="is-filtered"
             />
           )
@@ -801,6 +899,7 @@ export function PlayerCard({
             eventsFor={eventsForSeason}
             status={results.status}
             onSelectPartner={onSelectPartner}
+            onOpenEvent={openEventPanel}
           />
         ) : (
           <ul>
@@ -860,6 +959,7 @@ export function PlayerCard({
                 eventsFor={awayEventsForSeason}
                 status={results.status}
                 onSelectPartner={onSelectAwayById}
+                onOpenEvent={openEventPanel}
                 variant="is-away"
               />
             ) : (
@@ -958,6 +1058,32 @@ export function PlayerCard({
           FIVB profile ↗
         </a>
       </div>
+      {openEvent && (
+        <TournamentPanel
+          name={openEvent.name}
+          season={openEvent.season}
+          tier={openEvent.tier}
+          level={openEvent.level}
+          when={openEvent.when}
+          state={classification}
+          iso2Of={iso2Of}
+          highlightId={node.id}
+          onSelectPlayer={(id, slice) => {
+            setOpenEvent(null);
+            onSelectFieldPlayer(id, slice);
+          }}
+          onClose={() => setOpenEvent(null)}
+        />
+      )}
+      {portraitOpen && (
+        <PortraitLightbox
+          id={node.id}
+          name={node.name}
+          flag={flag}
+          countryName={countryName}
+          onClose={() => setPortraitOpen(false)}
+        />
+      )}
     </aside>
   );
 }

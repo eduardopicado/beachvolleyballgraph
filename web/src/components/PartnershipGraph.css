@@ -137,9 +137,11 @@
   cursor: pointer;
 }
 
-.graph-controls button:hover {
-  color: var(--text-primary);
-  background: var(--series-1-wash);
+@media (hover: hover) {
+  .graph-controls button:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
 }
 
 .graph-controls .reset {
