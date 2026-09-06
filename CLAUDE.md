@@ -9,6 +9,16 @@ this file exists mainly to point at it, because nothing else does.
 Most of what you need is already written down. The rest of this file is only
 the conventions a new session cannot infer from the code.
 
+## Be terse
+
+**Chat replies and commit messages: extremely concise. Sacrifice grammar for
+concision.** Fragments over sentences. Cut every word that survives only to
+make a sentence well-formed.
+
+Applies to prose written *at* the owner. Not to code comments, which stay as
+they are — see HANDOVER's conventions; a comment explains why a line exists and
+that reasoning does not compress. Not to `docs/`, and not to the FIVB email.
+
 ## Who merges
 
 **Open a pull request; do not merge it.** One PR per idea, the reasoning in the
