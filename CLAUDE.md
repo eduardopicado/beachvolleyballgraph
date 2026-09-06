@@ -3,7 +3,7 @@
 ## Read this first
 
 **[docs/HANDOVER.md](docs/HANDOVER.md)** — what the project is, what state it is
-in, and the six things that will bite you. It links the other four documents;
+in, and the six things that will bite you. It links the other five documents;
 this file exists mainly to point at it, because nothing else does.
 
 Most of what you need is already written down. The rest of this file is only
