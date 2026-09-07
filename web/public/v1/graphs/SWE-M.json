@@ -807,7 +807,7 @@
       "id": 166287,
       "name": "Theodor Grahn",
       "short": "Grahn",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2020,
       "last": 2026
     },
@@ -839,7 +839,7 @@
       "id": 178243,
       "name": "Linus Isaksson",
       "short": "Isaksson",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2020,
       "last": 2026
     },
@@ -855,7 +855,7 @@
       "id": 190602,
       "name": "Stefan Andreasson",
       "short": "Andreasson",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2023,
       "last": 2026
     },
@@ -863,7 +863,7 @@
       "id": 190604,
       "name": "Anton Andersson",
       "short": "Andersson, A.",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2023,
       "last": 2026
     },
@@ -3113,7 +3113,7 @@
     {
       "a": 166287,
       "b": 178243,
-      "t": 24,
+      "t": 25,
       "f": 2020,
       "l": 2026,
       "s": [
@@ -3139,8 +3139,8 @@
         ],
         [
           2026,
-          5,
-          239
+          6,
+          246
         ]
       ],
       "r": 2
@@ -3243,7 +3243,7 @@
     {
       "a": 190602,
       "b": 190604,
-      "t": 12,
+      "t": 13,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -3264,8 +3264,8 @@
         ],
         [
           2026,
-          3,
-          169
+          4,
+          246
         ]
       ],
       "r": 2

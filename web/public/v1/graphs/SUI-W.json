@@ -1055,7 +1055,7 @@
       "id": 200834,
       "name": "Noemi Grünig",
       "short": "Grünig",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2023,
       "last": 2026
     },
@@ -1111,7 +1111,7 @@
       "id": 210927,
       "name": "Elin Shana Kluser",
       "short": "Kluser",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -1135,7 +1135,7 @@
       "id": 219124,
       "name": "Noemi Eugster",
       "short": "Eugster",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -1143,7 +1143,7 @@
       "id": 219127,
       "name": "Anja Gähwiler",
       "short": "Gähwiler",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2025,
       "last": 2026
     },
@@ -1175,7 +1175,7 @@
       "id": 222040,
       "name": "Fanny Deecke",
       "short": "Deecke",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2026,
       "last": 2026
     },
@@ -1183,7 +1183,7 @@
       "id": 222041,
       "name": "Elena Csontos",
       "short": "Csontos",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2026,
       "last": 2026
     },
@@ -4717,6 +4717,21 @@
       "r": 21
     },
     {
+      "a": 200834,
+      "b": 210927,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 200835,
       "b": 210928,
       "t": 1,
@@ -4809,7 +4824,7 @@
     {
       "a": 219124,
       "b": 219127,
-      "t": 6,
+      "t": 7,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4820,8 +4835,8 @@
         ],
         [
           2026,
-          4,
-          189
+          5,
+          246
         ]
       ],
       "r": 9
@@ -4879,14 +4894,14 @@
     {
       "a": 222040,
       "b": 222041,
-      "t": 4,
+      "t": 5,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          4,
-          169
+          5,
+          246
         ]
       ],
       "r": 9

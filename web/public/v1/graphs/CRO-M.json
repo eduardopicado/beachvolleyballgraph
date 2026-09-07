@@ -527,9 +527,9 @@
       "id": 146155,
       "name": "Josip Pribanic",
       "short": "Pribanic",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2017,
-      "last": 2019
+      "last": 2026
     },
     {
       "id": 146206,
@@ -639,7 +639,7 @@
       "id": 182098,
       "name": "Tin Devald",
       "short": "Devald",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1642,6 +1642,21 @@
         ]
       ],
       "r": 41
+    },
+    {
+      "a": 146155,
+      "b": 182098,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 146206,

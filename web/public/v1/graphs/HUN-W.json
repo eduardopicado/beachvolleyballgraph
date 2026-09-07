@@ -343,7 +343,7 @@
       "id": 152477,
       "name": "Lilla Villám",
       "short": "Villám",
-      "tournaments": 29,
+      "tournaments": 30,
       "first": 2021,
       "last": 2026
     },
@@ -439,7 +439,7 @@
       "id": 168695,
       "name": "Hanna Gubik",
       "short": "Gubik",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2021,
       "last": 2026
     },
@@ -471,7 +471,7 @@
       "id": 170183,
       "name": "Zsófi Vasvári",
       "short": "Vasvári, Z.",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2019,
       "last": 2026
     },
@@ -479,7 +479,7 @@
       "id": 170184,
       "name": "Eszter Vasvári",
       "short": "Vasvári, E.",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2021,
       "last": 2026
     },
@@ -511,15 +511,15 @@
       "id": 181216,
       "name": "Adrienn Posztós-Szabó",
       "short": "Posztós-Szabó",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 181615,
       "name": "Stefánia Flóra Kun",
       "short": "Kun",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2022,
       "last": 2026
     },
@@ -527,7 +527,7 @@
       "id": 181618,
       "name": "Chiara Honti-Majoros",
       "short": "Honti-Majoros",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2022,
       "last": 2026
     },
@@ -575,7 +575,7 @@
       "id": 191408,
       "name": "Flóra Zolnai",
       "short": "Zolnai",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2024,
       "last": 2026
     },
@@ -631,7 +631,7 @@
       "id": 213054,
       "name": "Izabella Anna Szabó",
       "short": "Szabó Iz.",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2026,
       "last": 2026
     },
@@ -639,7 +639,7 @@
       "id": 217372,
       "name": "Lilianna Szabó",
       "short": "Szabó Li.",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2026,
       "last": 2026
     },
@@ -1372,7 +1372,7 @@
     {
       "a": 152477,
       "b": 181615,
-      "t": 18,
+      "t": 19,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -1383,8 +1383,8 @@
         ],
         [
           2026,
-          8,
-          203
+          9,
+          246
         ]
       ],
       "r": 1
@@ -1730,9 +1730,24 @@
       "r": 9
     },
     {
+      "a": 168695,
+      "b": 213054,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 13
+    },
+    {
       "a": 170183,
       "b": 170184,
-      "t": 16,
+      "t": 17,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -1753,8 +1768,8 @@
         ],
         [
           2026,
-          4,
-          231
+          5,
+          246
         ]
       ],
       "r": 4
@@ -1827,17 +1842,22 @@
     {
       "a": 181216,
       "b": 181618,
-      "t": 4,
+      "t": 5,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           4,
           247
+        ],
+        [
+          2026,
+          1,
+          246
         ]
       ],
-      "r": 13
+      "r": 9
     },
     {
       "a": 181615,
@@ -1947,14 +1967,14 @@
     {
       "a": 191408,
       "b": 217372,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          239
+          6,
+          246
         ]
       ],
       "r": 13

@@ -295,7 +295,7 @@
       "id": 164915,
       "name": "Maja Marolt",
       "short": "Marolt M.",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2022,
       "last": 2026
     },
@@ -319,7 +319,7 @@
       "id": 179308,
       "name": "Živa Javornik",
       "short": "Javornik",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2022,
       "last": 2026
     },
@@ -955,7 +955,7 @@
     {
       "a": 164915,
       "b": 179308,
-      "t": 3,
+      "t": 4,
       "f": 2022,
       "l": 2026,
       "s": [
@@ -971,8 +971,8 @@
         ],
         [
           2026,
-          1,
-          148
+          2,
+          246
         ]
       ],
       "r": 4

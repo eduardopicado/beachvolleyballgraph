@@ -535,7 +535,7 @@
       "id": 120578,
       "name": "Sergiy Popov",
       "short": "Popov",
-      "tournaments": 81,
+      "tournaments": 82,
       "first": 2008,
       "last": 2026
     },
@@ -799,8 +799,16 @@
       "id": 169895,
       "name": "Richard Likhatskyi",
       "short": "Likhatskyi",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2024,
+      "last": 2026
+    },
+    {
+      "id": 169896,
+      "name": "Illia Tiurin",
+      "short": "Tiurin",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -855,7 +863,7 @@
       "id": 187007,
       "name": "Ivan Likhatskyi",
       "short": "Likhatskyi",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2024,
       "last": 2026
     },
@@ -879,7 +887,7 @@
       "id": 192781,
       "name": "Dmytro Kozii",
       "short": "Kozii",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2024,
       "last": 2026
     },
@@ -911,7 +919,7 @@
       "id": 211595,
       "name": "Sviatoslav Nahornyi",
       "short": "Nahornyi",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2024,
       "last": 2026
     },
@@ -2017,6 +2025,21 @@
     },
     {
       "a": 120578,
+      "b": 169896,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 3
+    },
+    {
+      "a": 120578,
       "b": 171672,
       "t": 1,
       "f": 2019,
@@ -2443,7 +2466,7 @@
     {
       "a": 169895,
       "b": 187007,
-      "t": 9,
+      "t": 10,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -2454,11 +2477,11 @@
         ],
         [
           2026,
-          5,
-          231
+          6,
+          246
         ]
       ],
-      "r": 3
+      "r": 1
     },
     {
       "a": 173481,
@@ -2683,7 +2706,7 @@
     {
       "a": 192781,
       "b": 211595,
-      "t": 7,
+      "t": 8,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -2699,8 +2722,8 @@
         ],
         [
           2026,
-          3,
-          183
+          4,
+          246
         ]
       ],
       "r": 4

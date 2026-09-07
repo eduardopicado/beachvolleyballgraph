@@ -191,7 +191,7 @@
       "id": 145953,
       "name": "Tamir Hershko",
       "short": "Hershko",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -255,7 +255,7 @@
       "id": 178364,
       "name": "David Lanciano",
       "short": "Lanciano",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2021,
       "last": 2026
     },
@@ -743,14 +743,14 @@
     {
       "a": 145953,
       "b": 178364,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          218
+          3,
+          246
         ]
       ],
       "r": 13

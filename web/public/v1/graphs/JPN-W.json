@@ -695,7 +695,7 @@
       "id": 122481,
       "name": "Keiko Urata",
       "short": "Urata",
-      "tournaments": 46,
+      "tournaments": 47,
       "first": 2009,
       "last": 2026
     },
@@ -1303,7 +1303,7 @@
       "id": 222066,
       "name": "Chisato Sanada",
       "short": "Sanada",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -3739,17 +3739,17 @@
     {
       "a": 122481,
       "b": 222066,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          203
+          2,
+          246
         ]
       ],
-      "r": 41
+      "r": 21
     },
     {
       "a": 122481,
