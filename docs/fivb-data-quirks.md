@@ -1703,6 +1703,89 @@ the wrong gender rather than events.
 
 ---
 
+## 24. A legend's number, entered twice a week for two seasons
+
+**What.** Shelda Kelly Bruno Bede (100926, BRA-W, born 1973-01-01) is a real
+Olympic silver medallist whose career is otherwise exactly what it should be —
+partnered with Adriana Behar through 2006-07 and Ana Paula Connelly through
+2008, finishing where that pairing finishes. Her younger sister, Shaylyn Kelly
+Bruno Bede, has her own player record too: **103655**, BRA-W, born
+1981-12-12, same birthplace. Nothing in the player table is merged.
+
+The fault is in the **team-entry rows**, and it is dated, not archival —
+checked live against VIS today with `GetBeachTeamList`, not just the
+published tree. 27 rows across 2006-2008 name `NoPlayer1=100926` alongside
+Agatha Bednarczuk (115287), a partnership that does not appear in any other
+season and that the age gap alone makes implausible as Shelda's own: Agatha's
+FIVB debut-era results are a 22-year-old's, not a 33-year-old Olympic
+medallist stepping outside her established partnership at both ends of it in
+the same weeks.
+
+**Proof that needs no outside source.** At 23 of the 27 events, `100926`
+carries *two* team rows the same week — one with her real partner finishing
+where that pairing belongs, and a second with Agatha finishing nowhere close.
+One player cannot enter a tournament twice under two different partners, so
+whichever row is real, the other names the wrong athlete:
+
+| Tournament | Season | Real partner | Real finish | Agatha-partnered finish |
+|---|---:|---|---:|---:|
+| `WSTA2006` | 2006 | Behar | 2nd | Quota |
+| `WGST2006` | 2006 | Behar | 17th | 17th |
+| `WRHO2006` | 2006 | Behar | 5th | Quota |
+| `WSHA2006` | 2006 | Behar | 5th | Quota |
+| `WMOD2006` | 2006 | Behar | 5th | Quota |
+| `WFOR2007` | 2007 | Behar | 4th | 13th |
+| `WKRI2007` | 2007 | Behar | 9th | Quota |
+| `WKLA2007` | 2007 | Behar | 9th | Quota |
+| `WBER2007` | 2007 | Behar | 9th | Quota |
+| `WMTR2007` | 2007 | Behar | 3rd | 13th |
+| `WSTA2007` | 2007 | Behar | 17th | Quota |
+| `WPAR2007` | 2007 | Behar | Quota | Quota |
+| `WWAR2007` | 2007 | Behar | 2nd | Quota |
+| `WSEO2007` | 2007 | Behar | 7th | 17th |
+| `WSEN2007` | 2007 | Behar | 5th | 41st |
+| `WGUA2008` | 2008 | Connelly | 3rd | **2nd** |
+| `WSTA2008` | 2008 | Connelly | 4th | Quota |
+| `WPAR2008` | 2008 | Connelly | 9th | Quota |
+| `WBER2008` | 2008 | Connelly | 5th | Quota |
+| `WSTJ2008` | 2008 | Connelly | 1st | Quota |
+| `WBCN2008` | 2008 | Connelly | 5th | Quota |
+| `WOSK2008` | 2008 | Connelly | 5th | 13th |
+| `WSEO2008` | 2008 | Connelly | 2nd | Quota |
+
+`WGUA2008` is the sharpest single row: two Brazilian pairs on the same
+podium chase, one 3rd and one 2nd, and VIS's `NoPlayer1` names Shelda for
+both. `Quota` is VIS's own `Rank -2`, elimination via a confederation quota
+(§3) — a real, played entry, not the stale pre-tournament registration §3
+describes, which would carry `Rank 0`. Every Agatha row above has a played
+result, several of them good ones, so this isn't a withdrawn partner's row
+left behind; it's a second team that actually competed, credited to the
+wrong athlete.
+
+**Four more rows carry no companion entry** — `WALA2007`, `WMRS2007`,
+`WESP2007`, `WSHA2007` — because Shelda simply didn't play those weeks. They
+aren't provable the way the 23 above are, but they share every other
+fingerprint: same wrong id, same partner, same three-season window, so
+there's no reason to treat them differently.
+
+**Why 100926 and not 103655.** The same failure mode as §18's Marion Marquet
+row: whoever keyed in a "Bede" partnered with a rising Agatha Bednarczuk had
+two records to choose from, one of them a household name in Brazilian beach
+volleyball and one of them not, and reached for the one they recognised.
+
+**Handled in.** Nothing. Both ids are real, distinct, and already correctly
+detailed in VIS — this isn't the guesswork §20 and §18 describe, where the
+right id is unknown or doesn't exist. It's still 27 specific rows on someone
+else's number, and reassigning them is FIVB's correction to make, not a
+judgement this pipeline should make about which of two sisters played which
+match. The consequence on the site is real, though: Shelda's tournament count
+and her graph edge to Agatha are inflated by these rows, and Shaylyn — who
+qualifies for a published career by every rule this pipeline applies to
+anyone else — doesn't appear on the site at all, because every result that
+should be hers is filed under her sister's number.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1778,12 +1861,19 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   field of 54 men under a `W` — on an event VIS's own `Gender` field correctly
   calls men's. So it is a rename rather than a data correction, and worth
   raising because the code is the identifier anyone outside VIS keys on.
+- **§24**, 27 team-entry rows that credit Shelda Bede (100926) for tournaments
+  her sister Shaylyn (103655) played. Both ids are real and already correctly
+  detailed in VIS — unlike §18 and §20, nothing here needs FIVB to work out who
+  a record belongs to, only to repoint `NoPlayer1` from one existing id to the
+  other. 23 of the 27 are provable without any outside source: `100926` carries
+  two team rows the same week, one with Shelda's real partner and one with
+  Agatha Bednarczuk, and a player cannot enter a tournament twice.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email now covers all of this except §1, §21, §22 and §23.** It
-is `docs/fivb-email.md` (task #12), and its "would a list of data issues be
-useful" section names each quirk by the section number used here — so the two
-files have to be kept in step, and a new section added above is not reported
-until it is added there too.
+**The draft introduction email now covers all of this except §1, §21, §22,
+§23 and §24.** It is `docs/fivb-email.md` (task #12), and its "would a list
+of data issues be useful" section names each quirk by the section number used
+here — so the two files have to be kept in step, and a new section added
+above is not reported until it is added there too.
