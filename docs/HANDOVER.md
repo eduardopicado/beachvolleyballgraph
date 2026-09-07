@@ -10,6 +10,7 @@ it is in, what to be careful about, and where everything else is written down.
 | [implementation.md](implementation.md) | What each module does; how to make a change |
 | [data-model.md](data-model.md) | The published `/v1/` contract, field by field |
 | [fivb-data-quirks.md](fivb-data-quirks.md) | Upstream surprises that cost real debugging time |
+| [fivb-vis-survey.md](fivb-vis-survey.md) | What the VIS API offers, and which of it we use |
 | [../README.md](../README.md) | Public-facing: what counts as a tournament, counting rules |
 
 ---
