@@ -196,6 +196,19 @@ only your entry list for that event can say which. Worth looking at beside
 `MRIO1989`, because that is Gaston's other row and the athlete recorded beside
 him there is wrong too.
 
+Twenty-seven team-entry rows from 2006–2008 credit Shelda Bede (`100926`) for
+tournaments her younger sister, Shaylyn Bede (`103655`), actually played,
+partnered with Agatha Bednarczuk. Unlike the Rossard case above, both records
+are already correct and distinct — nothing here needs untangling, only
+twenty-seven rows repointed to the right one of two real ids. Twenty-three are
+provable without any outside source: `100926` carries two team rows at the
+same tournament in the same week, one with Shelda's real partner finishing
+where that partnership belongs and one with Agatha finishing far behind it —
+one player cannot enter a tournament twice. The other four (`WALA2007`,
+`WMRS2007`, `WESP2007`, `WSHA2007`) have no such companion row, so they are
+not provable the same way, but they share the same wrong id, the same partner
+and the same three-season window as the twenty-three that are.
+
 Thirty-seven player records have a `FirstName` of exactly `"..."` — three full
 stops where a given name should be — and thirty of those men played FIVB
 events, so the entry lists that named them presumably still exist. An empty
@@ -352,9 +365,9 @@ name), §6.6 (`BirthPlace`), §6.7/§6.8 (`DefaultCity`), §18 (wrong-athlete an
 duplicated records), §19 (codes contradicting their dates), §20 (the same
 athlete under two player numbers, checked individually rather than reported as
 the raw candidate list), §21 (two names and the word `or`), §22 (`"..."` as a
-first name) and §23 (the gender letter in a tournament code). That is the whole
-reporting list at the end of that document. If a new one is found, add it here
-too.
+first name), §23 (the gender letter in a tournament code) and §24 (team rows
+crediting one sister for the other's results). That is the whole reporting
+list at the end of that document. If a new one is found, add it here too.
 
 **Request 5 is not on that list and never will be**, because it is not a
 defect: the photographs are FIVB's to license and the ask is for permission.
