@@ -80,6 +80,26 @@ export interface Tournament {
    * digits instead of five.
    */
   startOffset: number | null;
+  /**
+   * Where it was played, ISO-3166-1 alpha-2, straight from VIS's own
+   * `CountryCode` — which is already ISO-2 and needs no lookup, unlike the
+   * federation codes on a team row (`countries.ts` exists for those).
+   * Populated on all 1,688 qualifying tournaments; null only where the value
+   * is not a country code at all (§25).
+   */
+  country: string | null;
+  /**
+   * Days from the main draw's first day to its last: 0 for a one-day event,
+   * 3 for the ordinary four-day tour week, up to 15 for an Olympic fortnight.
+   *
+   * A span rather than a second offset, because it is one digit where an
+   * offset is three, and because it is the number a reader is shown — the
+   * end date is `startOffset + span` when a date is actually needed.
+   *
+   * **Can be negative, and is published that way.** `MOST1995` ends 29 days
+   * before it starts (§25). Nothing here invents a correction for it.
+   */
+  span: number | null;
 }
 
 /**
@@ -102,6 +122,50 @@ export function startOffsetFor(raw: string | undefined, season: number): number 
   const at = Date.parse(`${raw.slice(0, 10)}T00:00:00Z`);
   if (!Number.isFinite(at)) return null;
   return Math.round((at - Date.UTC(season, 0, 1)) / 86_400_000);
+}
+
+/**
+ * How many days the main draw runs, end minus start.
+ *
+ * Both dates are populated on every one of the 1,688 (checked 2026-09-08), so
+ * the null path is a malformed value rather than a missing one.
+ *
+ * **The result is not clamped.** One tournament in the archive ends before it
+ * begins — `MOST1995`, 17 September to 19 August, so this returns -29 for it
+ * (§25). That is what VIS holds and it is FIVB's to correct; a floor of 0 here
+ * would bury the only evidence the row is wrong, and a consumer that renders a
+ * range has to decide what to draw either way.
+ */
+export function spanFor(start: string | undefined, end: string | undefined): number | null {
+  if (!start || !end) return null;
+  const from = Date.parse(`${start.slice(0, 10)}T00:00:00Z`);
+  const to = Date.parse(`${end.slice(0, 10)}T00:00:00Z`);
+  if (!Number.isFinite(from) || !Number.isFinite(to)) return null;
+  return Math.round((to - from) / 86_400_000);
+}
+
+/**
+ * VIS's `CountryCode` for the venue, or null when it is not a country code.
+ *
+ * Populated on all 1,688 and already ISO-3166-1 alpha-2 on 1,680 of them, so
+ * the flag needs no lookup table. The other eight carry the literal string
+ * `01` in both `CountryCode` and `CountryName` — see §25 for which, and for
+ * why they are all British.
+ */
+export function countryCodeFor(raw: string | undefined): string | null {
+  const code = (raw ?? '').trim().toUpperCase();
+  // Two letters or nothing, rather than a list of known-bad values. `01` is
+  // the only junk in the archive today, and a rule written around it would let
+  // the next one through silently — the same reason `blankUnknownName` tests
+  // the shape of a name instead of collecting the placeholders seen so far.
+  //
+  // Deliberately not mapped to `GB`. All eight are British venues, so the flag
+  // would be right, but the code would then be a guess about what FIVB meant
+  // rather than what FIVB said — and §9 has FIVB unable to separate the UK
+  // home nations at all, so a collapse to `GB` may be the very thing being
+  // avoided upstream. Nothing here invents a country, for the same reason
+  // nothing invents a date for `MOST1995`.
+  return /^[A-Z]{2}$/.test(code) ? code : null;
 }
 
 export interface Player {
@@ -295,6 +359,8 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
         ? row.EndDateMainDraw!.slice(0, 10)
         : null,
       startOffset: startOffsetFor(row.StartDateMainDraw, season),
+      country: countryCodeFor(row.CountryCode),
+      span: spanFor(row.StartDateMainDraw, row.EndDateMainDraw),
     });
   }
   return out;

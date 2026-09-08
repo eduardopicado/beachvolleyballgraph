@@ -23,6 +23,8 @@ import {
   seasonFor,
   seasonRange,
   startOffsetFor,
+  spanFor,
+  countryCodeFor,
   tidyName,
   tidyBirthPlace,
   timelineFiltersByPlayer,
@@ -775,6 +777,56 @@ describe('startOffsetFor', () => {
     expect(startOffsetFor(undefined, 2024)).toBeNull();
     expect(startOffsetFor('', 2024)).toBeNull();
     expect(startOffsetFor('not-a-date', 2024)).toBeNull();
+  });
+});
+
+describe('spanFor', () => {
+  it('counts the days the main draw runs, first to last', () => {
+    // The ordinary tour week, and a one-day event.
+    expect(spanFor('2024-05-02', '2024-05-05')).toBe(3);
+    expect(spanFor('2024-05-02', '2024-05-02')).toBe(0);
+  });
+
+  it('does not cap a genuinely long event', () => {
+    // Beijing 2008 ran a fortnight. An upper bound here would treat the
+    // Olympics as corruption.
+    expect(spanFor('2008-08-09', '2008-08-24')).toBe(15);
+  });
+
+  it('publishes a negative span rather than clamping it', () => {
+    // MOST1995 as VIS holds it (§25). Flooring this at zero would erase the
+    // only evidence the row is wrong, and it is FIVB's to correct.
+    expect(spanFor('1995-09-17', '1995-08-19')).toBe(-29);
+  });
+
+  it('is null when either end is missing or unparseable', () => {
+    expect(spanFor(undefined, '2024-05-05')).toBeNull();
+    expect(spanFor('2024-05-02', undefined)).toBeNull();
+    expect(spanFor('not-a-date', '2024-05-05')).toBeNull();
+  });
+});
+
+describe('countryCodeFor', () => {
+  it('passes an ISO-2 code through, upper-cased', () => {
+    expect(countryCodeFor('AU')).toBe('AU');
+    expect(countryCodeFor('ch')).toBe('CH');
+    expect(countryCodeFor(' BR ')).toBe('BR');
+  });
+
+  it('is null for the eight rows whose country is the string 01', () => {
+    // §25: Brighton, Blackpool, London and Bridlington. British venues, but
+    // the flag is not ours to guess.
+    expect(countryCodeFor('01')).toBeNull();
+  });
+
+  it('rejects on shape rather than on a list of known-bad values', () => {
+    // The point of the rule: whatever the next junk value turns out to be, it
+    // does not reach the published tree as a country.
+    expect(countryCodeFor('XXX')).toBeNull();
+    expect(countryCodeFor('9')).toBeNull();
+    expect(countryCodeFor('U K')).toBeNull();
+    expect(countryCodeFor(undefined)).toBeNull();
+    expect(countryCodeFor('')).toBeNull();
   });
 });
 
