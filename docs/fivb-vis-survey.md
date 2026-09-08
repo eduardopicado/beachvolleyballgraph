@@ -117,10 +117,10 @@ Populated across the **12,096 published players**, measured:
 
 | Field | Populated | Worth having? |
 |---|---:|---|
-| `BeachPosition` | 100% | Defender / blocker. A real fact about a player we do not show. |
-| `IsActive` | 100% | Would let a card say "retired" rather than implying a career stopped. |
+| `BeachPosition` | 100% | **No** — quirks §12: at least seven codes, and population tracks the federation, not the player. |
+| `IsActive` | 100% | **No** — quirks §12: not beach-specific and not reliably updated. |
 | `TeamName` | 100% | FIVB's own display name for the player. |
-| `Handedness` | 97.4% | Left or right handed. |
+| `Handedness` | 97.4% | **Unconfirmed** — quirks §12: the 96:5 split is the right shape, but no code is checked against a known player. |
 | `PopularName` | 29.6% | Almost certainly the source of what we publish as `short`. |
 | `BeachYearBegin` | 12.8% | Year they started. |
 | `BeachWhereBegin` | 5.5% | Where they started. |
@@ -256,8 +256,11 @@ Nothing here is scheduled. In rough order of value:
 1. **`Title` for tournament headings** — 668 pages gain a real event name.
    Wanted by the tournament-page work.
 2. **The photographs** — blocked on permission, not on availability.
-3. **`BeachPosition`, `IsActive`, `Handedness`** — three facts about a player,
-   populated on ~100% of the archive, that the card could show today.
+3. ~~`BeachPosition`, `IsActive`, `Handedness`~~ — retracted. All three read as
+   ~100% populated and none survive a QC pass: quirks §12 now covers all
+   three. `IsActive` and `BeachPosition` are measurably wrong; `Handedness`
+   is only a population-shaped ratio with no individual code confirmed. None
+   of the three are a fact this site should assert about a real person.
 4. **`PreviousNames`** — 66 names to cross-check against Wikidata's 286.
 5. Everything else is real and unrequested.
 

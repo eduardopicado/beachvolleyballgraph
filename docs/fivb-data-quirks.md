@@ -869,6 +869,21 @@ tournament count as "tournaments in the graph".
   retired athletes. Cross-checked: 66% of players it flags active have no
   qualifying beach tournament in the last five seasons. Deliberately not
   carried through.
+- **`Player.BeachPosition`** reads as a two-value defender/blocker field and
+  isn't one. Measured on the most recent Elite16 (Montreal 2026, both draws,
+  112 players, checked 2026-09-07): at least seven codes appear — `0`, `1`,
+  `2`, `3`, `4`, `6`, `7` — and no legend for them exists anywhere VIS
+  documents. Population tracks the federation, not the player: USA is 30/30
+  `0` and Canada 23/24, against Austria 0/4, Argentina 0/2 and Italy 0/2 fully
+  populated. Some federations answer the question and some don't, which is not
+  the same thing as the field being true. Deliberately not carried through.
+- **`Player.Handedness`** is two codes, `1` and `4`, and on the same roster
+  they split 96:5 with 11 blank — the right shape for a real right/left
+  population, and the blanks cluster by federation the same way `BeachPosition`
+  does (7 of 11 are Canadian). But shape is all there is: no individual code
+  has been checked against a player whose handedness is independently known,
+  so which code means which hand is unconfirmed. Not carried through until one
+  is.
 - **`PlaysBeach`** is unreliable in the other direction: a few thousand
   players who have entered FIVB beach events are not flagged, and filtering on
   it silently drops their edges. The player list is fetched unfiltered because
