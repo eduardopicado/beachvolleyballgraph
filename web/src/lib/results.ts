@@ -38,6 +38,24 @@ export interface SeasonEvent {
    * age-group championships, which the card badges by tier instead.
    */
   level: string | null;
+  /**
+   * Where it was played, ISO-3166-1 alpha-2, for the flag beside the name.
+   *
+   * Null on three different kinds of row and the display cannot tell them
+   * apart, which is fine because it draws nothing for all three: a tuple too
+   * short to carry the field, a published tree written before the field
+   * existed, and the eight rows whose country VIS gives as `01` (quirks §25).
+   */
+  country: string | null;
+  /**
+   * The main draw's last day, or null when there is no usable span.
+   *
+   * Rebuilt here rather than published: the tree carries a day count and the
+   * start, and a `Date` is what a caller wants. Null when the count is
+   * missing *or negative* — `MOST1995` ends 29 days before it starts (§25),
+   * and a range that runs backwards is worse than no range at all.
+   */
+  endDate: Date | null;
 }
 
 /**
@@ -76,16 +94,23 @@ export function seasonEvents(
     // and only the longest carries a level.
     const level = meta.length > 5 ? (meta[5] ?? null) : null;
     const code = meta.length > 4 ? (meta[4] ?? null) : null;
+    const country = meta.length > 6 ? (meta[6] ?? null) : null;
+    const span = meta.length > 7 ? (meta[7] ?? null) : null;
+    const date = dateOf(season, offset);
     out.push({
       no,
       name,
       tier,
-      date: dateOf(season, offset),
+      date,
+      // A span of 0 is a real one-day event and still gives an end date; only
+      // a missing or backwards one gives up. See `endDate` above.
+      endDate: date && span !== null && span >= 0 ? dateOf(season, (offset ?? 0) + span) : null,
       partnerId: partner,
       partner: nameOf(partner),
       rank,
       level,
       code,
+      country,
     });
   }
   return out;
