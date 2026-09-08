@@ -44,16 +44,57 @@
   width: min(420px, 100%, 60vh);
 }
 
-.portrait-lightbox img {
+/* The two widths, stacked. The 200px underneath carries the box's height — it
+   is in cache, so it paints on the frame the dialog opens — and the 600px is
+   laid over it and faded in when it arrives. */
+.portrait-shot {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  /* The images are inline by default, which would leave a descender's worth of
+     scrim showing under the last one, inside the rounded corner. */
+  line-height: 0;
+}
+
+.portrait-lo {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: var(--shadow-lg);
 }
 
-/* The 600px request failed where the card's 200px one did not — rare, and only
-   ever a second request going wrong. Same box as the photo it stands in for. */
+.portrait-hi {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* The same photograph at two widths, so the ratio matches and nothing is
+     really cropped. `cover` is here so that a change of crop upstream fills
+     the layer rather than letterboxing it over the picture underneath. */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+}
+
+.portrait-shot.is-sharp .portrait-hi {
+  opacity: 1;
+}
+
+/* Nothing underneath to take the height, so the large one has to carry it. */
+.portrait-shot.no-placeholder .portrait-hi {
+  position: static;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-hi {
+    transition: none;
+  }
+}
+
+/* Both requests failed — the 200px was in cache when the trigger was offered,
+   so getting here means that entry went and the network with it. */
 .portrait-missing {
   display: grid;
   place-items: center;
