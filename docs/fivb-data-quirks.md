@@ -869,6 +869,21 @@ tournament count as "tournaments in the graph".
   retired athletes. Cross-checked: 66% of players it flags active have no
   qualifying beach tournament in the last five seasons. Deliberately not
   carried through.
+- **`Player.BeachPosition`** reads as a two-value defender/blocker field and
+  isn't one. Measured on the most recent Elite16 (Montreal 2026, both draws,
+  112 players, checked 2026-09-07): at least seven codes appear — `0`, `1`,
+  `2`, `3`, `4`, `6`, `7` — and no legend for them exists anywhere VIS
+  documents. Population tracks the federation, not the player: USA is 30/30
+  `0` and Canada 23/24, against Austria 0/4, Argentina 0/2 and Italy 0/2 fully
+  populated. Some federations answer the question and some don't, which is not
+  the same thing as the field being true. Deliberately not carried through.
+- **`Player.Handedness`** is two codes, `1` and `4`, and on the same roster
+  they split 96:5 with 11 blank — the right shape for a real right/left
+  population, and the blanks cluster by federation the same way `BeachPosition`
+  does (7 of 11 are Canadian). But shape is all there is: no individual code
+  has been checked against a player whose handedness is independently known,
+  so which code means which hand is unconfirmed. Not carried through until one
+  is.
 - **`PlaysBeach`** is unreliable in the other direction: a few thousand
   players who have entered FIVB beach events are not flagged, and filtering on
   it silently drops their edges. The player list is fetched unfiltered because
@@ -1786,6 +1801,62 @@ should be hers is filed under her sister's number.
 
 ---
 
+## 25. Where and when a tournament was played, and the two rows that lie
+
+**What.** `BeachTournament` carries `CountryCode`, `CountryName`,
+`StartDateMainDraw` and `EndDateMainDraw`. Measured on the 1,688 qualifying
+tournaments, 2026-09-08:
+
+| Field | Populated | Note |
+|---|---:|---|
+| `CountryCode` | 1,688 (100%) | **already ISO-3166-1 alpha-2** — `AU`, `CH` |
+| `CountryName` | 1,688 (100%) | the country in full |
+| `StartDateMainDraw` | 1,688 (100%) | |
+| `EndDateMainDraw` | 1,688 (100%) | |
+| `City` | **0** | empty on every row |
+| `Venue` | **0** | empty on every row |
+| `DefaultCity` | 331 (19.6%) | see §6.7 |
+
+**`CountryCode` needs no lookup, and that is worth saying out loud**, because
+the other country-ish field in this archive does: a team row's
+`FederationCode` is FIVB's own three-letter code and `countries.ts` exists to
+map it. The tournament's is ISO-2 as it stands, so a flag is one string away.
+79 distinct countries across the archive.
+
+**Eight rows are not a country.** They carry the literal string `01` in *both*
+`CountryCode` and `CountryName`:
+
+| Code | Event |
+|---|---|
+| `MU212008`, `WU212008` | Brighton |
+| `MU212009`, `WU212009` | Blackpool |
+| `MLON2013`, `WLON2013` | London |
+| `MBRI2026`, `WBRI2026` | Bridlington |
+
+All four venues are British, which makes the intended value obvious and the
+correction still not ours to make: §9 has FIVB unable to tell the UK home
+nations apart by country code at all, so a collapse to `GB` may be exactly
+what was being avoided. `countryCodeFor` in `ingest/build.ts` publishes null
+for anything that is not two letters — the shape, not a list of known-bad
+values, so the next junk value is caught rather than let through.
+
+**One tournament ends before it begins.** `MOST1995`, Ostende:
+`StartDateMainDraw` 1995-09-17, `EndDateMainDraw` 1995-08-19 — a span of
+**-29 days**. One row in 1,688, and published as-is: a floor of zero here
+would bury the only evidence the row is wrong, so anything drawing a date
+range decides for itself what to show when the span is negative.
+
+**Long spans are not the same kind of thing.** Thirteen events run longer than
+nine days and every one is legitimate — Beijing 2008 at 15 days, London 2012
+and Rio 2016 at 12, Athens 2004 at 11, Rio 1991 at 11. That is the Olympic
+fortnight, not corruption, so no upper bound belongs here either. The median
+across the archive is 3 days, which is the ordinary four-day tour week.
+
+**Handled in.** `countryCodeFor` and `spanFor` in `ingest/build.ts`, published
+on `TournamentMeta` as `country` and `span`.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1868,6 +1939,14 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   other. 23 of the 27 are provable without any outside source: `100926` carries
   two team rows the same week, one with Shelda's real partner and one with
   Agatha Bednarczuk, and a player cannot enter a tournament twice.
+
+- **§25**, two small corrections in the tournament record. Eight events carry
+  the literal `01` where a country code belongs — `MU212008`, `WU212008`
+  (Brighton), `MU212009`, `WU212009` (Blackpool), `MLON2013`, `WLON2013`
+  (London) and `MBRI2026`, `WBRI2026` (Bridlington), all British venues, and
+  all with `01` in `CountryName` too. And `MOST1995` (Ostende) ends 29 days
+  before it starts: `StartDateMainDraw` 1995-09-17 against
+  `EndDateMainDraw` 1995-08-19. Both are single-field fixes on named rows.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.

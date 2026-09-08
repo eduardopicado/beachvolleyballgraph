@@ -255,7 +255,7 @@
       "id": 158172,
       "name": "Botond Oláh",
       "short": "Oláh",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2018,
       "last": 2026
     },
@@ -271,7 +271,7 @@
       "id": 161607,
       "name": "Artúr Hajós",
       "short": "Hajós",
-      "tournaments": 45,
+      "tournaments": 46,
       "first": 2018,
       "last": 2026
     },
@@ -287,7 +287,7 @@
       "id": 168703,
       "name": "Domonkos Dóczi",
       "short": "Dóczi",
-      "tournaments": 30,
+      "tournaments": 31,
       "first": 2021,
       "last": 2026
     },
@@ -303,7 +303,7 @@
       "id": 169942,
       "name": "Jamil Ghazal",
       "short": "Ghazal",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -335,7 +335,7 @@
       "id": 181692,
       "name": "Bence Tari",
       "short": "Tari",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2023,
       "last": 2026
     },
@@ -343,7 +343,7 @@
       "id": 181697,
       "name": "Boldizsár Borbély",
       "short": "Borbély",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2022,
       "last": 2026
     },
@@ -351,7 +351,7 @@
       "id": 181706,
       "name": "Ákos Veress",
       "short": "Veress",
-      "tournaments": 21,
+      "tournaments": 22,
       "first": 2022,
       "last": 2026
     },
@@ -359,7 +359,7 @@
       "id": 181710,
       "name": "Lukas Niemeier",
       "short": "Niemeier",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2023,
       "last": 2026
     },
@@ -383,7 +383,7 @@
       "id": 182047,
       "name": "Bálint Bogáncs",
       "short": "Bogáncs",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2024,
       "last": 2026
     },
@@ -415,7 +415,7 @@
       "id": 202025,
       "name": "Marcel Sárik-Veress",
       "short": "Sárik-Veress",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -968,14 +968,14 @@
     {
       "a": 158172,
       "b": 169942,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          148
+          2,
+          246
         ]
       ],
       "r": 9
@@ -1033,17 +1033,17 @@
     {
       "a": 161607,
       "b": 181706,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          239
+          3,
+          246
         ]
       ],
-      "r": 9
+      "r": 5
     },
     {
       "a": 161607,
@@ -1089,6 +1089,21 @@
         ]
       ],
       "r": 5
+    },
+    {
+      "a": 168703,
+      "b": 181697,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 168703,
@@ -1283,14 +1298,14 @@
     {
       "a": 181692,
       "b": 181710,
-      "t": 7,
+      "t": 8,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          7,
-          176
+          8,
+          246
         ]
       ],
       "r": 1
@@ -1369,6 +1384,21 @@
         ]
       ],
       "r": 21
+    },
+    {
+      "a": 182047,
+      "b": 202025,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 182108,

@@ -11,8 +11,9 @@ import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '.
 import { foldAccents } from '../lib/search';
 import {
   age,
+  flagEmoji,
   formatDate,
-  formatDayMonth,
+  formatDateRange,
   formatFinish,
   formatMedals,
   medalAriaLabel,
@@ -161,7 +162,12 @@ function SeasonList({
                         {events.map((event) => {
                           const finish = formatFinish(event.rank);
                           const medal = medalFor(event.rank);
-                          const when = formatDayMonth(event.date);
+                          const when = formatDateRange(event.date, event.endDate);
+                          // Empty string when there is no country, which is
+                          // every row until the tree is next regenerated with
+                          // the field — so this renders nothing rather than a
+                          // placeholder glyph in the meantime.
+                          const flag = flagEmoji(event.country);
                           // Tier first, then level. The Olympics, the World
                           // Championships and the age-group championships are
                           // badged by tier and have no level below it; every
@@ -181,6 +187,16 @@ function SeasonList({
                                     only the oldest, whose tuple is too short
                                     to carry one — stays plain text rather than
                                     offering a button that cannot answer. */}
+                                {/* Outside the button, so the flag is not part
+                                    of the click target or of the button's
+                                    accessible name — it repeats the country
+                                    the name already implies and adds nothing
+                                    when read aloud. */}
+                                {flag && (
+                                  <span className="where" aria-hidden="true">
+                                    {flag}
+                                  </span>
+                                )}
                                 {event.code ? (
                                   <button
                                     type="button"
@@ -553,6 +569,8 @@ export function PlayerCard({
     season: number;
     tier: Tier;
     level: string | null;
+    /** ISO-2 for the flag beside the heading, null when VIS has no usable one. */
+    country: string | null;
     when: string | null;
   } | null>(null);
   const classification = useClassification(openEvent?.code ?? null);
@@ -565,7 +583,10 @@ export function PlayerCard({
       season,
       tier: event.tier,
       level: event.level,
-      when: formatDayMonth(event.date),
+      // The full run, not just the opening day: the panel has room for it and
+      // "9-13 Jul" is what a reader looking at one event wants to know.
+      when: formatDateRange(event.date, event.endDate),
+      country: event.country,
     });
   }, []);
 
@@ -1065,6 +1086,7 @@ export function PlayerCard({
           tier={openEvent.tier}
           level={openEvent.level}
           when={openEvent.when}
+          country={openEvent.country}
           state={classification}
           iso2Of={iso2Of}
           highlightId={node.id}

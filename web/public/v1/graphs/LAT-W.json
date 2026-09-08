@@ -575,7 +575,7 @@
       "id": 191933,
       "name": "Alise Aleksāne",
       "short": "Aleksāne",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2024,
       "last": 2026
     },
@@ -631,7 +631,7 @@
       "id": 214095,
       "name": "Aurēlija Kotāne",
       "short": "Kotāne",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -2174,14 +2174,14 @@
     {
       "a": 191933,
       "b": 214095,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          231
+          2,
+          246
         ]
       ],
       "r": 21

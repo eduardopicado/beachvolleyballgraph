@@ -10,6 +10,12 @@ const tournaments: Record<string, TournamentMeta> = {
   '4': ['Undated', 2024, 'beach-pro-tour'],
   // The five-element form carries an explicit null where the offset would be.
   '5': ['Undated with a code', 2024, 'beach-pro-tour', null, 'WUND2024'],
+  // The eight-element form: country and span. A four-day tour week.
+  '6': ['Ostrava', 2024, 'beach-pro-tour', 150, 'WOST2024', 'Elite16', 'CZ', 3],
+  // MOST1995's shape — an end 29 days before the start (quirks §25).
+  '7': ['Ostende', 1995, 'world-tour', 259, 'MOST1995', 'Open', 'BE', -29],
+  // The country VIS gives as `01`, already nulled by the ingest.
+  '8': ['Brighton', 2008, 'age-group-wch', 249, 'MU212008', null, null, 4],
 };
 
 const entries: ResultEntry[] = [
@@ -102,5 +108,43 @@ describe('seasonEvents — tournament level', () => {
       () => 'Partner',
     );
     expect(events[0]!.level).toBeNull();
+  });
+});
+
+
+describe('seasonEvents — where and how long', () => {
+  const only = (no: number, season: number) =>
+    seasonEvents([[no, 20, 1]], tournaments, season, nameOf)[0]!;
+
+  it('carries the country and rebuilds the end date from the span', () => {
+    const event = only(6, 2024);
+    expect(event.country).toBe('CZ');
+    expect(event.endDate?.toISOString().slice(0, 10)).toBe('2024-06-02');
+    // 150 days into 2024 is 30 May; three more is 2 June.
+    expect(event.date?.toISOString().slice(0, 10)).toBe('2024-05-30');
+  });
+
+  it('drops a span that runs backwards rather than passing it on', () => {
+    // The renderer would otherwise be asked to draw "17 Sep - 19 Aug". The
+    // start survives, because that part of the row is not in doubt.
+    const event = only(7, 1995);
+    expect(event.date).not.toBeNull();
+    expect(event.endDate).toBeNull();
+  });
+
+  it('is null country and null end on a tuple too short to carry them', () => {
+    // Every row published before the fields existed, which is the whole tree
+    // until the next weekly regeneration.
+    const event = only(1, 2024);
+    expect(event.country).toBeNull();
+    expect(event.endDate).toBeNull();
+  });
+
+  it('keeps the span when the country is null', () => {
+    // The two are independent: `01` nulls the country and says nothing about
+    // the dates.
+    const event = only(8, 2008);
+    expect(event.country).toBeNull();
+    expect(event.endDate).not.toBeNull();
   });
 });

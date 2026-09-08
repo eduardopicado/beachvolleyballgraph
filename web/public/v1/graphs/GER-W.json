@@ -1191,7 +1191,7 @@
       "id": 200707,
       "name": "Rika Dieckmann",
       "short": "Dieckmann",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -1199,7 +1199,7 @@
       "id": 203700,
       "name": "Sophia Neuß",
       "short": "Neuß",
-      "tournaments": 17,
+      "tournaments": 18,
       "first": 2023,
       "last": 2026
     },
@@ -6302,14 +6302,19 @@
     {
       "a": 200707,
       "b": 203700,
-      "t": 1,
+      "t": 2,
       "f": 2025,
-      "l": 2025,
+      "l": 2026,
       "s": [
         [
           2025,
           1,
           345
+        ],
+        [
+          2026,
+          1,
+          246
         ]
       ],
       "r": 2

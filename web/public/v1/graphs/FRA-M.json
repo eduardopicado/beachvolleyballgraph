@@ -1567,7 +1567,7 @@
       "id": 223440,
       "name": "Adrien Bezu",
       "short": "Bezu",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1575,7 +1575,7 @@
       "id": 223446,
       "name": "Quentin Hypolyte",
       "short": "Hypolyte",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -5642,14 +5642,14 @@
     {
       "a": 223440,
       "b": 223446,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          189
+          2,
+          246
         ]
       ],
       "r": 3

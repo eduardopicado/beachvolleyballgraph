@@ -1599,7 +1599,7 @@
       "id": 170431,
       "name": "Myriam Robitaille",
       "short": "Robitaille",
-      "tournaments": 26,
+      "tournaments": 27,
       "first": 2021,
       "last": 2026
     },
@@ -1807,7 +1807,7 @@
       "id": 198942,
       "name": "Sophia Hladyniuk",
       "short": "Hladyniuk",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2023,
       "last": 2026
     },
@@ -6939,14 +6939,14 @@
     {
       "a": 170431,
       "b": 198942,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          239
+          6,
+          246
         ]
       ],
       "r": 5

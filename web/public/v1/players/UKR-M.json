@@ -630,7 +630,7 @@
       "tour": {
         "gold": 1,
         "silver": 3,
-        "bronze": 1
+        "bronze": 2
       },
       "filters": [
         "world-champs",
@@ -1011,9 +1011,24 @@
       "weight": 86,
       "birthPlace": "Kyiv",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 0,
         "bronze": 2
+      },
+      "filters": [
+        "tour-podium"
+      ]
+    },
+    {
+      "id": 169896,
+      "name": "Illia Tiurin",
+      "dob": "1998-11-27",
+      "height": null,
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
       },
       "filters": [
         "tour-podium"
@@ -1096,7 +1111,7 @@
       "weight": 95,
       "birthPlace": "Kyiv",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 0,
         "bronze": 3
       },

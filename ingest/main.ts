@@ -335,14 +335,20 @@ async function main() {
   const tournamentIndex: Record<string, TournamentMeta> = {};
   for (const t of [...tournaments.values()].sort((a, b) => Number(a.no) - Number(b.no))) {
     // Appended rather than slotted in, so every existing index keeps its
-    // meaning and this stays an additive change to a published contract. Six
-    // elements for a tour event, which is 92% of them; five for the Olympics,
-    // the World Championships and the age-group championships, which have no
-    // level below their tier.
+    // meaning and this stays an additive change to a published contract.
+    //
+    // Country and span are populated on every qualifying tournament, so in
+    // practice every row now runs to eight — and the level slot, which used to
+    // be dropped for the Olympics, the World Championships and the age-group
+    // championships, has to be written as an explicit null to hold the place.
+    // The shorter forms are kept for the rows that carry no code at all, and
+    // for a future refresh where a country genuinely cannot be read.
     tournamentIndex[t.no] = t.code
-      ? t.level
-        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level]
-        : [t.name, t.season, t.tier, t.startOffset, t.code]
+      ? t.country !== null || t.span !== null
+        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span]
+        : t.level
+          ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level]
+          : [t.name, t.season, t.tier, t.startOffset, t.code]
       : t.startOffset === null
         ? [t.name, t.season, t.tier]
         : [t.name, t.season, t.tier, t.startOffset];

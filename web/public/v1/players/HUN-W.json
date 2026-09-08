@@ -337,7 +337,7 @@
       "weight": 75,
       "birthPlace": "Budapest",
       "tour": {
-        "gold": 1,
+        "gold": 2,
         "silver": 2,
         "bronze": 0
       },
@@ -515,7 +515,7 @@
       "weight": 57,
       "birthPlace": "Budapest",
       "tour": {
-        "gold": 1,
+        "gold": 2,
         "silver": 2,
         "bronze": 0
       },

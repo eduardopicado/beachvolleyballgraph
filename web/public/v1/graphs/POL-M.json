@@ -1231,7 +1231,7 @@
       "id": 179445,
       "name": "Filip Lejawa",
       "short": "Lejawa",
-      "tournaments": 34,
+      "tournaments": 35,
       "first": 2021,
       "last": 2026
     },
@@ -1271,7 +1271,7 @@
       "id": 182951,
       "name": "Mikolaj Kaczmarek",
       "short": "Kaczmarek",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2023,
       "last": 2026
     },
@@ -1415,7 +1415,7 @@
       "id": 212823,
       "name": "Maksymilian Dymczyk",
       "short": "Dymczyk",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -1447,7 +1447,7 @@
       "id": 223996,
       "name": "Wojciech Witkowski",
       "short": "Witkowski",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2026,
       "last": 2026
     },
@@ -5621,6 +5621,21 @@
     },
     {
       "a": 179445,
+      "b": 182951,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 9
+    },
+    {
+      "a": 179445,
       "b": 185563,
       "t": 1,
       "f": 2021,
@@ -5928,6 +5943,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 212823,
+      "b": 223996,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 220156,

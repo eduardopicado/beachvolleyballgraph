@@ -215,7 +215,7 @@
       "id": 179209,
       "name": "Merike Errit",
       "short": "Errit",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
       "last": 2026
     },
@@ -311,7 +311,7 @@
       "id": 225572,
       "name": "Lenna Kuusik",
       "short": "Kuusik",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -788,14 +788,14 @@
     {
       "a": 179209,
       "b": 225572,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          231
+          3,
+          246
         ]
       ],
       "r": 21

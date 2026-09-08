@@ -217,6 +217,18 @@ consumer's display; ours sorted all thirty to the head of the alphabet until we
 special-cased it. Three neighbouring records have a character mangled rather
 than missing: `M…Ttus` and `B…Hme` read as Möttus and Böhme.
 
+Two small things in the tournament records themselves. Eight events carry the
+literal string `01` where a country code belongs, in both `CountryCode` and
+`CountryName`: `MU212008` and `WU212008` (Brighton), `MU212009` and `WU212009`
+(Blackpool), `MLON2013` and `WLON2013` (London), and `MBRI2026` and `WBRI2026`
+(Bridlington). All eight are British venues, so the intended value is probably
+`GB` — though I have not assumed it, since your own records distinguish England,
+Scotland and Wales as separate federations and I would not want to collapse
+something you keep apart. Separately, `MOST1995` (Ostende) has an
+`EndDateMainDraw` of 19 August 1995 against a `StartDateMainDraw` of 17
+September, so it ends 29 days before it begins; one of the two dates is out by
+about a month.
+
 Two tournament codes disagree with the tournament. `Rio2016M` and `Rio2016W`
 put the gender letter at the end where every other code opens with it, and
 `WWRS2022` — Warsaw 2022 Futures — is a field of 54 men under a `W`. Your own
@@ -365,9 +377,10 @@ name), §6.6 (`BirthPlace`), §6.7/§6.8 (`DefaultCity`), §18 (wrong-athlete an
 duplicated records), §19 (codes contradicting their dates), §20 (the same
 athlete under two player numbers, checked individually rather than reported as
 the raw candidate list), §21 (two names and the word `or`), §22 (`"..."` as a
-first name), §23 (the gender letter in a tournament code) and §24 (team rows
-crediting one sister for the other's results). That is the whole reporting
-list at the end of that document. If a new one is found, add it here too.
+first name), §23 (the gender letter in a tournament code), §24 (team rows
+crediting one sister for the other's results) and §25 (the `01` country codes
+and Ostende's reversed dates). That is the whole reporting list at the end of
+that document. If a new one is found, add it here too.
 
 **Request 5 is not on that list and never will be**, because it is not a
 defect: the photographs are FIVB's to license and the ask is for permission.

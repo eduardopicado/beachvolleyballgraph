@@ -1015,7 +1015,7 @@
       "id": 211993,
       "name": "Bruno Liepiņš",
       "short": "Liepiņš B.",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -1031,7 +1031,7 @@
       "id": 214071,
       "name": "Renārs Lasmanis",
       "short": "Lasmanis",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -4103,14 +4103,14 @@
     {
       "a": 211993,
       "b": 214071,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          239
+          2,
+          246
         ]
       ],
       "r": 21

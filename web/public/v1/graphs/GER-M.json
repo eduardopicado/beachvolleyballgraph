@@ -1423,7 +1423,7 @@
       "id": 160092,
       "name": "Johannes Kirsten",
       "short": "Kirsten",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2023,
       "last": 2026
     },
@@ -1727,7 +1727,7 @@
       "id": 198326,
       "name": "Kalle Pieper",
       "short": "Pieper",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2024,
       "last": 2026
     },
@@ -1783,7 +1783,7 @@
       "id": 211379,
       "name": "Nicola Kössler",
       "short": "Kössler",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -1903,7 +1903,7 @@
       "id": 232640,
       "name": "Hannes Ludwig",
       "short": "Ludwig",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -7023,7 +7023,7 @@
     {
       "a": 160092,
       "b": 211379,
-      "t": 6,
+      "t": 7,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -7039,8 +7039,8 @@
         ],
         [
           2026,
-          1,
-          239
+          2,
+          246
         ]
       ],
       "r": 13
@@ -7994,6 +7994,21 @@
         ]
       ],
       "r": 21
+    },
+    {
+      "a": 198326,
+      "b": 232640,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 9
     },
     {
       "a": 199225,

@@ -1351,7 +1351,7 @@
       "id": 193585,
       "name": "Gaétan Jauffret",
       "short": "Jauffret",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2024,
       "last": 2026
     },
@@ -1391,7 +1391,7 @@
       "id": 210509,
       "name": "Yann Bortoluzzi",
       "short": "Bortoluzzi",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -5691,7 +5691,7 @@
     {
       "a": 193585,
       "b": 210509,
-      "t": 5,
+      "t": 6,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -5707,8 +5707,8 @@
         ],
         [
           2026,
-          1,
-          190
+          2,
+          246
         ]
       ],
       "r": 9

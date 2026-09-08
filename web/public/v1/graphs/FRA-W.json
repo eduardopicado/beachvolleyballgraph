@@ -1031,7 +1031,7 @@
       "id": 179179,
       "name": "Maëva Guignan",
       "short": "Guignan",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2021,
       "last": 2026
     },
@@ -1063,7 +1063,7 @@
       "id": 181376,
       "name": "Elsa Descamps",
       "short": "Descamps",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2021,
       "last": 2026
     },
@@ -1087,7 +1087,7 @@
       "id": 182157,
       "name": "Alex Merle",
       "short": "Merle",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2023,
       "last": 2026
     },
@@ -1111,7 +1111,7 @@
       "id": 194470,
       "name": "Céline Collette",
       "short": "Collette",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2023,
       "last": 2026
     },
@@ -4135,6 +4135,21 @@
       "r": 13
     },
     {
+      "a": 179179,
+      "b": 194470,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 179313,
       "b": 179491,
       "t": 1,
@@ -4338,6 +4353,21 @@
         ]
       ],
       "r": 5
+    },
+    {
+      "a": 181376,
+      "b": 182157,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          246
+        ]
+      ],
+      "r": 17
     },
     {
       "a": 181376,

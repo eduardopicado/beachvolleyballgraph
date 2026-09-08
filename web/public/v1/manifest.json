@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-05T10:09:42.289Z",
-  "sourceVersion": "114893",
+  "generatedAt": "2026-09-07T15:02:51.970Z",
+  "sourceVersion": "114956",
   "seasons": {
     "from": 1987,
     "to": 2027
   },
   "totals": {
     "tournaments": 1688,
-    "players": 12097,
-    "partnerships": 13966
+    "players": 12098,
+    "partnerships": 13980
   },
   "tiers": {
     "FIVB World Tour": 1077,
@@ -472,7 +472,7 @@
       "genders": {
         "M": {
           "nodes": 82,
-          "edges": 65
+          "edges": 66
         },
         "W": {
           "nodes": 33,
@@ -686,7 +686,7 @@
         },
         "W": {
           "nodes": 152,
-          "edges": 183
+          "edges": 185
         }
       }
     },
@@ -738,7 +738,7 @@
       "genders": {
         "M": {
           "nodes": 240,
-          "edges": 347
+          "edges": 348
         },
         "W": {
           "nodes": 172,
@@ -880,11 +880,11 @@
       "genders": {
         "M": {
           "nodes": 55,
-          "edges": 55
+          "edges": 57
         },
         "W": {
           "nodes": 83,
-          "edges": 81
+          "edges": 82
         }
       }
     },
@@ -1130,7 +1130,7 @@
         },
         "W": {
           "nodes": 37,
-          "edges": 42
+          "edges": 43
         }
       }
     },
@@ -1309,7 +1309,7 @@
       "genders": {
         "M": {
           "nodes": 125,
-          "edges": 191
+          "edges": 192
         },
         "W": {
           "nodes": 132,
@@ -1492,7 +1492,7 @@
       "genders": {
         "M": {
           "nodes": 183,
-          "edges": 251
+          "edges": 253
         },
         "W": {
           "nodes": 127,
@@ -1840,7 +1840,7 @@
         },
         "W": {
           "nodes": 95,
-          "edges": 110
+          "edges": 111
         }
       }
     },
@@ -1855,7 +1855,7 @@
         },
         "W": {
           "nodes": 150,
-          "edges": 204
+          "edges": 205
         }
       }
     },
@@ -1999,8 +1999,8 @@
       "iso2": "UA",
       "genders": {
         "M": {
-          "nodes": 116,
-          "edges": 99
+          "nodes": 117,
+          "edges": 100
         },
         "W": {
           "nodes": 55,
