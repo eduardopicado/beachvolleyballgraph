@@ -97,16 +97,24 @@ export function PortraitLightbox({ id, name, flag, countryName, onClose }: Props
       role="dialog"
       aria-modal="true"
       aria-label={`Portrait of ${name}`}
-      // A click anywhere on the backdrop closes. The figure below stops
-      // propagation, so a click that lands on the photo itself does not.
+      // A click anywhere on the backdrop closes. Only the picture itself stops
+      // propagation — not the whole figure, which also contains the caption and
+      // the gap above it. Guarding the figure meant the name, and the strip of
+      // dark either side of it, read as part of the dialog and swallowed the
+      // click; nothing is being protected there, because the caption is text
+      // nobody clicks for its own sake.
       onClick={onClose}
     >
-      <figure onClick={(event) => event.stopPropagation()}>
+      <figure>
         {failed ? (
           // The same initials the card draws, at this size. The caption below
           // still names the player, so the dialog says who it is about rather
           // than showing the browser's broken-image glyph and nothing else.
-          <div className="portrait-missing" aria-hidden="true">
+          <div
+            className="portrait-missing"
+            aria-hidden="true"
+            onClick={(event) => event.stopPropagation()}
+          >
             {initials(name)}
           </div>
         ) : (
@@ -115,6 +123,7 @@ export function PortraitLightbox({ id, name, flag, countryName, onClose }: Props
             alt={`${name}, ${countryName}`}
             decoding="async"
             onError={() => setFailed(true)}
+            onClick={(event) => event.stopPropagation()}
           />
         )}
         <figcaption>

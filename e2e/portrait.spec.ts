@@ -151,6 +151,59 @@ test.describe('the card’s portrait', () => {
     await expect(lightbox).toHaveCount(0);
   });
 
+  test('closes on the caption and the dark beside it, but not on the photo', async ({ page }) => {
+    /*
+     * The sibling above fixed the strip beside the *photo*. The caption sits
+     * below it inside the same figure, and guarding the figure rather than the
+     * picture left the player's name — and the gap around it — swallowing the
+     * click as well. Nothing there is worth protecting: the caption is text
+     * nobody clicks for its own sake, so it belongs to the backdrop.
+     *
+     * Both directions are asserted here because the guard moved rather than
+     * went away. Widen it back onto the figure and the caption stops closing;
+     * drop it from the picture and the photo starts closing — a reader who
+     * clicks the portrait to look closer would dismiss it instead.
+     */
+    const node = subject();
+    await page.route(PHOTOS, (route) =>
+      route.fulfill({
+        status: 200,
+        contentType: 'image/svg+xml',
+        body: '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800"><rect width="600" height="800" fill="#456"/></svg>',
+      }),
+    );
+
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    await page.locator('.player-photo .portrait-trigger').click();
+    const lightbox = page.locator('.portrait-lightbox');
+    await expect(lightbox).toBeVisible();
+
+    // The picture keeps its guard: clicking the thing you opened to look at
+    // must not take it away.
+    await lightbox.locator('img').click();
+    await expect(lightbox).toBeVisible();
+
+    // The name itself.
+    await lightbox.locator('figcaption strong').click();
+    await expect(lightbox).toHaveCount(0);
+
+    // And the dark immediately beside it. The figure is the photo's full
+    // width and the caption is centred and narrower, so a click at the
+    // figure's edge level with the caption lands on the figure itself — the
+    // element that used to hold the guard, and the exact strip that read as
+    // backdrop and did nothing.
+    await page.locator('.player-photo .portrait-trigger').click();
+    await expect(lightbox).toBeVisible();
+    const figure = await lightbox.locator('figure').boundingBox();
+    const caption = await lightbox.locator('figcaption').boundingBox();
+    expect(figure, 'the figure should be laid out').not.toBeNull();
+    expect(caption, 'the caption should be laid out').not.toBeNull();
+    expect(caption!.width, 'the caption must be narrower than the figure for this to test anything')
+      .toBeLessThan(figure!.width - 8);
+    await page.mouse.click(figure!.x + 2, caption!.y + caption!.height / 2);
+    await expect(lightbox).toHaveCount(0);
+  });
+
   test('fetches the card’s portrait rather than deferring it', async ({ page }) => {
     // `loading="lazy"` on the one image the reader just asked for is latency
     // for nothing, and on a card that opens below the fold it is a request the
