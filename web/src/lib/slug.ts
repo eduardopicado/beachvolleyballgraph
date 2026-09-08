@@ -46,14 +46,28 @@ export const TOURNAMENT_PREFIX = 'tournament';
  * Ten of these collide, and `disambiguator` is how they are resolved — see
  * `tournamentSlugs` for why it is not applied unconditionally.
  */
+/**
+ * Does the event's own name already end with its season?
+ *
+ * True for the Olympics, which FIVB names "Paris 2024", and for a few others
+ * like "BPT Finals Doha 2023" — 17 of the 1,610 published tournaments. Both
+ * the slug and the heading have to know, or they print the year twice.
+ */
+export function nameCarriesSeason(name: string, season: number): boolean {
+  return slugify(name).endsWith(`-${season}`);
+}
+
 export function tournamentSlug(
   name: string,
   season: number,
   gender: Gender,
   disambiguator?: string,
 ): string {
-  const base = `${slugify(name)}-${season}-${GENDER_SLUG[gender]}`;
-  return disambiguator ? `${base}-${slugify(disambiguator)}` : base;
+  const stem = slugify(name);
+  // The season still has to be *in* the slug — two editions of an event named
+  // without a year would otherwise collide — it just must not appear twice.
+  const base = nameCarriesSeason(name, season) ? stem : `${stem}-${season}`;
+  return `${base}-${GENDER_SLUG[gender]}` + (disambiguator ? `-${slugify(disambiguator)}` : '');
 }
 
 /**

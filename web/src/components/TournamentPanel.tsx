@@ -26,6 +26,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import type { ClassificationFile, Gender, Tier } from '../schema';
 import { fieldPlayerSlice, TIER_BADGE } from '../schema';
 import { countryName, flagEmoji, formatFinish, medalFor, ordinal, plural } from '../lib/format';
+import { bandsOf } from '../lib/classification';
 import './TournamentPanel.css';
 
 interface Props {
@@ -103,20 +104,10 @@ export function TournamentPanel({
   }, [onClose]);
 
   /** The field, grouped by placement and ordered best first. */
-  const bands = useMemo(() => {
-    if (state.status !== 'ready') return [];
-    const byRank = new Map<number, ClassificationFile['teams']>();
-    for (const team of state.data.teams) {
-      let group = byRank.get(team[0]);
-      if (!group) byRank.set(team[0], (group = []));
-      group.push(team);
-    }
-    return [...byRank.entries()].sort(
-      // Placements ascending, then everything eliminated before the main draw,
-      // which is what a negative rank means.
-      ([x], [y]) => Number(x < 0) - Number(y < 0) || x - y,
-    );
-  }, [state]);
+  const bands = useMemo(
+    () => (state.status === 'ready' ? bandsOf(state.data.teams) : []),
+    [state],
+  );
 
   const badge = TIER_BADGE[tier] ?? level;
   const where = countryName(country);

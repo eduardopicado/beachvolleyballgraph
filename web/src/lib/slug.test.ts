@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { Gender } from '../schema';
 import {
   sliceSlug, slicePath, slugFromPath, slugify,
+  nameCarriesSeason,
   tournamentSlug,
   tournamentSlugs,
 } from './slug';
@@ -64,6 +65,28 @@ describe('tournamentSlug', () => {
   it('strips diacritics and punctuation the way slice slugs do', () => {
     expect(tournamentSlug('Pärnu', 2008, 'M')).toBe('parnu-2008-men');
     expect(tournamentSlug('Roseto degli Abruzzi', 2005, 'W')).toBe('roseto-degli-abruzzi-2005-women');
+  });
+
+  it('knows when a name already carries its season', () => {
+    expect(nameCarriesSeason('Paris 2024', 2024)).toBe(true);
+    expect(nameCarriesSeason('Gstaad', 2019)).toBe(false);
+    // Contains, but does not end with: still needs the season appended.
+    expect(nameCarriesSeason('2018 Warm-up', 2019)).toBe(false);
+  });
+
+  it('does not repeat a season the name already ends with', () => {
+    // The Olympics carry their year in the name FIVB gives them, and so do a
+    // few others. 17 of the 1,610 published tournaments were reading
+    // `paris-2024-2024-men` before this.
+    expect(tournamentSlug('Paris 2024', 2024, 'M')).toBe('paris-2024-men');
+    expect(tournamentSlug('Beijing 2008', 2008, 'W')).toBe('beijing-2008-women');
+    expect(tournamentSlug('BPT Finals Doha 2023', 2023, 'M')).toBe('bpt-finals-doha-2023-men');
+  });
+
+  it('still adds a season the name only happens to contain elsewhere', () => {
+    // The rule is "ends with", not "contains": dropping the season here would
+    // give two editions of this event the same slug.
+    expect(tournamentSlug('2018 Warm-up', 2019, 'M')).toBe('2018-warm-up-2019-men');
   });
 
   it('appends a disambiguator when given one', () => {
