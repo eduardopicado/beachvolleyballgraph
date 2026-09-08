@@ -97,10 +97,58 @@ test.describe('the card’s portrait', () => {
     await expect(page.locator('.portrait-lightbox')).toHaveCount(0);
   });
 
-  test('says who the portrait is of when the large one fails on its own', async ({ page }) => {
-    // The card asks FIVB for 200px and the lightbox for 600 — a second request,
-    // which can fail where the first did not. Before this the dialog drew the
-    // browser's broken-image glyph on a black page.
+  test('opens on the card’s own portrait, then sharpens to the large one', async ({ page }) => {
+    /*
+     * The point of the whole arrangement: the dialog must never be an empty
+     * box while FIVB is answering. The 200px is already in cache — it is the
+     * picture the reader clicked — so it is drawn immediately, and the 600px
+     * fades over it on arrival.
+     *
+     * The large request is held open rather than stubbed, because "what is on
+     * screen while it is still in flight" is the entire assertion; answer it
+     * and there is nothing left to observe.
+     */
+    const node = subject();
+    let release: (() => void) | undefined;
+    const held = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    await page.route(/width=600/, async (route) => {
+      await held;
+      await route.fallback();
+    });
+
+    await page.locator('.player-photo .portrait-trigger').click();
+    const lightbox = page.locator('.portrait-lightbox');
+    await expect(lightbox).toBeVisible();
+
+    // In flight: the small one is up, at the full width of the box, and the
+    // large one is present but not yet shown.
+    const shot = lightbox.locator('.portrait-shot');
+    await expect(shot).toHaveCount(1);
+    await expect(shot).not.toHaveClass(/is-sharp/);
+    const placeholder = lightbox.locator('.portrait-lo');
+    await expect(placeholder).toHaveAttribute('src', /width=200/);
+    const box = await placeholder.boundingBox();
+    expect(box, 'the placeholder should be laid out').not.toBeNull();
+    expect(box!.width, 'it should fill the box the large one will take').toBeGreaterThan(200);
+
+    // Let FIVB answer.
+    release!();
+    await expect(shot).toHaveClass(/is-sharp/);
+    await expect(lightbox.locator('.portrait-hi')).toHaveAttribute('src', /width=600/);
+  });
+
+  test('keeps the card’s own portrait when the large one fails on its own', async ({ page }) => {
+    /*
+     * The card asks FIVB for 200px and the lightbox for 600 — a second request,
+     * which can fail where the first did not. This used to fall back to
+     * initials, which threw away a portrait that was on screen and working:
+     * the 200px is in cache before the dialog can open, because the trigger is
+     * only offered once it has loaded. So the placeholder simply stays, and a
+     * reader gets a soft photograph rather than two letters.
+     */
     const node = subject();
     await page.goto(`./${slicePath()}?player=${node.id}`);
     // Only the large request fails, so the card's portrait still loads and the
@@ -110,9 +158,34 @@ test.describe('the card’s portrait', () => {
 
     const lightbox = page.locator('.portrait-lightbox');
     await expect(lightbox).toBeVisible();
+    await expect(lightbox.locator('figcaption')).toContainText(node.name);
+    await expect(lightbox.locator('.portrait-missing')).toHaveCount(0);
+
+    // The 200px, left in place and now carrying the description the failed
+    // one would have carried.
+    const kept = lightbox.locator('.portrait-lo');
+    await expect(kept).toHaveCount(1);
+    await expect(kept).toHaveAttribute('src', /width=200/);
+    await expect(kept).toHaveAttribute('alt', new RegExp(node.name.split(' ')[0]!));
+  });
+
+  test('falls back to initials only when both widths fail', async ({ page }) => {
+    // Close to unreachable — the trigger is only offered once the 200px has
+    // loaded — but the dialog must not draw an empty box if that cache entry
+    // has gone and the network with it.
+    const node = subject();
+    await page.goto(`./${slicePath()}?player=${node.id}`);
+    await page.locator('.player-photo .portrait-trigger').click();
+    const lightbox = page.locator('.portrait-lightbox');
+    await expect(lightbox).toBeVisible();
+
+    // Fail both only now, then force the dialog to ask again.
+    await page.route(PHOTOS, (route) => route.fulfill({ status: 404, body: '' }));
+    await page.keyboard.press('Escape');
+    await page.locator('.player-photo .portrait-trigger').click();
+
     await expect(lightbox.locator('.portrait-missing')).toHaveText(initials(node.name));
     await expect(lightbox.locator('figcaption')).toContainText(node.name);
-    await expect(lightbox.locator('img')).toHaveCount(0);
   });
 
   test('closes on a click just outside the photo, not only far from it', async ({ page }) => {
@@ -142,7 +215,8 @@ test.describe('the card’s portrait', () => {
     const lightbox = page.locator('.portrait-lightbox');
     await expect(lightbox).toBeVisible();
 
-    const photo = await lightbox.locator('img').boundingBox();
+    // The box the two widths share, which is what the figure now hugs.
+    const photo = await lightbox.locator('.portrait-shot').boundingBox();
     expect(photo, 'the portrait should be laid out').not.toBeNull();
 
     // Eight pixels past the photo's edge, level with its middle: unmistakably
@@ -180,7 +254,7 @@ test.describe('the card’s portrait', () => {
 
     // The picture keeps its guard: clicking the thing you opened to look at
     // must not take it away.
-    await lightbox.locator('img').click();
+    await lightbox.locator('.portrait-shot').click();
     await expect(lightbox).toBeVisible();
 
     // The name itself.

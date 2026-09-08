@@ -288,7 +288,9 @@ test.describe('the portrait lightbox', () => {
 
     // The photo is inside the backdrop, so without the stopPropagation the
     // gesture that means "look closer" would dismiss the thing being looked at.
-    await dialog.locator('figure img').click();
+    // The box rather than an image: it holds two, the cached 200px and the
+    // 600px laid over it, and the guard belongs to the pair.
+    await dialog.locator('.portrait-shot').click();
     await expect(dialog).toBeVisible();
 
     // A corner of the scrim, well clear of the figure.
