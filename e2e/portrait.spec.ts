@@ -170,18 +170,36 @@ test.describe('the card’s portrait', () => {
   });
 
   test('falls back to initials only when both widths fail', async ({ page }) => {
-    // Close to unreachable — the trigger is only offered once the 200px has
-    // loaded — but the dialog must not draw an empty box if that cache entry
-    // has gone and the network with it.
+    /*
+     * The state the initials exist for, and the only way to reach it. The
+     * trigger is offered only once the card's 200px has loaded, and the dialog
+     * asks for that same URL — so ordinarily it is served from cache and cannot
+     * fail, whatever the network is doing. Both widths only fail together if
+     * that cache entry has gone *and* the network has too.
+     *
+     * So the cache is cleared rather than simulated. Routing the host to 404
+     * on its own does not reproduce this: the second request never leaves the
+     * browser, the placeholder loads from cache, and the test passes or fails
+     * on cache timing — which is exactly how the first version of it passed
+     * here and failed on CI.
+     *
+     * The card's own portrait survives the clear because its element stays
+     * mounted with the same `src`; only the dialog, unmounted and remounted,
+     * asks again.
+     */
     const node = subject();
     await page.goto(`./${slicePath()}?player=${node.id}`);
     await page.locator('.player-photo .portrait-trigger').click();
     const lightbox = page.locator('.portrait-lightbox');
     await expect(lightbox).toBeVisible();
+    await expect(lightbox.locator('.portrait-lo')).toHaveCount(1);
 
-    // Fail both only now, then force the dialog to ask again.
     await page.route(PHOTOS, (route) => route.fulfill({ status: 404, body: '' }));
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send('Network.clearBrowserCache');
+
     await page.keyboard.press('Escape');
+    await expect(lightbox).toHaveCount(0);
     await page.locator('.player-photo .portrait-trigger').click();
 
     await expect(lightbox.locator('.portrait-missing')).toHaveText(initials(node.name));
