@@ -16,10 +16,10 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import type { Gender, Manifest, TournamentsFile } from './schema';
-import { fetchManifest, fetchTournaments } from './lib/api';
+import type { Gender, Manifest, SeriesFile, TournamentsFile } from './schema';
+import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
 import { readTournament } from './lib/tournamentMeta';
-import { tournamentSlugs } from './lib/slug';
+import { tournamentPath, tournamentSlugs } from './lib/slug';
 import { sliceSlug } from './lib/slug';
 import { useClassification } from './lib/useClassification';
 import { TournamentPage, type TournamentPageData } from './components/TournamentPage';
@@ -85,6 +85,30 @@ export default function TournamentRoute({ slug }: { slug: string }) {
 
   const classification = useClassification(found?.code ?? null);
 
+  /*
+   * The series this edition belongs to, in two steps: the small index says
+   * which, and only then is a series file fetched. Most tournaments are in
+   * none and stop after the index — and a failure at either step leaves the
+   * page without its edition list rather than without its classification,
+   * which is the half that matters.
+   */
+  const [series, setSeries] = useState<SeriesFile[]>([]);
+  useEffect(() => {
+    const code = found?.code;
+    if (!code) return;
+    let cancelled = false;
+    fetchSeriesIndex()
+      .then((index) => {
+        const slugs = index.of[code] ?? [];
+        return slugs.length ? Promise.all(slugs.map(fetchSeries)) : [];
+      })
+      .then((files) => !cancelled && setSeries(files))
+      .catch(() => !cancelled && setSeries([]));
+    return () => {
+      cancelled = true;
+    };
+  }, [found?.code]);
+
   useEffect(() => {
     if (found) document.title = `${found.name} ${found.season} — Beach Volleyball Partnership Graph`;
   }, [found]);
@@ -145,6 +169,9 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       state={classification}
       iso2Of={iso2Of}
       homeHref={BASE}
+      series={series}
+      code={found.code}
+      editionHref={(slug) => tournamentPath(BASE, slug)}
       onSelectPlayer={(id, slice) => {
         // A full navigation rather than client-side state: the graph lives in
         // `App`, which is not mounted here, and its page is prerendered.
