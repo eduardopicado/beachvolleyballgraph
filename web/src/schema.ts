@@ -275,6 +275,32 @@ export type TournamentMeta =
       tier: Tier,
       startOffset: number | null,
       code: string,
+      /** Null here rather than absent: the two fields below need the slot. */
+      level: string | null,
+      /**
+       * Where it was played, ISO-3166-1 alpha-2 — VIS's `CountryCode`, which
+       * is already ISO-2 and needs no lookup, unlike the federation code on a
+       * team row. Null on the eight whose code is not a country at all
+       * (quirks §25); draw no flag rather than guessing one.
+       */
+      country: string | null,
+      /**
+       * Days the main draw runs, last day minus first: 0 for a one-day event,
+       * 3 for the ordinary tour week, 15 for an Olympic fortnight. The end
+       * date is `startOffset + span`.
+       *
+       * **Can be negative.** `MOST1995` ends 29 days before it starts, which
+       * is upstream and published as-is (quirks §25) — anything rendering a
+       * range has to decide what to draw when it is.
+       */
+      span: number | null,
+    ]
+  | [
+      name: string,
+      season: number,
+      tier: Tier,
+      startOffset: number | null,
+      code: string,
       /**
        * What FIVB called this event's level at the time — "Grand Slam",
        * "4-star", "Elite16". Absent for the Olympics, the World Championships

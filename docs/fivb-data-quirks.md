@@ -1801,6 +1801,62 @@ should be hers is filed under her sister's number.
 
 ---
 
+## 25. Where and when a tournament was played, and the two rows that lie
+
+**What.** `BeachTournament` carries `CountryCode`, `CountryName`,
+`StartDateMainDraw` and `EndDateMainDraw`. Measured on the 1,688 qualifying
+tournaments, 2026-09-08:
+
+| Field | Populated | Note |
+|---|---:|---|
+| `CountryCode` | 1,688 (100%) | **already ISO-3166-1 alpha-2** — `AU`, `CH` |
+| `CountryName` | 1,688 (100%) | the country in full |
+| `StartDateMainDraw` | 1,688 (100%) | |
+| `EndDateMainDraw` | 1,688 (100%) | |
+| `City` | **0** | empty on every row |
+| `Venue` | **0** | empty on every row |
+| `DefaultCity` | 331 (19.6%) | see §6.7 |
+
+**`CountryCode` needs no lookup, and that is worth saying out loud**, because
+the other country-ish field in this archive does: a team row's
+`FederationCode` is FIVB's own three-letter code and `countries.ts` exists to
+map it. The tournament's is ISO-2 as it stands, so a flag is one string away.
+79 distinct countries across the archive.
+
+**Eight rows are not a country.** They carry the literal string `01` in *both*
+`CountryCode` and `CountryName`:
+
+| Code | Event |
+|---|---|
+| `MU212008`, `WU212008` | Brighton |
+| `MU212009`, `WU212009` | Blackpool |
+| `MLON2013`, `WLON2013` | London |
+| `MBRI2026`, `WBRI2026` | Bridlington |
+
+All four venues are British, which makes the intended value obvious and the
+correction still not ours to make: §9 has FIVB unable to tell the UK home
+nations apart by country code at all, so a collapse to `GB` may be exactly
+what was being avoided. `countryCodeFor` in `ingest/build.ts` publishes null
+for anything that is not two letters — the shape, not a list of known-bad
+values, so the next junk value is caught rather than let through.
+
+**One tournament ends before it begins.** `MOST1995`, Ostende:
+`StartDateMainDraw` 1995-09-17, `EndDateMainDraw` 1995-08-19 — a span of
+**-29 days**. One row in 1,688, and published as-is: a floor of zero here
+would bury the only evidence the row is wrong, so anything drawing a date
+range decides for itself what to show when the span is negative.
+
+**Long spans are not the same kind of thing.** Thirteen events run longer than
+nine days and every one is legitimate — Beijing 2008 at 15 days, London 2012
+and Rio 2016 at 12, Athens 2004 at 11, Rio 1991 at 11. That is the Olympic
+fortnight, not corruption, so no upper bound belongs here either. The median
+across the archive is 3 days, which is the ordinary four-day tour week.
+
+**Handled in.** `countryCodeFor` and `spanFor` in `ingest/build.ts`, published
+on `TournamentMeta` as `country` and `span`.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -1884,11 +1940,19 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   two team rows the same week, one with Shelda's real partner and one with
   Agatha Bednarczuk, and a player cannot enter a tournament twice.
 
+- **§25**, two small corrections in the tournament record. Eight events carry
+  the literal `01` where a country code belongs — `MU212008`, `WU212008`
+  (Brighton), `MU212009`, `WU212009` (Blackpool), `MLON2013`, `WLON2013`
+  (London) and `MBRI2026`, `WBRI2026` (Bridlington), all British venues, and
+  all with `01` in `CountryName` too. And `MOST1995` (Ostende) ends 29 days
+  before it starts: `StartDateMainDraw` 1995-09-17 against
+  `EndDateMainDraw` 1995-08-19. Both are single-field fixes on named rows.
+
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
 **The draft introduction email now covers all of this except §1, §21, §22,
-§23 and §24.** It is `docs/fivb-email.md` (task #12), and its "would a list
-of data issues be useful" section names each quirk by the section number used
-here — so the two files have to be kept in step, and a new section added
+§23, §24 and §25.** It is `docs/fivb-email.md` (task #12), and its "would a
+list of data issues be useful" section names each quirk by the section number
+used here — so the two files have to be kept in step, and a new section added
 above is not reported until it is added there too.
