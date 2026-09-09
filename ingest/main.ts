@@ -51,6 +51,8 @@ import {
   sliceByCountryAndGender,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
+import { SERIES, seriesFor, type SeriesEdition } from './series.js';
+import { tournamentSlugs } from '../web/src/lib/slug.js';
 import { verifyTeammates } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
@@ -593,6 +595,33 @@ async function main() {
   }
 
   let classificationFiles = 0;
+  /**
+   * Editions collected as the classifications are written, keyed by series.
+   *
+   * Built here rather than in a pass of its own because this loop already
+   * holds every field it needs — the sorted teams and the names — and reading
+   * 1,610 classification files back off disk to find four rows in each would
+   * be the same work twice.
+   */
+  const editionsBySeries = new Map<string, SeriesEdition[]>();
+
+  /**
+   * Slug per tournament code, built over the same set the prerenderer uses so
+   * an edition's link and the page it points at cannot disagree. Both sides
+   * call `tournamentSlugs`, which is what makes the code suffix land on the
+   * same members of a clash in both.
+   */
+  const slugInputs = [...tournaments.values()].filter((t) => t.code);
+  const slugByTournament = tournamentSlugs(slugInputs, (t) => ({
+    name: t.name,
+    season: t.season,
+    gender: t.gender,
+    code: t.code,
+  }));
+  const tournamentSlugMap = new Map(
+    slugInputs.map((t) => [t.code, slugByTournament.get(t)!] as const),
+  );
+
   let classifiedTeams = 0;
   /** Field appearances, and how many of them the guess below gets right. */
   let fieldNames = 0;
@@ -635,6 +664,31 @@ async function main() {
       }
     }
 
+    // The first four *placements*, which is more than four teams whenever a
+    // rank is shared — and it usually is (quirks §5).
+    const memberOf = seriesFor({ code: tournament.code, tier: tournament.tier });
+    if (memberOf.length > 0) {
+      const top: SeriesEdition['top'] = [];
+      const placings = [...new Set(teams.map((t) => t[0]).filter((r) => r > 0))].sort((a, b) => a - b);
+      for (const rank of placings.slice(0, 4)) {
+        for (const [, a, b, federation] of teams.filter((t) => t[0] === rank)) {
+          top.push([rank, `${named[a] ?? `Player ${a}`} / ${named[b] ?? `Player ${b}`}`, federation]);
+        }
+      }
+      for (const slug of memberOf) {
+        const list = editionsBySeries.get(slug) ?? [];
+        list.push({
+          code: tournament.code,
+          season: tournament.season,
+          gender,
+          slug: tournamentSlugMap.get(tournament.code) ?? '',
+          name: tournament.name,
+          top,
+        });
+        editionsBySeries.set(slug, list);
+      }
+    }
+
     classifiedTeams += teams.length;
     classificationFiles++;
     // Omitted entirely on the two thirds of tournaments whose whole field is
@@ -657,6 +711,53 @@ async function main() {
   log(
     'classified',
     `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
+  );
+
+  // --- series ---------------------------------------------------------------
+  /*
+   * One file per series, each holding every edition and its first four
+   * placements, plus an index from tournament code to the series it belongs
+   * to.
+   *
+   * Split this way because of how it is read: a tournament page knows its own
+   * code and nothing else, so it fetches the small index, learns it is a
+   * Gstaad, and fetches only that. The 87% of tournaments in no series at all
+   * pay for the index and stop there.
+   */
+  await mkdir(path.join(TMP_DIR, 'series'), { recursive: true });
+  const seriesIndex: Record<string, string[]> = {};
+  let editionCount = 0;
+  for (const definition of SERIES) {
+    const editions = (editionsBySeries.get(definition.slug) ?? []).sort(
+      // Newest first, then the men's draw before the women's, which is the
+      // order the two are named in everywhere else on the site.
+      (a, b) => b.season - a.season || a.gender.localeCompare(b.gender),
+    );
+    if (editions.length === 0) continue;
+    editionCount += editions.length;
+    for (const edition of editions) {
+      (seriesIndex[edition.code] ??= []).push(definition.slug);
+    }
+    await writeFile(
+      path.join(TMP_DIR, 'series', `${definition.slug}.json`),
+      [
+        '{',
+        `  "slug": ${JSON.stringify(definition.slug)},`,
+        `  "name": ${JSON.stringify(definition.name)},`,
+        `  "blurb": ${JSON.stringify(definition.blurb)},`,
+        `  "editions": [\n${editions.map((e) => `    ${JSON.stringify(e)}`).join(',\n')}\n  ]`,
+        '}',
+        '',
+      ].join('\n'),
+    );
+  }
+  await writeFile(
+    path.join(TMP_DIR, 'series', 'index.json'),
+    `{\n  "of": ${jsonByKey(seriesIndex, '  ')}\n}`,
+  );
+  log(
+    'series',
+    `${editionCount} editions across ${Object.keys(seriesIndex).length} tournaments in ${SERIES.length} series`,
   );
   // The number the published shape rests on: if the guess ever stopped being
   // nearly always right, storing the corrections would be the wrong trade and

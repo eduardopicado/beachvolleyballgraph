@@ -175,3 +175,113 @@
 .tournament-page .pair .unlinked {
   color: var(--text-secondary);
 }
+
+/* --- the edition list ----------------------------------------------------
+   Denser than the classification above it: four rows for each of up to fifty
+   editions, so the year is the thing that has to be findable and everything
+   else is supporting detail. */
+
+.tournament-page .editions .blurb {
+  margin: -6px 0 12px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+.tournament-page .years {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tournament-page .edition {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--gridline);
+  align-items: start;
+}
+
+/* The edition being read. A wash rather than a border: the row sits in a list
+   of near-identical rows, and a border would read as a separate object. */
+.tournament-page .edition.is-here {
+  background: var(--series-2-wash);
+  box-shadow: 0 0 0 6px var(--series-2-wash);
+  border-radius: 3px;
+}
+
+.tournament-page .edition .which {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.tournament-page .edition .year {
+  font-size: 15px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--series-1);
+  text-decoration: none;
+}
+
+.tournament-page .edition.is-here .year {
+  color: var(--text-primary);
+}
+
+@media (hover: hover) {
+  .tournament-page .edition a.year:hover {
+    text-decoration: underline;
+  }
+}
+
+.tournament-page .edition .draw {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.tournament-page .top {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tournament-page .top li {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+  font-size: 13.5px;
+  min-width: 0;
+}
+
+.tournament-page .top .rank {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tournament-page .top .who {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tournament-page .top .fed {
+  width: auto;
+  font-size: 11.5px;
+}
+
+.tournament-page .top .none {
+  display: block;
+  color: var(--text-muted);
+  font-size: 13px;
+}

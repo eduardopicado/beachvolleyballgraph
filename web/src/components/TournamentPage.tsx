@@ -13,15 +13,19 @@
  * card underneath to return to, and forcing one component to be both would
  * mean a prop for every one of those differences.
  *
- * The edition list — every other Gstaad, with its top four — is the other half
- * of this page and is not here yet. It needs series membership, which is
- * hand-maintained for Gstaad and the Rio Open because the codes lie
- * (`MRIO2005` is Salvador), and a precomputed top four per edition so the page
- * does not fetch fifty classification files to draw its own history.
+ * **The edition list is the second half.** Below the classification, every
+ * other edition of the same event with its first four placements — the
+ * "results by year" a recurring tournament gets on Wikipedia. It is what turns
+ * a page about one week in 2019 into a page about Gstaad.
+ *
+ * Both halves are lists of placements and they are deliberately not the same
+ * component: this one is the field of *this* edition, in full, grouped by a
+ * shared rank; that one is four rows each from fifty other editions, and every
+ * row is a link somewhere else.
  */
 
 import { useMemo } from 'react';
-import type { ClassificationFile, Gender, Tier } from '../schema';
+import type { ClassificationFile, Gender, SeriesFile, Tier } from '../schema';
 import { fieldPlayerSlice, TIER_BADGE } from '../schema';
 import { bandsOf } from '../lib/classification';
 import { nameCarriesSeason } from '../lib/slug';
@@ -60,11 +64,29 @@ interface Props {
   onSelectPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
   /** Back to the graph. A page reached cold has nothing else to offer. */
   homeHref: string;
+  /**
+   * The series this edition belongs to, each with its own editions. Usually
+   * none; two for Gstaad 2007, which was also the World Championships.
+   */
+  series: SeriesFile[];
+  /** Where an edition of the same series lives. */
+  editionHref: (slug: string) => string;
+  /** This edition's own code, so it can be marked rather than linked. */
+  code: string;
 }
 
 const GENDER_LABEL: Record<Gender, string> = { M: "Men's", W: "Women's" };
 
-export function TournamentPage({ tournament, state, iso2Of, onSelectPlayer, homeHref }: Props) {
+export function TournamentPage({
+  tournament,
+  state,
+  iso2Of,
+  onSelectPlayer,
+  homeHref,
+  series,
+  editionHref,
+  code,
+}: Props) {
   const { name, season, tier, level, gender, country, start, end } = tournament;
   const bands = useMemo(
     () => (state.status === 'ready' ? bandsOf(state.data.teams) : []),
@@ -167,6 +189,55 @@ export function TournamentPage({ tournament, state, iso2Of, onSelectPlayer, home
           </ol>
         </section>
       )}
+
+      {series.map((s) => (
+        <section key={s.slug} className="editions" aria-label={`${s.name}: every edition`}>
+          <h2>{s.name}, year by year</h2>
+          <p className="blurb">{s.blurb}</p>
+          <ol className="years">
+            {s.editions.map((edition) => {
+              // The edition being read is marked rather than linked: a link to
+              // the page you are on is a dead control, and the row is what
+              // gives the rest of the list its point of reference.
+              const here = edition.code === code;
+              return (
+                <li key={edition.code} className={here ? 'edition is-here' : 'edition'}>
+                  <p className="which">
+                    {here ? (
+                      <span className="year" aria-current="page">
+                        {edition.season}
+                      </span>
+                    ) : (
+                      <a className="year" href={editionHref(edition.slug)}>
+                        {edition.season}
+                      </a>
+                    )}
+                    <span className="draw">{GENDER_LABEL[edition.gender]}</span>
+                  </p>
+                  <ol className="top">
+                    {edition.top.map(([rank, pair, federation], at) => (
+                      <li key={`${rank}-${pair}-${at}`}>
+                        <span className="rank" aria-hidden="true">
+                          {medalFor(rank) ?? ordinal(rank)}
+                        </span>
+                        <span className="sr-only">{formatFinish(rank).label}</span>
+                        <span className="who">{pair}</span>
+                        <span className="fed">
+                          <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
+                          {federation}
+                        </span>
+                      </li>
+                    ))}
+                    {edition.top.length === 0 && (
+                      <li className="none">FIVB publishes no placements for this edition.</li>
+                    )}
+                  </ol>
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      ))}
     </main>
   );
 }

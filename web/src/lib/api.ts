@@ -15,6 +15,8 @@ import type {
   ClassificationFile,
   TournamentsFile,
   Gender,
+  SeriesFile,
+  SeriesIndexFile,
 } from '../schema';
 import {
   graphPath,
@@ -24,6 +26,8 @@ import {
   searchPath,
   classificationPath,
   tournamentsPath,
+  seriesIndexPath,
+  seriesPath,
 } from '../schema';
 
 /** Vite rewrites this to the deploy base ("/" or "/<repo>/"). */
@@ -83,6 +87,12 @@ export const fetchClassification = (code: string) =>
  * second caller free when both happen in one visit.
  */
 export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
+
+/** Which series each tournament belongs to. Small; most pages stop here. */
+export const fetchSeriesIndex = () => load<SeriesIndexFile>(seriesIndexPath(BASE));
+
+/** One series and all its editions, fetched only when a page is in one. */
+export const fetchSeries = (slug: string) => load<SeriesFile>(seriesPath(BASE, slug));
 
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([
