@@ -192,6 +192,30 @@ export function nearestSeason(rows: readonly IndexRow[], gender: Gender, wanted:
   );
 }
 
+/**
+ * The season the index opens on: this calendar year, or the nearest published
+ * one to it.
+ *
+ * *This year*, not the newest season in the archive, and the difference is not
+ * academic — the archive ran ahead of the calendar the day this was written.
+ * FIVB publishes tournaments before they are played, so the 2027 World
+ * Championships is a real row in a 2026 archive, and "newest" opened the page
+ * on a season holding one event that has not happened. A reader arriving at an
+ * index of results wants the season being played, which is the one they are
+ * living in.
+ *
+ * Falling back to the nearest rather than the newest also survives the two
+ * ordinary cases at the edges: a January before that season's first event, and
+ * a draw whose calendar ended years ago.
+ */
+export function defaultSeason(
+  rows: readonly IndexRow[],
+  gender: Gender,
+  now: Date = new Date(),
+): number | null {
+  return nearestSeason(rows, gender, now.getUTCFullYear());
+}
+
 /** The tier chips this slice can offer, in the fixed order above. */
 export function groupsIn(rows: readonly IndexRow[]): TierGroup[] {
   const present = new Set(rows.map((r) => r.group));

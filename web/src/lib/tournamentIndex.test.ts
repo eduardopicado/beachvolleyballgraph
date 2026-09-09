@@ -4,6 +4,7 @@ import {
   applyFilter,
   buildIndex,
   compareLevels,
+  defaultSeason,
   groupsIn,
   levelsIn,
   nearestSeason,
@@ -195,6 +196,56 @@ describe('nearestSeason', () => {
 
   it('has no answer when the draw has no seasons', () => {
     expect(nearestSeason([], 'M', 2019)).toBe(null);
+  });
+});
+
+describe('defaultSeason', () => {
+  // A published archive that runs ahead of the calendar, which is the real
+  // shape: FIVB lists tournaments before they are played.
+  const rows = index({
+    1: meta({ name: 'a', season: 2024, gender: 'M', code: 'M1' }),
+    2: meta({ name: 'b', season: 2025, gender: 'M', code: 'M2' }),
+    3: meta({ name: 'c', season: 2026, gender: 'M', code: 'M3' }),
+    4: meta({ name: 'd', season: 2027, gender: 'M', code: 'M4' }),
+    5: meta({ name: 'e', season: 2024, gender: 'W', code: 'W1' }),
+  });
+
+  const on = (iso: string) => new Date(`${iso}T12:00:00Z`);
+
+  it('opens on this calendar year, not the newest season published', () => {
+    // The bug this fixes: the page opened on 2027, a season holding one
+    // tournament that has not been played.
+    expect(defaultSeason(rows, 'M', on('2026-09-09'))).toBe(2026);
+  });
+
+  it('still opens on this year in January, before the season has begun', () => {
+    expect(defaultSeason(rows, 'M', on('2026-01-02'))).toBe(2026);
+  });
+
+  it('falls back to the nearest season when this year has none', () => {
+    // The women's calendar in this fixture stops in 2024.
+    expect(defaultSeason(rows, 'W', on('2026-09-09'))).toBe(2024);
+  });
+
+  it('falls back to the nearest season, not the newest one', () => {
+    // 2025 is absent and 2027 is published, so "this year, else the newest"
+    // would answer 2027 — three years past what was asked for — while the
+    // nearest is 2024. Every other case here has the two agreeing, which is
+    // exactly why this one is needed.
+    expect(defaultSeason(rows, 'W', on('2025-06-01'))).toBe(2024);
+    const sparse = index({
+      1: meta({ name: 'a', season: 2024, gender: 'W', code: 'W1' }),
+      2: meta({ name: 'b', season: 2030, gender: 'W', code: 'W2' }),
+    });
+    expect(defaultSeason(sparse, 'W', on('2025-06-01'))).toBe(2024);
+  });
+
+  it('opens on the last published season once the calendar runs past it', () => {
+    expect(defaultSeason(rows, 'M', on('2031-05-01'))).toBe(2027);
+  });
+
+  it('has no answer for a draw with nothing published', () => {
+    expect(defaultSeason([], 'M', on('2026-09-09'))).toBe(null);
   });
 });
 

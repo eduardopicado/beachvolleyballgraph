@@ -17,7 +17,7 @@ import type { Manifest, TournamentsFile } from './schema';
 import { fetchManifest, fetchTournaments } from './lib/api';
 import { tournamentPath } from './lib/slug';
 import { filterFromParams, indexPath, paramsFor } from './lib/indexRoute';
-import { buildIndex, reconcile } from './lib/tournamentIndex';
+import { buildIndex, defaultSeason, nearestSeason, reconcile } from './lib/tournamentIndex';
 import { TournamentIndex } from './components/TournamentIndex';
 
 const BASE = import.meta.env.BASE_URL;
@@ -58,11 +58,19 @@ export default function TournamentIndexRoute() {
 
   const filter = useMemo(() => {
     if (rows.length === 0) return null;
-    // The newest season is the fallback, and `reconcile` settles everything
-    // else — including the case that makes this necessary: a link to a
-    // women's page on a season only the men's draw has.
-    const newest = Math.max(...rows.map((r) => r.season));
-    return reconcile(rows, filterFromParams(new URLSearchParams(search), newest));
+    const params = new URLSearchParams(search);
+    // The draw has to be read before the season can be defaulted: which season
+    // this year resolves to depends on which calendar is being asked about.
+    const gender = filterFromParams(params, 0).gender;
+    const parsed = filterFromParams(params, defaultSeason(rows, gender) ?? 0);
+    // Snapped rather than left to `reconcile`, which answers an unavailable
+    // season with the newest one. A link to `?gender=W&season=1990` means a
+    // season the women's draw does not have, and 1992 is nearer the asker's
+    // intent than 2026 is.
+    return reconcile(rows, {
+      ...parsed,
+      season: nearestSeason(rows, parsed.gender, parsed.season) ?? parsed.season,
+    });
   }, [rows, search]);
 
   useEffect(() => {

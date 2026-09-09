@@ -26,7 +26,7 @@ import type {
 import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
 import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../web/src/lib/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
-import { buildIndex } from '../web/src/lib/tournamentIndex.js';
+import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -606,9 +606,13 @@ ${rows ? `<ol>${rows}</ol>` : ''}
     })
     .join('');
 
-  const newest = [...addressable].sort((a, b) => b.season - a.season)[0]?.season ?? manifest.seasons.to;
+  // The same season the app opens on, so the static page and the hydrated one
+  // do not disagree about which year this is. `defaultSeason` is why that is
+  // this calendar year rather than the newest row: FIVB publishes tournaments
+  // before they are played.
+  const opensOn = defaultSeason(addressable, 'M') ?? manifest.seasons.to;
   const newestRows = addressable
-    .filter((t) => t.season === newest && t.gender === 'M')
+    .filter((t) => t.season === opensOn && t.gender === 'M')
     .map(
       (t) =>
         `<li><a href="${esc(`${BASE}${TOURNAMENT_PREFIX}/${t.slug}/`)}">${esc(t.name)}</a>${
@@ -637,7 +641,7 @@ ${rows ? `<ol>${rows}</ol>` : ''}
     body: `<main>
 <h1>Tournaments</h1>
 <p>${esc(indexDescription)}</p>
-<h2>${newest} men</h2>
+<h2>${opensOn} men</h2>
 <ul>${newestRows}</ul>
 <nav aria-label="Every season"><h2>Every season</h2><ul>${seasonLinks}</ul></nav>
 ${staticFooter()}
