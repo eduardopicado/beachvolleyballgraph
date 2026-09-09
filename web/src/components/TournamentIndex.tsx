@@ -70,6 +70,7 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
   const withinGroup = filter.group ? slice.filter((r) => r.group === filter.group) : slice;
   const levels = levelsIn(withinGroup);
   const visible = filter.level ? withinGroup.filter((r) => r.level === filter.level) : withinGroup;
+  const upcoming = visible.filter((r) => !r.played).length;
 
   const set = (patch: Partial<IndexFilter>) => onFilter({ ...filter, ...patch });
 
@@ -82,8 +83,9 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
       <header>
         <h1>Tournaments</h1>
         <p className="blurb">
-          Every FIVB international tournament with a published result — the World Tour, Beach Pro
-          Tour, World Championships, Olympic Games and the age-group championships.
+          Every FIVB international tournament — the World Tour, Beach Pro Tour, World
+          Championships, Olympic Games and the age-group championships — season by season, with
+          the ones still to be played.
         </p>
       </header>
 
@@ -201,6 +203,9 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
         <p className="tally">
           {plural(visible.length, 'tournament')} · {filter.season} ·{' '}
           {GENDER_LABEL[filter.gender]}
+          {/* Counted rather than left to be noticed: a season part-played
+              reads as a short season otherwise. */}
+          {upcoming > 0 && <span> · {upcoming} still to play</span>}
         </p>
 
         {visible.length === 0 ? (
@@ -222,10 +227,21 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
               {visible.map((row) => {
                 const where = countryName(row.country);
                 return (
-                  <tr key={row.slug}>
+                  <tr key={row.code}>
                     <td className="when">{formatDateRange(row.start, row.end) ?? '—'}</td>
                     <td className="what">
-                      <a href={tournamentHref(row.slug)}>{row.name}</a>
+                      {/* An upcoming event has no field, so no page: the name
+                          is text rather than a link to nothing. The tag says
+                          why, so a reader does not read the missing link as a
+                          fault. */}
+                      {row.slug ? (
+                        <a href={tournamentHref(row.slug)}>{row.name}</a>
+                      ) : (
+                        <>
+                          <span className="unplayed">{row.name}</span>
+                          <span className="soon">Upcoming</span>
+                        </>
+                      )}
                     </td>
                     <td className="where">
                       {where ? (

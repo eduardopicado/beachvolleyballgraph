@@ -168,7 +168,12 @@ export default function TournamentRoute({ slug }: { slug: string }) {
         level: null,
       })}`}
       counterpart={
-        counterpart && { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
+        // No link to a draw with no page: the other half of an event still to
+        // be played has no field published, so there is nothing to open. The
+        // switch is absent rather than dead.
+        counterpart?.slug
+          ? { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
+          : null
       }
       series={series}
       code={found.code}

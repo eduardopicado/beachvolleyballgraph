@@ -26,7 +26,7 @@ import type {
 import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
 import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../web/src/lib/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
-import { buildIndex } from '../web/src/lib/tournamentIndex.js';
+import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -484,9 +484,17 @@ async function main() {
    */
   const declared = manifest.withoutField;
   const withoutField = new Set(declared ?? []);
-  const addressable = buildIndex(
+  const indexRows = buildIndex(
     tournamentsFile.tournaments,
     declared ? (code) => !withoutField.has(code) : onDisk,
+  );
+
+  // Only the played rows get a page. `buildIndex` also returns the events
+  // still ahead of the calendar, which the index lists and links nowhere —
+  // there is no field to render, so writing them a page would write six
+  // documents saying nothing.
+  const addressable = indexRows.filter(
+    (t): t is typeof t & { slug: string } => t.slug !== null,
   );
 
   // Only meaningful when there is a claim to check. The two come out of one
@@ -589,10 +597,14 @@ ${rows ? `<ol>${rows}</ol>` : ''}
   const indexHref = `${BASE}${INDEX_PREFIX}/`;
   const indexUrl = abs(indexHref);
   const indexTitle = `Tournaments — ${SITE_NAME}`;
-  const indexDescription = `Every FIVB international beach volleyball tournament with a published result — ${addressable.length.toLocaleString('en-US')} of them across ${manifest.seasons.from}–${manifest.seasons.to}, by season and draw.`;
+  const upcomingCount = indexRows.length - addressable.length;
+  const indexDescription = `Every FIVB international beach volleyball tournament by season and draw — ${addressable.length.toLocaleString('en-US')} played across ${manifest.seasons.from}–${manifest.seasons.to}${upcomingCount > 0 ? `, and ${upcomingCount} still to come` : ''}.`;
 
+  // Every season the index can show, upcoming ones included: 2027 exists as a
+  // season the moment FIVB publishes the World Championships into it, and a
+  // crawler should be able to reach that page like any other.
   const bySeason = new Map<string, { season: number; gender: Gender; count: number }>();
-  for (const t of addressable) {
+  for (const t of indexRows) {
     const key = `${t.season}-${t.gender}`;
     const entry = bySeason.get(key) ?? { season: t.season, gender: t.gender, count: 0 };
     entry.count++;
@@ -608,9 +620,13 @@ ${rows ? `<ol>${rows}</ol>` : ''}
     })
     .join('');
 
-  const newest = [...addressable].sort((a, b) => b.season - a.season)[0]?.season ?? manifest.seasons.to;
+  // The same season the app opens on, so the static page and the hydrated one
+  // do not disagree about which year this is. `defaultSeason` is why that is
+  // this calendar year rather than the newest row: FIVB publishes tournaments
+  // before they are played.
+  const opensOn = defaultSeason(addressable, 'M') ?? manifest.seasons.to;
   const newestRows = addressable
-    .filter((t) => t.season === newest && t.gender === 'M')
+    .filter((t) => t.season === opensOn && t.gender === 'M')
     .map(
       (t) =>
         `<li><a href="${esc(`${BASE}${TOURNAMENT_PREFIX}/${t.slug}/`)}">${esc(t.name)}</a>${
@@ -639,7 +655,7 @@ ${rows ? `<ol>${rows}</ol>` : ''}
     body: `<main>
 <h1>Tournaments</h1>
 <p>${esc(indexDescription)}</p>
-<h2>${newest} men</h2>
+<h2>${opensOn} men</h2>
 <ul>${newestRows}</ul>
 <nav aria-label="Every season"><h2>Every season</h2><ul>${seasonLinks}</ul></nav>
 ${staticFooter()}
