@@ -22,6 +22,7 @@ import { readTournament } from './lib/tournamentMeta';
 import { tournamentPath, tournamentSlugs } from './lib/slug';
 import { sliceSlug } from './lib/slug';
 import { useClassification } from './lib/useClassification';
+import { useEntries } from './lib/useEntries';
 import { TournamentPage, type TournamentPageData } from './components/TournamentPage';
 
 const BASE = import.meta.env.BASE_URL;
@@ -84,6 +85,15 @@ export default function TournamentRoute({ slug }: { slug: string }) {
   }, [tournaments, slug]);
 
   const classification = useClassification(found?.code ?? null);
+
+  // Only for an event with no field: a played one has a classification, and
+  // fetching an entry list that was never written would be a guaranteed 404.
+  //
+  // `played` is read from the manifest rather than carried on the row: this
+  // route resolves a slug out of the tuple index and has no other reason to
+  // know which tournaments have a field.
+  const played = !found || !(manifest?.withoutField ?? []).includes(found.code);
+  const entries = useEntries(found && !played ? found.code : null);
 
   /*
    * The series this edition belongs to, in two steps: the small index says
@@ -169,6 +179,7 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       state={classification}
       iso2Of={iso2Of}
       homeHref={BASE}
+      entries={entries}
       series={series}
       code={found.code}
       editionHref={(slug) => tournamentPath(BASE, slug)}

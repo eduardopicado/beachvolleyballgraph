@@ -673,6 +673,34 @@ export const searchPath = (base: string) => `${base}${DATA_VERSION}/search.json`
  * `/v1/classifications/MPAR2024.json` means something to anyone reading the
  * contract, where the internal number would not.
  */
+/**
+ * Who has entered a tournament that has no result yet.
+ *
+ * The same shape as a classification minus the one thing it cannot have — a
+ * placement — so the page can run it through the same name-to-page resolution
+ * rather than growing a second copy of that logic.
+ *
+ * Published for every tournament the index shows without a field: the ones
+ * still to come, and the one being played this week whose placements FIVB has
+ * not written yet. `teams` is empty when nobody has entered — the 2027 World
+ * Championships had no entries a year out — and the file is written anyway, so
+ * a reader gets "no entries yet" rather than a page that failed to load.
+ */
+export interface EntriesFile {
+  /** FIVB's tournament code, echoing the filename. */
+  code: string;
+  gender: Gender;
+  /** Every team entered, as `[player 1, player 2, federation]`. */
+  teams: [a: number, b: number, federation: string][];
+  /** Player id -> display name, for every player named in `teams`. */
+  players: Record<string, string>;
+  /** Exactly as on a classification: the few whose page is elsewhere. */
+  elsewhere?: Record<string, string | null>;
+}
+
+export const entriesPath = (base: string, code: string) =>
+  `${base}${DATA_VERSION}/entries/${code}.json`;
+
 export const classificationPath = (base: string, code: string) =>
   `${base}${DATA_VERSION}/classifications/${code}.json`;
 

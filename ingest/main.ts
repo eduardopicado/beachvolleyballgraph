@@ -259,7 +259,10 @@ async function main() {
   // --- Stage 3: team entries -> partnership edges --------------------------
   const teamRows = await fetchList({
     type: 'GetBeachTeamList',
-    fields: ['No', 'NoTournament', 'NoPlayer1', 'NoPlayer2', 'FederationCode', 'Rank'],
+    // `Status` is the entry state, and it has to be asked for by name like
+    // everything else — VIS returns exactly the fields listed and says nothing
+    // about one left out (see `assertPopulated`).
+    fields: ['No', 'NoTournament', 'NoPlayer1', 'NoPlayer2', 'FederationCode', 'Rank', 'Status'],
     itemTag: 'BeachTeam',
   });
   log('entries', `${teamRows.length} team entries`);
@@ -728,6 +731,90 @@ async function main() {
     'classified',
     `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
   );
+
+  // --- one file per tournament without a result: who has entered ------------
+  /*
+   * A tournament with no field still has a page, so it needs something to put
+   * on it. FIVB publishes the entry list well ahead of the event -- 58 teams
+   * were entered for Corigliano Rossano nine days out -- and that is the
+   * genuinely useful thing to show for a week that has not happened.
+   *
+   * Written for every fieldless tournament the index shows, which is the same
+   * window `RESULT_LAG_DAYS` defines there: still to come, or played so
+   * recently that FIVB has not written placements yet. A cancellation from
+   * 2004 gets nothing, having neither a result nor a future.
+   *
+   * Written even when nobody has entered. The 2027 World Championships had
+   * zero entries a year out, and an empty file is what lets its page say "no
+   * entries yet" instead of failing to load.
+   */
+  await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
+  const lagCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000);
+  const entriesByTournament = new Map<string, [number, number, string][]>();
+  for (const row of teamRows) {
+    // Status 0 is a team that is in the tournament -- main draw, qualification
+    // or reserve, all of which can end up playing. Everything else is an entry
+    // that will not: withdrawn, rejected, replaced.
+    //
+    // Decoded from the archive rather than from a spec, because there is no
+    // published enum. Across 206,799 team rows, Status 0 is the only value
+    // that ever carries a placement (137,518 of them) and the other five are
+    // rank 0 -- did not play -- on all but 8 rows. Corroborated against
+    // FIVB's own tournament page for Corigliano Rossano, which lists 12 in the
+    // main draw, 16 in qualification and 17 reserves: 45, exactly the number
+    // of Status 0 rows VIS returns for it.
+    //
+    // `Type` looks like it should mean this and does not: every one of its
+    // twelve values carries both placements and rank-0 rows.
+    if (Number(row.Status ?? 0) !== 0) continue;
+    const no = (row.NoTournament ?? '').trim();
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    const list = entriesByTournament.get(no) ?? [];
+    list.push([a, b, (row.FederationCode ?? '').trim()]);
+    entriesByTournament.set(no, list);
+  }
+
+  let entryFiles = 0;
+  let entryTeams = 0;
+  for (const tournament of tournaments.values()) {
+    if (!tournament.code || classifications.has(tournament.no)) continue;
+    const endsOn = tournament.endsOn === null ? null : new Date(`${tournament.endsOn}T00:00:00Z`);
+    if (endsOn === null || endsOn < lagCutoff) continue;
+
+    const teams = (entriesByTournament.get(tournament.no) ?? []).sort(
+      // Federation first so the list reads as a roll call of who is coming,
+      // then the pair's own ids for a stable order between runs.
+      (x, y) => x[2].localeCompare(y[2]) || x[0] - y[0] || x[1] - y[1],
+    );
+    const named: Record<string, string> = {};
+    const elsewhere: Record<string, string | null> = {};
+    for (const [a, b, federation] of teams) {
+      for (const id of [a, b]) {
+        if (!named[id]) named[id] = players.get(id)?.name ?? `Player ${id}`;
+        const actual = publishedOn.get(id) ?? null;
+        if (actual !== `${federation}-${tournament.gender}`) elsewhere[id] = actual;
+      }
+    }
+
+    entryFiles++;
+    entryTeams += teams.length;
+    const corrected = Object.keys(elsewhere).length > 0;
+    await writeFile(
+      path.join(TMP_DIR, 'entries', `${tournament.code}.json`),
+      [
+        '{',
+        `  "code": ${JSON.stringify(tournament.code)},`,
+        `  "gender": ${JSON.stringify(tournament.gender)},`,
+        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(t)}`).join(',\n')}\n  ],`,
+        `  "players": ${jsonByKey(named, '  ')}${corrected ? ',' : ''}`,
+        ...(corrected ? [`  "elsewhere": ${jsonByKey(elsewhere, '  ')}`] : []),
+        '}',
+      ].join('\n'),
+    );
+  }
+  log('entries', `${entryTeams} teams entered across ${entryFiles} tournaments without a result`);
 
   // --- series ---------------------------------------------------------------
   /*

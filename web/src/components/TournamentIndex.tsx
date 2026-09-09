@@ -230,18 +230,12 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
                   <tr key={row.code}>
                     <td className="when">{formatDateRange(row.start, row.end) ?? '—'}</td>
                     <td className="what">
-                      {/* An upcoming event has no field, so no page: the name
-                          is text rather than a link to nothing. The tag says
-                          why, so a reader does not read the missing link as a
-                          fault. */}
-                      {row.slug ? (
-                        <a href={tournamentHref(row.slug)}>{row.name}</a>
-                      ) : (
-                        <>
-                          <span className="unplayed">{row.name}</span>
-                          <span className="soon">Upcoming</span>
-                        </>
-                      )}
+                      {/* Every row links: an event with no result has a page
+                          too, carrying its entry list. The tag says the result
+                          is not there yet, so a reader knows what they are
+                          clicking into. */}
+                      <a href={tournamentHref(row.slug)}>{row.name}</a>
+                      {!row.played && <span className="soon">Upcoming</span>}
                     </td>
                     <td className="where">
                       {where ? (

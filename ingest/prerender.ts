@@ -18,6 +18,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import type {
   ClassificationFile,
+  EntriesFile,
   Gender,
   GraphFile,
   Manifest,
@@ -489,20 +490,18 @@ async function main() {
     declared ? (code) => !withoutField.has(code) : onDisk,
   );
 
-  // Only the played rows get a page. `buildIndex` also returns the events
-  // still ahead of the calendar, which the index lists and links nowhere —
-  // there is no field to render, so writing them a page would write six
-  // documents saying nothing.
-  const addressable = indexRows.filter(
-    (t): t is typeof t & { slug: string } => t.slug !== null,
-  );
+  // Every row the index shows gets a page, played or not: an event with no
+  // result has an entry list to put on it, and a reader following a link from
+  // the index to a page that does not exist is the worse failure.
+  const addressable = indexRows;
+  const played = addressable.filter((t) => t.played);
 
   // Only meaningful when there is a claim to check. The two come out of one
   // run and cannot normally disagree, so a mismatch means a partially-written
   // tree — worth stopping for, because every page built after it would be
   // built on a wrong set.
   if (declared) {
-    for (const t of addressable) {
+    for (const t of played) {
       if (!onDisk(t.code)) {
         throw new Error(
           `${t.code} is not in manifest.withoutField but has no classification file — the data tree is incomplete.`,
@@ -523,39 +522,71 @@ async function main() {
     }
     seenTournamentSlugs.add(slug);
 
-    const classification: ClassificationFile = JSON.parse(
-      await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
-    );
     const href = `${BASE}tournament/${slug}/`;
     const url = abs(href);
     const label = GENDER_LABEL[t.gender];
     // "Beijing 2008 2008" otherwise: the Olympics carry the year in the name.
     const named = nameCarriesSeason(t.name, t.season) ? t.name : `${t.name} ${t.season}`;
-    const title = `${named} ${label} — final classification`;
-    const winners = classification.teams
-      .filter((team) => team[0] === 1)
-      .map((team) =>
-        [classification.players[team[1]], classification.players[team[2]]]
-          .filter(Boolean)
-          .join(' / '),
-      )
-      .filter(Boolean);
-    const description = winners.length
-      ? `${named}, ${label.toLowerCase()}: won by ${winners.join(' and ')}. Full final classification of all ${classification.teams.length} teams.`
-      : `${named}, ${label.toLowerCase()}: final classification of all ${classification.teams.length} teams.`;
 
-    const podium = classification.teams
-      .filter((team) => team[0] >= 1 && team[0] <= 3)
-      .sort((a, b) => a[0] - b[0]);
-    const rows = podium
-      .map(
-        ([rank, a, b, federation]) =>
-          `<li>${rank}. ${esc(
-            [classification.players[a], classification.players[b]].filter(Boolean).join(' / ') ||
-              `Players ${a} and ${b}`,
-          )} (${esc(federation)})</li>`,
-      )
-      .join('');
+    /*
+     * A played event is described by who won it; one without a result is
+     * described by who is coming.
+     *
+     * Both are prerendered from the file the page itself fetches, so the
+     * static document and the hydrated one say the same thing — which for an
+     * upcoming event is the only version a search engine will see until the
+     * week it is played.
+     */
+    let title: string;
+    let description: string;
+    let rows = '';
+    if (t.played) {
+      const classification: ClassificationFile = JSON.parse(
+        await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
+      );
+      title = `${named} ${label} — final classification`;
+      const winners = classification.teams
+        .filter((team) => team[0] === 1)
+        .map((team) =>
+          [classification.players[team[1]], classification.players[team[2]]]
+            .filter(Boolean)
+            .join(' / '),
+        )
+        .filter(Boolean);
+      description = winners.length
+        ? `${named}, ${label.toLowerCase()}: won by ${winners.join(' and ')}. Full final classification of all ${classification.teams.length} teams.`
+        : `${named}, ${label.toLowerCase()}: final classification of all ${classification.teams.length} teams.`;
+      rows = classification.teams
+        .filter((team) => team[0] >= 1 && team[0] <= 3)
+        .sort((a, b) => a[0] - b[0])
+        .map(
+          ([rank, a, b, federation]) =>
+            `<li>${rank}. ${esc(
+              [classification.players[a], classification.players[b]].filter(Boolean).join(' / ') ||
+                `Players ${a} and ${b}`,
+            )} (${esc(federation)})</li>`,
+        )
+        .join('');
+    } else {
+      const entryPath = path.join(DATA, 'entries', `${t.code}.json`);
+      const entries: EntriesFile | null = existsSync(entryPath)
+        ? JSON.parse(await readFile(entryPath, 'utf8'))
+        : null;
+      const entered = entries?.teams.length ?? 0;
+      title = `${named} ${label} — entry list`;
+      description = entered
+        ? `${named}, ${label.toLowerCase()}: ${entered} teams entered. The tournament has not been played yet.`
+        : `${named}, ${label.toLowerCase()}: not played yet, and no teams have entered so far.`;
+      rows = (entries?.teams ?? [])
+        .map(
+          ([a, b, federation]) =>
+            `<li>${esc(
+              [entries!.players[a], entries!.players[b]].filter(Boolean).join(' / ') ||
+                `Players ${a} and ${b}`,
+            )} (${esc(federation)})</li>`,
+        )
+        .join('');
+    }
 
     pages.push({
       slug: `tournament/${slug}`,
@@ -574,7 +605,7 @@ async function main() {
       body: `<main>
 <h1>${esc(named)}</h1>
 <p>${esc(description)}</p>
-${rows ? `<ol>${rows}</ol>` : ''}
+${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
 <p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a></p>
 </main>`,
     });
