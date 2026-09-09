@@ -69,8 +69,20 @@ export function tierGroupOf(tier: Tier): TierGroup {
 
 /** One row of the index — a tournament, with everything the list draws. */
 export interface IndexRow {
-  /** The page it links to, built over the same set the prerenderer uses. */
-  slug: string;
+  /**
+   * The page it links to, built over the same set the prerenderer uses.
+   *
+   * Null for a tournament that has not been played: there is no field to
+   * publish, so there is no page, and the row is text rather than a link.
+   *
+   * **Slugs are built over the played set only, and that is load-bearing.**
+   * `tournamentSlugs` appends FIVB's code to every member of a colliding
+   * group, so admitting an unplayed event into that set could turn a clean
+   * slug into a suffixed one — silently moving the URL of a page that already
+   * exists and is already linked, because a tournament that has not happened
+   * yet happens to share a name and season with it.
+   */
+  slug: string | null;
   /** FIVB's own code, which is what addresses the published classification. */
   code: string;
   name: string;
@@ -83,6 +95,18 @@ export interface IndexRow {
   country: string | null;
   start: Date | null;
   end: Date | null;
+  /**
+   * Has this been played? False only for an event still ahead of the calendar.
+   *
+   * Not the same question as "does FIVB publish a field", which is what
+   * `hasField` answers: 78 tournaments have no field and only 6 of them are
+   * upcoming. The other 72 are cancellations and postponements — FIVB writes
+   * the reason into the name, "BPT Futures Negombo (postponed to 2025)" — plus
+   * two rows that were never tournaments at all. Those stay out of the index;
+   * a reader looking at 2024 is not served by a row for a week that did not
+   * happen.
+   */
+  played: boolean;
 }
 
 /** Rebuild the calendar date a signed day offset stands for. */
@@ -108,26 +132,50 @@ function dateOf(season: number, offset: number | null): Date | null {
 export function buildIndex(
   tournaments: Record<string, TournamentMeta>,
   hasField: (code: string) => boolean,
+  now: Date = new Date(),
 ): IndexRow[] {
-  const facts = Object.values(tournaments)
+  const addressable = Object.values(tournaments)
     .map(readTournament)
     .filter(
       (t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } =>
         !!t.code && !!t.gender && hasField(t.code),
     );
 
-  const slugs = tournamentSlugs(facts, (t) => ({
+  // Built over the played set alone — see `IndexRow.slug` for why admitting an
+  // unplayed event here could move an existing page's address.
+  const slugs = tournamentSlugs(addressable, (t) => ({
     name: t.name,
     season: t.season,
     gender: t.gender,
     code: t.code,
   }));
 
-  return facts
+  /*
+   * Events still ahead of the calendar join them.
+   *
+   * FIVB lists a tournament long before it is played — the 2027 World
+   * Championships is in a 2026 archive — and an index that showed only what
+   * had finished would answer "what is on this season" with a calendar that
+   * stops today. The date is the whole test: 6 of the 78 fieldless rows are
+   * upcoming and the other 72 are cancellations, postponements and two
+   * non-events, all of them in the past.
+   */
+  const upcoming = Object.values(tournaments)
+    .map(readTournament)
+    .filter(
+      (t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } => {
+        if (!t.code || !t.gender || hasField(t.code)) return false;
+        const start = dateOf(t.season, t.startOffset);
+        return start !== null && start > now;
+      },
+    );
+
+  return [...addressable, ...upcoming]
     .map((t) => {
       const start = dateOf(t.season, t.startOffset);
       return {
-        slug: slugs.get(t)!,
+        slug: slugs.get(t) ?? null,
+        played: slugs.has(t),
         code: t.code,
         name: t.name,
         season: t.season,
