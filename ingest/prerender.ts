@@ -605,8 +605,15 @@ async function main() {
       body: `<main>
 <h1>${esc(named)}</h1>
 <p>${esc(description)}</p>
+<<<<<<< HEAD
 ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
 <p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a></p>
+=======
+${rows ? `<ol>${rows}</ol>` : ''}
+<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a> · <a href="${esc(
+        `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
+      )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
+>>>>>>> origin/main
 </main>`,
     });
   }

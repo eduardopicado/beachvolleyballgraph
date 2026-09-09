@@ -342,3 +342,38 @@
 .tournament-page .entries .pairs .sep {
   color: var(--text-muted);
 }
+
+/*
+ * The draw switch: the event's other half, when it ran one.
+ *
+ * Drawn as the segmented control the index uses, so a reader meets the same
+ * shape in both places — but built from a link and a label rather than two
+ * buttons, because this one navigates to another page instead of filtering
+ * this one.
+ */
+.tournament-page .draws {
+  display: inline-flex;
+  align-self: flex-start;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+.tournament-page .draws > * {
+  padding: 4px 15px;
+  text-decoration: none;
+  color: var(--text-secondary);
+}
+
+.tournament-page .draws .is-here {
+  background: var(--series-1);
+  color: #fff;
+}
+
+@media (hover: hover) {
+  .tournament-page .draws a:hover {
+    background: var(--track);
+    color: var(--text-primary);
+  }
+}

@@ -16,11 +16,11 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import type { Gender, Manifest, SeriesFile, TournamentsFile } from './schema';
+import type { Manifest, SeriesFile, TournamentsFile } from './schema';
 import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
-import { readTournament } from './lib/tournamentMeta';
-import { tournamentPath, tournamentSlugs } from './lib/slug';
-import { sliceSlug } from './lib/slug';
+import { sliceSlug, tournamentPath } from './lib/slug';
+import { indexPath, paramsFor } from './lib/indexRoute';
+import { buildIndex, drawCounterpart } from './lib/tournamentIndex';
 import { useClassification } from './lib/useClassification';
 import { useEntries } from './lib/useEntries';
 import { TournamentPage, type TournamentPageData } from './components/TournamentPage';
@@ -35,11 +35,6 @@ export function tournamentSlugFromPath(pathname: string, base: string): string |
   const [prefix, slug, ...extra] = rest.split('/');
   if (prefix !== 'tournament' || !slug || extra.length) return null;
   return slug;
-}
-
-/** Reconstruct the calendar date a day offset stands for. */
-function dateOf(season: number, offset: number | null): Date | null {
-  return offset === null ? null : new Date(Date.UTC(season, 0, 1) + offset * 86_400_000);
 }
 
 export default function TournamentRoute({ slug }: { slug: string }) {
@@ -61,39 +56,33 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     };
   }, []);
 
-  /** The row this slug names, with its facts already read out of the tuple. */
-  const found = useMemo(() => {
-    if (!tournaments) return null;
-    const rows = Object.entries(tournaments.tournaments).map(([no, meta]) => ({
-      no,
-      ...readTournament(meta),
-    }));
-    // Only rows that can have a page: one with no code has no classification
-    // to show, and one with no gender comes from a tree published before that
-    // field existed, so its slug cannot be built.
-    const addressable = rows.filter(
-      (r): r is typeof r & { code: string; gender: Gender } => !!r.code && !!r.gender,
-    );
-    const slugs = tournamentSlugs(addressable, (r) => ({
-      name: r.name,
-      season: r.season,
-      gender: r.gender,
-      code: r.code,
-    }));
-    for (const row of addressable) if (slugs.get(row) === slug) return row;
-    return null;
-  }, [tournaments, slug]);
+  /*
+   * Every addressable tournament, built by the function the index and the
+   * prerenderer both use.
+   *
+   * This used to rebuild the set and its slugs inline, which worked and was a
+   * third copy of a rule that must not drift: `tournamentSlugs` appends FIVB's
+   * code to every member of a colliding group, so three callers deciding the
+   * set independently is three chances for one of them to address a page the
+   * others never wrote.
+   */
+  const rows = useMemo(() => {
+    if (!tournaments || !manifest) return [];
+    const withoutField = new Set(manifest.withoutField ?? []);
+    return buildIndex(tournaments.tournaments, (code) => !withoutField.has(code));
+  }, [tournaments, manifest]);
+
+  /** The row this slug names. */
+  const found = useMemo(() => rows.find((r) => r.slug === slug) ?? null, [rows, slug]);
+
+  /** The same event's other draw, when it ran one. */
+  const counterpart = useMemo(() => (found ? drawCounterpart(rows, found) : null), [rows, found]);
 
   const classification = useClassification(found?.code ?? null);
 
   // Only for an event with no field: a played one has a classification, and
   // fetching an entry list that was never written would be a guaranteed 404.
-  //
-  // `played` is read from the manifest rather than carried on the row: this
-  // route resolves a slug out of the tuple index and has no other reason to
-  // know which tournaments have a field.
-  const played = !found || !(manifest?.withoutField ?? []).includes(found.code);
-  const entries = useEntries(found && !played ? found.code : null);
+  const entries = useEntries(found && !found.played ? found.code : null);
 
   /*
    * The series this edition belongs to, in two steps: the small index says
@@ -157,6 +146,9 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     );
   }
 
+  // The dates arrive already rebuilt: `buildIndex` applies the same rules this
+  // used to repeat, including dropping a span that runs backwards — MOST1995
+  // ends 29 days before it starts (quirks §25).
   const data: TournamentPageData = {
     name: found.name,
     season: found.season,
@@ -164,13 +156,8 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     level: found.level,
     gender: found.gender,
     country: found.country,
-    start: dateOf(found.season, found.startOffset),
-    // Null when the span is missing or runs backwards: MOST1995 ends 29 days
-    // before it starts (quirks §25) and a reversed range is worse than none.
-    end:
-      found.span !== null && found.span >= 0 && found.startOffset !== null
-        ? dateOf(found.season, found.startOffset + found.span)
-        : null,
+    start: found.start,
+    end: found.end,
   };
 
   return (
@@ -179,6 +166,17 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       state={classification}
       iso2Of={iso2Of}
       homeHref={BASE}
+      indexHref={`${indexPath(BASE)}?${paramsFor({
+        gender: found.gender,
+        season: found.season,
+        group: null,
+        level: null,
+      })}`}
+      counterpart={
+        // Every listed event has a page now, an unplayed one included, so the
+        // switch works across a draw whose half is still to be played.
+        counterpart && { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
+      }
       entries={entries}
       series={series}
       code={found.code}
