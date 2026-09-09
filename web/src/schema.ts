@@ -345,6 +345,52 @@ export type TournamentMeta =
  * everywhere, and 575 slices each carrying their own subset would repeat most
  * of this file hundreds of times in a tree that is committed to git.
  */
+/**
+ * One edition inside a series file: `[rank, "A / B", federation]` for each of
+ * the first four placements.
+ *
+ * Precomputed rather than derived on the page, because a Gstaad page listing
+ * 51 editions would otherwise fetch 51 classification files to find four rows
+ * in each.
+ */
+export interface SeriesEdition {
+  code: string;
+  season: number;
+  gender: Gender;
+  /** The page this edition lives on. */
+  slug: string;
+  /** Its own name, which changes across a long series ("BPT Elite16 Gstaad"). */
+  name: string;
+  top: [rank: number, pair: string, federation: string][];
+}
+
+/**
+ * A recurring event and every edition of it: `/v1/series/gstaad.json`.
+ *
+ * Series membership is not something VIS publishes — there is no series id and
+ * no parent record — so `ingest/series.ts` defines it, deriving where the data
+ * supports it and enumerating where it does not. See that file for why Gstaad
+ * can be matched on its code and the Rio Open cannot.
+ */
+export interface SeriesFile {
+  slug: string;
+  name: string;
+  blurb: string;
+  /** Newest first, men's draw before women's. */
+  editions: SeriesEdition[];
+}
+
+/**
+ * Which series each tournament belongs to: `/v1/series/index.json`.
+ *
+ * Only the ~112 tournaments in one at all appear. A page fetches this first,
+ * learns it is a Gstaad, and fetches only that series — the 87% in none stop
+ * here.
+ */
+export interface SeriesIndexFile {
+  of: Record<string, string[]>;
+}
+
 export interface TournamentsFile {
   tournaments: Record<string, TournamentMeta>;
 }
@@ -615,6 +661,9 @@ export const resultsPath = (base: string, country: string, gender: Gender) =>
   `${base}${DATA_VERSION}/results/${country}-${gender}.json`;
 
 export const tournamentsPath = (base: string) => `${base}${DATA_VERSION}/tournaments.json`;
+export const seriesIndexPath = (base: string) => `${base}${DATA_VERSION}/series/index.json`;
+export const seriesPath = (base: string, slug: string) =>
+  `${base}${DATA_VERSION}/series/${slug}.json`;
 
 export const searchPath = (base: string) => `${base}${DATA_VERSION}/search.json`;
 
