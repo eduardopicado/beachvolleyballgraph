@@ -1,0 +1,270 @@
+/*
+ * Wider than a tournament page and for the opposite reason: that one is a
+ * document and wants one readable measure, this is a table of four columns
+ * that should not have to wrap a tournament name to keep them.
+ */
+
+.tournament-index {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tournament-index > nav {
+  font-size: 13px;
+}
+
+.tournament-index > nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .tournament-index > nav a:hover {
+    color: var(--series-1);
+    text-decoration: underline;
+  }
+}
+
+.tournament-index > header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tournament-index h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.tournament-index .blurb {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 62ch;
+}
+
+/* --- the controls -------------------------------------------------- */
+
+.tournament-index .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+
+.tournament-index .line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tournament-index .key {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  /* A fixed column so the controls line up down the left edge rather than
+     stepping in and out with the length of each label. */
+  min-width: 52px;
+}
+
+.tournament-index .segmented {
+  display: inline-flex;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.tournament-index .segmented button {
+  font: inherit;
+  font-size: 13px;
+  padding: 4px 15px;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.tournament-index .segmented button.is-selected {
+  background: var(--series-1);
+  color: #fff;
+}
+
+.tournament-index .stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tournament-index .stepper .arrow {
+  font: inherit;
+  font-size: 17px;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.tournament-index .stepper .arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.tournament-index .stepper .year {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  /* Held at four digits so the arrows do not shift when the year changes. */
+  min-width: 4ch;
+  text-align: center;
+}
+
+.tournament-index .stepper select {
+  font: inherit;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.tournament-index .chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.tournament-index .chip {
+  font: inherit;
+  font-size: 12.5px;
+  padding: 3px 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .tournament-index .chip:hover {
+    background: var(--track);
+  }
+}
+
+.tournament-index .chip[aria-pressed='true'] {
+  background: var(--series-1-wash);
+  border-color: var(--series-1);
+  color: var(--text-primary);
+}
+
+.tournament-index .chip .n {
+  margin-left: 5px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tournament-index .chip[aria-pressed='true'] .n {
+  color: var(--text-secondary);
+}
+
+/* --- the list ------------------------------------------------------- */
+
+.tournament-index .tally {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.tournament-index .note {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.tournament-index table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.tournament-index thead th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--baseline);
+}
+
+.tournament-index tbody td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--gridline);
+  vertical-align: baseline;
+}
+
+.tournament-index tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.tournament-index td.when,
+.tournament-index td.level {
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.tournament-index td.where {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.tournament-index td.what a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (hover: hover) {
+  .tournament-index td.what a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--series-1);
+  }
+}
+
+/*
+ * Four columns do not fit a phone. The country name is what gives — "Cook
+ * Islands" is the widest thing in the table after a tournament name — while
+ * the flag stays, so the column still answers "where" in the space of one
+ * glyph. Dropping the column outright would take the flag with it.
+ */
+@media (max-width: 560px) {
+  .tournament-index td.where .cname {
+    display: none;
+  }
+
+  .tournament-index .key {
+    min-width: 0;
+  }
+}

@@ -24,7 +24,8 @@ import type {
   TournamentsFile,
 } from '../web/src/schema.js';
 import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
-import { nameCarriesSeason, sliceSlug } from '../web/src/lib/slug.js';
+import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../web/src/lib/slug.js';
+import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { buildIndex } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
 
@@ -552,6 +553,78 @@ ${rows ? `<ol>${rows}</ol>` : ''}
     });
   }
 
+  // --- the tournament index ------------------------------------------------
+  /*
+   * The index is prerendered as one season per link rather than as its default
+   * view alone.
+   *
+   * The page a crawler is handed here is the newest men's season; every other
+   * season is behind a query parameter that only the app applies, so a static
+   * render of the default view would leave 74 of the 75 season-and-draw slices
+   * with nothing to index. Listing them as links is what makes the whole
+   * archive reachable without JavaScript — and it is the same set of links the
+   * stepper walks, so nothing is claimed here that the page cannot honour.
+   */
+  const indexHref = `${BASE}${INDEX_PREFIX}/`;
+  const indexUrl = abs(indexHref);
+  const indexTitle = `Tournaments — ${SITE_NAME}`;
+  const indexDescription = `Every FIVB international beach volleyball tournament with a published result — ${addressable.length.toLocaleString('en-US')} of them across ${manifest.seasons.from}–${manifest.seasons.to}, by season and draw.`;
+
+  const bySeason = new Map<string, { season: number; gender: Gender; count: number }>();
+  for (const t of addressable) {
+    const key = `${t.season}-${t.gender}`;
+    const entry = bySeason.get(key) ?? { season: t.season, gender: t.gender, count: 0 };
+    entry.count++;
+    bySeason.set(key, entry);
+  }
+  const seasonLinks = [...bySeason.values()]
+    .sort((a, b) => b.season - a.season || a.gender.localeCompare(b.gender))
+    .map((s) => {
+      // Matches `paramsFor`: the men's draw is the default and writes nothing.
+      const query = s.gender === 'M' ? `season=${s.season}` : `gender=W&season=${s.season}`;
+      const label = `${s.season} ${GENDER_LABEL[s.gender]}`;
+      return `<li><a href="${esc(`${indexHref}?${query}`)}">${esc(label)}</a> — ${s.count}</li>`;
+    })
+    .join('');
+
+  const newest = [...addressable].sort((a, b) => b.season - a.season)[0]?.season ?? manifest.seasons.to;
+  const newestRows = addressable
+    .filter((t) => t.season === newest && t.gender === 'M')
+    .map(
+      (t) =>
+        `<li><a href="${esc(`${BASE}${TOURNAMENT_PREFIX}/${t.slug}/`)}">${esc(t.name)}</a>${
+          t.country ? ` — ${esc(t.country)}` : ''
+        }${t.level ? ` (${esc(t.level)})` : ''}</li>`,
+    )
+    .join('');
+
+  pages.push({
+    slug: INDEX_PREFIX,
+    url: indexHref,
+    title: indexTitle,
+    description: indexDescription,
+    head:
+      headFor(indexUrl, indexTitle, indexDescription) +
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': indexUrl,
+        url: indexUrl,
+        name: indexTitle,
+        description: indexDescription,
+        isPartOf: { '@id': abs(BASE) },
+        dateModified: manifest.generatedAt,
+      }),
+    body: `<main>
+<h1>Tournaments</h1>
+<p>${esc(indexDescription)}</p>
+<h2>${newest} men</h2>
+<ul>${newestRows}</ul>
+<nav aria-label="Every season"><h2>Every season</h2><ul>${seasonLinks}</ul></nav>
+${staticFooter()}
+</main>`,
+  });
+
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
@@ -559,6 +632,7 @@ ${rows ? `<ol>${rows}</ol>` : ''}
   const homeBody = `<main>
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>${esc(homeDescription)}</p>
+<p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
 <h2>Countries</h2>
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>
 </main>`;
@@ -636,7 +710,7 @@ ${rows ? `<ol>${rows}</ol>` : ''}
       url: p.url,
       // Home 1.0, a country slice 0.8, a tournament 0.6: a real page worth
       // indexing, but the graph is what this site is for.
-      priority: !p.slug ? '1.0' : p.slug.startsWith('tournament/') ? '0.6' : '0.8',
+      priority: !p.slug ? '1.0' : p.slug.startsWith(`${TOURNAMENT_PREFIX}/`) ? '0.6' : '0.8',
     })),
     { url: `${BASE}about/`, priority: '0.3' },
   ];
