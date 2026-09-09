@@ -484,9 +484,17 @@ async function main() {
    */
   const declared = manifest.withoutField;
   const withoutField = new Set(declared ?? []);
-  const addressable = buildIndex(
+  const indexRows = buildIndex(
     tournamentsFile.tournaments,
     declared ? (code) => !withoutField.has(code) : onDisk,
+  );
+
+  // Only the played rows get a page. `buildIndex` also returns the events
+  // still ahead of the calendar, which the index lists and links nowhere —
+  // there is no field to render, so writing them a page would write six
+  // documents saying nothing.
+  const addressable = indexRows.filter(
+    (t): t is typeof t & { slug: string } => t.slug !== null,
   );
 
   // Only meaningful when there is a claim to check. The two come out of one
@@ -587,10 +595,14 @@ ${rows ? `<ol>${rows}</ol>` : ''}
   const indexHref = `${BASE}${INDEX_PREFIX}/`;
   const indexUrl = abs(indexHref);
   const indexTitle = `Tournaments — ${SITE_NAME}`;
-  const indexDescription = `Every FIVB international beach volleyball tournament with a published result — ${addressable.length.toLocaleString('en-US')} of them across ${manifest.seasons.from}–${manifest.seasons.to}, by season and draw.`;
+  const upcomingCount = indexRows.length - addressable.length;
+  const indexDescription = `Every FIVB international beach volleyball tournament by season and draw — ${addressable.length.toLocaleString('en-US')} played across ${manifest.seasons.from}–${manifest.seasons.to}${upcomingCount > 0 ? `, and ${upcomingCount} still to come` : ''}.`;
 
+  // Every season the index can show, upcoming ones included: 2027 exists as a
+  // season the moment FIVB publishes the World Championships into it, and a
+  // crawler should be able to reach that page like any other.
   const bySeason = new Map<string, { season: number; gender: Gender; count: number }>();
-  for (const t of addressable) {
+  for (const t of indexRows) {
     const key = `${t.season}-${t.gender}`;
     const entry = bySeason.get(key) ?? { season: t.season, gender: t.gender, count: 0 };
     entry.count++;

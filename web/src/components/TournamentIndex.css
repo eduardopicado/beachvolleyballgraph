@@ -285,3 +285,25 @@
     min-width: 0;
   }
 }
+
+/*
+ * An event that has not been played yet: the name is not a link, so it must
+ * not look like one, and the tag beside it says why rather than leaving the
+ * absence to be read as a fault.
+ */
+.tournament-index td.what .unplayed {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.tournament-index td.what .soon {
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--track);
+  color: var(--text-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}

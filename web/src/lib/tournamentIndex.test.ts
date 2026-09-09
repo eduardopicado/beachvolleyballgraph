@@ -115,8 +115,8 @@ describe('buildIndex', () => {
       2: meta({ name: 'Sydney', season: 2017, code: 'MMAN2017' }),
       3: meta({ name: 'Gstaad', season: 2017, code: 'MGST2017' }),
     });
-    expect(rows.find((r) => r.slug.includes('msyd'))?.slug).toBe('sydney-2017-men-msyd2017');
-    expect(rows.find((r) => r.slug.includes('mman'))?.slug).toBe('sydney-2017-men-mman2017');
+    expect(rows.find((r) => r.slug?.includes('msyd'))?.slug).toBe('sydney-2017-men-msyd2017');
+    expect(rows.find((r) => r.slug?.includes('mman'))?.slug).toBe('sydney-2017-men-mman2017');
     // The tournament that never clashed keeps its clean address.
     expect(rows.find((r) => r.name === 'Gstaad')?.slug).toBe('gstaad-2017-men');
   });
@@ -137,6 +137,70 @@ describe('buildIndex', () => {
   it('keeps a one-day event, which is a span of zero rather than a missing one', () => {
     const [row] = index({ 1: meta({ name: 'One day', season: 2019, offset: 100, span: 0, code: 'M' }) });
     expect(row!.end?.getTime()).toBe(row!.start?.getTime());
+  });
+});
+
+describe('buildIndex and events not yet played', () => {
+  const now = new Date('2026-09-09T00:00:00Z');
+  // Day 300 of 2026 is late October, day 100 early April.
+  const upcoming = (o: { name: string; code: string; season?: number; gender?: 'M' | 'W' }) =>
+    meta({ season: 2026, offset: 300, ...o });
+  const past = (o: { name: string; code: string; season?: number }) =>
+    meta({ season: 2026, offset: 100, ...o });
+
+  const build = (rows: Record<string, TournamentMeta>, played: string[]) =>
+    buildIndex(rows, (code) => played.includes(code), now);
+
+  it('lists an event still ahead of the calendar, unplayed and unlinked', () => {
+    const rows = build({ 1: upcoming({ name: 'Alanya', code: 'MALN2026' }) }, []);
+    expect(rows.map((r) => [r.name, r.played, r.slug])).toEqual([['Alanya', false, null]]);
+  });
+
+  it('still excludes an event with no field that is already in the past', () => {
+    // 72 of the 78 fieldless rows are these: cancellations and postponements,
+    // which FIVB names outright — "BPT Futures Negombo (postponed to 2025)".
+    const rows = build({ 1: past({ name: 'Negombo (postponed)', code: 'MNEG2026' }) }, []);
+    expect(rows).toEqual([]);
+  });
+
+  it('excludes an event with no field and no date, which cannot be called future', () => {
+    const rows = build({ 1: meta({ name: 'Congress', season: 2010, offset: null, code: 'WC2010' }) }, []);
+    expect(rows).toEqual([]);
+  });
+
+  it('marks a played event as played and gives it a page', () => {
+    const rows = build({ 1: past({ name: 'Gstaad', code: 'MGST2026' }) }, ['MGST2026']);
+    expect(rows[0]!.played).toBe(true);
+    expect(rows[0]!.slug).toBe('gstaad-2026-men');
+  });
+
+  it('never lets an unplayed event change the address of a played one', () => {
+    // The hazard: `tournamentSlugs` appends FIVB's code to every member of a
+    // colliding group, so if an unplayed event joined that set, a page that
+    // already exists and is already linked would silently move to a suffixed
+    // URL because of a tournament that has not happened.
+    const rows = build(
+      {
+        1: past({ name: 'Alanya', code: 'MALN2026' }),
+        2: upcoming({ name: 'Alanya', code: 'MAL22026' }),
+      },
+      ['MALN2026'],
+    );
+    expect(rows.find((r) => r.code === 'MALN2026')?.slug).toBe('alanya-2026-men');
+    expect(rows.find((r) => r.code === 'MAL22026')?.slug).toBe(null);
+  });
+
+  it('gives a season that holds only upcoming events', () => {
+    // 2027 exists as a season the moment FIVB publishes the World
+    // Championships into it, two years ahead.
+    const rows = build(
+      {
+        1: past({ name: 'Gstaad', code: 'MGST2026' }),
+        2: meta({ name: 'Netherlands', season: 2027, offset: 220, code: 'MWCH2027' }),
+      },
+      ['MGST2026'],
+    );
+    expect(seasonsFor(rows, 'M')).toEqual([2027, 2026]);
   });
 });
 
