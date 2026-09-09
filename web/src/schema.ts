@@ -301,6 +301,31 @@ export type TournamentMeta =
       tier: Tier,
       startOffset: number | null,
       code: string,
+      level: string | null,
+      country: string | null,
+      span: number | null,
+      /**
+       * Which draw. VIS's own `Gender`, never the code's first letter —
+       * `WWRS2022` is a men's field under a `W` (quirks §23).
+       *
+       * Published because two readers need it and neither can afford the
+       * alternative: a tournament's page is addressed by a slug carrying the
+       * draw, and the index flips between the men's and women's calendars.
+       * Without it both would have to open a classification file per
+       * tournament to find out.
+       *
+       * The eight-element form above is the tree as published between the
+       * commit that added `country` and this one — a window in which a
+       * scheduled refresh could have run.
+       */
+      gender: Gender,
+    ]
+  | [
+      name: string,
+      season: number,
+      tier: Tier,
+      startOffset: number | null,
+      code: string,
       /**
        * What FIVB called this event's level at the time — "Grand Slam",
        * "4-star", "Elite16". Absent for the Olympics, the World Championships

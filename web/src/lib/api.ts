@@ -75,6 +75,15 @@ export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
 export const fetchClassification = (code: string) =>
   load<ClassificationFile>(classificationPath(BASE, code));
 
+/**
+ * The tournament index on its own.
+ *
+ * `fetchResults` already pulls this alongside a slice's results; a tournament
+ * page needs it without any slice at all, and the browser cache makes the
+ * second caller free when both happen in one visit.
+ */
+export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
+
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([
     load<ResultsFile>(resultsPath(BASE, country, gender)),

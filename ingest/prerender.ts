@@ -16,9 +16,16 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import type { Gender, GraphFile, Manifest } from '../web/src/schema.js';
+import type {
+  ClassificationFile,
+  Gender,
+  GraphFile,
+  Manifest,
+  TournamentsFile,
+} from '../web/src/schema.js';
 import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { nameCarriesSeason, sliceSlug, tournamentSlugs } from '../web/src/lib/slug.js';
+import { readTournament } from '../web/src/lib/tournamentMeta.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -441,6 +448,106 @@ async function main() {
     });
   }
 
+  // --- one page per tournament ---------------------------------------------
+  /*
+   * The header and the podium, not the whole field.
+   *
+   * A page carrying all 105 teams of Gstaad 2002 would be tens of kilobytes of
+   * HTML repeating a classification already published as JSON, times 1,610.
+   * What a search engine — and a reader arriving cold — actually wants is the
+   * name, where and when it was played, and who won; the rest of the table
+   * hydrates from the same file the panel uses. So the prerendered body stops
+   * after the medals.
+   */
+  const tournamentsFile: TournamentsFile = JSON.parse(
+    await readFile(path.join(DATA, 'tournaments.json'), 'utf8'),
+  );
+  const addressable = Object.entries(tournamentsFile.tournaments)
+    .map(([no, meta]) => ({ no, ...readTournament(meta) }))
+    .filter(
+      (t): t is typeof t & { code: string; gender: Gender } =>
+        !!t.code && !!t.gender && existsSync(path.join(DATA, 'classifications', `${t.code}.json`)),
+    );
+  const tournamentSlugMap = tournamentSlugs(addressable, (t) => ({
+    name: t.name,
+    season: t.season,
+    gender: t.gender,
+    code: t.code,
+  }));
+
+  const seenTournamentSlugs = new Set<string>();
+  for (const t of addressable) {
+    const slug = tournamentSlugMap.get(t)!;
+    // The slug builder appends FIVB's code to every member of a clash, so a
+    // duplicate here means two tournaments share a code as well as a name,
+    // season and draw — which would silently overwrite one page with the
+    // other's.
+    if (seenTournamentSlugs.has(slug)) {
+      throw new Error(`Tournament slug collision would make a page unreachable: ${slug}`);
+    }
+    seenTournamentSlugs.add(slug);
+
+    const classification: ClassificationFile = JSON.parse(
+      await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
+    );
+    const href = `${BASE}tournament/${slug}/`;
+    const url = abs(href);
+    const label = GENDER_LABEL[t.gender];
+    // "Beijing 2008 2008" otherwise: the Olympics carry the year in the name.
+    const named = nameCarriesSeason(t.name, t.season) ? t.name : `${t.name} ${t.season}`;
+    const title = `${named} ${label} — final classification`;
+    const winners = classification.teams
+      .filter((team) => team[0] === 1)
+      .map((team) =>
+        [classification.players[team[1]], classification.players[team[2]]]
+          .filter(Boolean)
+          .join(' / '),
+      )
+      .filter(Boolean);
+    const description = winners.length
+      ? `${named}, ${label.toLowerCase()}: won by ${winners.join(' and ')}. Full final classification of all ${classification.teams.length} teams.`
+      : `${named}, ${label.toLowerCase()}: final classification of all ${classification.teams.length} teams.`;
+
+    const podium = classification.teams
+      .filter((team) => team[0] >= 1 && team[0] <= 3)
+      .sort((a, b) => a[0] - b[0]);
+    const rows = podium
+      .map(
+        ([rank, a, b, federation]) =>
+          `<li>${rank}. ${esc(
+            [classification.players[a], classification.players[b]].filter(Boolean).join(' / ') ||
+              `Players ${a} and ${b}`,
+          )} (${esc(federation)})</li>`,
+      )
+      .join('');
+
+    pages.push({
+      slug: `tournament/${slug}`,
+      url: href,
+      title: `${title} — ${SITE_NAME}`,
+      description,
+      head: jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'SportsEvent',
+        name: named,
+        sport: 'Beach volleyball',
+        url,
+        startDate: t.startOffset === null
+          ? undefined
+          : new Date(Date.UTC(t.season, 0, 1) + t.startOffset * 86_400_000)
+              .toISOString()
+              .slice(0, 10),
+        location: t.country ? { '@type': 'Country', identifier: t.country } : undefined,
+      }),
+      body: `<main>
+<h1>${esc(named)}</h1>
+<p>${esc(description)}</p>
+${rows ? `<ol>${rows}</ol>` : ''}
+<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a></p>
+</main>`,
+    });
+  }
+
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
@@ -521,7 +628,12 @@ async function main() {
   // Home is 1.0, country pages 0.8, About 0.3 — a real page worth indexing,
   // but not something to rank ahead of the data it explains.
   const sitemapEntries: { url: string; priority: string }[] = [
-    ...pages.map((p) => ({ url: p.url, priority: p.slug ? '0.8' : '1.0' })),
+    ...pages.map((p) => ({
+      url: p.url,
+      // Home 1.0, a country slice 0.8, a tournament 0.6: a real page worth
+      // indexing, but the graph is what this site is for.
+      priority: !p.slug ? '1.0' : p.slug.startsWith('tournament/') ? '0.6' : '0.8',
+    })),
     { url: `${BASE}about/`, priority: '0.3' },
   ];
   const urls = sitemapEntries
