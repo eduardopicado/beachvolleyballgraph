@@ -9,6 +9,7 @@ const manifest: Manifest = {
   totals: { tournaments: 2163, players: 15628, partnerships: 18900 },
   tiers: { 'FIVB World Tour': 1517, 'Olympic Games': 22 },
   countries: [],
+  withoutField: [],
 };
 
 describe('esc', () => {

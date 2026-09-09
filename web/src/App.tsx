@@ -7,6 +7,7 @@ import { CONTACT_EMAIL, SOURCE_NAME, SOURCE_URL } from './site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
+import { indexPath } from './lib/indexRoute';
 import type { SearchablePlayer } from './lib/search';
 import { GENDER_LABEL } from './schema';
 import { sliceSlug, slugFromPath } from './lib/slug';
@@ -526,7 +527,15 @@ export default function App() {
             Tour, World Championships and Olympic Games.
           </p>
         </div>
-        <ThemeToggle />
+        <div className="masthead-actions">
+          {/* A full navigation: /tournaments/ is its own prerendered page and
+              mounts a different root (see main.tsx), so there is no client-side
+              route to push. */}
+          <a className="pill" href={indexPath(import.meta.env.BASE_URL)}>
+            Tournaments
+          </a>
+          <ThemeToggle />
+        </div>
       </header>
 
       {manifest && (
@@ -678,6 +687,8 @@ export default function App() {
           {' · '}
           {/* A full page load, deliberately: /about/ is a standalone document
               that never boots the app (see aboutPage in ingest/prerender.ts). */}
+          <a href={indexPath(import.meta.env.BASE_URL)}>All tournaments</a>
+          {' · '}
           <a href={`${import.meta.env.BASE_URL}about/`}>About this project</a>
         </p>
         <p className="caveat">© 2026 Eduardo Picado. All rights reserved.</p>
