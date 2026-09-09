@@ -6,6 +6,7 @@ import {
   compareLevels,
   groupsIn,
   levelsIn,
+  nearestSeason,
   reconcile,
   seasonsFor,
   sliceOf,
@@ -154,6 +155,46 @@ describe('seasonsFor', () => {
     // The women's tour has nothing before 1992; a rail built from every season
     // would offer five years that go nowhere.
     expect(seasonsFor(rows, 'W')).toEqual([2001, 1996]);
+  });
+});
+
+describe('nearestSeason', () => {
+  const rows = index({
+    1: meta({ name: 'a', season: 1990, gender: 'M', code: 'M1' }),
+    2: meta({ name: 'b', season: 1996, gender: 'M', code: 'M2' }),
+    3: meta({ name: 'c', season: 2026, gender: 'M', code: 'M3' }),
+    4: meta({ name: 'd', season: 1996, gender: 'W', code: 'W1' }),
+    5: meta({ name: 'e', season: 2026, gender: 'W', code: 'W2' }),
+  });
+
+  it('returns a season that exists unchanged', () => {
+    expect(nearestSeason(rows, 'M', 1996)).toBe(1996);
+  });
+
+  it('snaps to the closest published season', () => {
+    expect(nearestSeason(rows, 'M', 1997)).toBe(1996);
+    expect(nearestSeason(rows, 'M', 2020)).toBe(2026);
+  });
+
+  it('snaps within the draw, not the archive', () => {
+    // 1990 is a men's season; the women's draw has nothing before 1996, and
+    // reconcile would answer this with the newest season instead of the
+    // nearest — a typed 1990 jumping to 2026 reads as rejection.
+    expect(nearestSeason(rows, 'W', 1990)).toBe(1996);
+  });
+
+  it('clamps a year outside the archive to its nearest edge', () => {
+    expect(nearestSeason(rows, 'M', 1066)).toBe(1990);
+    expect(nearestSeason(rows, 'M', 9999)).toBe(2026);
+  });
+
+  it('breaks an exact tie towards the earlier season, so it cannot flicker', () => {
+    // 1993 is three years from both 1990 and 1996.
+    expect(nearestSeason(rows, 'M', 1993)).toBe(1990);
+  });
+
+  it('has no answer when the draw has no seasons', () => {
+    expect(nearestSeason([], 'M', 2019)).toBe(null);
   });
 });
 

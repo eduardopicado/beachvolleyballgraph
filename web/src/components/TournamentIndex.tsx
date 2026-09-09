@@ -14,12 +14,12 @@
  * to say the same thing twice. What a reader gets is between 1 and 52 rows: the
  * calendar of one season, which is a list a person can read.
  *
- * **The season is stepped, not listed.** Forty year-buttons in a row is a wall
- * that reads as clutter before it reads as a control, and it makes the common
- * move — the season next to this one — no cheaper than the rare one. Arrows put
- * the neighbouring season one click away and the select behind them takes the
- * long hops, which is the shape of how the archive is actually browsed: a
- * reader lands on a year and walks.
+ * **The season is one field, stepped or typed.** Forty year-buttons in a row is
+ * a wall that reads as clutter before it reads as a control, and it prices the
+ * common move — the season next to this one — the same as the rare one. Arrows
+ * put the neighbour one click away; the year between them is the field itself,
+ * so reaching 1996 from 2026 is typing it rather than hunting a second control
+ * that repeats what the first already shows.
  *
  * The rows are a table because they are four parallel facts about each event —
  * when, what, where, which level — and a table is what says so. It is also the
@@ -27,10 +27,12 @@
  * does for players.
  */
 
+import { useState } from 'react';
 import type { Gender } from '../schema';
 import {
   groupsIn,
   levelsIn,
+  nearestSeason,
   seasonsFor,
   sliceOf,
   TIER_GROUP_LABEL,
@@ -122,9 +124,15 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
             >
               ‹
             </button>
-            <span className="year" aria-live="polite">
-              {filter.season}
-            </span>
+            {/* The year is the field, not a label beside one. The arrows walk
+                to the neighbouring season and typing over the year reaches any
+                of the other thirty-nine, so there is one place the season is
+                both shown and changed. */}
+            <SeasonField
+              season={filter.season}
+              onSeason={(season) => set({ season })}
+              nearest={(wanted) => nearestSeason(rows, filter.gender, wanted) ?? filter.season}
+            />
             <button
               type="button"
               className="arrow"
@@ -134,16 +142,6 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
             >
               ›
             </button>
-            <label className="jump">
-              <span className="sr-only">Jump to a season</span>
-              <select value={filter.season} onChange={(e) => set({ season: Number(e.target.value) })}>
-                {seasons.map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-            </label>
           </div>
         </div>
 
@@ -252,6 +250,63 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
         )}
       </section>
     </main>
+  );
+}
+
+/**
+ * The season, shown and edited in one field.
+ *
+ * Held as its own draft string while the reader types, because a controlled
+ * input committing every keystroke cannot be typed into: clearing 2026 to type
+ * 1996 passes through the empty string and `202`, and each of those would
+ * resolve to some season and re-render the field out from under the cursor.
+ * The draft is what is on screen; the commit happens on blur and on Enter,
+ * and Escape abandons it.
+ */
+function SeasonField({
+  season,
+  onSeason,
+  nearest,
+}: {
+  season: number;
+  onSeason: (season: number) => void;
+  nearest: (wanted: number) => number;
+}) {
+  const [draft, setDraft] = useState<string | null>(null);
+
+  const commit = () => {
+    if (draft === null) return;
+    const wanted = Number(draft);
+    // Anything unreadable leaves the season alone rather than guessing at it.
+    if (draft.trim() !== '' && Number.isFinite(wanted)) onSeason(nearest(wanted));
+    setDraft(null);
+  };
+
+  return (
+    <input
+      className="year"
+      type="text"
+      inputMode="numeric"
+      // Four digits is every season the archive will ever hold, and the cap
+      // stops a paste from scrolling the field sideways.
+      maxLength={4}
+      size={4}
+      aria-label="Season"
+      value={draft ?? String(season)}
+      onChange={(e) => setDraft(e.target.value.replace(/[^0-9]/g, ''))}
+      onBlur={commit}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          commit();
+        } else if (e.key === 'Escape') {
+          setDraft(null);
+        }
+      }}
+      // Selecting on focus makes typing a year replace the old one, which is
+      // the only thing anyone does here.
+      onFocus={(e) => e.currentTarget.select()}
+    />
   );
 }
 

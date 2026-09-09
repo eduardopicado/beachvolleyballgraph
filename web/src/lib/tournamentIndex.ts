@@ -168,6 +168,30 @@ export function seasonsFor(rows: readonly IndexRow[], gender: Gender): number[] 
   return [...seasons].sort((a, b) => b - a);
 }
 
+/**
+ * The published season closest to the one asked for.
+ *
+ * The season field is typed into, so it sees half-finished and simply wrong
+ * years on the way to a real one: `202`, `1066`, and — the case that matters —
+ * 1990 on the women's draw, which has nothing before 1992. `reconcile` would
+ * answer all three with the newest season, and jumping from a typed 1990 to
+ * 2026 reads as the control rejecting you rather than helping.
+ *
+ * Ties go to the earlier season, which only arises for a year exactly between
+ * two published ones — and the choice matters less than its being fixed, since
+ * an unstable answer would move the list while a reader is still typing.
+ */
+export function nearestSeason(rows: readonly IndexRow[], gender: Gender, wanted: number): number | null {
+  const seasons = seasonsFor(rows, gender);
+  if (seasons.length === 0) return null;
+  return seasons.reduce((best, season) =>
+    Math.abs(season - wanted) < Math.abs(best - wanted) ||
+    (Math.abs(season - wanted) === Math.abs(best - wanted) && season < best)
+      ? season
+      : best,
+  );
+}
+
 /** The tier chips this slice can offer, in the fixed order above. */
 export function groupsIn(rows: readonly IndexRow[]): TierGroup[] {
   const present = new Set(rows.map((r) => r.group));

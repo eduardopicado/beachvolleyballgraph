@@ -125,25 +125,42 @@
   cursor: default;
 }
 
+/*
+ * The season is an input, drawn as the heading it replaces rather than as a
+ * form control: no border or fill at rest, so the row reads as "2026" with
+ * arrows either side. The affordance arrives on hover and focus, which is
+ * when a reader is asking whether it can be typed into.
+ */
 .tournament-index .stepper .year {
+  font: inherit;
   font-size: 22px;
   font-weight: 600;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
-  /* Held at four digits so the arrows do not shift when the year changes. */
-  min-width: 4ch;
+  /* Wide enough for four digits so the arrows do not shift as the year
+     changes. 5ch rather than 4: `ch` is the width of a zero, and this text is
+     600-weight at 22px with negative tracking, so four digits measure wider
+     than four `ch` and the leading one was being clipped. */
+  box-sizing: content-box;
+  width: 5ch;
   text-align: center;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-primary);
 }
 
-.tournament-index .stepper select {
-  font: inherit;
-  font-size: 13px;
-  padding: 4px 8px;
-  border-radius: 8px;
-  border: 1px solid var(--border-strong);
+@media (hover: hover) {
+  .tournament-index .stepper .year:hover {
+    border-color: var(--border-strong);
+  }
+}
+
+.tournament-index .stepper .year:focus {
+  outline: none;
+  border-color: var(--series-1);
   background: var(--surface-1);
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
 }
 
 .tournament-index .chips {
