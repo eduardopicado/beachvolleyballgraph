@@ -4,6 +4,7 @@ import {
   applyFilter,
   buildIndex,
   compareLevels,
+  drawCounterpart,
   defaultSeason,
   groupsIn,
   levelsIn,
@@ -137,6 +138,61 @@ describe('buildIndex', () => {
   it('keeps a one-day event, which is a span of zero rather than a missing one', () => {
     const [row] = index({ 1: meta({ name: 'One day', season: 2019, offset: 100, span: 0, code: 'M' }) });
     expect(row!.end?.getTime()).toBe(row!.start?.getTime());
+  });
+});
+
+describe('drawCounterpart', () => {
+  const find = (rows: readonly IndexRow[], code: string) => rows.find((r) => r.code === code)!;
+
+  it('finds the same event in the other draw', () => {
+    const rows = index({
+      1: meta({ name: 'Guaruja', season: 2008, gender: 'M', code: 'MGUA2008' }),
+      2: meta({ name: 'Guaruja', season: 2008, gender: 'W', code: 'WGUA2008' }),
+    });
+    expect(drawCounterpart(rows, find(rows, 'MGUA2008'))?.code).toBe('WGUA2008');
+    expect(drawCounterpart(rows, find(rows, 'WGUA2008'))?.code).toBe('MGUA2008');
+  });
+
+  it('matches on name and season rather than the code', () => {
+    // Espinho 2000 is MESP2000 against WPOR2000, and Rio 2016 is Rio2016M
+    // against Rio2016W — a shape swapping the first letter does not even fit.
+    // Two of the archive's 608 pairs, both lost by a code swap.
+    const rows = index({
+      1: meta({ name: 'Espinho', season: 2000, gender: 'M', code: 'MESP2000' }),
+      2: meta({ name: 'Espinho', season: 2000, gender: 'W', code: 'WPOR2000' }),
+      3: meta({ name: 'Rio de Janeiro 2016', season: 2016, gender: 'M', code: 'Rio2016M' }),
+      4: meta({ name: 'Rio de Janeiro 2016', season: 2016, gender: 'W', code: 'Rio2016W' }),
+    });
+    expect(drawCounterpart(rows, find(rows, 'MESP2000'))?.code).toBe('WPOR2000');
+    expect(drawCounterpart(rows, find(rows, 'Rio2016M'))?.code).toBe('Rio2016W');
+  });
+
+  it('has no counterpart for a single-draw event', () => {
+    // 369 of the archive's events ran one draw only.
+    const rows = index({ 1: meta({ name: 'Solo', season: 2019, gender: 'M', code: 'M1' }) });
+    expect(drawCounterpart(rows, rows[0]!)).toBe(null);
+  });
+
+  it('refuses to guess when one draw holds two events of that name and season', () => {
+    // Seven such groups: the under-19 and under-21 championships at one venue
+    // in one year. There is no honest way to say which men's event the
+    // women's page means, so it means neither.
+    const rows = index({
+      1: meta({ name: 'Phuket', season: 2021, gender: 'M', code: 'M191' }),
+      2: meta({ name: 'Phuket', season: 2021, gender: 'M', code: 'M211' }),
+      3: meta({ name: 'Phuket', season: 2021, gender: 'W', code: 'W191' }),
+    });
+    expect(drawCounterpart(rows, find(rows, 'W191'))).toBe(null);
+    expect(drawCounterpart(rows, find(rows, 'M191'))).toBe(null);
+  });
+
+  it('does not reach across seasons or to a different event', () => {
+    const rows = index({
+      1: meta({ name: 'Gstaad', season: 2019, gender: 'M', code: 'MGST2019' }),
+      2: meta({ name: 'Gstaad', season: 2018, gender: 'W', code: 'WGST2018' }),
+      3: meta({ name: 'Vienna', season: 2019, gender: 'W', code: 'WVIE2019' }),
+    });
+    expect(drawCounterpart(rows, find(rows, 'MGST2019'))).toBe(null);
   });
 });
 
