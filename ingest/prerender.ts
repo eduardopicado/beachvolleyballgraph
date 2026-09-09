@@ -567,7 +567,9 @@ async function main() {
 <h1>${esc(named)}</h1>
 <p>${esc(description)}</p>
 ${rows ? `<ol>${rows}</ol>` : ''}
-<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a></p>
+<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a> · <a href="${esc(
+        `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
+      )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
 </main>`,
     });
   }

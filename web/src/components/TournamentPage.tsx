@@ -62,8 +62,15 @@ interface Props {
   iso2Of: (federation: string) => string | null;
   /** Opens a player on the slice they are published under. */
   onSelectPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
-  /** Back to the graph. A page reached cold has nothing else to offer. */
+  /** Back to the graph. */
   homeHref: string;
+  /**
+   * The index, filtered to this event's own season and draw — the page this
+   * one actually sits in.
+   */
+  indexHref: string;
+  /** The same event's other draw, when it has exactly one. */
+  counterpart: { gender: Gender; href: string } | null;
   /**
    * The series this edition belongs to, each with its own editions. Usually
    * none; two for Gstaad 2007, which was also the World Championships.
@@ -77,12 +84,22 @@ interface Props {
 
 const GENDER_LABEL: Record<Gender, string> = { M: "Men's", W: "Women's" };
 
+/**
+ * The draw without the possessive, for the breadcrumb and the switch.
+ *
+ * "2008 Women's" is not a thing; "2008 Women" is the slice of the index this
+ * page sits in, and it is what that page calls itself.
+ */
+const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
+
 export function TournamentPage({
   tournament,
   state,
   iso2Of,
   onSelectPlayer,
   homeHref,
+  indexHref,
+  counterpart,
   series,
   editionHref,
   code,
@@ -99,8 +116,17 @@ export function TournamentPage({
 
   return (
     <main className="tournament-page">
+      {/* Three steps, because a tournament page has three ancestors and a
+          reader arriving cold on a search result had only the first: the site,
+          the season and draw this event sits in, and the event. Before this
+          the one link out was the graph, which is the least related of the
+          three. */}
       <nav aria-label="Breadcrumb">
         <a href={homeHref}>Beach Volleyball Partnership Graph</a>
+        <span aria-hidden="true"> / </span>
+        <a href={indexHref}>
+          {season} {DRAW_LABEL[gender ?? 'M']}
+        </a>
       </nav>
 
       <header>
@@ -110,6 +136,17 @@ export function TournamentPage({
           {name}
           {!nameCarriesSeason(name, season) && <span className="season"> {season}</span>}
         </h1>
+        {counterpart && (
+          /* Only when the same event ran both draws, which is 75.5% of the
+             archive. The 369 single-draw events get no control rather than a
+             dead half of one. */
+          <div className="draws" role="group" aria-label="Draw">
+            <span className="is-here" aria-current="page">
+              {DRAW_LABEL[gender ?? 'M']}
+            </span>
+            <a href={counterpart.href}>{DRAW_LABEL[counterpart.gender]}</a>
+          </div>
+        )}
         <p className="facts">
           {where && (
             <span>
@@ -117,7 +154,9 @@ export function TournamentPage({
             </span>
           )}
           {when && <span>{when}</span>}
-          {gender && <span>{GENDER_LABEL[gender]}</span>}
+          {/* The switch above already names the draw, and more usefully. This
+              stays for the 369 single-draw events, which have no switch. */}
+          {gender && !counterpart && <span>{GENDER_LABEL[gender]}</span>}
           {badge && <span className="badge">{badge}</span>}
           {state.status === 'ready' && <span>{plural(state.data.teams.length, 'team')}</span>}
         </p>

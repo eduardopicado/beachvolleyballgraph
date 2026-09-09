@@ -155,6 +155,31 @@ export function buildIndex(
 }
 
 /**
+ * The same event's other draw — the women's Guaruja 2008 from the men's.
+ *
+ * Matched on name and season, **not** by swapping the code's first letter,
+ * which is the obvious approach and is wrong twice: Espinho 2000 is `MESP2000`
+ * against `WPOR2000`, and Rio 2016 is `Rio2016M` against `Rio2016W`, a code
+ * shape the swap does not even fit. Measured over the published archive, name
+ * and season find 608 pairs and the letter swap finds 606 of them.
+ *
+ * Null unless there is exactly one candidate on each side. Seven name-and-season
+ * groups hold two tournaments of the *same* draw — the under-19 and under-21
+ * championships at one venue in one year — and there is no honest way to pick
+ * which of two men's events a women's page should point at, so it points at
+ * neither.
+ */
+export function drawCounterpart(rows: readonly IndexRow[], row: IndexRow): IndexRow | null {
+  const here: IndexRow[] = [];
+  const there: IndexRow[] = [];
+  for (const other of rows) {
+    if (other.name !== row.name || other.season !== row.season) continue;
+    (other.gender === row.gender ? here : there).push(other);
+  }
+  return here.length === 1 && there.length === 1 ? there[0]! : null;
+}
+
+/**
  * The seasons that have anything in the given draw, newest first.
  *
  * Per gender rather than once for the whole archive, because the two calendars
