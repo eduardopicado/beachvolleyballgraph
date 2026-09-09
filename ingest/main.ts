@@ -90,6 +90,38 @@ function log(step: string, detail: string) {
   console.log(`[${new Date().toISOString().slice(11, 19)}] ${step.padEnd(12)} ${detail}`);
 }
 
+/**
+ * Refuse to publish a field that came back empty on (almost) everything.
+ *
+ * `checkForRegression` watches the totals, which catches a fetch that lost its
+ * rows. This catches the other shape: every row present and one field blank on
+ * all of them. VIS returns exactly the fields a request names and says nothing
+ * about one that was left out, so a field consumed here but missing from a
+ * `Fields` list is silently null everywhere — no error, no empty response,
+ * just a column of nulls that looks like upstream having no data.
+ *
+ * That is not hypothetical: `country` shipped that way and reached the
+ * published tree null on all 1,688 rows, because `CountryCode` was added to
+ * the code that reads it and not to the request that fetches it.
+ *
+ * The floor is deliberately low. This is a "did we ask for it" check, not a
+ * coverage target — eight tournaments legitimately have no usable country
+ * (quirks §25), and a field that is genuinely sparse upstream should not be
+ * guarded here at all.
+ */
+export function assertPopulated<T>(field: string, rows: T[], has: (row: T) => boolean, floor = 0.5) {
+  if (rows.length === 0) return;
+  const populated = rows.filter(has).length;
+  const share = populated / rows.length;
+  if (share < floor) {
+    throw new Error(
+      `${field} is populated on ${populated} of ${rows.length} rows (${(share * 100).toFixed(1)}%) — ` +
+        `refusing to publish. Check that the VIS request asks for the field it reads.`,
+    );
+  }
+  log(field, `populated on ${populated} of ${rows.length}`);
+}
+
 function hasMedal(counts: MedalCounts): boolean {
   return counts.gold > 0 || counts.silver > 0 || counts.bronze > 0;
 }
@@ -158,6 +190,12 @@ async function main() {
     // `StartDateMainDraw` orders partners inside a season on the player card's
     // timeline; `EndDateMainDraw` tells finishedWithoutResults() which events
     // are over. All three ride on a request already being made.
+    //
+    // `CountryCode` is the venue's country, for the flag beside a tournament.
+    // It has to be asked for by name: VIS returns exactly the fields listed
+    // here and says nothing about one you left out, so a field consumed
+    // downstream but missing from this list is silently null on every row —
+    // which is precisely what happened when `country` was first published.
     fields: [
       'No',
       'Code',
@@ -169,11 +207,13 @@ async function main() {
       'Version',
       'StartDateMainDraw',
       'EndDateMainDraw',
+      'CountryCode',
     ],
     itemTag: 'BeachTournament',
   });
   const tournaments = normaliseTournaments(tournamentRows);
   if (tournaments.size === 0) throw new Error('No qualifying tournaments — refusing to publish');
+  assertPopulated('country', [...tournaments.values()], (t) => t.country !== null);
 
   const tierCounts: Record<string, number> = {};
   let seasonFrom = Infinity;
