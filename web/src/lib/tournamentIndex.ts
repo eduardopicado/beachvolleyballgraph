@@ -71,6 +71,8 @@ export function tierGroupOf(tier: Tier): TierGroup {
 export interface IndexRow {
   /** The page it links to, built over the same set the prerenderer uses. */
   slug: string;
+  /** FIVB's own code, which is what addresses the published classification. */
+  code: string;
   name: string;
   season: number;
   gender: Gender;
@@ -126,6 +128,7 @@ export function buildIndex(
       const start = dateOf(t.season, t.startOffset);
       return {
         slug: slugs.get(t)!,
+        code: t.code,
         name: t.name,
         season: t.season,
         gender: t.gender,

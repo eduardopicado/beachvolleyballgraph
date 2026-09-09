@@ -557,6 +557,21 @@ async function main() {
     entry.genders[slice.gender as Gender] = { nodes: slice.nodes.length, edges: slice.edges.length };
   }
 
+  // Which qualifying tournaments VIS publishes no field for — see
+  // `Manifest.withoutField` for what they are and why they stay in
+  // tournaments.json rather than being dropped from it.
+  //
+  // The condition mirrors the one the classification loop below writes files
+  // under, deliberately and exactly: this list is what tells the site which
+  // tournaments have a page, and a list that is merely *nearly* the set of
+  // files on disk is worse than none, because the disagreement shows up as a
+  // slug resolved two different ways rather than as an error.
+  const withoutField = [...tournaments.values()]
+    .filter((t) => t.code && !classifications.has(t.no))
+    .map((t) => t.code!)
+    .sort();
+  log('field', `${withoutField.length} of ${tournaments.size} tournaments have none`);
+
   const manifest: Manifest = {
     generatedAt,
     sourceVersion,
@@ -568,6 +583,7 @@ async function main() {
     },
     tiers: tierCounts,
     countries: [...byCountry.values()].sort((a, b) => a.name.localeCompare(b.name)),
+    withoutField,
   };
   await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 

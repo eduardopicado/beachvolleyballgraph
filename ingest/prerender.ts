@@ -24,8 +24,8 @@ import type {
   TournamentsFile,
 } from '../web/src/schema.js';
 import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
-import { nameCarriesSeason, sliceSlug, tournamentSlugs } from '../web/src/lib/slug.js';
-import { readTournament } from '../web/src/lib/tournamentMeta.js';
+import { nameCarriesSeason, sliceSlug } from '../web/src/lib/slug.js';
+import { buildIndex } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -462,22 +462,30 @@ async function main() {
   const tournamentsFile: TournamentsFile = JSON.parse(
     await readFile(path.join(DATA, 'tournaments.json'), 'utf8'),
   );
-  const addressable = Object.entries(tournamentsFile.tournaments)
-    .map(([no, meta]) => ({ no, ...readTournament(meta) }))
-    .filter(
-      (t): t is typeof t & { code: string; gender: Gender } =>
-        !!t.code && !!t.gender && existsSync(path.join(DATA, 'classifications', `${t.code}.json`)),
-    );
-  const tournamentSlugMap = tournamentSlugs(addressable, (t) => ({
-    name: t.name,
-    season: t.season,
-    gender: t.gender,
-    code: t.code,
-  }));
+  // Built by the same function the index page uses, over the same set, which
+  // is the only way the two are guaranteed to agree. `tournamentSlugs`
+  // appends FIVB's code to every member of a colliding group, so a set that
+  // differs by one row resolves a collision differently — and the symptom is
+  // not an error but an index full of links to addresses that were never
+  // written. Sharing the builder makes that impossible rather than unlikely.
+  const withoutField = new Set(manifest.withoutField);
+  const addressable = buildIndex(tournamentsFile.tournaments, (code) => !withoutField.has(code));
+
+  // The manifest is the ingest's claim about which tournaments have a field;
+  // the files are the fact. They come out of one run and cannot normally
+  // disagree, so a mismatch means a partially-written tree — worth stopping
+  // for, because every page built after it would be built on a wrong set.
+  for (const t of addressable) {
+    if (!existsSync(path.join(DATA, 'classifications', `${t.code}.json`))) {
+      throw new Error(
+        `${t.code} is not in manifest.withoutField but has no classification file — the data tree is incomplete.`,
+      );
+    }
+  }
 
   const seenTournamentSlugs = new Set<string>();
   for (const t of addressable) {
-    const slug = tournamentSlugMap.get(t)!;
+    const { slug } = t;
     // The slug builder appends FIVB's code to every member of a clash, so a
     // duplicate here means two tournaments share a code as well as a name,
     // season and draw — which would silently overwrite one page with the
@@ -532,11 +540,7 @@ async function main() {
         name: named,
         sport: 'Beach volleyball',
         url,
-        startDate: t.startOffset === null
-          ? undefined
-          : new Date(Date.UTC(t.season, 0, 1) + t.startOffset * 86_400_000)
-              .toISOString()
-              .slice(0, 10),
+        startDate: t.start?.toISOString().slice(0, 10),
         location: t.country ? { '@type': 'Country', identifier: t.country } : undefined,
       }),
       body: `<main>
