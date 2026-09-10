@@ -25,14 +25,14 @@ the individual tournaments; ask for the chain of partnerships joining any two
 players.
 
 Live at **https://beachvolleyball.com.br**. Data from the FIVB VIS Web Service,
-rebuilt weekly.
+rebuilt daily.
 
 **Scale, when you need it, is read and not remembered.**
 `web/public/v1/manifest.json` carries the live totals — tournaments, players,
 partnerships, the season span and every country with its per-slice node and
 edge counts — and the site's own home page prints them. They are deliberately
-not copied here: the archive is rebuilt every Monday, so any figure written
-into this file is wrong by the following week.
+not copied here: the archive is rebuilt every day, so any figure written
+into this file is wrong within days.
 
 ## The one-paragraph architecture
 
@@ -40,7 +40,7 @@ A **Node/TypeScript ingest** fetches the whole FIVB archive in three bulk
 requests, normalises it, and writes static JSON into `web/public/v1/` — which
 is **committed to git**. A **React/Vite app** reads that JSON at runtime, and a
 **prerenderer** emits one static HTML page per slice so the site works without
-JavaScript and is indexable. GitHub Actions runs the ingest weekly and
+JavaScript and is indexable. GitHub Actions runs the ingest daily and
 publishes to GitHub Pages. There is no server, no database and no API of our
 own. See [architecture.md](architecture.md).
 
@@ -113,9 +113,9 @@ npm run test:e2e       # browser tests (Playwright, against the built site)
 npm run lint           # eslint + stylelint
 ```
 
-**The weekly refresh** runs `.github/workflows/deploy.yml` on a Monday cron
-(09:17 UTC — Monday because FIVB publishes placements after the Sunday
-finals, not with them). It
+**The daily refresh** runs `.github/workflows/deploy.yml` on a 09:17 UTC cron
+(that hour because FIVB publishes placements some hours after a final, not
+with it, and the archive spans every time zone). It
 commits the refreshed data to `main`, then builds and deploys. A code push to
 `main` *skips* the ingest and builds from committed data — so shipping a CSS
 fix never depends on FIVB being reachable.

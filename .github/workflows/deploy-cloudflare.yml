@@ -1,4 +1,4 @@
-### Weekly rebuild + publish to Cloudflare Pages.
+### Daily rebuild + publish to Cloudflare Pages.
 #
 # Alternative to deploy.yml (GitHub Pages). Use this one when the site is served
 # from a custom domain behind Cloudflare. Disable the other workflow so the two
@@ -17,9 +17,9 @@ name: Rebuild data and deploy (Cloudflare)
 
 on:
   schedule:
-    # Mondays at 09:17 UTC — see deploy.yml for why Monday and why that hour.
+    # Daily at 09:17 UTC — see deploy.yml for why daily and why that hour.
     # Keep the two in step: whichever host is live, the data is the same data.
-    - cron: '17 9 * * 1'
+    - cron: '17 9 * * *'
   workflow_dispatch:
 
 concurrency:
@@ -67,7 +67,7 @@ jobs:
 
       # Before publishing, never after: a build that does not render must not
       # reach the CDN. This is the only check that sees the freshly fetched
-      # data — the weekly ingest rewrites every graph file with no pull
+      # data — the scheduled ingest rewrites every graph file with no pull
       # request and no review.
       - uses: ./.github/actions/smoke-test
         with:

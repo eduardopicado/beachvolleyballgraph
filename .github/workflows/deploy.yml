@@ -1,4 +1,4 @@
-### Weekly rebuild + publish.
+### Daily rebuild + publish.
 #
 # Three jobs, in a strict pipeline: fetch the FIVB archive and rebuild every
 # graph from scratch (ingest), compile the site around that data (build), then
@@ -31,35 +31,50 @@
 # Failure semantics: if ingest fails — including refusing to publish a rebuild
 # that looks like a broken fetch rather than a real change, see
 # ingest/regression.ts — the job stops before committing, before build and
-# before deploy, so the previously published site keeps serving last week's
+# before deploy, so the previously published site keeps serving yesterday's
 # data. Degraded to "slightly stale", never to "down".
 
 name: Rebuild data and deploy
 
 on:
   schedule:
-    # Mondays at 09:17 UTC. Off the hour to avoid the cron stampede.
+    # Daily at 09:17 UTC. Off the hour to avoid the cron stampede.
     #
-    # Monday rather than Sunday because the data is not finished when the
-    # tournament is. Finals are played on Sunday, but a placement reaches VIS
-    # only once someone publishes it: BPT Futures Busan finished with every
-    # match recorded and every team still at `Rank 0` — the pair who took
-    # bronze read as "has not played" — and the placements appeared several
-    # hours later. Refreshing on Sunday means capturing that gap and then
-    # keeping it for a week.
+    # 09:17 because the data is not finished when the tournament is. A
+    # placement reaches VIS only once someone publishes it: BPT Futures Busan
+    # finished with every match recorded and every team still at `Rank 0` —
+    # the pair who took bronze read as "has not played" — and the placements
+    # appeared several hours later. The archive spans every time zone, so an
+    # evening final in the Americas ends around 01:00-04:00 UTC the next day;
+    # 09:17 clears those and gives FIVB the European morning to publish. That
+    # argument was originally written for Monday, but it is about the hour and
+    # holds for any day.
     #
-    # 09:17 rather than early Monday because the archive spans every time
-    # zone: a Sunday-evening final in the Americas ends around 01:00-04:00 UTC
-    # on Monday, so an 03:17 run would still be racing the last events of the
-    # weekend. This clears them all and gives FIVB the European Monday morning
-    # to publish.
-    - cron: '17 9 * * 1'
+    # Daily rather than weekly because two parts of the archive move faster
+    # than a week. Entry lists change every day up to the registration
+    # deadline — Alanya gained a men's and a women's team between two runs six
+    # hours apart — and they are the whole content of a page for an event that
+    # has not been played. Results are the other: a placement FIVB published
+    # just after a Monday run waited a full week for the next one, and the
+    # Monday runs show that backlog arriving in one go — 79-122 files changed,
+    # against the 1-9 of a mid-week run.
+    #
+    # Cheap enough not to need thinking about. A run is ~3m45s, of which the
+    # FIVB fetch is 14s and the browser suite 2m20s; the repository is public,
+    # so GitHub-hosted minutes are free. Were it private, the whole schedule
+    # would be ~150 of the 2,000 minutes GitHub Free includes — the pull
+    # request CI, at ~627, is the bill that would matter.
+    #
+    # `manifest.generatedAt` moves on every run, so a quiet day still commits
+    # a timestamp. That is wanted, not tolerated: the site prints "Data as of
+    # {generatedAt}", and a daily bump is it saying truthfully that it looked.
+    - cron: '17 9 * * *'
   workflow_dispatch:
     inputs:
       allow_data_regression:
         description: >-
           Publish even if tournaments/players/partnerships drop more than 5%
-          from what's already committed. The weekly schedule never sets this —
+          from what's already committed. The schedule never sets this —
           it exists for a deliberate, reviewed correction (e.g. a tier
           reclassification) that legitimately shrinks the dataset, which
           ingest/regression.ts would otherwise refuse on the assumption that a
@@ -234,7 +249,7 @@ jobs:
       # failure path above.
       #
       # This is the only check that sees the freshly fetched data. CI covers
-      # code changes on a pull request, but the weekly ingest rewrites every
+      # code changes on a pull request, but the scheduled ingest rewrites every
       # graph file with no pull request and no review: a shape change there
       # can break rendering with nothing else in the pipeline looking. The
       # regression guard counts rows; this one loads the page.
