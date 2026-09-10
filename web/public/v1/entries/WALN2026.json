@@ -59,6 +59,7 @@
     [233002,220856,"GER",null,null],
     [233544,140437,"USA",null,null],
     [241232,241231,"CZE",null,null],
+    [242446,242437,"CZE",null,null],
     [243244,243538,"CZE",null,null]
   ],
   "withdrawn": [
@@ -194,6 +195,8 @@
     "236785": "Ella Feline Schürholz",
     "241231": "Ema Rosi",
     "241232": "Sara Cervinkova",
+    "242437": "Monika Hola",
+    "242446": "Barbora Simkova",
     "243244": "Tereza Hasalikova",
     "243489": "Anna Bempedeli",
     "243538": "Ella Hlostová"
@@ -212,6 +215,8 @@
     "236785": null,
     "241231": null,
     "241232": null,
+    "242437": null,
+    "242446": null,
     "243244": null,
     "243489": null,
     "243538": null
