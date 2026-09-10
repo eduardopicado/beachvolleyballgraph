@@ -686,16 +686,104 @@ export const searchPath = (base: string) => `${base}${DATA_VERSION}/search.json`
  * Championships had no entries a year out — and the file is written anyway, so
  * a reader gets "no entries yet" rather than a page that failed to load.
  */
+/**
+ * How a team got into the field, when it was not by ranking.
+ *
+ * FIVB's own labels, decoded from `BeachTeam.Type` against their published
+ * entry lists: 1 is a wild card, 6 a qualification wild card, 9 a continental
+ * slot and 10 an open vacancy. Type 0 is the ordinary route and carries no
+ * label, which is why this is absent rather than `'MD'` on most teams.
+ */
+export type EntryRoute = 'WC' | 'QWC' | 'CS' | 'OV';
+
+/**
+ * Why a team that entered will not play.
+ *
+ * `BeachTeam.Status` 2 and 3, matched against FIVB's own entry list for
+ * Corigliano Rossano, which shows exactly three of each. Status 1 is a third
+ * kind — an entry superseded by a later one — and is published nowhere,
+ * including by FIVB.
+ */
+export type WithdrawalReason = 'withdrawn' | 'medical';
+
+/**
+ * One team on an entry list.
+ *
+ * `entry` and `tech` are FIVB's entry and technical points, **frozen at the
+ * registration deadline** rather than current: a player's own page shows live
+ * points and the two differ by every result since. Null where FIVB publishes
+ * none, which happens for a pair who have never scored.
+ *
+ * Entry points decide who gets in and technical points break their ties —
+ * both confirmed against FIVB's published list, where Schinko's 788 technical
+ * points beat Saucedo's 744 on an equal 464 entry points.
+ *
+ * The three-element form is what the tree carried before the points existed.
+ */
+export type EntryTeam =
+  | [a: number, b: number, federation: string]
+  | [a: number, b: number, federation: string, entry: number | null, tech: number | null]
+  | [
+      a: number,
+      b: number,
+      federation: string,
+      entry: number | null,
+      tech: number | null,
+      route: EntryRoute,
+    ];
+
+/** A team that entered and will not play, with FIVB's reason. */
+export type WithdrawnTeam = [
+  a: number,
+  b: number,
+  federation: string,
+  entry: number | null,
+  tech: number | null,
+  reason: WithdrawalReason,
+];
+
 export interface EntriesFile {
   /** FIVB's tournament code, echoing the filename. */
   code: string;
   gender: Gender;
-  /** Every team entered, as `[player 1, player 2, federation]`. */
-  teams: [a: number, b: number, federation: string][];
-  /** Player id -> display name, for every player named in `teams`. */
+  /** Every team entered and still in, best entry points first. */
+  teams: EntryTeam[];
+  /**
+   * Teams that entered and withdrew. Absent when none did.
+   *
+   * Kept rather than dropped because an entry list a week out is read to see
+   * who is coming, and "was coming, is not" is part of that answer — it is
+   * why FIVB shows them too.
+   */
+  withdrawn?: WithdrawnTeam[];
+  /** Player id -> display name, for every player named above. */
   players: Record<string, string>;
   /** Exactly as on a classification: the few whose page is elsewhere. */
   elsewhere?: Record<string, string | null>;
+}
+
+/** Read an entry row whatever arity the published tree used. */
+export function readEntry(team: EntryTeam | WithdrawnTeam): {
+  a: number;
+  b: number;
+  federation: string;
+  entry: number | null;
+  tech: number | null;
+  route: EntryRoute | null;
+} {
+  // Indexing past the end of a shorter arity gives `undefined`, so `?? null`
+  // is the whole arity guard — a `length` check here would read as though it
+  // were doing something and would not be.
+  const sixth: unknown = team[5];
+  return {
+    a: team[0],
+    b: team[1],
+    federation: team[2],
+    entry: team[3] ?? null,
+    tech: team[4] ?? null,
+    // A withdrawal reason shares the slot and is not a route.
+    route: sixth === 'WC' || sixth === 'QWC' || sixth === 'CS' || sixth === 'OV' ? sixth : null,
+  };
 }
 
 export const entriesPath = (base: string, code: string) =>

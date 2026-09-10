@@ -26,7 +26,7 @@
 
 import { useMemo } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../schema';
-import { fieldPlayerSlice, TIER_BADGE } from '../schema';
+import { fieldPlayerSlice, readEntry, TIER_BADGE } from '../schema';
 import { bandsOf } from '../lib/classification';
 import { nameCarriesSeason } from '../lib/slug';
 import {
@@ -104,22 +104,21 @@ const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
 /**
  * Who has entered an event that has not produced a result.
  *
- * Grouped by federation rather than listed flat: an entry list has no order of
- * merit to impose — nobody has played yet — and "who is coming, from where" is
- * the question it can actually answer. Measured across the four events that
- * have one, 24 to 32 federations each, so the grouping is real structure
- * rather than a heading per row.
+ * A table ordered by entry points, which is the order that decides who gets
+ * in: FIVB freezes both figures at the registration deadline and admits teams
+ * down the list, breaking ties on technical points. It reads as their own
+ * entry list reads, and the earlier version — grouped alphabetically by
+ * federation — hid the one thing the list is for.
+ *
+ * **The points are frozen, and the page says so.** A player's own card on this
+ * site shows live points, so the same pair can show two different numbers a
+ * few pixels apart; without the label that reads as a bug rather than as the
+ * two different questions they answer.
  *
  * Names are plain text, not links. A classification links every name because
  * those players have a page in the slice the event belongs to; an entrant may
  * be entering their first FIVB event and have no page at all, and a list where
- * some names are links and some are not reads as broken rather than as honest.
- *
- * Only teams that are actually in the tournament reach here — the ingest drops
- * every entry FIVB marks as not playing. That filter is why no player appears
- * in two pairs: before it, 14 of 265 entries were a player entered two or
- * three times, which looked like provisional pairings and was really the
- * withdrawn and replaced entries showing through.
+ * some names link and some do not reads as broken rather than as honest.
  */
 function EntryList({
   entries,
@@ -132,8 +131,11 @@ function EntryList({
   if (entries.status === 'failed')
     return <p className="note">Could not load this tournament&rsquo;s entry list.</p>;
 
-  const { teams, players } = entries.data;
-  if (teams.length === 0) {
+  const { teams, withdrawn, players } = entries.data;
+  const pair = (a: number, b: number) =>
+    `${players[a] ?? `Player ${a}`} / ${players[b] ?? `Player ${b}`}`;
+
+  if (teams.length === 0 && !withdrawn?.length) {
     // The 2027 World Championships, a year out. Nothing is broken; nobody has
     // entered yet, and saying so beats an empty heading.
     return (
@@ -144,42 +146,77 @@ function EntryList({
     );
   }
 
-  const byFederation = new Map<string, EntriesFile['teams']>();
-  for (const team of teams) {
-    const list = byFederation.get(team[2]) ?? [];
-    list.push(team);
-    byFederation.set(team[2], list);
-  }
-
   return (
     <section aria-label="Entry list" className="entries">
       <h2>Entry list</h2>
       <p className="blurb">
-        Who has entered. FIVB publishes this before the event; the final classification replaces it
-        once the tournament has been played.
+        Entry points decide who gets in, and technical points break their ties. Both are FIVB&rsquo;s
+        figures frozen at the registration deadline, so they sit behind the live points on a
+        player&rsquo;s own page.
       </p>
-      <ul className="feds">
-        {[...byFederation]
-          .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
-          .map(([federation, list]) => (
-            <li key={federation}>
-              <p className="fed">
-                <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
-                {federation}
-                <span className="n">{list.length}</span>
-              </p>
-              <ul className="pairs">
-                {list.map(([a, b]) => (
-                  <li key={`${a}-${b}`}>
-                    {players[a] ?? `Player ${a}`}
-                    <span className="sep"> / </span>
-                    {players[b] ?? `Player ${b}`}
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-      </ul>
+
+      {teams.length > 0 && (
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Team</th>
+              <th scope="col">Fed.</th>
+              <th scope="col" className="num">
+                Entry
+              </th>
+              <th scope="col" className="num">
+                Tech
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {teams.map((team, at) => {
+              const { a, b, federation, entry, tech, route } = readEntry(team);
+              return (
+                <tr key={`${a}-${b}`}>
+                  <td className="at">{at + 1}</td>
+                  <td className="who">
+                    {pair(a, b)}
+                    {/* Only the four routes that are not "by ranking"; the
+                        ordinary case is the whole rest of the table. */}
+                    {route && <span className="route">{route}</span>}
+                  </td>
+                  <td className="fed">
+                    <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
+                    {federation}
+                  </td>
+                  <td className="num">{entry ?? '—'}</td>
+                  <td className="num">{tech ?? '—'}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
+
+      {withdrawn && withdrawn.length > 0 && (
+        <div className="gone">
+          <h3>{plural(withdrawn.length, 'team')} withdrawn</h3>
+          <ul>
+            {withdrawn.map((team) => {
+              const { a, b, federation } = readEntry(team);
+              return (
+                <li key={`${a}-${b}`}>
+                  <span className="who">{pair(a, b)}</span>
+                  <span className="fed">
+                    <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
+                    {federation}
+                  </span>
+                  <span className="why">
+                    {team[5] === 'medical' ? 'Medical certificate' : 'Withdrawn'}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </section>
   );
 }
