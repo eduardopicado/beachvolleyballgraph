@@ -24,7 +24,7 @@ import {
 import { pairKey } from '../lib/path';
 import { seasonSpan, plural } from '../lib/format';
 import { prefersReducedMotion } from '../lib/motion';
-import { prefetchPortrait } from '../lib/prefetchPortrait';
+import { cancelPortraitDwell, prefetchPortraitOnDwell } from '../lib/prefetchPortrait';
 import './PartnershipGraph.css';
 
 interface Props {
@@ -132,6 +132,11 @@ export function PartnershipGraph({
   useEffect(() => {
     onSize?.(size);
   }, [size, onSize]);
+
+  // A dwell timer outlives the element it was armed on. Without this, choosing
+  // a different country while the pointer rests on somebody fetches a portrait
+  // for a graph that is already gone.
+  useEffect(() => cancelPortraitDwell, []);
 
   // The layout has its own coordinate space, so it does not depend on viewport
   // size and a resize never restarts the simulation.
@@ -375,12 +380,17 @@ export function PartnershipGraph({
       const node = hitTest(event.clientX, event.clientY);
       svgRef.current?.classList.toggle('is-over-node', node !== null);
       if (node) {
-        // Crossing a node is the reader saying who they are about to open, and
-        // the portrait's origin has usually gone cold by now — see
+        // Resting on a node is the reader saying who they are about to open,
+        // and the portrait's origin has usually gone cold by now. Resting, not
+        // crossing: this fires on every pointer move over the graph, and most
+        // of the nodes under a moving pointer are only in its way — see
         // `prefetchPortrait`.
-        prefetchPortrait(node.id);
+        prefetchPortraitOnDwell(node.id);
         showHover(node);
-      } else setHover((prev) => (prev ? null : prev));
+      } else {
+        cancelPortraitDwell();
+        setHover((prev) => (prev ? null : prev));
+      }
       return;
     }
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
@@ -547,6 +557,7 @@ export function PartnershipGraph({
         // over whatever the reader moved on to.
         onPointerLeave={() => {
           svgRef.current?.classList.remove('is-over-node');
+          cancelPortraitDwell();
           setHover(null);
         }}
         role="group"

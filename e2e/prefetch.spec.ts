@@ -160,3 +160,30 @@ test('crossing the same node again does not ask again', async ({ page }) => {
 
   await expect.poll(() => forPlayer(urls, node.id).length).toBe(1);
 });
+
+test('sweeping across the graph starts only where the pointer stops', async ({ page }) => {
+  // The reason the dwell exists. USA-W is the largest slice at 423 players, and
+  // before the dwell a pointer dragged across a graph asked for every node it
+  // passed over — measured at 5.8 KB expected per node (52.5% of players have
+  // no photo and 404 at nothing, the rest average 12.3 KB), so 2.4 MB against
+  // the 611 KB the page loads in total.
+  const urls = watchPortraits(page);
+  await page.goto(`./${slicePath()}`);
+  await settled(page);
+
+  const box = (await page.locator('.graph-wrap').boundingBox())!;
+  const y = box.y + box.height / 2;
+  // Straight across the middle at roughly a real drag speed: 30 moves, no
+  // pause anywhere. Whatever it crosses, it never stops on.
+  for (let i = 0; i <= 30; i++) {
+    await page.mouse.move(box.x + 4 + (i * (box.width - 8)) / 30, y);
+  }
+  // Off the canvas, so nothing is left mid-dwell when the assertion runs.
+  await page.mouse.move(box.x + box.width / 2, box.y - 40);
+
+  // Not `toBe(0)`: the sweep can legitimately end a frame on a node and rest
+  // there while the loop awaits the next move. The claim is that a sweep costs
+  // a handful of requests rather than one per node crossed.
+  const crossed = await page.locator('[data-node]').count();
+  expect(urls.length, `swept a graph of ${crossed} nodes`).toBeLessThan(5);
+});

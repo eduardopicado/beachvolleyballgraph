@@ -9,7 +9,11 @@
 import { useMemo, useState } from 'react';
 import { seasonSpan } from '../lib/format';
 import { COLUMNS, DEFAULT_SORT, nextSort, sortRows, type SortKey, type TableRow } from '../lib/table';
-import { prefetchPortrait } from '../lib/prefetchPortrait';
+import {
+  cancelPortraitDwell,
+  prefetchPortrait,
+  prefetchPortraitOnDwell,
+} from '../lib/prefetchPortrait';
 import './TableView.css';
 
 export type { TableRow } from '../lib/table';
@@ -64,7 +68,14 @@ export function TableView({ rows, selectedId, onSelect }: Props) {
               // Both ways in say the same thing: this is the row about to be
               // opened. Focus covers the keyboard, where there is no hover at
               // all and tabbing is the only approach a reader has.
-              onPointerEnter={() => prefetchPortrait(row.id)}
+              //
+              // The pointer waits out the dwell and the keyboard does not.
+              // Scrolling a long table drags the pointer through every row in
+              // between, which is the same problem the graph has; but tabbing
+              // onto a row is one deliberate act per row, and a reader holding
+              // Tab is not crossing rows so much as visiting each of them.
+              onPointerEnter={() => prefetchPortraitOnDwell(row.id)}
+              onPointerLeave={cancelPortraitDwell}
               onFocus={() => prefetchPortrait(row.id)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') onSelect(row.id);

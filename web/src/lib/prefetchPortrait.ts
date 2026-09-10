@@ -46,6 +46,29 @@ import { playerPhotoUrl } from '../schema';
 const started = new Set<number>();
 
 /**
+ * How long a pointer must stay on one player before their portrait is started.
+ *
+ * Without this the prefetch fires for every node the pointer *crosses*, not
+ * every node it stops on, and a graph is mostly nodes in the way of other
+ * nodes. USA-W is the largest slice at 423 players; sweeping across it would
+ * have issued 423 requests for 2.4 MB, against the 611 KB the page loads in
+ * total. Measured over 40 of its players: 52.5% have no photo on file and 404
+ * at zero bytes, the rest come to 12.3 KB on average, so a hovered node costs
+ * 5.8 KB expected.
+ *
+ * 120ms separates the two cases cleanly. A pointer travelling at a few hundred
+ * pixels a second is over a node for something like 20ms, while a reader
+ * deciding to open somebody rests there long enough to read the tooltip that
+ * appears under them. The cost is paid out of the prefetch's own head start,
+ * not the reader's: a click 300ms after arriving still gets 180ms of warming,
+ * which was the difference between 407ms and 86ms when it was the full 300.
+ */
+const DWELL_MS = 120;
+
+/** The player waiting out {@link DWELL_MS}, and the timer that will start them. */
+let pending: { id: number; timer: ReturnType<typeof setTimeout> } | null = null;
+
+/**
  * The width the card draws at. Deliberately not the lightbox's 600: most
  * players opened are never magnified, and 600 is ten times the bytes — 8.4 KB
  * against 85 KB at the median, and one player in a sample of ten came to
@@ -67,7 +90,35 @@ export function prefetchPortrait(id: number): void {
   img.src = playerPhotoUrl(id, CARD_WIDTH);
 }
 
+/**
+ * Start a player's portrait once the pointer has stayed on them.
+ *
+ * This is what hover should call. Moving to a different player abandons the
+ * previous one — a pointer crossing a cluster leaves nothing behind but the
+ * node it came to rest on.
+ */
+export function prefetchPortraitOnDwell(id: number): void {
+  if (pending?.id === id) return;
+  // Not `started.has(id)` as the early exit: `prefetchPortrait` already ignores
+  // a player it has fetched, and returning here would leave a *different*
+  // player's timer armed to fire after the pointer had moved on to this one.
+  cancelPortraitDwell();
+  pending = { id, timer: setTimeout(() => { pending = null; prefetchPortrait(id); }, DWELL_MS) };
+}
+
+/**
+ * Abandon whoever is waiting. Call when the pointer leaves the nodes entirely,
+ * and on unmount — a timer that survives the component would fetch a portrait
+ * for a page the reader has already left.
+ */
+export function cancelPortraitDwell(): void {
+  if (!pending) return;
+  clearTimeout(pending.timer);
+  pending = null;
+}
+
 /** Forget what has been started. Exists so tests do not leak into each other. */
 export function resetPrefetchedPortraits(): void {
+  cancelPortraitDwell();
   started.clear();
 }
