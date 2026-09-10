@@ -57,6 +57,8 @@ import { verifyTeammates } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
 import type {
+  EntryRoute,
+  WithdrawalReason,
   Manifest,
   ManifestCountry,
   Gender,
@@ -262,7 +264,21 @@ async function main() {
     // `Status` is the entry state, and it has to be asked for by name like
     // everything else — VIS returns exactly the fields listed and says nothing
     // about one left out (see `assertPopulated`).
-    fields: ['No', 'NoTournament', 'NoPlayer1', 'NoPlayer2', 'FederationCode', 'Rank', 'Status'],
+    // `Type` is the entry route and `EntryPoints`/`TechnicalPoints` the
+    // figures FIVB freezes at the registration deadline -- all asked for by
+    // name, VIS returning exactly the fields listed (see `assertPopulated`).
+    fields: [
+      'No',
+      'NoTournament',
+      'NoPlayer1',
+      'NoPlayer2',
+      'FederationCode',
+      'Rank',
+      'Status',
+      'Type',
+      'EntryPoints',
+      'TechnicalPoints',
+    ],
     itemTag: 'BeachTeam',
   });
   log('entries', `${teamRows.length} team entries`);
@@ -750,29 +766,75 @@ async function main() {
    */
   await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
   const lagCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000);
-  const entriesByTournament = new Map<string, [number, number, string][]>();
+  /**
+   * FIVB's `Type` -> the entry route their own list badges.
+   *
+   * Decoded against their published entry list for Corigliano Rossano, team
+   * by team: the one Type 1 is its wild card, the one Type 6 its qualification
+   * wild card, the one Type 9 its continental slot and all four Type 10 rows
+   * its open vacancies. Every other value is the ordinary ranking route and
+   * gets no badge -- including Type 4, which is *not* a category: across the
+   * archive it carries both placements and rank-0 rows, and its matching the
+   * withdrawn count on one tournament was a coincidence.
+   */
+  const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
+
+  /**
+   * `Status` -> why a team that entered will not play.
+   *
+   * 2 and 3 against the same list, which shows three withdrawals and three
+   * medical certificates: exactly the counts VIS gives. Status 1 is a third
+   * kind, an entry superseded by a later one, and FIVB publishes those
+   * nowhere -- they are the rows that made one player appear in three
+   * different pairs before this filter existed.
+   */
+  const WITHDRAWAL: Record<number, WithdrawalReason> = { 2: 'withdrawn', 3: 'medical' };
+
+  /** A number VIS may leave blank, which is not the same as zero. */
+  const points = (raw: string | undefined) => {
+    const n = Number(raw);
+    return raw === undefined || raw === '' || !Number.isFinite(n) ? null : n;
+  };
+
+  interface EntryRow {
+    a: number;
+    b: number;
+    federation: string;
+    entry: number | null;
+    tech: number | null;
+    route: EntryRoute | null;
+    withdrawal: WithdrawalReason | null;
+  }
+  const entriesByTournament = new Map<string, EntryRow[]>();
   for (const row of teamRows) {
+    const status = Number(row.Status ?? 0);
     // Status 0 is a team that is in the tournament -- main draw, qualification
-    // or reserve, all of which can end up playing. Everything else is an entry
-    // that will not: withdrawn, rejected, replaced.
+    // or reserve, all of which can end up playing. 2 and 3 entered and pulled
+    // out. 1 and the rest are superseded entries nobody publishes.
     //
-    // Decoded from the archive rather than from a spec, because there is no
-    // published enum. Across 206,799 team rows, Status 0 is the only value
-    // that ever carries a placement (137,518 of them) and the other five are
-    // rank 0 -- did not play -- on all but 8 rows. Corroborated against
-    // FIVB's own tournament page for Corigliano Rossano, which lists 12 in the
-    // main draw, 16 in qualification and 17 reserves: 45, exactly the number
-    // of Status 0 rows VIS returns for it.
-    //
-    // `Type` looks like it should mean this and does not: every one of its
-    // twelve values carries both placements and rank-0 rows.
-    if (Number(row.Status ?? 0) !== 0) continue;
+    // Decoded from the archive, because there is no published enum: across
+    // 206,799 team rows, Status 0 is the only value that ever carries a
+    // placement (137,518 of them) and the other five are rank 0 on all but 8.
+    // Corroborated against FIVB's own list for Corigliano Rossano -- 45 rows
+    // at Status 0 against the 12 + 16 + 17 they show, and three each at
+    // Status 2 and 3 against their three withdrawals and three medical
+    // certificates.
+    const withdrawal = WITHDRAWAL[status] ?? null;
+    if (status !== 0 && !withdrawal) continue;
     const no = (row.NoTournament ?? '').trim();
     const a = Number(row.NoPlayer1);
     const b = Number(row.NoPlayer2);
     if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
     const list = entriesByTournament.get(no) ?? [];
-    list.push([a, b, (row.FederationCode ?? '').trim()]);
+    list.push({
+      a,
+      b,
+      federation: (row.FederationCode ?? '').trim(),
+      entry: points(row.EntryPoints),
+      tech: points(row.TechnicalPoints),
+      route: ENTRY_ROUTE[Number(row.Type ?? 0)] ?? null,
+      withdrawal,
+    });
     entriesByTournament.set(no, list);
   }
 
@@ -783,20 +845,39 @@ async function main() {
     const endsOn = tournament.endsOn === null ? null : new Date(`${tournament.endsOn}T00:00:00Z`);
     if (endsOn === null || endsOn < lagCutoff) continue;
 
-    const teams = (entriesByTournament.get(tournament.no) ?? []).sort(
-      // Federation first so the list reads as a roll call of who is coming,
-      // then the pair's own ids for a stable order between runs.
-      (x, y) => x[2].localeCompare(y[2]) || x[0] - y[0] || x[1] - y[1],
-    );
+    /*
+     * Ordered as FIVB orders it: entry points first, technical points to break
+     * a tie, and the pair's own ids after that so the file does not churn
+     * between runs that hold the same list.
+     *
+     * By points rather than by federation, which is how it read before, so a
+     * reader sees the same order FIVB's own list has -- the order that decides
+     * who gets in.
+     */
+    const byRank = (x: EntryRow, y: EntryRow) =>
+      (y.entry ?? -1) - (x.entry ?? -1) || (y.tech ?? -1) - (x.tech ?? -1) || x.a - y.a || x.b - y.b;
+    const all = entriesByTournament.get(tournament.no) ?? [];
+    const teams = all.filter((t) => !t.withdrawal).sort(byRank);
+    const withdrawn = all.filter((t) => t.withdrawal).sort(byRank);
+
     const named: Record<string, string> = {};
     const elsewhere: Record<string, string | null> = {};
-    for (const [a, b, federation] of teams) {
+    for (const { a, b, federation } of [...teams, ...withdrawn]) {
       for (const id of [a, b]) {
         if (!named[id]) named[id] = players.get(id)?.name ?? `Player ${id}`;
         const actual = publishedOn.get(id) ?? null;
         if (actual !== `${federation}-${tournament.gender}`) elsewhere[id] = actual;
       }
     }
+
+    const row = (t: EntryRow): unknown[] => [
+      t.a,
+      t.b,
+      t.federation,
+      t.entry,
+      t.tech,
+      ...(t.withdrawal ? [t.withdrawal] : t.route ? [t.route] : []),
+    ];
 
     entryFiles++;
     entryTeams += teams.length;
@@ -807,7 +888,10 @@ async function main() {
         '{',
         `  "code": ${JSON.stringify(tournament.code)},`,
         `  "gender": ${JSON.stringify(tournament.gender)},`,
-        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(t)}`).join(',\n')}\n  ],`,
+        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`,
+        ...(withdrawn.length
+          ? [`  "withdrawn": [\n${withdrawn.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`]
+          : []),
         `  "players": ${jsonByKey(named, '  ')}${corrected ? ',' : ''}`,
         ...(corrected ? [`  "elsewhere": ${jsonByKey(elsewhere, '  ')}`] : []),
         '}',
