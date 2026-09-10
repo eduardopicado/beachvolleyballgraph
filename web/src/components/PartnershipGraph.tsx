@@ -24,6 +24,7 @@ import {
 import { pairKey } from '../lib/path';
 import { seasonSpan, plural } from '../lib/format';
 import { prefersReducedMotion } from '../lib/motion';
+import { prefetchPortrait } from '../lib/prefetchPortrait';
 import './PartnershipGraph.css';
 
 interface Props {
@@ -373,8 +374,13 @@ export function PartnershipGraph({
       if (event.pointerType !== 'mouse') return;
       const node = hitTest(event.clientX, event.clientY);
       svgRef.current?.classList.toggle('is-over-node', node !== null);
-      if (node) showHover(node);
-      else setHover((prev) => (prev ? null : prev));
+      if (node) {
+        // Crossing a node is the reader saying who they are about to open, and
+        // the portrait's origin has usually gone cold by now — see
+        // `prefetchPortrait`.
+        prefetchPortrait(node.id);
+        showHover(node);
+      } else setHover((prev) => (prev ? null : prev));
       return;
     }
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });

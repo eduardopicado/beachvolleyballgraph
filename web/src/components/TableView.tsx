@@ -9,6 +9,7 @@
 import { useMemo, useState } from 'react';
 import { seasonSpan } from '../lib/format';
 import { COLUMNS, DEFAULT_SORT, nextSort, sortRows, type SortKey, type TableRow } from '../lib/table';
+import { prefetchPortrait } from '../lib/prefetchPortrait';
 import './TableView.css';
 
 export type { TableRow } from '../lib/table';
@@ -60,6 +61,11 @@ export function TableView({ rows, selectedId, onSelect }: Props) {
               className={row.id === selectedId ? 'is-selected' : ''}
               onClick={() => onSelect(row.id)}
               tabIndex={0}
+              // Both ways in say the same thing: this is the row about to be
+              // opened. Focus covers the keyboard, where there is no hover at
+              // all and tabbing is the only approach a reader has.
+              onPointerEnter={() => prefetchPortrait(row.id)}
+              onFocus={() => prefetchPortrait(row.id)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') onSelect(row.id);
               }}
