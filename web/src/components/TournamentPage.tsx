@@ -25,7 +25,7 @@
  */
 
 import { useMemo } from 'react';
-import type { ClassificationFile, Gender, SeriesFile, Tier } from '../schema';
+import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../schema';
 import { fieldPlayerSlice, TIER_BADGE } from '../schema';
 import { bandsOf } from '../lib/classification';
 import { nameCarriesSeason } from '../lib/slug';
@@ -72,6 +72,15 @@ interface Props {
   /** The same event's other draw, when it has exactly one. */
   counterpart: { gender: Gender; href: string } | null;
   /**
+   * Who has entered, for an event with no result yet. Null for a played one,
+   * which shows its classification instead.
+   */
+  entries:
+    | null
+    | { status: 'loading' }
+    | { status: 'ready'; data: EntriesFile }
+    | { status: 'failed' };
+  /**
    * The series this edition belongs to, each with its own editions. Usually
    * none; two for Gstaad 2007, which was also the World Championships.
    */
@@ -92,6 +101,89 @@ const GENDER_LABEL: Record<Gender, string> = { M: "Men's", W: "Women's" };
  */
 const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
 
+/**
+ * Who has entered an event that has not produced a result.
+ *
+ * Grouped by federation rather than listed flat: an entry list has no order of
+ * merit to impose — nobody has played yet — and "who is coming, from where" is
+ * the question it can actually answer. Measured across the four events that
+ * have one, 24 to 32 federations each, so the grouping is real structure
+ * rather than a heading per row.
+ *
+ * Names are plain text, not links. A classification links every name because
+ * those players have a page in the slice the event belongs to; an entrant may
+ * be entering their first FIVB event and have no page at all, and a list where
+ * some names are links and some are not reads as broken rather than as honest.
+ *
+ * Only teams that are actually in the tournament reach here — the ingest drops
+ * every entry FIVB marks as not playing. That filter is why no player appears
+ * in two pairs: before it, 14 of 265 entries were a player entered two or
+ * three times, which looked like provisional pairings and was really the
+ * withdrawn and replaced entries showing through.
+ */
+function EntryList({
+  entries,
+  iso2Of,
+}: {
+  entries: Exclude<Props['entries'], null>;
+  iso2Of: (federation: string) => string | null;
+}) {
+  if (entries.status === 'loading') return <p className="note">Loading the entry list…</p>;
+  if (entries.status === 'failed')
+    return <p className="note">Could not load this tournament&rsquo;s entry list.</p>;
+
+  const { teams, players } = entries.data;
+  if (teams.length === 0) {
+    // The 2027 World Championships, a year out. Nothing is broken; nobody has
+    // entered yet, and saying so beats an empty heading.
+    return (
+      <section aria-label="Entry list" className="entries">
+        <h2>Entry list</h2>
+        <p className="note">No teams have entered yet.</p>
+      </section>
+    );
+  }
+
+  const byFederation = new Map<string, EntriesFile['teams']>();
+  for (const team of teams) {
+    const list = byFederation.get(team[2]) ?? [];
+    list.push(team);
+    byFederation.set(team[2], list);
+  }
+
+  return (
+    <section aria-label="Entry list" className="entries">
+      <h2>Entry list</h2>
+      <p className="blurb">
+        Who has entered. FIVB publishes this before the event; the final classification replaces it
+        once the tournament has been played.
+      </p>
+      <ul className="feds">
+        {[...byFederation]
+          .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+          .map(([federation, list]) => (
+            <li key={federation}>
+              <p className="fed">
+                <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
+                {federation}
+                <span className="n">{list.length}</span>
+              </p>
+              <ul className="pairs">
+                {list.map(([a, b]) => (
+                  <li key={`${a}-${b}`}>
+                    {players[a] ?? `Player ${a}`}
+                    <span className="sep"> / </span>
+                    {players[b] ?? `Player ${b}`}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+      </ul>
+    </section>
+  );
+}
+
 export function TournamentPage({
   tournament,
   state,
@@ -100,6 +192,7 @@ export function TournamentPage({
   homeHref,
   indexHref,
   counterpart,
+  entries,
   series,
   editionHref,
   code,
@@ -158,19 +251,29 @@ export function TournamentPage({
               stays for the 369 single-draw events, which have no switch. */}
           {gender && !counterpart && <span>{GENDER_LABEL[gender]}</span>}
           {badge && <span className="badge">{badge}</span>}
-          {state.status === 'ready' && <span>{plural(state.data.teams.length, 'team')}</span>}
+          {/* An unplayed event counts entries, not teams that played. */}
+          {entries?.status === 'ready' && entries.data.teams.length > 0 && (
+            <span>{plural(entries.data.teams.length, 'team')} entered</span>
+          )}
+          {!entries && state.status === 'ready' && (
+            <span>{plural(state.data.teams.length, 'team')}</span>
+          )}
         </p>
       </header>
 
-      {state.status === 'loading' && <p className="note">Loading the classification…</p>}
-      {state.status === 'failed' && (
+      {entries && <EntryList entries={entries} iso2Of={iso2Of} />}
+
+      {!entries && state.status === 'loading' && (
+        <p className="note">Loading the classification…</p>
+      )}
+      {!entries && state.status === 'failed' && (
         <p className="note">Could not load this tournament&rsquo;s classification.</p>
       )}
-      {state.status === 'ready' && state.data.teams.length === 0 && (
+      {!entries && state.status === 'ready' && state.data.teams.length === 0 && (
         <p className="note">FIVB publishes no placements for this tournament.</p>
       )}
 
-      {state.status === 'ready' && bands.length > 0 && (
+      {!entries && state.status === 'ready' && bands.length > 0 && (
         <section aria-label="Final classification">
           <h2>Final classification</h2>
           <ol className="bands">

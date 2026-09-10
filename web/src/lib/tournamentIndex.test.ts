@@ -10,6 +10,7 @@ import {
   levelsIn,
   nearestSeason,
   reconcile,
+  RESULT_LAG_DAYS,
   seasonsFor,
   sliceOf,
   tierGroupOf,
@@ -207,9 +208,38 @@ describe('buildIndex and events not yet played', () => {
   const build = (rows: Record<string, TournamentMeta>, played: string[]) =>
     buildIndex(rows, (code) => played.includes(code), now);
 
-  it('lists an event still ahead of the calendar, unplayed and unlinked', () => {
+  it('lists an event still ahead of the calendar, with a page of its own', () => {
+    // It gets a slug like anything else: there is an entry list to show, and
+    // a row in the index linking nowhere is worse than a page saying "not
+    // played yet".
     const rows = build({ 1: upcoming({ name: 'Alanya', code: 'MALN2026' }) }, []);
-    expect(rows.map((r) => [r.name, r.played, r.slug])).toEqual([['Alanya', false, null]]);
+    expect(rows.map((r) => [r.name, r.played, r.slug])).toEqual([
+      ['Alanya', false, 'alanya-2026-men'],
+    ]);
+  });
+
+  it('keeps an event that has started but has no placements yet', () => {
+    // The window a tournament spends being played, and the hours after it
+    // before FIVB writes placements. Without it the event vanishes from the
+    // index for the one week it is most worth looking at.
+    // Day 241 of 2026 is 30 August, so this ran 2-5 September and the fixture's
+    // today is the 9th: finished a week ago, placements still missing.
+    const rows = build({ 1: meta({ name: 'Last week', season: 2026, offset: 244, code: 'M1' }) }, []);
+    expect(rows.map((r) => [r.name, r.played])).toEqual([['Last week', false]]);
+  });
+
+  it('drops one that finished longer ago than the results lag', () => {
+    const longAgo = Math.round(
+      (Date.UTC(2026, 8, 9) - RESULT_LAG_DAYS * 86_400_000 - Date.UTC(2026, 0, 1)) / 86_400_000,
+    );
+    const rows = build(
+      {
+        1: meta({ name: 'Just inside', season: 2026, offset: longAgo + 1, span: 0, code: 'M1' }),
+        2: meta({ name: 'Just outside', season: 2026, offset: longAgo - 2, span: 0, code: 'M2' }),
+      },
+      [],
+    );
+    expect(rows.map((r) => r.name)).toEqual(['Just inside']);
   });
 
   it('still excludes an event with no field that is already in the past', () => {
@@ -230,11 +260,11 @@ describe('buildIndex and events not yet played', () => {
     expect(rows[0]!.slug).toBe('gstaad-2026-men');
   });
 
-  it('never lets an unplayed event change the address of a played one', () => {
-    // The hazard: `tournamentSlugs` appends FIVB's code to every member of a
-    // colliding group, so if an unplayed event joined that set, a page that
-    // already exists and is already linked would silently move to a suffixed
-    // URL because of a tournament that has not happened.
+  it('resolves a collision between a played and an unplayed event, rather than letting one win', () => {
+    // Both get FIVB's code appended, exactly as two played events would. The
+    // played page's address moves, which is the same thing that happens when
+    // the weekly ingest adds any colliding tournament — and the alternative is
+    // an unplayed page silently overwriting a played one.
     const rows = build(
       {
         1: past({ name: 'Alanya', code: 'MALN2026' }),
@@ -242,8 +272,8 @@ describe('buildIndex and events not yet played', () => {
       },
       ['MALN2026'],
     );
-    expect(rows.find((r) => r.code === 'MALN2026')?.slug).toBe('alanya-2026-men');
-    expect(rows.find((r) => r.code === 'MAL22026')?.slug).toBe(null);
+    expect(rows.find((r) => r.code === 'MALN2026')?.slug).toBe('alanya-2026-men-maln2026');
+    expect(rows.find((r) => r.code === 'MAL22026')?.slug).toBe('alanya-2026-men-mal22026');
   });
 
   it('gives a season that holds only upcoming events', () => {

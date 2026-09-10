@@ -287,15 +287,9 @@
 }
 
 /*
- * An event that has not been played yet: the name is not a link, so it must
- * not look like one, and the tag beside it says why rather than leaving the
- * absence to be read as a fault.
+ * An event with no result yet. The name links like any other — its page
+ * carries the entry list — and the tag says what is not there.
  */
-.tournament-index td.what .unplayed {
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
 .tournament-index td.what .soon {
   margin-left: 8px;
   padding: 1px 7px;

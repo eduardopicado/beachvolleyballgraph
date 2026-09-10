@@ -22,6 +22,7 @@ import { sliceSlug, tournamentPath } from './lib/slug';
 import { indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, drawCounterpart } from './lib/tournamentIndex';
 import { useClassification } from './lib/useClassification';
+import { useEntries } from './lib/useEntries';
 import { TournamentPage, type TournamentPageData } from './components/TournamentPage';
 
 const BASE = import.meta.env.BASE_URL;
@@ -78,6 +79,10 @@ export default function TournamentRoute({ slug }: { slug: string }) {
   const counterpart = useMemo(() => (found ? drawCounterpart(rows, found) : null), [rows, found]);
 
   const classification = useClassification(found?.code ?? null);
+
+  // Only for an event with no field: a played one has a classification, and
+  // fetching an entry list that was never written would be a guaranteed 404.
+  const entries = useEntries(found && !found.played ? found.code : null);
 
   /*
    * The series this edition belongs to, in two steps: the small index says
@@ -168,13 +173,11 @@ export default function TournamentRoute({ slug }: { slug: string }) {
         level: null,
       })}`}
       counterpart={
-        // No link to a draw with no page: the other half of an event still to
-        // be played has no field published, so there is nothing to open. The
-        // switch is absent rather than dead.
-        counterpart?.slug
-          ? { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
-          : null
+        // Every listed event has a page now, an unplayed one included, so the
+        // switch works across a draw whose half is still to be played.
+        counterpart && { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
       }
+      entries={entries}
       series={series}
       code={found.code}
       editionHref={(slug) => tournamentPath(BASE, slug)}

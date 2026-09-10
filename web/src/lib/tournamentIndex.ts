@@ -69,20 +69,8 @@ export function tierGroupOf(tier: Tier): TierGroup {
 
 /** One row of the index — a tournament, with everything the list draws. */
 export interface IndexRow {
-  /**
-   * The page it links to, built over the same set the prerenderer uses.
-   *
-   * Null for a tournament that has not been played: there is no field to
-   * publish, so there is no page, and the row is text rather than a link.
-   *
-   * **Slugs are built over the played set only, and that is load-bearing.**
-   * `tournamentSlugs` appends FIVB's code to every member of a colliding
-   * group, so admitting an unplayed event into that set could turn a clean
-   * slug into a suffixed one — silently moving the URL of a page that already
-   * exists and is already linked, because a tournament that has not happened
-   * yet happens to share a name and season with it.
-   */
-  slug: string | null;
+  /** The page it links to, built over the same set the prerenderer uses. */
+  slug: string;
   /** FIVB's own code, which is what addresses the published classification. */
   code: string;
   name: string;
@@ -96,18 +84,33 @@ export interface IndexRow {
   start: Date | null;
   end: Date | null;
   /**
-   * Has this been played? False only for an event still ahead of the calendar.
+   * Does FIVB publish a field for this? False for an event that has not been
+   * played, and for one played so recently that the placements are not up yet.
    *
-   * Not the same question as "does FIVB publish a field", which is what
-   * `hasField` answers: 78 tournaments have no field and only 6 of them are
-   * upcoming. The other 72 are cancellations and postponements — FIVB writes
-   * the reason into the name, "BPT Futures Negombo (postponed to 2025)" — plus
-   * two rows that were never tournaments at all. Those stay out of the index;
-   * a reader looking at 2024 is not served by a row for a week that did not
-   * happen.
+   * Not the same question as "is it in the future". 78 tournaments have no
+   * field and only a handful are still to come; the rest are cancellations and
+   * postponements — FIVB writes the reason into the name, "BPT Futures Negombo
+   * (postponed to 2025)" — plus two rows that were never tournaments at all.
+   * Those stay out of the index; a reader looking at 2024 is not served by a
+   * row for a week that did not happen.
    */
   played: boolean;
 }
+
+/**
+ * How long after an event ends its placements may still be missing.
+ *
+ * FIVB writes results into `BeachTeam.Rank` some hours after the last match,
+ * and the ingest runs weekly, so there is always a window where a tournament
+ * has been played and has no field. Without this an event would vanish from
+ * the index on the day it started and reappear when the next ingest ran — the
+ * one week it is most worth looking at.
+ *
+ * Thirty days, the same figure `RECENT_RESULT_DAYS` uses in the ingest for the
+ * same lag, and far past the observed one. The 72 cancelled and postponed
+ * events are all years old, so nothing widens back into view.
+ */
+export const RESULT_LAG_DAYS = 30;
 
 /** Rebuild the calendar date a signed day offset stands for. */
 function dateOf(season: number, offset: number | null): Date | null {
@@ -134,48 +137,54 @@ export function buildIndex(
   hasField: (code: string) => boolean,
   now: Date = new Date(),
 ): IndexRow[] {
-  const addressable = Object.values(tournaments)
+  /*
+   * A fieldless tournament is shown when it has not finished long ago.
+   *
+   * FIVB lists a tournament long before it is played — the 2027 World
+   * Championships sits in a 2026 archive — so an index of finished events
+   * answers "what is on this season" with a calendar that stops today. And an
+   * event still being played has no field either, which is why the window
+   * reaches `RESULT_LAG_DAYS` into the past rather than stopping at now.
+   *
+   * The date is the whole test, and it separates cleanly: the fieldless rows
+   * it excludes are cancellations, postponements and two non-events, none of
+   * them within years of today.
+   */
+  const lagCutoff = new Date(now.getTime() - RESULT_LAG_DAYS * 86_400_000);
+  const shown = Object.values(tournaments)
     .map(readTournament)
-    .filter(
-      (t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } =>
-        !!t.code && !!t.gender && hasField(t.code),
-    );
+    .filter((t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } => {
+      if (!t.code || !t.gender) return false;
+      if (hasField(t.code)) return true;
+      const start = dateOf(t.season, t.startOffset);
+      if (start === null) return false;
+      const span = t.span !== null && t.span >= 0 ? t.span : 0;
+      return dateOf(t.season, (t.startOffset ?? 0) + span)! >= lagCutoff;
+    });
 
-  // Built over the played set alone — see `IndexRow.slug` for why admitting an
-  // unplayed event here could move an existing page's address.
-  const slugs = tournamentSlugs(addressable, (t) => ({
+  /*
+   * Slugs over everything shown, because everything shown gets a page.
+   *
+   * `tournamentSlugs` appends FIVB's code to every member of a colliding
+   * group, so an event joining this set can move the address of one already
+   * in it. That is not a new hazard: the same is true of every tournament the
+   * weekly ingest adds, and `tournamentSlugs` documents it. What would be a
+   * hazard is the other way round — an event with a page left out of collision
+   * resolution, free to overwrite a page that exists.
+   */
+  const slugs = tournamentSlugs(shown, (t) => ({
     name: t.name,
     season: t.season,
     gender: t.gender,
     code: t.code,
   }));
 
-  /*
-   * Events still ahead of the calendar join them.
-   *
-   * FIVB lists a tournament long before it is played — the 2027 World
-   * Championships is in a 2026 archive — and an index that showed only what
-   * had finished would answer "what is on this season" with a calendar that
-   * stops today. The date is the whole test: 6 of the 78 fieldless rows are
-   * upcoming and the other 72 are cancellations, postponements and two
-   * non-events, all of them in the past.
-   */
-  const upcoming = Object.values(tournaments)
-    .map(readTournament)
-    .filter(
-      (t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } => {
-        if (!t.code || !t.gender || hasField(t.code)) return false;
-        const start = dateOf(t.season, t.startOffset);
-        return start !== null && start > now;
-      },
-    );
-
-  return [...addressable, ...upcoming]
+  return shown
     .map((t) => {
       const start = dateOf(t.season, t.startOffset);
       return {
-        slug: slugs.get(t) ?? null,
-        played: slugs.has(t),
+        slug: slugs.get(t)!,
+        played: hasField(t.code),
         code: t.code,
         name: t.name,
         season: t.season,

@@ -13,6 +13,7 @@ import type {
   ResultsFile,
   SearchIndex,
   ClassificationFile,
+  EntriesFile,
   TournamentsFile,
   Gender,
   SeriesFile,
@@ -25,6 +26,7 @@ import {
   resultsPath,
   searchPath,
   classificationPath,
+  entriesPath,
   tournamentsPath,
   seriesIndexPath,
   seriesPath,
@@ -78,6 +80,9 @@ export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
  */
 export const fetchClassification = (code: string) =>
   load<ClassificationFile>(classificationPath(BASE, code));
+
+/** Who has entered a tournament that has no result yet. */
+export const fetchEntries = (code: string) => load<EntriesFile>(entriesPath(BASE, code));
 
 /**
  * The tournament index on its own.
