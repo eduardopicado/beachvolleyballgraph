@@ -81,7 +81,7 @@ separate infrastructure and stayed up throughout.
 | `www.fivb.org/Vis2009/XmlRequest.asmx` | the XML API | 503s under a burst |
 | `sharp.fivb.com/Legacy/GetImage` | every image, by number | unaffected, Cloudflare-fronted |
 
-The weekly ingest is a good citizen by design — three bulk list requests for
+The daily ingest is a good citizen by design — three bulk list requests for
 the whole archive, no per-record fan-out. **Any exploration should pace itself
 at roughly one request a second and prefer a bulk list to a loop of singles.**
 A survey of 43 request types plus 8 entity dumps is about a minute of work at

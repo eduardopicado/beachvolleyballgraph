@@ -312,7 +312,7 @@ ${headFor(url, title, description)}
 
 <h2>Data</h2>
 
-<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a> and is rebuilt weekly. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
+<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a> and is rebuilt daily. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
 
 <p>Not affiliated with or endorsed by the FIVB.</p>
 
@@ -786,7 +786,7 @@ ${staticFooter()}
     .map(
       ({ url, priority }) =>
         `  <url><loc>${esc(abs(url))}</loc><lastmod>${lastmod}</lastmod>` +
-        `<changefreq>weekly</changefreq><priority>${priority}</priority></url>`,
+        `<changefreq>daily</changefreq><priority>${priority}</priority></url>`,
     )
     .join('\n');
   await writeFile(
