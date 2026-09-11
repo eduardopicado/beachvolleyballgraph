@@ -62,11 +62,90 @@ parameters and read the reply:
 | `<ParameterMissing id="1009">Fields` | exists, needs a `Fields` list |
 | `<ParameterMissing id="1009">No` | exists, needs a record number |
 | a `<Responses>` payload | exists and answers bare |
-| an ASP.NET `Runtime Error` page | exists; a bad `Fields` name or filter |
+| an ASP.NET `Runtime Error` page | exists; some malformed request bodies |
 
-That last one is worth knowing: **a misspelled field name returns a 500 HTML
-error page, not a structured error.** So does an unrecognised `<Filter>`
-attribute. Neither is a sign the request type is wrong.
+That last row used to say a misspelled field name or an unrecognised `<Filter>`
+attribute was what produced the 500. **Re-measured 2026-09-11: neither does.**
+Both are accepted at HTTP 200 and silently ignored, which is a good deal worse
+than an error page — see §1.5. Whatever produced the 500 during the original
+survey, it was not those; no probe since has reproduced one.
+
+---
+
+## 1.5. VIS checks values, not names — and the API is a subset of the docs too
+
+§1 is about the documentation being narrower than the service. This is the
+other direction, and it is the one that can quietly produce wrong answers.
+
+**Every malformed *value* comes back as a structured error. Every unrecognised
+*name* comes back as silence.** Measured 2026-09-11, all at HTTP 200:
+
+| Request | Response |
+|---|---|
+| `GetBeachTeam No="notanumber"` | `<BadParameter id="1002">No` |
+| `<Filter NoTournament="notanumber"/>` | `<BadFilterParameter id="1001">` |
+| `GetBeachTeam` with no `No` | `<ParameterMissing id="1009">No` |
+| `Type="NotARealRequestType"` | `<BadParameter id="1002">Type` |
+| `Fields="No Status ZzzNotAField"` | **the row, without that attribute** |
+| `<Filter ZzzNotAFilter="1"/>` | **the whole table** |
+
+The last one is the dangerous one. A `GetBeachTeamList` filtered to tournament
+9149 returns 58 rows; the same request with the filter's *name* misspelled
+returns **206,847** — every team entry in the archive — because an
+unrecognised filter attribute is dropped and a `<Filter>` with nothing left in
+it filters nothing. No error, no warning, a 200, and a response three orders of
+magnitude too large. Nothing in this project currently passes a filter
+(`fetchList` supports one; all three bulk requests want everything), which is
+the only reason this has never bitten us.
+
+### Absence does not mean empty
+
+A field left out of the response is not the same as a field that came back
+empty, and the difference matters because **VIS withholds fields by access
+level**. The `GetBeachTeamList` documentation says so in one line that is easy
+to read past:
+
+> The list of fields is mandatory. It can contain all the fields in the
+> BeachTeam data. **Only the fields you have access to will be returned.**
+
+So a documented field can be dropped for the same reason a misspelled one is —
+silently, identically. The only way to tell the two apart is to ask for a field
+that is *known to be public and known to be empty* in the same request, as a
+control:
+
+```
+Fields="No Status StatusDate StatusText EarningsTeam WorldTourRanking MainDrawSeed"
+→ <BeachTeam No="3165695" Status="2" EarningsTeam="" WorldTourRanking=""
+             MainDrawSeed="" Version="4332230"/>
+```
+
+`EarningsTeam` and friends come back as empty attributes. `StatusDate` and
+`StatusText` do not come back at all — they behave exactly like the invented
+field above. A `Fields`-less singular request, which dumps everything the
+caller may see, returns **88 attributes** for `BeachTeam` and neither of those
+two is among them. So they are not empty; they are not ours.
+
+### What we are missing, concretely
+
+`BeachTeam` documents two fields this site has a use for today:
+
+| Field | Documented as |
+|---|---|
+| `StatusDate` | "Date of the last status change." |
+| `StatusText` | "Text about the last status change." |
+
+`Status` itself we do get, and it is what the entry list's withdrawal reasons
+are built from — 2 is a withdrawal and 3 a medical certificate, decoded against
+FIVB's own published list in the `WITHDRAWAL` table in `ingest/main.ts`, since
+VIS publishes no enum for it. What we cannot see is **when** a team pulled out,
+or FIVB's own text for why.
+fivbeach.com shows both, so the data is there and the access level is the only
+thing between us and it.
+
+This is a request rather than a defect report, and it belongs with the VIS
+application identifier (task #13): an identified caller is the mechanism that
+would grant field access, so it is worth asking for these two by name in the
+same breath.
 
 ---
 
@@ -237,6 +316,10 @@ numbers from. It also carries **`EarningsTeam`, `EarningsTotalPlayer`,
 `RankInFivbWorldRanking`, `MainDrawSeed`** and
 `NbRank1InMajorTournaments`. Prize money and seeding are a whole dimension the
 site does not have. Unmeasured for coverage — nobody has asked for them yet.
+`EntryPoints` and `TechnicalPoints` have since been asked for and are on every
+entry list. **That 88 is what this caller may see, not what the entity has:**
+`StatusDate` and `StatusText` are documented on `BeachTeam` and are in none of
+the 88 — see §1.5.
 
 **`BeachMatch` (99)** is every match: set-by-set scores, durations, referees,
 court, venue, spectators, even temperature and humidity. This project has
@@ -262,7 +345,11 @@ Nothing here is scheduled. In rough order of value:
    is only a population-shaped ratio with no individual code confirmed. None
    of the three are a fact this site should assert about a real person.
 4. **`PreviousNames`** — 66 names to cross-check against Wikidata's 286.
-5. Everything else is real and unrequested.
+5. **`StatusDate` and `StatusText`** — the date a team withdrew and FIVB's own
+   words for why. Not a matter of asking for the field: they are withheld by
+   access level (§1.5), so this is blocked on the application identifier the
+   introduction email requests, and worth naming in it.
+6. Everything else is real and unrequested.
 
 ---
 
