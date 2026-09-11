@@ -366,11 +366,28 @@
  * answer a different question from "who is coming" — but present, because
  * "was coming, is not" is part of reading an entry list a week out.
  */
+/*
+ * Teams that entered and then pulled out.
+ *
+ * Drawn as a table because the entry list above it is one, and because the
+ * three things each row carries — who, which federation, why — are columns.
+ * The previous version was a wrapping flex row with `margin-left: auto` on the
+ * reason, which looks like a column while every row fits on one line and stops
+ * being one the moment a name wraps: the reason jumps to the right edge of
+ * whatever line it ended up on, under a team it does not belong to. That is
+ * the ordinary case on a phone, where two long names never fit beside a flag.
+ */
 .tournament-page .entries .gone {
   margin-top: 18px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  color: var(--text-muted);
 }
 
-.tournament-page .entries .gone h3 {
+.tournament-page .entries .gone caption {
+  caption-side: top;
+  text-align: left;
   margin: 0 0 6px;
   font-size: 12px;
   text-transform: uppercase;
@@ -379,24 +396,30 @@
   color: var(--text-muted);
 }
 
-.tournament-page .entries .gone ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 13.5px;
-  color: var(--text-muted);
+.tournament-page .entries .gone td {
+  padding: 6px 6px;
+  border-bottom: 1px solid var(--gridline);
+  /* Top, not baseline: a wrapped two-line name would otherwise drag its
+     federation and reason down to sit against its last line. */
+  vertical-align: top;
 }
 
-.tournament-page .entries .gone li {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  padding: 3px 8px;
+.tournament-page .entries .gone tr:last-child td {
+  border-bottom: 0;
+}
+
+/* The name column is the only one that may wrap, so it takes what is left. */
+.tournament-page .entries .gone .fed,
+.tournament-page .entries .gone .why {
+  width: 1%;
+  white-space: nowrap;
 }
 
 .tournament-page .entries .gone .why {
-  margin-left: auto;
-  font-style: italic;
+  text-align: right;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 /*

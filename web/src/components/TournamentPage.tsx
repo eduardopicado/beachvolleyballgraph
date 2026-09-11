@@ -196,26 +196,51 @@ function EntryList({
       )}
 
       {withdrawn && withdrawn.length > 0 && (
-        <div className="gone">
-          <h3>{plural(withdrawn.length, 'team')} withdrawn</h3>
-          <ul>
+        // A table, in the same shape as the entry list above it, rather than
+        // the flex list this used to be. That list right-aligned the reason
+        // with `margin-left: auto`, which reads as a column only while every
+        // row fits on one line — at phone width the names wrap and the reason
+        // is flung to the right edge of whichever line it landed on, orphaned
+        // from the team it belongs to. Columns do what the alignment was
+        // pretending to do, and they hold at any width.
+        //
+        // No `#` column: these teams have no position in the entry order, and
+        // numbering them would invent one.
+        <table className="gone">
+          <caption>{plural(withdrawn.length, 'team')} withdrawn</caption>
+          <thead className="sr-only">
+            <tr>
+              <th scope="col">Team</th>
+              <th scope="col">Federation</th>
+              <th scope="col">Reason</th>
+            </tr>
+          </thead>
+          <tbody>
             {withdrawn.map((team) => {
               const { a, b, federation } = readEntry(team);
+              const medical = team[5] === 'medical';
               return (
-                <li key={`${a}-${b}`}>
-                  <span className="who">{pair(a, b)}</span>
-                  <span className="fed">
+                <tr key={`${a}-${b}`}>
+                  <td className="who">{pair(a, b)}</td>
+                  <td className="fed">
                     <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
                     {federation}
-                  </span>
-                  <span className="why">
-                    {team[5] === 'medical' ? 'Medical certificate' : 'Withdrawn'}
-                  </span>
-                </li>
+                  </td>
+                  <td className="why">
+                    {/* "Medical certificate" is what FIVB calls it, and what
+                        this said before. The column is the narrowest on the
+                        page and the phrase is the longest thing that could go
+                        in it, so the visible label is the short form and the
+                        full one stays for anyone listening rather than
+                        looking. */}
+                    {medical ? 'Medical' : 'Withdrawn'}
+                    {medical && <span className="sr-only"> certificate</span>}
+                  </td>
+                </tr>
               );
             })}
-          </ul>
-        </div>
+          </tbody>
+        </table>
       )}
     </section>
   );
