@@ -346,6 +346,36 @@
 }
 
 /*
+ * Entrant names. Both kinds are links and both are drawn as links — the only
+ * difference a reader needs is the arrow, which says the next click leaves the
+ * site. Matching the classification's name button exactly is the point: an
+ * entry list and a final classification are the same page at two moments, and
+ * a name should not change character between them.
+ */
+.tournament-page .entries .who button,
+.tournament-page .entries .who .offsite {
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  color: var(--series-1);
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .tournament-page .entries .who button:hover,
+  .tournament-page .entries .who .offsite:hover {
+    text-decoration: underline;
+  }
+}
+
+.tournament-page .entries .who .sep {
+  color: var(--text-muted);
+}
+
+/*
  * The entry route, on the four teams in fifty that did not get in by ranking.
  * Small and quiet: it qualifies the row rather than competing with the name.
  */
