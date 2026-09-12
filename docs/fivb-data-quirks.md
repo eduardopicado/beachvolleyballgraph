@@ -1951,8 +1951,13 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email now covers all of this except §1, §21, §22,
-§23, §24 and §25.** It is `docs/fivb-email.md` (task #12), and its "would a
-list of data issues be useful" section names each quirk by the section number
-used here — so the two files have to be kept in step, and a new section added
-above is not reported until it is added there too.
+**The draft introduction email now covers all of them.** `docs/fivb-email.md`
+(task #12) carries every entry on this list in its "would a list of data issues
+be useful" section, with the player and tournament numbers spelled out so each
+one is a lookup rather than a search.
+
+**If you add an entry here, add it there too.** This note used to say how many
+were still missing, and that count went stale twice — it said three, then five —
+because §18 and §6.5a were written on branches that merged independently and
+each looked correct on its own. Naming the gap turned out to be less reliable
+than closing it, so there is deliberately no number left to drift.
