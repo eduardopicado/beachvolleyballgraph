@@ -31,7 +31,7 @@ its archive at all, let alone document it as carefully as the VIS SDK does.
 Most of the sport's history simply would not be visible without it, and I am
 grateful.
 
-The ingest runs once a week. It sends a `Fields` list on every request, uses
+The ingest runs once a day. It sends a `Fields` list on every request, uses
 POST rather than GET, and identifies itself with a contact address so you can
 reach me directly if it ever causes you trouble:
 
@@ -39,7 +39,7 @@ reach me directly if it ever causes you trouble:
 beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)
 ```
 
-I have three questions, one offer and one request for permission, and I have
+I have four questions, one offer and one request for permission, and I have
 tried to keep all of them small.
 
 **1. May I have an application identifier?** The documentation asks that every
@@ -249,7 +249,43 @@ WCHs" or similar. I maintain a hand-written list of hosts to fill that gap, and
 so, I suspect, does everyone else working with the archive. Populating that one
 field would retire all of those lists at once.
 
-**5. May I show your photographs?** This one is a permission request rather
+**5. What do `Status` and `Type` mean on a team entry, and may I have
+`StatusDate` and `StatusText`?** I publish entry lists for events that have not
+been played yet, and three things on `BeachTeam` decide what those pages can
+say.
+
+`Status` is the one I rely on most and understand least. I read 0 as a team who
+is in the tournament, 2 as a withdrawal and 3 as a medical certificate. That
+came from comparing your own published list for BPT Futures Corigliano Rossano
+against what VIS returns for it on 10 September 2026: 45 rows at `Status` 0
+against the 12 main draw, 16 qualification and 17 reserves your page showed, and
+three each at 2 and 3 against the three withdrawals and three medical
+certificates beside them. (Both sides have moved since — four more teams have
+withdrawn — which is the nature of an entry list rather than a discrepancy.)
+Status 1 appears to be an entry superseded by a later one, which you publish
+nowhere. That reading fits every event I have checked, but it is a guess from
+the outside, and if any part of it is wrong my pages are quietly saying the
+wrong thing about somebody's withdrawal.
+
+Two related questions follow from it. **Is there a published meaning for
+`Type`?** I read 1 as a wild card, 6 as a qualification wild card, 9 as a
+continental quota place and 10 as an open vacancy, decoded against the same
+event, and I show those four as badges. Every other value I treat as "entered
+on ranking" and show nothing, which is safe only if none of them means
+something I ought to be showing. **And how is the main draw, qualification and
+reserve split actually derived?** All 45 of those teams share `Status` 0, so
+whatever separates the 12 from the 16 from the 17 is not in the rows I can see.
+Ordering by `EntryPoints` and cutting at `NbTeamsMainDraw` reproduces your
+split on most events and not all, so I currently do not draw the line at all.
+
+Last, the small one. `StatusDate` and `StatusText` are documented on
+`BeachTeam` as the date of the last status change and the text about it, and
+neither is returned to me — not empty, absent, the same way an unknown field
+name is. Your own site shows a reason beside each withdrawn team, so the text
+is evidently there. Access to those two would let an entry list say when a team
+pulled out and why, in your words rather than my paraphrase of a number.
+
+**6. May I show your photographs?** This one is a permission request rather
 than a question about the data.
 
 `GetImageList`, filtered by `NoTournament`, returns the tournament photography
@@ -311,6 +347,45 @@ request for elevated access to the record as a whole. Saying plainly which
 fields we do *not* want costs a paragraph and removes the obvious reason to
 refuse.
 
+**How we know `StatusDate` is withheld rather than empty.** The two look
+identical from outside — both are simply not in the response — so the claim in
+request 5 rests on a control. Asking for `StatusDate` and `StatusText`
+alongside `EarningsTeam`, `WorldTourRanking` and `MainDrawSeed`, which are
+public and empty on that row, returns the three empties as `""` and the other
+two not at all, which is exactly how VIS treats a field name that does not
+exist. A `Fields`-less singular request, which returns everything this caller
+may see, gives 88 attributes for `BeachTeam` and neither is among them.
+[fivb-vis-survey.md §1.5](fivb-vis-survey.md) has the full probe. Worth keeping
+straight before sending: "you are not returning this field" is a different
+sentence from "this field is empty", and only one of them is true.
+
+**Why request 5 leads with the enums rather than the field access.** The two
+dates are the small ask and the easy one to say yes to; the meaning of `Status`
+and `Type` is the part that actually protects readers from being told something
+false. Every value in that request was decoded by comparing FIVB's own
+published entry list for one event against what VIS returns for it, and the
+counts are quoted so they can check the reading in a minute rather than take it
+on trust — the same footing as request 4. If the reply corrects even one of
+those values, the mail has paid for itself.
+
+**Those counts are dated, and they have to stay dated.** An entry list moves
+every day until the deadline: Corigliano stood at 45 entered with three
+withdrawals and three medical certificates on 10 September 2026, and four
+teams had pulled out by the 12th. Every other number in this mail describes a
+played event and is stable, so this is the one paragraph that ages — which is
+why it names the day rather than claiming a present tense it cannot keep.
+Re-checking it before sending is cheap; quietly refreshing the figures without
+the date is not, because the whole point of request 5 is that they can
+reproduce the comparison.
+
+**The main-draw split is asked as an open question on purpose.** An earlier
+attempt at it here asserted a rule — order by `EntryPoints`, cut at
+`NbTeamsMainDraw`, cap three per federation — that reproduced one event exactly
+and then failed across the archive; tested over 169 played Futures, a cap of
+three, a cap of four and no cap at all are indistinguishable. So the mail says
+the line is not drawn rather than proposing one, which is both true and the
+version that cannot be wrong.
+
 **Why request 2 asks a question rather than only asking for access.** An
 earlier draft of this mail requested the four dates as though they were a
 transfer record. They are probably not. They live on the player row, so they
@@ -332,7 +407,7 @@ FIVB is the international federation and VIS is the system its competitions run
 on, so the archive's accuracy is somebody's job there. But a second chase adds
 nothing, and the ask is small enough that silence is a legitimate answer to it.
 
-**Request 4 is the part most likely to get a reply.** The first three ask for
+**Request 4 is the part most likely to get a reply.** The others ask for
 something; the fourth offers something, and it is the one a person who cares
 about the data will recognise as useful. If only one request survives an edit,
 keep that one.
@@ -382,7 +457,7 @@ crediting one sister for the other's results) and §25 (the `01` country codes
 and Ostende's reversed dates). That is the whole reporting list at the end of
 that document. If a new one is found, add it here too.
 
-**Request 5 is not on that list and never will be**, because it is not a
+**Request 6 is not on that list and never will be**, because it is not a
 defect: the photographs are FIVB's to license and the ask is for permission.
 It sits last deliberately — everything above it costs them nothing and offers
 them something, which is the wrong footing to spoil by leading with a favour.

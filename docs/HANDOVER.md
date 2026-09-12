@@ -58,7 +58,7 @@ they live in the task list rather than in the repository.
 
 | | |
 |---|---|
-| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md`; its data-issues request names each reportable quirk by its [fivb-data-quirks.md](fivb-data-quirks.md) section, so keep the two in step. It also asks permission to show FIVB's tournament photography, which nothing on the site can use until they answer. Nothing is missing — the opening paragraph is the part worth putting in the owner's own voice |
+| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md`; its data-issues request names each reportable quirk by its [fivb-data-quirks.md](fivb-data-quirks.md) section, so keep the two in step. It also asks permission to show FIVB's tournament photography, which nothing on the site can use until they answer, and — request 5 — what `Status` and `Type` mean on a team entry, how the main-draw/qualification/reserve split is derived, and for access to `StatusDate`/`StatusText`, the withdrawal date and reason VIS withholds ([fivb-vis-survey.md §1.5](fivb-vis-survey.md)). That request quotes counts from a live entry list and so carries a date; re-check it before sending. Nothing is missing — the opening paragraph is the part worth putting in the owner's own voice |
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
 | #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
 | #28 | Ask 12ndr.at before linking out to their tournament pages |
