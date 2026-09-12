@@ -3,7 +3,7 @@
 Pick a country and gender, and see every player who has competed in FIVB
 international beach volleyball, linked to the partners they have played with.
 
-Data comes from the official [FIVB VIS Web Service][vis] and is rebuilt weekly.
+Data comes from the official [FIVB VIS Web Service][vis] and is rebuilt daily.
 
 [vis]: https://www.fivb.org/VisSDK/VisWebService/
 
@@ -43,7 +43,7 @@ they used to be counted as tournaments that happened. Around 130 of them are
 in the archive, roughly half from 2020.
 
 > Every count in this README is **approximate and rounded**, and drifts as the
-> archive is rebuilt each week. The exact current figures are always in
+> archive is rebuilt each day. The exact current figures are always in
 > [`/v1/manifest.json`](web/public/v1/manifest.json) — precise numbers written
 > into prose here have gone stale twice already, so they are not repeated.
 
@@ -76,7 +76,7 @@ everything deliberately excluded is listed there with a reason.
 
 The entire FIVB archive is reachable in **three bulk requests** (~36 MB, about
 11 seconds). There is no per-tournament fan-out, no rate-limit pacing and no
-incremental cache — a full rebuild every week is cheap and self-healing.
+incremental cache — a full rebuild every day is cheap and self-healing.
 
 ### Counting rules
 
@@ -133,7 +133,7 @@ in ten** entered exactly one tournament, ever (39%). Career players behave the
 way you would expect — about five partners — and the **Min. events together**
 filter is the quickest way to see only them.
 
-The medians are the stable part of that table; the counts move every week and
+The medians are the stable part of that table; the counts move daily and
 the means drift slowly. `llms.txt` carries the same shape figures computed at
 build time, so those are exact.
 
@@ -308,7 +308,7 @@ links with the canonical tag (`routing`), and tap targets surviving the zoom
 the graph actually chooses (`pointer`).
 
 Every assertion is cross-checked against the JSON the page was built from
-rather than a number written into the test, so the suite survives the weekly
+rather than a number written into the test, so the suite survives the daily
 rebuild and fails exactly when the page and its data disagree. Any uncaught
 exception or `console.error` fails the test at teardown. It runs on every pull
 request and again before the deploy uploads anything.
@@ -362,8 +362,8 @@ SITE_URL=https://your-domain.example npm run build
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs weekly (Mondays 09:17 UTC — after the
-Sunday finals, so placements have been published), on pushes to
+`.github/workflows/deploy.yml` runs daily (09:17 UTC — late enough that a
+final anywhere in the world has been played and published), on pushes to
 `main`, and on demand via *Run workflow*. It lints, typechecks, unit-tests,
 ingests, builds, smoke-tests the built site in a browser, and only then deploys
 to GitHub Pages. On a plain code push the ingest job is skipped entirely, so
@@ -375,7 +375,7 @@ Pages on, the API call is refused and you will need **Settings → Pages → Sou
 → GitHub Actions** once, by hand.
 
 If the ingest step fails the job stops before deploying, so the previously
-published site keeps serving last week's data — the failure notification from
+published site keeps serving yesterday's data — the failure notification from
 Actions is the whole monitoring story.
 
 The ingest also refuses to publish if the data looks wrong (no qualifying
@@ -386,7 +386,7 @@ half-published state is not reachable.
 ### Cloudflare Pages + a custom domain
 
 `.github/workflows/deploy-cloudflare.yml` is the alternative to GitHub Pages.
-Disable whichever one you are not using so they do not both rebuild weekly.
+Disable whichever one you are not using so they do not both rebuild daily.
 
 1. Point the domain's nameservers at Cloudflare (at registro.br: *Alterar
    servidores DNS*). Propagation is usually under an hour.
@@ -425,7 +425,7 @@ they are defending against.
 ## Layout
 
 ```
-ingest/     the weekly pipeline (VIS client, tier allowlist, aggregation)
+ingest/     the daily pipeline (VIS client, tier allowlist, aggregation)
 web/src/    the app (schema, force layout, components)
 e2e/        browser smoke tests, run against the built site
 docs/       notes worth keeping (see the data quirks catalogue above)

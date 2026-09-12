@@ -51,10 +51,14 @@ import {
   sliceByCountryAndGender,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
+import { SERIES, seriesFor, type SeriesEdition } from './series.js';
+import { tournamentSlugs } from '../web/src/lib/slug.js';
 import { verifyTeammates } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
 import type {
+  EntryRoute,
+  WithdrawalReason,
   Manifest,
   ManifestCountry,
   Gender,
@@ -88,6 +92,38 @@ const RECENT_RESULT_DAYS = 30;
 
 function log(step: string, detail: string) {
   console.log(`[${new Date().toISOString().slice(11, 19)}] ${step.padEnd(12)} ${detail}`);
+}
+
+/**
+ * Refuse to publish a field that came back empty on (almost) everything.
+ *
+ * `checkForRegression` watches the totals, which catches a fetch that lost its
+ * rows. This catches the other shape: every row present and one field blank on
+ * all of them. VIS returns exactly the fields a request names and says nothing
+ * about one that was left out, so a field consumed here but missing from a
+ * `Fields` list is silently null everywhere — no error, no empty response,
+ * just a column of nulls that looks like upstream having no data.
+ *
+ * That is not hypothetical: `country` shipped that way and reached the
+ * published tree null on all 1,688 rows, because `CountryCode` was added to
+ * the code that reads it and not to the request that fetches it.
+ *
+ * The floor is deliberately low. This is a "did we ask for it" check, not a
+ * coverage target — eight tournaments legitimately have no usable country
+ * (quirks §25), and a field that is genuinely sparse upstream should not be
+ * guarded here at all.
+ */
+export function assertPopulated<T>(field: string, rows: T[], has: (row: T) => boolean, floor = 0.5) {
+  if (rows.length === 0) return;
+  const populated = rows.filter(has).length;
+  const share = populated / rows.length;
+  if (share < floor) {
+    throw new Error(
+      `${field} is populated on ${populated} of ${rows.length} rows (${(share * 100).toFixed(1)}%) — ` +
+        `refusing to publish. Check that the VIS request asks for the field it reads.`,
+    );
+  }
+  log(field, `populated on ${populated} of ${rows.length}`);
 }
 
 function hasMedal(counts: MedalCounts): boolean {
@@ -158,6 +194,12 @@ async function main() {
     // `StartDateMainDraw` orders partners inside a season on the player card's
     // timeline; `EndDateMainDraw` tells finishedWithoutResults() which events
     // are over. All three ride on a request already being made.
+    //
+    // `CountryCode` is the venue's country, for the flag beside a tournament.
+    // It has to be asked for by name: VIS returns exactly the fields listed
+    // here and says nothing about one you left out, so a field consumed
+    // downstream but missing from this list is silently null on every row —
+    // which is precisely what happened when `country` was first published.
     fields: [
       'No',
       'Code',
@@ -169,11 +211,13 @@ async function main() {
       'Version',
       'StartDateMainDraw',
       'EndDateMainDraw',
+      'CountryCode',
     ],
     itemTag: 'BeachTournament',
   });
   const tournaments = normaliseTournaments(tournamentRows);
   if (tournaments.size === 0) throw new Error('No qualifying tournaments — refusing to publish');
+  assertPopulated('country', [...tournaments.values()], (t) => t.country !== null);
 
   const tierCounts: Record<string, number> = {};
   let seasonFrom = Infinity;
@@ -217,7 +261,24 @@ async function main() {
   // --- Stage 3: team entries -> partnership edges --------------------------
   const teamRows = await fetchList({
     type: 'GetBeachTeamList',
-    fields: ['No', 'NoTournament', 'NoPlayer1', 'NoPlayer2', 'FederationCode', 'Rank'],
+    // `Status` is the entry state, and it has to be asked for by name like
+    // everything else — VIS returns exactly the fields listed and says nothing
+    // about one left out (see `assertPopulated`).
+    // `Type` is the entry route and `EntryPoints`/`TechnicalPoints` the
+    // figures FIVB freezes at the registration deadline -- all asked for by
+    // name, VIS returning exactly the fields listed (see `assertPopulated`).
+    fields: [
+      'No',
+      'NoTournament',
+      'NoPlayer1',
+      'NoPlayer2',
+      'FederationCode',
+      'Rank',
+      'Status',
+      'Type',
+      'EntryPoints',
+      'TechnicalPoints',
+    ],
     itemTag: 'BeachTeam',
   });
   log('entries', `${teamRows.length} team entries`);
@@ -343,9 +404,16 @@ async function main() {
     // championships, has to be written as an explicit null to hold the place.
     // The shorter forms are kept for the rows that carry no code at all, and
     // for a future refresh where a country genuinely cannot be read.
+    //
+    // `gender` rides along with them because the two readers that need it need
+    // it for the same reason: a tournament's own page is addressed by a slug
+    // that includes the draw, and the index flips between the men's and
+    // women's calendars. Both would otherwise have to open a classification
+    // file per tournament to learn it, and neither can read it off the code --
+    // `WWRS2022` is a men's field under a `W` (quirks §23).
     tournamentIndex[t.no] = t.code
       ? t.country !== null || t.span !== null
-        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span]
+        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span, t.gender]
         : t.level
           ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level]
           : [t.name, t.season, t.tier, t.startOffset, t.code]
@@ -510,6 +578,21 @@ async function main() {
     entry.genders[slice.gender as Gender] = { nodes: slice.nodes.length, edges: slice.edges.length };
   }
 
+  // Which qualifying tournaments VIS publishes no field for — see
+  // `Manifest.withoutField` for what they are and why they stay in
+  // tournaments.json rather than being dropped from it.
+  //
+  // The condition mirrors the one the classification loop below writes files
+  // under, deliberately and exactly: this list is what tells the site which
+  // tournaments have a page, and a list that is merely *nearly* the set of
+  // files on disk is worse than none, because the disagreement shows up as a
+  // slug resolved two different ways rather than as an error.
+  const withoutField = [...tournaments.values()]
+    .filter((t) => t.code && !classifications.has(t.no))
+    .map((t) => t.code!)
+    .sort();
+  log('field', `${withoutField.length} of ${tournaments.size} tournaments have none`);
+
   const manifest: Manifest = {
     generatedAt,
     sourceVersion,
@@ -521,6 +604,7 @@ async function main() {
     },
     tiers: tierCounts,
     countries: [...byCountry.values()].sort((a, b) => a.name.localeCompare(b.name)),
+    withoutField,
   };
   await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
@@ -546,6 +630,33 @@ async function main() {
   }
 
   let classificationFiles = 0;
+  /**
+   * Editions collected as the classifications are written, keyed by series.
+   *
+   * Built here rather than in a pass of its own because this loop already
+   * holds every field it needs — the sorted teams and the names — and reading
+   * 1,610 classification files back off disk to find four rows in each would
+   * be the same work twice.
+   */
+  const editionsBySeries = new Map<string, SeriesEdition[]>();
+
+  /**
+   * Slug per tournament code, built over the same set the prerenderer uses so
+   * an edition's link and the page it points at cannot disagree. Both sides
+   * call `tournamentSlugs`, which is what makes the code suffix land on the
+   * same members of a clash in both.
+   */
+  const slugInputs = [...tournaments.values()].filter((t) => t.code);
+  const slugByTournament = tournamentSlugs(slugInputs, (t) => ({
+    name: t.name,
+    season: t.season,
+    gender: t.gender,
+    code: t.code,
+  }));
+  const tournamentSlugMap = new Map(
+    slugInputs.map((t) => [t.code, slugByTournament.get(t)!] as const),
+  );
+
   let classifiedTeams = 0;
   /** Field appearances, and how many of them the guess below gets right. */
   let fieldNames = 0;
@@ -588,6 +699,31 @@ async function main() {
       }
     }
 
+    // The first four *placements*, which is more than four teams whenever a
+    // rank is shared — and it usually is (quirks §5).
+    const memberOf = seriesFor({ code: tournament.code, tier: tournament.tier });
+    if (memberOf.length > 0) {
+      const top: SeriesEdition['top'] = [];
+      const placings = [...new Set(teams.map((t) => t[0]).filter((r) => r > 0))].sort((a, b) => a - b);
+      for (const rank of placings.slice(0, 4)) {
+        for (const [, a, b, federation] of teams.filter((t) => t[0] === rank)) {
+          top.push([rank, `${named[a] ?? `Player ${a}`} / ${named[b] ?? `Player ${b}`}`, federation]);
+        }
+      }
+      for (const slug of memberOf) {
+        const list = editionsBySeries.get(slug) ?? [];
+        list.push({
+          code: tournament.code,
+          season: tournament.season,
+          gender,
+          slug: tournamentSlugMap.get(tournament.code) ?? '',
+          name: tournament.name,
+          top,
+        });
+        editionsBySeries.set(slug, list);
+      }
+    }
+
     classifiedTeams += teams.length;
     classificationFiles++;
     // Omitted entirely on the two thirds of tournaments whose whole field is
@@ -610,6 +746,205 @@ async function main() {
   log(
     'classified',
     `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
+  );
+
+  // --- one file per tournament without a result: who has entered ------------
+  /*
+   * A tournament with no field still has a page, so it needs something to put
+   * on it. FIVB publishes the entry list well ahead of the event -- 58 teams
+   * were entered for Corigliano Rossano nine days out -- and that is the
+   * genuinely useful thing to show for a week that has not happened.
+   *
+   * Written for every fieldless tournament the index shows, which is the same
+   * window `RESULT_LAG_DAYS` defines there: still to come, or played so
+   * recently that FIVB has not written placements yet. A cancellation from
+   * 2004 gets nothing, having neither a result nor a future.
+   *
+   * Written even when nobody has entered. The 2027 World Championships had
+   * zero entries a year out, and an empty file is what lets its page say "no
+   * entries yet" instead of failing to load.
+   */
+  await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
+  const lagCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000);
+  /**
+   * FIVB's `Type` -> the entry route their own list badges.
+   *
+   * Decoded against their published entry list for Corigliano Rossano, team
+   * by team: the one Type 1 is its wild card, the one Type 6 its qualification
+   * wild card, the one Type 9 its continental slot and all four Type 10 rows
+   * its open vacancies. Every other value is the ordinary ranking route and
+   * gets no badge -- including Type 4, which is *not* a category: across the
+   * archive it carries both placements and rank-0 rows, and its matching the
+   * withdrawn count on one tournament was a coincidence.
+   */
+  const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
+
+  /**
+   * `Status` -> why a team that entered will not play.
+   *
+   * 2 and 3 against the same list, which shows three withdrawals and three
+   * medical certificates: exactly the counts VIS gives. Status 1 is a third
+   * kind, an entry superseded by a later one, and FIVB publishes those
+   * nowhere -- they are the rows that made one player appear in three
+   * different pairs before this filter existed.
+   */
+  const WITHDRAWAL: Record<number, WithdrawalReason> = { 2: 'withdrawn', 3: 'medical' };
+
+  /** A number VIS may leave blank, which is not the same as zero. */
+  const points = (raw: string | undefined) => {
+    const n = Number(raw);
+    return raw === undefined || raw === '' || !Number.isFinite(n) ? null : n;
+  };
+
+  interface EntryRow {
+    a: number;
+    b: number;
+    federation: string;
+    entry: number | null;
+    tech: number | null;
+    route: EntryRoute | null;
+    withdrawal: WithdrawalReason | null;
+  }
+  const entriesByTournament = new Map<string, EntryRow[]>();
+  for (const row of teamRows) {
+    const status = Number(row.Status ?? 0);
+    // Status 0 is a team that is in the tournament -- main draw, qualification
+    // or reserve, all of which can end up playing. 2 and 3 entered and pulled
+    // out. 1 and the rest are superseded entries nobody publishes.
+    //
+    // Decoded from the archive, because there is no published enum: across
+    // 206,799 team rows, Status 0 is the only value that ever carries a
+    // placement (137,518 of them) and the other five are rank 0 on all but 8.
+    // Corroborated against FIVB's own list for Corigliano Rossano -- 45 rows
+    // at Status 0 against the 12 + 16 + 17 they show, and three each at
+    // Status 2 and 3 against their three withdrawals and three medical
+    // certificates.
+    const withdrawal = WITHDRAWAL[status] ?? null;
+    if (status !== 0 && !withdrawal) continue;
+    const no = (row.NoTournament ?? '').trim();
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    const list = entriesByTournament.get(no) ?? [];
+    list.push({
+      a,
+      b,
+      federation: (row.FederationCode ?? '').trim(),
+      entry: points(row.EntryPoints),
+      tech: points(row.TechnicalPoints),
+      route: ENTRY_ROUTE[Number(row.Type ?? 0)] ?? null,
+      withdrawal,
+    });
+    entriesByTournament.set(no, list);
+  }
+
+  let entryFiles = 0;
+  let entryTeams = 0;
+  for (const tournament of tournaments.values()) {
+    if (!tournament.code || classifications.has(tournament.no)) continue;
+    const endsOn = tournament.endsOn === null ? null : new Date(`${tournament.endsOn}T00:00:00Z`);
+    if (endsOn === null || endsOn < lagCutoff) continue;
+
+    /*
+     * Ordered as FIVB orders it: entry points first, technical points to break
+     * a tie, and the pair's own ids after that so the file does not churn
+     * between runs that hold the same list.
+     *
+     * By points rather than by federation, which is how it read before, so a
+     * reader sees the same order FIVB's own list has -- the order that decides
+     * who gets in.
+     */
+    const byRank = (x: EntryRow, y: EntryRow) =>
+      (y.entry ?? -1) - (x.entry ?? -1) || (y.tech ?? -1) - (x.tech ?? -1) || x.a - y.a || x.b - y.b;
+    const all = entriesByTournament.get(tournament.no) ?? [];
+    const teams = all.filter((t) => !t.withdrawal).sort(byRank);
+    const withdrawn = all.filter((t) => t.withdrawal).sort(byRank);
+
+    const named: Record<string, string> = {};
+    const elsewhere: Record<string, string | null> = {};
+    for (const { a, b, federation } of [...teams, ...withdrawn]) {
+      for (const id of [a, b]) {
+        if (!named[id]) named[id] = players.get(id)?.name ?? `Player ${id}`;
+        const actual = publishedOn.get(id) ?? null;
+        if (actual !== `${federation}-${tournament.gender}`) elsewhere[id] = actual;
+      }
+    }
+
+    const row = (t: EntryRow): unknown[] => [
+      t.a,
+      t.b,
+      t.federation,
+      t.entry,
+      t.tech,
+      ...(t.withdrawal ? [t.withdrawal] : t.route ? [t.route] : []),
+    ];
+
+    entryFiles++;
+    entryTeams += teams.length;
+    const corrected = Object.keys(elsewhere).length > 0;
+    await writeFile(
+      path.join(TMP_DIR, 'entries', `${tournament.code}.json`),
+      [
+        '{',
+        `  "code": ${JSON.stringify(tournament.code)},`,
+        `  "gender": ${JSON.stringify(tournament.gender)},`,
+        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`,
+        ...(withdrawn.length
+          ? [`  "withdrawn": [\n${withdrawn.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`]
+          : []),
+        `  "players": ${jsonByKey(named, '  ')}${corrected ? ',' : ''}`,
+        ...(corrected ? [`  "elsewhere": ${jsonByKey(elsewhere, '  ')}`] : []),
+        '}',
+      ].join('\n'),
+    );
+  }
+  log('entries', `${entryTeams} teams entered across ${entryFiles} tournaments without a result`);
+
+  // --- series ---------------------------------------------------------------
+  /*
+   * One file per series, each holding every edition and its first four
+   * placements, plus an index from tournament code to the series it belongs
+   * to.
+   *
+   * Split this way because of how it is read: a tournament page knows its own
+   * code and nothing else, so it fetches the small index, learns it is a
+   * Gstaad, and fetches only that. The 87% of tournaments in no series at all
+   * pay for the index and stop there.
+   */
+  await mkdir(path.join(TMP_DIR, 'series'), { recursive: true });
+  const seriesIndex: Record<string, string[]> = {};
+  let editionCount = 0;
+  for (const definition of SERIES) {
+    const editions = (editionsBySeries.get(definition.slug) ?? []).sort(
+      // Newest first, then the men's draw before the women's, which is the
+      // order the two are named in everywhere else on the site.
+      (a, b) => b.season - a.season || a.gender.localeCompare(b.gender),
+    );
+    if (editions.length === 0) continue;
+    editionCount += editions.length;
+    for (const edition of editions) {
+      (seriesIndex[edition.code] ??= []).push(definition.slug);
+    }
+    await writeFile(
+      path.join(TMP_DIR, 'series', `${definition.slug}.json`),
+      [
+        '{',
+        `  "slug": ${JSON.stringify(definition.slug)},`,
+        `  "name": ${JSON.stringify(definition.name)},`,
+        `  "blurb": ${JSON.stringify(definition.blurb)},`,
+        `  "editions": [\n${editions.map((e) => `    ${JSON.stringify(e)}`).join(',\n')}\n  ]`,
+        '}',
+        '',
+      ].join('\n'),
+    );
+  }
+  await writeFile(
+    path.join(TMP_DIR, 'series', 'index.json'),
+    `{\n  "of": ${jsonByKey(seriesIndex, '  ')}\n}`,
+  );
+  log(
+    'series',
+    `${editionCount} editions across ${Object.keys(seriesIndex).length} tournaments in ${SERIES.length} series`,
   );
   // The number the published shape rests on: if the guess ever stopped being
   // nearly always right, storing the corrections would be the wrong trade and

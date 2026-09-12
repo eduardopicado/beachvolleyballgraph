@@ -13,8 +13,11 @@ import type {
   ResultsFile,
   SearchIndex,
   ClassificationFile,
+  EntriesFile,
   TournamentsFile,
   Gender,
+  SeriesFile,
+  SeriesIndexFile,
 } from '../schema';
 import {
   graphPath,
@@ -23,7 +26,10 @@ import {
   resultsPath,
   searchPath,
   classificationPath,
+  entriesPath,
   tournamentsPath,
+  seriesIndexPath,
+  seriesPath,
 } from '../schema';
 
 /** Vite rewrites this to the deploy base ("/" or "/<repo>/"). */
@@ -74,6 +80,24 @@ export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
  */
 export const fetchClassification = (code: string) =>
   load<ClassificationFile>(classificationPath(BASE, code));
+
+/** Who has entered a tournament that has no result yet. */
+export const fetchEntries = (code: string) => load<EntriesFile>(entriesPath(BASE, code));
+
+/**
+ * The tournament index on its own.
+ *
+ * `fetchResults` already pulls this alongside a slice's results; a tournament
+ * page needs it without any slice at all, and the browser cache makes the
+ * second caller free when both happen in one visit.
+ */
+export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
+
+/** Which series each tournament belongs to. Small; most pages stop here. */
+export const fetchSeriesIndex = () => load<SeriesIndexFile>(seriesIndexPath(BASE));
+
+/** One series and all its editions, fetched only when a page is in one. */
+export const fetchSeries = (slug: string) => load<SeriesFile>(seriesPath(BASE, slug));
 
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([

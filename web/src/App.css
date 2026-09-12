@@ -224,3 +224,35 @@ footer .caveat {
   margin: 0;
   color: var(--text-secondary);
 }
+
+/*
+ * The masthead's right-hand cluster: the link to the tournament index beside
+ * the theme toggle.
+ *
+ * The index is the only other place on the site a reader can go from here, so
+ * it sits where the eye already lands for a control rather than being buried
+ * in the footer alone — but it is a link, drawn quieter than the toggle, not a
+ * second primary action competing with the graph.
+ */
+.masthead-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.masthead-actions .pill {
+  font-size: 13px;
+  padding: 5px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (hover: hover) {
+  .masthead-actions .pill:hover {
+    background: var(--track);
+    color: var(--text-primary);
+  }
+}

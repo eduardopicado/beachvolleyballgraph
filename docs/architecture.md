@@ -189,7 +189,7 @@ slice would fall back to the default country and replace the page.
 
 ```mermaid
 flowchart TD
-  CRON["Monday 09:17 UTC cron"] --> ING
+  CRON["Daily 09:17 UTC cron"] --> ING
   PUSH["push to main"] -.->|"ingest skipped"| BUILD
 
   subgraph gha["GitHub Actions — deploy.yml"]

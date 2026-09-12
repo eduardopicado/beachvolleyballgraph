@@ -92,7 +92,7 @@ you cannot measure it, say that instead.
 
 Two kinds of number live in these docs and they age differently. One describes
 **the artifact as it stands** — file sizes, row counts, how many tests there
-are — and has to be true today; those are the ones that go stale on a weekly
+are — and has to be true today; those are the ones that go stale on a daily
 refresh, and the fix is to re-measure. The other records **what an
 investigation found** — "38% of shared seasons changed order", "89% of played
 rows share a rank" — and is a dated observation that stays as written, unless
@@ -138,7 +138,7 @@ of the real `dist/`, in seven files:
 
 The rule that makes these worth having: **every assertion is cross-checked
 against the JSON the page was built from**, never against a number typed into
-the test. They stay true as the weekly refresh changes the data, and fail
+the test. They stay true as the daily refresh changes the data, and fail
 exactly when the page and its data disagree.
 
 Habits worth copying:

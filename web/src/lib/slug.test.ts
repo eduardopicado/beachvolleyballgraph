@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { sliceSlug, slicePath, slugFromPath, slugify } from './slug';
+import type { Gender } from '../schema';
+import {
+  sliceSlug, slicePath, slugFromPath, slugify,
+  nameCarriesSeason,
+  tournamentSlug,
+  tournamentSlugs,
+} from './slug';
 
 describe('slugify', () => {
   it('lower-cases and hyphenates', () => {
@@ -47,5 +53,104 @@ describe('slugFromPath', () => {
 
   it('does not mistake a base-less path for a slug-less root', () => {
     expect(slugFromPath('/norway-women/', '/')).toBe('norway-women');
+  });
+});
+
+describe('tournamentSlug', () => {
+  it('reads as the event, not as FIVB’s code', () => {
+    expect(tournamentSlug('Gstaad', 2019, 'W')).toBe('gstaad-2019-women');
+    expect(tournamentSlug('Stare Jablonki', 2008, 'M')).toBe('stare-jablonki-2008-men');
+  });
+
+  it('strips diacritics and punctuation the way slice slugs do', () => {
+    expect(tournamentSlug('Pärnu', 2008, 'M')).toBe('parnu-2008-men');
+    expect(tournamentSlug('Roseto degli Abruzzi', 2005, 'W')).toBe('roseto-degli-abruzzi-2005-women');
+  });
+
+  it('knows when a name already carries its season', () => {
+    expect(nameCarriesSeason('Paris 2024', 2024)).toBe(true);
+    expect(nameCarriesSeason('Gstaad', 2019)).toBe(false);
+    // Contains, but does not end with: still needs the season appended.
+    expect(nameCarriesSeason('2018 Warm-up', 2019)).toBe(false);
+  });
+
+  it('does not repeat a season the name already ends with', () => {
+    // The Olympics carry their year in the name FIVB gives them, and so do a
+    // few others. 17 of the 1,610 published tournaments were reading
+    // `paris-2024-2024-men` before this.
+    expect(tournamentSlug('Paris 2024', 2024, 'M')).toBe('paris-2024-men');
+    expect(tournamentSlug('Beijing 2008', 2008, 'W')).toBe('beijing-2008-women');
+    expect(tournamentSlug('BPT Finals Doha 2023', 2023, 'M')).toBe('bpt-finals-doha-2023-men');
+  });
+
+  it('still adds a season the name only happens to contain elsewhere', () => {
+    // The rule is "ends with", not "contains": dropping the season here would
+    // give two editions of this event the same slug.
+    expect(tournamentSlug('2018 Warm-up', 2019, 'M')).toBe('2018-warm-up-2019-men');
+  });
+
+  it('appends a disambiguator when given one', () => {
+    expect(tournamentSlug('Sofia', 2021, 'M', 'MSOF2021')).toBe('sofia-2021-men-msof2021');
+  });
+});
+
+describe('tournamentSlugs', () => {
+  type Row = { name: string; season: number; gender: Gender; code: string };
+  const slugsOf = (rows: Row[]) => {
+    const map = tournamentSlugs(rows, (r) => r);
+    return rows.map((r) => map.get(r)!);
+  };
+
+  it('leaves a tournament with no clash clean', () => {
+    expect(
+      slugsOf([
+        { name: 'Gstaad', season: 2019, gender: 'W', code: 'WGST2019' },
+        { name: 'Gstaad', season: 2018, gender: 'W', code: 'WGST2018' },
+      ]),
+    ).toEqual(['gstaad-2019-women', 'gstaad-2018-women']);
+  });
+
+  it('gives the code to every member of a clash, not just the later one', () => {
+    // Otherwise one arbitrary member keeps the clean URL, and which one it is
+    // depends on iteration order — so an unrelated event being added to the
+    // archive could move a tournament's address.
+    expect(
+      slugsOf([
+        { name: 'Torquay', season: 2022, gender: 'M', code: 'MAUS2022' },
+        { name: 'Torquay', season: 2022, gender: 'M', code: 'MSYD2022' },
+      ]),
+    ).toEqual(['torquay-2022-men-maus2022', 'torquay-2022-men-msyd2022']);
+  });
+
+  it('handles a three-way clash', () => {
+    // Sofia 2021 really is three events, in both draws.
+    expect(
+      slugsOf([
+        { name: 'Sofia', season: 2021, gender: 'W', code: 'WSOF2021' },
+        { name: 'Sofia', season: 2021, gender: 'W', code: 'WSFI2021' },
+        { name: 'Sofia', season: 2021, gender: 'W', code: 'WSOI2021' },
+      ]),
+    ).toEqual(['sofia-2021-women-wsof2021', 'sofia-2021-women-wsfi2021', 'sofia-2021-women-wsoi2021']);
+  });
+
+  it('separates the two draws of one event without needing a code', () => {
+    expect(
+      slugsOf([
+        { name: 'Gstaad', season: 2019, gender: 'M', code: 'MGST2019' },
+        { name: 'Gstaad', season: 2019, gender: 'W', code: 'WGST2019' },
+      ]),
+    ).toEqual(['gstaad-2019-men', 'gstaad-2019-women']);
+  });
+
+  it('files a draw by the gender it was given, not by its code’s first letter', () => {
+    // WWRS2022 is a field of 54 men under a `W` (quirks §23). Passed the
+    // classification's own gender, it lands beside the other Warsaw men's
+    // event and takes a code suffix because the two now clash.
+    expect(
+      slugsOf([
+        { name: 'Warsaw', season: 2022, gender: 'M', code: 'MWAR2022' },
+        { name: 'Warsaw', season: 2022, gender: 'M', code: 'WWRS2022' },
+      ]),
+    ).toEqual(['warsaw-2022-men-mwar2022', 'warsaw-2022-men-wwrs2022']);
   });
 });
