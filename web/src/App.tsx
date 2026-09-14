@@ -64,6 +64,26 @@ export default function App() {
   const [details, setDetails] = useState<PlayersFile | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedId, setSelectedId] = useState<number | null>(initial.player);
+  /**
+   * The player this page loaded already showing, so closing their card can
+   * hand the reader back to wherever sent them here.
+   *
+   * `initial.player` came from the URL at mount, not from a click inside the
+   * graph — the tournament page's entry list does a full navigation to
+   * `<slice>/?player=<id>` (`TournamentRoute`'s `onSelectPlayer`), because the
+   * graph and the tournament page are separate mounts. That means the
+   * browser's own history already has the referring page one entry back;
+   * closing the card with a plain `setSelectedId(null)` never used it, so a
+   * reader arriving from a tournament page closed the profile and found
+   * themselves stranded in the graph instead of back where they came from.
+   *
+   * One-shot rather than a standing comparison against `selectedId`: consumed
+   * the first time the card is closed, whatever the outcome, so a reader who
+   * closes, searches for the same player again and closes a second time gets
+   * the ordinary in-place close — that second visit is their own browsing,
+   * not a continuation of the link that brought them here.
+   */
+  const arrivedOnPlayer = useRef(initial.player);
   const [layoutKey, setLayoutKey] = useState(0);
   /** Hide partnerships below this many shared tournaments. 1 = show all. */
   const [minTogether, setMinTogether] = useState(initial.min ?? 1);
@@ -453,6 +473,25 @@ export default function App() {
   const selectPlayer = useCallback((id: number | null) => setSelectedId(id), []);
 
   /**
+   * The card's own close button and Escape key, as opposed to tapping empty
+   * canvas or picking someone else — both of which are the reader choosing
+   * where to look next, not "I am done here". See `arrivedOnPlayer`.
+   */
+  const closeCard = useCallback(() => {
+    const arrivedOn = arrivedOnPlayer.current;
+    arrivedOnPlayer.current = null;
+    if (arrivedOn !== null && selectedId === arrivedOn && history.length > 1) {
+      // `history.length > 1` rather than trying to inspect the referrer: a
+      // graph page opened as the very first thing in a tab (typed, bookmarked)
+      // has nothing to go back to, and `history.back()` there would be a
+      // close button that silently does nothing — worse than not trying.
+      history.back();
+      return;
+    }
+    setSelectedId(null);
+  }, [selectedId]);
+
+  /**
    * Selection from the search box, which unlike the graph, the table and the
    * partner list can reach a player the strength filter is currently hiding.
    *
@@ -656,7 +695,7 @@ export default function App() {
                 onSelectAway={selectAwayPartner}
                 onSelectFieldPlayer={selectFieldPlayer}
                 onFindPath={() => setPathOpen(true)}
-                onClose={() => setSelectedId(null)}
+                onClose={closeCard}
               />
             </div>
           )}
