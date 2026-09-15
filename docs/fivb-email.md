@@ -260,8 +260,9 @@ came from comparing your own published list for BPT Futures Corigliano Rossano
 against what VIS returns for it on 10 September 2026: 45 rows at `Status` 0
 against the 12 main draw, 16 qualification and 17 reserves your page showed, and
 three each at 2 and 3 against the three withdrawals and three medical
-certificates beside them. (Both sides have moved since — four more teams have
-withdrawn — which is the nature of an entry list rather than a discrepancy.)
+certificates beside them. (Both sides have moved since — as of 15 September,
+seven teams have withdrawn and four hold medical certificates — which is the
+nature of an entry list rather than a discrepancy.)
 Status 1 appears to be an entry superseded by a later one, which you publish
 nowhere. That reading fits every event I have checked, but it is a guess from
 the outside, and if any part of it is wrong my pages are quietly saying the
@@ -370,8 +371,9 @@ those values, the mail has paid for itself.
 
 **Those counts are dated, and they have to stay dated.** An entry list moves
 every day until the deadline: Corigliano stood at 45 entered with three
-withdrawals and three medical certificates on 10 September 2026, and four
-teams had pulled out by the 12th. Every other number in this mail describes a
+withdrawals and three medical certificates on 10 September 2026, and by 15
+September that had moved to 40 entered, seven withdrawals and four medical
+certificates. Every other number in this mail describes a
 played event and is stable, so this is the one paragraph that ages — which is
 why it names the day rather than claiming a present tense it cannot keep.
 Re-checking it before sending is cheap; quietly refreshing the figures without
