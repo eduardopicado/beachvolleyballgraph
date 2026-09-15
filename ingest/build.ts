@@ -523,6 +523,95 @@ export function aggregateTourPodiums(
   return out;
 }
 
+/**
+ * Everything one partnership won *together*, kept in the three tallies the
+ * player card already uses.
+ *
+ * The pair, not the players. Emanuel Rego's 73 tour golds are spread across
+ * ten partners; this says how many of them he won beside Ricardo, and is a
+ * different fact about a different subject. Two players with enormous
+ * individual records can have won almost nothing as a pair.
+ */
+export interface PairHonours {
+  /** The smaller player number, matching `pairKey`'s ordering. */
+  a: number;
+  b: number;
+  olympics: MedalCounts;
+  'world-champs': MedalCounts;
+  /** World Tour and Beach Pro Tour podiums, levels mixed. */
+  tour: MedalCounts;
+}
+
+/**
+ * Per-partnership honours, keyed by `pairKey`.
+ *
+ * One walk rather than three, and deliberately not built by joining the two
+ * per-player aggregations above: a medal is a property of the *team row*,
+ * which already names both players, so crediting the pair is the direct
+ * reading. Deriving it from player tallies would have to guess which of a
+ * player's medals belonged to which partner, and could not.
+ *
+ * Ranks are read exactly as the per-player functions read them, including the
+ * 1997 World Championships pairs who share a bronze — a pair credited there is
+ * credited here. The category split is kept rather than summed because
+ * weighing an Olympic gold against a Futures title is a judgement the caller
+ * has to make, not an arithmetic one.
+ */
+export function aggregatePairHonours(
+  teamRows: VisRow[],
+  tournaments: Map<string, Tournament>,
+  medals: Map<string, MedalCategory>,
+): Map<string, PairHonours> {
+  const out = new Map<string, PairHonours>();
+
+  const credit = (
+    a: number,
+    b: number,
+    category: keyof Omit<PairHonours, 'a' | 'b'>,
+    medal: keyof MedalCounts,
+  ) => {
+    const key = pairKey(a, b);
+    let entry = out.get(key);
+    if (!entry) {
+      out.set(
+        key,
+        (entry = {
+          a: Math.min(a, b),
+          b: Math.max(a, b),
+          olympics: { gold: 0, silver: 0, bronze: 0 },
+          'world-champs': { gold: 0, silver: 0, bronze: 0 },
+          tour: { gold: 0, silver: 0, bronze: 0 },
+        }),
+      );
+    }
+    entry[category][medal]++;
+  };
+
+  for (const row of teamRows) {
+    const medal = RANK_TO_MEDAL[Number(row.Rank)];
+    if (!medal) continue;
+
+    const tournamentNo = (row.NoTournament ?? '').trim();
+    const category = medals.get(tournamentNo);
+    const tournament = tournaments.get(tournamentNo);
+    // A medal event and a tour stop are mutually exclusive by construction —
+    // `medalTournaments` takes VIS Types 4 and 5, `TOUR_TIERS` takes neither —
+    // so at most one of these two branches can fire for a row.
+    const slot: keyof Omit<PairHonours, 'a' | 'b'> | null = category
+      ? category
+      : tournament && TOUR_TIERS.has(tournament.tier)
+        ? 'tour'
+        : null;
+    if (!slot) continue;
+
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    credit(a, b, slot, medal);
+  }
+  return out;
+}
+
 /** A token that is a shout: letters, all of them upper case. */
 function isShouted(token: string): boolean {
   const letters = token.replace(/[^\p{L}]/gu, '');
