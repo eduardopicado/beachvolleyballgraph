@@ -505,14 +505,26 @@ export interface ClassificationFile {
 
 /**
  * The published page a player in a tournament's field belongs to, or null when
- * they have none — their slice held too few players for one to be built.
+ * they have none.
  *
  * The team's federation and the event's gender, unless the file says
  * otherwise. See `ClassificationFile.elsewhere` for why that is a guess with a
  * correction list rather than a slice stored against every name.
+ *
+ * Takes the two fields it reads rather than a `ClassificationFile`, because an
+ * `EntriesFile` carries the same pair for the same reason and the two must not
+ * drift: a second copy of this rule is a second place for the guess and the
+ * correction to disagree.
+ *
+ * **Null means different things on the two files.** On a classification it is
+ * a player whose slice held too few players to build one — one player in the
+ * whole archive. On an entry list it is a player with no international result
+ * we count *yet*, which is 59 of 491 current entrants and says nothing about
+ * whether they have a career: fourteen of Oguz Degirmenci's twenty tournaments
+ * are Turkish National Tour events, a tier this site excludes on purpose.
  */
 export function fieldPlayerSlice(
-  file: ClassificationFile,
+  file: { gender: Gender; elsewhere?: Record<string, string | null> },
   id: number,
   federation: string,
 ): { country: string; gender: Gender } | null {

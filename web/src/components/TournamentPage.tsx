@@ -26,7 +26,7 @@
 
 import { useMemo } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../schema';
-import { fieldPlayerSlice, readEntry, TIER_BADGE } from '../schema';
+import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../schema';
 import { bandsOf } from '../lib/classification';
 import { nameCarriesSeason } from '../lib/slug';
 import {
@@ -115,25 +115,71 @@ const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
  * few pixels apart; without the label that reads as a bug rather than as the
  * two different questions they answer.
  *
- * Names are plain text, not links. A classification links every name because
- * those players have a page in the slice the event belongs to; an entrant may
- * be entering their first FIVB event and have no page at all, and a list where
- * some names link and some do not reads as broken rather than as honest.
+ * **Every name goes somewhere, and not all of them go here.** 432 of the 491
+ * entrants across the published lists have a page on this site and open it;
+ * the other 59 have no international result we count, and their name links out
+ * to their FIVB profile instead.
+ *
+ * That second group is not a group of beginners, which is why they are not
+ * left as plain text. Oguz Degirmenci has twenty-four team rows in VIS across
+ * twenty tournaments; exactly one is in our set, and it is the event he is
+ * entering. The other nineteen are fourteen Turkish National Tour meetings
+ * between 2015 and 2026 plus two zonal tours — tiers excluded on purpose, so
+ * the gap is a fact about this site's scope rather than about him. A plain
+ * name would assert "nobody" over a ten-year career; FIVB's page is where that
+ * career actually is.
  */
 function EntryList({
   entries,
   iso2Of,
+  onSelectPlayer,
 }: {
   entries: Exclude<Props['entries'], null>;
   iso2Of: (federation: string) => string | null;
+  onSelectPlayer: Props['onSelectPlayer'];
 }) {
   if (entries.status === 'loading') return <p className="note">Loading the entry list…</p>;
   if (entries.status === 'failed')
     return <p className="note">Could not load this tournament&rsquo;s entry list.</p>;
 
   const { teams, withdrawn, players } = entries.data;
-  const pair = (a: number, b: number) =>
-    `${players[a] ?? `Player ${a}`} / ${players[b] ?? `Player ${b}`}`;
+
+  /**
+   * One entrant's name, as whichever kind of link it can be.
+   *
+   * A published player opens their card here; anyone else opens FIVB's page
+   * for them in a new tab, marked the same way the player card marks its own
+   * FIVB link. The arrow is the only thing distinguishing the two, and it is
+   * doing real work: the reader is about to leave the site.
+   */
+  const name = (id: number, federation: string) => {
+    const label = players[id] ?? `Player ${id}`;
+    const to = fieldPlayerSlice(entries.data, id, federation);
+    if (to) {
+      return (
+        <button type="button" onClick={() => onSelectPlayer(id, to)}>
+          {label}
+        </button>
+      );
+    }
+    return (
+      <a className="offsite" href={playerProfileUrl(id)} target="_blank" rel="noopener noreferrer">
+        {label}
+        <span aria-hidden="true"> ↗</span>
+        {/* The arrow carries the meaning visually and nothing carries it
+            otherwise, so a reader who cannot see it is told in words. */}
+        <span className="sr-only"> — FIVB profile, opens in a new tab</span>
+      </a>
+    );
+  };
+
+  const pair = (a: number, b: number, federation: string) => (
+    <>
+      {name(a, federation)}
+      <span className="sep"> / </span>
+      {name(b, federation)}
+    </>
+  );
 
   if (teams.length === 0 && !withdrawn?.length) {
     // The 2027 World Championships, a year out. Nothing is broken; nobody has
@@ -177,7 +223,7 @@ function EntryList({
                 <tr key={`${a}-${b}`}>
                   <td className="at">{at + 1}</td>
                   <td className="who">
-                    {pair(a, b)}
+                    {pair(a, b, federation)}
                     {/* Only the four routes that are not "by ranking"; the
                         ordinary case is the whole rest of the table. */}
                     {route && <span className="route">{route}</span>}
@@ -221,7 +267,7 @@ function EntryList({
               const medical = team[5] === 'medical';
               return (
                 <tr key={`${a}-${b}`}>
-                  <td className="who">{pair(a, b)}</td>
+                  <td className="who">{pair(a, b, federation)}</td>
                   <td className="fed">
                     <span aria-hidden="true">{flagEmoji(iso2Of(federation), federation)}</span>{' '}
                     {federation}
@@ -323,7 +369,9 @@ export function TournamentPage({
         </p>
       </header>
 
-      {entries && <EntryList entries={entries} iso2Of={iso2Of} />}
+      {entries && (
+        <EntryList entries={entries} iso2Of={iso2Of} onSelectPlayer={onSelectPlayer} />
+      )}
 
       {!entries && state.status === 'loading' && (
         <p className="note">Loading the classification…</p>

@@ -15,3 +15,8 @@ ingest/.cache/
 # these as an artifact instead of committing them.
 test-results/
 playwright-report/
+
+# Local skill-installer tooling (`npx skills add ...`), not project source.
+.agents/
+.claude/skills/
+skills-lock.json

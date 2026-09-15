@@ -43,7 +43,6 @@
     [202381,168795,"LAT",null,null],
     [202386,211924,"LAT",null,null],
     [202842,210159,"CHN",null,null],
-    [203458,168377,"SVK",null,null],
     [204022,206431,"BRA",null,null],
     [204623,212468,"ITA",null,null],
     [206895,223021,"USA",null,null],
@@ -68,6 +67,7 @@
     [163333,214650,"LTU",null,null,"withdrawn"],
     [181237,222902,"GER",null,null,"withdrawn"],
     [192878,223422,"LAT",null,null,"withdrawn"],
+    [203458,168377,"SVK",null,null,"withdrawn"],
     [210927,194168,"SUI",null,null,"withdrawn"],
     [219124,219127,"SUI",null,null,"withdrawn"]
   ],

@@ -54,7 +54,7 @@
     [202140,202055,"POL",null,null],
     [202294,212704,"AUT",null,null],
     [203698,198326,"GER",null,null],
-    [204653,141556,"TUR",null,null],
+    [204653,151277,"TUR",null,null],
     [209530,172410,"NOR",null,null],
     [209572,219582,"CZE",null,null],
     [210034,222813,"NOR",null,null],
@@ -66,7 +66,6 @@
     [215432,227244,"CZE",null,null],
     [217279,229191,"INA",null,null],
     [223440,223446,"FRA",null,null],
-    [232640,231058,"GER",null,null],
     [239603,229382,"NOR",null,null],
     [239934,179392,"SVK",null,null],
     [240399,240546,"SWE",null,null],
@@ -75,7 +74,8 @@
   ],
   "withdrawn": [
     [155009,166978,"SVK",null,null,"withdrawn"],
-    [203403,181582,"SCO",null,null,"withdrawn"]
+    [203403,181582,"SCO",null,null,"withdrawn"],
+    [232640,231058,"GER",null,null,"withdrawn"]
   ],
   "players": {
     "104102": "Alexander Huber",
@@ -84,7 +84,6 @@
     "124760": "Dirk Boehlé",
     "132661": "Lorenz Petutschnig",
     "132883": "Matteo Martino",
-    "141556": "Ersin Durgut",
     "143120": "Maximilian Trummer",
     "143530": "Urmas Piik",
     "144018": "Yasin Baysal",
@@ -96,6 +95,7 @@
     "149583": "Tomas Pala",
     "150235": "Lubos Nemec",
     "151152": "Oguz Degirmenci",
+    "151277": "Burak Balibey",
     "151334": "Magnus Helgerud",
     "152662": "Maxim Voleanin",
     "153725": "Dundar Yildirim",
