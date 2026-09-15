@@ -260,13 +260,24 @@ came from comparing your own published list for BPT Futures Corigliano Rossano
 against what VIS returns for it on 10 September 2026: 45 rows at `Status` 0
 against the 12 main draw, 16 qualification and 17 reserves your page showed, and
 three each at 2 and 3 against the three withdrawals and three medical
-certificates beside them. (Both sides have moved since — as of 15 September,
-seven teams have withdrawn and four hold medical certificates — which is the
-nature of an entry list rather than a discrepancy.)
+certificates beside them. (Both sides have moved since — as of 15 September the
+same event stands at 39 entered, with seven withdrawals and four medical
+certificates — which is the nature of an entry list rather than a discrepancy.)
 Status 1 appears to be an entry superseded by a later one, which you publish
 nowhere. That reading fits every event I have checked, but it is a guess from
 the outside, and if any part of it is wrong my pages are quietly saying the
 wrong thing about somebody's withdrawal.
+
+One value I cannot read at all is **`Status` 4**, and it is the reason I am
+sure the guesswork above has a cost. On 14 September the Corigliano list I show
+had Marco Ulisse and Giacomo Spadoni entered on 840 points; on the 15th they
+were gone from it. Their row had not been deleted and they had not withdrawn —
+team 3174416 had moved from `Status` 0 to `Status` 4, the only row in the event
+carrying that value. I treat everything outside 0, 2 and 3 as an entry that was
+superseded and should not be shown, so the pair simply vanished from the page
+between one day and the next, with nothing to tell a reader whether they had
+pulled out, been replaced, or something else entirely. If 4 means a withdrawal
+of some kind, that page is wrong today.
 
 Two related questions follow from it. **Is there a published meaning for
 `Type`?** I read 1 as a wild card, 6 as a qualification wild card, 9 as a
@@ -372,13 +383,22 @@ those values, the mail has paid for itself.
 **Those counts are dated, and they have to stay dated.** An entry list moves
 every day until the deadline: Corigliano stood at 45 entered with three
 withdrawals and three medical certificates on 10 September 2026, and by 15
-September that had moved to 40 entered, seven withdrawals and four medical
+September that had moved to 39 entered, seven withdrawals and four medical
 certificates. Every other number in this mail describes a
 played event and is stable, so this is the one paragraph that ages — which is
 why it names the day rather than claiming a present tense it cannot keep.
 Re-checking it before sending is cheap; quietly refreshing the figures without
 the date is not, because the whole point of request 5 is that they can
 reproduce the comparison.
+
+**The `Status` 4 paragraph is the one to re-check hardest before sending**, and
+the one most worth keeping. It names a specific team number and a specific
+pair of days, so it is the easiest claim in the mail for FIVB to verify — and
+the easiest to be embarrassed by if the row has moved again. It came from
+watching the published entry list lose a team between two ingests and asking
+VIS why: team 3174416 had gone from `Status` 0 to `Status` 4, and no other row
+in that event carries a 4. If it has changed state again by the time this is
+sent, describe what it is then, not what it was.
 
 **The main-draw split is asked as an open question on purpose.** An earlier
 attempt at it here asserted a rule — order by `EntryPoints`, cut at
