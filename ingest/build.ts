@@ -612,6 +612,57 @@ export function aggregatePairHonours(
   return out;
 }
 
+/**
+ * The three counts a partnership can be ranked by, each plain arithmetic.
+ *
+ * There is no single answer to "most decorated", so the page asks three
+ * questions instead of inventing a weighting. Measured over the archive they
+ * crown three different pairs, which is the argument for all three:
+ *
+ *   podiums           Behar & Bede              85
+ *   titles            Larissa & Juliana         45
+ *   olympicAndWorlds  May-Treanor & Walsh        7
+ *
+ * Defined here rather than at each call site so the three leaderboards cannot
+ * drift apart — "titles" meaning rank 1 everywhere is the sort of thing that
+ * quietly stops being true once two places compute it.
+ */
+export interface PairDecoration {
+  /** Every podium finish, all three categories, any colour. */
+  podiums: number;
+  /** Wins only — rank 1, all three categories. */
+  titles: number;
+  /**
+   * Medals at the Olympic Games and the World Championships, any colour.
+   *
+   * Deliberately not called "majors": Major Series is a real FIVB tier name
+   * (ingest/tiers.ts, Type 32) sitting inside the *tour* tally, so the short
+   * name would point at the wrong events.
+   */
+  olympicAndWorlds: number;
+}
+
+const COUNTS = ['olympics', 'world-champs', 'tour'] as const;
+
+/** The three rankable counts for one partnership. */
+export function decorationOf(honours: PairHonours): PairDecoration {
+  let podiums = 0;
+  let titles = 0;
+  for (const category of COUNTS) {
+    const { gold, silver, bronze } = honours[category];
+    podiums += gold + silver + bronze;
+    titles += gold;
+  }
+  const games = honours.olympics;
+  const worlds = honours['world-champs'];
+  return {
+    podiums,
+    titles,
+    olympicAndWorlds:
+      games.gold + games.silver + games.bronze + worlds.gold + worlds.silver + worlds.bronze,
+  };
+}
+
 /** A token that is a shout: letters, all of them upper case. */
 function isShouted(token: string): boolean {
   const letters = token.replace(/[^\p{L}]/gu, '');

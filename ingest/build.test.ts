@@ -10,6 +10,9 @@ import {
 import {
   aggregateMedals,
   aggregatePairHonours,
+  decorationOf,
+  type PairDecoration,
+  type PairHonours,
   aggregatePartnerships,
   aggregateTourPodiums,
   bestFinishByPair,
@@ -1404,6 +1407,64 @@ describe('aggregatePairHonours', () => {
       { ...entry('1', 2, 2), Rank: '1' },
     ]);
     expect(byPair.size).toBe(0);
+  });
+});
+
+describe('decorationOf', () => {
+  const pair = (
+    olympics: [number, number, number],
+    worlds: [number, number, number],
+    tour: [number, number, number],
+  ): PairHonours => ({
+    a: 1,
+    b: 2,
+    olympics: { gold: olympics[0], silver: olympics[1], bronze: olympics[2] },
+    'world-champs': { gold: worlds[0], silver: worlds[1], bronze: worlds[2] },
+    tour: { gold: tour[0], silver: tour[1], bronze: tour[2] },
+  });
+
+  it('counts every podium of every colour across all three categories', () => {
+    expect(decorationOf(pair([1, 1, 1], [2, 0, 1], [3, 4, 5])).podiums).toBe(18);
+  });
+
+  it('counts only wins as titles', () => {
+    // Silver and bronze are podiums but not titles — the distinction the two
+    // leaderboards exist to draw.
+    expect(decorationOf(pair([0, 9, 9], [0, 9, 9], [0, 9, 9])).titles).toBe(0);
+    expect(decorationOf(pair([1, 0, 0], [1, 0, 0], [1, 0, 0])).titles).toBe(3);
+  });
+
+  it('counts Olympic and World Championships medals of any colour, and no tour podium', () => {
+    const counted = decorationOf(pair([0, 1, 0], [0, 0, 1], [9, 9, 9]));
+    expect(counted.olympicAndWorlds).toBe(2);
+  });
+
+  it('gives the archive the three different leaders it actually has', () => {
+    // The real honours of the three leading partnerships, measured against the
+    // published tree on 15 Sept 2026 — not illustrative numbers. This is the
+    // case for three leaderboards rather than one: each of these pairs is top
+    // of exactly one of them, and none is top of all three.
+    const behar = pair([0, 2, 0], [2, 1, 1], [30, 26, 23]); // Behar & Bede
+    const larissa = pair([0, 0, 1], [1, 2, 1], [44, 18, 15]); // Larissa & Juliana
+    const misty = pair([3, 0, 0], [3, 1, 0], [34, 13, 6]); // May-Treanor & Walsh Jennings
+
+    expect(decorationOf(behar)).toEqual({ podiums: 85, titles: 32, olympicAndWorlds: 6 });
+    expect(decorationOf(larissa)).toEqual({ podiums: 82, titles: 45, olympicAndWorlds: 5 });
+    expect(decorationOf(misty)).toEqual({ podiums: 60, titles: 40, olympicAndWorlds: 7 });
+
+    const winner = (m: keyof PairDecoration) =>
+      [behar, larissa, misty].sort((x, y) => decorationOf(y)[m] - decorationOf(x)[m])[0];
+    expect(winner('podiums')).toBe(behar);
+    expect(winner('titles')).toBe(larissa);
+    expect(winner('olympicAndWorlds')).toBe(misty);
+  });
+
+  it('is all zero for a pair that never reached a podium', () => {
+    expect(decorationOf(pair([0, 0, 0], [0, 0, 0], [0, 0, 0]))).toEqual({
+      podiums: 0,
+      titles: 0,
+      olympicAndWorlds: 0,
+    });
   });
 });
 
