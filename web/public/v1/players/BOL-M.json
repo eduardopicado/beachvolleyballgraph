@@ -62,8 +62,8 @@
       "id": 175891,
       "name": "Ruddy Salvatierra",
       "dob": "2001-09-25",
-      "height": null,
-      "weight": null,
+      "height": 196,
+      "weight": 84,
       "birthPlace": "Santa Cruz"
     },
     {
@@ -85,8 +85,8 @@
       "id": 182759,
       "name": "Renzo Joao Zaconeta Sempértegui",
       "dob": "2002-03-08",
-      "height": null,
-      "weight": null
+      "height": 190,
+      "weight": 81
     }
   ]
 }

@@ -8,7 +8,6 @@
     [139477,146830,"LTU",null,null],
     [142309,230257,"BRA",null,null],
     [146166,172195,"JPN",null,null],
-    [152477,181615,"HUN",null,null],
     [157011,168482,"LAT",null,null],
     [157362,190535,"FRA",null,null],
     [157364,179179,"FRA",null,null],
@@ -63,6 +62,7 @@
   ],
   "withdrawn": [
     [148606,158577,"SVK",null,null,"withdrawn"],
+    [152477,181615,"HUN",null,null,"withdrawn"],
     [158177,164457,"DEN",null,null,"withdrawn"],
     [163333,214650,"LTU",null,null,"withdrawn"],
     [181237,222902,"GER",null,null,"withdrawn"],

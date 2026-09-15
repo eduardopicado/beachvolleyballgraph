@@ -113,7 +113,7 @@
       "id": 163289,
       "name": "laura ovelar",
       "dob": "2000-01-09",
-      "height": null,
+      "height": 178,
       "weight": null
     },
     {
@@ -152,7 +152,7 @@
       "id": 188748,
       "name": "Sofia Paredes Enrique",
       "dob": "2004-11-26",
-      "height": 175,
+      "height": 177,
       "weight": 75,
       "birthPlace": "Asuncion"
     },
@@ -167,7 +167,7 @@
       "id": 208858,
       "name": "Mayra Perez",
       "dob": "2006-03-19",
-      "height": 174,
+      "height": 175,
       "weight": 63,
       "birthPlace": "Asunción"
     },
