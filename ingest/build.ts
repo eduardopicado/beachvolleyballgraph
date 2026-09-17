@@ -18,6 +18,7 @@ import type {
   Tier,
   TimelineFilter,
 } from '../web/src/schema.js';
+import type { WithdrawalReason } from '../web/src/schema.js';
 import { TOUR_TIERS } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
@@ -661,6 +662,44 @@ export function decorationOf(honours: PairHonours): PairDecoration {
     olympicAndWorlds:
       games.gold + games.silver + games.bronze + worlds.gold + worlds.silver + worlds.bronze,
   };
+}
+
+/** What a `BeachTeam` row is on an entry list: in the field, or gone for a reason. */
+export type EntryStatus = 'in' | WithdrawalReason;
+
+/**
+ * `BeachTeam.Status` -> what the row is, or null for a row that is not shown.
+ *
+ * There is no published enum, so every value here was read from outside, by
+ * putting FIVB's own entry list for one event beside what VIS returns for it:
+ *
+ *   0  in the tournament — main draw, qualification or reserve, all of which
+ *      can end up playing. 45 rows against the 12 + 16 + 17 FIVB showed.
+ *   2  withdrawn; 3  medical certificate — three of each, exactly as listed.
+ *   4  a late withdrawal. Read on 17 September 2026 off a team FIVB's page
+ *      lists as "Late": their row had gone from 0 to 4 two days earlier,
+ *      *after* this site had shown them entered, and this function's
+ *      predecessor dropped them without a word. Across the archive Status 4
+ *      holds 1,037 rows and not one carries a placement, which is what a
+ *      withdrawal looks like and nothing else does.
+ *   1  an entry superseded by a later one; 5  unread. Both return null and
+ *      are counted by the caller, so the next unknown value is a line in the
+ *      run log rather than a team vanishing from a page.
+ *
+ * Measured over the archive (206,934 team rows, 17 September 2026), 0 is the
+ * only value that ever carries a placement; the other five are rank 0 on all
+ * but 8. That is the check that keeps a wrong reading here from crediting a
+ * result to a team that never played.
+ */
+const ENTRY_STATUS: Record<number, EntryStatus> = {
+  0: 'in',
+  2: 'withdrawn',
+  3: 'medical',
+  4: 'late',
+};
+
+export function entryStatus(status: number): EntryStatus | null {
+  return ENTRY_STATUS[status] ?? null;
 }
 
 /** A token that is a shout: letters, all of them upper case. */

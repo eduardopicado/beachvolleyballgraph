@@ -11,6 +11,7 @@ import {
   aggregateMedals,
   aggregatePairHonours,
   decorationOf,
+  entryStatus,
   type PairDecoration,
   type PairHonours,
   aggregatePartnerships,
@@ -1465,6 +1466,36 @@ describe('decorationOf', () => {
       titles: 0,
       olympicAndWorlds: 0,
     });
+  });
+});
+
+describe('entryStatus', () => {
+  it('keeps a Status 0 team in the field', () => {
+    expect(entryStatus(0)).toBe('in');
+  });
+
+  it('reads the three withdrawal kinds FIVB shows a reason for', () => {
+    expect(entryStatus(2)).toBe('withdrawn');
+    expect(entryStatus(3)).toBe('medical');
+    // The one that used to be dropped: a pair FIVB lists as "Late" moved
+    // from 0 to 4 after the site had shown them entered, and vanished.
+    expect(entryStatus(4)).toBe('late');
+  });
+
+  it('returns null, not a guess, for a value it has not read', () => {
+    // 1 is a superseded entry and 5 is unread; both exist in the archive and
+    // neither has a meaning the page could show. The caller counts these.
+    expect(entryStatus(1)).toBe(null);
+    expect(entryStatus(5)).toBe(null);
+    expect(entryStatus(99)).toBe(null);
+  });
+
+  it('never turns an unread value into a withdrawal by accident', () => {
+    // The failure that matters: a status nobody decoded being shown as
+    // "Withdrawn" would state a reason FIVB never gave.
+    for (const status of [1, 5, 6, 7, -1, NaN]) {
+      expect(entryStatus(status)).toBe(null);
+    }
   });
 });
 

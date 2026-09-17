@@ -265,6 +265,7 @@ function EntryList({
             {withdrawn.map((team) => {
               const { a, b, federation } = readEntry(team);
               const medical = team[5] === 'medical';
+              const late = team[5] === 'late';
               return (
                 <tr key={`${a}-${b}`}>
                   <td className="who">{pair(a, b, federation)}</td>
@@ -274,13 +275,15 @@ function EntryList({
                   </td>
                   <td className="why">
                     {/* "Medical certificate" is what FIVB calls it, and what
-                        this said before. The column is the narrowest on the
-                        page and the phrase is the longest thing that could go
-                        in it, so the visible label is the short form and the
-                        full one stays for anyone listening rather than
+                        this said before; "Late" is what their page shows for
+                        a late withdrawal. The column is the narrowest on the
+                        page and the full phrases are the longest things that
+                        could go in it, so the visible label is the short form
+                        and the rest stays for anyone listening rather than
                         looking. */}
-                    {medical ? 'Medical' : 'Withdrawn'}
+                    {medical ? 'Medical' : late ? 'Late' : 'Withdrawn'}
                     {medical && <span className="sr-only"> certificate</span>}
+                    {late && <span className="sr-only"> withdrawal</span>}
                   </td>
                 </tr>
               );

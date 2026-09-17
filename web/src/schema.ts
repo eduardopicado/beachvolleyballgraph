@@ -711,12 +711,15 @@ export type EntryRoute = 'WC' | 'QWC' | 'CS' | 'OV';
 /**
  * Why a team that entered will not play.
  *
- * `BeachTeam.Status` 2 and 3, matched against FIVB's own entry list for
- * Corigliano Rossano, which shows exactly three of each. Status 1 is a third
- * kind — an entry superseded by a later one — and is published nowhere,
- * including by FIVB.
+ * `BeachTeam.Status` 2, 3 and 4, each matched against FIVB's own entry list
+ * for Corigliano Rossano: three withdrawals and three medical certificates on
+ * 10 September 2026, and on the 17th a pair shown there as "Late" whose row
+ * had moved from 0 to 4 — after the site had listed them as entered, and
+ * two days after it had silently dropped them. Status 1 is a fourth kind, an
+ * entry superseded by a later one, and is published nowhere, including by
+ * FIVB. See `entryStatus` in ingest/build.ts and quirks §26.
  */
-export type WithdrawalReason = 'withdrawn' | 'medical';
+export type WithdrawalReason = 'withdrawn' | 'medical' | 'late';
 
 /**
  * One team on an entry list.
