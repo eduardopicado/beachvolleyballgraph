@@ -7,7 +7,7 @@
  * edge cases want unit tests rather than a browser.
  */
 
-import { GENDERS } from '../schema';
+import { GENDERS } from '../../../shared/schema';
 import { TIER_GROUPS, type IndexFilter } from './tournamentIndex';
 
 /** One path segment, plural against the singular tournament page. */

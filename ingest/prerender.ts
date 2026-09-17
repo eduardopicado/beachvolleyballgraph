@@ -23,12 +23,12 @@ import type {
   GraphFile,
   Manifest,
   TournamentsFile,
-} from '../web/src/schema.js';
-import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
-import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../web/src/lib/slug.js';
+} from '../shared/schema.js';
+import { GENDER_LABEL, GENDERS } from '../shared/schema.js';
+import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
-import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
+import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../shared/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');

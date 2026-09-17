@@ -6,7 +6,7 @@ import {
   parseSliceKey,
   type ClassificationFile,
   type SearchEntry,
-} from '../web/src/schema.js';
+} from '../shared/schema.js';
 import {
   aggregateMedals,
   aggregatePairHonours,

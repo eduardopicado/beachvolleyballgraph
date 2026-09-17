@@ -9,7 +9,7 @@
  * never loads at all.
  */
 
-import type { ResultEntry, Tier, TournamentMeta } from '../schema';
+import type { ResultEntry, Tier, TournamentMeta } from '../../../shared/schema';
 
 export interface SeasonEvent {
   /** FIVB tournament number. Unique per event *and gender*, so it keys a row. */

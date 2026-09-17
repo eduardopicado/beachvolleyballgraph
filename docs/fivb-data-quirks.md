@@ -1710,7 +1710,7 @@ a mislabelled event.
 **Read from there, and published on the classification.**
 `classifications/*.json` carries a `gender` taken straight from that field,
 because a classification is read on its own — see `ClassificationFile` in
-`web/src/schema.ts` for why the file is deliberately self-contained.
+`shared/schema.ts` for why the file is deliberately self-contained.
 
 Cross-checked against the archive: for all 1,608 tournaments with a published
 field, VIS's gender is the same as the gender the majority of that
@@ -1906,7 +1906,7 @@ request 5.
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
-FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
+FIVB if a channel opens up (see the contact address in `shared/site.ts`):
 
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.

@@ -22,7 +22,7 @@
  * field is published.
  */
 
-import type { Gender, Tier } from '../web/src/schema.js';
+import type { Gender, Tier } from '../shared/schema.js';
 
 export interface SeriesDefinition {
   slug: string;

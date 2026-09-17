@@ -8,7 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import type { EntriesFile } from '../schema';
+import type { EntriesFile } from '../../../shared/schema';
 import { fetchEntries } from './api';
 
 export type EntriesState =

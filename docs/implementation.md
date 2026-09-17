@@ -9,12 +9,14 @@ hold. Read [architecture.md](architecture.md) first for the shape;
 ## Layout
 
 ```
+shared/          imported by both halves, imports from neither
+  schema.ts      THE CONTRACT
+  slug.ts        URL slugs, fold.ts accent folding, site.ts site identity
 ingest/          build-time: fetch, normalise, publish, prerender
 web/src/         the app
   lib/           pure helpers, each with a sibling .test.ts
   components/    React components, each with a sibling .css
   graph/         force layout (no React)
-  schema.ts      THE CONTRACT — shared by both halves
 e2e/             Playwright tests against the built site
 .github/         CI, two deploy workflows, three composite actions
 docs/            these documents
@@ -60,6 +62,20 @@ data at all; interrupt there and you have nothing. `recoverInterruptedSwap()`
 handles a process killed inside the rename window on the *next* run, because a
 SIGKILL leaves no handler to do it.
 
+## Shared by both halves
+
+`shared/` is the only code the ingest and the app both import, and it imports
+nothing from either, so neither side can change what the other does by
+touching a helper. The ESLint block for it grants no globals: a `window` or a
+`process` reaching in fails the lint before it fails one of the runtimes.
+
+| File | Responsibility |
+|---|---|
+| `shared/schema.ts` | **The contract.** Every published shape, and the helpers that read the tuples. |
+| `shared/slug.ts` | `/brazil-men/` ↔ slice, and tournament paths, so a link can never point at a page the other side would not produce. |
+| `shared/fold.ts` | Accent folding. The ingest builds the search index and matches aliases with it; the app searches with it. A name folded one way and looked up another finds nobody. |
+| `shared/site.ts` | Site name, origin and contact address: the footer on every page and the `User-Agent` on every VIS request. |
+
 ## The app
 
 `App.tsx` owns all state — country, gender, selection, threshold — and passes
@@ -68,12 +84,11 @@ it down. There is no store and no router.
 | File | Responsibility |
 |---|---|
 | `lib/api.ts` | Six fetches behind a memoising map. A failed fetch is not cached, or a blip would be permanent. |
-| `lib/search.ts` | Match and rank. Accent folding, prefix-before-substring, on-screen-before-elsewhere. |
+| `lib/search.ts` | Match and rank. Prefix-before-substring, on-screen-before-elsewhere. |
 | `lib/timeline.ts` | Regroup a player's partnerships by season. |
 | `lib/results.ts` | Turn published result rows into one season's events. |
 | `lib/useResults.ts` | The lazy fetch behind season expansion. |
 | `lib/format.ts` | Display helpers: dates, medals, ordinals, flags, finishes. |
-| `lib/slug.ts` | `/brazil-men/` ↔ slice, shared with the prerenderer so a link can never point at a page the other side would not produce. |
 | `graph/layout.ts` | d3-force configuration. Many small components, so the centring forces stop the long tail drifting off-canvas. |
 | `components/PartnershipGraph.tsx` | SVG, refs, and the tick loop. The one place that opts out of React re-rendering. |
 | `components/PlayerCard.tsx` | The detail panel: vitals, partners, timeline, season expansion, foreign partners. |
@@ -172,7 +187,7 @@ worse than no check.
 
 ### Add a field to the published data
 
-1. `web/src/schema.ts` — add it, **appending** if it is a tuple.
+1. `shared/schema.ts` — add it, **appending** if it is a tuple.
 2. `ingest/build.ts` — compute it in a pure function.
 3. `ingest/main.ts` — write it.
 4. The reader in `web/src/`.

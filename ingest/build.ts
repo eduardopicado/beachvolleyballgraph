@@ -17,9 +17,9 @@ import type {
   ClassificationTeam,
   Tier,
   TimelineFilter,
-} from '../web/src/schema.js';
-import type { EntryRoute, EntryTeam, WithdrawalReason, WithdrawnTeam } from '../web/src/schema.js';
-import { TOUR_TIERS } from '../web/src/schema.js';
+} from '../shared/schema.js';
+import type { EntryRoute, EntryTeam, WithdrawalReason, WithdrawnTeam } from '../shared/schema.js';
+import { TOUR_TIERS } from '../shared/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';

@@ -25,10 +25,10 @@
  */
 
 import { useMemo } from 'react';
-import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../schema';
-import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../schema';
+import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../../../shared/schema';
+import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../../../shared/schema';
 import { bandsOf } from '../lib/classification';
-import { nameCarriesSeason } from '../lib/slug';
+import { nameCarriesSeason } from '../../../shared/slug';
 import {
   countryName,
   flagEmoji,

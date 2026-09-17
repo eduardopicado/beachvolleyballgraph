@@ -13,9 +13,9 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import type { Manifest, TournamentsFile } from './schema';
+import type { Manifest, TournamentsFile } from '../../shared/schema';
 import { fetchManifest, fetchTournaments } from './lib/api';
-import { tournamentPath } from './lib/slug';
+import { tournamentPath } from '../../shared/slug';
 import { filterFromParams, indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, defaultSeason, nearestSeason, reconcile } from './lib/tournamentIndex';
 import { TournamentIndex } from './components/TournamentIndex';

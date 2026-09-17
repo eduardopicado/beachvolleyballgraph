@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { emptyTally, esc, jsonLd, llmsTxt, tallySlice } from './prerender.js';
-import type { GraphFile, Manifest } from '../web/src/schema.js';
+import type { GraphFile, Manifest } from '../shared/schema.js';
 
 const manifest: Manifest = {
   generatedAt: '2026-08-03T00:00:00.000Z',

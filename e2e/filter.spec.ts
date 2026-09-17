@@ -14,7 +14,7 @@
 
 import { test, expect, graph, manifest } from './fixtures.js';
 import { filterByStrength } from '../web/src/lib/filter.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;

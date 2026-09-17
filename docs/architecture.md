@@ -42,8 +42,12 @@ flowchart LR
 ```
 
 The contract is `web/public/v1/`. Everything upstream of it is a build-time
-concern; everything downstream is a browser concern. They share exactly one
-source file — `web/src/schema.ts` — so the two cannot drift.
+concern; everything downstream is a browser concern. The code they share lives
+in one directory, `shared/` — the schema, the URL slugs, accent folding and the
+site identity — which imports from neither side, so the two cannot drift and
+neither can change what the other does. The pipeline (`ingest/main.ts` and
+everything it calls) imports nothing from `web/src/`; only the prerenderer
+does, because it renders the app's own pages.
 
 ## Why static
 

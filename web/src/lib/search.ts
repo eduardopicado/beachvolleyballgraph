@@ -1,6 +1,7 @@
 /** Pure matching/ranking logic for the jump-to-player search, kept separate so it can be unit-tested without React. */
 
-import type { Gender } from '../schema';
+import type { Gender } from '../../../shared/schema';
+import { foldAccents } from '../../../shared/fold';
 
 /** A country x gender pair — one published slice, and one page of the site. */
 export interface Slice {
@@ -113,26 +114,6 @@ export interface SearchResult {
    * index matches 79 players and renders 8 of them.
    */
   hidden: number;
-}
-
-/**
- * Strip diacritics and case, so "Joao" finds "João" and "Ozols" finds "Ozols"
- * however either is typed.
- *
- * Beach volleyball is played almost everywhere, and this archive is full of
- * names a reader cannot reasonably be expected to reproduce exactly:
- * "Bárbara Seixas de Freitas", "Márton Szabó", "Kristīne Puriņa". Typing the
- * plain-ASCII form is the normal case, not the degraded one — before this,
- * searching "Barbara" found nothing at all, which is indistinguishable from
- * "she isn't in the data".
- *
- * NFD splits a precomposed letter into its base plus a combining mark, which
- * `\p{Diacritic}` then removes. Deliberately *not* symmetric with a locale
- * collator: `localeCompare` with sensitivity options can only compare whole
- * strings, and this needs substring matching.
- */
-export function foldAccents(value: string): string {
-  return value.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
 }
 
 /** Fold a list of players once, ready to be searched by every keystroke. */

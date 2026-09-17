@@ -18,7 +18,7 @@ import type {
   Gender,
   SeriesFile,
   SeriesIndexFile,
-} from '../schema';
+} from '../../../shared/schema';
 import {
   graphPath,
   manifestPath,
@@ -30,7 +30,7 @@ import {
   tournamentsPath,
   seriesIndexPath,
   seriesPath,
-} from '../schema';
+} from '../../../shared/schema';
 
 /** Vite rewrites this to the deploy base ("/" or "/<repo>/"). */
 const BASE = import.meta.env.BASE_URL;

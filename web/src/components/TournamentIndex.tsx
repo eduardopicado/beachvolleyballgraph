@@ -28,7 +28,7 @@
  */
 
 import { useState } from 'react';
-import type { Gender } from '../schema';
+import type { Gender } from '../../../shared/schema';
 import {
   groupsIn,
   levelsIn,

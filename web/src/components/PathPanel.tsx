@@ -12,7 +12,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { GraphNode } from '../schema';
+import type { GraphNode } from '../../../shared/schema';
 import { plural } from '../lib/format';
 import { indexPlayers, searchPlayers, type SearchablePlayer } from '../lib/search';
 import { findPath, type PartnershipIndex } from '../lib/path';

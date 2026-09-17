@@ -6,9 +6,9 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../schema';
-import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
-import { foldAccents } from '../lib/search';
+import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../../../shared/schema';
+import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../../../shared/schema';
+import { foldAccents } from '../../../shared/fold';
 import {
   age,
   flagEmoji,

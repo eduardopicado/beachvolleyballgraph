@@ -33,7 +33,7 @@
  * inside 60 seconds regardless.
  */
 
-import { playerPhotoUrl } from '../schema';
+import { playerPhotoUrl } from '../../../shared/schema';
 
 /**
  * Players already started, so crossing the same node twice costs one request.

@@ -24,8 +24,8 @@ import {
   searchIndex,
   tournamentIndex,
 } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
-import { parseSliceKey } from '../web/src/schema.js';
+import { sliceSlug } from '../shared/slug.js';
+import { parseSliceKey } from '../shared/schema.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;
