@@ -115,8 +115,11 @@ npm run lint           # eslint + stylelint
 
 **The daily refresh** runs `.github/workflows/deploy.yml` on a 09:17 UTC cron
 (that hour because FIVB publishes placements some hours after a final, not
-with it, and the archive spans every time zone). It
-commits the refreshed data to `main`, then builds and deploys. A code push to
+with it, and the archive spans every time zone). **That hour is a floor, not a
+schedule** — GitHub has never started a scheduled run of this workflow within
+half an hour of it, and lately runs it three to seven hours late, so the data
+lands in the afternoon UTC. Don't infer breakage from a morning with no commit.
+It commits the refreshed data to `main`, then builds and deploys. A code push to
 `main` *skips* the ingest and builds from committed data — so shipping a CSS
 fix never depends on FIVB being reachable.
 

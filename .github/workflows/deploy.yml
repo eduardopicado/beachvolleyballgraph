@@ -38,17 +38,33 @@ name: Rebuild data and deploy
 
 on:
   schedule:
-    # Daily at 09:17 UTC. Off the hour to avoid the cron stampede.
+    # Daily at 09:17 UTC — which GitHub treats as "no earlier than", not as a
+    # time. Measured over every scheduled run this workflow has ever had, it
+    # has never once started within half an hour of the hour asked for:
     #
-    # 09:17 because the data is not finished when the tournament is. A
-    # placement reaches VIS only once someone publishes it: BPT Futures Busan
-    # finished with every match recorded and every team still at `Rank 0` —
-    # the pair who took bronze read as "has not played" — and the placements
-    # appeared several hours later. The archive spans every time zone, so an
-    # evening final in the Americas ends around 01:00-04:00 UTC the next day;
-    # 09:17 clears those and gives FIVB the European morning to publish. That
-    # argument was originally written for Monday, but it is about the hour and
-    # holds for any day.
+    #     under this daily cron (6 runs, 11-16 Sept)  3h36m - 6h37m late
+    #     every scheduled run ever (11 runs)          0h45m - 7h46m late
+    #
+    # Scheduled workflows sit in a shared queue and are dropped to the back of
+    # it under load, so the delay is not ours to fix and not worth chasing.
+    # Read the cron as a floor: the refresh lands somewhere in the afternoon,
+    # UTC, and nothing downstream should assume better.
+    #
+    # 09:17 as the floor because the data is not finished when the tournament
+    # is. A placement reaches VIS only once someone publishes it: BPT Futures
+    # Busan finished with every match recorded and every team still at
+    # `Rank 0` — the pair who took bronze read as "has not played" — and the
+    # placements appeared several hours later. The archive spans every time
+    # zone, so an evening final in the Americas ends around 01:00-04:00 UTC the
+    # next day; 09:17 clears those and gives FIVB the European morning to
+    # publish. That argument was originally written for Monday, but it is
+    # about the hour and holds for any day.
+    #
+    # The lateness only ever helps that argument — every extra hour is more
+    # time for FIVB to publish — which is why this is documented rather than
+    # worked around. Waiting deliberately would cost a cron that says what it
+    # means; the `:17` stays for the same reason, even though being off the
+    # hour has bought no measurable punctuality.
     #
     # Daily rather than weekly because two parts of the archive move faster
     # than a week. Entry lists change every day up to the registration
