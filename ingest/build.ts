@@ -18,6 +18,7 @@ import type {
   Tier,
   TimelineFilter,
 } from '../web/src/schema.js';
+import type { WithdrawalReason } from '../web/src/schema.js';
 import { TOUR_TIERS } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
@@ -521,6 +522,184 @@ export function aggregateTourPodiums(
     credit(b, medal);
   }
   return out;
+}
+
+/**
+ * Everything one partnership won *together*, kept in the three tallies the
+ * player card already uses.
+ *
+ * The pair, not the players. Emanuel Rego's 73 tour golds are spread across
+ * ten partners; this says how many of them he won beside Ricardo, and is a
+ * different fact about a different subject. Two players with enormous
+ * individual records can have won almost nothing as a pair.
+ */
+export interface PairHonours {
+  /** The smaller player number, matching `pairKey`'s ordering. */
+  a: number;
+  b: number;
+  olympics: MedalCounts;
+  'world-champs': MedalCounts;
+  /** World Tour and Beach Pro Tour podiums, levels mixed. */
+  tour: MedalCounts;
+}
+
+/**
+ * Per-partnership honours, keyed by `pairKey`.
+ *
+ * One walk rather than three, and deliberately not built by joining the two
+ * per-player aggregations above: a medal is a property of the *team row*,
+ * which already names both players, so crediting the pair is the direct
+ * reading. Deriving it from player tallies would have to guess which of a
+ * player's medals belonged to which partner, and could not.
+ *
+ * Ranks are read exactly as the per-player functions read them, including the
+ * 1997 World Championships pairs who share a bronze — a pair credited there is
+ * credited here. The category split is kept rather than summed because
+ * weighing an Olympic gold against a Futures title is a judgement the caller
+ * has to make, not an arithmetic one.
+ */
+export function aggregatePairHonours(
+  teamRows: VisRow[],
+  tournaments: Map<string, Tournament>,
+  medals: Map<string, MedalCategory>,
+): Map<string, PairHonours> {
+  const out = new Map<string, PairHonours>();
+
+  const credit = (
+    a: number,
+    b: number,
+    category: keyof Omit<PairHonours, 'a' | 'b'>,
+    medal: keyof MedalCounts,
+  ) => {
+    const key = pairKey(a, b);
+    let entry = out.get(key);
+    if (!entry) {
+      out.set(
+        key,
+        (entry = {
+          a: Math.min(a, b),
+          b: Math.max(a, b),
+          olympics: { gold: 0, silver: 0, bronze: 0 },
+          'world-champs': { gold: 0, silver: 0, bronze: 0 },
+          tour: { gold: 0, silver: 0, bronze: 0 },
+        }),
+      );
+    }
+    entry[category][medal]++;
+  };
+
+  for (const row of teamRows) {
+    const medal = RANK_TO_MEDAL[Number(row.Rank)];
+    if (!medal) continue;
+
+    const tournamentNo = (row.NoTournament ?? '').trim();
+    const category = medals.get(tournamentNo);
+    const tournament = tournaments.get(tournamentNo);
+    // A medal event and a tour stop are mutually exclusive by construction —
+    // `medalTournaments` takes VIS Types 4 and 5, `TOUR_TIERS` takes neither —
+    // so at most one of these two branches can fire for a row.
+    const slot: keyof Omit<PairHonours, 'a' | 'b'> | null = category
+      ? category
+      : tournament && TOUR_TIERS.has(tournament.tier)
+        ? 'tour'
+        : null;
+    if (!slot) continue;
+
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    credit(a, b, slot, medal);
+  }
+  return out;
+}
+
+/**
+ * The three counts a partnership can be ranked by, each plain arithmetic.
+ *
+ * There is no single answer to "most decorated", so the page asks three
+ * questions instead of inventing a weighting. Measured over the archive they
+ * crown three different pairs, which is the argument for all three:
+ *
+ *   podiums           Behar & Bede              85
+ *   titles            Larissa & Juliana         45
+ *   olympicAndWorlds  May-Treanor & Walsh        7
+ *
+ * Defined here rather than at each call site so the three leaderboards cannot
+ * drift apart — "titles" meaning rank 1 everywhere is the sort of thing that
+ * quietly stops being true once two places compute it.
+ */
+export interface PairDecoration {
+  /** Every podium finish, all three categories, any colour. */
+  podiums: number;
+  /** Wins only — rank 1, all three categories. */
+  titles: number;
+  /**
+   * Medals at the Olympic Games and the World Championships, any colour.
+   *
+   * Deliberately not called "majors": Major Series is a real FIVB tier name
+   * (ingest/tiers.ts, Type 32) sitting inside the *tour* tally, so the short
+   * name would point at the wrong events.
+   */
+  olympicAndWorlds: number;
+}
+
+const COUNTS = ['olympics', 'world-champs', 'tour'] as const;
+
+/** The three rankable counts for one partnership. */
+export function decorationOf(honours: PairHonours): PairDecoration {
+  let podiums = 0;
+  let titles = 0;
+  for (const category of COUNTS) {
+    const { gold, silver, bronze } = honours[category];
+    podiums += gold + silver + bronze;
+    titles += gold;
+  }
+  const games = honours.olympics;
+  const worlds = honours['world-champs'];
+  return {
+    podiums,
+    titles,
+    olympicAndWorlds:
+      games.gold + games.silver + games.bronze + worlds.gold + worlds.silver + worlds.bronze,
+  };
+}
+
+/** What a `BeachTeam` row is on an entry list: in the field, or gone for a reason. */
+export type EntryStatus = 'in' | WithdrawalReason;
+
+/**
+ * `BeachTeam.Status` -> what the row is, or null for a row that is not shown.
+ *
+ * There is no published enum, so every value here was read from outside, by
+ * putting FIVB's own entry list for one event beside what VIS returns for it:
+ *
+ *   0  in the tournament — main draw, qualification or reserve, all of which
+ *      can end up playing. 45 rows against the 12 + 16 + 17 FIVB showed.
+ *   2  withdrawn; 3  medical certificate — three of each, exactly as listed.
+ *   4  a late withdrawal. Read on 17 September 2026 off a team FIVB's page
+ *      lists as "Late": their row had gone from 0 to 4 two days earlier,
+ *      *after* this site had shown them entered, and this function's
+ *      predecessor dropped them without a word. Across the archive Status 4
+ *      holds 1,037 rows and not one carries a placement, which is what a
+ *      withdrawal looks like and nothing else does.
+ *   1  an entry superseded by a later one; 5  unread. Both return null and
+ *      are counted by the caller, so the next unknown value is a line in the
+ *      run log rather than a team vanishing from a page.
+ *
+ * Measured over the archive (206,934 team rows, 17 September 2026), 0 is the
+ * only value that ever carries a placement; the other five are rank 0 on all
+ * but 8. That is the check that keeps a wrong reading here from crediting a
+ * result to a team that never played.
+ */
+const ENTRY_STATUS: Record<number, EntryStatus> = {
+  0: 'in',
+  2: 'withdrawn',
+  3: 'medical',
+  4: 'late',
+};
+
+export function entryStatus(status: number): EntryStatus | null {
+  return ENTRY_STATUS[status] ?? null;
 }
 
 /** A token that is a shout: letters, all of them upper case. */
@@ -1267,7 +1446,7 @@ export interface Slice {
  *
  * Around 0.8% of partnerships, but concentrated. A player who changes
  * federation keeps their new country and loses every partnership they made
- * under the old one, all in a single weekly refresh — Karen Noppen moved
+ * under the old one, all in a single refresh — Karen Noppen moved
  * BDI to NED on 16 August 2026 and went from two partners to none.
  *
  * Returned per player rather than per pair because that is how the card reads

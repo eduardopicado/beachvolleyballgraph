@@ -362,9 +362,11 @@ SITE_URL=https://your-domain.example npm run build
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs daily (09:17 UTC — late enough that a
-final anywhere in the world has been played and published), on pushes to
-`main`, and on demand via *Run workflow*. It lints, typechecks, unit-tests,
+`.github/workflows/deploy.yml` runs daily (scheduled for 09:17 UTC — late
+enough that a final anywhere in the world has been played and published — and
+in practice starting some hours after that, because GitHub queues scheduled
+workflows rather than running them on time), on pushes to `main`, and on demand
+via *Run workflow*. It lints, typechecks, unit-tests,
 ingests, builds, smoke-tests the built site in a browser, and only then deploys
 to GitHub Pages. On a plain code push the ingest job is skipped entirely, so
 shipping a CSS fix does not require FIVB to be reachable.

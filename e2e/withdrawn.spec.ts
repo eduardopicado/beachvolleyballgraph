@@ -118,6 +118,18 @@ test.describe('withdrawn teams on a phone', () => {
     const cell = page.locator('.entries .gone .why', { hasText: 'Medical' }).first();
     await expect(cell).toHaveText(/Medical certificate/);
   });
+
+  test('a late withdrawal still reads as a withdrawal to a screen reader', async ({ page }) => {
+    // "Late" on its own is a column value, not a statement. FIVB's page shows
+    // exactly that word, so the visible cell matches it; the phrase is what a
+    // reader hearing the table rather than seeing it needs.
+    const late = (found!.withdrawn ?? []).some((t) => t[5] === 'late');
+    test.skip(!late, 'this event has no late withdrawal');
+
+    await page.goto(`./${TOURNAMENT_PREFIX}/${found!.slug}/`);
+    const cell = page.locator('.entries .gone .why', { hasText: 'Late' }).first();
+    await expect(cell).toHaveText(/Late withdrawal/);
+  });
 });
 
 test('the withdrawn block is a real table, not a list wearing one', async ({ page }) => {

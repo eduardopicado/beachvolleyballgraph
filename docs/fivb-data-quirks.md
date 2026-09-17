@@ -1857,6 +1857,50 @@ on `TournamentMeta` as `country` and `span`.
 
 ---
 
+## 26. `BeachTeam.Status`: six values, no enum, and the one that took a team off a page
+
+**What.** Every team row carries a `Status`, and VIS documents no meaning for
+it. Measured over the whole archive on 2026-09-17, 206,934 rows:
+
+| `Status` | Rows | Ever carries a placement | Read as |
+|---:|---:|---|---|
+| 0 | 168,146 | yes — the only one that does | in the tournament |
+| 1 | 8,527 | no (8 rows, all rank ≤ 0 noise) | superseded entry — not shown |
+| 2 | 24,453 | no | withdrawn |
+| 3 | 4,040 | no | medical certificate |
+| 4 | 1,037 | no | **late withdrawal** |
+| 5 | 731 | no | unread — not shown |
+
+**How each was read.** By putting FIVB's own entry list for one event beside
+what VIS returns for it. Corigliano Rossano 2026 (`MCOR2026`, tournament
+9149) on 10 September: 45 rows at 0 against the 12 main draw, 16
+qualification and 17 reserves their page showed; three each at 2 and 3
+against their three withdrawals and three medical certificates.
+
+**The one this cost.** On 15 September the site's Corigliano list dropped
+from 40 entered to 39 while its withdrawals held at 7 and 4. Nothing had
+withdrawn — team 3174416, Ulisse/Spadoni, had moved from `Status` 0 to 4, a
+value the ingest lumped in with 1 as "superseded, don't publish". So a pair
+readers had seen entered the day before was simply gone, with no row saying
+why. On the 17th their page showed the pair under withdrawals with the reason
+**"Late"**. Archive-wide, 4 holds 932 rows in qualifying tournaments from
+2015 to 2026 (306 of them in 2019) and not one has a placement — the shape a
+withdrawal has and nothing else does.
+
+**Handled in.** `entryStatus` in `ingest/build.ts` reads 0, 2, 3 and 4 and
+returns null for everything else; the entries loop in `ingest/main.ts` counts
+what it dropped and logs `entries      not published: status 1 ×N, status 5
+×M`, so the next unread value shows up in a run log rather than as a team
+missing from a page. Published as `WithdrawalReason` `'late'`, shown as
+"Late" with "withdrawal" for screen readers.
+
+**Still open.** What 5 means (731 rows, none placed, none seen moving live);
+and the `StatusDate`/`StatusText` that would replace all of this reading with
+FIVB's own words, which VIS withholds — see survey §1.5 and the FIVB email,
+request 5.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with

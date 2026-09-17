@@ -5,7 +5,7 @@ dist/
 *.log
 
 # web/public/v1/ is generated but deliberately NOT ignored: it's the durable
-# copy of the dataset, committed by the weekly ingest run. See the header
+# copy of the dataset, committed by the daily ingest run. See the header
 # comment in ingest/main.ts. Only the transient swap directories are ignored.
 web/public/v1.tmp/
 web/public/v1.old/
@@ -15,6 +15,10 @@ ingest/.cache/
 # these as an artifact instead of committing them.
 test-results/
 playwright-report/
+
+# `npm run test:coverage` writes the v8 HTML report here (~2.5MB). Same
+# reasoning as the Playwright output above: read it locally, don't commit it.
+coverage/
 
 # Local skill-installer tooling (`npx skills add ...`), not project source.
 .agents/

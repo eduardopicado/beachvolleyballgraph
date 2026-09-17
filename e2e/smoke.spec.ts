@@ -3,7 +3,7 @@
  *
  * Every assertion here is cross-checked against the JSON the page was built
  * from, rather than against a number written into the test — so these stay
- * true as the weekly ingest changes the data, and fail when the page and its
+ * true as the daily ingest changes the data, and fail when the page and its
  * data stop agreeing.
  *
  * Deliberately *not* covered: anything that depends on synthetic input
@@ -744,7 +744,7 @@ test.describe('former names', () => {
   /**
    * A published player carrying a former name, found by scanning the index
    * rather than pinned to a person — Wikidata is edited by strangers and the
-   * archive is refetched weekly, so naming Taryn Brasher here would make this
+   * archive is refetched daily, so naming Taryn Brasher here would make this
    * test a report on someone else's editing habits.
    */
   const renamed = () => {
@@ -1405,7 +1405,7 @@ test.describe('the away block names itself for the graph, not for who moved', ()
   /**
    * A published away row whose federation-at-the-time is this slice's *own*
    * country, so the partner is the one who left. Found by scanning the data
-   * rather than pinned to a player, so it survives the weekly ingest.
+   * rather than pinned to a player, so it survives the daily ingest.
    *
    * 54 of the 111 away rows that carry a federation are this way round. The
    * other 53 are `movedAwayRow()` below, and the two together are why the

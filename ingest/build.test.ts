@@ -9,6 +9,11 @@ import {
 } from '../web/src/schema.js';
 import {
   aggregateMedals,
+  aggregatePairHonours,
+  decorationOf,
+  entryStatus,
+  type PairDecoration,
+  type PairHonours,
   aggregatePartnerships,
   aggregateTourPodiums,
   bestFinishByPair,
@@ -1301,6 +1306,199 @@ describe('aggregateTourPodiums', () => {
   });
 });
 
+describe('aggregatePairHonours', () => {
+  const byTier = normaliseTournaments([
+    { ...tournament('1', 2024), Type: '52' }, // Elite16 -> beach-pro-tour
+    { ...tournament('2', 2015), Type: '32' }, // Major Series -> world-tour
+    { ...tournament('3', 2024), Type: '5' }, // Olympic Games
+    { ...tournament('4', 2023), Type: '4' }, // World Championships
+    { ...tournament('5', 2024), Type: '26' }, // U21 World Championships
+  ]);
+  const medals = medalTournaments([
+    { No: '3', OrganizerType: '1', Type: '5' },
+    { No: '4', OrganizerType: '1', Type: '4' },
+  ]);
+  const honours = (rows: VisRow[]) => aggregatePairHonours(rows, byTier, medals);
+
+  it('credits the pair once, not once per player', () => {
+    // The whole point of the function: the same row that gives two players a
+    // gold each gives one pair one gold.
+    const byPair = honours([{ ...entry('1', 1, 2), Rank: '1' }]);
+    expect(byPair.size).toBe(1);
+    expect(byPair.get(pairKey(1, 2))!.tour).toEqual({ gold: 1, silver: 0, bronze: 0 });
+  });
+
+  it('keeps the three tallies apart', () => {
+    const byPair = honours([
+      { ...entry('3', 1, 2), Rank: '1' }, // Olympic gold
+      { ...entry('4', 1, 2), Rank: '3' }, // World Championships bronze
+      { ...entry('1', 1, 2), Rank: '2' }, // tour silver
+    ]);
+    const pair = byPair.get(pairKey(1, 2))!;
+    expect(pair.olympics).toEqual({ gold: 1, silver: 0, bronze: 0 });
+    expect(pair['world-champs']).toEqual({ gold: 0, silver: 0, bronze: 1 });
+    expect(pair.tour).toEqual({ gold: 0, silver: 1, bronze: 0 });
+  });
+
+  it('counts every medal row exactly once across the three tallies', () => {
+    // The double-count guard, written so it can actually fail: a row credited
+    // to two slots pushes the total above the number of rows. Asserting
+    // "an Olympic medal is not also a tour podium" instead would pass no
+    // matter what — the slot is chosen by an if/else that checks the medal
+    // category first, so that branch wins whatever the tier filter says.
+    const rows = [
+      { ...entry('3', 1, 2), Rank: '1' }, // Olympics
+      { ...entry('4', 1, 2), Rank: '2' }, // World Championships
+      { ...entry('1', 1, 2), Rank: '3' }, // tour
+      { ...entry('5', 1, 2), Rank: '1' }, // age-group: counts nowhere
+      { ...entry('1', 1, 2), Rank: '4' }, // 4th: counts nowhere
+    ];
+    const total = [...honours(rows).values()].reduce(
+      (sum, p) =>
+        sum +
+        (['olympics', 'world-champs', 'tour'] as const).reduce(
+          (s, k) => s + p[k].gold + p[k].silver + p[k].bronze,
+          0,
+        ),
+      0,
+    );
+    expect(total).toBe(3);
+  });
+
+  it('separates two partnerships that share a player', () => {
+    // The fact the per-player tally cannot express: which partner was there.
+    const byPair = honours([
+      { ...entry('1', 1, 2), Rank: '1' },
+      { ...entry('2', 1, 3), Rank: '1' },
+    ]);
+    expect(byPair.get(pairKey(1, 2))!.tour.gold).toBe(1);
+    expect(byPair.get(pairKey(1, 3))!.tour.gold).toBe(1);
+    expect(byPair.size).toBe(2);
+  });
+
+  it('treats a pair the same however the row orders them', () => {
+    // VIS puts whoever it likes in NoPlayer1, and does not do so consistently
+    // across a partnership's own rows.
+    const byPair = honours([
+      { ...entry('1', 7, 4), Rank: '1' },
+      { ...entry('2', 4, 7), Rank: '1' },
+    ]);
+    expect(byPair.size).toBe(1);
+    const pair = byPair.get(pairKey(4, 7))!;
+    expect(pair.tour.gold).toBe(2);
+    expect([pair.a, pair.b]).toEqual([4, 7]);
+  });
+
+  it('ignores fourth place and everything below it', () => {
+    expect(honours([{ ...entry('1', 1, 2), Rank: '4' }]).size).toBe(0);
+    expect(honours([{ ...entry('1', 1, 2), Rank: '17' }]).size).toBe(0);
+  });
+
+  it('leaves out age-group world championships, as the player tally does', () => {
+    expect(honours([{ ...entry('5', 1, 2), Rank: '1' }]).size).toBe(0);
+  });
+
+  it('ignores a tournament the tier filter already rejected', () => {
+    expect(honours([{ ...entry('404', 1, 2), Rank: '1' }]).size).toBe(0);
+  });
+
+  it('skips a row with a missing or self-paired player', () => {
+    const byPair = honours([
+      { ...entry('1', 1, 0), Rank: '1' },
+      { ...entry('1', 2, 2), Rank: '1' },
+    ]);
+    expect(byPair.size).toBe(0);
+  });
+});
+
+describe('decorationOf', () => {
+  const pair = (
+    olympics: [number, number, number],
+    worlds: [number, number, number],
+    tour: [number, number, number],
+  ): PairHonours => ({
+    a: 1,
+    b: 2,
+    olympics: { gold: olympics[0], silver: olympics[1], bronze: olympics[2] },
+    'world-champs': { gold: worlds[0], silver: worlds[1], bronze: worlds[2] },
+    tour: { gold: tour[0], silver: tour[1], bronze: tour[2] },
+  });
+
+  it('counts every podium of every colour across all three categories', () => {
+    expect(decorationOf(pair([1, 1, 1], [2, 0, 1], [3, 4, 5])).podiums).toBe(18);
+  });
+
+  it('counts only wins as titles', () => {
+    // Silver and bronze are podiums but not titles — the distinction the two
+    // leaderboards exist to draw.
+    expect(decorationOf(pair([0, 9, 9], [0, 9, 9], [0, 9, 9])).titles).toBe(0);
+    expect(decorationOf(pair([1, 0, 0], [1, 0, 0], [1, 0, 0])).titles).toBe(3);
+  });
+
+  it('counts Olympic and World Championships medals of any colour, and no tour podium', () => {
+    const counted = decorationOf(pair([0, 1, 0], [0, 0, 1], [9, 9, 9]));
+    expect(counted.olympicAndWorlds).toBe(2);
+  });
+
+  it('gives the archive the three different leaders it actually has', () => {
+    // The real honours of the three leading partnerships, measured against the
+    // published tree on 15 Sept 2026 — not illustrative numbers. This is the
+    // case for three leaderboards rather than one: each of these pairs is top
+    // of exactly one of them, and none is top of all three.
+    const behar = pair([0, 2, 0], [2, 1, 1], [30, 26, 23]); // Behar & Bede
+    const larissa = pair([0, 0, 1], [1, 2, 1], [44, 18, 15]); // Larissa & Juliana
+    const misty = pair([3, 0, 0], [3, 1, 0], [34, 13, 6]); // May-Treanor & Walsh Jennings
+
+    expect(decorationOf(behar)).toEqual({ podiums: 85, titles: 32, olympicAndWorlds: 6 });
+    expect(decorationOf(larissa)).toEqual({ podiums: 82, titles: 45, olympicAndWorlds: 5 });
+    expect(decorationOf(misty)).toEqual({ podiums: 60, titles: 40, olympicAndWorlds: 7 });
+
+    const winner = (m: keyof PairDecoration) =>
+      [behar, larissa, misty].sort((x, y) => decorationOf(y)[m] - decorationOf(x)[m])[0];
+    expect(winner('podiums')).toBe(behar);
+    expect(winner('titles')).toBe(larissa);
+    expect(winner('olympicAndWorlds')).toBe(misty);
+  });
+
+  it('is all zero for a pair that never reached a podium', () => {
+    expect(decorationOf(pair([0, 0, 0], [0, 0, 0], [0, 0, 0]))).toEqual({
+      podiums: 0,
+      titles: 0,
+      olympicAndWorlds: 0,
+    });
+  });
+});
+
+describe('entryStatus', () => {
+  it('keeps a Status 0 team in the field', () => {
+    expect(entryStatus(0)).toBe('in');
+  });
+
+  it('reads the three withdrawal kinds FIVB shows a reason for', () => {
+    expect(entryStatus(2)).toBe('withdrawn');
+    expect(entryStatus(3)).toBe('medical');
+    // The one that used to be dropped: a pair FIVB lists as "Late" moved
+    // from 0 to 4 after the site had shown them entered, and vanished.
+    expect(entryStatus(4)).toBe('late');
+  });
+
+  it('returns null, not a guess, for a value it has not read', () => {
+    // 1 is a superseded entry and 5 is unread; both exist in the archive and
+    // neither has a meaning the page could show. The caller counts these.
+    expect(entryStatus(1)).toBe(null);
+    expect(entryStatus(5)).toBe(null);
+    expect(entryStatus(99)).toBe(null);
+  });
+
+  it('never turns an unread value into a withdrawal by accident', () => {
+    // The failure that matters: a status nobody decoded being shown as
+    // "Withdrawn" would state a reason FIVB never gave.
+    for (const status of [1, 5, 6, 7, -1, NaN]) {
+      expect(entryStatus(status)).toBe(null);
+    }
+  });
+});
+
 // A snapshot of every real Olympic Games (Type 5) and FIVB World
 // Championships (Type 4) medal-round result FIVB's VIS API returns, captured
 // so this test suite validates the medal logic against every actual medal
@@ -1541,6 +1739,58 @@ describe('aggregateMedals (real FIVB medal history)', () => {
     const golds = [...byPlayer.values()].reduce((s, m) => s + m.olympics.gold + m['world-champs'].gold, 0);
     // 46 events x 2 players per winning pair.
     expect(golds).toBe(46 * 2);
+  });
+});
+
+describe('aggregatePairHonours (real FIVB medal history)', () => {
+  const medals = medalTournaments(REAL_MEDAL_TOURNAMENTS);
+  // No tour tournaments in this fixture: it is the medal rounds only, which is
+  // what makes the Olympic and World Championships totals below exact.
+  const byPair = aggregatePairHonours(REAL_MEDAL_ROWS, new Map(), medals);
+
+  it('awards exactly one gold to exactly one pair per medal event', () => {
+    // The per-player version of this counts 92 — 46 events x 2 players. Counted
+    // by pair it is 46, and that difference is the whole function.
+    const golds = [...byPair.values()].reduce(
+      (s, p) => s + p.olympics.gold + p['world-champs'].gold,
+      0,
+    );
+    expect(golds).toBe(46);
+  });
+
+  it("splits April Ross's three Olympic medals across her three partners", () => {
+    // The fact the player card cannot state. Her own tile reads 1 gold, 1
+    // silver, 1 bronze — and every one of them was won beside somebody else:
+    // silver with Jennifer Kessy (2012), bronze with Kerri Walsh Jennings
+    // (2016), gold with Alix Klineman (Tokyo 2020).
+    const ross = 118426;
+    const withRoss = [...byPair.values()].filter((p) => p.a === ross || p.b === ross);
+    const olympic = withRoss.filter(
+      (p) => p.olympics.gold + p.olympics.silver + p.olympics.bronze > 0,
+    );
+    expect(olympic).toHaveLength(3);
+    // And a fourth partner she medalled with at a World Championships but never
+    // at a Games — which is the same point again, one category along.
+    expect(withRoss.length).toBeGreaterThan(3);
+    const totals = olympic.map((p) => p.olympics);
+    expect(totals).toContainEqual({ gold: 1, silver: 0, bronze: 0 });
+    expect(totals).toContainEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(totals).toContainEqual({ gold: 0, silver: 0, bronze: 1 });
+  });
+
+  it('gives Walsh Jennings and May-Treanor all three of their Olympic golds as one pair', () => {
+    // 2004, 2008 and 2012, the same two people each time — the opposite case
+    // to Ross above, and the reason a pair tally is worth having at all.
+    const pair = byPair.get(pairKey(103242, 102850))!;
+    expect(pair.olympics).toEqual({ gold: 3, silver: 0, bronze: 0 });
+  });
+
+  it('credits both 1997 bronze pairs, exactly as the player tally does', () => {
+    // No bronze-medal match that year: both semifinal losers carry Rank 3, and
+    // the pair reading must not quietly deduplicate them into one.
+    const bronzes = [...byPair.values()].reduce((s, p) => s + p['world-champs'].bronze, 0);
+    // 30 World Championships, of which the two 1997 draws awarded two each.
+    expect(bronzes).toBe(32);
   });
 });
 

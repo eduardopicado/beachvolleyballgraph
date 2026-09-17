@@ -25,7 +25,6 @@
     [167130,199950,"INA",null,null],
     [169744,179343,"ESP",null,null],
     [173333,182099,"CRO",null,null],
-    [173509,187549,"DEN",null,null],
     [173575,147876,"CZE",null,null],
     [174367,212823,"POL",null,null],
     [175341,132883,"ITA",null,null],
@@ -45,7 +44,6 @@
     [192340,179007,"CZE",null,null],
     [192341,211212,"CZE",null,null],
     [192377,223148,"FRA",null,null],
-    [192781,211595,"UKR",null,null],
     [192796,201537,"LTU",null,null],
     [193219,185848,"NED",null,null],
     [200791,170520,"AUT",null,null],
@@ -73,7 +71,9 @@
   "withdrawn": [
     [155009,166978,"SVK",null,null,"withdrawn"],
     [168774,185582,"CAN",null,null,"withdrawn"],
+    [173509,187549,"DEN",null,null,"withdrawn"],
     [181692,168703,"HUN",null,null,"withdrawn"],
+    [192781,211595,"UKR",null,null,"withdrawn"],
     [203403,181582,"SCO",null,null,"withdrawn"],
     [232640,231058,"GER",null,null,"withdrawn"]
   ],
