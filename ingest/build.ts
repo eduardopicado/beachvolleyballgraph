@@ -1407,7 +1407,7 @@ export interface Slice {
  *
  * Around 0.8% of partnerships, but concentrated. A player who changes
  * federation keeps their new country and loses every partnership they made
- * under the old one, all in a single weekly refresh — Karen Noppen moved
+ * under the old one, all in a single refresh — Karen Noppen moved
  * BDI to NED on 16 August 2026 and went from two partners to none.
  *
  * Returned per player rather than per pair because that is how the card reads

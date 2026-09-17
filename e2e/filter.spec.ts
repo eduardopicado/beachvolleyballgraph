@@ -9,7 +9,7 @@
  * the way this breaks in practice — one panel updates and another does not.
  *
  * Numbers are computed from the published JSON rather than written down, so
- * they survive the weekly refresh.
+ * they survive the daily refresh.
  */
 
 import { test, expect, graph, manifest } from './fixtures.js';

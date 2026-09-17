@@ -24,7 +24,7 @@
  *
  * Publishing is atomic. Everything is written to a temp directory and only
  * swapped into place once every file has been generated and passed the checks
- * below, so a failed run leaves last week's data being served rather than a
+ * below, so a failed run leaves yesterday's data being served rather than a
  * half-published state.
  */
 
@@ -1064,7 +1064,7 @@ async function main() {
   // Swap the new tree in, then delete the old one — never the other way round.
   // `rm` the live directory first and the window between the two calls is a
   // window with no data at all: interrupt the process there (CI cancelled, disk
-  // full, Ctrl-C) and what is left is not "last week's data", it is nothing,
+  // full, Ctrl-C) and what is left is not "yesterday's data", it is nothing,
   // with the freshly built replacement still sitting under a name nothing
   // serves. Renaming the old tree aside keeps a complete directory at OUT_DIR
   // at every instant except the moment of the rename itself, which is atomic

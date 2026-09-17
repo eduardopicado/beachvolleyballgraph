@@ -263,7 +263,7 @@ describe('buildIndex and events not yet played', () => {
   it('resolves a collision between a played and an unplayed event, rather than letting one win', () => {
     // Both get FIVB's code appended, exactly as two played events would. The
     // played page's address moves, which is the same thing that happens when
-    // the weekly ingest adds any colliding tournament — and the alternative is
+    // the daily ingest adds any colliding tournament — and the alternative is
     // an unplayed page silently overwriting a played one.
     const rows = build(
       {
