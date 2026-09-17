@@ -4,8 +4,14 @@ import { indexPlayers, searchPlayers, type SearchablePlayer } from '../web/src/l
 import {
   fieldPlayerSlice,
   parseSliceKey,
+  readEntry,
   type ClassificationFile,
+  type EntriesFile,
+  type Manifest,
   type SearchEntry,
+  type SeriesFile,
+  type SeriesIndexFile,
+  type TournamentMeta,
 } from '../shared/schema.js';
 import {
   aggregateMedals,
@@ -2770,5 +2776,81 @@ describe('a player named in a tournament’s field', () => {
     const byCode = files.filter((f) => f.gender !== (f.code.startsWith('W') ? 'W' : 'M'));
     expect(byCode.map((f) => f.code).sort()).toEqual(['Rio2016W', 'WWRS2022']);
     for (const file of files) expect(['M', 'W']).toContain(file.gender);
+  });
+});
+
+/**
+ * How the per-tournament files fit together, as published.
+ *
+ * `classifications/`, `entries/` and `series/` are written by three different
+ * loops in main.ts over the same tournament set, and the manifest's
+ * `withoutField` by a fourth. data-model.md states what holds between them;
+ * this is where those statements are checked against the tree rather than
+ * against the code that meant to write it that way.
+ */
+describe('the per-tournament files', () => {
+  const DATA = new URL('../web/public/v1/', import.meta.url);
+  const read = (rel: string) => JSON.parse(readFileSync(new URL(rel, DATA), 'utf8'));
+  const codesIn = (dir: string) =>
+    new Set(readdirSync(new URL(`${dir}/`, DATA)).map((name) => name.replace(/\.json$/, '')));
+
+  const classified = codesIn('classifications');
+  const entered = codesIn('entries');
+  const manifest = read('manifest.json') as Manifest;
+  const tournaments = Object.values(read('tournaments.json').tournaments as TournamentMeta[]);
+  const allCodes = new Set(tournaments.map((t) => t[4]).filter((c): c is string => !!c));
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on nothing.
+    expect(classified.size).toBeGreaterThan(1_500);
+    expect(allCodes.size).toBeGreaterThan(1_600);
+  });
+
+  it('gives a tournament a classification or an entry list, never both', () => {
+    expect([...entered].filter((code) => classified.has(code))).toEqual([]);
+    for (const code of [...classified, ...entered]) expect(allCodes.has(code)).toBe(true);
+  });
+
+  it('lists in withoutField exactly the tournaments with no classification', () => {
+    // The manifest is what tells the site which tournaments have a page, and
+    // a list that is merely *nearly* the set of files on disk shows up as a
+    // slug resolved two different ways rather than as an error.
+    const expected = [...allCodes].filter((code) => !classified.has(code)).sort();
+    expect(manifest.withoutField).toEqual(expected);
+  });
+
+  it('names every player an entry list carries', () => {
+    for (const code of entered) {
+      const file = read(`entries/${code}.json`) as EntriesFile;
+      for (const team of [...file.teams, ...(file.withdrawn ?? [])]) {
+        const { a, b } = readEntry(team);
+        expect(file.players[a], `${code}: ${a}`).toBeTruthy();
+        expect(file.players[b], `${code}: ${b}`).toBeTruthy();
+      }
+    }
+  });
+
+  it('builds every series edition from a classification that exists, and indexes it', () => {
+    const index = (read('series/index.json') as SeriesIndexFile).of;
+    const slugs = [...codesIn('series')].filter((s) => s !== 'index');
+    expect(slugs.length).toBeGreaterThan(2);
+    let editions = 0;
+    for (const slug of slugs) {
+      const series = read(`series/${slug}.json`) as SeriesFile;
+      expect(series.slug).toBe(slug);
+      for (const edition of series.editions) {
+        editions++;
+        expect(classified.has(edition.code), `${slug}: ${edition.code}`).toBe(true);
+        expect(index[edition.code], `${slug}: ${edition.code} not indexed`).toContain(slug);
+      }
+    }
+    // And nothing in the index points at a series that does not list it.
+    for (const [code, members] of Object.entries(index)) {
+      for (const slug of members) {
+        const series = read(`series/${slug}.json`) as SeriesFile;
+        expect(series.editions.some((e) => e.code === code), `${code} -> ${slug}`).toBe(true);
+      }
+    }
+    expect(editions).toBeGreaterThan(100);
   });
 });

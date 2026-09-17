@@ -10,17 +10,21 @@ the app; this document explains the *why*.
 ## The tree
 
 ```
-web/public/v1/
-├── manifest.json              36 KB    index: countries, counts, tiers, freshness
-├── tournaments.json          120 KB    every qualifying tournament
-├── search.json               392 KB    every published player, for search
-├── graphs/{CC}-{G}.json      5.5 MB    264 files: nodes + edges
-├── players/{CC}-{G}.json     2.9 MB    264 files: vitals, medals, foreign partners
-└── results/{CC}-{G}.json     2.9 MB    264 files: every tournament every player entered
+web/public/v1/                                   measured 17 Sept 2026, 21.7 MB in all
+├── manifest.json                   36 KB    index: countries, counts, tiers, freshness
+├── tournaments.json               140 KB    every qualifying tournament
+├── search.json                    392 KB    every published player, for search
+├── graphs/{CC}-{G}.json           5.5 MB    264 files: nodes + edges
+├── players/{CC}-{G}.json          2.8 MB    264 files: vitals, medals, foreign partners
+├── results/{CC}-{G}.json          2.9 MB    264 files: every tournament every player entered
+├── classifications/{CODE}.json    9.3 MB    1,610 files: the full field of one played tournament
+├── entries/{CODE}.json             44 KB    6 files: who has entered a tournament still to come
+└── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
-country code. `{G}` is `M` or `W`.
+country code. `{G}` is `M` or `W`. `{CODE}` is FIVB's own tournament code
+(`MPAR2024`), the same value `tournaments.json` carries in its fifth slot.
 
 ## How the files join
 
@@ -35,13 +39,21 @@ flowchart LR
   RES["results/{CC}-{G}.json<br/><i>[tournament, partner, rank]</i>"]
 
   GR["<b>graphs/{CC}-{G}.json</b><br/>nodes — id, name, short<br/>edges — a, b, t, s"]
-  TRN["tournaments.json<br/><i>name, season, tier, level</i>"]
+  TRN["tournaments.json<br/><i>name, season, tier, level, code</i>"]
+  CLS["classifications/{CODE}.json<br/><i>[rank, a, b, federation]</i>"]
+  ENT["entries/{CODE}.json<br/><i>[a, b, federation, points…]</i>"]
+  SER["series/{slug}.json<br/><i>editions, top four each</i>"]
 
   MAN -->|"names the slice"| GR
   PL -->|"player id"| GR
   SRC -->|"player id"| GR
   RES -->|"partner id"| GR
   RES -->|"tournament no."| TRN
+  CLS -->|"code"| TRN
+  ENT -->|"code"| TRN
+  SER -->|"edition code"| TRN
+  CLS -->|"federation + gender,<br/>corrected by <b>elsewhere</b>"| GR
+  ENT -->|"the same rule"| GR
 
   RES -.->|"partner from<br/>another slice"| RN["the results file's<br/>own <b>names</b> map"]
   PL -.-> ND["away partner whose slice<br/>was too small to publish —<br/>no page to link to"]
@@ -50,6 +62,14 @@ flowchart LR
   style RN stroke-dasharray: 4 4
   style ND stroke-dasharray: 4 4
 ```
+
+**A name in a tournament's field is sent to a page by a guess with a
+correction list.** A classification or entry list names its players itself, so
+it can be read alone, but the page each name opens is a slice — and for 99.17%
+of the archive's field appearances that slice is the team's own federation plus
+the file's gender. `elsewhere` holds the exceptions: a transfer since, the GBR
+split into ENG and SCO, or no page at all. `fieldPlayerSlice` in the schema is
+the one place that rule lives, for both files.
 
 **A partner is named by the graph, not by the row that references them.** A
 result row is three numbers; the partner's name comes from the `nodes` array of
@@ -278,6 +298,147 @@ It exists so the box can find a player without the reader knowing their
 federation — which is the normal case, and for anyone who transferred the
 federation you remember is the wrong answer.
 
+## classifications/{CODE}.json
+
+The full final classification of one played tournament: every team, whatever
+federation it came from. **Lazy** — fetched when a reader opens a tournament,
+from a season row on a card or from the tournament's own page.
+
+```json
+{ "code": "MPAR2024", "gender": "M",
+  "teams": [ [1, 143685, 143686, "SWE"], [2, 100427, 104073, "GER"], [3, …] ],
+  "players": { "143685": "David Åhman", "143686": "Jonatan Hellvig" },
+  "elsewhere": { "104073": "BRA-M" } }
+//  rank  a       b       team federation
+```
+
+**One small file per tournament, not one per season or one for all.** The
+panel that reads it opens for a single event, so the fetch should be that event
+and nothing else: measured over the archive a file averages 3.9 KB and the
+largest is 10.5 KB, against 146 KB for an average season and 9.3 MB for the
+lot. 1,610 of the 1,688 tournaments have one; the other 78 are listed in
+`manifest.withoutField`, and that list is exactly the set of tournaments with
+no file, because it is what tells the site which tournaments have a page.
+
+**The federation is the team's, taken from its own row, never a player's.**
+A player's record holds their federation *today*; a classification is a
+historical document. Reading the flag off the player would show Taiana Lima
+under Azerbaijan at a 2010 event she played for Brazil, and would silently
+rewrite the flags of every athlete who has ever transferred.
+
+**Self-contained, and that is what `players` is for.** The obvious saving is to
+drop the names and look them up in `search.json`, which already holds every
+player — but that file is 392 KB and is deliberately not fetched until somebody
+uses the search box. Depending on it here would mean pulling 392 KB to read a
+2 KB classification. The file carries no name, season or date for the
+tournament itself: `tournaments.json` has them and is already loaded by anything
+that can open this.
+
+**`gender` is stored, not read off the code.** The code usually opens with the
+gender letter — `WBUS2026` — and on two tournaments it does not: `Rio2016W`
+carries it at the end, and `WWRS2022` is a men's field under a `W`. Quirks §23.
+
+**`elsewhere` is the correction list** described under the join diagram: 1,066
+of 128,118 field appearances, 30 KB across the archive against the 1.3 MB of
+storing every player's slice. `null` here means a player whose slice held too
+few players to publish — one player in the whole archive. 496 files carry the
+field; the largest has eight entries.
+
+**Sorted by placement, then eliminations, then the pair's own ids**, so a
+rebuild that holds the same result rewrites nothing. `rank` is shared, not
+unique — see `results/` above — so a tournament's teams arrive grouped by
+placement.
+
+## entries/{CODE}.json
+
+Who has entered a tournament that has no result yet: one still to come, or
+played so recently that FIVB has not written placements. **Lazy**, read by the
+tournament's page. A tournament has a classification *or* an entry list, never
+both, and a cancellation from 2004 gets neither.
+
+```json
+{ "code": "MALN2026", "gender": "M",
+  "teams": [ [167130, 199950, "INA", 1660, 2492], [179503, 204533, "TUR", 690, 1411, "WC"] ],
+  "withdrawn": [ [190604, 190602, "SWE", 690, 1326, "medical"] ],
+  "players": { "167130": "…" },
+  "elsewhere": { "204533": null } }
+//  a       b       fed    entry tech  route / reason
+```
+
+**`entry` and `tech` are FIVB's entry and technical points, frozen at the
+registration deadline.** A player's own page shows live points and the two
+differ by every result since. Null where FIVB publishes none, which happens for
+a pair who have never scored. Entry points decide who gets in and technical
+points break their ties, which is the order the file is in — confirmed against
+FIVB's own list, where Schinko's 788 technical points beat Saucedo's 744 on an
+equal 464 entry points.
+
+**`route` is how a team got in when not by ranking**, decoded from
+`BeachTeam.Type` against FIVB's published entry lists: `WC` wild card, `QWC`
+qualification wild card, `CS` continental slot, `OV` open vacancy. The ordinary
+route carries no label, which is why the slot is absent on most rows.
+
+**`withdrawn` is kept rather than dropped** because an entry list a week out is
+read to see who is coming, and "was coming, is not" is part of that answer.
+The reason is `BeachTeam.Status` decoded — `withdrawn`, `medical`, `late` —
+each matched against FIVB's own list for one event. Status 1, an entry
+superseded by a later one, is published nowhere, including by FIVB. Quirks §26.
+Absent when nobody withdrew.
+
+**Written even when nobody has entered.** The 2027 World Championships had zero
+entries a year out, and an empty file is what lets its page say "no entries
+yet" instead of failing to load. Six files today, 174 teams in and 68
+withdrawn; the count moves with the calendar.
+
+**`null` in `elsewhere` means something different here.** On a classification
+it is a player with no published page. On an entry list it is a player with no
+international result this site counts *yet* — 59 of 491 current entrants when
+measured — and says nothing about whether they have a career: fourteen of Oguz
+Degirmenci's twenty tournaments are Turkish National Tour events, a tier this
+site excludes on purpose. These are the names that link to FIVB's profile
+rather than to a card.
+
+## series/{slug}.json and series/index.json
+
+A recurring event and every edition of it, with the first four placements of
+each. **Lazy**, in two steps: a tournament page fetches the index, learns it is
+a Gstaad, and fetches only that series. The 87% of tournaments in no series at
+all pay for the index and stop there.
+
+```json
+// series/index.json
+{ "of": { "MGST2026": ["gstaad"], "MPAR2024": ["olympics"] } }
+
+// series/gstaad.json
+{ "slug": "gstaad", "name": "Gstaad", "blurb": "The Swiss stop, …",
+  "editions": [ { "code": "MGST2026", "season": 2026, "gender": "M",
+                  "slug": "bpt-elite-gstaad-2026-men", "name": "BPT Elite Gstaad",
+                  "top": [[1, "Alexander Brouwer / Stefan Boermans", "NED"], …] } ] }
+```
+
+**Series membership is not something VIS publishes.** There is no series id and
+no parent record, and the code is not a reliable handle: `?RIO` is not a Rio de
+Janeiro marker, because FIVB reused the stem for Salvador, Itapema and
+Uberlândia once the original run ended. `ingest/series.ts` defines membership,
+**deriving it where the data supports it and enumerating it where it does
+not**, never guessing from a name. Four series today: the Olympic Games (16
+editions), the World Championships (30), Gstaad (51) and the Rio de Janeiro
+event of 1987–98 (17); 112 tournaments in all.
+
+**The top four are precomputed** because a Gstaad page listing 51 editions
+would otherwise fetch 51 classification files to find four rows in each. "Four
+placements" is more than four teams whenever a rank is shared — and it usually
+is.
+
+**Editions are newest first, men's draw before women's**, the order the two are
+named in everywhere else on the site. Each carries its own `slug` and `name`,
+because an edition's page is addressed by them and both change across a long
+series ("Gstaad Open", "BPT Elite16 Gstaad").
+
+Not here yet: the age-group championships, which are one tier in the published
+data but five competitions, and only 70 of the 86 carry the category in their
+code. They stay unserialised until VIS's `Type` is published.
+
 ## Invariants
 
 Things that are true, and that tests assert against the published files:
@@ -290,6 +451,16 @@ Things that are true, and that tests assert against the published files:
 4. Every tournament referenced by `results` exists in `tournaments.json`.
 5. Both halves of a partnership carry the same `t`, `f`, `l`.
 6. Every player in `search.json` is a node in their slice's graph.
+7. Every player a classification or entry list names has a name in its own
+   `players` map, and `fieldPlayerSlice` sends each one to the slice
+   `search.json` publishes them in, or to `null` when there is none — asserted
+   across all 1,610 classifications against an index built by a different route
+   through the ingest.
+8. A tournament has a classification or an entry list, never both, and
+   `manifest.withoutField` is exactly the set of tournaments with no
+   classification file.
+9. Every edition in a series file has a classification file of the same code,
+   and every code in `series/index.json` names a series file that lists it.
 
 ## Changing the contract
 
