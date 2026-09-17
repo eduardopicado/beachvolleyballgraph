@@ -18,7 +18,7 @@ import type {
   Tier,
   TimelineFilter,
 } from '../web/src/schema.js';
-import type { WithdrawalReason } from '../web/src/schema.js';
+import type { EntryRoute, EntryTeam, WithdrawalReason, WithdrawnTeam } from '../web/src/schema.js';
 import { TOUR_TIERS } from '../web/src/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
@@ -700,6 +700,115 @@ const ENTRY_STATUS: Record<number, EntryStatus> = {
 
 export function entryStatus(status: number): EntryStatus | null {
   return ENTRY_STATUS[status] ?? null;
+}
+
+/**
+ * FIVB's `Type` -> the entry route their own list badges.
+ *
+ * Decoded against their published entry list for Corigliano Rossano, team by
+ * team: the one Type 1 is its wild card, the one Type 6 its qualification wild
+ * card, the one Type 9 its continental slot and all four Type 10 rows its open
+ * vacancies. Every other value is the ordinary ranking route and gets no badge
+ * — including Type 4, which is *not* a category: across the archive it carries
+ * both placements and rank-0 rows, and its matching the withdrawn count on one
+ * tournament was a coincidence.
+ */
+export const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
+
+/**
+ * A points figure VIS may leave blank, which is not the same as zero.
+ *
+ * Repek/Pribanic entered Corigliano with no points at all and Schmidt/Schmidt
+ * with zero; "no ranking yet" and "ranked, at nothing" are different statements
+ * and the page draws them differently.
+ */
+export function pointsOf(raw: string | undefined): number | null {
+  const n = Number(raw);
+  return raw === undefined || raw === '' || !Number.isFinite(n) ? null : n;
+}
+
+/** One team on an entry list, before it is serialised. */
+export interface EntryRow {
+  a: number;
+  b: number;
+  federation: string;
+  entry: number | null;
+  tech: number | null;
+  route: EntryRoute | null;
+  withdrawal: WithdrawalReason | null;
+}
+
+/**
+ * Every team row that belongs on an entry list, grouped by tournament number,
+ * plus a tally of the rows declined and why.
+ *
+ * `dropped` is keyed by the raw `Status` and is the caller's to log. It exists
+ * because a value `entryStatus` did not know once took a team off a published
+ * page overnight (Status 4, quirks §26), and the only reason anyone noticed
+ * was an entered count moving by one. Counting what is skipped turns the next
+ * unknown value into a line in the run output.
+ *
+ * The player guard is the one every aggregation here applies: a row with a
+ * missing, zero or self-paired player is not a team and is dropped without
+ * being counted as a status — it is a broken row, not an unread state.
+ */
+export function aggregateEntries(teamRows: VisRow[]): {
+  byTournament: Map<string, EntryRow[]>;
+  dropped: Map<number, number>;
+} {
+  const byTournament = new Map<string, EntryRow[]>();
+  const dropped = new Map<number, number>();
+  for (const row of teamRows) {
+    const status = Number(row.Status ?? 0);
+    const state = entryStatus(status);
+    if (state === null) {
+      dropped.set(status, (dropped.get(status) ?? 0) + 1);
+      continue;
+    }
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    const no = (row.NoTournament ?? '').trim();
+    const list = byTournament.get(no) ?? [];
+    list.push({
+      a,
+      b,
+      federation: (row.FederationCode ?? '').trim(),
+      entry: pointsOf(row.EntryPoints),
+      tech: pointsOf(row.TechnicalPoints),
+      route: ENTRY_ROUTE[Number(row.Type ?? 0)] ?? null,
+      withdrawal: state === 'in' ? null : state,
+    });
+    byTournament.set(no, list);
+  }
+  return { byTournament, dropped };
+}
+
+/**
+ * The order FIVB's own list has: entry points first, technical points to break
+ * a tie, and the pair's own ids after that so a file does not churn between
+ * two runs that hold the same list.
+ *
+ * A missing figure sorts below zero rather than being treated as one — a pair
+ * with no points yet belongs after a pair ranked at nothing, and `pointsOf`
+ * keeps the two apart for exactly this reason.
+ */
+export function entryOrder(x: EntryRow, y: EntryRow): number {
+  return (
+    (y.entry ?? -1) - (x.entry ?? -1) || (y.tech ?? -1) - (x.tech ?? -1) || x.a - y.a || x.b - y.b
+  );
+}
+
+/**
+ * The published tuple for one row. The sixth slot is shared: a withdrawal
+ * reason if the team is out, otherwise the entry route if it had one, otherwise
+ * nothing — never both, because `readEntry` on the other side tells them apart
+ * by value, and a withdrawn wild card is a withdrawn team, not a badge.
+ */
+export function entryTuple(t: EntryRow): EntryTeam | WithdrawnTeam {
+  if (t.withdrawal) return [t.a, t.b, t.federation, t.entry, t.tech, t.withdrawal];
+  if (t.route) return [t.a, t.b, t.federation, t.entry, t.tech, t.route];
+  return [t.a, t.b, t.federation, t.entry, t.tech];
 }
 
 /** A token that is a shout: letters, all of them upper case. */

@@ -12,6 +12,11 @@ import {
   aggregatePairHonours,
   decorationOf,
   entryStatus,
+  aggregateEntries,
+  entryOrder,
+  entryTuple,
+  pointsOf,
+  type EntryRow,
   type PairDecoration,
   type PairHonours,
   aggregatePartnerships,
@@ -1496,6 +1501,148 @@ describe('entryStatus', () => {
     for (const status of [1, 5, 6, 7, -1, NaN]) {
       expect(entryStatus(status)).toBe(null);
     }
+  });
+});
+
+describe('pointsOf', () => {
+  it('keeps a blank apart from a zero', () => {
+    // Repek/Pribanic with no points at all; Schmidt/Schmidt ranked at nothing.
+    expect(pointsOf('')).toBe(null);
+    expect(pointsOf(undefined)).toBe(null);
+    expect(pointsOf('0')).toBe(0);
+  });
+
+  it('reads a real figure and refuses a non-number', () => {
+    expect(pointsOf('1178')).toBe(1178);
+    expect(pointsOf('n/a')).toBe(null);
+  });
+});
+
+describe('aggregateEntries', () => {
+  /** A full team row as VIS returns it for an entry list. */
+  const team = (
+    tour: string,
+    a: number,
+    b: number,
+    extra: Partial<Record<'Status' | 'Type' | 'EntryPoints' | 'TechnicalPoints' | 'FederationCode', string>> = {},
+  ): VisRow => ({ ...entry(tour, a, b), Status: '0', FederationCode: 'ITA', ...extra });
+
+  it('groups the rows of one tournament and reads every field', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { EntryPoints: '1178', TechnicalPoints: '2240' }),
+      team('9149', 3, 4, { EntryPoints: '956', TechnicalPoints: '1284', Type: '1' }),
+      team('9150', 5, 6),
+    ]);
+    expect([...byTournament.keys()].sort()).toEqual(['9149', '9150']);
+    expect(byTournament.get('9149')).toEqual([
+      { a: 1, b: 2, federation: 'ITA', entry: 1178, tech: 2240, route: null, withdrawal: null },
+      { a: 3, b: 4, federation: 'ITA', entry: 956, tech: 1284, route: 'WC', withdrawal: null },
+    ]);
+  });
+
+  it('keeps a withdrawn team on the list with its reason', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { Status: '2' }),
+      team('9149', 3, 4, { Status: '3' }),
+      team('9149', 5, 6, { Status: '4' }),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => t.withdrawal)).toEqual(['withdrawn', 'medical', 'late']);
+  });
+
+  it('counts every row it declines, by status, instead of dropping it in silence', () => {
+    // The guard the Status 4 incident showed was missing: the next unread
+    // value must be a number in the run log, not a team missing from a page.
+    const { byTournament, dropped } = aggregateEntries([
+      team('9149', 1, 2, { Status: '1' }),
+      team('9149', 3, 4, { Status: '1' }),
+      team('9149', 5, 6, { Status: '5' }),
+      team('9149', 7, 8, { Status: '9' }),
+    ]);
+    expect(byTournament.size).toBe(0);
+    expect([...dropped].sort()).toEqual([
+      [1, 2],
+      [5, 1],
+      [9, 1],
+    ]);
+  });
+
+  it('drops a broken row without counting it as a status', () => {
+    // A self-paired or missing player is a malformed row, not an unread
+    // state, so it must neither appear on a list nor inflate the tally.
+    const { byTournament, dropped } = aggregateEntries([
+      team('9149', 1, 1),
+      team('9149', 0, 2),
+      team('9149', 3, 4),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => [t.a, t.b])).toEqual([[3, 4]]);
+    expect(dropped.size).toBe(0);
+  });
+
+  it('publishes a blank points figure as null and a zero as zero', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { EntryPoints: '', TechnicalPoints: '' }),
+      team('9149', 3, 4, { EntryPoints: '0', TechnicalPoints: '0' }),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => [t.entry, t.tech])).toEqual([
+      [null, null],
+      [0, 0],
+    ]);
+  });
+});
+
+describe('entryOrder', () => {
+  const row = (a: number, entry: number | null, tech: number | null = null): EntryRow => ({
+    a,
+    b: a + 100,
+    federation: 'ITA',
+    entry,
+    tech,
+    route: null,
+    withdrawal: null,
+  });
+
+  it('puts the most entry points first', () => {
+    expect([row(1, 500), row(2, 900), row(3, 700)].sort(entryOrder).map((r) => r.a)).toEqual([2, 3, 1]);
+  });
+
+  it('breaks a tie on technical points, as FIVB does', () => {
+    // Schinko's 788 technical points beat Saucedo's 744 on an equal 464.
+    expect([row(1, 464, 744), row(2, 464, 788)].sort(entryOrder).map((r) => r.a)).toEqual([2, 1]);
+  });
+
+  it('sorts a pair with no points after a pair ranked at nothing', () => {
+    expect([row(1, null), row(2, 0)].sort(entryOrder).map((r) => r.a)).toEqual([2, 1]);
+  });
+
+  it('falls back to the pair ids so equal rows never reorder between runs', () => {
+    const sorted = [row(9, 100, 100), row(4, 100, 100)].sort(entryOrder);
+    expect(sorted.map((r) => r.a)).toEqual([4, 9]);
+  });
+});
+
+describe('entryTuple', () => {
+  const base: EntryRow = {
+    a: 1,
+    b: 2,
+    federation: 'ITA',
+    entry: 840,
+    tech: 1166,
+    route: null,
+    withdrawal: null,
+  };
+
+  it('writes five elements for the ordinary case', () => {
+    expect(entryTuple(base)).toEqual([1, 2, 'ITA', 840, 1166]);
+  });
+
+  it('puts the route in the sixth slot when there is one', () => {
+    expect(entryTuple({ ...base, route: 'QWC' })).toEqual([1, 2, 'ITA', 840, 1166, 'QWC']);
+  });
+
+  it('lets a withdrawal win the sixth slot over a route', () => {
+    // A withdrawn wild card is a withdrawn team: the page must not badge it
+    // with how it got in, and `readEntry` tells the two apart by value.
+    expect(entryTuple({ ...base, route: 'WC', withdrawal: 'late' })).toEqual([1, 2, 'ITA', 840, 1166, 'late']);
   });
 });
 
