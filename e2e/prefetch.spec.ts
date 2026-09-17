@@ -17,6 +17,7 @@
  * the page *makes*, never how long they take.
  */
 
+import { DWELL_MS } from '../web/src/lib/prefetchPortrait.js';
 import { test, expect, graph, manifest } from './fixtures.js';
 import { sliceSlug } from '../web/src/lib/slug.js';
 
@@ -153,8 +154,16 @@ test('crossing the same node again does not ask again', async ({ page }) => {
   for (let pass = 0; pass < 3; pass++) {
     await page.mouse.move(centre.x - 3, centre.y - 3);
     await page.mouse.move(centre.x, centre.y);
-    // Off the node and back on, which is what a pointer crossing a dense
-    // cluster does several times a second.
+    // Rest past the dwell, so each pass is a hover that would start the
+    // portrait if it were the first one. Without the rest each pass is a
+    // crossing, which the dwell exists to ignore, and whether the portrait
+    // started at all came down to whether one round trip to the browser
+    // happened to take longer than DWELL_MS. It did on a slow machine and did
+    // not on a fast runner: two deploys failed here on 17 Sept 2026 with
+    // "received 0", both attempts, while the same commit passed elsewhere.
+    await page.waitForTimeout(DWELL_MS * 2);
+    // Off the node and back on, which is what a pointer returning to the same
+    // player does. The claim is that the second and third visits cost nothing.
     await page.mouse.move(centre.x + 160, centre.y + 120);
   }
 
