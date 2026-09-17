@@ -4,6 +4,11 @@ How the system is shaped, and the reasoning behind each major choice. For what
 individual modules do see [implementation.md](implementation.md); for the
 published data see [data-model.md](data-model.md).
 
+Every figure in this document — counts, file sizes, bundle sizes — was measured
+on 2026-09-17 and is a snapshot, not a live value. The archive is rebuilt daily,
+so they drift; `web/public/v1/manifest.json` carries the current totals and
+`npm run build` prints the current bundle. Re-measure before quoting one.
+
 ---
 
 ## The shape
@@ -18,7 +23,7 @@ flowchart LR
 
   subgraph build["Build time — Node + tsx"]
     ING[ingest/<br/>fetch, normalise, slice]
-    PRE[prerender/<br/>265 static pages]
+    PRE[prerender/<br/>a page per slice and per tournament, plus home]
   end
 
   DATA[["web/public/v1/**<br/>static JSON<br/>committed to git"]]
@@ -46,7 +51,7 @@ There is no server, no database, no API of ours. The whole dataset is 12 MB of
 JSON on a CDN.
 
 This follows from the data's shape rather than from minimalism for its own
-sake. The archive changes **once a week**, is **fully public**, and is **small
+sake. The archive moves **a little every day**, is **fully public**, and is **small
 enough to ship whole**. A database would add an availability dependency, an
 operational surface and a cost, in exchange for freshness the data does not
 have and query flexibility the site does not need. A static tree is free to
@@ -91,11 +96,11 @@ sequenceDiagram
   participant I as ingest
   participant V as VIS
   I->>V: GetBeachTournamentList (Fields=...)
-  V-->>I: 9,270 tournaments
+  V-->>I: 9,276 tournaments
   I->>V: GetPlayerList (Fields=...)
-  V-->>I: 130,992 players
+  V-->>I: 131,657 players
   I->>V: GetBeachTeamList (Fields=...)
-  V-->>I: 206,489 team entries
+  V-->>I: 206,934 team entries
   Note over I: normalise → aggregate → slice → write
 ```
 
@@ -117,7 +122,7 @@ requests return a silently empty element without one.
 
 The graph is sliced into 264 files rather than served whole.
 
-A single global graph would be 12,074 nodes — unreadable as a visualisation and
+A single global graph would be 12,097 nodes — unreadable as a visualisation and
 a large download to answer a question that is almost always about one country.
 Slicing gives each page a payload proportional to what it shows.
 
@@ -140,8 +145,8 @@ flowchart TD
   B --> D["players/{CC}-{G}.json<br/>vitals, medals, foreign partners"]
   C --> E{"Reader acts"}
   D --> E
-  E -->|"types in search"| F["search.json — 392 KB<br/>all 12,074 players"]
-  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 120 KB"]
+  E -->|"types in search"| F["search.json — 392 KB<br/>all 12,098 players"]
+  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 140 KB"]
 
   style F stroke-dasharray: 4 4
   style G stroke-dasharray: 4 4
@@ -150,7 +155,7 @@ flowchart TD
 Solid edges load with the page; dashed ones are fetched on first interaction
 and never otherwise. The two lazy tiers exist because they are the two largest
 things published and most visits need neither: `results/` is 2.9 MB across all
-slices (127,899 rows), `search.json` is 392 KB.
+slices (128,217 rows), `search.json` is 392 KB.
 
 `api.ts` memoises every fetch by URL, so switching country and back, or opening
 a second season, costs nothing.
@@ -172,7 +177,7 @@ second implementation.
 
 ## Prerendering
 
-`ingest/prerender.ts` writes one static HTML document per slice — 265 pages
+`ingest/prerender.ts` writes one static HTML document per slice and per tournament — 1,882 pages
 including the home page — each containing the actual player table, per-page
 metadata and JSON-LD. React replaces the markup on mount.
 
@@ -213,7 +218,7 @@ Three jobs in a strict pipeline. Two details matter:
 
 Failure semantics: if the ingest fails — including refusing to publish a
 suspicious rebuild — nothing downstream runs and the site keeps serving last
-week's data. Degraded to *slightly stale*, never to *down*.
+day's data. Degraded to *slightly stale*, never to *down*.
 
 **Origin coupling.** Canonical URLs are built as `SITE_URL + BASE_PATH + page`,
 so the two must describe the same place. A project Pages site lives at
@@ -241,7 +246,7 @@ It has **no automatic gate** against `deploy.yml` — disable one by hand.
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
 **Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.
-214 KB of JavaScript, 71 KB gzipped.
+242 KB of JavaScript, 78 KB gzipped.
 
 Deliberately not used:
 
@@ -252,7 +257,7 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 28 KB of CSS, linted by
+  component has a sibling stylesheet. The whole site is 44 KB of CSS, linted by
   `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
   closing brace without complaint, so nothing else would catch one.
 - **No data-fetching library.** Six `fetch` calls behind a memoising map.

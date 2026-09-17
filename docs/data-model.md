@@ -140,7 +140,7 @@ file size — roughly a 30% saving for free.
   of the ~5,900 seasons in which a player had more than one partner** — a
   one-off fill-in routinely outranked the partner somebody actually switched
   to. (The 38% was measured when the change was made; the population it was
-  measured over grows a little every week.)
+  measured over grows a little every day.)
 - Optional, because slices published before the field existed do not carry it;
   the timeline hides itself rather than rendering empty.
 

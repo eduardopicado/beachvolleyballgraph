@@ -45,7 +45,7 @@ export interface TeammateCheck {
  * Which players to ask about.
  *
  * Deterministic, because a check that samples randomly reports a different
- * failure every week and cannot be reproduced from a log line. Two groups, for
+ * failure every run and cannot be reproduced from a log line. Two groups, for
  * two different jobs:
  *
  *  - the busiest careers, which carry the most edges and therefore give a

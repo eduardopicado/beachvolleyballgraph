@@ -1975,7 +1975,7 @@ describe('finishedWithoutResults', () => {
 
   it('ignores an event that has not finished', () => {
     // Future events carry full entry lists and no ranks by definition; saying
-    // so every week for every scheduled tournament would be pure noise.
+    // so every day for every scheduled tournament would be pure noise.
     const tournaments = normaliseTournaments([dated('1', '2026-12-01')]);
     const rows: VisRow[] = [{ ...entry('1', 1, 2), Rank: '' }];
     expect(finishedWithoutResults(tournaments, rows, '2026-08-17')).toEqual([]);

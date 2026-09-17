@@ -515,7 +515,8 @@ widening the admitted types would have published them.
 **They are now dropped by name**, in `isTestAccount`, so the exclusion is
 deliberate rather than a side effect of §1. It changed nothing published, which
 is the point: the same 12,097 players and 13,966 partnerships came out of the
-run that introduced it. 17 records are newly excluded rather than 19, because
+run that introduced it (1 September 2026) as had come out of the run before —
+the archive's totals on that day; `manifest.json` has today's. 17 records are newly excluded rather than 19, because
 `Test Test` (139736, SMA) and `Player Jessica Test` (179298, FIV) were already
 dropped by the excluded-federation rule.
 
@@ -1659,7 +1660,8 @@ exactly why this survived: the visible half of the site looked fine.
 | Any alphabetical ordering | `.` sorts before every letter, so **all 30 sit at the head of the archive** |
 
 That last one is the reason to fix rather than document. The first thirty names
-in an alphabetical listing of 12,096 players were thirty records with no name.
+in an alphabetical listing of the archive — 12,096 players at the time — were
+thirty records with no name.
 
 **Handled in `blankUnknownName` (`ingest/build.ts`).** A name field that is
 nothing but dots is blanked before the parts are joined, so `... Grimalt`
