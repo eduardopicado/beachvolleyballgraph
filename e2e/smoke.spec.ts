@@ -830,7 +830,7 @@ test.describe('cross-country search', () => {
    *
    * Used only to *choose* a query whose matches land in more than one group —
    * which names do that depends entirely on the archive, and the archive moves
-   * every week. Every assertion below is still made against the rendered DOM.
+   * every day. Every assertion below is still made against the rendered DOM.
    */
   const searchable = () => {
     const all: SearchablePlayer[] = [];

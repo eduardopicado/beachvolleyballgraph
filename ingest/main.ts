@@ -473,7 +473,7 @@ async function main() {
       // No per-file `generatedAt`: nothing reads it (`manifest.generatedAt`
       // is the one freshness marker the app and prerender actually use), and
       // a value that changes on every single run regardless of whether this
-      // slice's real content did would touch all 575 files every week.
+      // slice's real content did would touch every slice file on every run.
       nodes: slice.nodes,
       edges: slice.edges,
     };
