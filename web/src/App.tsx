@@ -713,7 +713,7 @@ export default function App() {
       <footer>
         <p>
           Source: <a href={SOURCE_URL} target="_blank" rel="noopener noreferrer">{SOURCE_NAME}</a>.
-          {manifest && ` Rebuilt weekly · ${manifest.totals.partnerships.toLocaleString()} partnerships across ${manifest.totals.players.toLocaleString()} players.`}
+          {manifest && ` Rebuilt daily · ${manifest.totals.partnerships.toLocaleString()} partnerships across ${manifest.totals.players.toLocaleString()} players.`}
           {' '}Not affiliated with the FIVB.
         </p>
         <p className="caveat">

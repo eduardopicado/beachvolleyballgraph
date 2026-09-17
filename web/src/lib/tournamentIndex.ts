@@ -101,10 +101,10 @@ export interface IndexRow {
  * How long after an event ends its placements may still be missing.
  *
  * FIVB writes results into `BeachTeam.Rank` some hours after the last match,
- * and the ingest runs weekly, so there is always a window where a tournament
- * has been played and has no field. Without this an event would vanish from
- * the index on the day it started and reappear when the next ingest ran — the
- * one week it is most worth looking at.
+ * and the ingest runs once a day, so there is always a window where a
+ * tournament has been played and has no field. Without this an event would
+ * vanish from the index on the day it started and reappear when the next
+ * ingest ran — the very days it is most worth looking at.
  *
  * Thirty days, the same figure `RECENT_RESULT_DAYS` uses in the ingest for the
  * same lag, and far past the observed one. The 72 cancelled and postponed
@@ -168,7 +168,7 @@ export function buildIndex(
    * `tournamentSlugs` appends FIVB's code to every member of a colliding
    * group, so an event joining this set can move the address of one already
    * in it. That is not a new hazard: the same is true of every tournament the
-   * weekly ingest adds, and `tournamentSlugs` documents it. What would be a
+   * daily ingest adds, and `tournamentSlugs` documents it. What would be a
    * hazard is the other way round — an event with a page left out of collision
    * resolution, free to overwrite a page that exists.
    */

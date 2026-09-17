@@ -84,7 +84,7 @@ export function accentedPlayerElsewhere(exclude: string): {
  * their own slice shows none of them.
  *
  * Found by scanning rather than named, because who this is changes: a player
- * transfers, their partners stay behind, and the next weekly refresh strands
+ * transfers, their partners stay behind, and the next daily refresh strands
  * somebody new. Hard-coding one would turn a real regression test into a
  * test that fails the week FIVB updates a federation.
  */

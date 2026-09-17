@@ -134,7 +134,7 @@ describe('seasonEvents — where and how long', () => {
 
   it('is null country and null end on a tuple too short to carry them', () => {
     // Every row published before the fields existed, which is the whole tree
-    // until the next weekly regeneration.
+    // until the next regeneration.
     const event = only(1, 2024);
     expect(event.country).toBeNull();
     expect(event.endDate).toBeNull();

@@ -147,7 +147,7 @@ describe('levelFor', () => {
  * it was just the wrong label, and nothing compared it to anything.
  *
  * Reads the published artifact rather than a fixture, because that is the
- * thing readers actually see, and because it keeps working as the weekly
+ * thing readers actually see, and because it keeps working as the daily
  * ingest changes the archive underneath it.
  *
  * Only the Beach Pro Tour rungs name themselves in their titles, so only those
