@@ -1,5 +1,5 @@
 /**
- * Weekly ingest: FIVB VIS -> static JSON under `web/public/v1/`, committed to
+ * Daily ingest: FIVB VIS -> static JSON under `web/public/v1/`, committed to
  * this repo rather than published as a build artifact.
  *
  * The whole archive is reachable in three bulk list requests, so there is no
