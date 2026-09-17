@@ -290,7 +290,7 @@ BASE_PATH=/beachvolleyballgraph/ npm run test:e2e
 `BASE_PATH` has to match between the two — `vite preview` serves at the base the
 site was built with, so a mismatch just 404s.
 
-**467 unit tests** cover the pure logic — tier filtering, pair aggregation and
+**683 unit tests** (17 September 2026) cover the pure logic — tier filtering, pair aggregation and
 dedupe, medal counting, country-name resolution, the VIS attribute scanner and
 unit conversions, graph layout maths (fit-to-view, label collision, radius
 scaling), slug round-trips and HTML escaping. Logic that starts inside a

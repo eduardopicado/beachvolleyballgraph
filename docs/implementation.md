@@ -125,9 +125,10 @@ who have none, which is most of them.
 
 ## Testing
 
-Two layers, 580 tests total.
+Two layers, 833 tests total, counted on 17 September 2026. Both suites grow
+most weeks; `npm test` and `npm run test:e2e` print the current figures.
 
-**Unit — 467 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
+**Unit — 683 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
 in `build.ts` and `web/src/lib/` is pure, so this is where the logic lives.
 Fixtures include real, awkward rows: the 1997 World Championships with two
 bronzes, the Olympic qualifier with two winners.
@@ -138,8 +139,8 @@ tested**, not tested through the DOM: `filter.ts` (the strength threshold) and
 component keeps the state and the markup; the rule it applies becomes a pure
 function with a name.
 
-**Browser — 113 tests, `npm run test:e2e`.** Playwright against `vite preview`
-of the real `dist/`, in seven files:
+**Browser — 150 tests, `npm run test:e2e`.** Playwright against `vite preview`
+of the real `dist/`, in twelve files:
 
 | | |
 |---|---|
@@ -150,6 +151,11 @@ of the real `dist/`, in seven files:
 | `table.spec.ts` | sorting: order, `aria-sort`, and the arrow agreeing |
 | `filter.spec.ts` | the min-events threshold, across every panel it changes |
 | `pointer.spec.ts` | a tap near a node opens it, at the zoom a real slice picks |
+| `classification.spec.ts` | a tournament's field agrees with the timeline that opened it |
+| `entry-links.spec.ts` | each entrant links where the entries file says, here or to FIVB |
+| `withdrawn.spec.ts` | the withdrawn block at phone width: each reason on its own team's row |
+| `portrait.spec.ts` | the card's portrait in its three states: shown, missing, not yet loaded |
+| `prefetch.spec.ts` | hover warms the portrait the card then asks for, once per player |
 
 The rule that makes these worth having: **every assertion is cross-checked
 against the JSON the page was built from**, never against a number typed into
