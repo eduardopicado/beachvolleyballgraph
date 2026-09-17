@@ -53,6 +53,7 @@ describe('readEntry', () => {
     const gone: WithdrawnTeam = [1, 2, 'ESP', 780, 1360, 'withdrawn'];
     expect(readEntry(gone).route).toBe(null);
     expect(readEntry([3, 4, 'CZE', 582, 1296, 'medical'] as WithdrawnTeam).route).toBe(null);
+    expect(readEntry([5, 6, 'ITA', 840, 1166, 'late'] as WithdrawnTeam).route).toBe(null);
   });
 
   it('accepts every route FIVB uses', () => {

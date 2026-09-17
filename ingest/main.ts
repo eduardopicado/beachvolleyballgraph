@@ -49,6 +49,7 @@ import {
   normalisePlayers,
   normaliseTournaments,
   sliceByCountryAndGender,
+  entryStatus,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
@@ -779,16 +780,10 @@ async function main() {
    */
   const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
 
-  /**
-   * `Status` -> why a team that entered will not play.
-   *
-   * 2 and 3 against the same list, which shows three withdrawals and three
-   * medical certificates: exactly the counts VIS gives. Status 1 is a third
-   * kind, an entry superseded by a later one, and FIVB publishes those
-   * nowhere -- they are the rows that made one player appear in three
-   * different pairs before this filter existed.
-   */
-  const WITHDRAWAL: Record<number, WithdrawalReason> = { 2: 'withdrawn', 3: 'medical' };
+  // `Status` is read by `entryStatus` in build.ts, which is where each value's
+  // meaning and the evidence for it live. Status 1 rows -- entries superseded
+  // by a later one -- are the ones that made one player appear in three
+  // different pairs before this filter existed.
 
   /** A number VIS may leave blank, which is not the same as zero. */
   const points = (raw: string | undefined) => {
@@ -806,21 +801,19 @@ async function main() {
     withdrawal: WithdrawalReason | null;
   }
   const entriesByTournament = new Map<string, EntryRow[]>();
+  const dropped = new Map<number, number>();
   for (const row of teamRows) {
     const status = Number(row.Status ?? 0);
-    // Status 0 is a team that is in the tournament -- main draw, qualification
-    // or reserve, all of which can end up playing. 2 and 3 entered and pulled
-    // out. 1 and the rest are superseded entries nobody publishes.
-    //
-    // Decoded from the archive, because there is no published enum: across
-    // 206,799 team rows, Status 0 is the only value that ever carries a
-    // placement (137,518 of them) and the other five are rank 0 on all but 8.
-    // Corroborated against FIVB's own list for Corigliano Rossano -- 45 rows
-    // at Status 0 against the 12 + 16 + 17 they show, and three each at
-    // Status 2 and 3 against their three withdrawals and three medical
-    // certificates.
-    const withdrawal = WITHDRAWAL[status] ?? null;
-    if (status !== 0 && !withdrawal) continue;
+    const state = entryStatus(status);
+    if (state === null) {
+      // Counted and logged rather than skipped in silence. A value this
+      // reading did not know took a team off a published page overnight once
+      // (Status 4, quirks §26), and the only reason anyone noticed was an
+      // entered count moving by one.
+      dropped.set(status, (dropped.get(status) ?? 0) + 1);
+      continue;
+    }
+    const withdrawal = state === 'in' ? null : state;
     const no = (row.NoTournament ?? '').trim();
     const a = Number(row.NoPlayer1);
     const b = Number(row.NoPlayer2);
@@ -836,6 +829,13 @@ async function main() {
       withdrawal,
     });
     entriesByTournament.set(no, list);
+  }
+  if (dropped.size > 0) {
+    const detail = [...dropped]
+      .sort(([a], [b]) => a - b)
+      .map(([status, n]) => `status ${status} ×${n}`)
+      .join(', ');
+    log('entries', `not published: ${detail}`);
   }
 
   let entryFiles = 0;
