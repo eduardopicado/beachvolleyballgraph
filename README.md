@@ -161,6 +161,7 @@ Everything under `/v1/` is static JSON:
 /v1/classifications/{CODE}.json  the full field of one played tournament, by FIVB code
 /v1/entries/{CODE}.json      who has entered a tournament with no result yet, and who withdrew
 /v1/series/{slug}.json       every edition of a recurring event, top four each; index.json maps codes to series
+/v1/records.json             the archive's extremes: 14 categories, men and women, top five each
 ```
 
 Edge keys are terse (`a`, `b`, `t`, `f`, `l`, `s`) because edges dominate file

@@ -817,3 +817,117 @@ export function parseSliceKey(key: string): { country: string; gender: Gender } 
 }
 
 export const manifestPath = (base: string) => `${base}${DATA_VERSION}/manifest.json`;
+
+/**
+ * The categories in `/v1/records.json`, in the order a page lists them.
+ *
+ * Every one is a fact about the sport that the archive can prove from its own
+ * rows — a career, a partnership, a Games — and none is a fact about how FIVB's
+ * database happens to be shaped. That line is the whole difficulty of the
+ * file: "most federations represented" would count data gaps as achievements
+ * (a federation is a snapshot, not a history), so it is not here.
+ *
+ *  - `tournaments`, `career`, `partners`, `titles`, `games`: per player.
+ *  - `partnership`, `span`, `reunion`, `pair-*`: per pair, both halves named.
+ *  - `tallest`, `shortest`, `shortest-champion`: per player, from a field
+ *    41% of the archive has and which is entered by hand at a couple of
+ *    hundred federations — so a row here is published only once the height has
+ *    been checked against a source outside FIVB. See `RecordRow`.
+ *
+ * Split by gender throughout. A combined board turned out to be silently
+ * all-men in five of six ranked categories, not because the women's tour is
+ * thinner but because a tie always loses to the bigger of two numbers.
+ */
+export type RecordKey =
+  | 'tournaments'
+  | 'career'
+  | 'partnership'
+  | 'partners'
+  | 'titles'
+  | 'games'
+  | 'span'
+  | 'reunion'
+  | 'tallest'
+  | 'shortest'
+  | 'shortest-champion'
+  | 'pair-podiums'
+  | 'pair-titles'
+  | 'pair-olympic-worlds';
+
+export const RECORD_KEYS: readonly RecordKey[] = [
+  'tournaments',
+  'career',
+  'partnership',
+  'partners',
+  'titles',
+  'games',
+  'span',
+  'reunion',
+  'pair-podiums',
+  'pair-titles',
+  'pair-olympic-worlds',
+  'tallest',
+  'shortest',
+  'shortest-champion',
+];
+
+/** One player on a record row: enough to name them and link to their page. */
+export interface RecordHolder {
+  id: number;
+  name: string;
+  /** Their current federation, which is where their page is. */
+  federation: string;
+}
+
+/**
+ * One row of a leaderboard.
+ *
+ * `who` is one player or the two halves of a pair. `first` and `last` are the
+ * seasons the row spans where a span is what it measures; `gap` is the two
+ * seasons either side of a reunion's idle years.
+ *
+ * **A withheld row is a rank with nothing on it.** It is the standing rule for
+ * the height categories: a value that has not been confirmed outside FIVB does
+ * not ship, not even with a caveat beside it, because a page of records is
+ * exactly where a reader takes a number at face value. The rank is kept so the
+ * board does not quietly promote the second-shortest to shortest; the value and
+ * the name are not. `ingest/records.ts` holds the list of what has been
+ * checked and logs what is waiting.
+ */
+export type RecordRow =
+  | {
+      rank: number;
+      value: number;
+      who: RecordHolder[];
+      first?: number;
+      last?: number;
+      gap?: [from: number, to: number];
+    }
+  | { rank: number; withheld: true };
+
+export interface RecordBoard {
+  /** The top rows, `rank` 1 upwards, at most `RecordsFile.top` of them. */
+  rows: RecordRow[];
+  /**
+   * How many more candidates share the last row's value and were cut for
+   * space rather than merit. Ties are broken by player id so the file is
+   * stable between runs, and this is what lets a page say "and 3 more at 4".
+   */
+  ties: number;
+}
+
+/**
+ * `/v1/records.json`: the archive's extremes, per category and per gender.
+ *
+ * Its own file because every number in it is read across all 264 slices — the
+ * one thing the rest of the tree is built never to do at page load. Built once
+ * per ingest run, a few kilobytes, and guarded by its own sanity floors so a
+ * broken fetch cannot publish an empty board as a record.
+ */
+export interface RecordsFile {
+  /** Rows per board. */
+  top: number;
+  categories: Record<RecordKey, Record<Gender, RecordBoard>>;
+}
+
+export const recordsPath = (base: string) => `${base}${DATA_VERSION}/records.json`;

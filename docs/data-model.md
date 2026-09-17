@@ -19,7 +19,8 @@ web/public/v1/                                   measured 17 Sept 2026, 21.7 MB 
 ├── results/{CC}-{G}.json          2.9 MB    264 files: every tournament every player entered
 ├── classifications/{CODE}.json    9.3 MB    1,610 files: the full field of one played tournament
 ├── entries/{CODE}.json             44 KB    6 files: who has entered a tournament still to come
-└── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
+├── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
+└── records.json                    47 KB    the archive's extremes, 14 categories x 2 genders x top 5
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
@@ -439,6 +440,71 @@ Not here yet: the age-group championships, which are one tier in the published
 data but five competitions, and only 70 of the 86 carry the category in their
 code. They stay unserialised until VIS's `Type` is published.
 
+## records.json
+
+The archive's extremes: fourteen categories, each a men's and a women's board
+of five rows. **Lazy**, for the page that lists them. Built by
+`ingest/records.ts` once per run.
+
+```json
+{ "top": 5,
+  "categories": {
+    "tournaments": { "M": { "rows": [ { "rank": 1, "value": 255,
+                              "who": [ { "id": 100427, "name": "Emanuel Rego", "federation": "BRA" } ] } ],
+                            "ties": 1 },
+                     "W": { … } },
+    "reunion": { "W": { "rows": [ { "rank": 1, "value": 16, "who": [ {…}, {…} ],
+                                    "first": 2003, "last": 2024, "gap": [2004, 2021] } ] } },
+    "shortest": { "M": { "rows": [ { "rank": 1, "withheld": true }, … ], "ties": 0 } } } }
+```
+
+**Its own file because of what it reads.** Every other file is one slice, and
+the site is built never to load the archive at once; a leaderboard is the one
+page whose whole job is comparing across all 264 of them. So it is computed
+where the slices are cut, from the same in-memory data, and a page fetches a
+few kilobytes instead of twelve megabytes.
+
+**A record is about the sport, never about the database.** `RECORD_KEYS` in
+the schema lists what is counted and why "most federations represented" is
+not: a federation is a snapshot, so that would count data gaps as
+achievements. Per player: tournaments, career (years from first to last
+season), partners, tour titles, Olympic Games. Per pair, both halves named:
+tournaments together, span, the longest reunion (idle years between two stints,
+with `gap` naming the seasons either side), and the three decorations —
+podiums, titles, Olympic and World medals — read from the team rows, never
+assembled from two players' own tallies. Pairs are every partnership with both
+halves published, so a cross-federation pair counts here even though no graph
+draws it: the longest women's partnership is the Nyström sisters, filed under
+Cyprus and Finland.
+
+**Split by gender throughout.** A combined board was silently all-men in five
+of six ranked categories, not because the women's tour is thinner but because
+a tie always loses to the bigger of two numbers.
+
+**A withheld row is a rank with nothing on it.** The three height boards
+publish a row only when every player on it is in `CONFIRMED_HEIGHTS` in
+`ingest/records.ts`, a hand-kept list of players whose height has been checked
+against a source independent of FIVB, with the source. Height is entered by
+hand at a couple of hundred federations and the extremes are exactly where a
+typo lands — two Czech players tied at 149 cm is more likely one stale import
+than two coincident measurements. The rank stays so the board cannot quietly
+promote the second-shortest to shortest; the value and the name do not ship,
+not even with a caveat, because a page of records is where a reader takes a
+number at face value. The ingest log prints a `TODO confirm` line for each,
+which is the standing list of what to check next.
+
+**`ties` is what the cut left behind.** Rows are ranked by value, then by
+player id so the file is the same on every run that holds the same data, and
+`ties` counts the candidates beyond the last row that share its value — what
+lets a page say "and four more at 4 Games" rather than imply a fifth place
+that is really a ninth.
+
+**Guarded by its own floors.** `RECORD_FLOORS` holds, per board, roughly half
+the leader's value when measured on 17 September 2026; a run whose leader
+falls under one refuses to publish, the same instinct as `regression.ts` for
+the one file where a wrong number is the whole content. The height boards have
+no floor, because every row withheld is a legitimate state for them.
+
 ## Invariants
 
 Things that are true, and that tests assert against the published files:
@@ -461,6 +527,10 @@ Things that are true, and that tests assert against the published files:
    classification file.
 9. Every edition in a series file has a classification file of the same code,
    and every code in `series/index.json` names a series file that lists it.
+10. Every player named in `records.json` is published on the slice the row
+    says; every board is ranked 1 upwards without gaps; a withheld row carries
+    nothing but its rank; and a height appears only for a player on the
+    confirmed list.
 
 ## Changing the contract
 

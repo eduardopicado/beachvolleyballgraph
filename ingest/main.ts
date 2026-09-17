@@ -52,7 +52,10 @@ import {
   aggregateEntries,
   entryOrder,
   entryTuple,
+  aggregatePairHonours,
+  decorationOf,
 } from './build.js';
+import { buildRecords, recordsBelowFloor, type RecordPair, type RecordPlayer } from './records.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
 import { tournamentSlugs } from '../shared/slug.js';
@@ -70,7 +73,7 @@ import type {
   SearchEntry,
   TournamentMeta,
 } from '../shared/schema.js';
-import { DATA_VERSION } from '../shared/schema.js';
+import { DATA_VERSION, RECORD_KEYS } from '../shared/schema.js';
 import { foldAccents } from '../shared/fold.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -893,6 +896,88 @@ async function main() {
   log('results', `${resultRows.toLocaleString()} tournament entries across ${slices.length} slices`);
   log('search', `${Object.values(searchIndex).reduce((n, s) => n + s.length, 0).toLocaleString()} players indexed for cross-country search`);
 
+  // --- records --------------------------------------------------------------
+  /*
+   * The archive's extremes, per category and gender — see records.ts for the
+   * rules. Built from the slices rather than from the raw aggregation so a
+   * row can only name a player who has a page to link to, and after the away
+   * partners so a partner count includes the pairs the slicing dropped.
+   */
+  const degree = new Map<number, number>();
+  for (const slice of slices) {
+    for (const edge of slice.edges) {
+      degree.set(edge.a, (degree.get(edge.a) ?? 0) + 1);
+      degree.set(edge.b, (degree.get(edge.b) ?? 0) + 1);
+    }
+  }
+  const recordPlayers: RecordPlayer[] = [];
+  for (const slice of slices) {
+    for (const node of slice.nodes) {
+      const p = players.get(node.id)!;
+      recordPlayers.push({
+        id: node.id,
+        name: p.name,
+        federation: slice.country,
+        gender: slice.gender,
+        tournaments: node.tournaments,
+        first: node.first,
+        last: node.last,
+        partners: (degree.get(node.id) ?? 0) + (awayPartners.get(node.id)?.length ?? 0),
+        tourGold: podiumsByPlayer.get(node.id)?.gold ?? 0,
+        worldGold: medalsByPlayer.get(node.id)?.['world-champs'].gold ?? 0,
+        olympicGames: olympicGames.get(node.id) ?? 0,
+        height: p.height,
+      });
+    }
+  }
+  const recordPlayerById = new Map(recordPlayers.map((p) => [p.id, p] as const));
+  // Honours are a property of the team row, so the pair's tallies come from
+  // the rows directly rather than from the two players' own — see
+  // aggregatePairHonours for why joining the per-player counts cannot work.
+  const pairHonours = aggregatePairHonours(teamRows, tournaments, medals);
+  const recordPairs: RecordPair[] = [];
+  for (const [key, pair] of partnerships) {
+    const a = recordPlayerById.get(pair.a);
+    const b = recordPlayerById.get(pair.b);
+    // A half with no published page has nowhere to link, and a pair split
+    // across the draws belongs to neither board.
+    if (!a || !b || a.gender !== b.gender) continue;
+    const seasons = [
+      ...new Set([...pair.tournaments].map((t) => tournaments.get(t)?.season ?? 0).filter((s) => s > 0)),
+    ].sort((x, y) => x - y);
+    const honours = pairHonours.get(key);
+    recordPairs.push({
+      a: { id: a.id, name: a.name, federation: a.federation },
+      b: { id: b.id, name: b.name, federation: b.federation },
+      gender: a.gender,
+      tournaments: pair.tournaments.size,
+      first: pair.firstSeason,
+      last: pair.lastSeason,
+      seasons,
+      decoration: honours ? decorationOf(honours) : { podiums: 0, titles: 0, olympicAndWorlds: 0 },
+    });
+  }
+  const records = buildRecords(recordPlayers, recordPairs);
+  // The same instinct as the regression check, for the one file where a wrong
+  // number is the whole content: a leaderboard built from half the team rows
+  // still looks like a leaderboard.
+  const belowFloor = recordsBelowFloor(records.file);
+  if (belowFloor.length > 0) {
+    throw new Error(`Refusing to publish — the records look broken, not merely changed:\n  ${belowFloor.join('\n  ')}`);
+  }
+  await writeFile(path.join(TMP_DIR, 'records.json'), JSON.stringify(records.file, null, 2));
+  log(
+    'records',
+    `${RECORD_KEYS.length} categories x ${records.file.top} rows per gender; ${records.withheld.length} rows withheld pending confirmation`,
+  );
+  // The standing TODO list: every one of these is a height the archive holds
+  // and the file does not, until somebody checks it against a source outside
+  // FIVB and adds the id to CONFIRMED_HEIGHTS in records.ts.
+  for (const w of records.withheld) {
+    const names = w.who.map((h) => `${h.name} (${h.federation}, ${h.id})`).join(' & ');
+    console.log(`    TODO confirm ${w.key} ${w.gender} #${w.rank}: ${names} — ${w.value}`);
+  }
+
   // Sanity-check the temp tree before letting it replace live data.
   const written = (await readdir(path.join(TMP_DIR, 'graphs'))).length;
   if (written !== slices.length) {
@@ -1013,10 +1098,11 @@ async function main() {
   await rm(OLD_DIR, { recursive: true, force: true });
 
   // graphs + players + results, one classification per tournament with a
-  // played field, plus the manifest, the tournament index and the search index.
+  // played field, plus the manifest, the tournament index, the search index
+  // and the records. Entry lists and series are not counted here.
   log(
     'published',
-    `${OUT_DIR} (${written * 3 + classified + 3} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+    `${OUT_DIR} (${written * 3 + classified + 4} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
   );
   log('config', `age-group world championships ${INCLUDE_AGE_GROUP ? 'included' : 'excluded'}`);
 }
