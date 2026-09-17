@@ -254,30 +254,33 @@ field would retire all of those lists at once.
 been played yet, and three things on `BeachTeam` decide what those pages can
 say.
 
-`Status` is the one I rely on most and understand least. I read 0 as a team who
-is in the tournament, 2 as a withdrawal and 3 as a medical certificate. That
-came from comparing your own published list for BPT Futures Corigliano Rossano
-against what VIS returns for it on 10 September 2026: 45 rows at `Status` 0
-against the 12 main draw, 16 qualification and 17 reserves your page showed, and
-three each at 2 and 3 against the three withdrawals and three medical
-certificates beside them. (Both sides have moved since — as of 15 September the
-same event stands at 39 entered, with seven withdrawals and four medical
-certificates — which is the nature of an entry list rather than a discrepancy.)
-Status 1 appears to be an entry superseded by a later one, which you publish
-nowhere. That reading fits every event I have checked, but it is a guess from
-the outside, and if any part of it is wrong my pages are quietly saying the
-wrong thing about somebody's withdrawal.
+`Status` is the one I rely on most, and every value of it I use was read from
+outside, by putting your own published entry list beside what VIS returns for
+the same event. **Could you confirm, or correct, this reading?**
 
-One value I cannot read at all is **`Status` 4**, and it is the reason I am
-sure the guesswork above has a cost. On 14 September the Corigliano list I show
-had Marco Ulisse and Giacomo Spadoni entered on 840 points; on the 15th they
-were gone from it. Their row had not been deleted and they had not withdrawn —
-team 3174416 had moved from `Status` 0 to `Status` 4, the only row in the event
-carrying that value. I treat everything outside 0, 2 and 3 as an entry that was
-superseded and should not be shown, so the pair simply vanished from the page
-between one day and the next, with nothing to tell a reader whether they had
-pulled out, been replaced, or something else entirely. If 4 means a withdrawal
-of some kind, that page is wrong today.
+| `Status` | I read it as | How |
+|---:|---|---|
+| 0 | in the tournament — main draw, qualification or reserve | BPT Futures Corigliano Rossano, 10 September 2026: 45 rows against the 12 + 16 + 17 your page showed |
+| 1 | an entry superseded by a later one; not shown | never carries a placement; you publish none of these |
+| 2 | withdrawn | three rows against your three withdrawals, same list |
+| 3 | medical certificate | three rows against your three medical certificates |
+| 4 | a late withdrawal | see below |
+| 5 | **unknown to me** — 731 rows across the archive, none with a placement | not shown, for want of a meaning |
+
+The fourth line is the one I would most like checked, because I got it wrong
+first. On 14 September the Corigliano list I show had Marco Ulisse and Giacomo
+Spadoni entered on 840 points; on the 15th they were gone from it. Their row had
+not been deleted and they had not withdrawn as far as my reading knew — team
+3174416 had moved from `Status` 0 to `Status` 4, a value I was treating like 1
+and not showing, so the pair simply vanished from the page overnight. On the
+17th your page listed them under withdrawals with the reason **"Late"**, which
+is what I now show. Across the archive, 4 holds 1,037 rows and not one has a
+placement, so a withdrawal is the shape it has; but "late" is your word from one
+page, and I would rather have it from you than infer it again.
+
+If any line of that table is wrong, a page of mine is quietly saying the wrong
+thing about somebody's withdrawal, which is the reason for asking rather than
+carrying on.
 
 Two related questions follow from it. **Is there a published meaning for
 `Type`?** I read 1 as a wild card, 6 as a qualification wild card, 9 as a
@@ -391,14 +394,16 @@ Re-checking it before sending is cheap; quietly refreshing the figures without
 the date is not, because the whole point of request 5 is that they can
 reproduce the comparison.
 
-**The `Status` 4 paragraph is the one to re-check hardest before sending**, and
-the one most worth keeping. It names a specific team number and a specific
-pair of days, so it is the easiest claim in the mail for FIVB to verify — and
-the easiest to be embarrassed by if the row has moved again. It came from
-watching the published entry list lose a team between two ingests and asking
-VIS why: team 3174416 had gone from `Status` 0 to `Status` 4, and no other row
-in that event carries a 4. If it has changed state again by the time this is
-sent, describe what it is then, not what it was.
+**The `Status` table is a request for confirmation, not a report of a gap.**
+An earlier draft said 4 could not be read at all; it has since been read off
+FIVB's own page (Ulisse/Spadoni listed under withdrawals as "Late", 17
+September) and the site shows it that way. So the ask is now "is this table
+right", with 5 as the one honest blank. The Ulisse/Spadoni story stays because
+it is the easiest thing in the mail for FIVB to verify — a team number and two
+dates — and the easiest to be embarrassed by if the row has moved again:
+re-check team 3174416 before sending, and if it has changed state, describe
+what it is then, not what it was. Quirks §26 holds the archive-wide numbers the
+table quotes.
 
 **The main-draw split is asked as an open question on purpose.** An earlier
 attempt at it here asserted a rule — order by `EntryPoints`, cut at
