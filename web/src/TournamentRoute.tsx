@@ -16,9 +16,9 @@
  */
 
 import { useEffect, useMemo, useState } from 'react';
-import type { Manifest, SeriesFile, TournamentsFile } from './schema';
+import type { Manifest, SeriesFile, TournamentsFile } from '../../shared/schema';
 import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
-import { sliceSlug, tournamentPath } from './lib/slug';
+import { sliceSlug, tournamentPath } from '../../shared/slug';
 import { indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, drawCounterpart } from './lib/tournamentIndex';
 import { useClassification } from './lib/useClassification';

@@ -19,7 +19,7 @@
 
 import { DWELL_MS } from '../web/src/lib/prefetchPortrait.js';
 import { test, expect, graph, manifest } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;

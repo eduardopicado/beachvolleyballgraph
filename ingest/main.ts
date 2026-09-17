@@ -55,7 +55,7 @@ import {
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
-import { tournamentSlugs } from '../web/src/lib/slug.js';
+import { tournamentSlugs } from '../shared/slug.js';
 import { verifyTeammates } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
@@ -69,9 +69,9 @@ import type {
   ResultEntry,
   SearchEntry,
   TournamentMeta,
-} from '../web/src/schema.js';
-import { DATA_VERSION } from '../web/src/schema.js';
-import { foldAccents } from '../web/src/lib/search.js';
+} from '../shared/schema.js';
+import { DATA_VERSION } from '../shared/schema.js';
+import { foldAccents } from '../shared/fold.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.resolve(HERE, '../web/public');

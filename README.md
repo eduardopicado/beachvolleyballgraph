@@ -225,7 +225,7 @@ reports brackets, so eight teams finish 9th and 89% of played rows sit on a
 rank another team also holds. Negative values are eliminations before the main
 draw: `<= -25` in qualification, `-2` on a confederation quota.
 
-The schema is [`web/src/schema.ts`](web/src/schema.ts), shared verbatim by the
+The schema is [`shared/schema.ts`](shared/schema.ts), shared verbatim by the
 ingest pipeline and the app so the two cannot drift.
 
 Breaking the schema means writing `/v2/` and cutting the frontend over — no

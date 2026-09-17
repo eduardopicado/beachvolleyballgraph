@@ -32,7 +32,7 @@ import type {
   SearchIndex,
   ClassificationFile,
   TournamentsFile,
-} from '../web/src/schema.js';
+} from '../shared/schema.js';
 
 const DATA = path.resolve(import.meta.dirname, '../web/public/v1');
 

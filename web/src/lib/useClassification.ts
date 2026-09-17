@@ -8,7 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import type { ClassificationFile } from '../schema';
+import type { ClassificationFile } from '../../../shared/schema';
 import { fetchClassification } from './api';
 
 export type ClassificationState =

@@ -9,7 +9,7 @@
  * and short keys are most of its size).
  */
 
-import type { Gender, Tier, TournamentMeta } from '../schema';
+import type { Gender, Tier, TournamentMeta } from '../../../shared/schema';
 
 export interface TournamentFacts {
   name: string;

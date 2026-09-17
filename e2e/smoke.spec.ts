@@ -27,7 +27,7 @@ import {
   strandedPlayer,
   tournamentIndex,
 } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 import {
   indexPlayers,
   searchPlayers,
@@ -35,8 +35,8 @@ import {
   type Slice,
 } from '../web/src/lib/search.js';
 import { findPath, indexPartnerships } from '../web/src/lib/path.js';
-import { parseSliceKey } from '../web/src/schema.js';
-import { CONTACT_EMAIL } from '../web/src/site.js';
+import { parseSliceKey } from '../shared/schema.js';
+import { CONTACT_EMAIL } from '../shared/site.js';
 
 /** A big, always-present slice — the densest realistic render. */
 const COUNTRY = 'BRA';

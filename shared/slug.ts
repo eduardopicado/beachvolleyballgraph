@@ -6,7 +6,7 @@
  * page the other side would not produce.
  */
 
-import type { Gender } from '../schema';
+import type { Gender } from './schema';
 
 export function slugify(value: string): string {
   return value

@@ -11,7 +11,7 @@
  */
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import type { GraphEdge, GraphNode } from '../schema';
+import type { GraphEdge, GraphNode } from '../../../shared/schema';
 import {
   buildLayout,
   fitToView,

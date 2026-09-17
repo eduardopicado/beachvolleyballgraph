@@ -19,7 +19,7 @@
  * https://www.fivb.org/VisSDK/VisWebService/BeachTournamentType.html
  */
 
-import type { Tier } from '../web/src/schema.js';
+import type { Tier } from '../shared/schema.js';
 
 /** FIVB is the organizer. */
 export const FIVB_ORGANIZER_TYPE = '1';

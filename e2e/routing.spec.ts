@@ -17,8 +17,8 @@
 import { test, expect, graph, manifest, singleGenderCountry } from './fixtures.js';
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
-import { sliceSlug, tournamentSlugs, TOURNAMENT_PREFIX } from '../web/src/lib/slug.js';
-import type { Gender, TournamentsFile } from '../web/src/schema.js';
+import { sliceSlug, tournamentSlugs, TOURNAMENT_PREFIX } from '../shared/slug.js';
+import type { Gender, TournamentsFile } from '../shared/schema.js';
 
 const DATA = path.resolve(import.meta.dirname, '../web/public/v1');
 

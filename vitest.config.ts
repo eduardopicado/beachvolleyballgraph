@@ -2,10 +2,10 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    include: ['ingest/**/*.test.ts', 'web/src/**/*.test.ts'],
+    include: ['shared/**/*.test.ts', 'ingest/**/*.test.ts', 'web/src/**/*.test.ts'],
     environment: 'node',
     coverage: {
-      include: ['ingest/**/*.ts', 'web/src/**/*.ts'],
+      include: ['shared/**/*.ts', 'ingest/**/*.ts', 'web/src/**/*.ts'],
       // No `.tsx`: no unit test renders a component, so every one of them
       // reported 0% and dragged the headline figure to 34% (measured, 17 Sept
       // 2026) for a tree that 150 Playwright tests drive end to end. A number

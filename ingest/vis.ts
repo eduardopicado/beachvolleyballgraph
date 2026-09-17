@@ -9,7 +9,7 @@
  *  - identify yourself, so FIVB can email you instead of null-routing you.
  */
 
-import { CONTACT_EMAIL, SITE_URL } from '../web/src/site.js';
+import { CONTACT_EMAIL, SITE_URL } from '../shared/site.js';
 
 const ENDPOINT = 'https://www.fivb.org/Vis2009/XmlRequest.asmx';
 

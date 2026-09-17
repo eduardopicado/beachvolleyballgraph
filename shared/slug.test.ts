@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Gender } from '../schema';
+import type { Gender } from './schema';
 import {
   sliceSlug, slicePath, slugFromPath, slugify,
   nameCarriesSeason,

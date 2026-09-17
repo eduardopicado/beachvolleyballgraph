@@ -8,7 +8,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import type { Gender, ResultsFile, TournamentMeta } from '../schema';
+import type { Gender, ResultsFile, TournamentMeta } from '../../../shared/schema';
 import { fetchResults } from './api';
 
 export interface ResultsBundle {

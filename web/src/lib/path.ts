@@ -12,7 +12,7 @@
  * this answers: how are these two connected, on the page you are looking at.
  */
 
-import type { GraphEdge, GraphNode } from '../schema';
+import type { GraphEdge, GraphNode } from '../../../shared/schema';
 
 /** One partnership along the chain: who, and what the pair actually did. */
 export interface PathLink {

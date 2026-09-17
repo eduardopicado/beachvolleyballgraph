@@ -20,7 +20,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { playerPhotoUrl } from '../schema';
+import { playerPhotoUrl } from '../../../shared/schema';
 import { initials } from '../lib/format';
 import './Avatar.css';
 

@@ -2,7 +2,7 @@
 
 The published `/v1/` contract, field by field, and the rules that hold it
 together. The authoritative definition is
-[`web/src/schema.ts`](../web/src/schema.ts), shared verbatim by the ingest and
+[`shared/schema.ts`](../shared/schema.ts), shared verbatim by the ingest and
 the app; this document explains the *why*.
 
 ---

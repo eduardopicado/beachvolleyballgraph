@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { buildTimeline, type TimelinePartner } from './timeline';
-import type { GraphNode } from '../schema';
+import type { GraphNode } from '../../../shared/schema';
 
 const node = (id: number, name: string): GraphNode => ({
   id,

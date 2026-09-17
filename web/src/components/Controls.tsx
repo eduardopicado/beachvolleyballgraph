@@ -5,8 +5,8 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { Gender, Manifest, SearchIndex } from '../schema';
-import { GENDER_LABEL, GENDERS, parseSliceKey } from '../schema';
+import type { Gender, Manifest, SearchIndex } from '../../../shared/schema';
+import { GENDER_LABEL, GENDERS, parseSliceKey } from '../../../shared/schema';
 import { fetchSearchIndex } from '../lib/api';
 import { flagEmoji, plural } from '../lib/format';
 import {

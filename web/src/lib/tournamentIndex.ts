@@ -20,10 +20,10 @@
  * browser.
  */
 
-import type { Gender, Tier, TournamentMeta } from '../schema';
-import { TOUR_TIERS } from '../schema';
+import type { Gender, Tier, TournamentMeta } from '../../../shared/schema';
+import { TOUR_TIERS } from '../../../shared/schema';
 import { readTournament } from './tournamentMeta';
-import { tournamentSlugs } from './slug';
+import { tournamentSlugs } from '../../../shared/slug';
 
 /**
  * The four kinds of event the top chip row offers.
