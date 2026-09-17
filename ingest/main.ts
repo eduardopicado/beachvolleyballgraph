@@ -49,7 +49,9 @@ import {
   normalisePlayers,
   normaliseTournaments,
   sliceByCountryAndGender,
-  entryStatus,
+  aggregateEntries,
+  entryOrder,
+  entryTuple,
 } from './build.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
@@ -58,8 +60,6 @@ import { verifyTeammates } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
 import type {
-  EntryRoute,
-  WithdrawalReason,
   Manifest,
   ManifestCountry,
   Gender,
@@ -170,8 +170,8 @@ async function main() {
 
   await recoverInterruptedSwap();
 
-  // Read before anything below touches OUT_DIR, so this is genuinely last
-  // week's data — not a `null` because we deleted it ourselves in the
+  // Read before anything below touches OUT_DIR, so this is genuinely the
+  // previous run's data — not a `null` because we deleted it ourselves in the
   // meantime. Missing or unreadable (the very first run, or a corrupt file)
   // both mean "nothing to compare against"; the absolute floor check further
   // down is what protects that cold-start case instead.
@@ -767,69 +767,11 @@ async function main() {
    */
   await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
   const lagCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000);
-  /**
-   * FIVB's `Type` -> the entry route their own list badges.
-   *
-   * Decoded against their published entry list for Corigliano Rossano, team
-   * by team: the one Type 1 is its wild card, the one Type 6 its qualification
-   * wild card, the one Type 9 its continental slot and all four Type 10 rows
-   * its open vacancies. Every other value is the ordinary ranking route and
-   * gets no badge -- including Type 4, which is *not* a category: across the
-   * archive it carries both placements and rank-0 rows, and its matching the
-   * withdrawn count on one tournament was a coincidence.
-   */
-  const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
-
-  // `Status` is read by `entryStatus` in build.ts, which is where each value's
-  // meaning and the evidence for it live. Status 1 rows -- entries superseded
-  // by a later one -- are the ones that made one player appear in three
-  // different pairs before this filter existed.
-
-  /** A number VIS may leave blank, which is not the same as zero. */
-  const points = (raw: string | undefined) => {
-    const n = Number(raw);
-    return raw === undefined || raw === '' || !Number.isFinite(n) ? null : n;
-  };
-
-  interface EntryRow {
-    a: number;
-    b: number;
-    federation: string;
-    entry: number | null;
-    tech: number | null;
-    route: EntryRoute | null;
-    withdrawal: WithdrawalReason | null;
-  }
-  const entriesByTournament = new Map<string, EntryRow[]>();
-  const dropped = new Map<number, number>();
-  for (const row of teamRows) {
-    const status = Number(row.Status ?? 0);
-    const state = entryStatus(status);
-    if (state === null) {
-      // Counted and logged rather than skipped in silence. A value this
-      // reading did not know took a team off a published page overnight once
-      // (Status 4, quirks §26), and the only reason anyone noticed was an
-      // entered count moving by one.
-      dropped.set(status, (dropped.get(status) ?? 0) + 1);
-      continue;
-    }
-    const withdrawal = state === 'in' ? null : state;
-    const no = (row.NoTournament ?? '').trim();
-    const a = Number(row.NoPlayer1);
-    const b = Number(row.NoPlayer2);
-    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
-    const list = entriesByTournament.get(no) ?? [];
-    list.push({
-      a,
-      b,
-      federation: (row.FederationCode ?? '').trim(),
-      entry: points(row.EntryPoints),
-      tech: points(row.TechnicalPoints),
-      route: ENTRY_ROUTE[Number(row.Type ?? 0)] ?? null,
-      withdrawal,
-    });
-    entriesByTournament.set(no, list);
-  }
+  // What each `Status` and `Type` value means, and the evidence for it, lives
+  // with `entryStatus` and `ENTRY_ROUTE` in build.ts. Status 1 rows -- entries
+  // superseded by a later one -- are the ones that made one player appear in
+  // three different pairs before this filter existed.
+  const { byTournament: entriesByTournament, dropped } = aggregateEntries(teamRows);
   if (dropped.size > 0) {
     const detail = [...dropped]
       .sort(([a], [b]) => a - b)
@@ -854,11 +796,9 @@ async function main() {
      * reader sees the same order FIVB's own list has -- the order that decides
      * who gets in.
      */
-    const byRank = (x: EntryRow, y: EntryRow) =>
-      (y.entry ?? -1) - (x.entry ?? -1) || (y.tech ?? -1) - (x.tech ?? -1) || x.a - y.a || x.b - y.b;
     const all = entriesByTournament.get(tournament.no) ?? [];
-    const teams = all.filter((t) => !t.withdrawal).sort(byRank);
-    const withdrawn = all.filter((t) => t.withdrawal).sort(byRank);
+    const teams = all.filter((t) => !t.withdrawal).sort(entryOrder);
+    const withdrawn = all.filter((t) => t.withdrawal).sort(entryOrder);
 
     const named: Record<string, string> = {};
     const elsewhere: Record<string, string | null> = {};
@@ -870,15 +810,6 @@ async function main() {
       }
     }
 
-    const row = (t: EntryRow): unknown[] => [
-      t.a,
-      t.b,
-      t.federation,
-      t.entry,
-      t.tech,
-      ...(t.withdrawal ? [t.withdrawal] : t.route ? [t.route] : []),
-    ];
-
     entryFiles++;
     entryTeams += teams.length;
     const corrected = Object.keys(elsewhere).length > 0;
@@ -888,9 +819,9 @@ async function main() {
         '{',
         `  "code": ${JSON.stringify(tournament.code)},`,
         `  "gender": ${JSON.stringify(tournament.gender)},`,
-        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`,
+        `  "teams": [\n${teams.map((t) => `    ${JSON.stringify(entryTuple(t))}`).join(',\n')}\n  ],`,
         ...(withdrawn.length
-          ? [`  "withdrawn": [\n${withdrawn.map((t) => `    ${JSON.stringify(row(t))}`).join(',\n')}\n  ],`]
+          ? [`  "withdrawn": [\n${withdrawn.map((t) => `    ${JSON.stringify(entryTuple(t))}`).join(',\n')}\n  ],`]
           : []),
         `  "players": ${jsonByKey(named, '  ')}${corrected ? ',' : ''}`,
         ...(corrected ? [`  "elsewhere": ${jsonByKey(elsewhere, '  ')}`] : []),
