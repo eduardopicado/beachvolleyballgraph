@@ -1,0 +1,32 @@
+# Security updates only, as pull requests, never merged by anything but a person.
+#
+# Two things have to be true for a vulnerable dependency to become a PR here:
+#
+#   1. "Dependabot security updates" is switched on for the repository
+#      (Settings -> Code security). That toggle is what watches the advisory
+#      database and opens PRs; it does not live in this file and this file
+#      cannot turn it on.
+#   2. This file exists, which lets those PRs be grouped: one PR per batch of
+#      advisories rather than one per package, so a vitest advisory that also
+#      touches @vitest/coverage-v8 and vite-node arrives as a single change.
+#
+# What this file deliberately does NOT do is open version-bump PRs for every
+# new release -- `open-pull-requests-limit: 0` switches that off. A dependency
+# moves here because it has to (an advisory) or because someone chose to, not
+# because a new minor came out on a Tuesday.
+#
+# Each PR runs the same CI as any other and lands in the owner's notifications.
+# If the fix needs a major bump and the suite breaks, it breaks on that branch,
+# and the PR is the place to work on it.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 0
+    groups:
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
