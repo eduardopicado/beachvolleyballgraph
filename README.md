@@ -298,7 +298,7 @@ component gets lifted into `web/src/lib/` to be tested there rather than through
 the DOM: the strength threshold and the table's sort comparator were both
 `useMemo` bodies first.
 
-`npm run test:e2e` is the other half: **113 Playwright tests in seven files**
+`npm run test:e2e` is the other half: **150 Playwright tests in twelve files**
 against the *built* site served by `vite preview`, at the same `BASE_PATH` the
 deploy uses, so what it exercises is what ships — prerendered HTML and asset
 URLs included. They cover rendering and the no-JavaScript path (`smoke`), five
