@@ -62,8 +62,11 @@ const started = new Set<number>();
  * appears under them. The cost is paid out of the prefetch's own head start,
  * not the reader's: a click 300ms after arriving still gets 180ms of warming,
  * which was the difference between 407ms and 86ms when it was the full 300.
+ *
+ * Exported for the browser tests, which have to rest a pointer past it to
+ * hover rather than cross; nothing in the app reads it.
  */
-const DWELL_MS = 120;
+export const DWELL_MS = 120;
 
 /** The player waiting out {@link DWELL_MS}, and the timer that will start them. */
 let pending: { id: number; timer: ReturnType<typeof setTimeout> } | null = null;
