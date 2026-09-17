@@ -217,7 +217,7 @@ Three jobs in a strict pipeline. Two details matter:
   successful job's outputs across a partial re-run.
 
 Failure semantics: if the ingest fails — including refusing to publish a
-suspicious rebuild — nothing downstream runs and the site keeps serving last
+suspicious rebuild — nothing downstream runs and the site keeps serving the previous
 day's data. Degraded to *slightly stale*, never to *down*.
 
 **Origin coupling.** Canonical URLs are built as `SITE_URL + BASE_PATH + page`,
