@@ -17,7 +17,8 @@ name: Rebuild data and deploy (Cloudflare)
 
 on:
   schedule:
-    # Daily at 09:17 UTC — see deploy.yml for why daily and why that hour.
+    # Daily at 09:17 UTC — see deploy.yml for why daily, why that hour, and
+    # why GitHub starts it hours after it.
     # Keep the two in step: whichever host is live, the data is the same data.
     - cron: '17 9 * * *'
   workflow_dispatch:
