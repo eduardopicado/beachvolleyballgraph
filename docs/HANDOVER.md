@@ -62,6 +62,7 @@ they live in the task list rather than in the repository.
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
 | #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
 | #28 | Ask 12ndr.at before linking out to their tournament pages |
+| — | The records page. `v1/records.json` is published ([data-model.md](data-model.md)); the page, its name and its home-page entry point are not built. A height row ships only once checked outside FIVB: add the id and source to `CONFIRMED_HEIGHTS` in `ingest/records.ts`; the ingest log's `TODO confirm` lines are the queue |
 
 ## Things that will bite you
 
