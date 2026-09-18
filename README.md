@@ -290,7 +290,7 @@ BASE_PATH=/beachvolleyballgraph/ npm run test:e2e
 `BASE_PATH` has to match between the two — `vite preview` serves at the base the
 site was built with, so a mismatch just 404s.
 
-**683 unit tests** (17 September 2026) cover the pure logic — tier filtering, pair aggregation and
+**Around 700 unit tests** cover the pure logic — tier filtering, pair aggregation and
 dedupe, medal counting, country-name resolution, the VIS attribute scanner and
 unit conversions, graph layout maths (fit-to-view, label collision, radius
 scaling), slug round-trips and HTML escaping. Logic that starts inside a
@@ -298,7 +298,7 @@ component gets lifted into `web/src/lib/` to be tested there rather than through
 the DOM: the strength threshold and the table's sort comparator were both
 `useMemo` bodies first.
 
-`npm run test:e2e` is the other half: **150 Playwright tests in twelve files**
+`npm run test:e2e` is the other half: **around 150 Playwright tests in a dozen files**
 against the *built* site served by `vite preview`, at the same `BASE_PATH` the
 deploy uses, so what it exercises is what ships — prerendered HTML and asset
 URLs included. They cover rendering and the no-JavaScript path (`smoke`), five

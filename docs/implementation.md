@@ -114,6 +114,11 @@ rows share a rank" — and is a dated observation that stays as written, unless
 re-measuring shows the finding itself no longer holds. Say which you mean when
 the population is the sort that grows.
 
+A third kind is not worth keeping exact at all: a count that a command prints
+and that moves every session, such as how many tests there are. Write it
+rounded ("around 700") and touch it only when the leading digit changes;
+refreshing 683 to 688 is a diff nobody needed.
+
 **Tuples where volume justifies them.** `SeasonTally`, `ResultEntry`,
 `TournamentMeta` and `SearchEntry` are positional arrays, with named tuple
 labels so TypeScript still documents them. Everything else is an object.
@@ -125,10 +130,12 @@ who have none, which is most of them.
 
 ## Testing
 
-Two layers, 833 tests total, counted on 17 September 2026. Both suites grow
-most weeks; `npm test` and `npm run test:e2e` print the current figures.
+Two layers. The counts below are rounded on purpose: both suites grow most
+weeks, an exact figure is stale within days, and `npm test` and
+`npm run test:e2e` print the real one. Update them only when the leading digit
+changes.
 
-**Unit — 683 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
+**Unit — around 700 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
 in `build.ts` and `web/src/lib/` is pure, so this is where the logic lives.
 Fixtures include real, awkward rows: the 1997 World Championships with two
 bronzes, the Olympic qualifier with two winners.
@@ -139,8 +146,8 @@ tested**, not tested through the DOM: `filter.ts` (the strength threshold) and
 component keeps the state and the markup; the rule it applies becomes a pure
 function with a name.
 
-**Browser — 150 tests, `npm run test:e2e`.** Playwright against `vite preview`
-of the real `dist/`, in twelve files:
+**Browser — around 150 tests, `npm run test:e2e`.** Playwright against
+`vite preview` of the real `dist/`, one file per concern:
 
 | | |
 |---|---|
