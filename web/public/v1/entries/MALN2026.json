@@ -18,7 +18,6 @@
     [154663,190329,"MLD",720,1036],
     [179503,204533,"TUR",690,1411,"WC"],
     [190604,190602,"SWE",690,1326],
-    [144472,179489,"DEN",678,1022],
     [190440,190772,"CZE",622,994],
     [223440,223446,"FRA",564,680],
     [239934,179392,"SVK",536,536],
@@ -68,6 +67,7 @@
     [244290,244291,"USA",0,0]
   ],
   "withdrawn": [
+    [144472,179489,"DEN",678,1022,"medical"],
     [155009,166978,"SVK",null,null,"withdrawn"],
     [168774,185582,"CAN",null,null,"withdrawn"],
     [173509,187549,"DEN",null,null,"withdrawn"],
@@ -209,7 +209,7 @@
     "223440": "Adrien Bezu",
     "223446": "Quentin Hypolyte",
     "227244": "Filip Richter",
-    "229191": "Fairuz Bayhaqli",
+    "229191": "Fairuz Bayhaqly",
     "229382": "Andreas Thorenfeldt Walstad",
     "231058": "Lasse Hüper",
     "232640": "Hannes Ludwig",
