@@ -632,8 +632,11 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
   const indexHref = `${BASE}${INDEX_PREFIX}/`;
   const indexUrl = abs(indexHref);
   const indexTitle = `Tournaments — ${SITE_NAME}`;
-  const upcomingCount = indexRows.length - addressable.length;
-  const indexDescription = `Every FIVB international beach volleyball tournament by season and draw — ${addressable.length.toLocaleString('en-US')} played across ${manifest.seasons.from}–${manifest.seasons.to}${upcomingCount > 0 ? `, and ${upcomingCount} still to come` : ''}.`;
+  // "Awaiting results" rather than "still to come": the same rows cover an
+  // event being played right now and one that finished yesterday, so a claim
+  // about the future is wrong for both. See the tag in TournamentIndex.tsx.
+  const awaitingResults = indexRows.length - addressable.length;
+  const indexDescription = `Every FIVB international beach volleyball tournament by season and draw — ${addressable.length.toLocaleString('en-US')} played across ${manifest.seasons.from}–${manifest.seasons.to}${awaitingResults > 0 ? `, and ${awaitingResults} awaiting results` : ''}.`;
 
   // Every season the index can show, upcoming ones included: 2027 exists as a
   // season the moment FIVB publishes the World Championships into it, and a

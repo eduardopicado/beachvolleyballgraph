@@ -70,7 +70,7 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
   const withinGroup = filter.group ? slice.filter((r) => r.group === filter.group) : slice;
   const levels = levelsIn(withinGroup);
   const visible = filter.level ? withinGroup.filter((r) => r.level === filter.level) : withinGroup;
-  const upcoming = visible.filter((r) => !r.played).length;
+  const awaitingResults = visible.filter((r) => !r.played).length;
 
   const set = (patch: Partial<IndexFilter>) => onFilter({ ...filter, ...patch });
 
@@ -204,8 +204,10 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
           {plural(visible.length, 'tournament')} · {filter.season} ·{' '}
           {GENDER_LABEL[filter.gender]}
           {/* Counted rather than left to be noticed: a season part-played
-              reads as a short season otherwise. */}
-          {upcoming > 0 && <span> · {upcoming} still to play</span>}
+              reads as a short season otherwise. "Awaiting results" rather
+              than "still to play", which stops being true the moment the
+              first of them starts — see the tag below. */}
+          {awaitingResults > 0 && <span> · {awaitingResults} awaiting results</span>}
         </p>
 
         {visible.length === 0 ? (
@@ -231,11 +233,22 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
                     <td className="when">{formatDateRange(row.start, row.end) ?? '—'}</td>
                     <td className="what">
                       {/* Every row links: an event with no result has a page
-                          too, carrying its entry list. The tag says the result
-                          is not there yet, so a reader knows what they are
-                          clicking into. */}
+                          too, carrying its entry list. The tag names what is
+                          on that page, so a reader knows what they are
+                          clicking into.
+
+                          It used to read "Upcoming", which is a claim about
+                          time that the date column beside it already makes,
+                          and makes better. It went stale the moment an event
+                          began: BPT Futures Corigliano Rossano was tagged
+                          Upcoming throughout the three days it was played,
+                          because the tag is driven by whether a classification
+                          exists, not by the calendar. Naming the content
+                          instead is true before the event, during it, and
+                          through the lag before FIVB publishes placements —
+                          the whole time this branch can be taken. */}
                       <a href={tournamentHref(row.slug)}>{row.name}</a>
-                      {!row.played && <span className="soon">Upcoming</span>}
+                      {!row.played && <span className="entries">Entry list</span>}
                     </td>
                     <td className="where">
                       {where ? (
