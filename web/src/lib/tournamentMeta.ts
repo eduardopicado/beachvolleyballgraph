@@ -15,14 +15,17 @@ export interface TournamentFacts {
   name: string;
   season: number;
   tier: Tier;
-  /** Days from 1 January of the season to the main draw's first day. */
+  /**
+   * Days from 1 January of the season to the day the event opens —
+   * qualification where there is one, the main draw otherwise.
+   */
   startOffset: number | null;
   /** FIVB's own code. Null on the oldest rows, whose tuple is too short. */
   code: string | null;
   level: string | null;
   /** ISO-2 of the venue's country, null when VIS has none usable (§25). */
   country: string | null;
-  /** Days the main draw ran. Can be negative upstream (§25). */
+  /** Days from that opening day to the main draw's last. Can be negative upstream (§25). */
   span: number | null;
   /**
    * Which draw, when the tree is new enough to say. Null on anything older,

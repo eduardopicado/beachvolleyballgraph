@@ -71,10 +71,14 @@ export interface Tournament {
   /** `YYYY-MM-DD` of the main draw's last day, or null if VIS gave none. */
   endsOn: string | null;
   /**
-   * Days from 1 January of `season` to the main draw's first day. Negative
-   * when an event starts in the previous calendar year, which is why this is
-   * an offset rather than a day-of-year: a December event opening a southern
-   * summer season would otherwise sort *after* the following January's.
+   * Days from 1 January of `season` to the day the event **opens**, which is
+   * the first day of qualification where there is one and the first day of the
+   * main draw otherwise. See `eventStart`.
+   *
+   * Negative when an event starts in the previous calendar year, which is why
+   * this is an offset rather than a day-of-year: a December event opening a
+   * southern summer season would otherwise sort *after* the following
+   * January's.
    *
    * Only ever compared within one season, so the origin is arbitrary as long
    * as it is consistent — and this keeps the published number two or three
@@ -90,8 +94,15 @@ export interface Tournament {
    */
   country: string | null;
   /**
-   * Days from the main draw's first day to its last: 0 for a one-day event,
-   * 3 for the ordinary four-day tour week, up to 15 for an Olympic fortnight.
+   * Days from the day the event opens to the main draw's last: 0 for a one-day
+   * event, 4 for the ordinary tour week that qualifies on the Thursday, up to
+   * 15 for an Olympic fortnight.
+   *
+   * Measured from the same day `startOffset` names, which is qualification
+   * where there is one — so this grew by a day on most of the archive when
+   * `eventStart` landed. It has to: the end date is read as
+   * `startOffset + span`, and a span still measured from the main draw would
+   * have moved every event's *last* day a day earlier.
    *
    * A span rather than a second offset, because it is one digit where an
    * offset is three, and because it is the number a reader is shown — the
@@ -103,15 +114,62 @@ export interface Tournament {
   span: number | null;
 }
 
+/** A `YYYY-MM-DD` day, or undefined when the value is missing or malformed. */
+function isoDay(raw: string | undefined): string | undefined {
+  const day = (raw ?? '').slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : undefined;
+}
+
+/**
+ * The day an event **opens**: the first day of qualification where there is
+ * one, and the first day of the main draw otherwise.
+ *
+ * This used to be `StartDateMainDraw` alone, and the reasoning written here
+ * was that `StartDateQualification` "is populated on barely a third of them,
+ * so using it would order some seasons by one field and some by another".
+ * That measurement was taken over every row VIS returns, including thousands
+ * this project filters out. **Over the tournaments actually published it is
+ * 1,456 of 1,688 (86.3%)**, and the rest are mostly old events.
+ *
+ * What changed the trade is a reader, not the coverage: a tournament whose
+ * qualification had begun was still listed under the main draw's dates, so
+ * the index showed BPT Futures Corigliano Rossano as 18–20 September, and
+ * said *Upcoming*, on the 17th — while it was being played. Measured over the
+ * published set, 1,419 events open earlier than their main draw, 1,231 of
+ * them by a day, 183 by two, and five by three or more.
+ *
+ * The residue is real and small: 232 events have no qualification date and
+ * fall back to the main draw, so a season can mix the two fields by a day or
+ * two. That only ever decides which of two partners is listed first when a
+ * player had two in one season, which the old comment already accepted as
+ * "uniformly approximate by a day or two" — and being a day early on the
+ * *page* is not the same kind of wrong as saying an event has not started.
+ *
+ * **The earlier of the two, never simply qualification.** Six rows in the
+ * archive record a qualification date *after* the main draw — two of them by
+ * more than nine years — so taking qualification whenever it exists would
+ * date those events to the wrong decade. None is currently in the published
+ * set; taking the minimum means the next refresh that pulls one in cannot
+ * break this.
+ */
+export function eventStart(
+  qualification: string | undefined,
+  mainDraw: string | undefined,
+): string | undefined {
+  const q = isoDay(qualification);
+  const m = isoDay(mainDraw);
+  if (!q) return m;
+  if (!m) return q;
+  return q < m ? q : m;
+}
+
 /**
  * `YYYY-MM-DD` -> days from 1 January of `season`.
  *
  * `StartDateMainDraw` is populated on every tournament VIS returns (checked:
  * 9,270 of 9,270), so the null path is for a malformed value rather than a
- * missing one. Qualification can start earlier, but `StartDateQualification`
- * is populated on barely a third of them, so using it would order some
- * seasons by one field and some by another — worse than being uniformly
- * approximate by a day or two.
+ * missing one. What is passed in, though, is `eventStart` — see there for why
+ * qualification comes first when it exists.
  *
  * The two or three digits this promises depend on `season` being the year the
  * event was played. While a ranged `Season` was taken at its leading year, 18
@@ -334,6 +392,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
     if (season === null) continue;
     const no = (row.No ?? '').trim();
     if (!no) continue;
+    const opensOn = eventStart(row.StartDateQualification, row.StartDateMainDraw);
     out.set(no, {
       no,
       // Trimmed because some do carry trailing spaces ("FIVB Beach Volleyball
@@ -359,9 +418,12 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       endsOn: /^\d{4}-\d{2}-\d{2}/.test(row.EndDateMainDraw ?? '')
         ? row.EndDateMainDraw!.slice(0, 10)
         : null,
-      startOffset: startOffsetFor(row.StartDateMainDraw, season),
+      // Qualification where there is one, so an event that has started is not
+      // listed under a date still to come — see `eventStart`. `span` is
+      // measured from the same day, or the end date would move with it.
+      startOffset: startOffsetFor(opensOn, season),
       country: countryCodeFor(row.CountryCode),
-      span: spanFor(row.StartDateMainDraw, row.EndDateMainDraw),
+      span: spanFor(opensOn, row.EndDateMainDraw),
     });
   }
   return out;
