@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyTally, esc, jsonLd, llmsTxt, tallySlice } from './prerender.js';
+import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, tallySlice } from './prerender.js';
 import type { GraphFile, Manifest } from '../shared/schema.js';
 
 const manifest: Manifest = {
@@ -82,6 +82,43 @@ describe('tallySlice', () => {
     tallySlice(graph([node(3, 1), node(4, 1)], [edge(3, 4)]), tally);
     expect(tally.players).toBe(4);
     expect(tally.onePartner).toBe(4);
+  });
+});
+
+describe('indexDescription', () => {
+  const seasons = { from: 1987, to: 2027 };
+
+  it('counts the played rows and the ones still awaiting a result separately', () => {
+    // The bug this exists for. The count was written as
+    // `indexRows.length - addressable.length`, and `addressable` is an alias
+    // for `indexRows` — so it was always 0, the clause never appeared once,
+    // and all 1,616 rows were called played on a day when six were not.
+    expect(indexDescription(1610, 6, seasons)).toBe(
+      'Every FIVB international beach volleyball tournament by season and draw — ' +
+        '1,610 played across 1987–2027, and 6 awaiting results.',
+    );
+  });
+
+  it('drops the clause rather than saying "and 0 awaiting results"', () => {
+    expect(indexDescription(1616, 0, seasons)).toBe(
+      'Every FIVB international beach volleyball tournament by season and draw — ' +
+        '1,616 played across 1987–2027.',
+    );
+  });
+
+  it('groups thousands on both numbers', () => {
+    // The awaiting count is small today and need not stay that way: a January
+    // rebuild sees a whole season published and unplayed.
+    expect(indexDescription(1610, 1200, seasons)).toContain('1,610 played');
+    expect(indexDescription(1610, 1200, seasons)).toContain('1,200 awaiting results');
+  });
+
+  it('says nothing about the future, because the same rows cover an event being played', () => {
+    // "Still to come" was wrong for a tournament under way and for one whose
+    // placements FIVB had not written yet. Matches the index's own tag.
+    const text = indexDescription(1610, 6, seasons);
+    expect(text).not.toContain('still to come');
+    expect(text).not.toContain('upcoming');
   });
 });
 

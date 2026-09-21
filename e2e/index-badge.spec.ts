@@ -110,6 +110,41 @@ test('the tally counts what is awaiting a result rather than what is still to pl
   await expect(tally).toContainText(`${shown} awaiting results`);
 });
 
+test('the prerendered description counts played and awaiting against the data', async ({ page }) => {
+  /*
+   * The call site, not the sentence.
+   *
+   * `indexDescription` is unit-tested, and that was not enough: the bug was
+   * in what `main()` passed it — `indexRows.length - addressable.length`,
+   * where `addressable` is an alias for `indexRows`. A helper tested in
+   * isolation is happy with any two numbers, so restoring that subtraction
+   * leaves every unit test green. This reads the number off the served page
+   * and checks it against the classification files.
+   *
+   * The raw document rather than the DOM: this is what a crawler is given,
+   * and React has replaced the body by the time the page has mounted.
+   */
+  const rows = buildIndex(tournamentIndex(), (code) => CLASSIFIED.has(code));
+  const played = rows.filter((r) => r.played).length;
+  const awaiting = rows.length - played;
+
+  const response = await page.request.get(`./${INDEX_PREFIX}/`);
+  expect(response.ok()).toBe(true);
+  const html = await response.text();
+  const description = /<meta name="description" content="([^"]*)"/.exec(html)?.[1];
+  expect(description, 'the index has no meta description').toBeTruthy();
+
+  const n = (value: number) => value.toLocaleString('en-US');
+  expect(description).toContain(`${n(played)} played`);
+  if (awaiting > 0) expect(description).toContain(`${n(awaiting)} awaiting results`);
+  else expect(description).not.toContain('awaiting results');
+
+  // The total is the one both numbers have to add up to, and the shape the
+  // bug hid behind: played alone equalled it, so nothing looked wrong.
+  expect(played + awaiting).toBe(rows.length);
+  if (awaiting > 0) expect(description).not.toContain(`${n(rows.length)} played`);
+});
+
 test('a season that is entirely played carries no tag at all', async ({ page }) => {
   // The other branch, and the ordinary case: nothing should mark a row whose
   // result is published. 2019 is long finished and large.

@@ -216,6 +216,35 @@ function staticFooter(): string {
 }
 
 /**
+ * The tournament index's meta description, which is the sentence a search
+ * result shows under the link.
+ *
+ * Pulled out of `main()` to be testable, because the number in it was wrong
+ * for as long as it existed. It read
+ * `indexRows.length - addressable.length`, and `addressable` is an alias for
+ * `indexRows` — a value minus itself. So the "awaiting results" clause never
+ * rendered once, and every row was counted as played: the live page claimed
+ * 1,616 played on a day when 1,610 were and six were still to be decided.
+ *
+ * `played` is the count that has a classification published; `awaiting` is
+ * every other row the index shows, which is an event still to come, one being
+ * played right now, or one whose placements FIVB has not written yet. The
+ * clause is dropped when nothing is awaiting rather than reading "and 0".
+ */
+export function indexDescription(
+  played: number,
+  awaiting: number,
+  seasons: { from: number; to: number },
+): string {
+  const n = (value: number) => value.toLocaleString('en-US');
+  return (
+    `Every FIVB international beach volleyball tournament by season and draw — ` +
+    `${n(played)} played across ${seasons.from}–${seasons.to}` +
+    `${awaiting > 0 ? `, and ${n(awaiting)} awaiting results` : ''}.`
+  );
+}
+
+/**
  * `/llms.txt` — a plain-markdown briefing for language models, per llmstxt.org.
  *
  * The point is to answer the questions a model would otherwise get wrong by
@@ -632,11 +661,16 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
   const indexHref = `${BASE}${INDEX_PREFIX}/`;
   const indexUrl = abs(indexHref);
   const indexTitle = `Tournaments — ${SITE_NAME}`;
-  // "Awaiting results" rather than "still to come": the same rows cover an
-  // event being played right now and one that finished yesterday, so a claim
-  // about the future is wrong for both. See the tag in TournamentIndex.tsx.
-  const awaitingResults = indexRows.length - addressable.length;
-  const indexDescription = `Every FIVB international beach volleyball tournament by season and draw — ${addressable.length.toLocaleString('en-US')} played across ${manifest.seasons.from}–${manifest.seasons.to}${awaitingResults > 0 ? `, and ${awaitingResults} awaiting results` : ''}.`;
+  // Counted off `played`, not off `addressable`, which is `indexRows` under
+  // another name — see indexDescription() for what that cost. "Awaiting
+  // results" rather than "still to come": the same rows cover an event being
+  // played right now and one that finished yesterday, so a claim about the
+  // future is wrong for both. Matches the tag in TournamentIndex.tsx.
+  const description = indexDescription(
+    played.length,
+    indexRows.length - played.length,
+    manifest.seasons,
+  );
 
   // Every season the index can show, upcoming ones included: 2027 exists as a
   // season the moment FIVB publishes the World Championships into it, and a
@@ -677,22 +711,22 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
     slug: INDEX_PREFIX,
     url: indexHref,
     title: indexTitle,
-    description: indexDescription,
+    description,
     head:
-      headFor(indexUrl, indexTitle, indexDescription) +
+      headFor(indexUrl, indexTitle, description) +
       jsonLd({
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         '@id': indexUrl,
         url: indexUrl,
         name: indexTitle,
-        description: indexDescription,
+        description,
         isPartOf: { '@id': abs(BASE) },
         dateModified: manifest.generatedAt,
       }),
     body: `<main>
 <h1>Tournaments</h1>
-<p>${esc(indexDescription)}</p>
+<p>${esc(description)}</p>
 <h2>${opensOn} men</h2>
 <ul>${newestRows}</ul>
 <nav aria-label="Every season"><h2>Every season</h2><ul>${seasonLinks}</ul></nav>
