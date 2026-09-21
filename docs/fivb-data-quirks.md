@@ -1854,8 +1854,40 @@ and Rio 2016 at 12, Athens 2004 at 11, Rio 1991 at 11. That is the Olympic
 fortnight, not corruption, so no upper bound belongs here either. The median
 across the archive is 3 days, which is the ordinary four-day tour week.
 
+**`StartDateQualification` is the day an event really opens**, and six rows put
+it after the main draw. Measured 2026-09-21 over all 9,276 tournaments VIS
+returns: 2,759 carry a qualification date, and on the 1,688 this project
+publishes it is 1,456 (86.3%). Qualification runs a day before the main draw
+on most of them, two days on 183, and the same day on 37.
+
+Six rows record it *after* the main draw opens:
+
+| Row | Qualification | Main draw | Off by |
+|---|---|---|---:|
+| `MCC10EUE` Illichivsk 2010 | 2020-01-10 | 2010-09-05 | 3,414 days |
+| `MCC10EUF` Yantarniy 2010 | 2020-01-10 | 2010-07-25 | 3,456 days |
+| `NITA0120` Caorle 2020 | 2020-09-27 | 2020-08-28 | 30 days |
+| `NESP01` Madison Beach Volley Tour 2021 | 2021-06-27 | 2021-05-28 | 30 days |
+| `NQAT0316` Doha 2016 | 2016-02-10 | 2016-02-09 | 1 day |
+| `NLTU0119` Klaipeda 2019 | 2019-08-17 | 2019-08-16 | 1 day |
+
+**None of the six is a mis-paired draw.** Each comparison is between two
+fields of one row, and the other draw of the same event is correct where it
+exists — `WCC10EUE` qualifies 2010-09-04 for a 2010-09-05 main draw, against
+its men's twin's 2020. The two 2010 rows carry the *identical* wrong date,
+which reads as one edit rather than two typos.
+
+**None of the six can reach the published tree either.** Both 2010 rows are
+CEV events (`OrganizerType` 2) and the other four are National Tour
+(`Type` 15), so `tierFor` excludes all six whatever their dates say — the last
+of them under the rule that drops Type 15 even when `OrganizerType` claims
+FIVB (§2). They are recorded here because the field is now read, not because
+they are in anything.
+
 **Handled in.** `countryCodeFor` and `spanFor` in `ingest/build.ts`, published
-on `TournamentMeta` as `country` and `span`.
+on `TournamentMeta` as `country` and `span`; `eventStart` takes the *earlier*
+of the two start dates rather than trusting qualification, so a row like these
+dates from its main draw if the tier allowlist ever widens to admit one.
 
 ---
 
