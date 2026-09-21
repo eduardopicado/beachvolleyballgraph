@@ -214,6 +214,17 @@ this file hundreds of times in a committed tree.
 //        name                season tier             offset code       level
 ```
 
+**The offset dates the day the event opens, not the main draw.** That is the
+first day of qualification where FIVB publishes one, which is 1,456 of the
+1,688 rows, and the first day of the main draw on the rest. It moved 1,419
+events earlier — 1,231 of them by a day — and it exists because the index
+showed an event that had already begun under a date still to come, and called
+it upcoming. `span` is measured from the same day, so the last day is still
+`offset + span`; both had to move together or every event's end would have
+slipped a day. `seasonFor` still dates a ranged season by the main draw, which
+is the right anchor for which season an event belongs to. See `eventStart` in
+`ingest/build.ts`.
+
 **`code` is FIVB's own identifier** — gender letter, venue, year. Populated on
 all 1,688 tournaments, no duplicates. It is published because it is the only
 stable public handle on a tournament: FIVB retired its per-tournament pages,

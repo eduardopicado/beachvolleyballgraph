@@ -254,9 +254,11 @@ export interface PlayersFile {
  * One tournament in the shared index: `[name, season, tier, startOffset?]`.
  *
  * `startOffset` is the same signed day count as `SeasonTally` carries — days
- * from 1 January of `season` to the main draw's first day — and reconstructs
- * the exact date, so no separate date string is published. Absent, or `null`
- * alongside a code, when the tournament carried no usable date.
+ * from 1 January of `season` to the day the event opens, which is the first
+ * day of qualification where FIVB publishes one and the first day of the main
+ * draw otherwise — and reconstructs the exact date, so no separate date string
+ * is published. Absent, or `null` alongside a code, when the tournament
+ * carried no usable date. See `eventStart` in ingest/build.ts.
  *
  * `code` is FIVB's own identifier for the event — `WBUS2026` is the 2026
  * women's Busan tournament. Published because it is the only stable, public

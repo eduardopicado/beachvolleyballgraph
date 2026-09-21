@@ -38,6 +38,7 @@ import {
   sliceByCountryAndGender,
   seasonFor,
   seasonRange,
+  eventStart,
   startOffsetFor,
   spanFor,
   countryCodeFor,
@@ -98,6 +99,38 @@ describe('normaliseTournaments', () => {
 
   it('leaves the code empty rather than inventing one', () => {
     expect(normaliseTournaments([tournament('1', 2026)]).get('1')!.code).toBe('');
+  });
+
+  it('dates an event from qualification, and measures the span from the same day', () => {
+    // End to end, on the real Corigliano Rossano row: qualification on the
+    // 17th, main draw 18-20. Both fields have to move together — a span still
+    // measured from the main draw would put the last day on the 19th, because
+    // the end date is read back as startOffset + span.
+    const kept = normaliseTournaments([
+      {
+        ...tournament('1', 2026),
+        Code: 'MCOR2026',
+        StartDateQualification: '2026-09-17',
+        StartDateMainDraw: '2026-09-18',
+        EndDateMainDraw: '2026-09-20',
+      },
+    ]).get('1')!;
+    const day = (offset: number) =>
+      new Date(Date.UTC(2026, 0, 1) + offset * 86_400_000).toISOString().slice(0, 10);
+    expect(day(kept.startOffset!)).toBe('2026-09-17');
+    expect(day(kept.startOffset! + kept.span!)).toBe('2026-09-20');
+    // The end date itself is still the main draw's last day, untouched.
+    expect(kept.endsOn).toBe('2026-09-20');
+  });
+
+  it('falls back to the main draw for an event with no qualification date', () => {
+    const kept = normaliseTournaments([
+      { ...tournament('1', 2026), StartDateMainDraw: '2026-09-18', EndDateMainDraw: '2026-09-20' },
+    ]).get('1')!;
+    const day = (offset: number) =>
+      new Date(Date.UTC(2026, 0, 1) + offset * 86_400_000).toISOString().slice(0, 10);
+    expect(day(kept.startOffset!)).toBe('2026-09-18');
+    expect(kept.span).toBe(2);
   });
 
   it('keeps FIVB-organized events on the allowlist', () => {
@@ -774,6 +807,46 @@ describe('seasonFor', () => {
   it('is null when there is no usable season at all', () => {
     expect(seasonFor(row(''))).toBeNull();
     expect(seasonFor(row('not-a-year'))).toBeNull();
+  });
+});
+
+describe('eventStart', () => {
+  it('opens the event at qualification when it comes first', () => {
+    // BPT Futures Corigliano Rossano 2026, the row this exists for: the index
+    // showed 18-20 September and said "Upcoming" on the 17th, while
+    // qualification was being played.
+    expect(eventStart('2026-09-17', '2026-09-18')).toBe('2026-09-17');
+  });
+
+  it('falls back to the main draw when there is no qualification date', () => {
+    // 232 of the 1,688 published tournaments, mostly old ones.
+    expect(eventStart(undefined, '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('', '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('not-a-date', '2026-09-18')).toBe('2026-09-18');
+  });
+
+  it('takes the earlier when qualification is recorded after the main draw', () => {
+    // Six rows upstream do this, two of them by more than nine years. Taking
+    // qualification whenever it exists would date those to the wrong decade.
+    expect(eventStart('2026-09-20', '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('2035-01-04', '2025-07-30')).toBe('2025-07-30');
+  });
+
+  it('is the same day when the two agree', () => {
+    // 37 published events qualify and start the main draw on one day.
+    expect(eventStart('2026-09-18', '2026-09-18')).toBe('2026-09-18');
+  });
+
+  it('reads a date carrying a time, and gives up on neither date at all', () => {
+    expect(eventStart('2026-09-17T00:00:00', '2026-09-18T00:00:00')).toBe('2026-09-17');
+    expect(eventStart(undefined, undefined)).toBeUndefined();
+    expect(eventStart('nonsense', 'also nonsense')).toBeUndefined();
+  });
+
+  it('carries a qualification that opens in the previous calendar year', () => {
+    // The offset is signed for exactly this, and qualification is the field
+    // most likely to cross the boundary.
+    expect(startOffsetFor(eventStart('2019-12-30', '2020-01-02'), 2020)).toBe(-2);
   });
 });
 

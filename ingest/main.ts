@@ -195,9 +195,12 @@ async function main() {
     type: 'GetBeachTournamentList',
     // `Name` is fetched only to spot cancellations — VIS records those in the
     // display name rather than a status field, see isCancelled();
-    // `StartDateMainDraw` orders partners inside a season on the player card's
-    // timeline; `EndDateMainDraw` tells finishedWithoutResults() which events
-    // are over. All three ride on a request already being made.
+    // `StartDateQualification` and `StartDateMainDraw` give the day an event
+    // opens, which dates it in the index and orders partners inside a season
+    // on the player card's timeline — see `eventStart`, and note that
+    // qualification is populated on 86% of what is published rather than on
+    // everything; `EndDateMainDraw` tells finishedWithoutResults() which
+    // events are over. All of them ride on a request already being made.
     //
     // `CountryCode` is the venue's country, for the flag beside a tournament.
     // It has to be asked for by name: VIS returns exactly the fields listed
@@ -213,6 +216,7 @@ async function main() {
       'Type',
       'OrganizerType',
       'Version',
+      'StartDateQualification',
       'StartDateMainDraw',
       'EndDateMainDraw',
       'CountryCode',
