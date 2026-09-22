@@ -1175,7 +1175,7 @@
       "id": 182198,
       "name": "Vojtech Pavlusek",
       "short": "Pavlusek",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
       "last": 2026
     },
@@ -1231,7 +1231,7 @@
       "id": 192341,
       "name": "Martin Toufar",
       "short": "Toufar",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -1239,7 +1239,7 @@
       "id": 192786,
       "name": "Teodor Schinko",
       "short": "Schinko",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -1247,7 +1247,7 @@
       "id": 192787,
       "name": "Ondrej Kulis",
       "short": "Kulis",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -5403,6 +5403,21 @@
     },
     {
       "a": 182198,
+      "b": 192341,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 13
+    },
+    {
+      "a": 182198,
       "b": 203268,
       "t": 2,
       "f": 2024,
@@ -5529,14 +5544,14 @@
     {
       "a": 192786,
       "b": 192787,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          189
+          3,
+          259
         ]
       ],
       "r": 9

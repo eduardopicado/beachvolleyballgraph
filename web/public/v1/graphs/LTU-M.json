@@ -292,6 +292,14 @@
       "last": 2026
     },
     {
+      "id": 192796,
+      "name": "Jokubas Losys",
+      "short": "Losys",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 201536,
       "name": "Povilas Piesina",
       "short": "Piesina",
@@ -303,7 +311,7 @@
       "id": 201537,
       "name": "Dovydas Sinkevicius",
       "short": "Sinkevicius",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2025,
       "last": 2026
     },
@@ -1085,6 +1093,21 @@
         ]
       ],
       "r": 13
+    },
+    {
+      "a": 192796,
+      "b": 201537,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 9
     },
     {
       "a": 201537,

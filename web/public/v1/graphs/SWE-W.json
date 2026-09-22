@@ -660,6 +660,14 @@
       "last": 2025
     },
     {
+      "id": 171903,
+      "name": "Frida Johansson",
+      "short": "Johansson",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 172787,
       "name": "Karin Backström",
       "short": "Backström",
@@ -703,7 +711,7 @@
       "id": 187922,
       "name": "Sanna Madestam",
       "short": "Madestam",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2026,
       "last": 2026
     },
@@ -2558,6 +2566,21 @@
         ]
       ],
       "r": 17
+    },
+    {
+      "a": 171903,
+      "b": 187922,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 9
     },
     {
       "a": 173514,

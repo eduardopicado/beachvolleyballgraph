@@ -1391,9 +1391,9 @@
       "id": 169377,
       "name": "Erika Ditta",
       "short": "Ditta",
-      "tournaments": 20,
+      "tournaments": 21,
       "first": 2021,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 169378,
@@ -1415,7 +1415,7 @@
       "id": 169792,
       "name": "Sara Franzoni",
       "short": "Franzoni",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -1487,7 +1487,7 @@
       "id": 179521,
       "name": "Aurora Mattavelli",
       "short": "Mattavelli",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2021,
       "last": 2026
     },
@@ -1511,7 +1511,7 @@
       "id": 181233,
       "name": "Valeria Tallevi Diotallevi",
       "short": "Tallevi Diotallevi",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2022,
       "last": 2026
     },
@@ -1599,7 +1599,7 @@
       "id": 204623,
       "name": "Cindy Lee Fezzi",
       "short": "Fezzi",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -1607,7 +1607,7 @@
       "id": 212468,
       "name": "Jessica Belliero Piccinin",
       "short": "Belliero Piccinin",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -5883,6 +5883,21 @@
     },
     {
       "a": 169377,
+      "b": 179521,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 9
+    },
+    {
+      "a": 169377,
       "b": 192258,
       "t": 13,
       "f": 2022,
@@ -5969,17 +5984,17 @@
     {
       "a": 169792,
       "b": 181233,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          238
+          2,
+          259
         ]
       ],
-      "r": 13
+      "r": 5
     },
     {
       "a": 170500,
@@ -6259,17 +6274,17 @@
     {
       "a": 204623,
       "b": 212468,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          238
+          2,
+          259
         ]
       ],
-      "r": 21
+      "r": 4
     },
     {
       "a": 212717,

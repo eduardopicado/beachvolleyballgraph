@@ -991,7 +991,7 @@
       "id": 141652,
       "name": "Giulia Gavio",
       "short": "Giulia",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2023,
       "last": 2026
     },
@@ -1351,7 +1351,7 @@
       "id": 182126,
       "name": "Carolina Sallaberry Cavalcanti",
       "short": "Carol",
-      "tournaments": 17,
+      "tournaments": 18,
       "first": 2021,
       "last": 2026
     },
@@ -6136,17 +6136,17 @@
     {
       "a": 141652,
       "b": 182126,
-      "t": 5,
+      "t": 6,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          5,
-          245
+          6,
+          259
         ]
       ],
-      "r": 5
+      "r": 3
     },
     {
       "a": 142309,

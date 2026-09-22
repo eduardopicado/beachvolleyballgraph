@@ -1015,7 +1015,7 @@
       "id": 211993,
       "name": "Bruno Liepiņš",
       "short": "Liepiņš B.",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2025,
       "last": 2026
     },
@@ -1023,9 +1023,9 @@
       "id": 212793,
       "name": "Renārs Augusts",
       "short": "Augusts",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 214071,
@@ -4096,6 +4096,21 @@
           2026,
           2,
           230
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 211993,
+      "b": 212793,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
         ]
       ],
       "r": 17

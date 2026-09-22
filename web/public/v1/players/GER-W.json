@@ -1428,7 +1428,7 @@
       "weight": null,
       "birthPlace": "Nurnberg",
       "tour": {
-        "gold": 1,
+        "gold": 2,
         "silver": 3,
         "bronze": 0
       },
@@ -1708,7 +1708,7 @@
       "weight": null,
       "birthPlace": "Neuss",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 2,
         "bronze": 0
       },

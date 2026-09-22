@@ -567,7 +567,7 @@
       "id": 190916,
       "name": "Denēva Šauberga",
       "short": "Šauberga",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2022,
       "last": 2026
     },
@@ -607,7 +607,7 @@
       "id": 204793,
       "name": "Milana Tina Aleksejeva",
       "short": "Aleksejeva",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -2144,17 +2144,17 @@
     {
       "a": 190916,
       "b": 204793,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          230
+          3,
+          259
         ]
       ],
-      "r": 21
+      "r": 13
     },
     {
       "a": 191933,

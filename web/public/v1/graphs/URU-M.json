@@ -207,7 +207,7 @@
       "id": 179109,
       "name": "Mateo Domingo Pérez Coria",
       "short": "Perez M.",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2026,
       "last": 2026
     },
@@ -255,7 +255,7 @@
       "id": 218865,
       "name": "Ignacio Pérez Coria",
       "short": "Ignacio Pérez",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2026,
       "last": 2026
     }
@@ -614,14 +614,14 @@
     {
       "a": 179109,
       "b": 218865,
-      "t": 7,
+      "t": 8,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          7,
-          238
+          8,
+          259
         ]
       ],
       "r": 21

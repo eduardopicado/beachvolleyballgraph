@@ -255,7 +255,7 @@
       "id": 182770,
       "name": "Ivet Gavrailova",
       "short": "Gavrailova",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
       "last": 2026
     },
@@ -271,7 +271,7 @@
       "id": 191727,
       "name": "Antoniya Nikolova",
       "short": "Nikolova",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2024,
       "last": 2026
     },
@@ -969,17 +969,17 @@
     {
       "a": 182770,
       "b": 191727,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          154
+          2,
+          259
         ]
       ],
-      "r": 13
+      "r": 9
     },
     {
       "a": 182770,

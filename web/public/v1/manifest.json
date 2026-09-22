@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-21T15:55:37.370Z",
-  "sourceVersion": "115230",
+  "generatedAt": "2026-09-22T14:03:53.390Z",
+  "sourceVersion": "115425",
   "seasons": {
     "from": 1987,
     "to": 2027
   },
   "totals": {
     "tournaments": 1688,
-    "players": 12098,
-    "partnerships": 13980
+    "players": 12110,
+    "partnerships": 14002
   },
   "tiers": {
     "FIVB World Tour": 1077,
@@ -532,11 +532,11 @@
       "genders": {
         "M": {
           "nodes": 177,
-          "edges": 227
+          "edges": 228
         },
         "W": {
-          "nodes": 162,
-          "edges": 197
+          "nodes": 168,
+          "edges": 201
         }
       }
     },
@@ -681,12 +681,12 @@
       "iso2": "FR",
       "genders": {
         "M": {
-          "nodes": 200,
-          "edges": 227
+          "nodes": 201,
+          "edges": 228
         },
         "W": {
           "nodes": 152,
-          "edges": 185
+          "edges": 186
         }
       }
     },
@@ -738,11 +738,11 @@
       "genders": {
         "M": {
           "nodes": 240,
-          "edges": 348
+          "edges": 349
         },
         "W": {
           "nodes": 172,
-          "edges": 284
+          "edges": 285
         }
       }
     },
@@ -973,11 +973,11 @@
       "genders": {
         "M": {
           "nodes": 310,
-          "edges": 411
+          "edges": 413
         },
         "W": {
           "nodes": 207,
-          "edges": 270
+          "edges": 271
         }
       }
     },
@@ -1007,7 +1007,7 @@
         },
         "W": {
           "nodes": 169,
-          "edges": 239
+          "edges": 240
         }
       }
     },
@@ -1070,7 +1070,7 @@
       "genders": {
         "M": {
           "nodes": 130,
-          "edges": 166
+          "edges": 167
         },
         "W": {
           "nodes": 82,
@@ -1125,8 +1125,8 @@
       "iso2": "LT",
       "genders": {
         "M": {
-          "nodes": 42,
-          "edges": 41
+          "nodes": 43,
+          "edges": 42
         },
         "W": {
           "nodes": 37,
@@ -1309,7 +1309,7 @@
       "genders": {
         "M": {
           "nodes": 125,
-          "edges": 192
+          "edges": 193
         },
         "W": {
           "nodes": 132,
@@ -1491,8 +1491,8 @@
       "iso2": "PL",
       "genders": {
         "M": {
-          "nodes": 183,
-          "edges": 253
+          "nodes": 184,
+          "edges": 254
         },
         "W": {
           "nodes": 127,
@@ -1638,7 +1638,7 @@
         },
         "W": {
           "nodes": 6,
-          "edges": 5
+          "edges": 6
         }
       }
     },
@@ -1705,7 +1705,7 @@
       "genders": {
         "M": {
           "nodes": 50,
-          "edges": 46
+          "edges": 47
         },
         "W": {
           "nodes": 57,
@@ -1839,8 +1839,8 @@
           "edges": 125
         },
         "W": {
-          "nodes": 95,
-          "edges": 111
+          "nodes": 96,
+          "edges": 112
         }
       }
     },
@@ -1850,8 +1850,8 @@
       "iso2": "CH",
       "genders": {
         "M": {
-          "nodes": 186,
-          "edges": 236
+          "nodes": 188,
+          "edges": 237
         },
         "W": {
           "nodes": 150,
@@ -2030,7 +2030,7 @@
         },
         "W": {
           "nodes": 423,
-          "edges": 625
+          "edges": 626
         }
       }
     },
@@ -2143,7 +2143,6 @@
     "MBAL2007",
     "MBEI2013",
     "MCAP2023",
-    "MCOR2026",
     "MDUB2005",
     "MDUB2009",
     "MDUB2013",
@@ -2182,7 +2181,6 @@
     "WC2010",
     "WCAP2023",
     "WCAR1991",
-    "WCOR2026",
     "WDUB2009",
     "WDUB2013",
     "WDUB2023",

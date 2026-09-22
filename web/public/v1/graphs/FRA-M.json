@@ -1503,7 +1503,7 @@
       "id": 201248,
       "name": "Charly SAMIER",
       "short": "Samier",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -1576,6 +1576,14 @@
       "name": "Quentin Hypolyte",
       "short": "Hypolyte",
       "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 224063,
+      "name": "Pao Rigaud",
+      "short": "Rigaud",
+      "tournaments": 1,
       "first": 2026,
       "last": 2026
     },
@@ -5588,6 +5596,21 @@
         ]
       ],
       "r": 13
+    },
+    {
+      "a": 201248,
+      "b": 224063,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 202250,

@@ -1111,7 +1111,7 @@
       "id": 190777,
       "name": "Adela Necesana",
       "short": "Necesana",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1239,7 +1239,7 @@
       "id": 212661,
       "name": "Zuzana Lajkebova",
       "short": "Lajkebova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1248,6 +1248,14 @@
       "name": "Ema Sebova",
       "short": "Sebova",
       "tournaments": 2,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 213005,
+      "name": "Tereza Kafkova",
+      "short": "Kafkova",
+      "tournaments": 1,
       "first": 2026,
       "last": 2026
     },
@@ -1263,7 +1271,7 @@
       "id": 214405,
       "name": "Adela Vorasicka",
       "short": "Vorasicka",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1276,10 +1284,18 @@
       "last": 2026
     },
     {
+      "id": 223608,
+      "name": "Michaela Stankova",
+      "short": "Stankova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 223611,
       "name": "Barbora Dostalikova",
       "short": "Dostalikova",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1295,6 +1311,38 @@
       "id": 234198,
       "name": "Tereza Lieblova",
       "short": "Lieblova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 241231,
+      "name": "Ema Rosi",
+      "short": "Rosi",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 241232,
+      "name": "Sara Cervinkova",
+      "short": "Cervinkova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 242437,
+      "name": "Monika Hola",
+      "short": "Hola",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 242446,
+      "name": "Barbora Simkova",
+      "short": "Simkova",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -4741,6 +4789,21 @@
     },
     {
       "a": 190777,
+      "b": 214405,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 190777,
       "b": 223620,
       "t": 1,
       "f": 2026,
@@ -4887,6 +4950,21 @@
     {
       "a": 212661,
       "b": 223611,
+      "t": 2,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          2,
+          259
+        ]
+      ],
+      "r": 13
+    },
+    {
+      "a": 213005,
+      "b": 223608,
       "t": 1,
       "f": 2026,
       "l": 2026,
@@ -4894,10 +4972,40 @@
         [
           2026,
           1,
-          238
+          259
         ]
       ],
-      "r": 13
+      "r": 17
+    },
+    {
+      "a": 241231,
+      "b": 241232,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 242437,
+      "b": 242446,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 17
     }
   ]
 }

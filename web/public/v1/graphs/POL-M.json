@@ -1207,7 +1207,7 @@
       "id": 176256,
       "name": "Tomasz Woloszuk",
       "short": "Woloszuk",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2019,
       "last": 2026
     },
@@ -1415,7 +1415,7 @@
       "id": 212823,
       "name": "Maksymilian Dymczyk",
       "short": "Dymczyk",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2025,
       "last": 2026
     },
@@ -1447,7 +1447,7 @@
       "id": 223996,
       "name": "Wojciech Witkowski",
       "short": "Witkowski",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2026,
       "last": 2026
     },
@@ -1463,6 +1463,14 @@
       "id": 232277,
       "name": "Łukasz Czubkowski",
       "short": "Czubkowski",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 241351,
+      "name": "Marek Rogiński",
+      "short": "Rogiński",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -5545,6 +5553,21 @@
       "r": 21
     },
     {
+      "a": 176256,
+      "b": 241351,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 179365,
       "b": 179446,
       "t": 1,
@@ -5947,17 +5970,17 @@
     {
       "a": 212823,
       "b": 223996,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          245
+          2,
+          259
         ]
       ],
-      "r": 21
+      "r": 13
     },
     {
       "a": 220156,

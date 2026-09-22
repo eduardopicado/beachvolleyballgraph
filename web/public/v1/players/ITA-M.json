@@ -1665,7 +1665,7 @@
         "bronze": 0
       },
       "tour": {
-        "gold": 4,
+        "gold": 5,
         "silver": 8,
         "bronze": 10
       },
@@ -2009,7 +2009,7 @@
       "height": 195,
       "weight": 93,
       "tour": {
-        "gold": 3,
+        "gold": 4,
         "silver": 2,
         "bronze": 0
       },

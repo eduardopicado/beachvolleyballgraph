@@ -631,7 +631,15 @@
       "dob": "1996-01-04",
       "height": null,
       "weight": null,
-      "birthPlace": "Ostrow Wielkopolski"
+      "birthPlace": "Ostrow Wielkopolski",
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 146846,
@@ -762,7 +770,15 @@
       "dob": "1996-02-03",
       "height": 188,
       "weight": 74,
-      "birthPlace": "Wrocław"
+      "birthPlace": "Wrocław",
+      "tour": {
+        "gold": 0,
+        "silver": 1,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 162079,

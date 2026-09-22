@@ -999,7 +999,7 @@
       "id": 157364,
       "name": "Marion Bernard",
       "short": "Bernard",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2021,
       "last": 2026
     },
@@ -1111,7 +1111,7 @@
       "id": 194470,
       "name": "Céline Collette",
       "short": "Collette",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2023,
       "last": 2026
     },
@@ -4035,6 +4035,21 @@
           2026,
           1,
           238
+        ]
+      ],
+      "r": 13
+    },
+    {
+      "a": 157364,
+      "b": 194470,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
         ]
       ],
       "r": 13

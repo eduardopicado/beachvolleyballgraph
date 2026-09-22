@@ -887,7 +887,7 @@
       "id": 192781,
       "name": "Dmytro Kozii",
       "short": "Kozii",
-      "tournaments": 16,
+      "tournaments": 17,
       "first": 2024,
       "last": 2026
     },
@@ -919,7 +919,7 @@
       "id": 211595,
       "name": "Sviatoslav Nahornyi",
       "short": "Nahornyi",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2024,
       "last": 2026
     },
@@ -2706,7 +2706,7 @@
     {
       "a": 192781,
       "b": 211595,
-      "t": 8,
+      "t": 9,
       "f": 2024,
       "l": 2026,
       "s": [
@@ -2722,11 +2722,11 @@
         ],
         [
           2026,
-          4,
-          245
+          5,
+          259
         ]
       ],
-      "r": 4
+      "r": 2
     },
     {
       "a": 203692,

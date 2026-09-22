@@ -1423,7 +1423,7 @@
       "id": 120774,
       "name": "Daniele Lupo",
       "short": "Lupo",
-      "tournaments": 128,
+      "tournaments": 129,
       "first": 2008,
       "last": 2026
     },
@@ -1495,7 +1495,7 @@
       "id": 124712,
       "name": "Tiziano Andreatta",
       "short": "Andreatta, T.",
-      "tournaments": 47,
+      "tournaments": 48,
       "first": 2009,
       "last": 2026
     },
@@ -1743,7 +1743,7 @@
       "id": 144114,
       "name": "Enrico Rossi",
       "short": "Rossi",
-      "tournaments": 82,
+      "tournaments": 83,
       "first": 2014,
       "last": 2026
     },
@@ -2007,7 +2007,7 @@
       "id": 165100,
       "name": "Tobia Marchetto",
       "short": "Marchetto",
-      "tournaments": 34,
+      "tournaments": 35,
       "first": 2018,
       "last": 2026
     },
@@ -2071,7 +2071,7 @@
       "id": 169575,
       "name": "Marco Viscovich",
       "short": "Viscovich",
-      "tournaments": 45,
+      "tournaments": 46,
       "first": 2021,
       "last": 2026
     },
@@ -2151,9 +2151,9 @@
       "id": 180718,
       "name": "Michael Burgmann",
       "short": "Burgmann",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2023,
-      "last": 2024
+      "last": 2026
     },
     {
       "id": 181232,
@@ -2175,7 +2175,7 @@
       "id": 182776,
       "name": "Raoul Acerbi",
       "short": "Acerbi",
-      "tournaments": 5,
+      "tournaments": 6,
       "first": 2022,
       "last": 2026
     },
@@ -2407,7 +2407,7 @@
       "id": 215688,
       "name": "Matteo Marchesan",
       "short": "Marchesan",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -2431,9 +2431,9 @@
       "id": 221402,
       "name": "Andrea Sanguanini",
       "short": "Sanguanini",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 221499,
@@ -2455,7 +2455,7 @@
       "id": 223923,
       "name": "Davide Borraccino",
       "short": "Borraccino",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -7233,9 +7233,9 @@
     {
       "a": 120774,
       "b": 144114,
-      "t": 18,
+      "t": 19,
       "f": 2022,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2022,
@@ -7251,6 +7251,11 @@
           2024,
           4,
           101
+        ],
+        [
+          2026,
+          1,
+          259
         ]
       ],
       "r": 1
@@ -7458,14 +7463,14 @@
     {
       "a": 124712,
       "b": 182776,
-      "t": 3,
+      "t": 4,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          3,
-          238
+          4,
+          259
         ]
       ],
       "r": 1
@@ -8990,6 +8995,21 @@
       "r": 1
     },
     {
+      "a": 165100,
+      "b": 180718,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 5
+    },
+    {
       "a": 167671,
       "b": 174835,
       "t": 1,
@@ -9172,14 +9192,14 @@
     {
       "a": 169575,
       "b": 223923,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          160
+          3,
+          259
         ]
       ],
       "r": 1
@@ -9488,6 +9508,21 @@
         ]
       ],
       "r": 3
+    },
+    {
+      "a": 215688,
+      "b": 221402,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          259
+        ]
+      ],
+      "r": 9
     },
     {
       "a": 215688,

@@ -1783,7 +1783,15 @@
       "dob": "1996-10-25",
       "height": 181,
       "weight": 72,
-      "birthPlace": "São Paulo"
+      "birthPlace": "São Paulo",
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 142309,
@@ -2244,7 +2252,15 @@
       "dob": "2005-05-10",
       "height": 182,
       "weight": 64,
-      "birthPlace": "Rio de Janeiro"
+      "birthPlace": "Rio de Janeiro",
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182128,
