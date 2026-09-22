@@ -15,6 +15,7 @@ import { PartnershipGraph } from './components/PartnershipGraph';
 import { PathPanel } from './components/PathPanel';
 import { indexPartnerships, pathEdgeKeys, pathNodeIds, findPath } from './lib/path';
 import { PlayerCard, type AwayRow, type PartnerRow } from './components/PlayerCard';
+import { StartHere } from './components/StartHere';
 import { StatTiles, type Stat } from './components/StatTiles';
 import { TableView, type TableRow } from './components/TableView';
 import { ThemeToggle } from './components/ThemeToggle';
@@ -56,6 +57,23 @@ function setHeadTag(selector: string, attr: 'href' | 'content', value: string) {
 
 export default function App() {
   const initial = useMemo(readUrl, []);
+
+  /**
+   * Did this load arrive at the bare site root?
+   *
+   * The "start here" strip renders here and nowhere else, and "here" is a fact
+   * about the mount, not about the current state: the effect below rewrites `/`
+   * to `/brazil-men/` on the first render, so by the time anything asks, the
+   * address bar no longer says root. Reading `initial` — captured once, at
+   * mount — is what makes the answer stable for the life of the page, and it is
+   * also what keeps the strip put when the reader changes country: they came in
+   * the front door and the door does not move behind them.
+   *
+   * A legacy deep link (`/?country=USA&gender=W`) is not the front door even
+   * though its path is `/`. It is a page about something, the same as a slice
+   * URL, so it gets the same treatment.
+   */
+  const atRoot = initial.slug === null && initial.country === null && initial.player === null;
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [country, setCountry] = useState(initial.country ?? DEFAULT_COUNTRY);
@@ -576,6 +594,18 @@ export default function App() {
           <ThemeToggle />
         </div>
       </header>
+
+      {atRoot && manifest?.highlights && manifest.highlights.length > 0 && (
+        <StartHere
+          highlights={manifest.highlights}
+          countries={manifest.countries}
+          base={import.meta.env.BASE_URL}
+          // The same move a name in a tournament field makes: the slice and the
+          // selection travel together, because a card can name somebody from
+          // any of the 264 pages and almost never names one from this one.
+          onOpen={selectFieldPlayer}
+        />
+      )}
 
       {manifest && (
         <Controls

@@ -24,7 +24,7 @@ import type {
   Manifest,
   TournamentsFile,
 } from '../shared/schema.js';
-import { GENDER_LABEL, GENDERS } from '../shared/schema.js';
+import { GENDER_LABEL, GENDERS, RECORD_LABEL } from '../shared/schema.js';
 import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
@@ -738,9 +738,38 @@ ${staticFooter()}
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
   const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments, ${manifest.seasons.from}–${manifest.seasons.to}. Pick a country and gender to see the partnership graph.`;
+  /**
+   * The "start here" strip, in static HTML.
+   *
+   * Half the point of the strip: until now the home page's crawlable body was a
+   * paragraph of totals and 264 country links, which says what the site holds
+   * and names nobody in it. These six are the archive's own extremes, each
+   * linking to the page it lives on with the player already selected — the same
+   * six cards the app draws once it hydrates, in the same order, with the same
+   * figures, because both read `manifest.highlights` and `RECORD_LABEL`.
+   *
+   * Absent from a manifest generated before the field existed, in which case
+   * this is empty and the page is what it was.
+   */
+  const strip = (manifest.highlights ?? []).flatMap((h) => {
+    const lead = h.who[0];
+    if (!lead) return [];
+    const slice = slices.find((s) => s.code === lead.federation && s.gender === h.gender);
+    if (!slice) return [];
+    const who = h.who.map((w) => w.name).join(' & ');
+    const where = [...new Set(h.who.map((w) => w.federation))]
+      .map((code) => manifest.countries.find((c) => c.code === code)?.name ?? code)
+      .join(' & ');
+    const when = h.first !== undefined && h.last !== undefined ? ` (${h.first}–${h.last})` : '';
+    return [
+      `<li><a href="${esc(slice.href)}?player=${lead.id}">${esc(who)}</a> — ${h.value.toLocaleString('en-US')} ${esc(RECORD_LABEL[h.key])}, ${esc(where)}${when}</li>`,
+    ];
+  });
+
   const homeBody = `<main>
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>${esc(homeDescription)}</p>
+${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>` : ''}
 <p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
 <h2>Countries</h2>
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>

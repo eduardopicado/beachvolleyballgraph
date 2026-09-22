@@ -55,7 +55,14 @@ import {
   aggregatePairHonours,
   decorationOf,
 } from './build.js';
-import { buildRecords, recordsBelowFloor, type RecordPair, type RecordPlayer } from './records.js';
+import {
+  buildRecords,
+  HIGHLIGHTS,
+  pickHighlights,
+  recordsBelowFloor,
+  type RecordPair,
+  type RecordPlayer,
+} from './records.js';
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
 import { tournamentSlugs } from '../shared/slug.js';
@@ -614,7 +621,9 @@ async function main() {
     countries: [...byCountry.values()].sort((a, b) => a.name.localeCompare(b.name)),
     withoutField,
   };
-  await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
+  // Written near the end of the run rather than here: `highlights` is cut from
+  // the record boards, which are built from the finished slices several hundred
+  // lines below. Nothing between reads the file.
 
   // --- one file per tournament: the full field that played it ---------------
   //
@@ -970,6 +979,7 @@ async function main() {
     throw new Error(`Refusing to publish — the records look broken, not merely changed:\n  ${belowFloor.join('\n  ')}`);
   }
   await writeFile(path.join(TMP_DIR, 'records.json'), JSON.stringify(records.file, null, 2));
+
   log(
     'records',
     `${RECORD_KEYS.length} categories x ${records.file.top} rows per gender; ${records.withheld.length} rows withheld pending confirmation`,
@@ -981,6 +991,19 @@ async function main() {
     const names = w.who.map((h) => `${h.name} (${h.federation}, ${h.id})`).join(' & ');
     console.log(`    TODO confirm ${w.key} ${w.gender} #${w.rank}: ${names} — ${w.value}`);
   }
+
+  // The home page's "start here" cards, cut from the boards just built and
+  // carried on the manifest — see `Highlight` for why there and not in
+  // records.json. This is why manifest.json is written here, hundreds of lines
+  // after it was assembled: the cards do not exist until the records do.
+  manifest.highlights = pickHighlights(records.file);
+  log(
+    'highlights',
+    manifest.highlights.length === HIGHLIGHTS.length
+      ? `${manifest.highlights.length} cards for the start-here strip`
+      : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty or opened a player already on the strip`,
+  );
+  await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
   // Sanity-check the temp tree before letting it replace live data.
   const written = (await readdir(path.join(TMP_DIR, 'graphs'))).length;

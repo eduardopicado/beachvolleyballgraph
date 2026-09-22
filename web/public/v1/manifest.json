@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T14:03:53.390Z",
+  "generatedAt": "2026-09-22T15:51:29.179Z",
   "sourceVersion": "115425",
   "seasons": {
     "from": 1987,
@@ -2209,5 +2209,100 @@
     "WVLA2008",
     "WWCH2027",
     "WYAN2020"
+  ],
+  "highlights": [
+    {
+      "key": "tournaments",
+      "gender": "M",
+      "value": 255,
+      "who": [
+        {
+          "id": 100427,
+          "name": "Emanuel Rego",
+          "federation": "BRA"
+        }
+      ]
+    },
+    {
+      "key": "pair-podiums",
+      "gender": "W",
+      "value": 85,
+      "who": [
+        {
+          "id": 100256,
+          "name": "Adriana Brandão Behar",
+          "federation": "BRA"
+        },
+        {
+          "id": 100926,
+          "name": "Shelda Kelly Bruno Bede",
+          "federation": "BRA"
+        }
+      ],
+      "first": 1995,
+      "last": 2007
+    },
+    {
+      "key": "partnership",
+      "gender": "M",
+      "value": 159,
+      "who": [
+        {
+          "id": 103311,
+          "name": "Pablo Herrera Allepuz",
+          "federation": "ESP"
+        },
+        {
+          "id": 116710,
+          "name": "Adrián Gavira Collado",
+          "federation": "ESP"
+        }
+      ],
+      "first": 2009,
+      "last": 2024
+    },
+    {
+      "key": "titles",
+      "gender": "W",
+      "value": 61,
+      "who": [
+        {
+          "id": 103903,
+          "name": "Larissa França Maestrini",
+          "federation": "BRA"
+        }
+      ]
+    },
+    {
+      "key": "pair-olympic-worlds",
+      "gender": "M",
+      "value": 4,
+      "who": [
+        {
+          "id": 137127,
+          "name": "Christian Sandlie Sørum",
+          "federation": "NOR"
+        },
+        {
+          "id": 143192,
+          "name": "Anders Berntsen Mol",
+          "federation": "NOR"
+        }
+      ],
+      "first": 2016,
+      "last": 2026
+    },
+    {
+      "key": "tournaments",
+      "gender": "W",
+      "value": 234,
+      "who": [
+        {
+          "id": 104079,
+          "name": "Carolina Solberg Salgado",
+          "federation": "BRA"
+        }
+      ]
+    }
   ]
 }

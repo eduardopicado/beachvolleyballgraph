@@ -27,6 +27,7 @@
 
 import type {
   Gender,
+  Highlight,
   RecordBoard,
   RecordHolder,
   RecordKey,
@@ -362,4 +363,87 @@ export function recordsBelowFloor(file: RecordsFile): string[] {
     }
   }
   return problems;
+}
+
+/**
+ * The boards the home page's "start here" strip draws from, in card order.
+ *
+ * A hand-written list, not a computed "best six". There is no scale on which
+ * 255 tournaments and 4 Olympic medals compare, so any ranking across
+ * categories would be an invented weighting dressed up as a measurement — and
+ * the list has a second job the numbers cannot do: six cards that are all
+ * "most tournaments" in six countries say one thing six times.
+ *
+ * So the order is chosen for what the set covers rather than for size:
+ *
+ *   - three solo records and three partnerships, because the site is about
+ *     pairs and a strip of six individuals would misdescribe it;
+ *   - three men's boards and three women's, alternating, because a reader
+ *     scanning the first two cards should not have to reach the fourth to
+ *     find out the women's tour is in here;
+ *   - longevity, titles and decoration between them, so the six answer
+ *     different questions rather than one question six times.
+ *
+ * `pickHighlights` may return fewer than six — a withheld or empty board, or a
+ * player already on an earlier card, drops out — so the strip is built to
+ * render whatever it is handed.
+ */
+export const HIGHLIGHTS: readonly { key: RecordKey; gender: Gender }[] = [
+  { key: 'tournaments', gender: 'M' },
+  { key: 'pair-podiums', gender: 'W' },
+  { key: 'partnership', gender: 'M' },
+  { key: 'titles', gender: 'W' },
+  { key: 'pair-olympic-worlds', gender: 'M' },
+  { key: 'tournaments', gender: 'W' },
+];
+
+/**
+ * Flatten the leaders of `HIGHLIGHTS` into the cards the strip renders.
+ *
+ * Rank 1 only. A board's second row is not a highlight, it is a leaderboard,
+ * and the page that shows leaderboards is a different page.
+ *
+ * **No player opens two cards.** The top of this archive is a small club: 28
+ * boards have 28 distinct leaders between them, and seven of those people lead
+ * more than one — Emanuel Rego leads four, Carolina Solberg Salgado three. The
+ * six boards in `HIGHLIGHTS` are chosen not to overlap, so nothing is dropped
+ * today; this is what keeps that true as the archive moves under a list nobody
+ * is editing.
+ *
+ * The rule is about the player a card *opens*, not everyone it names. Behar &
+ * Bede is one click, and it goes to Behar; Shelda Bede is free to lead a board
+ * of her own later without the pair card having retired her on its way past.
+ * Blocking both halves would be stricter than the duplication a reader can
+ * actually see, and every card it dropped would cost the strip a slot to
+ * prevent a repeat that was never on the page.
+ */
+export function pickHighlights(
+  file: RecordsFile,
+  wanted: readonly { key: RecordKey; gender: Gender }[] = HIGHLIGHTS,
+): Highlight[] {
+  const picked: Highlight[] = [];
+  const opened = new Set<number>();
+
+  for (const { key, gender } of wanted) {
+    const lead = file.categories[key]?.[gender]?.rows[0];
+    if (!lead || 'withheld' in lead) continue;
+
+    // `who[0]` is the half whose id broke the tie in `rankBoard`, and the half
+    // the card links to — see StartHere.tsx for why a pair opens a player.
+    const opens = lead.who[0];
+    if (!opens || opened.has(opens.id)) continue;
+    opened.add(opens.id);
+
+    const card: Highlight = { key, gender, value: lead.value, who: lead.who };
+    // Pairs always carry their seasons; a solo row only does where the span is
+    // the thing being measured. The card renders two shapes rather than one
+    // with a blank in it, so the field stays absent rather than becoming null.
+    if (lead.first !== undefined && lead.last !== undefined) {
+      card.first = lead.first;
+      card.last = lead.last;
+    }
+    picked.push(card);
+  }
+
+  return picked;
 }
