@@ -27,6 +27,7 @@
 
 import type {
   Gender,
+  Highlight,
   RecordBoard,
   RecordHolder,
   RecordKey,
@@ -362,4 +363,73 @@ export function recordsBelowFloor(file: RecordsFile): string[] {
     }
   }
   return problems;
+}
+
+/**
+ * The boards the home page's "start here" strip draws from, in card order.
+ *
+ * A hand-written list, not a computed "best six". There is no scale on which
+ * 255 tournaments and 4 Olympic medals compare, so any ranking across
+ * categories would be an invented weighting dressed up as a measurement — and
+ * the list has a second job the numbers cannot do: six cards that are all
+ * "most tournaments" in six countries say one thing six times.
+ *
+ * So the order is chosen for what the set covers rather than for size:
+ *
+ *   - three solo records and three partnerships, because the site is about
+ *     pairs and a strip of six individuals would misdescribe it;
+ *   - three men's boards and three women's, alternating, because a reader
+ *     scanning the first two cards should not have to reach the fourth to
+ *     find out the women's tour is in here;
+ *   - longevity, titles and decoration between them, so the six answer
+ *     different questions rather than one question six times.
+ *
+ * `pickHighlights` may return fewer than six — a withheld or empty board, or a
+ * player already on an earlier card, drops out — so the strip is built to
+ * render whatever it is handed.
+ */
+export const HIGHLIGHTS: readonly { key: RecordKey; gender: Gender }[] = [
+  { key: 'tournaments', gender: 'M' },
+  { key: 'pair-podiums', gender: 'W' },
+  { key: 'partnership', gender: 'M' },
+  { key: 'titles', gender: 'W' },
+  { key: 'pair-olympic-worlds', gender: 'M' },
+  { key: 'tournaments', gender: 'W' },
+];
+
+/**
+ * Flatten the leaders of `HIGHLIGHTS` into the cards the strip renders.
+ *
+ * Rank 1 only. A board's second row is not a highlight, it is a leaderboard,
+ * and the page that shows leaderboards is a different page.
+ */
+export function pickHighlights(
+  file: RecordsFile,
+  wanted: readonly { key: RecordKey; gender: Gender }[] = HIGHLIGHTS,
+): Highlight[] {
+  const picked: Highlight[] = [];
+
+  for (const { key, gender } of wanted) {
+    const lead = file.categories[key]?.[gender]?.rows[0];
+    if (!lead || 'withheld' in lead) continue;
+
+    // TODO(human): decide whether this row joins the strip, and record it.
+    //
+    // `picked` is the strip so far, in card order. `lead.who` is one player or
+    // the two halves of a pair — `{ id, name, federation }` each — and
+    // `lead.first` / `lead.last` are the seasons where the row has them.
+    //
+    // Emanuel Rego leads both `tournaments M` and `titles M` today, and
+    // Carolina Solberg Salgado leads `tournaments W` while sitting on two
+    // other boards: a strip that names the same person twice reads as a bug
+    // in a way that a strip of five does not, and the archive moves under
+    // this list without anyone editing it. What is unsettled is the cost —
+    // dropping a card leaves a gap in the M/W alternation `HIGHLIGHTS`
+    // documents, and a pair card retires two ids on behalf of one card.
+    //
+    // Push a `Highlight` — `{ key, gender, value: lead.value, who: lead.who }`
+    // plus `first`/`last` when the row carries them — or `continue`.
+  }
+
+  return picked;
 }
