@@ -980,17 +980,6 @@ async function main() {
   }
   await writeFile(path.join(TMP_DIR, 'records.json'), JSON.stringify(records.file, null, 2));
 
-  // The home page's "start here" cards, cut from the boards just built and
-  // carried on the manifest — see `Highlight` for why there and not in
-  // records.json. The manifest is written here, after them.
-  manifest.highlights = pickHighlights(records.file);
-  log(
-    'highlights',
-    manifest.highlights.length === HIGHLIGHTS.length
-      ? `${manifest.highlights.length} cards for the start-here strip`
-      : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty or a repeat`,
-  );
-  await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
   log(
     'records',
     `${RECORD_KEYS.length} categories x ${records.file.top} rows per gender; ${records.withheld.length} rows withheld pending confirmation`,
@@ -1002,6 +991,19 @@ async function main() {
     const names = w.who.map((h) => `${h.name} (${h.federation}, ${h.id})`).join(' & ');
     console.log(`    TODO confirm ${w.key} ${w.gender} #${w.rank}: ${names} — ${w.value}`);
   }
+
+  // The home page's "start here" cards, cut from the boards just built and
+  // carried on the manifest — see `Highlight` for why there and not in
+  // records.json. This is why manifest.json is written here, hundreds of lines
+  // after it was assembled: the cards do not exist until the records do.
+  manifest.highlights = pickHighlights(records.file);
+  log(
+    'highlights',
+    manifest.highlights.length === HIGHLIGHTS.length
+      ? `${manifest.highlights.length} cards for the start-here strip`
+      : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty or opened a player already on the strip`,
+  );
+  await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
   // Sanity-check the temp tree before letting it replace live data.
   const written = (await readdir(path.join(TMP_DIR, 'graphs'))).length;

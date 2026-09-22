@@ -4,7 +4,9 @@ import {
   buildRecords,
   candidatesFor,
   CONFIRMED_HEIGHTS,
+  HIGHLIGHTS,
   longestGap,
+  pickHighlights,
   rankBoard,
   RECORD_FLOORS,
   recordsBelowFloor,
@@ -14,6 +16,9 @@ import {
 import {
   GENDERS,
   RECORD_KEYS,
+  type Gender,
+  type Highlight,
+  type RecordKey,
   type RecordRow,
   type RecordsFile,
   type SearchEntry,
@@ -353,5 +358,140 @@ describe('the published records', () => {
     expect(node.tournaments).toBe(lead.value);
     const busiest = Math.max(...slice.nodes.map((n: { tournaments: number }) => n.tournaments));
     expect(lead.value).toBe(busiest);
+  });
+});
+
+describe('pickHighlights', () => {
+  /** A file with just the boards a test names, so nothing else can satisfy an assertion. */
+  const fileOf = (boards: Partial<Record<RecordKey, Partial<Record<Gender, RecordRow[]>>>>): RecordsFile => {
+    const categories = {} as RecordsFile['categories'];
+    for (const key of RECORD_KEYS) {
+      categories[key] = { M: { rows: [], ties: 0 }, W: { rows: [], ties: 0 } };
+      for (const gender of GENDERS) {
+        const rows = boards[key]?.[gender];
+        if (rows) categories[key][gender] = { rows, ties: 0 };
+      }
+    }
+    return { top: 5, categories };
+  };
+
+  const who = (id: number) => ({ id, name: `Player ${id}`, federation: 'BRA' });
+
+  it('takes rank 1 of each named board, in the order the list names them', () => {
+    const file = fileOf({
+      titles: { W: [{ rank: 1, value: 61, who: [who(1)] }, { rank: 2, value: 40, who: [who(9)] }] },
+      tournaments: { M: [{ rank: 1, value: 255, who: [who(2)] }] },
+    });
+    expect(
+      pickHighlights(file, [
+        { key: 'tournaments', gender: 'M' },
+        { key: 'titles', gender: 'W' },
+      ]),
+    ).toEqual([
+      { key: 'tournaments', gender: 'M', value: 255, who: [who(2)] },
+      { key: 'titles', gender: 'W', value: 61, who: [who(1)] },
+    ]);
+  });
+
+  it('carries the seasons where the row has them and leaves the field off where it does not', () => {
+    const file = fileOf({
+      partnership: { M: [{ rank: 1, value: 159, who: [who(1), who(2)], first: 2009, last: 2024 }] },
+      tournaments: { M: [{ rank: 1, value: 255, who: [who(3)] }] },
+    });
+    const [together, alone] = pickHighlights(file, [
+      { key: 'partnership', gender: 'M' },
+      { key: 'tournaments', gender: 'M' },
+    ]);
+    expect(together).toMatchObject({ first: 2009, last: 2024 });
+    expect(alone).not.toHaveProperty('first');
+    expect(alone).not.toHaveProperty('last');
+  });
+
+  it('drops a second card that would open a player already on the strip', () => {
+    // Emanuel Rego, who leads four boards today.
+    const file = fileOf({
+      tournaments: { M: [{ rank: 1, value: 255, who: [who(1)] }] },
+      titles: { M: [{ rank: 1, value: 73, who: [who(1)] }] },
+    });
+    expect(
+      pickHighlights(file, [
+        { key: 'tournaments', gender: 'M' },
+        { key: 'titles', gender: 'M' },
+      ]).map((h) => h.key),
+    ).toEqual(['tournaments']);
+  });
+
+  it('does not retire the half of a pair the card never opens', () => {
+    // Behar & Bede opens Behar; Shelda may still lead a board of her own.
+    const file = fileOf({
+      'pair-podiums': { W: [{ rank: 1, value: 85, who: [who(1), who(2)], first: 1995, last: 2007 }] },
+      titles: { W: [{ rank: 1, value: 61, who: [who(2)] }] },
+    });
+    expect(
+      pickHighlights(file, [
+        { key: 'pair-podiums', gender: 'W' },
+        { key: 'titles', gender: 'W' },
+      ]).map((h) => h.key),
+    ).toEqual(['pair-podiums', 'titles']);
+  });
+
+  it('skips a withheld leader rather than publishing a rank with no name', () => {
+    const file = fileOf({
+      shortest: { W: [{ rank: 1, withheld: true }] },
+      titles: { W: [{ rank: 1, value: 61, who: [who(1)] }] },
+    });
+    expect(
+      pickHighlights(file, [
+        { key: 'shortest', gender: 'W' },
+        { key: 'titles', gender: 'W' },
+      ]).map((h) => h.key),
+    ).toEqual(['titles']);
+  });
+
+  it('skips an empty board', () => {
+    expect(pickHighlights(fileOf({}), [{ key: 'tournaments', gender: 'M' }])).toEqual([]);
+  });
+
+  it('names six boards, three solo and three pair, three of each draw', () => {
+    // The strip's shape, asserted where it is decided rather than trusted to
+    // stay true — a seventh card or a fourth men's board is an edit to
+    // HIGHLIGHTS that should have to change a test.
+    const pairKeys = new Set<RecordKey>(['partnership', 'span', 'reunion', 'pair-podiums', 'pair-titles', 'pair-olympic-worlds']);
+    expect(HIGHLIGHTS).toHaveLength(6);
+    expect(HIGHLIGHTS.filter((h) => pairKeys.has(h.key))).toHaveLength(3);
+    expect(HIGHLIGHTS.filter((h) => h.gender === 'M')).toHaveLength(3);
+  });
+});
+
+/**
+ * The strip, read back off what was published.
+ *
+ * `pickHighlights` is pinned on fixtures above; this is the part fixtures
+ * cannot reach — that the list in HIGHLIGHTS still names boards the real
+ * archive fills, and that six cards actually survive the de-duplication rule
+ * rather than four.
+ */
+describe('the published highlights', () => {
+  const manifest = JSON.parse(
+    readFileSync(new URL('../web/public/v1/manifest.json', import.meta.url), 'utf8'),
+  ) as { highlights?: Highlight[]; countries: { code: string; genders: Record<string, unknown> }[] };
+
+  it('publishes a card for every board in HIGHLIGHTS', () => {
+    expect(manifest.highlights).toBeDefined();
+    expect(manifest.highlights).toHaveLength(HIGHLIGHTS.length);
+  });
+
+  it('opens a different player on every card', () => {
+    const opens = manifest.highlights!.map((h) => h.who[0]!.id);
+    expect(new Set(opens).size).toBe(opens.length);
+  });
+
+  it('sends every card to a slice that exists', () => {
+    for (const h of manifest.highlights!) {
+      const lead = h.who[0]!;
+      const country = manifest.countries.find((c) => c.code === lead.federation);
+      expect(country, `${lead.name} (${lead.federation})`).toBeDefined();
+      expect(country!.genders[h.gender], `${lead.name} on ${lead.federation}-${h.gender}`).toBeDefined();
+    }
   });
 });
