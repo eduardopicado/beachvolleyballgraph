@@ -275,8 +275,19 @@ export function rankBoard(
   const ties = last ? sorted.slice(options.top).filter((c) => c.value === last.value).length : 0;
 
   const withheld: { rank: number; value: number; who: RecordHolder[] }[] = [];
+  let rank = 0;
   const rows: RecordRow[] = shown.map((c, i) => {
-    const rank = i + 1;
+    // Equal values share a rank, and the next distinct value takes the place
+    // it would have had anyway: 5, 5, 4 ranks 1, 1, 3. The id order from
+    // `compare` still decides who is *listed* first within a tie, so the file
+    // is stable between runs — but it is a filing order, not a result. Before
+    // this, Laura Ludwig was "2nd" for Olympic Games behind Nat Cook on five
+    // apiece, for no reason but that Cook's FIVB id is smaller.
+    //
+    // Decided on the candidate's value, which a withheld row still has here,
+    // so an unconfirmed height shares its rank the same way a published one
+    // does and the board does not change shape when it is later confirmed.
+    if (i === 0 || c.value !== shown[i - 1]!.value) rank = i + 1;
     if (options.gate && !c.who.every((w) => options.gate!.has(w.id))) {
       withheld.push({ rank, value: c.value, who: c.who });
       return { rank, withheld: true };
@@ -384,9 +395,9 @@ export function recordsBelowFloor(file: RecordsFile): string[] {
  *   - longevity, titles and decoration between them, so the six answer
  *     different questions rather than one question six times.
  *
- * `pickHighlights` may return fewer than six — a withheld or empty board, or a
- * player already on an earlier card, drops out — so the strip is built to
- * render whatever it is handed.
+ * `pickHighlights` may return fewer than six — a withheld, empty or shared
+ * lead, or a player already on an earlier card, drops out — so the strip is
+ * built to render whatever it is handed.
  */
 export const HIGHLIGHTS: readonly { key: RecordKey; gender: Gender }[] = [
   { key: 'tournaments', gender: 'M' },
@@ -425,8 +436,15 @@ export function pickHighlights(
   const opened = new Set<number>();
 
   for (const { key, gender } of wanted) {
-    const lead = file.categories[key]?.[gender]?.rows[0];
+    const board = file.categories[key]?.[gender]?.rows ?? [];
+    const lead = board[0];
     if (!lead || 'withheld' in lead) continue;
+    // A record two people share has no single holder to put on a card: the
+    // strip names one row, and naming whichever of them has the smaller id
+    // would repeat, on the home page, the arbitrary "2nd" this rank rule
+    // exists to remove. Only Olympic Games, women, is tied at the top today,
+    // and it is not one of the six.
+    if (board[1]?.rank === 1) continue;
 
     // `who[0]` is the half whose id broke the tie in `rankBoard`, and the half
     // the card links to — see StartHere.tsx for why a pair opens a player.

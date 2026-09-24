@@ -916,12 +916,20 @@ export type RecordRow =
   | { rank: number; withheld: true };
 
 export interface RecordBoard {
-  /** The top rows, `rank` 1 upwards, at most `RecordsFile.top` of them. */
+  /**
+   * The top rows, at most `RecordsFile.top` of them, in rank order.
+   *
+   * **Equal values share a rank**, and the next value takes the place it would
+   * have had anyway: 5, 5, 4 is ranked 1, 1, 3. So `rank` is not the row's
+   * index plus one, and two rows can both be 1. Within a tie the rows are
+   * listed by player id, which keeps the file stable between runs and means
+   * nothing about the sport.
+   */
   rows: RecordRow[];
   /**
    * How many more candidates share the last row's value and were cut for
-   * space rather than merit. Ties are broken by player id so the file is
-   * stable between runs, and this is what lets a page say "and 3 more at 4".
+   * space rather than merit — they hold the same rank as that row. This is
+   * what lets a page say "and 3 more at 4".
    */
   ties: number;
 }

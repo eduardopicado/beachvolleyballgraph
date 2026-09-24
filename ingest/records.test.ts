@@ -138,11 +138,44 @@ describe('rankBoard', () => {
     expect(values(board.rows)).toEqual([3, 5]);
   });
 
-  it('breaks a tie by id, so the file is the same every run', () => {
+  it('lists a tie by id, so the file is the same every run', () => {
     const { board } = rankBoard([c(5, 30), c(5, 10), c(5, 20)], { top: 3, ascending: false, gate: null });
     expect(ids(board.rows)).toEqual([[10], [20], [30]]);
     const pairs = rankBoard([c(5, 10, 40), c(5, 10, 30)], { top: 2, ascending: false, gate: null });
     expect(ids(pairs.board.rows)).toEqual([[10, 30], [10, 40]]);
+  });
+
+  it('gives equal values the same rank, and the next value the place it would have had', () => {
+    // Nat Cook and Laura Ludwig, five Olympic Games each: both first, and the
+    // next woman third. The id still orders the two rows; it no longer ranks them.
+    const { board } = rankBoard([c(4, 3), c(5, 2), c(9, 1), c(5, 4)], { top: 4, ascending: false, gate: null });
+    expect(values(board.rows)).toEqual([9, 5, 5, 4]);
+    expect(board.rows.map((r) => r.rank)).toEqual([1, 2, 2, 4]);
+  });
+
+  it('shares a rank at the top of the board too', () => {
+    const { board } = rankBoard([c(5, 2), c(5, 1), c(4, 3)], { top: 3, ascending: false, gate: null });
+    expect(board.rows.map((r) => r.rank)).toEqual([1, 1, 3]);
+  });
+
+  it('shares a rank the same way on a board ranked smallest first', () => {
+    const { board } = rankBoard([c(150, 3), c(149, 2), c(149, 1)], { top: 3, ascending: true, gate: null });
+    expect(board.rows.map((r) => r.rank)).toEqual([1, 1, 3]);
+  });
+
+  it('shares a rank between withheld rows, so confirming one later does not reshape the board', () => {
+    // Toufar and Kuliš, 149 cm apiece and neither confirmed.
+    const { board, withheld } = rankBoard([c(149, 1), c(149, 2), c(150, 3)], {
+      top: 3,
+      ascending: true,
+      gate: new Set([3]),
+    });
+    expect(board.rows).toEqual([
+      { rank: 1, withheld: true },
+      { rank: 1, withheld: true },
+      { rank: 3, value: 150, who: [{ id: 3, name: 'P3', federation: 'X' }] },
+    ]);
+    expect(withheld.map((w) => w.rank)).toEqual([1, 1]);
   });
 
   it('counts the candidates cut while sharing the last shown value', () => {
@@ -310,11 +343,22 @@ describe('the published records', () => {
     expect(named).toBeGreaterThan(100);
   });
 
-  it('ranks every board 1 upwards with no gaps, and keeps a withheld row to its rank alone', () => {
+  it('ranks every board from 1, sharing a rank only between equal values, and keeps a withheld row to its rank alone', () => {
     for (const key of RECORD_KEYS) {
       for (const gender of GENDERS) {
         const rows = file.categories[key][gender].rows;
-        expect(rows.map((r) => r.rank)).toEqual(rows.map((_, i) => i + 1));
+        const where = `${key} ${gender}`;
+        rows.forEach((row, i) => {
+          // Either the rank the row's place gives it, or a share of the row above's.
+          if (i === 0) expect(row.rank, where).toBe(1);
+          else expect([rows[i - 1]!.rank, i + 1], `${where} #${i + 1}`).toContain(row.rank);
+          const above = rows[i - 1];
+          if (i > 0 && 'value' in row && above && 'value' in above) {
+            expect(row.rank === above.rank, `${where} #${i + 1}: shared rank iff equal value`).toBe(
+              row.value === above.value,
+            );
+          }
+        });
         expect(rows.length).toBeLessThanOrEqual(file.top);
         for (const row of rows) {
           if ('withheld' in row) expect(Object.keys(row).sort()).toEqual(['rank', 'withheld']);
@@ -443,6 +487,19 @@ describe('pickHighlights', () => {
     expect(
       pickHighlights(file, [
         { key: 'shortest', gender: 'W' },
+        { key: 'titles', gender: 'W' },
+      ]).map((h) => h.key),
+    ).toEqual(['titles']);
+  });
+
+  it('skips a board whose record is shared, since one card cannot name both holders', () => {
+    const file = fileOf({
+      games: { W: [{ rank: 1, value: 5, who: [who(1)] }, { rank: 1, value: 5, who: [who(2)] }] },
+      titles: { W: [{ rank: 1, value: 61, who: [who(3)] }, { rank: 2, value: 50, who: [who(4)] }] },
+    });
+    expect(
+      pickHighlights(file, [
+        { key: 'games', gender: 'W' },
         { key: 'titles', gender: 'W' },
       ]).map((h) => h.key),
     ).toEqual(['titles']);
