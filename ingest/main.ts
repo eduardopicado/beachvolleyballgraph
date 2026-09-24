@@ -1001,7 +1001,7 @@ async function main() {
     'highlights',
     manifest.highlights.length === HIGHLIGHTS.length
       ? `${manifest.highlights.length} cards for the start-here strip`
-      : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty or opened a player already on the strip`,
+      : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty, shared or opened a player already on the strip`,
   );
   await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
 
