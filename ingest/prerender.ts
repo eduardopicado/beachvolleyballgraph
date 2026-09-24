@@ -22,11 +22,14 @@ import type {
   Gender,
   GraphFile,
   Manifest,
+  RecordsFile,
   TournamentsFile,
 } from '../shared/schema.js';
-import { GENDER_LABEL, GENDERS, RECORD_LABEL } from '../shared/schema.js';
-import { nameCarriesSeason, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
+import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE } from '../shared/schema.js';
+import { nameCarriesSeason, playerPath, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
+import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
+import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../shared/site.js';
 
@@ -734,6 +737,68 @@ ${staticFooter()}
 </main>`,
   });
 
+  // --- records page ---------------------------------------------------------
+  /*
+   * Both draws in the static HTML, though the app shows one at a time: the men's
+   * and women's boards are the same kind of fact and a crawler should reach
+   * every name on the page, not only the default draw's. Built through
+   * `boardsFor`, the same function the app renders from, so an unconfirmed
+   * height is absent here for the same reason and by the same rule it is
+   * absent on screen — this is the copy a search engine keeps.
+   */
+  const recordsFile: RecordsFile = JSON.parse(await readFile(path.join(DATA, 'records.json'), 'utf8'));
+  const recordsHref = recordsPagePath(BASE);
+  const recordsUrl = abs(recordsHref);
+  const recordsTitle = `Records — ${SITE_NAME}`;
+  const recordsDescription = `The extremes of FIVB international beach volleyball since ${manifest.seasons.from}: most tournaments, longest careers, most titles, the longest partnerships and the most decorated pairs, for men and women. Heights appear only once confirmed outside FIVB.`;
+  const countryName = (code: string) => manifest.countries.find((c) => c.code === code)?.name ?? code;
+  const recordSections = GENDERS.map((gender) => {
+    const boards = boardsFor(recordsFile, gender)
+      .map((board) => {
+        const unit = IN_CM.has(board.key) ? ' cm' : '';
+        const items = board.rows
+          .map((row) => {
+            const names = row.who
+              .map((w) => `<a href="${esc(playerPath(BASE, countryName(w.federation), gender, w.id))}">${esc(w.name)}</a>`)
+              .join(' &amp; ');
+            const rank = row.joint ? `=${row.rank}` : String(row.rank);
+            return `<li>${rank}. ${names} — ${row.value.toLocaleString('en-US')}${unit} (${esc(rowDetail(board.key, row, countryName))})</li>`;
+          })
+          .join('');
+        const last = board.rows[board.rows.length - 1]!;
+        const ties = board.ties > 0 ? `<p>and ${board.ties} more at ${last.value.toLocaleString('en-US')}${unit}</p>` : '';
+        return `<section><h3>${esc(RECORD_TITLE[board.key])}</h3><p>${esc(RECORD_LABEL[board.key])}</p><ol>${items}</ol>${ties}</section>`;
+      })
+      .join('\n');
+    return `<h2>${esc(GENDER_LABEL[gender])}</h2>\n${boards}`;
+  }).join('\n');
+
+  pages.push({
+    slug: RECORDS_PREFIX,
+    url: recordsHref,
+    title: recordsTitle,
+    description: recordsDescription,
+    head:
+      headFor(recordsUrl, recordsTitle, recordsDescription) +
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': recordsUrl,
+        url: recordsUrl,
+        name: recordsTitle,
+        description: recordsDescription,
+        isPartOf: { '@id': abs(BASE) },
+        dateModified: manifest.generatedAt,
+      }),
+    body: `<main>
+<nav aria-label="Breadcrumb"><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+<h1>Records</h1>
+<p>${esc(recordsDescription)}</p>
+${recordSections}
+${staticFooter()}
+</main>`,
+  });
+
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
@@ -762,14 +827,14 @@ ${staticFooter()}
       .join(' & ');
     const when = h.first !== undefined && h.last !== undefined ? ` (${h.first}–${h.last})` : '';
     return [
-      `<li><a href="${esc(slice.href)}?player=${lead.id}">${esc(who)}</a> — ${h.value.toLocaleString('en-US')} ${esc(RECORD_LABEL[h.key])}, ${esc(where)}${when}</li>`,
+      `<li><a href="${esc(playerPath(BASE, slice.name, h.gender, lead.id))}">${esc(who)}</a> — ${h.value.toLocaleString('en-US')} ${esc(RECORD_LABEL[h.key])}, ${esc(where)}${when}</li>`,
     ];
   });
 
   const homeBody = `<main>
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>${esc(homeDescription)}</p>
-${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>` : ''}
+${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
 <p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
 <h2>Countries</h2>
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>

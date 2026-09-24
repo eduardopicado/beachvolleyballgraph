@@ -29,6 +29,18 @@ export function slicePath(base: string, countryName: string, gender: Gender): st
   return `${base}${sliceSlug(countryName, gender)}/`;
 }
 
+/**
+ * A player's address: their slice, with them already selected.
+ *
+ * Players have no page of their own — the card is drawn over the slice the
+ * player belongs to — so this is the one URL that opens a named person. The
+ * start-here strip, the records page and both of their prerendered bodies
+ * link through here, and have to agree to the character on what it is.
+ */
+export function playerPath(base: string, countryName: string, gender: Gender, id: number): string {
+  return `${slicePath(base, countryName, gender)}?player=${id}`;
+}
+
 /** Where every tournament page lives, under one path segment of its own. */
 export const TOURNAMENT_PREFIX = 'tournament';
 

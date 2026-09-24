@@ -980,6 +980,32 @@ export const RECORD_LABEL: Record<RecordKey, string> = {
 };
 
 /**
+ * Each board's heading on the records page, and in its prerendered HTML.
+ *
+ * A second set of words beside `RECORD_LABEL` rather than one derived from
+ * it: that one follows a number ("159 tournaments together"), this one names
+ * the record ("Most events as a pair"), and no rule turns either into the
+ * other. Shared for the same reason `RECORD_LABEL` is — the static page and the
+ * hydrated one must call a board the same thing.
+ */
+export const RECORD_TITLE: Record<RecordKey, string> = {
+  tournaments: 'Most tournaments',
+  career: 'Longest career',
+  partnership: 'Most events as a pair',
+  partners: 'Most partners',
+  titles: 'Most tour titles',
+  games: 'Most Olympic Games',
+  span: 'Longest-running pair',
+  reunion: 'Longest gap, then back together',
+  tallest: 'Tallest',
+  shortest: 'Shortest',
+  'shortest-champion': 'Shortest world champion',
+  'pair-podiums': 'Most podiums as a pair',
+  'pair-titles': 'Most titles as a pair',
+  'pair-olympic-worlds': 'Most Olympic and world medals as a pair',
+};
+
+/**
  * One card of the home page's "start here" strip: a record, flattened.
  *
  * The strip exists because the site opens on Brazil men and says nothing about

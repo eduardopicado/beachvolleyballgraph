@@ -18,6 +18,7 @@ import type {
   Gender,
   SeriesFile,
   SeriesIndexFile,
+  RecordsFile,
 } from '../../../shared/schema';
 import {
   graphPath,
@@ -28,6 +29,7 @@ import {
   classificationPath,
   entriesPath,
   tournamentsPath,
+  recordsPath,
   seriesIndexPath,
   seriesPath,
 } from '../../../shared/schema';
@@ -92,6 +94,9 @@ export const fetchEntries = (code: string) => load<EntriesFile>(entriesPath(BASE
  * second caller free when both happen in one visit.
  */
 export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
+
+/** The archive's extremes, for `/records/`. Nothing else fetches it. */
+export const fetchRecords = () => load<RecordsFile>(recordsPath(BASE));
 
 /** Which series each tournament belongs to. Small; most pages stop here. */
 export const fetchSeriesIndex = () => load<SeriesIndexFile>(seriesIndexPath(BASE));
