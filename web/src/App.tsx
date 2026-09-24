@@ -8,6 +8,7 @@ import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
 import { indexPath } from './lib/indexRoute';
+import { recordsPagePath } from './lib/recordsRoute';
 import type { SearchablePlayer } from './lib/search';
 import { GENDER_LABEL } from '../../shared/schema';
 import { sliceSlug, slugFromPath } from '../../shared/slug';
@@ -757,6 +758,8 @@ export default function App() {
           {/* A full page load, deliberately: /about/ is a standalone document
               that never boots the app (see aboutPage in ingest/prerender.ts). */}
           <a href={indexPath(import.meta.env.BASE_URL)}>All tournaments</a>
+          {' · '}
+          <a href={recordsPagePath(import.meta.env.BASE_URL)}>Records</a>
           {' · '}
           <a href={`${import.meta.env.BASE_URL}about/`}>About this project</a>
         </p>

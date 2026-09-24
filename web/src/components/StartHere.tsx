@@ -27,7 +27,8 @@
 
 import type { Gender, Highlight, ManifestCountry, RecordHolder } from '../../../shared/schema';
 import { RECORD_LABEL } from '../../../shared/schema';
-import { sliceSlug } from '../../../shared/slug';
+import { playerPath } from '../../../shared/slug';
+import { recordsPagePath } from '../lib/recordsRoute';
 import './StartHere.css';
 
 interface Props {
@@ -50,7 +51,13 @@ export function StartHere({ highlights, countries, base, onOpen }: Props) {
 
   return (
     <section className="start-here" aria-labelledby="start-here-head">
-      <h2 id="start-here-head">Start here</h2>
+      <div className="head">
+        <h2 id="start-here-head">Start here</h2>
+        {/* A full navigation: /records/ mounts its own root (see main.tsx). */}
+        <a className="all" href={recordsPagePath(base)}>
+          All records →
+        </a>
+      </div>
       <ul className="cards">
         {cards.map((h) => {
           const lead = h.who[0]!;
@@ -98,7 +105,7 @@ function hrefFor(
 ): string | null {
   const name = nameOf(who.federation);
   if (name === who.federation) return null;
-  return `${base}${sliceSlug(name, gender)}/?player=${who.id}`;
+  return playerPath(base, name, gender, who.id);
 }
 
 /**

@@ -13,9 +13,30 @@
   gap: 9px;
 }
 
+/* The eyebrow on the left, the way to the rest of the boards on the right. */
+.start-here > .head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.start-here .head .all {
+  font-size: 12.5px;
+  color: var(--series-1);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .start-here .head .all:hover {
+    text-decoration: underline;
+  }
+}
+
 /* An eyebrow rather than a heading: it labels the row for a screen reader and
    for a scanning eye, and competes with nothing. */
-.start-here > h2 {
+.start-here h2 {
   margin: 0;
   font-size: 11.5px;
   font-weight: 700;

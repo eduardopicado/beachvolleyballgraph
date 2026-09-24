@@ -24,10 +24,22 @@ export const indexPath = (base: string) => `${base}${INDEX_PREFIX}/`;
  * index later.
  */
 export function isIndexPath(pathname: string, base: string): boolean {
+  return isPagePath(pathname, base, INDEX_PREFIX);
+}
+
+/**
+ * True when this pathname is exactly the one-segment page `segment`, however
+ * the deploy base and a trailing `index.html` or slash dress it up.
+ *
+ * Shared by every top-level page that is not a slice — the index and the
+ * records page so far — because each has to be told apart from a slice slug
+ * before `App` gets the chance to read it as a country.
+ */
+export function isPagePath(pathname: string, base: string, segment: string): boolean {
   const rest = (pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, ''))
     .replace(/index\.html$/, '')
     .replace(/^\/+|\/+$/g, '');
-  return rest === INDEX_PREFIX;
+  return rest === segment;
 }
 
 /**
