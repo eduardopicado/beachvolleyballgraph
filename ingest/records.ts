@@ -141,7 +141,42 @@ export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
   // Kuliš (149, CZE), the tie that started this rule. Anielka Alonzo Zapata
   // (149, NCA) and Vânia Miambo (155, MOZ) appear only on volleybox.net and
   // volleyballworld.com, which carry FIVB's own figure.
+  //
+  // Looked for and not found, 26 September 2026:
+  // Therese Strålman (198, SWE): bvbinfo.com gives 6'6", but its profile is
+  // credited to CEV and 6'6" is FIVB's 198 converted, so it is not a second
+  // source. Gina Kirstein (147, USA): an AVP player and Division I at
+  // Illinois under a name before her married one; her academy's biography
+  // gives no height and nothing else does. Abdou Kabirou Mama (157, BEN) and
+  // Joaquín López (157, CAN): 16-year-olds at an age-group World
+  // Championship, found only on volleyballworld.com. Kuliš retried in Czech;
+  // his coaching profile at bvsp.cz gives no height either.
 ]);
+
+/**
+ * Players whose height VIS has wrong, and the source that says so. They are
+ * never a candidate on a height board — not ranked, not withheld, not there.
+ *
+ * `CONFIRMED_HEIGHTS` can only say yes. Without this there is nowhere to put
+ * a no, and a figure found to be wrong would sit on its board as a withheld
+ * rank for ever: a 149 cm typo at the top of Shortest, men would hide the
+ * real shortest man beneath it until FIVB corrected its record, which it has
+ * no reason to know to do. Withholding is for "unchecked"; this is for
+ * "checked, and false".
+ *
+ * **What earns an entry is a number, not a doubt.** A source outside FIVB
+ * that gives this player a *different* height, far enough from VIS's that the
+ * two cannot be one measurement rounded twice — the same independence test as
+ * `CONFIRMED_HEIGHTS`, with the opposite answer. "147 cm seems short for a
+ * Division I player" is not an entry; a roster that says 5'9" is.
+ *
+ * Only the height boards are affected. The player keeps their tournaments,
+ * partners and titles, which VIS has no reason to have wrong.
+ *
+ * Empty since it was added on 26 September 2026: the searches recorded above
+ * found no source contradicting FIVB, only sources that said nothing.
+ */
+export const DISPROVEN_HEIGHTS: ReadonlyMap<number, string> = new Map<number, string>([]);
 
 /** The boards that publish nothing unconfirmed. */
 const HEIGHT_KEYS: ReadonlySet<RecordKey> = new Set(['tallest', 'shortest', 'shortest-champion']);
@@ -304,10 +339,15 @@ export function rankBoard(
 export function buildRecords(
   players: readonly RecordPlayer[],
   pairs: readonly RecordPair[],
-  options: { top?: number; confirmedHeights?: ReadonlySet<number> } = {},
+  options: {
+    top?: number;
+    confirmedHeights?: ReadonlySet<number>;
+    disprovenHeights?: ReadonlySet<number>;
+  } = {},
 ): { file: RecordsFile; withheld: WithheldRecord[] } {
   const top = options.top ?? RECORD_TOP;
   const confirmed = options.confirmedHeights ?? new Set(CONFIRMED_HEIGHTS.keys());
+  const disproven = options.disprovenHeights ?? new Set(DISPROVEN_HEIGHTS.keys());
   const withheld: WithheldRecord[] = [];
   const categories = {} as RecordsFile['categories'];
   for (const key of RECORD_KEYS) {
@@ -315,7 +355,9 @@ export function buildRecords(
     for (const gender of GENDERS) {
       const own = candidatesFor(
         key,
-        players.filter((p) => p.gender === gender),
+        // A disproven height is off the height boards entirely — see
+        // DISPROVEN_HEIGHTS. Every other board still counts the player.
+        players.filter((p) => p.gender === gender && !(HEIGHT_KEYS.has(key) && disproven.has(p.id))),
         pairs.filter((q) => q.gender === gender),
       );
       const ranked = rankBoard(own, {

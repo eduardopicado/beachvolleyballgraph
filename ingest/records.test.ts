@@ -4,6 +4,7 @@ import {
   buildRecords,
   candidatesFor,
   CONFIRMED_HEIGHTS,
+  DISPROVEN_HEIGHTS,
   HIGHLIGHTS,
   longestGap,
   pickHighlights,
@@ -243,6 +244,51 @@ describe('buildRecords', () => {
       { rank: 2, value: 215, who: [{ id: 136385, name: 'Player 136385', federation: 'BRA' }] },
     ]);
     expect(CONFIRMED_HEIGHTS.has(136385)).toBe(true);
+  });
+
+  describe('a disproven height', () => {
+    // Toufar and Kuliš at 149 on a board where the next man is 165: the case
+    // this exists for. Player 3 is confirmed; 1 and 2 are the typo pair.
+    const typos = [
+      player(1, { height: 149, tournaments: 6 }),
+      player(2, { height: 149, tournaments: 5 }),
+      player(3, { height: 165, tournaments: 4 }),
+    ];
+
+    it('is off the height boards, so the next confirmed player takes the rank it held', () => {
+      const { file, withheld } = buildRecords(typos, [], {
+        confirmedHeights: new Set([3]),
+        disprovenHeights: new Set([1, 2]),
+      });
+      expect(file.categories.shortest.M.rows).toEqual([
+        { rank: 1, value: 165, who: [{ id: 3, name: 'Player 3', federation: 'BRA' }] },
+      ]);
+      expect(file.categories.tallest.M.rows).toEqual(file.categories.shortest.M.rows);
+      // Not withheld either: withholding is for unchecked, this is checked and false.
+      expect(withheld).toEqual([]);
+    });
+
+    it('still counts on every board that is not about height', () => {
+      const { file } = buildRecords(typos, [], {
+        confirmedHeights: new Set([3]),
+        disprovenHeights: new Set([1, 2]),
+      });
+      expect(ids(file.categories.tournaments.M.rows)).toEqual([[1], [2], [3]]);
+    });
+
+    it('without the list, blocks the board as a withheld rank', () => {
+      // The state this replaces, pinned so the difference above is visible.
+      const { file } = buildRecords(typos, [], { confirmedHeights: new Set([3]), disprovenHeights: new Set() });
+      expect(file.categories.shortest.M.rows.map((r) => r.rank)).toEqual([1, 1, 3]);
+      expect(file.categories.shortest.M.rows[0]).toEqual({ rank: 1, withheld: true });
+    });
+  });
+
+  it('never has a player on both the confirmed and the disproven list, and every entry names a source', () => {
+    for (const id of DISPROVEN_HEIGHTS.keys()) expect(CONFIRMED_HEIGHTS.has(id), `player ${id}`).toBe(false);
+    for (const [id, source] of [...CONFIRMED_HEIGHTS, ...DISPROVEN_HEIGHTS]) {
+      expect(source.trim().length, `player ${id}`).toBeGreaterThan(0);
+    }
   });
 });
 
