@@ -57,6 +57,7 @@ import {
 } from './build.js';
 import {
   buildRecords,
+  DISPROVEN_HEIGHTS,
   HIGHLIGHTS,
   pickHighlights,
   recordsBelowFloor,
@@ -512,7 +513,10 @@ async function main() {
           id: node.id,
           name: p.name,
           dob: p.dob,
-          height: p.height,
+          // Absent when shown to be wrong — see DISPROVEN_HEIGHTS. The card
+          // already draws a player with no height; it cannot tell a reader a
+          // number is false.
+          height: DISPROVEN_HEIGHTS.has(node.id) ? null : p.height,
           weight: p.weight,
           // Omitted rather than null for the 46% without one, like the medals
           // below: the field is absent from most players and this keeps it out

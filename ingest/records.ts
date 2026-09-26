@@ -170,13 +170,28 @@ export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
  * `CONFIRMED_HEIGHTS`, with the opposite answer. "147 cm seems short for a
  * Division I player" is not an entry; a roster that says 5'9" is.
  *
- * Only the height boards are affected. The player keeps their tournaments,
- * partners and titles, which VIS has no reason to have wrong.
+ * The height is published nowhere: not on a board, and not on the player's
+ * card either — `main.ts` writes it as absent, which is how the card already
+ * shows the majority of players FIVB has no height for. A figure known to be
+ * false is worse than none on a page a reader takes at face value. The player
+ * keeps their tournaments, partners and titles, which VIS has no reason to
+ * have wrong.
  *
- * Empty since it was added on 26 September 2026: the searches recorded above
- * found no source contradicting FIVB, only sources that said nothing.
+ * A fan database that *repeats* FIVB is no second source, which is why
+ * volleybox does not confirm anything in `CONFIRMED_HEIGHTS`. One that
+ * *disagrees* with FIVB cannot be repeating it, so here it can count.
  */
-export const DISPROVEN_HEIGHTS: ReadonlyMap<number, string> = new Map<number, string>([]);
+export const DISPROVEN_HEIGHTS: ReadonlyMap<number, string> = new Map<number, string>([
+  // Therese Strålman (SWE). VIS: 198. beach.volleybox.net gives 171 for her and
+  // for Jenny Strålman alike — read by the site's owner, 26 September 2026;
+  // the page sits behind a Cloudflare check this pipeline cannot pass. They
+  // are twins: VIS has both born 5 October 1990 in Nässjö, typed as "Nässjö"
+  // on one record and "Nassjo" on the other, so the two were keyed in
+  // separately. Jenny's VIS height is 168, within rounding of 171. A 30 cm gap
+  // between twins who look the same size in photographs is a digit slip, not
+  // a genetic outlier.
+  [158807, 'beach.volleybox.net: 171 cm, for her twin as well'],
+]);
 
 /** The boards that publish nothing unconfirmed. */
 const HEIGHT_KEYS: ReadonlySet<RecordKey> = new Set(['tallest', 'shortest', 'shortest-champion']);

@@ -1913,11 +1913,7 @@
             ]
           },
           {
-            "rank": 2,
-            "withheld": true
-          },
-          {
-            "rank": 5,
+            "rank": 4,
             "value": 197,
             "who": [
               {
@@ -1926,9 +1922,13 @@
                 "federation": "LTU"
               }
             ]
+          },
+          {
+            "rank": 5,
+            "withheld": true
           }
         ],
-        "ties": 0
+        "ties": 3
       }
     },
     "shortest": {
