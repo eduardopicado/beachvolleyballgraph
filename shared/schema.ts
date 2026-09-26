@@ -839,10 +839,22 @@ export const manifestPath = (base: string) => `${base}${DATA_VERSION}/manifest.j
  *
  *  - `tournaments`, `career`, `partners`, `titles`, `games`: per player.
  *  - `partnership`, `span`, `reunion`, `pair-*`: per pair, both halves named.
- *  - `tallest`, `shortest`, `shortest-champion`: per player, from a field
- *    41% of the archive has and which is entered by hand at a couple of
- *    hundred federations — so a row here is published only once the height has
- *    been checked against a source outside FIVB. See `RecordRow`.
+ *  - `tallest-champion`, `shortest-champion`: per player, among world
+ *    champions only, from a field entered by hand at a couple of hundred
+ *    federations — so a row here is published only once the height has been
+ *    checked against a source outside FIVB. See `RecordRow`.
+ *
+ *    **World champions only, and on purpose.** There used to be an overall
+ *    Tallest and Shortest. The extremes of the whole archive turned out to be
+ *    mostly teenagers and one-event entrants: players who only ever played an
+ *    age-group championship are a tenth of everyone with a height but held
+ *    half of the ten shortest places in each draw, measured at 15 or 16, and
+ *    the adults among them had no height published anywhere but FIVB. Shortest
+ *    never shipped a single row. A world champion is someone every reference
+ *    covers, so their heights can be checked, and no junior-only player can be
+ *    one — the senior World Championship is a separate tier from the age-group
+ *    ones. It also asks a better question: not "who was tallest" but "how
+ *    tall, or how short, have the people been who won".
  *
  * Split by gender throughout. A combined board turned out to be silently
  * all-men in five of six ranked categories, not because the women's tour is
@@ -857,8 +869,7 @@ export type RecordKey =
   | 'games'
   | 'span'
   | 'reunion'
-  | 'tallest'
-  | 'shortest'
+  | 'tallest-champion'
   | 'shortest-champion'
   | 'pair-podiums'
   | 'pair-titles'
@@ -876,8 +887,7 @@ export const RECORD_KEYS: readonly RecordKey[] = [
   'pair-podiums',
   'pair-titles',
   'pair-olympic-worlds',
-  'tallest',
-  'shortest',
+  'tallest-champion',
   'shortest-champion',
 ];
 
@@ -971,8 +981,7 @@ export const RECORD_LABEL: Record<RecordKey, string> = {
   games: 'Olympic Games',
   span: 'years as a pair',
   reunion: 'years apart, then back',
-  tallest: 'centimetres',
-  shortest: 'centimetres',
+  'tallest-champion': 'centimetres',
   'shortest-champion': 'centimetres',
   'pair-podiums': 'podiums together',
   'pair-titles': 'titles together',
@@ -997,8 +1006,7 @@ export const RECORD_TITLE: Record<RecordKey, string> = {
   games: 'Most Olympic Games',
   span: 'Longest-running pair',
   reunion: 'Longest gap, then back together',
-  tallest: 'Tallest',
-  shortest: 'Shortest',
+  'tallest-champion': 'Tallest world champion',
   'shortest-champion': 'Shortest world champion',
   'pair-podiums': 'Most podiums as a pair',
   'pair-titles': 'Most titles as a pair',
