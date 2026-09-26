@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   buildRecords,
@@ -423,6 +423,31 @@ describe('the published records', () => {
         }
       }
     }
+  });
+
+  it('publishes no disproven height, on a height board or on a player card', () => {
+    // The card path runs through main.ts, not buildRecords, so this is the
+    // only test that sees it: read what was actually written.
+    expect(DISPROVEN_HEIGHTS.size).toBeGreaterThan(0);
+    const heightKeys = RECORD_KEYS.filter((k) => /tallest|shortest/.test(k));
+    for (const key of heightKeys) {
+      for (const gender of GENDERS) {
+        for (const row of file.categories[key][gender].rows) {
+          if ('who' in row) for (const w of row.who) expect(DISPROVEN_HEIGHTS.has(w.id), `${key} ${gender}: ${w.name}`).toBe(false);
+        }
+      }
+    }
+    let seen = 0;
+    for (const name of readdirSync(new URL('players/', DATA))) {
+      const players = (read(`players/${name}`) as { players: { id: number; height: number | null }[] }).players;
+      for (const p of players) {
+        if (!DISPROVEN_HEIGHTS.has(p.id)) continue;
+        seen++;
+        expect(p.height, `player ${p.id} in ${name}`).toBeNull();
+      }
+    }
+    // Every entry is somebody with a page, or the check above proved nothing.
+    expect(seen).toBe(DISPROVEN_HEIGHTS.size);
   });
 
   it('withholds nothing off a board that has no gate', () => {
