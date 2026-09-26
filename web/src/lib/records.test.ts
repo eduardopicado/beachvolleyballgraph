@@ -20,9 +20,9 @@ function fileOf(boards: Partial<Record<RecordKey, RecordBoard>>): RecordsFile {
 
 describe('boardsFor', () => {
   it('leaves an unconfirmed row off the page, keeping the ranks of the rows around it', () => {
-    // Tallest, women, on the tree before shared ranks: 1, x, 3, x, 5.
+    // A height board with unconfirmed rows between confirmed ones: 1, x, 3, x, 5.
     const file = fileOf({
-      tallest: { rows: [row(1, 204, 1), held(2), row(3, 198, 3), held(4), row(5, 197, 5)], ties: 0 },
+      'tallest-champion': { rows: [row(1, 204, 1), held(2), row(3, 198, 3), held(4), row(5, 197, 5)], ties: 0 },
     });
     const [tallest] = boardsFor(file, 'W');
     expect(tallest!.rows.map((r) => r.rank)).toEqual([1, 3, 5]);
@@ -31,7 +31,7 @@ describe('boardsFor', () => {
 
   it('drops a board with nothing confirmed on it, rather than drawing it empty', () => {
     const file = fileOf({
-      shortest: { rows: [held(1), held(1), held(3)], ties: 0 },
+      'shortest-champion': { rows: [held(1), held(1), held(3)], ties: 0 },
       titles: { rows: [row(1, 61, 1)], ties: 0 },
     });
     expect(boardsFor(file, 'W').map((b) => b.key)).toEqual(['titles']);
@@ -49,7 +49,7 @@ describe('boardsFor', () => {
     const shown = fileOf({ partners: { rows: [row(1, 22, 1), row(2, 14, 2)], ties: 3 } });
     expect(boardsFor(shown, 'W')[0]!.ties).toBe(3);
     // "and 2 more at —" has no honest rendering.
-    const hidden = fileOf({ tallest: { rows: [row(1, 204, 1), held(2)], ties: 2 } });
+    const hidden = fileOf({ 'tallest-champion': { rows: [row(1, 204, 1), held(2)], ties: 2 } });
     expect(boardsFor(hidden, 'W')[0]!.ties).toBe(0);
   });
 
@@ -59,9 +59,9 @@ describe('boardsFor', () => {
   });
 
   it('marks a row joint with a hidden row at the same rank', () => {
-    // Kathryn Plummer, 198, shares second with two unconfirmed 198s.
+    // A confirmed 198 sharing second with two unconfirmed 198s.
     const file = fileOf({
-      tallest: { rows: [row(1, 204, 1), held(2), row(2, 198, 3), held(2), row(5, 197, 5)], ties: 0 },
+      'tallest-champion': { rows: [row(1, 204, 1), held(2), row(2, 198, 3), held(2), row(5, 197, 5)], ties: 0 },
     });
     expect(boardsFor(file, 'W')[0]!.rows.map((r) => [r.rank, r.joint])).toEqual([
       [1, false],

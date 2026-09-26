@@ -1823,136 +1823,63 @@
         "ties": 0
       }
     },
-    "tallest": {
+    "tallest-champion": {
       "M": {
         "rows": [
           {
             "rank": 1,
-            "value": 215,
+            "value": 210,
             "who": [
               {
-                "id": 136385,
-                "name": "Robart Page",
-                "federation": "USA"
+                "id": 133285,
+                "name": "Evandro Gonçalves Oliveira Júnior",
+                "federation": "BRA"
               }
             ]
           },
           {
             "rank": 2,
-            "value": 214,
+            "value": 207,
             "who": [
               {
-                "id": 141629,
-                "name": "Ryan Doherty",
-                "federation": "USA"
-              }
-            ]
-          },
-          {
-            "rank": 3,
-            "value": 212,
-            "who": [
-              {
-                "id": 105109,
-                "name": "Stefan Uhmann",
-                "federation": "GER"
-              }
-            ]
-          },
-          {
-            "rank": 3,
-            "value": 212,
-            "who": [
-              {
-                "id": 119235,
-                "name": "Christiaan Varenhorst",
+                "id": 119991,
+                "name": "Robert Meeuwsen",
                 "federation": "NED"
               }
             ]
           },
           {
-            "rank": 3,
-            "value": 212,
-            "who": [
-              {
-                "id": 141407,
-                "name": "Michiel van Dorsten",
-                "federation": "NED"
-              }
-            ]
-          }
-        ],
-        "ties": 0
-      },
-      "W": {
-        "rows": [
-          {
-            "rank": 1,
-            "value": 204,
-            "who": [
-              {
-                "id": 162019,
-                "name": "Rachael Kramer",
-                "federation": "USA"
-              }
-            ]
-          },
-          {
             "rank": 2,
-            "withheld": true
-          },
-          {
-            "rank": 2,
-            "value": 198,
+            "value": 207,
             "who": [
               {
-                "id": 146722,
-                "name": "Kathryn Plummer",
-                "federation": "USA"
+                "id": 141535,
+                "name": "Oleg Stoyanovskiy",
+                "federation": "RUS"
               }
             ]
           },
           {
             "rank": 4,
-            "value": 197,
+            "value": 205,
             "who": [
               {
-                "id": 169390,
-                "name": "Aine Raupelyte",
-                "federation": "LTU"
+                "id": 105143,
+                "name": "Philip Dalhausser",
+                "federation": "USA"
               }
             ]
           },
           {
             "rank": 5,
-            "withheld": true
-          }
-        ],
-        "ties": 3
-      }
-    },
-    "shortest": {
-      "M": {
-        "rows": [
-          {
-            "rank": 1,
-            "withheld": true
-          },
-          {
-            "rank": 1,
-            "withheld": true
-          },
-          {
-            "rank": 3,
-            "withheld": true
-          },
-          {
-            "rank": 4,
-            "withheld": true
-          },
-          {
-            "rank": 4,
-            "withheld": true
+            "value": 204,
+            "who": [
+              {
+                "id": 104207,
+                "name": "Fabio Luiz de Jesus Magalhães",
+                "federation": "BRA"
+              }
+            ]
           }
         ],
         "ties": 0
@@ -1961,26 +1888,61 @@
         "rows": [
           {
             "rank": 1,
-            "withheld": true
+            "value": 196,
+            "who": [
+              {
+                "id": 113895,
+                "name": "Sarah Pavan",
+                "federation": "CAN"
+              }
+            ]
           },
           {
             "rank": 2,
-            "withheld": true
+            "value": 194,
+            "who": [
+              {
+                "id": 147073,
+                "name": "Ana Patricia Silva Ramos",
+                "federation": "BRA"
+              }
+            ]
           },
           {
             "rank": 3,
-            "withheld": true
+            "value": 191,
+            "who": [
+              {
+                "id": 104438,
+                "name": "Chen Xue",
+                "federation": "CHN"
+              }
+            ]
           },
           {
             "rank": 4,
-            "withheld": true
+            "value": 188,
+            "who": [
+              {
+                "id": 103242,
+                "name": "Kerri Walsh Jennings",
+                "federation": "USA"
+              }
+            ]
           },
           {
-            "rank": 4,
-            "withheld": true
+            "rank": 5,
+            "value": 185,
+            "who": [
+              {
+                "id": 118426,
+                "name": "April Ross",
+                "federation": "USA"
+              }
+            ]
           }
         ],
-        "ties": 0
+        "ties": 1
       }
     },
     "shortest-champion": {

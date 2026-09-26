@@ -7,12 +7,17 @@
  * It does not, because a blank line on a page of records reads as missing data
  * or as a bug, and the owner's call was to show only what has been checked.
  *
- * What the rule deliberately does *not* do is renumber. Tallest, women is
- * 1, 2, x, 2, x on today's data — Kathryn Plummer is joint second with two
- * unconfirmed 198 cm players — and the page shows 1, 2, 5. Closing the gap to
- * 1, 2, 3 would call Aine Raupelyte the third-tallest woman in the archive,
- * which it does not say. A missing number in the ranks is honest about there
- * being something unpublished; a renumbered board would not be.
+ * What the rule deliberately does *not* do is renumber. A height board that
+ * reads 1, 2, x, 2, x in the file — a confirmed player joint second with two
+ * unconfirmed ones at the same height — shows 1, 2, 5. Closing the gap to
+ * 1, 2, 3 would call the fifth third, which the file does not say. A missing
+ * number in the ranks is honest about there being something unpublished; a
+ * renumbered board would not be.
+ *
+ * Every row on both height boards is confirmed today — they rank world
+ * champions only, whose heights every reference carries — so none of this
+ * shows on the live page. It is here for the day a new champion is crowned
+ * before anyone has checked them.
  */
 
 import type { Gender, RecordKey, RecordRow, RecordsFile } from '../../../shared/schema';
@@ -38,8 +43,8 @@ export interface ShownBoard {
  * Every board the page draws for one draw, in the file's category order.
  *
  * A board whose every row is withheld has nothing to show and is left out
- * rather than drawn empty — Shortest, men and Shortest, women, on today's data.
- * It comes back on its own the day one of its heights is confirmed.
+ * rather than drawn empty. It comes back on its own the day one of its heights
+ * is confirmed.
  */
 export function boardsFor(file: RecordsFile, gender: Gender): ShownBoard[] {
   const boards: ShownBoard[] = [];
@@ -78,4 +83,4 @@ export function rowDetail(key: RecordKey, row: ShownRow, countryName: (code: str
 }
 
 /** The boards measured in centimetres, whose value carries its unit inline. */
-export const IN_CM: ReadonlySet<RecordKey> = new Set(['tallest', 'shortest', 'shortest-champion']);
+export const IN_CM: ReadonlySet<RecordKey> = new Set(['tallest-champion', 'shortest-champion']);

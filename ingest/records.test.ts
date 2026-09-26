@@ -95,13 +95,18 @@ describe('candidatesFor', () => {
 
   it('leaves out a player with nothing to rank', () => {
     // Zero tournaments, no partners, no height: player 2 is on no player board.
-    for (const key of ['tournaments', 'partners', 'titles', 'games', 'tallest', 'shortest'] as const) {
+    for (const key of ['tournaments', 'partners', 'titles', 'games', 'tallest-champion', 'shortest-champion'] as const) {
       expect(candidatesFor(key, players, pairs).some((c) => c.who[0]!.id === 2)).toBe(false);
     }
   });
 
-  it('only considers world champions for the shortest-champion board', () => {
+  it('ranks heights among world champions only, on both boards', () => {
+    // Player 1 is 190 cm with no world title, taller than champion 3 at 165:
+    // off Tallest world champion regardless, which is the whole of the change
+    // from an overall Tallest. It is also what keeps every junior-only
+    // player off, since none of them has a senior world title.
     expect(candidatesFor('shortest-champion', players, pairs).map((c) => c.who[0]!.id)).toEqual([3]);
+    expect(candidatesFor('tallest-champion', players, pairs).map((c) => c.who[0]!.id)).toEqual([3]);
   });
 
   it('names both halves of a pair, with the seasons they span', () => {
@@ -210,7 +215,10 @@ describe('rankBoard', () => {
 });
 
 describe('buildRecords', () => {
-  const men = [player(1, { tournaments: 9, height: 200 }), player(2, { tournaments: 7, height: 150 })];
+  const men = [
+    player(1, { tournaments: 9, height: 200, worldGold: 1 }),
+    player(2, { tournaments: 7, height: 150, worldGold: 1 }),
+  ];
   const women = [player(3, { gender: 'W', tournaments: 8, height: 180 })];
 
   it('splits every category by gender', () => {
@@ -223,36 +231,40 @@ describe('buildRecords', () => {
 
   it('gates only the height boards, on the confirmed list', () => {
     const { file, withheld } = buildRecords(men, [], { confirmedHeights: new Set([1]) });
-    expect(file.categories.tallest.M.rows).toEqual([
+    expect(file.categories['tallest-champion'].M.rows).toEqual([
       { rank: 1, value: 200, who: [{ id: 1, name: 'Player 1', federation: 'BRA' }] },
       { rank: 2, withheld: true },
     ]);
-    expect(file.categories.shortest.M.rows[0]).toEqual({ rank: 1, withheld: true });
+    expect(file.categories['shortest-champion'].M.rows[0]).toEqual({ rank: 1, withheld: true });
     // The same player is unconfirmed everywhere and still ranks on tournaments.
     expect(ids(file.categories.tournaments.M.rows)).toEqual([[1], [2]]);
     expect(withheld.map((w) => `${w.key} ${w.gender} #${w.rank}`).sort()).toEqual([
-      'shortest M #1',
-      'tallest M #2',
+      'shortest-champion M #1',
+      'tallest-champion M #2',
     ]);
   });
 
   it('defaults to the checked-in confirmed list and five rows', () => {
-    const { file } = buildRecords([player(136385, { height: 215 }), player(999, { height: 216 })], []);
+    // 133285 is Evandro, on the checked-in list; 999 is on no list.
+    const { file } = buildRecords(
+      [player(133285, { height: 210, worldGold: 1 }), player(999, { height: 211, worldGold: 1 })],
+      [],
+    );
     expect(file.top).toBe(5);
-    expect(file.categories.tallest.M.rows).toEqual([
+    expect(file.categories['tallest-champion'].M.rows).toEqual([
       { rank: 1, withheld: true },
-      { rank: 2, value: 215, who: [{ id: 136385, name: 'Player 136385', federation: 'BRA' }] },
+      { rank: 2, value: 210, who: [{ id: 133285, name: 'Player 133285', federation: 'BRA' }] },
     ]);
-    expect(CONFIRMED_HEIGHTS.has(136385)).toBe(true);
+    expect(CONFIRMED_HEIGHTS.has(133285)).toBe(true);
   });
 
   describe('a disproven height', () => {
-    // Toufar and Kuliš at 149 on a board where the next man is 165: the case
-    // this exists for. Player 3 is confirmed; 1 and 2 are the typo pair.
+    // Two champions entered at 149 on a board where the next is 165: the
+    // case this exists for. Player 3 is confirmed; 1 and 2 are the typo pair.
     const typos = [
-      player(1, { height: 149, tournaments: 6 }),
-      player(2, { height: 149, tournaments: 5 }),
-      player(3, { height: 165, tournaments: 4 }),
+      player(1, { height: 149, tournaments: 6, worldGold: 1 }),
+      player(2, { height: 149, tournaments: 5, worldGold: 1 }),
+      player(3, { height: 165, tournaments: 4, worldGold: 1 }),
     ];
 
     it('is off the height boards, so the next confirmed player takes the rank it held', () => {
@@ -260,10 +272,10 @@ describe('buildRecords', () => {
         confirmedHeights: new Set([3]),
         disprovenHeights: new Set([1, 2]),
       });
-      expect(file.categories.shortest.M.rows).toEqual([
+      expect(file.categories['shortest-champion'].M.rows).toEqual([
         { rank: 1, value: 165, who: [{ id: 3, name: 'Player 3', federation: 'BRA' }] },
       ]);
-      expect(file.categories.tallest.M.rows).toEqual(file.categories.shortest.M.rows);
+      expect(file.categories['tallest-champion'].M.rows).toEqual(file.categories['shortest-champion'].M.rows);
       // Not withheld either: withholding is for unchecked, this is checked and false.
       expect(withheld).toEqual([]);
     });
@@ -279,8 +291,8 @@ describe('buildRecords', () => {
     it('without the list, blocks the board as a withheld rank', () => {
       // The state this replaces, pinned so the difference above is visible.
       const { file } = buildRecords(typos, [], { confirmedHeights: new Set([3]), disprovenHeights: new Set() });
-      expect(file.categories.shortest.M.rows.map((r) => r.rank)).toEqual([1, 1, 3]);
-      expect(file.categories.shortest.M.rows[0]).toEqual({ rank: 1, withheld: true });
+      expect(file.categories['shortest-champion'].M.rows.map((r) => r.rank)).toEqual([1, 1, 3]);
+      expect(file.categories['shortest-champion'].M.rows[0]).toEqual({ rank: 1, withheld: true });
     });
   });
 
@@ -344,7 +356,7 @@ describe('recordsBelowFloor', () => {
 
   it('has no floor for the height boards, which may legitimately be all withheld', () => {
     const file = healthy();
-    expect(file.categories.shortest.M.rows.every((r) => 'withheld' in r)).toBe(true);
+    expect(file.categories['shortest-champion'].M.rows.every((r) => 'withheld' in r)).toBe(true);
     expect(recordsBelowFloor(file)).toEqual([]);
   });
 });
@@ -440,7 +452,7 @@ describe('the published records', () => {
 
   it('withholds nothing off a board that has no gate', () => {
     for (const key of RECORD_KEYS) {
-      if (key === 'tallest' || key === 'shortest' || key === 'shortest-champion') continue;
+      if (key === 'tallest-champion' || key === 'shortest-champion') continue;
       for (const gender of GENDERS) {
         expect(file.categories[key][gender].rows.some((r) => 'withheld' in r), `${key} ${gender}`).toBe(false);
       }
@@ -448,7 +460,7 @@ describe('the published records', () => {
   });
 
   it('publishes a height only for a player on the confirmed list', () => {
-    for (const key of ['tallest', 'shortest', 'shortest-champion'] as const) {
+    for (const key of ['tallest-champion', 'shortest-champion'] as const) {
       for (const gender of GENDERS) {
         for (const row of file.categories[key][gender].rows) {
           if ('withheld' in row) continue;
@@ -552,12 +564,12 @@ describe('pickHighlights', () => {
 
   it('skips a withheld leader rather than publishing a rank with no name', () => {
     const file = fileOf({
-      shortest: { W: [{ rank: 1, withheld: true }] },
+      'shortest-champion': { W: [{ rank: 1, withheld: true }] },
       titles: { W: [{ rank: 1, value: 61, who: [who(1)] }] },
     });
     expect(
       pickHighlights(file, [
-        { key: 'shortest', gender: 'W' },
+        { key: 'shortest-champion', gender: 'W' },
         { key: 'titles', gender: 'W' },
       ]).map((h) => h.key),
     ).toEqual(['titles']);

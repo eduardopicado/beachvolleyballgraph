@@ -77,41 +77,50 @@ export const RECORD_TOP = 5;
 
 /**
  * Players whose published height has been checked against a source outside
- * FIVB, and where. The only gate on the three height boards.
+ * FIVB, and where. The only gate on the two height boards.
  *
  * Added to by hand, with the source, and never by the ingest: the point is
  * that a human looked. A source is accepted when it is independent of FIVB's
  * database — an encyclopaedia entry, a club or federation roster, a profile
  * piece — and not when it is a fan database that may mirror it. Where the
- * outside figure differs from VIS by a centimetre or two (Doherty is 7 ft 1
- * in there and 214 here) the row still ships with VIS's number: the check is
- * that the person is that tall, not that two roundings agree.
+ * outside figure differs from VIS by a few centimetres the row still ships
+ * with VIS's number: the check is that the person is that tall, not that two
+ * roundings agree, and a board ranked by one source's figures throughout is
+ * more honest than one ranked by whichever source was checked for whom.
  *
- * Checked 15 and 17 September 2026. The value in the comment is VIS's.
+ * Every entry is a world champion — the only players the height boards now
+ * rank; see `RecordKey`. Checked 15, 17 and 26 September 2026. The value in
+ * each comment is VIS's.
  */
 export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, string>([
-  // --- tallest, men ---
-  // 215. volleyballmag.com, 21 June 2021: "7-footer Page left pro beach
-  // volleyball, built a company, and now he's back" — UCLA, then the AVP
-  // tour. FIVB's file spells the first name "Robart".
-  [136385, 'volleyballmag.com, 2021 profile'],
-  // 214. Wikipedia: 7 ft 1 in; the tallest pitcher in professional baseball
-  // history before the AVP.
-  [141629, 'Wikipedia; MLB.com on his baseball career'],
-  // 212. German Wikipedia: 2.12 m, indoor middle blocker before the beach.
-  [141407, 'German Wikipedia'],
-  // 212. German Wikipedia: 2.12 m.
-  [105109, 'German Wikipedia'],
-  // 212. Wikipedia: 6 ft 11 in (211 cm), some sources 212.
-  [119235, 'Wikipedia'],
-  // --- tallest, women ---
-  // 204. Wikipedia: 6 ft 8.5 in; Florida Gators roster.
-  [162019, 'Wikipedia; Florida Gators roster'],
-  // 198. Wikipedia and USA Volleyball: 6 ft 6 in.
-  [146722, 'Wikipedia; USA Volleyball profile'],
-  // 197. Wikipedia; CEV, 2023: "the tallest woman to appear on the Beach Pro
-  // Tour" that season.
-  [169390, 'Wikipedia; CEV EuroBeachVolley profile, 2023'],
+  // --- tallest champion, men ---
+  // 210. Wikipedia: 2.11 m. World champion 2017.
+  [133285, 'Wikipedia'],
+  // 207. Wikipedia: 207 cm. World champion 2013.
+  [119991, 'Wikipedia'],
+  // 207. Wikipedia: 2.07 m. World champion 2019.
+  [141535, 'Wikipedia'],
+  // 205. Wikipedia: 6 ft 9 in (206 cm). World champion 2007.
+  [105143, 'Wikipedia'],
+  // 204. Wikipedia: 204 cm. World champion 2005.
+  [104207, 'Wikipedia'],
+  // 203. Wikipedia: 203 cm. World champion 2011 and 2015. Sixth today, checked
+  // so the board does not go dark if anyone above him leaves it.
+  [118267, 'Wikipedia'],
+  // --- tallest champion, women ---
+  // 196. Wikipedia: 1.96 m. World champion 2019.
+  [113895, 'Wikipedia'],
+  // 194. Wikipedia: 1.94 m. World champion 2022.
+  [147073, 'Wikipedia'],
+  // 191. Wikipedia: 191 cm. World champion 2013.
+  [104438, 'Wikipedia'],
+  // 188. Wikipedia: 6 ft 3 in (191 cm), three centimetres over VIS; the
+  // widest gap on either board. World champion 2003, 2005, 2007.
+  [103242, 'Wikipedia'],
+  // 185. Wikipedia: 1.85 m. World champion 2009.
+  [118426, 'Wikipedia'],
+  // 185. Wikipedia: 6 ft 2 in (188 cm), three over VIS. World champion 2023.
+  [140066, 'Wikipedia'],
   // --- shortest champion, men ---
   // 185. Wikipedia: 185 cm. Olympic champion 2016.
   [117474, 'Wikipedia'],
@@ -134,23 +143,6 @@ export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
   [103903, 'Wikipedia'],
   // 175. Wikipedia: 1.75 m.
   [124979, 'Wikipedia'],
-  // Looked for and not found outside FIVB, 17 September 2026, so withheld:
-  // Esther Mbah (145, NGR), whose qualification coverage carries no height;
-  // Leah Best (198, ENG); Rolando Hernández (150, VEN), whose Olympic profile
-  // gives none; Lucía Gómez Arguedas (155, CRC); Martin Toufar and Ondřej
-  // Kuliš (149, CZE), the tie that started this rule. Anielka Alonzo Zapata
-  // (149, NCA) and Vânia Miambo (155, MOZ) appear only on volleybox.net and
-  // volleyballworld.com, which carry FIVB's own figure.
-  //
-  // Looked for and not found, 26 September 2026:
-  // Therese Strålman (198, SWE): bvbinfo.com gives 6'6", but its profile is
-  // credited to CEV and 6'6" is FIVB's 198 converted, so it is not a second
-  // source. Gina Kirstein (147, USA): an AVP player and Division I at
-  // Illinois under a name before her married one; her academy's biography
-  // gives no height and nothing else does. Abdou Kabirou Mama (157, BEN) and
-  // Joaquín López (157, CAN): 16-year-olds at an age-group World
-  // Championship, found only on volleyballworld.com. Kuliš retried in Czech;
-  // his coaching profile at bvsp.cz gives no height either.
 ]);
 
 /**
@@ -159,16 +151,15 @@ export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
  *
  * `CONFIRMED_HEIGHTS` can only say yes. Without this there is nowhere to put
  * a no, and a figure found to be wrong would sit on its board as a withheld
- * rank for ever: a 149 cm typo at the top of Shortest, men would hide the
- * real shortest man beneath it until FIVB corrected its record, which it has
- * no reason to know to do. Withholding is for "unchecked"; this is for
+ * rank for ever, hiding everyone beneath it until FIVB corrected a record it
+ * has no reason to know is wrong. Withholding is for "unchecked"; this is for
  * "checked, and false".
  *
  * **What earns an entry is a number, not a doubt.** A source outside FIVB
  * that gives this player a *different* height, far enough from VIS's that the
  * two cannot be one measurement rounded twice — the same independence test as
- * `CONFIRMED_HEIGHTS`, with the opposite answer. "147 cm seems short for a
- * Division I player" is not an entry; a roster that says 5'9" is.
+ * `CONFIRMED_HEIGHTS`, with the opposite answer. A height that merely seems
+ * unlikely is not an entry; a roster that gives another number is.
  *
  * The height is published nowhere: not on a board, and not on the player's
  * card either — `main.ts` writes it as absent, which is how the card already
@@ -180,6 +171,10 @@ export const CONFIRMED_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
  * A fan database that *repeats* FIVB is no second source, which is why
  * volleybox does not confirm anything in `CONFIRMED_HEIGHTS`. One that
  * *disagrees* with FIVB cannot be repeating it, so here it can count.
+ *
+ * Since the height boards rank world champions only, an entry for anyone else
+ * changes no board — its effect is on the player's card, which is where a
+ * wrong height would otherwise still be read.
  */
 export const DISPROVEN_HEIGHTS: ReadonlyMap<number, string> = new Map<number, string>([
   // Therese Strålman (SWE). VIS: 198. beach.volleybox.net gives 171 for her and
@@ -194,10 +189,10 @@ export const DISPROVEN_HEIGHTS: ReadonlyMap<number, string> = new Map<number, st
 ]);
 
 /** The boards that publish nothing unconfirmed. */
-const HEIGHT_KEYS: ReadonlySet<RecordKey> = new Set(['tallest', 'shortest', 'shortest-champion']);
+const HEIGHT_KEYS: ReadonlySet<RecordKey> = new Set(['tallest-champion', 'shortest-champion']);
 
 /** The boards ranked smallest first. */
-const ASCENDING: ReadonlySet<RecordKey> = new Set(['shortest', 'shortest-champion']);
+const ASCENDING: ReadonlySet<RecordKey> = new Set(['shortest-champion']);
 
 /**
  * A row that has not shipped, for the log and the TODO list. Carries the value
@@ -265,10 +260,10 @@ export function candidatesFor(
       return players.filter((p) => p.tourGold > 0).map((p) => one(p, p.tourGold));
     case 'games':
       return players.filter((p) => p.olympicGames > 0).map((p) => one(p, p.olympicGames));
-    case 'tallest':
-    case 'shortest':
-      return players.filter((p) => p.height !== null).map((p) => one(p, p.height!));
+    case 'tallest-champion':
     case 'shortest-champion':
+      // Senior world champions only: see `RecordKey` for why the overall
+      // extremes went, and why this also keeps every junior-only player off.
       return players
         .filter((p) => p.height !== null && p.worldGold > 0)
         .map((p) => one(p, p.height!));
@@ -401,7 +396,7 @@ export function buildRecords(
  * floor, because a board every row of which is withheld is a legitimate state
  * for them.
  */
-export const RECORD_FLOORS: Readonly<Record<Exclude<RecordKey, 'tallest' | 'shortest' | 'shortest-champion'>, number>> = {
+export const RECORD_FLOORS: Readonly<Record<Exclude<RecordKey, 'tallest-champion' | 'shortest-champion'>, number>> = {
   tournaments: 120,
   career: 14,
   partnership: 70,
