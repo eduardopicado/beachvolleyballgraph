@@ -1687,6 +1687,8 @@
     "9229": ["BPT Elite16 Hamburg",2026,"beach-pro-tour",216,"MHAM2026","Elite16","DE",4,"M"],
     "9230": ["BPT Elite16 Hamburg",2026,"beach-pro-tour",216,"WHAM2026","Elite16","DE",4,"W"],
     "9558": ["Netherlands",2027,"world-champs",224,"WWCH2027",null,"NL",9,"W"],
-    "9559": ["Netherlands",2027,"world-champs",224,"MWCH2027",null,"NL",9,"M"]
+    "9559": ["Netherlands",2027,"world-champs",224,"MWCH2027",null,"NL",9,"M"],
+    "9582": ["Beach Elite Itapema",2026,"beach-pro-tour",342,"MITAPE26","Elite16","BR",4,"M"],
+    "9583": ["Beach Elite Itapema",2026,"beach-pro-tour",342,"WITAPE26","Elite16","BR",4,"W"]
   }
 }

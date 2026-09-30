@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-29T15:56:02.694Z",
-  "sourceVersion": "115511",
+  "generatedAt": "2026-09-30T15:57:04.287Z",
+  "sourceVersion": "115523",
   "seasons": {
     "from": 1987,
     "to": 2027
   },
   "totals": {
-    "tournaments": 1688,
+    "tournaments": 1690,
     "players": 12110,
     "partnerships": 14002
   },
@@ -15,7 +15,7 @@
     "Olympic Games": 16,
     "World Championships": 32,
     "Age-group World Championships": 88,
-    "Beach Pro Tour": 475
+    "Beach Pro Tour": 477
   },
   "countries": [
     {
@@ -2148,6 +2148,7 @@
     "MDUB2013",
     "MDUB2023",
     "MFIJ2017",
+    "MITAPE26",
     "MKAM2013",
     "MKIE2003",
     "MKIE2006",
@@ -2185,6 +2186,7 @@
     "WDUB2013",
     "WDUB2023",
     "WFIJ2017",
+    "WITAPE26",
     "WKAM2013",
     "WLAO2020",
     "WLIS2013",
