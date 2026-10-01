@@ -1689,6 +1689,14 @@
     "9558": ["Netherlands",2027,"world-champs",224,"WWCH2027",null,"NL",9,"W"],
     "9559": ["Netherlands",2027,"world-champs",224,"MWCH2027",null,"NL",9,"M"],
     "9582": ["Beach Elite Itapema",2026,"beach-pro-tour",342,"MITAPE26","Elite16","BR",4,"M"],
-    "9583": ["Beach Elite Itapema",2026,"beach-pro-tour",342,"WITAPE26","Elite16","BR",4,"W"]
+    "9583": ["Beach Elite Itapema",2026,"beach-pro-tour",342,"WITAPE26","Elite16","BR",4,"W"],
+    "9584": ["Beach World Series Dubai",2027,"world-tour",19,"MDUB2027","World Series","QA",4,"M"],
+    "9585": ["Beach World Series Dubai",2027,"world-tour",19,"WDUB2027","World Series","QA",4,"W"],
+    "9586": ["Beach Elite Joao Pessoa",2027,"beach-pro-tour",82,"MJOP2027","Elite16","BR",4,"M"],
+    "9587": ["Beach Elite Joao Pessoa",2027,"beach-pro-tour",82,"WJOP2027","Elite16","BR",4,"W"],
+    "9588": ["Beach Elite Saquarema",2027,"beach-pro-tour",110,"MSAQ2027","Elite16","BR",4,"M"],
+    "9589": ["Beach Elite Saquarema",2027,"beach-pro-tour",110,"WSAQ","Elite16","BR",4,"W"],
+    "9590": ["Beach Elite Ostrava",2027,"beach-pro-tour",145,"MOST2027","Elite16","CZ",4,"M"],
+    "9591": ["Beach Elite Ostrava",2027,"beach-pro-tour",145,"WOST2027","Elite16","CZ",4,"W"]
   }
 }
