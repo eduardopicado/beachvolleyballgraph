@@ -2,7 +2,13 @@
   "code": "WITAPE26",
   "gender": "W",
   "teams": [
-
+    [147741,145563,"FRA",null,null],
+    [163834,142507,"FRA",null,null]
   ],
-  "players": {}
+  "players": {
+    "142507": "Aline Chamereau",
+    "145563": "Alexia Richard",
+    "147741": "Lézana Placette",
+    "163834": "Clémence Vieira"
+  }
 }

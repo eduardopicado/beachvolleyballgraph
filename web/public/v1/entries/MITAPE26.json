@@ -2,7 +2,19 @@
   "code": "MITAPE26",
   "gender": "M",
   "teams": [
-
+    [153247,177303,"FRA",null,null],
+    [168503,162761,"NED",null,null],
+    [175205,146455,"FRA",null,null],
+    [179478,184095,"FRA",null,null]
   ],
-  "players": {}
+  "players": {
+    "146455": "Arnaud Gauthier-Rat",
+    "153247": "Rémi Bassereau",
+    "162761": "Yorick de Groot",
+    "168503": "Stefan Boermans",
+    "175205": "Téo Rotar",
+    "177303": "Calvin Aye",
+    "179478": "Elouan Chouikh-Barbez",
+    "184095": "Joadel Gardoque"
+  }
 }
