@@ -2,19 +2,28 @@
   "code": "MITAPE26",
   "gender": "M",
   "teams": [
+    [145990,174855,"ARG",null,null],
     [153247,177303,"FRA",null,null],
+    [160815,182090,"ARG",null,null],
     [168503,162761,"NED",null,null],
     [175205,146455,"FRA",null,null],
-    [179478,184095,"FRA",null,null]
+    [179478,184095,"FRA",null,null],
+    [182132,178680,"ARG",null,null]
   ],
   "players": {
+    "145990": "Nicolás Capogrosso N.",
     "146455": "Arnaud Gauthier-Rat",
     "153247": "Rémi Bassereau",
+    "160815": "Juan Bautista Amieva Tarditti",
     "162761": "Yorick de Groot",
     "168503": "Stefan Boermans",
+    "174855": "Tomas Capogrosso",
     "175205": "Téo Rotar",
     "177303": "Calvin Aye",
+    "178680": "Ramiro Sancer",
     "179478": "Elouan Chouikh-Barbez",
+    "182090": "Maciel Bueno Torres",
+    "182132": "Valentino Abrantes Salema",
     "184095": "Joadel Gardoque"
   }
 }
