@@ -8,7 +8,8 @@
     [168503,162761,"NED",null,null],
     [175205,146455,"FRA",null,null],
     [179478,184095,"FRA",null,null],
-    [182132,178680,"ARG",null,null]
+    [182132,178680,"ARG",null,null],
+    [222089,236101,"CAN",null,null]
   ],
   "players": {
     "145990": "Nicolás Capogrosso N.",
@@ -24,6 +25,8 @@
     "179478": "Elouan Chouikh-Barbez",
     "182090": "Maciel Bueno Torres",
     "182132": "Valentino Abrantes Salema",
-    "184095": "Joadel Gardoque"
+    "184095": "Joadel Gardoque",
+    "222089": "Jaxson Thys",
+    "236101": "Brendon Lord"
   }
 }
