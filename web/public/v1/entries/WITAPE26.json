@@ -4,13 +4,16 @@
   "teams": [
     [147741,145563,"FRA",null,null],
     [163834,142507,"FRA",null,null],
+    [169499,154904,"CZE",null,null],
     [182135,182137,"ARG",null,null]
   ],
   "players": {
     "142507": "Aline Chamereau",
     "145563": "Alexia Richard",
     "147741": "Lézana Placette",
+    "154904": "Martina Maixnerova",
     "163834": "Clémence Vieira",
+    "169499": "Kylie Neuschaeferova",
     "182135": "Agostina Ghigliazza",
     "182137": "Morena Marisa Abdala"
   }

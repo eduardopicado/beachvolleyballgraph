@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-04T14:48:49.551Z",
-  "sourceVersion": "115571",
+  "generatedAt": "2026-10-05T18:31:34.052Z",
+  "sourceVersion": "115592",
   "seasons": {
     "from": 1987,
     "to": 2027
@@ -2206,7 +2206,7 @@
     "WPUE2016",
     "WQUE2012",
     "WROS2001",
-    "WSAQ",
+    "WSAQ2027",
     "WSEN2008",
     "WSEO2005",
     "WSER1996",
