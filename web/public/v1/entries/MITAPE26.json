@@ -4,6 +4,7 @@
   "teams": [
     [104142,179122,"LAT",null,null],
     [125329,134415,"CHI",null,null],
+    [133228,182786,"LAT",null,null],
     [145947,116710,"ESP",null,null],
     [145990,174855,"ARG",null,null],
     [153247,177303,"FRA",null,null],
@@ -20,6 +21,7 @@
     "104142": "Martins Plavins",
     "116710": "Adrián Gavira Collado",
     "125329": "Marco Grimalt",
+    "133228": "Edgars Tocs",
     "134415": "Esteban Grimalt",
     "145947": "Alejandro Huerta Pastor",
     "145990": "Nicolás Capogrosso N.",
@@ -40,6 +42,7 @@
     "182090": "Maciel Bueno Torres",
     "182132": "Valentino Abrantes Salema",
     "182781": "Kyan Vercauteren",
+    "182786": "Gustavs Auzins",
     "184095": "Joadel Gardoque",
     "222089": "Jaxson Thys",
     "236101": "Brendon Lord"

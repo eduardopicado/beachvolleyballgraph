@@ -2,19 +2,31 @@
   "code": "WITAPE26",
   "gender": "W",
   "teams": [
+    [124153,179340,"SUI",null,null],
+    [142091,221053,"NOR",null,null],
     [147741,145563,"FRA",null,null],
     [163834,142507,"FRA",null,null],
+    [164576,148474,"CZE",null,null],
     [169499,154904,"CZE",null,null],
-    [182135,182137,"ARG",null,null]
+    [182135,182137,"ARG",null,null],
+    [182240,182239,"CZE",null,null]
   ],
   "players": {
+    "124153": "Joana Mäder",
+    "142091": "Sunniva Helland-Hansen",
     "142507": "Aline Chamereau",
     "145563": "Alexia Richard",
     "147741": "Lézana Placette",
+    "148474": "Marie-Sara Stochlova",
     "154904": "Martina Maixnerova",
     "163834": "Clémence Vieira",
+    "164576": "Marketa Svozilova",
     "169499": "Kylie Neuschaeferova",
+    "179340": "Leona Kernen",
     "182135": "Agostina Ghigliazza",
-    "182137": "Morena Marisa Abdala"
+    "182137": "Morena Marisa Abdala",
+    "182239": "Anna Pavelková",
+    "182240": "Katerina Pavelková",
+    "221053": "Nina Pavlova"
   }
 }
