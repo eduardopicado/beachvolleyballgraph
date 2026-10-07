@@ -9,7 +9,8 @@
     [164576,148474,"CZE",null,null],
     [169499,154904,"CZE",null,null],
     [182135,182137,"ARG",null,null],
-    [182240,182239,"CZE",null,null]
+    [182240,182239,"CZE",null,null],
+    [186538,153243,"ESP",null,null]
   ],
   "players": {
     "124153": "Joana Mäder",
@@ -18,6 +19,7 @@
     "145563": "Alexia Richard",
     "147741": "Lézana Placette",
     "148474": "Marie-Sara Stochlova",
+    "153243": "Tania Moreno Matveeva",
     "154904": "Martina Maixnerova",
     "163834": "Clémence Vieira",
     "164576": "Marketa Svozilova",
@@ -27,6 +29,7 @@
     "182137": "Morena Marisa Abdala",
     "182239": "Anna Pavelková",
     "182240": "Katerina Pavelková",
+    "186538": "Sofía Izuzquiza Corulla",
     "221053": "Nina Pavlova"
   }
 }
