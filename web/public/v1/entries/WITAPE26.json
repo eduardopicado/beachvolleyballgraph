@@ -3,6 +3,7 @@
   "gender": "W",
   "teams": [
     [124153,179340,"SUI",null,null],
+    [141983,141984,"LAT",null,null],
     [142091,221053,"NOR",null,null],
     [147741,145563,"FRA",null,null],
     [147884,153873,"AUT",null,null],
@@ -20,6 +21,8 @@
   ],
   "players": {
     "124153": "Joana Mäder",
+    "141983": "Tina Graudina",
+    "141984": "Anastasija Samoilova",
     "142091": "Sunniva Helland-Hansen",
     "142507": "Aline Chamereau",
     "145563": "Alexia Richard",
