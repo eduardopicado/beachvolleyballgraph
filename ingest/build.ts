@@ -381,7 +381,11 @@ function curatedName(tier: Tier, season: number): string | null {
 export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
   const out = new Map<string, Tournament>();
   for (const row of rows) {
-    const tier = tierFor(row.OrganizerType, row.Type);
+    // The opening day is read before the tier because the new circuit reused
+    // two old `Type`s, and only the date tells the eras apart — see
+    // NEW_CIRCUIT_FROM in tiers.ts.
+    const opensOn = eventStart(row.StartDateQualification, row.StartDateMainDraw);
+    const tier = tierFor(row.OrganizerType, row.Type, opensOn);
     if (!tier) continue;
     // A tournament that was called off is not a tournament. It never had
     // results, so `Rank` already kept its entrants out of the graph — but it
@@ -392,7 +396,6 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
     if (season === null) continue;
     const no = (row.No ?? '').trim();
     if (!no) continue;
-    const opensOn = eventStart(row.StartDateQualification, row.StartDateMainDraw);
     out.set(no, {
       no,
       // Trimmed because some do carry trailing spaces ("FIVB Beach Volleyball
@@ -407,7 +410,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       name: curatedName(tier, season) ?? ((row.Name ?? '').trim() || `Tournament ${no}`),
       code: (row.Code ?? '').trim(),
       tier,
-      level: levelFor(row.Type),
+      level: levelFor(row.Type, opensOn),
       season,
       // Same encoding as a player's: 0 men, 1 women. Anything else is
       // unreachable — every tournament VIS returns carries one of the two —

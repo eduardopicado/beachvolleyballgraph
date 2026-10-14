@@ -181,8 +181,49 @@ export const LEVEL_BY_TYPE: Record<number, string> = {
   54: 'Finals',
 };
 
-/** The level for a VIS `Type`, or null for a tier that has none. */
-export function levelFor(type: string | undefined): string | null {
+/**
+ * The first day of FIVB's restructured circuit: World Series at the top, then
+ * Elite, then (expected) Challenge. Its opening event is Beach Elite Itapema,
+ * main draw 10 December 2026.
+ *
+ * **FIVB minted no new `Type` for it.** It reused two that already mean
+ * something here, so the number alone cannot tell the eras apart:
+ *
+ *   3   "Beach World Series Dubai" 2027 — and the 1996 World Series
+ *   51  "Beach Elite Itapema" 2026     — and every BPT Elite16 since 2022
+ *
+ * Without this, the new Elite was badged "Elite16", which it is not, and the
+ * World Series sat in the 1987-2021 World Tour tier. The date splits them:
+ * measured against VIS on 14 October 2026, every tour event opening before
+ * this is titled "BPT …" and every one from Itapema on is titled "Beach …",
+ * with nothing in between to straddle the line. A test re-checks that against
+ * the published names, so a misplaced cut fails rather than ships.
+ */
+export const NEW_CIRCUIT_FROM = '2026-12-01';
+
+/** What a reused `Type` means on the new circuit. Types absent keep their old meaning. */
+const NEW_CIRCUIT: Readonly<Record<number, { tier: Tier; level: string }>> = {
+  // `beach-pro-tour` for the tier although FIVB has dropped "BPT" from the
+  // titles: the tier only ever separates the pre-2022 tour from the current
+  // one, nothing renders its name, and both count as tour (TOUR_TIERS).
+  3: { tier: 'beach-pro-tour', level: 'World Series' },
+  // "Elite", not "Elite16": FIVB's own title is "Beach Elite".
+  51: { tier: 'beach-pro-tour', level: 'Elite' },
+};
+
+/** True when an event opening on `opensOn` (ISO day) belongs to the new circuit. */
+function onNewCircuit(type: string | undefined, opensOn: string | undefined): boolean {
+  return opensOn !== undefined && opensOn >= NEW_CIRCUIT_FROM && Number(type) in NEW_CIRCUIT;
+}
+
+/**
+ * The level for a VIS `Type`, or null for a tier that has none.
+ *
+ * `opensOn` is the day the event opens, which only matters for the types the
+ * new circuit reused; an event with no date keeps the type's older meaning.
+ */
+export function levelFor(type: string | undefined, opensOn?: string): string | null {
+  if (onNewCircuit(type, opensOn)) return NEW_CIRCUIT[Number(type)]!.level;
   return LEVEL_BY_TYPE[Number(type)] ?? null;
 }
 
@@ -193,10 +234,15 @@ export function levelFor(type: string | undefined): string | null {
  */
 export const INCLUDE_AGE_GROUP = process.env.INCLUDE_AGE_GROUP !== 'false';
 
-export function tierFor(organizerType: string | undefined, type: string | undefined): Tier | null {
+export function tierFor(
+  organizerType: string | undefined,
+  type: string | undefined,
+  opensOn?: string,
+): Tier | null {
   if (organizerType !== FIVB_ORGANIZER_TYPE) return null;
   const tier = TIER_BY_TYPE[Number(type)];
   if (!tier) return null;
+  if (onNewCircuit(type, opensOn)) return NEW_CIRCUIT[Number(type)]!.tier;
   if (tier === 'age-group-wch' && !INCLUDE_AGE_GROUP) return null;
   return tier;
 }

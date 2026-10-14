@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T16:58:55.642Z",
+  "generatedAt": "2026-10-14T03:59:32.361Z",
   "sourceVersion": "115636",
   "seasons": {
     "from": 1987,
@@ -11,11 +11,11 @@
     "partnerships": 14002
   },
   "tiers": {
-    "FIVB World Tour": 1079,
+    "FIVB World Tour": 1077,
     "Olympic Games": 16,
     "World Championships": 32,
     "Age-group World Championships": 88,
-    "Beach Pro Tour": 483
+    "Beach Pro Tour": 485
   },
   "countries": [
     {

@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { FIVB_ORGANIZER_TYPE, levelFor, TIER_BY_TYPE, tierFor } from './tiers';
+import { FIVB_ORGANIZER_TYPE, levelFor, NEW_CIRCUIT_FROM, TIER_BY_TYPE, tierFor } from './tiers';
 
 describe('tierFor', () => {
   it('admits the Olympic Games and nothing else Olympic-adjacent', () => {
@@ -102,6 +102,31 @@ describe('levelFor', () => {
     expect(levelFor('53')).toBe('Futures');
   });
 
+  it('reads a reused type by the date the event opens', () => {
+    // FIVB's restructured circuit reused 3 and 51 rather than minting types.
+    // Itapema 2026 is the new Elite; Montreal 2026 was the last BPT Elite16.
+    expect(levelFor('51', '2026-12-09')).toBe('Elite');
+    expect(levelFor('51', '2026-08-20')).toBe('Elite16');
+    // Dubai 2027 is the new World Series; the 1996 one keeps its tier.
+    expect(levelFor('3', '2027-01-20')).toBe('World Series');
+    expect(tierFor(FIVB_ORGANIZER_TYPE, '3', '2027-01-20')).toBe('beach-pro-tour');
+    expect(tierFor(FIVB_ORGANIZER_TYPE, '3', '1996-06-01')).toBe('world-tour');
+    expect(tierFor(FIVB_ORGANIZER_TYPE, '51', '2027-03-25')).toBe('beach-pro-tour');
+  });
+
+  it('cuts over on NEW_CIRCUIT_FROM exactly, and leaves undated rows and other types alone', () => {
+    const before = new Date(Date.parse(NEW_CIRCUIT_FROM) - 86_400_000).toISOString().slice(0, 10);
+    expect(levelFor('51', NEW_CIRCUIT_FROM)).toBe('Elite');
+    expect(levelFor('51', before)).toBe('Elite16');
+    expect(levelFor('51')).toBe('Elite16');
+    // Types the new circuit did not reuse are untouched by the date.
+    expect(levelFor('52', '2027-06-01')).toBe('Challenge');
+    expect(levelFor('53', '2027-06-01')).toBe('Futures');
+    // Nor does the date admit a type the allowlist excludes.
+    expect(tierFor(FIVB_ORGANIZER_TYPE, '15', '2027-06-01')).toBeNull();
+    expect(tierFor('5', '51', '2027-06-01')).toBeNull();
+  });
+
   it('does not confuse Major Series with the 5-star that replaced it', () => {
     // Type 32 is the 2015-16 branding; Type 38 is `WorldTour5Star`, which this
     // repo mislabelled "Major" for months. Two different things, two levels.
@@ -164,8 +189,14 @@ describe('published levels agree with the tournament names', () => {
    * What a title claims about itself, or null when it says nothing. "Challenger"
    * is deliberately not "Challenge": it is the 1990s World Tour rung, a
    * different thing that happens to share a prefix.
+   *
+   * "Beach Elite" is the restructured circuit's second rung and is not an
+   * Elite16 — it is the one claim that tells the two eras of Type 51 apart, and
+   * so the check that NEW_CIRCUIT_FROM sits on the right day.
    */
   const claims = (name: string): string | null => {
+    if (/^Beach Elite\b/i.test(name)) return 'Elite';
+    if (/^Beach World Series\b/i.test(name)) return 'World Series';
     if (/\bElite\s?16\b|\bElite\b/i.test(name)) return 'Elite16';
     if (/\bChallenge\b/i.test(name)) return 'Challenge';
     if (/\bFutures\b/i.test(name)) return 'Futures';
@@ -175,6 +206,18 @@ describe('published levels agree with the tournament names', () => {
   it('finds tournaments that name their own rung, so this is not vacuous', () => {
     const named = rows.filter((r) => claims(r[0]) !== null);
     expect(named.length).toBeGreaterThan(100);
+  });
+
+  it('includes the restructured circuit, so the cut-over is actually checked', () => {
+    expect(rows.filter((r) => claims(r[0]) === 'Elite').length).toBeGreaterThan(0);
+    expect(rows.filter((r) => claims(r[0]) === 'Elite16').length).toBeGreaterThan(0);
+  });
+
+  it('files the new World Series with the current tour, not the 1987-2021 one', () => {
+    const misfiled = rows
+      .filter((r) => claims(r[0]) === 'World Series' && r[2] !== 'beach-pro-tour')
+      .map((r) => `${r[1]} ${r[0]} — ${r[2]}`);
+    expect(misfiled).toEqual([]);
   });
 
   it('never labels a tournament as a rung its own name contradicts', () => {
