@@ -29,23 +29,27 @@ export type ResultsState =
  * season is likely to expand another, and dropping the state would trade a
  * cached instant render for a "Loading…" flash on every player they click.
  */
+const IDLE: ResultsState = { status: 'idle' };
+const LOADING: ResultsState = { status: 'loading' };
+
 export function useResults(country: string, gender: Gender, wanted: boolean): ResultsState {
-  const [state, setState] = useState<ResultsState>({ status: 'idle' });
+  // Held with the slice it answers, for the reason `useClassification` gives:
+  // otherwise the first render after a country switch reads the new player's
+  // seasons out of the old slice's results.
+  const slice = `${country}-${gender}`;
+  const [held, setHeld] = useState<{ slice: string; state: ResultsState } | null>(null);
 
   useEffect(() => {
-    if (!wanted) {
-      setState({ status: 'idle' });
-      return;
-    }
+    if (!wanted) return;
     let cancelled = false;
-    setState({ status: 'loading' });
     fetchResults(country, gender)
-      .then((data) => !cancelled && setState({ status: 'ready', data }))
-      .catch(() => !cancelled && setState({ status: 'failed' }));
+      .then((data) => !cancelled && setHeld({ slice: `${country}-${gender}`, state: { status: 'ready', data } }))
+      .catch(() => !cancelled && setHeld({ slice: `${country}-${gender}`, state: { status: 'failed' } }));
     return () => {
       cancelled = true;
     };
   }, [country, gender, wanted]);
 
-  return state;
+  if (!wanted) return IDLE;
+  return held && held.slice === slice ? held.state : LOADING;
 }
