@@ -31,7 +31,7 @@
 import { mkdir, rm, writeFile, rename, readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { fetchList } from './vis.js';
 import { fetchFederations, countryName, countryIso2 } from './countries.js';
@@ -1138,14 +1138,21 @@ async function main() {
   log('config', `age-group world championships ${INCLUDE_AGE_GROUP ? 'included' : 'excluded'}`);
 }
 
-main().catch(async (err) => {
-  // Leave whatever is already published untouched. If the failure landed
-  // mid-swap, the previous tree is parked at OLD_DIR — put it back rather than
-  // discarding it, so a failed run still leaves the site with data to serve.
-  await rm(TMP_DIR, { recursive: true, force: true }).catch(() => {});
-  await recoverInterruptedSwap().catch(() => {});
-  await rm(OLD_DIR, { recursive: true, force: true }).catch(() => {});
-  console.error('\nIngest failed — existing data left in place.');
-  console.error(err);
-  process.exit(1);
-});
+// Only when run as a script (`npm run ingest`), never on import. A test that
+// imports `assertPopulated` used to start the whole ingest as a side effect:
+// a live request to VIS on every `npm test`, and in principle a rebuild and
+// swap of the published tree. The same guard prerender.ts has always had.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(async (err) => {
+    // Leave whatever is already published untouched. If the failure landed
+    // mid-swap, the previous tree is parked at OLD_DIR — put it back rather
+    // than discarding it, so a failed run still leaves the site with data to
+    // serve.
+    await rm(TMP_DIR, { recursive: true, force: true }).catch(() => {});
+    await recoverInterruptedSwap().catch(() => {});
+    await rm(OLD_DIR, { recursive: true, force: true }).catch(() => {});
+    console.error('\nIngest failed — existing data left in place.');
+    console.error(err);
+    process.exit(1);
+  });
+}
