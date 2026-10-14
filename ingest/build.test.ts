@@ -32,6 +32,7 @@ import {
   normalisePlayers,
   finishedWithoutResults,
   normaliseTournaments,
+  tournamentMeta,
   orderResults,
   pairKey,
   awayPartnersByPlayer,
@@ -48,6 +49,7 @@ import {
   olympicGamesByPlayer,
 } from './build.js';
 import type { VisRow } from './vis.js';
+import { readTournament } from '../web/src/lib/tournamentMeta.js';
 
 const tournament = (no: string, season: number): VisRow => ({
   No: no,
@@ -86,6 +88,36 @@ describe('pairKey', () => {
   it('orders numerically, not lexically', () => {
     // "10" < "9" as strings; the key must not depend on that.
     expect(pairKey(9, 10)).toBe('9:10');
+  });
+});
+
+describe('tournamentMeta', () => {
+  const one = (row: VisRow) => tournamentMeta(normaliseTournaments([row]).get('1')!);
+
+  it('keeps the draw on a coded event with no country and no dates', () => {
+    // No CountryCode, no dates: country and span both null, the case the old
+    // fallbacks cut short. The index drops a row with no gender, so the event
+    // would have left the calendar.
+    const meta = one({ ...tournament('1', 2026), Code: 'WXYZ2026', Gender: '1' });
+    expect(readTournament(meta)).toMatchObject({ code: 'WXYZ2026', country: null, span: null, gender: 'W' });
+  });
+
+  it('writes every slot on a fully populated event', () => {
+    const meta = one({
+      ...tournament('1', 2026),
+      Code: 'MCOR2026',
+      Gender: '0',
+      CountryCode: 'IT',
+      StartDateMainDraw: '2026-09-18',
+      EndDateMainDraw: '2026-09-20',
+    });
+    expect(meta).toHaveLength(9);
+    expect(readTournament(meta)).toMatchObject({ code: 'MCOR2026', country: 'IT', span: 2, gender: 'M' });
+  });
+
+  it('stays short for an event with no code, which has no page to address', () => {
+    expect(one(tournament('1', 2026))).toHaveLength(3);
+    expect(one({ ...tournament('1', 2026), StartDateMainDraw: '2026-09-18' })).toHaveLength(4);
   });
 });
 
