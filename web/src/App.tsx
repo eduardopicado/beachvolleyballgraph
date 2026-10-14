@@ -221,7 +221,7 @@ export default function App() {
     const label = GENDER_LABEL[gender];
     const counts = entry.genders[gender];
     const title = `${entry.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships, ${manifest.seasons.from}–${manifest.seasons.to}.`;
+    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships since ${manifest.seasons.from}.`;
 
     document.title = title;
     setHeadTag('link[rel="canonical"]', 'href', new URL(url, location.origin).toString());
