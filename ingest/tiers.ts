@@ -208,3 +208,64 @@ export const TIER_LABEL: Record<Tier, string> = {
   'world-tour': 'FIVB World Tour',
   'beach-pro-tour': 'Beach Pro Tour',
 };
+
+/**
+ * Every `Type` an FIVB-organised row can carry that is left out on purpose —
+ * the "Deliberately excluded" list on `TIER_BY_TYPE`, as data, so that
+ * `unrecognisedTourRows` can tell a decision from a surprise.
+ */
+export const EXCLUDED_TYPES: ReadonlySet<number> = new Set([
+  7, 8, 11, 12, 34, 47, 48, 55, // continental championships / cups / zonal tours
+  9, 35, // seminars, VIS clinics, test events
+  15, 16, 17, 18, 20, 21, 28, 29, 30, 46, // National Tour, all age groups
+  19, 36, 45, // snow volleyball
+  43, // Youth Olympic Games
+  44, // multi-sport games
+  49, // Olympic Qualification Tournament
+  50, // King of the Court
+]);
+
+/** A title FIVB gives its own tour events, in either branding. */
+const TOUR_TITLE = /^(?:BPT\b|Beach (?:World Series|Elite|Challenge|Futures|Pro Tour)\b)/i;
+
+/**
+ * Tournaments the allowlist dropped that it may not have meant to, one line
+ * each, for the ingest to warn about. Empty on a normal day.
+ *
+ * The allowlist is the right default — it is what keeps national tours and
+ * snow volleyball out — but it fails silently: a type it has never seen is
+ * simply excluded, and nothing on the site shows an event that is not there.
+ * FIVB is restructuring its circuit as of December 2026 and has already reused
+ * two old types for it (see NEW_CIRCUIT_FROM); the third rung, "Beach
+ * Challenge", is not in VIS yet, and if it arrives under a new number it would
+ * vanish with no error anywhere. Two checks, because either can be the one
+ * that sees it:
+ *
+ *  - **an FIVB-organised row whose `Type` is in neither list** — a number
+ *    nobody has decided about yet;
+ *  - **a row titled like the FIVB tour that was not admitted**, whatever its
+ *    organizer or type — catches a new circuit filed under a type we exclude
+ *    on purpose, or under an organizer we never read.
+ *
+ * Called-off events are the caller's to remove first: they carry tour titles
+ * and are dropped deliberately.
+ */
+export function unrecognisedTourRows(
+  rows: readonly { Name?: string; Code?: string; Season?: string; Type?: string; OrganizerType?: string }[],
+): string[] {
+  const out: string[] = [];
+  for (const row of rows) {
+    const what = `${(row.Name ?? '').trim() || '(no name)'} (${row.Code ?? '?'}, ${row.Season ?? '?'}, Type ${row.Type ?? '?'})`;
+    const type = Number(row.Type);
+    if (
+      row.OrganizerType === FIVB_ORGANIZER_TYPE &&
+      !(type in TIER_BY_TYPE) &&
+      !EXCLUDED_TYPES.has(type)
+    ) {
+      out.push(`unknown type: ${what}`);
+    } else if (TOUR_TITLE.test((row.Name ?? '').trim()) && tierFor(row.OrganizerType, row.Type) === null) {
+      out.push(`tour-titled but not admitted: ${what}`);
+    }
+  }
+  return out;
+}

@@ -230,3 +230,52 @@ describe('the pre-1997 archive is not a World Championship', () => {
     expect([...new Set(rio.map((r) => r[5]))]).toEqual(['Open']);
   });
 });
+
+// Imported here, beside the only tests that use them, rather than in the block
+// above: two branches editing that one line is a merge conflict for nothing.
+import { EXCLUDED_TYPES, unrecognisedTourRows } from './tiers';
+
+/**
+ * The warning for a tournament the allowlist dropped without anyone deciding
+ * to. "Beach Challenge" is the case it exists for: the third rung of FIVB's
+ * restructured circuit, not yet in VIS, type unknown.
+ */
+describe('unrecognisedTourRows', () => {
+  const row = (Name: string, Type: string, OrganizerType = FIVB_ORGANIZER_TYPE) => ({
+    Name,
+    Type,
+    OrganizerType,
+    Code: 'WXXX2027',
+    Season: '2027',
+  });
+
+  it('flags an FIVB event under a type nobody has decided about', () => {
+    expect(unrecognisedTourRows([row('Beach Challenge Agadir', '56')])).toEqual([
+      'unknown type: Beach Challenge Agadir (WXXX2027, 2027, Type 56)',
+    ]);
+    // Whatever it is called: the number alone is the surprise.
+    expect(unrecognisedTourRows([row('Something new', '60')])).toHaveLength(1);
+  });
+
+  it('flags a tour-titled event filed under a type excluded on purpose, or another organizer', () => {
+    expect(unrecognisedTourRows([row('Beach Challenge Agadir', '15')])[0]).toMatch(/^tour-titled but not admitted/);
+    expect(unrecognisedTourRows([row('BPT Futures Somewhere', '53', '2')])[0]).toMatch(/^tour-titled but not admitted/);
+  });
+
+  it('is quiet on what the allowlist already decided', () => {
+    expect(
+      unrecognisedTourRows([
+        row('Beach Elite Itapema', '51'),
+        row('Beach World Series Dubai', '3'),
+        row('BPT Futures Alanya', '53'),
+        row('CEV EuroBeachVolley 2026', '7'), // continental, excluded on purpose
+        row('NZL NT - Mount Maunganui', '15'), // national tour, excluded on purpose
+        row('Mombasa', '15', '5'), // national federation's own event
+      ]),
+    ).toEqual([]);
+  });
+
+  it('keeps the two lists apart, so no type is both kept and excluded', () => {
+    for (const type of EXCLUDED_TYPES) expect(type in TIER_BY_TYPE, `type ${type}`).toBe(false);
+  });
+});
