@@ -341,10 +341,19 @@ export default function App() {
     });
   }, [selectedId, detailsById, manifest]);
 
-  /** Follow an away partner into the slice they actually live in. */
+  /**
+   * Follow an away partner into the slice they actually live in.
+   *
+   * The threshold goes back to "All" for the reason `selectFieldPlayer` and
+   * `jumpToPlayer` give: it described the graph the reader was reading, and
+   * carried into another country it can hide the partner they just clicked —
+   * at which point the effect that drops a selection the visible graph lacks
+   * closed the card and left a bare country page.
+   */
   const selectAwayPartner = useCallback((partner: AwayPartner) => {
     setCountry(partner.fed);
     setGender(partner.gender);
+    setMinTogether(1);
     setSelectedId(partner.id);
   }, []);
 
