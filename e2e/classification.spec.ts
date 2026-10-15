@@ -50,7 +50,7 @@ function subject() {
       const meta = tournaments[no];
       const code = meta && meta.length > 4 ? meta[4] : null;
       // A shared placement, so the grouping below has something to group.
-      if (code && rank > 3) return { node, code, rank, season: meta[1], name: meta[0] };
+      if (meta && code && rank > 3) return { node, code, rank, season: meta[1], name: meta[0] };
     }
   }
   throw new Error('no player in this slice has a coded tournament');
@@ -180,7 +180,7 @@ test.describe('a tournament’s final classification', () => {
       for (const [no] of sliceResults.players[node.id] ?? []) {
         const meta = tournaments[no];
         const code = meta && meta.length > 4 ? meta[4] : null;
-        if (!code) continue;
+        if (!meta || !code) continue;
         const file = classification(code);
         const ranks = file.teams.map(([r]) => r);
         if (new Set(ranks).size < ranks.length) {

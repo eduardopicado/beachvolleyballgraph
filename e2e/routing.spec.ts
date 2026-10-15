@@ -311,7 +311,6 @@ test.describe('closing a profile opened from elsewhere', () => {
     // link that brought them here, and closing should leave them where they
     // are rather than walk them out of the app.
     await page.goto(`./${TOURNAMENT_PREFIX}/${found!.slug}/`);
-    const tournamentUrl = page.url();
 
     await page.locator('.bands .pair button').first().click();
     await expect(page.locator('.player-card')).toBeVisible();

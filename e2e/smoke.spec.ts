@@ -506,7 +506,6 @@ test.describe('where a player was born', () => {
  */
 test.describe('the partner list heading', () => {
   test('shows the switch instead of a tally that repeats a tile', async ({ page }) => {
-    const detail = players(COUNTRY, GENDER);
     const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
     expect(busiest, 'no players in this slice').toBeTruthy();
 
@@ -669,7 +668,7 @@ test.describe('narrowing the timeline', () => {
     expect(years).toEqual([...years].sort((a, b) => b - a));
   });
 
-  test('names the Games rather than repeating what FIVB typed', async ({ page }) => {
+  test('names the Games rather than repeating what FIVB typed', async () => {
     // FIVB files the 2012 draws as "Olympic Games 2012", which never says
     // London, and the 2021 draws under a season that is not their name.
     const index = tournamentIndex();
@@ -878,7 +877,7 @@ test.describe('cross-country search', () => {
     slice.country !== home.country ? 'elsewhere' : slice.gender === home.gender ? 'home' : 'country';
 
   /** Scan for a query whose eight rows reach every place named. */
-  const queryCovering = (home: Slice, wanted: string[]) => {
+  const queryCovering = (home: Slice, wanted: ReturnType<typeof placeOf>[]) => {
     const index = searchable();
     const seen = new Set<string>();
     for (const player of index) {
