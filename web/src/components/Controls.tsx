@@ -556,7 +556,7 @@ export function Controls({
           })}
         </time>
         <span className="sep">·</span>
-        {plural(manifest.totals.tournaments, 'tournament')}, {manifest.seasons.from}–{manifest.seasons.to}
+        {plural(manifest.totals.tournaments, 'tournament')} since {manifest.seasons.from}
       </p>
     </div>
   );

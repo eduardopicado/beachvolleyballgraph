@@ -142,7 +142,7 @@ function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string;
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro Tour, World Championships and Olympic Games.</p>
 <h2>${esc(graph.countryName)} · ${esc(GENDER_LABEL[graph.gender])}</h2>
-<p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments between ${manifest.seasons.from} and ${manifest.seasons.to}.</p>
+<p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments since ${manifest.seasons.from}.</p>
 <table>
 <caption>${esc(graph.countryName)} ${esc(GENDER_LABEL[graph.gender])} — players, tournaments entered, distinct partners and seasons active</caption>
 <thead><tr><th scope="col">Player</th><th scope="col">Tournaments</th><th scope="col">Partners</th><th scope="col">Seasons</th><th scope="col">Most frequent partner</th></tr></thead>
@@ -237,12 +237,12 @@ function staticFooter(): string {
 export function indexDescription(
   played: number,
   awaiting: number,
-  seasons: { from: number; to: number },
+  seasons: { from: number },
 ): string {
   const n = (value: number) => value.toLocaleString('en-US');
   return (
     `Every FIVB international beach volleyball tournament by season and draw — ` +
-    `${n(played)} played across ${seasons.from}–${seasons.to}` +
+    `${n(played)} played since ${seasons.from}` +
     `${awaiting > 0 ? `, and ${n(awaiting)} awaiting results` : ''}.`
   );
 }
@@ -270,7 +270,7 @@ export function llmsTxt(
 
   return `# Beach Volleyball Partnership Graph
 
-> Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments between ${manifest.seasons.from} and ${manifest.seasons.to}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt daily.
+> Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt daily.
 
 Data as of ${manifest.generatedAt}.
 
@@ -344,7 +344,7 @@ ${headFor(url, title, description)}
 <main>
 <h1>About</h1>
 
-<p><strong>${esc(SITE_NAME)}</strong> maps who has played with whom in FIVB international beach volleyball. Each node is a player; each edge is a partnership, weighted by the tournaments the pair entered together. Currently ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships across ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments, ${manifest.seasons.from}–${manifest.seasons.to}.</p>
+<p><strong>${esc(SITE_NAME)}</strong> maps who has played with whom in FIVB international beach volleyball. Each node is a player; each edge is a partnership, weighted by the tournaments the pair entered together. Currently ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships across ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}.</p>
 
 <h2>Data</h2>
 
@@ -418,7 +418,7 @@ async function main() {
     const url = abs(slice.href);
     const label = GENDER_LABEL[slice.gender];
     const title = `${slice.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${slice.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${graph.nodes.length} players and ${graph.edges.length} partnerships, ${manifest.seasons.from}–${manifest.seasons.to}.`;
+    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${slice.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${graph.nodes.length} players and ${graph.edges.length} partnerships since ${manifest.seasons.from}.`;
 
     // Sibling links: the other gender for this country, then a rotating
     // window of other countries starting just after this one.
@@ -802,7 +802,7 @@ ${staticFooter()}
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
-  const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments, ${manifest.seasons.from}–${manifest.seasons.to}. Pick a country and gender to see the partnership graph.`;
+  const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments since ${manifest.seasons.from}. Pick a country and gender to see the partnership graph.`;
   /**
    * The "start here" strip, in static HTML.
    *
@@ -865,7 +865,9 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
             dateModified: manifest.generatedAt,
             license: 'https://www.fivb.org/VisSDK/VisWebService/',
             creator: { '@type': 'Organization', name: 'FIVB', url: 'https://www.fivb.com/' },
-            temporalCoverage: `${manifest.seasons.from}/${manifest.seasons.to}`,
+            // Open-ended (ISO 8601 `start/..`), for the same reason every
+            // sentence on the site says "since": see `Manifest.seasons`.
+            temporalCoverage: `${manifest.seasons.from}/..`,
             keywords: ['beach volleyball', 'FIVB', 'Beach Pro Tour', 'partnerships', 'network graph'],
           },
         ],
