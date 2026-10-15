@@ -35,7 +35,7 @@ import { fileURLToPath } from 'node:url';
 
 import { fetchList } from './vis.js';
 import { fetchFederations, countryName, countryIso2 } from './countries.js';
-import { TIER_LABEL, INCLUDE_AGE_GROUP } from './tiers.js';
+import { TIER_LABEL, INCLUDE_AGE_GROUP, unrecognisedTourRows } from './tiers.js';
 import {
   aggregateMedals,
   aggregatePartnerships,
@@ -251,6 +251,19 @@ async function main() {
   const cancelled = tournamentRows.filter(isCancelled).length;
   log('tournaments', `${tournaments.size} of ${tournamentRows.length} qualify (${seasonFrom}-${seasonTo})`);
   log('cancelled', `${cancelled} called-off events excluded (VIS marks these in the tournament name)`);
+
+  // The allowlist drops a type it has never seen without a word, and FIVB is
+  // mid-restructure — see unrecognisedTourRows. A warning rather than a
+  // failure: refusing to publish would stop the daily refresh over an event
+  // that may well belong outside the graph. In GitHub Actions each line also
+  // becomes an annotation on the run page, where a passing run is otherwise
+  // never looked at.
+  const unrecognised = unrecognisedTourRows(tournamentRows.filter((r) => !isCancelled(r)));
+  for (const line of unrecognised) {
+    console.warn(`  ! ${line}`);
+    if (process.env.GITHUB_ACTIONS) console.log(`::warning title=FIVB tournament not admitted::${line}`);
+  }
+  log('types', unrecognised.length === 0 ? 'every FIVB tour event has a known type' : `${unrecognised.length} FIVB events to look at — see the warnings above`);
 
   // --- Stage 2: players ----------------------------------------------------
   // Unfiltered: a few thousand players who entered FIVB beach events are not
