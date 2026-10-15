@@ -1,4 +1,6 @@
-# Security updates only, as pull requests, never merged by anything but a person.
+# npm: security updates only. GitHub Actions: a monthly grouped bump (see the
+# second entry for why they differ). Pull requests either way, never merged by
+# anything but a person.
 #
 # Two things have to be true for a vulnerable dependency to become a PR here:
 #
@@ -28,5 +30,23 @@ updates:
     groups:
       security:
         applies-to: security-updates
+        patterns:
+          - "*"
+
+  # GitHub Actions get version updates as well, where npm gets none, because
+  # actions do not wait for a reason of ours to break: GitHub retires the Node
+  # runtime an action major runs on and the workflow fails from that day on,
+  # whether or not anything here changed. One grouped PR a month, covering the
+  # workflows and the composite actions under .github/actions, keeps that from
+  # arriving as a red deploy.
+  - package-ecosystem: github-actions
+    directories:
+      - /
+      - /.github/actions/*
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 1
+    groups:
+      actions:
         patterns:
           - "*"
