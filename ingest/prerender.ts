@@ -31,7 +31,7 @@ import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
-import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../shared/site.js';
+import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL, sliceHead } from '../shared/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -417,8 +417,12 @@ async function main() {
     tallySlice(graph, shape);
     const url = abs(slice.href);
     const label = GENDER_LABEL[slice.gender];
-    const title = `${slice.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${slice.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${graph.nodes.length} players and ${graph.edges.length} partnerships since ${manifest.seasons.from}.`;
+    const { title, description } = sliceHead(
+      slice.name,
+      slice.gender,
+      { players: graph.nodes.length, partnerships: graph.edges.length },
+      manifest.seasons.from,
+    );
 
     // Sibling links: the other gender for this country, then a rotating
     // window of other countries starting just after this one.
