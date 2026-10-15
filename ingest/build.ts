@@ -548,18 +548,8 @@ export function aggregateMedals(
 }
 
 /**
- * The two tiers that make up the FIVB tour, whatever it has been called.
- *
- * Age-group world championships are excluded — they are world-level events,
- * but they are not the senior tour and a U19 title next to a Grand Slam title
- * would flatter the wrong careers. The Olympics and the World Championships
- * are excluded because they are counted separately and more precisely.
- */
-
-
-/**
- * Per-player podium counts across the tour: 1,552 of the 1,688 qualifying
- * tournaments.
+ * Per-player podium counts across the tour (`TOUR_TIERS`): 1,562 of the 1,698
+ * qualifying tournaments on 15 October 2026.
  *
  * Deliberately mixes levels. A 2019 4-star, a 2015 Grand Slam and a 2024
  * Elite16 all count as one gold, and there is no honest alternative: FIVB has

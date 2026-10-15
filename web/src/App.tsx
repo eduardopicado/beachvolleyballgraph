@@ -297,14 +297,6 @@ export default function App() {
   );
 
   /**
-   * The selected player's partners from other federations, resolved against
-   * the manifest so each one can carry its own flag and country name.
-   *
-   * `linkable` is false when that country x gender slice was too small to
-   * publish (fewer than two players): the partner is real and still worth
-   * naming, but there is no page to send anyone to.
-   */
-  /**
    * Federation code -> ISO-2, for flags on federations that are not the slice's
    * own. The manifest is the only place that mapping exists on the client, and
    * a tournament's classification is full of them: Paris 2024 alone draws teams
@@ -315,6 +307,14 @@ export default function App() {
     [manifest],
   );
 
+  /**
+   * The selected player's partners from other federations, resolved against
+   * the manifest so each one can carry its own flag and country name.
+   *
+   * `linkable` is false when that country x gender slice was too small to
+   * publish (fewer than two players): the partner is real and still worth
+   * naming, but there is no page to send anyone to.
+   */
   const awayRows: AwayRow[] = useMemo(() => {
     const list = selectedId ? (detailsById.get(selectedId)?.away ?? []) : [];
     const named = (code: string) => {
