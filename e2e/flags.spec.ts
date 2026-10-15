@@ -13,29 +13,31 @@ import { test, expect } from './fixtures.js';
 
 const FONT = 'Twemoji Country Flags';
 
-/** Answer the polyfill's canvas probe: colour emoji always, flags only if `flags`. */
-function stageEmojiSupport(flags: boolean) {
-  return ({ flags }: { flags: boolean }) => {
-    let lastText = '';
-    let lastFill = '';
-    const fillText = CanvasRenderingContext2D.prototype.fillText;
-    CanvasRenderingContext2D.prototype.fillText = function (text: string, x: number, y: number) {
-      lastText = text;
-      lastFill = String(this.fillStyle);
-      return fillText.call(this, text, x, y);
-    };
-    CanvasRenderingContext2D.prototype.getImageData = function () {
-      // Regional indicators start at U+1F1E6; anything else is the smiley.
-      const isFlag = (lastText.codePointAt(0) ?? 0) >= 0x1f1e6 && (lastText.codePointAt(0) ?? 0) <= 0x1f1ff;
-      const colour = !isFlag || flags;
-      const px = colour ? [230, 180, 20, 255] : lastFill === '#ffffff' ? [255, 255, 255, 255] : [0, 0, 0, 255];
-      return { data: new Uint8ClampedArray(px), width: 1, height: 1, colorSpace: 'srgb' } as ImageData;
-    };
+/**
+ * Answer the polyfill's canvas probe: colour emoji always, flags only if
+ * `flags`. Runs in the page, so it takes its argument the way
+ * `addInitScript` passes one rather than closing over it.
+ */
+function stageEmojiSupport({ flags }: { flags: boolean }) {
+  let lastText = '';
+  let lastFill = '';
+  const fillText = CanvasRenderingContext2D.prototype.fillText;
+  CanvasRenderingContext2D.prototype.fillText = function (text: string, x: number, y: number) {
+    lastText = text;
+    lastFill = String(this.fillStyle);
+    return fillText.call(this, text, x, y);
+  };
+  CanvasRenderingContext2D.prototype.getImageData = function () {
+    // Regional indicators start at U+1F1E6; anything else is the smiley.
+    const isFlag = (lastText.codePointAt(0) ?? 0) >= 0x1f1e6 && (lastText.codePointAt(0) ?? 0) <= 0x1f1ff;
+    const colour = !isFlag || flags;
+    const px = colour ? [230, 180, 20, 255] : lastFill === '#ffffff' ? [255, 255, 255, 255] : [0, 0, 0, 255];
+    return { data: new Uint8ClampedArray(px), width: 1, height: 1, colorSpace: 'srgb' } as ImageData;
   };
 }
 
 test('a browser that cannot draw flags gets the flag font, from this site', async ({ page }) => {
-  await page.addInitScript(stageEmojiSupport(false), { flags: false });
+  await page.addInitScript(stageEmojiSupport, { flags: false });
   const fontRequests: string[] = [];
   page.on('request', (r) => {
     if (/\.woff2(\?|$)/.test(r.url())) fontRequests.push(r.url());
@@ -63,7 +65,7 @@ test('a browser that cannot draw flags gets the flag font, from this site', asyn
 });
 
 test('a browser that draws flags itself downloads nothing extra', async ({ page }) => {
-  await page.addInitScript(stageEmojiSupport(true), { flags: true });
+  await page.addInitScript(stageEmojiSupport, { flags: true });
   const fontRequests: string[] = [];
   page.on('request', (r) => {
     if (/\.woff2(\?|$)/.test(r.url())) fontRequests.push(r.url());
