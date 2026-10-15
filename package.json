@@ -21,6 +21,7 @@
     "lint": "eslint . && stylelint \"web/src/**/*.css\""
   },
   "dependencies": {
+    "country-flag-emoji-polyfill": "^0.1.10",
     "d3-force": "^3.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
