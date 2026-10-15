@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { tournamentSlugFromPath } from './TournamentRoute';
+import { tournamentSlugFromPath } from './tournamentRoute';
 
 describe('tournamentSlugFromPath', () => {
   it('reads the slug under the tournament prefix', () => {
