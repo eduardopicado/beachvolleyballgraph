@@ -67,10 +67,16 @@ const player = (no: number, gender: '0' | '1', fed: string): VisRow => ({
   FederationCode: fed,
 });
 
+/**
+ * A team row that was played. `Rank` 9 — the commonest placing — because VIS
+ * sends a rank on every row, and a fixture without one only passed while a
+ * missing rank was taken for a played one (see `rankOf`).
+ */
 const entry = (tour: string, a: number, b: number): VisRow => ({
   NoTournament: tour,
   NoPlayer1: String(a),
   NoPlayer2: String(b),
+  Rank: '9',
 });
 
 /** An entry that finished somewhere, for the best-finish tests. */
@@ -595,6 +601,19 @@ describe('aggregatePartnerships', () => {
     expect(rejects.didNotPlay).toBe(1);
   });
 
+  it('treats a row with no Rank at all as never played, not as a result', () => {
+    // VIS sends `Rank` on every team row today, blank or 0 when unplayed. Were
+    // it ever left off — a request that stopped asking for it, an upstream
+    // change — `Number(undefined)` is NaN, which is not 0, and every such row
+    // would have counted as played and published a null rank.
+    const missing: VisRow = { NoTournament: 't1', NoPlayer1: '1', NoPlayer2: '2' };
+    const garbled: VisRow = { ...missing, Rank: 'n/a' };
+    const { partnerships, appearances, rejects } = aggregatePartnerships([missing, garbled], tournaments, players);
+    expect(partnerships.size).toBe(0);
+    expect(appearances.size).toBe(0);
+    expect(rejects.didNotPlay).toBe(2);
+  });
+
   it('keeps a negative Rank -- a real qualification/quota elimination, not a no-show', () => {
     const { partnerships } = aggregatePartnerships(
       [{ ...entry('t1', 1, 2), Rank: '-2' }, { ...entry('t2', 1, 2), Rank: '-25' }],
@@ -1077,6 +1096,10 @@ describe('awayPartnersByPlayer', () => {
         t: 2,
         f: 2023,
         l: 2024,
+        // Their best finish together. Absent from this expectation until the
+        // fixture carried a rank: rows without one were taken as played with
+        // a NaN rank, which left `r` off.
+        r: 9,
         // The same per-season shape a graph edge carries, so the card can run
         // both through one timeline.
         s: [
@@ -2066,6 +2089,12 @@ describe('finishedWithoutResults', () => {
       { ...entry('1', 1, 2), Rank: '' },
       { ...entry('1', 3, 4), Rank: '0' },
     ];
+    expect(finishedWithoutResults(tournaments, rows, '2026-08-17').map((t) => t.no)).toEqual(['1']);
+  });
+
+  it('does not take a row with no Rank for a result', () => {
+    const tournaments = normaliseTournaments([dated('1', '2026-08-16')]);
+    const rows: VisRow[] = [{ NoTournament: '1', NoPlayer1: '1', NoPlayer2: '2' }];
     expect(finishedWithoutResults(tournaments, rows, '2026-08-17').map((t) => t.no)).toEqual(['1']);
   });
 

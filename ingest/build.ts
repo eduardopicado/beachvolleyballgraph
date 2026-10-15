@@ -459,6 +459,22 @@ export function tournamentMeta(t: Tournament): TournamentMeta {
 }
 
 /**
+ * A team row's placement, or null for a row that never played.
+ *
+ * `Rank` 0 or blank is VIS's "registered, never competed" — the rule that
+ * separates an entry from a result (HANDOVER, "things that will bite you" #1).
+ * Anything that is not a finite number is treated the same way rather than let
+ * through: `Number(undefined)` is NaN, and NaN is not 0, so a row without the
+ * attribute used to count as played and publish a null rank. Negative ranks
+ * are real (a qualification or quota elimination) and are kept.
+ */
+export function rankOf(row: VisRow): number | null {
+  // Number('') and Number('  ') are both 0, so blank needs no case of its own.
+  const rank = Number(row.Rank ?? 0);
+  return Number.isFinite(rank) && rank !== 0 ? rank : null;
+}
+
+/**
  * Tournaments that have finished and still have no result at all: every team
  * row carrying `Rank` 0 or blank, which the aggregation reads as "registered
  * but never played" (docs/fivb-data-quirks.md §3).
@@ -482,7 +498,7 @@ export function finishedWithoutResults(
 ): Tournament[] {
   const withAResult = new Set<string>();
   for (const row of teamRows) {
-    if (Number(row.Rank) !== 0) withAResult.add((row.NoTournament ?? '').trim());
+    if (rankOf(row) !== null) withAResult.add((row.NoTournament ?? '').trim());
   }
   const day = asOf.slice(0, 10);
   return [...tournaments.values()]
@@ -1529,8 +1545,8 @@ export function aggregatePartnerships(
       }
     }
 
-    const rank = Number(row.Rank);
-    if (rank === 0) {
+    const rank = rankOf(row);
+    if (rank === null) {
       rejects.didNotPlay++;
       continue;
     }
