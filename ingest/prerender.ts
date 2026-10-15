@@ -62,8 +62,15 @@ const abs = (p: string) => `${SITE_URL}${p}`;
 /** "54.2%" — one decimal, and never NaN on an empty dataset. */
 const pct = (n: number, of: number) => `${of > 0 ? ((100 * n) / of).toFixed(1) : '0.0'}%`;
 
+/**
+ * The page component each prerendered page boots into — the module `main.tsx`
+ * imports for that address, named as Vite's build manifest names it.
+ */
+type Route = 'src/App.tsx' | 'src/TournamentRoute.tsx' | 'src/TournamentIndexRoute.tsx' | 'src/RecordsRoute.tsx';
+
 interface Page {
   slug: string;
+  route: Route;
   url: string;
   title: string;
   description: string;
@@ -379,6 +386,37 @@ ${headFor(url, title, description)}
 `;
 }
 
+/** One entry of `dist/.vite/manifest.json`, the fields read here. */
+interface ManifestChunk {
+  file: string;
+  imports?: string[];
+  isEntry?: boolean;
+}
+
+/**
+ * The chunks a page's component needs, for `<link rel="modulepreload">`.
+ *
+ * `main.tsx` imports each page's component only once the address has chosen
+ * it, so without these the browser would learn of the chunk a round trip
+ * late: entry first, then the page. Listed in the head, both download at
+ * once.
+ *
+ * Walks `imports` because shared code is chunks of its own. Stops at the
+ * entry, which the template's own script tag already loads.
+ */
+export function routeChunks(viteManifest: Record<string, ManifestChunk>, route: Route): string[] {
+  const files = new Set<string>();
+  const visit = (key: string) => {
+    const chunk = viteManifest[key];
+    if (!chunk) throw new Error(`Vite manifest has no entry for ${key}`);
+    if (chunk.isEntry || files.has(chunk.file)) return;
+    files.add(chunk.file);
+    for (const dep of chunk.imports ?? []) visit(dep);
+  };
+  visit(route);
+  return [...files];
+}
+
 async function main() {
   if (!existsSync(DIST)) throw new Error('dist/ missing — run `vite build` first');
   if (!existsSync(DATA)) throw new Error('web/public/v1 missing — run `npm run ingest` first');
@@ -387,6 +425,9 @@ async function main() {
   }
 
   const template = await readFile(path.join(DIST, 'index.html'), 'utf8');
+  const viteManifest: Record<string, ManifestChunk> = JSON.parse(
+    await readFile(path.join(DIST, '.vite', 'manifest.json'), 'utf8'),
+  );
   const manifest: Manifest = JSON.parse(await readFile(path.join(DATA, 'manifest.json'), 'utf8'));
 
   // Every published slice, in a stable order.
@@ -478,6 +519,7 @@ async function main() {
 
     pages.push({
       slug: slice.slug,
+      route: 'src/App.tsx',
       url: slice.href,
       title,
       description,
@@ -626,6 +668,7 @@ async function main() {
 
     pages.push({
       slug: `tournament/${slug}`,
+      route: 'src/TournamentRoute.tsx',
       url: href,
       title: `${title} — ${SITE_NAME}`,
       description,
@@ -712,6 +755,7 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
 
   pages.push({
     slug: INDEX_PREFIX,
+    route: 'src/TournamentIndexRoute.tsx',
     url: indexHref,
     title: indexTitle,
     description,
@@ -775,6 +819,7 @@ ${staticFooter()}
 
   pages.push({
     slug: RECORDS_PREFIX,
+    route: 'src/RecordsRoute.tsx',
     url: recordsHref,
     title: recordsTitle,
     description: recordsDescription,
@@ -842,6 +887,7 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
 
   pages.push({
     slug: '',
+    route: 'src/App.tsx',
     url: BASE,
     title: homeTitle,
     description: homeDescription,
@@ -883,8 +929,11 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
     // instead of itself. No name in the current archive has one, so this is
     // hardening rather than a live fix, but the failure mode is silent
     // corruption of a published page and the guard costs nothing.
+    const preload = routeChunks(viteManifest, page.route)
+      .map((file) => `<link rel="modulepreload" crossorigin href="${BASE}${file}">`)
+      .join('');
     let html = template;
-    html = html.replace('</head>', () => `${page.head}</head>`);
+    html = html.replace('</head>', () => `${preload}${page.head}</head>`);
     html = html.replace('<div id="root"></div>', () => `<div id="root">${page.body}</div>`);
     // The static <title> in index.html is generic; each page overrides it.
     html = html.replace(/<title>.*?<\/title>/, () => `<title>${esc(page.title)}</title>`);

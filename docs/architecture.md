@@ -250,7 +250,17 @@ It has **no automatic gate** against `deploy.yml` — disable one by hand.
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
 **Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.
-242 KB of JavaScript, 78 KB gzipped.
+
+**Each page type is its own chunk.** `main.tsx` reads the address and imports
+only that page's component, so a tournament page loads 166 KB of JavaScript
+(55 KB gzipped) and the graph page 231 KB (77 KB) — measured 15 October 2026,
+against 248 KB (80 KB) for every page before the split. The 153 KB entry is
+mostly React. The prerenderer reads Vite's build manifest and preloads each
+page's chunks from its head, so the split costs no round trip. The
+stylesheet is deliberately *not* split: one 49 KB file (8 KB gzipped) for
+every page, because components lean on rules from other pages' CSS
+(`.sr-only`, `.segmented`, the `main` layout) and splitting it broke the
+tournament page.
 
 Deliberately not used:
 
@@ -261,7 +271,7 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 44 KB of CSS, linted by
+  component has a sibling stylesheet. The whole site is 49 KB of CSS, linted by
   `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
   closing brace without complaint, so nothing else would catch one.
 - **No data-fetching library.** Six `fetch` calls behind a memoising map.
