@@ -3,14 +3,13 @@ import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetai
 import { GENDERS } from '../../shared/schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
 import { flagEmoji, formatMedals, plural } from './lib/format';
-import { CONTACT_EMAIL, SOURCE_NAME, SOURCE_URL } from '../../shared/site';
+import { CONTACT_EMAIL, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
 import { indexPath } from './lib/indexRoute';
 import { recordsPagePath } from './lib/recordsRoute';
 import type { SearchablePlayer } from './lib/search';
-import { GENDER_LABEL } from '../../shared/schema';
 import { sliceSlug, slugFromPath } from '../../shared/slug';
 import { PartnershipGraph } from './components/PartnershipGraph';
 import { PathPanel } from './components/PathPanel';
@@ -218,10 +217,13 @@ export default function App() {
     const url = `${base}${sliceSlug(entry.name, gender)}/${query ? `?${query}` : ''}`;
     history.replaceState(null, '', url);
 
-    const label = GENDER_LABEL[gender];
     const counts = entry.genders[gender];
-    const title = `${entry.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships since ${manifest.seasons.from}.`;
+    const { title, description } = sliceHead(
+      entry.name,
+      gender,
+      { players: counts?.nodes ?? 0, partnerships: counts?.edges ?? 0 },
+      manifest.seasons.from,
+    );
 
     document.title = title;
     setHeadTag('link[rel="canonical"]', 'href', new URL(url, location.origin).toString());
