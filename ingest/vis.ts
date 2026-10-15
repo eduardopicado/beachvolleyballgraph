@@ -121,29 +121,18 @@ export async function fetchRaw(xml: string, label = 'request'): Promise<string> 
  * Fetch one VIS list request, retrying transient failures with exponential
  * backoff. Throws once attempts are exhausted — callers should let that fail
  * the whole run rather than publish a partial graph.
+ *
+ * The retry is `fetchRaw`'s; only the parse is this function's. A VIS error
+ * document is a well-formed 200 that `extractRows` rejects, and it is not
+ * retried: the request itself is wrong and asking again gets the same answer.
  */
 export async function fetchList(req: VisRequest): Promise<VisRow[]> {
-  const xml = buildXml(req);
-  let lastError: unknown;
-
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    try {
-      const body = await postOnce(xml);
-      return extractRows(body, req.itemTag);
-    } catch (err) {
-      lastError = err;
-      const retryable =
-        (err as { retryable?: boolean }).retryable !== false &&
-        (err instanceof TypeError || // network-level failure
-          (err as Error).name === 'AbortError' ||
-          (err as { retryable?: boolean }).retryable === true);
-      if (!retryable || attempt === MAX_ATTEMPTS) break;
-      const wait = BASE_BACKOFF_MS * 2 ** (attempt - 1);
-      console.warn(`  ${req.type}: attempt ${attempt} failed (${(err as Error).message}); retrying in ${wait}ms`);
-      await sleep(wait);
-    }
+  const body = await fetchRaw(buildXml(req), req.type);
+  try {
+    return extractRows(body, req.itemTag);
+  } catch (err) {
+    throw new Error(`${req.type}: ${(err as Error).message}`, { cause: err });
   }
-  throw new Error(`${req.type} failed after ${MAX_ATTEMPTS} attempts: ${(lastError as Error)?.message}`);
 }
 
 const ENTITIES: Record<string, string> = {
@@ -211,7 +200,7 @@ export function extractRows(body: string, itemTag: string): VisRow[] {
 
   if (rows.length === 0) {
     const fault = /<(?:faultstring|BadParameter|ParameterMissing|Error)[^>]*>([\s\S]*?)<\//.exec(body);
-    if (fault) throw Object.assign(new Error(`VIS error: ${fault[1]}`), { retryable: false });
+    if (fault) throw new Error(`VIS error: ${fault[1]}`);
   }
   return rows;
 }
