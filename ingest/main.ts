@@ -81,7 +81,7 @@ import type {
   SearchEntry,
   TournamentMeta,
 } from '../shared/schema.js';
-import { DATA_VERSION, RECORD_KEYS } from '../shared/schema.js';
+import { DATA_VERSION, RECORD_KEYS, RESULT_LAG_DAYS } from '../shared/schema.js';
 import { foldAccents } from '../shared/fold.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -93,14 +93,6 @@ const OLD_DIR = path.join(PUBLIC_DIR, `${DATA_VERSION}.old`);
 
 /** Slices smaller than this have no graph worth drawing. */
 const MIN_NODES = 2;
-
-/**
- * How recently an event must have finished for missing placements to read as
- * FIVB still catching up rather than a record that never had a result. Set
- * well past the observed lag — the one case measured resolved in days — so a
- * genuinely stuck event still surfaces by name.
- */
-const RECENT_RESULT_DAYS = 30;
 
 function log(step: string, detail: string) {
   console.log(`[${new Date().toISOString().slice(11, 19)}] ${step.padEnd(12)} ${detail}`);
@@ -316,7 +308,7 @@ async function main() {
   // error, and the first anyone knew of the lag was a reader asking where a
   // result went (BPT Futures Busan, 16 August 2026).
   const awaiting = finishedWithoutResults(tournaments, teamRows, generatedAt);
-  const recentCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000)
+  const recentCutoff = new Date(Date.parse(generatedAt) - RESULT_LAG_DAYS * 86_400_000)
     .toISOString()
     .slice(0, 10);
   const recent = awaiting.filter((t) => (t.endsOn ?? '') >= recentCutoff);
@@ -777,7 +769,7 @@ async function main() {
    * genuinely useful thing to show for a week that has not happened.
    *
    * Written for every fieldless tournament the index shows, which is the same
-   * window `RESULT_LAG_DAYS` defines there: still to come, or played so
+   * window, `RESULT_LAG_DAYS`: still to come, or played so
    * recently that FIVB has not written placements yet. A cancellation from
    * 2004 gets nothing, having neither a result nor a future.
    *
@@ -786,7 +778,7 @@ async function main() {
    * entries yet" instead of failing to load.
    */
   await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
-  const lagCutoff = new Date(Date.parse(generatedAt) - RECENT_RESULT_DAYS * 86_400_000);
+  const lagCutoff = new Date(Date.parse(generatedAt) - RESULT_LAG_DAYS * 86_400_000);
   // What each `Status` and `Type` value means, and the evidence for it, lives
   // with `entryStatus` and `ENTRY_ROUTE` in build.ts. Status 1 rows -- entries
   // superseded by a later one -- are the ones that made one player appear in
