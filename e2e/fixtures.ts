@@ -19,6 +19,15 @@
  *    filter until it could hide a genuine failed fetch. A 200 makes the noise
  *    not exist instead of teaching the guard to ignore it, and keeps the suite
  *    free of outbound network calls either way.
+ *
+ * 3. A missing-data guard. Any `/v1/` response that is not a 200 carrying
+ *    JSON fails the test. `vite preview` answers a path it has no file for
+ *    with index.html and a 200, so a request for a file the ingest never
+ *    wrote looks like success to the page's own error handling — the app
+ *    fails to parse it, falls back quietly, and the suite stays green. That
+ *    is how a classification fetch for every unplayed event shipped: a 404 on
+ *    the live site, invisible here. Checked on the content type because the
+ *    status alone cannot see it.
  */
 
 import { test as base, expect } from '@playwright/test';
@@ -146,6 +155,14 @@ export const test = base.extend<{ jsErrors: string[] }>({
 
       const errors: string[] = [];
       page.on('pageerror', (err) => errors.push(`uncaught: ${err.message}`));
+      page.on('response', (res) => {
+        const url = new URL(res.url());
+        if (!url.pathname.includes('/v1/')) return;
+        const type = res.headers()['content-type'] ?? '';
+        // 304 is the browser revalidating a file it already holds as JSON.
+        if (res.status() === 304 || (res.status() === 200 && type.includes('json'))) return;
+        errors.push(`data file missing: ${url.pathname} answered ${res.status()} ${type || '(no type)'}`);
+      });
       page.on('console', (msg) => {
         if (msg.type() !== 'error') return;
         // A portrait that 404s is the designed path, not a fault: FIVB has no

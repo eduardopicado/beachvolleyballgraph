@@ -15,7 +15,7 @@
  * letting the page assert something false about a real career.
  */
 
-import { test, expect, manifest } from './fixtures.js';
+import { test, expect } from './fixtures.js';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { tournamentSlugs, TOURNAMENT_PREFIX } from '../shared/slug.js';

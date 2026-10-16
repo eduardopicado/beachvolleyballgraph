@@ -76,6 +76,26 @@ export default tseslint.config(
     },
   },
 
+  // --- browser tests and root config -----------------------------------
+  //
+  // Both globals: a spec runs under Node, and the callbacks it hands to
+  // `page.evaluate` run in the page. Typechecked too (tsconfig.json), which
+  // they were not until the suite had nine errors nobody had seen.
+  {
+    files: ['e2e/**/*.ts', '*.config.{js,ts}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: { ...globals.node, ...globals.browser },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+    },
+  },
+
   // --- tests ---------------------------------------------------------------
   {
     files: ['**/*.test.ts', '**/*.test.tsx'],
