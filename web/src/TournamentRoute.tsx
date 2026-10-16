@@ -78,10 +78,12 @@ export default function TournamentRoute({ slug }: { slug: string }) {
   /** The same event's other draw, when it ran one. */
   const counterpart = useMemo(() => (found ? drawCounterpart(rows, found) : null), [rows, found]);
 
-  const classification = useClassification(found?.code ?? null);
-
-  // Only for an event with no field: a played one has a classification, and
-  // fetching an entry list that was never written would be a guaranteed 404.
+  // Each file only for the events that have one. A played event has a
+  // classification and no entry list; one still to be decided has the
+  // reverse. Asking for the other is a guaranteed 404 — and the classification
+  // was being asked for on every entry-list page, where the page then ignores
+  // it anyway (TournamentPage draws the entry list whenever `entries` is set).
+  const classification = useClassification(found?.played ? found.code : null);
   const entries = useEntries(found && !found.played ? found.code : null);
 
   /*

@@ -615,7 +615,16 @@ export interface Manifest {
   generatedAt: string;
   /** Highest tournament `Version` seen upstream — changes when FIVB edits data. */
   sourceVersion: string;
-  /** Seasons covered by the qualifying tournament set. */
+  /**
+   * Seasons covered by the qualifying tournament set — **scheduled as well as
+   * played.** FIVB publishes events well ahead, so `to` is routinely next year
+   * (2027, with nothing yet played in it, when this was written).
+   *
+   * So no reader-facing sentence prints `from–to`: "1987–2027" claims a season
+   * that has not happened. The site says "since {from}" everywhere instead, and
+   * `to` stays published for what it is — the newest season FIVB has put
+   * anything into.
+   */
   seasons: { from: number; to: number };
   totals: {
     tournaments: number;
