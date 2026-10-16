@@ -68,7 +68,7 @@ import {
 import { checkForRegression, type DatasetTotals } from './regression.js';
 import { SERIES, seriesFor, type SeriesEdition } from './series.js';
 import { tournamentSlugs } from '../shared/slug.js';
-import { verifyTeammates } from './teammates.js';
+import { describeMismatches, verifyTeammates, type TeammateCheck } from './teammates.js';
 import { fetchWikidataNames, newNamesFor, type WikidataNames } from './aliases.js';
 import type { FederationConflict } from './federations.js';
 import type {
@@ -1058,34 +1058,33 @@ async function main() {
     for (const partner of list) published.get(id)!.add(partner.id);
   }
 
+  // The try holds the network call and nothing else. It used to hold the
+  // verdict too, and tell its own refusal apart from a failure to reach VIS by
+  // the message starting "Refusing to publish" — so rewording the refusal
+  // would have turned it into a warning and published anyway.
+  let check: TeammateCheck | null = null;
   try {
-    const check = await verifyTeammates(published);
-    const detail =
-      `${check.agreed}/${check.checked} sampled players match FIVB's own teammate list` +
-      (check.unanswered ? `, ${check.unanswered} unanswered` : '');
-    if (check.mismatches.length === 0) {
-      log('teammates', detail);
-    } else {
+    check = await verifyTeammates(published);
+  } catch (err) {
+    console.warn(`  ! teammate cross-check skipped: ${(err as Error).message}`);
+  }
+  if (check) {
+    const mismatch = describeMismatches(check);
+    if (mismatch === null) {
+      log(
+        'teammates',
+        `${check.agreed}/${check.checked} sampled players match FIVB's own teammate list` +
+          (check.unanswered ? `, ${check.unanswered} unanswered` : ''),
+      );
+    } else if (process.env.ALLOW_TEAMMATE_MISMATCH === 'true') {
       // Measured at exactly zero across every published player, so any
       // non-zero result is worth stopping for rather than logging past. The
       // escape hatch mirrors ALLOW_DATA_REGRESSION: deliberate, explicit, and
       // loud in the run output either way.
-      const rows = check.mismatches
-        .slice(0, 10)
-        .map((m) => `    player ${m.player} -> partners VIS does not list: ${m.missing.join(', ')}`)
-        .join('\n');
-      const more = check.mismatches.length > 10 ? `\n    ...and ${check.mismatches.length - 10} more` : '';
-      const message = `${check.mismatches.length} of ${check.checked} sampled players carry a partnership FIVB has no record of:\n${rows}${more}`;
-      if (process.env.ALLOW_TEAMMATE_MISMATCH === 'true') {
-        console.warn(`  ! teammate check bypassed (ALLOW_TEAMMATE_MISMATCH=true):\n  ${message}`);
-      } else {
-        throw new Error(`Refusing to publish — ${message}`);
-      }
+      console.warn(`  ! teammate check bypassed (ALLOW_TEAMMATE_MISMATCH=true):\n  ${mismatch}`);
+    } else {
+      throw new Error(`Refusing to publish — ${mismatch}`);
     }
-  } catch (err) {
-    // Rethrow the mismatch above; swallow only the "could not ask" case.
-    if (err instanceof Error && err.message.startsWith('Refusing to publish')) throw err;
-    console.warn(`  ! teammate cross-check skipped: ${(err as Error).message}`);
   }
 
   const regressions = checkForRegression(previousTotals, manifest.totals);
