@@ -48,6 +48,7 @@ import {
   medalTournaments,
   normalisePlayers,
   normaliseTournaments,
+  tournamentMeta,
   sliceByCountryAndGender,
   aggregateEntries,
   entryOrder,
@@ -424,31 +425,7 @@ async function main() {
   // exactly the thing worth being able to look up.
   const tournamentIndex: Record<string, TournamentMeta> = {};
   for (const t of [...tournaments.values()].sort((a, b) => Number(a.no) - Number(b.no))) {
-    // Appended rather than slotted in, so every existing index keeps its
-    // meaning and this stays an additive change to a published contract.
-    //
-    // Country and span are populated on every qualifying tournament, so in
-    // practice every row now runs to eight — and the level slot, which used to
-    // be dropped for the Olympics, the World Championships and the age-group
-    // championships, has to be written as an explicit null to hold the place.
-    // The shorter forms are kept for the rows that carry no code at all, and
-    // for a future refresh where a country genuinely cannot be read.
-    //
-    // `gender` rides along with them because the two readers that need it need
-    // it for the same reason: a tournament's own page is addressed by a slug
-    // that includes the draw, and the index flips between the men's and
-    // women's calendars. Both would otherwise have to open a classification
-    // file per tournament to learn it, and neither can read it off the code --
-    // `WWRS2022` is a men's field under a `W` (quirks §23).
-    tournamentIndex[t.no] = t.code
-      ? t.country !== null || t.span !== null
-        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span, t.gender]
-        : t.level
-          ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level]
-          : [t.name, t.season, t.tier, t.startOffset, t.code]
-      : t.startOffset === null
-        ? [t.name, t.season, t.tier]
-        : [t.name, t.season, t.tier, t.startOffset];
+    tournamentIndex[t.no] = tournamentMeta(t);
   }
   await writeFile(
     path.join(TMP_DIR, 'tournaments.json'),
