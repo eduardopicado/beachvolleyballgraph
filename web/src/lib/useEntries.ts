@@ -16,16 +16,19 @@ export type EntriesState =
   | { status: 'ready'; data: EntriesFile }
   | { status: 'failed' };
 
+const LOADING: EntriesState = { status: 'loading' };
+
 export function useEntries(code: string | null): EntriesState | null {
-  const [state, setState] = useState<EntriesState>({ status: 'loading' });
+  // Held with the code it answers, for the reason `useClassification` gives:
+  // otherwise the first render after the code changes shows the old list.
+  const [held, setHeld] = useState<{ code: string; state: EntriesState } | null>(null);
 
   useEffect(() => {
     if (!code) return;
     let cancelled = false;
-    setState({ status: 'loading' });
     fetchEntries(code)
-      .then((data) => !cancelled && setState({ status: 'ready', data }))
-      .catch(() => !cancelled && setState({ status: 'failed' }));
+      .then((data) => !cancelled && setHeld({ code, state: { status: 'ready', data } }))
+      .catch(() => !cancelled && setHeld({ code, state: { status: 'failed' } }));
     return () => {
       cancelled = true;
     };
@@ -33,5 +36,6 @@ export function useEntries(code: string | null): EntriesState | null {
 
   // Null rather than a state, so the page can ask "is this an event with an
   // entry list at all" without also having to know it is still loading.
-  return code ? state : null;
+  if (!code) return null;
+  return held && held.code === code ? held.state : LOADING;
 }
