@@ -20,7 +20,7 @@ web/public/v1/                                   measured 17 Sept 2026, 21.7 MB 
 ├── classifications/{CODE}.json    9.3 MB    1,610 files: the full field of one played tournament
 ├── entries/{CODE}.json             44 KB    6 files: who has entered a tournament still to come
 ├── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
-└── records.json                    47 KB    the archive's extremes, 14 categories x 2 genders x top 5
+└── records.json                    47 KB    the archive's extremes, 13 categories x 2 genders x top 5
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
@@ -110,7 +110,10 @@ The index. Loaded first, on every page.
   "totals": { "tournaments": 1688, "players": 12075, "partnerships": 13931 },
   "tiers": { "FIVB World Tour": 1077, "Beach Pro Tour": 475, "...": 0 },
   "countries": [ { "code": "BRA", "name": "Brazil", "iso2": "BR",
-                   "genders": { "M": { "nodes": 234, "edges": 412 } } } ]
+                   "genders": { "M": { "nodes": 234, "edges": 412 } } } ],
+  "withoutField": [ "MACA2007", "…" ],
+  "highlights": [ { "key": "tournaments", "gender": "M", "value": 255,
+                    "who": [ { "id": 100427, "name": "Emanuel Rego", "federation": "BRA" } ] } ]
 }
 ```
 
@@ -123,6 +126,14 @@ The index. Loaded first, on every page.
   computed over the qualifying tournament set, and FIVB publishes future events
   with entry lists. Quirks §4, §11.
 - **`iso2`** is for the flag glyph, and is `null` where FIVB has no usable code.
+- **`withoutField`** lists the qualifying tournaments VIS publishes no field
+  for at all — mostly cancellations — so the prerenderer and the tournament
+  index skip the same set. Optional; see `Manifest.withoutField`.
+- **`highlights`** is the home page's "start here" strip: the leaders of six
+  `records.json` boards (`HIGHLIGHTS` in `ingest/records.ts`), flattened, no
+  player opening two cards. It rides here because the manifest is already on
+  every page and records.json is 47 KB for six numbers. Optional: a tree
+  without it draws no strip.
 
 ## graphs/{CC}-{G}.json
 
@@ -453,7 +464,7 @@ code. They stay unserialised until VIS's `Type` is published.
 
 ## records.json
 
-The archive's extremes: fourteen categories, each a men's and a women's board
+The archive's extremes: thirteen categories, each a men's and a women's board
 of five rows. **Lazy**, for the page that lists them. Built by
 `ingest/records.ts` once per run.
 
@@ -466,7 +477,10 @@ of five rows. **Lazy**, for the page that lists them. Built by
                      "W": { … } },
     "reunion": { "W": { "rows": [ { "rank": 1, "value": 16, "who": [ {…}, {…} ],
                                     "first": 2003, "last": 2024, "gap": [2004, 2021] } ] } },
-    "shortest": { "M": { "rows": [ { "rank": 1, "withheld": true }, … ], "ties": 0 } } } }
+    "shortest-champion": { "M": { "rows": [ { "rank": 1, "value": 185, "who": [ {…} ] },
+                                            { "rank": 2, "value": 186, "who": [ {…} ] },
+                                            { "rank": 2, "value": 186, "who": [ {…} ] }, … ],
+                                  "ties": 1 } } } }
 ```
 
 **Its own file because of what it reads.** Every other file is one slice, and
@@ -479,7 +493,8 @@ few kilobytes instead of twelve megabytes.
 the schema lists what is counted and why "most federations represented" is
 not: a federation is a snapshot, so that would count data gaps as
 achievements. Per player: tournaments, career (years from first to last
-season), partners, tour titles, Olympic Games. Per pair, both halves named:
+season), partners, tour titles, Olympic Games, and the tallest and shortest
+world champion. Per pair, both halves named:
 tournaments together, span, the longest reunion (idle years between two stints,
 with `gap` naming the seasons either side), and the three decorations —
 podiums, titles, Olympic and World medals — read from the team rows, never
@@ -492,23 +507,44 @@ Cyprus and Finland.
 of six ranked categories, not because the women's tour is thinner but because
 a tie always loses to the bigger of two numbers.
 
-**A withheld row is a rank with nothing on it.** The three height boards
+**The height boards are world champions only.** There used to be an overall
+tallest and shortest. Their extremes were mostly teenagers and one-event
+entrants: players whose only FIVB events were age-group championships held
+half of the ten shortest places in each draw, measured at 15 or 16, with no
+height published anywhere but FIVB — Shortest never shipped a row. A senior
+world champion is someone every reference covers, so the height can be
+checked, and no junior-only player can be one. `RecordKey` in the schema has
+the full reasoning.
+
+**A withheld row is a rank with nothing on it.** The two height boards
 publish a row only when every player on it is in `CONFIRMED_HEIGHTS` in
 `ingest/records.ts`, a hand-kept list of players whose height has been checked
-against a source independent of FIVB, with the source. Height is entered by
+against a source independent of FIVB, with the source — 22 players on 15
+October 2026, enough that all twenty height rows ship. Height is entered by
 hand at a couple of hundred federations and the extremes are exactly where a
 typo lands — two Czech players tied at 149 cm is more likely one stale import
 than two coincident measurements. The rank stays so the board cannot quietly
 promote the second-shortest to shortest; the value and the name do not ship,
 not even with a caveat, because a page of records is where a reader takes a
 number at face value. The ingest log prints a `TODO confirm` line for each,
-which is the standing list of what to check next.
+which is the standing list of what to check next. The page draws no withheld
+row, and leaves out a board with nothing else on it.
 
-**`ties` is what the cut left behind.** Rows are ranked by value, then by
-player id so the file is the same on every run that holds the same data, and
-`ties` counts the candidates beyond the last row that share its value — what
-lets a page say "and four more at 4 Games" rather than imply a fifth place
-that is really a ninth.
+**A disproven height is off the boards entirely.** `DISPROVEN_HEIGHTS` lists
+players whose FIVB height an outside source contradicts — one today, Therese
+Strålman, 198 cm in VIS and 171 on volleybox, the same as her twin. Her height
+is removed from every height candidate and from her player card; her other
+records are untouched. Withholding is for a number not yet checked; this is
+for one checked and found wrong.
+
+**Equal values share a rank.** 5, 5, 4 is ranked 1, 1, 3, so `rank` is not
+the row's index plus one. Within a tie, rows are listed by player id, which
+keeps the file the same on every run that holds the same data and means
+nothing about the sport.
+
+**`ties` is what the cut left behind:** the candidates beyond the last row
+that share its value and hold its rank. It is what lets a page say "and four
+more at 4 Games" rather than imply a fifth place that is really a ninth.
 
 **Guarded by its own floors.** `RECORD_FLOORS` holds, per board, roughly half
 the leader's value when measured on 17 September 2026; a run whose leader
