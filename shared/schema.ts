@@ -170,6 +170,11 @@ export type TimelineFilter = 'olympics' | 'world-champs' | 'tour-podium';
  * The two tiers that together are "the tour" — the World Tour up to 2021 and
  * the Beach Pro Tour after it.
  *
+ * Age-group world championships are left out: they are world-level events,
+ * but not the senior tour, and a U19 title next to a Grand Slam title would
+ * flatter the wrong careers. The Olympics and the World Championships are left
+ * out because they are counted separately and more precisely.
+ *
  * Shared rather than defined twice: the ingest decides which podiums the Tour
  * podiums tile counts, and the card decides which events the matching filter
  * shows. Two copies of this would eventually disagree, and the disagreement

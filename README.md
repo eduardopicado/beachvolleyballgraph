@@ -99,7 +99,7 @@ incremental cache — a full rebuild every day is cheap and self-healing.
   Olympic Games and the FIVB World Championships are read off the raw VIS
   `Type` (5 and 4), narrowly, so a tier gaining a member cannot start minting
   Olympic medals. Everything else on the tour — World Tour and Beach Pro Tour,
-  1,552 of the 1,688 qualifying events — is one *tour podiums* tally with the
+  1,562 of the 1,698 qualifying events — is one *tour podiums* tally with the
   levels mixed: FIVB has renumbered its own hierarchy from
   Open/Challenger/Satellite to 1-to-5-star to Elite16/Challenge/Futures, and no
   mapping between those eras survives the archive. Age-group world
@@ -194,7 +194,7 @@ own graph, with only the ones from outside it (see below) named in the results
 file itself. The largest results file is 84 KB uncompressed.
 
 Each tournament also carries the **level** FIVB gave it at the time — "Grand
-Slam", "4-star", "Elite16" — on the 1,552 tour events, and absent on the
+Slam", "4-star", "Elite16" — on the 1,562 tour events, and absent on the
 Olympics, World Championships and age-group championships, which have no level
 below their tier. This is what lets the player card badge a week on tour at
 all: `tier` collapses thirteen distinct rungs into one `world-tour` value, so

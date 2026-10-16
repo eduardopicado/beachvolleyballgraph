@@ -198,7 +198,7 @@ Per-player detail. Loaded with the graph, so opening a card costs no request.
 **Three medal tallies, never merged.** Olympics and World Championships are read
 off the raw VIS `Type` (5 and 4) narrowly, so a tier gaining a member cannot
 start minting Olympic medals. `tour` is everything else on the FIVB tour —
-World Tour plus Beach Pro Tour, 1,552 of 1,688 events — with levels mixed,
+World Tour plus Beach Pro Tour, 1,562 of 1,698 events — with levels mixed,
 because FIVB has renumbered its own hierarchy repeatedly and no mapping across
 those eras survives the archive. Age-group championships are in none of the
 three. Each is broken out by colour rather than totalled: a total says 149 and
@@ -255,7 +255,7 @@ so the two fields are close to interchangeable and still must not be joined as
 if they were.
 
 **`level` is what FIVB called the event's rung at the time** — "Grand Slam",
-"4-star", "Elite16". Present on the 1,552 tour events, absent on the Olympics,
+"4-star", "Elite16". Present on the 1,562 tour events, absent on the Olympics,
 the World Championships and the age-group championships, which have no level
 below their tier. It is what lets the player card badge an ordinary week on
 tour: `tier` collapses thirteen distinct rungs into one `world-tour` value, so

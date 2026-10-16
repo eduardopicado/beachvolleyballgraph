@@ -1021,25 +1021,13 @@ async function main() {
     );
   }
 
-  // A rebuild that lost most of its data looks the same, from these numbers
-  // alone, whether that's a real correction or FIVB silently handing back an
-  // empty or truncated response. See regression.ts for why scale is the only
-  // signal available to tell them apart.
-  //
-  // ALLOW_DATA_REGRESSION is the deliberate escape hatch for the one case
-  // this can't tell apart from a broken fetch on its own: a real code change
-  // that correctly excludes data that should never have been counted (e.g.
-  // the Type-15 National Tour fix — a legitimate ~16% drop in one run). It is
-  // wired to a workflow_dispatch checkbox, not a default, and this run is
-  // never silent about using it: the drop is logged either way, published or
-  // not, so it is visible in the run output and in the commit this produces.
   // Ask FIVB whether it agrees with the partnerships about to be published.
   // Everything above this point is inference over team rows; this is the only
   // check that consults a second, independent answer to the same question (see
-  // teammates.ts). It runs on a sample rather than all 12,074 players because
-  // the point is to catch a systemic aggregation bug, and a systemic bug shows
-  // up in 300 players as readily as in all of them — at three requests instead
-  // of a hundred and twenty.
+  // teammates.ts). It runs on a sample of 300 rather than every published
+  // player (12,110 on 15 October 2026) because the point is to catch a
+  // systemic aggregation bug, and a systemic bug shows up in 300 players as
+  // readily as in all of them — at three requests of 100 instead of 122.
   //
   // Never blocks on being unable to *reach* VIS. The archive is already
   // fetched and built by now, so a network failure here would refuse to publish
@@ -1088,6 +1076,18 @@ async function main() {
     console.warn(`  ! teammate cross-check skipped: ${(err as Error).message}`);
   }
 
+  // A rebuild that lost most of its data looks the same, from these numbers
+  // alone, whether that's a real correction or FIVB silently handing back an
+  // empty or truncated response. See regression.ts for why scale is the only
+  // signal available to tell them apart.
+  //
+  // ALLOW_DATA_REGRESSION is the deliberate escape hatch for the one case
+  // this can't tell apart from a broken fetch on its own: a real code change
+  // that correctly excludes data that should never have been counted (e.g.
+  // the Type-15 National Tour fix — a legitimate ~16% drop in one run). It is
+  // wired to a workflow_dispatch checkbox, not a default, and this run is
+  // never silent about using it: the drop is logged either way, published or
+  // not, so it is visible in the run output and in the commit this produces.
   const regressions = checkForRegression(previousTotals, manifest.totals);
   if (regressions.length > 0) {
     const detail = `  ${regressions.join('\n  ')}`;

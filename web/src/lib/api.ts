@@ -62,15 +62,8 @@ export const fetchPlayers = (country: string, gender: Gender) =>
   load<PlayersFile>(playersPath(BASE, country, gender));
 
 /**
- * The two files behind an expanded season, fetched together because neither is
- * usable alone: the results name no tournaments, the index names no players.
- *
- * Deliberately not part of the slice load above — this is the largest data in
- * the published tree and most visits never open a season at all.
- */
-/**
  * The cross-country player index. Its own fetch, triggered by the first
- * interaction with the search box rather than by page load — 370 KB that most
+ * interaction with the search box rather than by page load — 391 KB that most
  * visits never need.
  */
 export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
@@ -104,6 +97,14 @@ export const fetchSeriesIndex = () => load<SeriesIndexFile>(seriesIndexPath(BASE
 /** One series and all its editions, fetched only when a page is in one. */
 export const fetchSeries = (slug: string) => load<SeriesFile>(seriesPath(BASE, slug));
 
+/**
+ * The two files behind an expanded season, fetched together because neither is
+ * usable alone: the results name no tournaments, the index names no players.
+ *
+ * Deliberately not part of the slice load (`fetchGraph`, `fetchPlayers`): this
+ * is the largest data in the published tree and most visits never open a
+ * season at all.
+ */
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([
     load<ResultsFile>(resultsPath(BASE, country, gender)),
