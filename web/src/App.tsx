@@ -221,7 +221,7 @@ export default function App() {
     const label = GENDER_LABEL[gender];
     const counts = entry.genders[gender];
     const title = `${entry.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships, ${manifest.seasons.from}–${manifest.seasons.to}.`;
+    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships since ${manifest.seasons.from}.`;
 
     document.title = title;
     setHeadTag('link[rel="canonical"]', 'href', new URL(url, location.origin).toString());
@@ -341,10 +341,19 @@ export default function App() {
     });
   }, [selectedId, detailsById, manifest]);
 
-  /** Follow an away partner into the slice they actually live in. */
+  /**
+   * Follow an away partner into the slice they actually live in.
+   *
+   * The threshold goes back to "All" for the reason `selectFieldPlayer` and
+   * `jumpToPlayer` give: it described the graph the reader was reading, and
+   * carried into another country it can hide the partner they just clicked —
+   * at which point the effect that drops a selection the visible graph lacks
+   * closed the card and left a bare country page.
+   */
   const selectAwayPartner = useCallback((partner: AwayPartner) => {
     setCountry(partner.fed);
     setGender(partner.gender);
+    setMinTogether(1);
     setSelectedId(partner.id);
   }, []);
 

@@ -31,11 +31,11 @@
 import { mkdir, rm, writeFile, rename, readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { fetchList } from './vis.js';
 import { fetchFederations, countryName, countryIso2 } from './countries.js';
-import { TIER_LABEL, INCLUDE_AGE_GROUP } from './tiers.js';
+import { TIER_LABEL, INCLUDE_AGE_GROUP, unrecognisedTourRows } from './tiers.js';
 import {
   aggregateMedals,
   aggregatePartnerships,
@@ -48,6 +48,7 @@ import {
   medalTournaments,
   normalisePlayers,
   normaliseTournaments,
+  tournamentMeta,
   sliceByCountryAndGender,
   aggregateEntries,
   entryOrder,
@@ -252,6 +253,19 @@ async function main() {
   log('tournaments', `${tournaments.size} of ${tournamentRows.length} qualify (${seasonFrom}-${seasonTo})`);
   log('cancelled', `${cancelled} called-off events excluded (VIS marks these in the tournament name)`);
 
+  // The allowlist drops a type it has never seen without a word, and FIVB is
+  // mid-restructure — see unrecognisedTourRows. A warning rather than a
+  // failure: refusing to publish would stop the daily refresh over an event
+  // that may well belong outside the graph. In GitHub Actions each line also
+  // becomes an annotation on the run page, where a passing run is otherwise
+  // never looked at.
+  const unrecognised = unrecognisedTourRows(tournamentRows.filter((r) => !isCancelled(r)));
+  for (const line of unrecognised) {
+    console.warn(`  ! ${line}`);
+    if (process.env.GITHUB_ACTIONS) console.log(`::warning title=FIVB tournament not admitted::${line}`);
+  }
+  log('types', unrecognised.length === 0 ? 'every FIVB tour event has a known type' : `${unrecognised.length} FIVB events to look at — see the warnings above`);
+
   // --- Stage 2: players ----------------------------------------------------
   // Unfiltered: a few thousand players who entered FIVB beach events are not
   // flagged PlaysBeach in VIS, and filtering on it silently drops their edges.
@@ -411,31 +425,7 @@ async function main() {
   // exactly the thing worth being able to look up.
   const tournamentIndex: Record<string, TournamentMeta> = {};
   for (const t of [...tournaments.values()].sort((a, b) => Number(a.no) - Number(b.no))) {
-    // Appended rather than slotted in, so every existing index keeps its
-    // meaning and this stays an additive change to a published contract.
-    //
-    // Country and span are populated on every qualifying tournament, so in
-    // practice every row now runs to eight — and the level slot, which used to
-    // be dropped for the Olympics, the World Championships and the age-group
-    // championships, has to be written as an explicit null to hold the place.
-    // The shorter forms are kept for the rows that carry no code at all, and
-    // for a future refresh where a country genuinely cannot be read.
-    //
-    // `gender` rides along with them because the two readers that need it need
-    // it for the same reason: a tournament's own page is addressed by a slug
-    // that includes the draw, and the index flips between the men's and
-    // women's calendars. Both would otherwise have to open a classification
-    // file per tournament to learn it, and neither can read it off the code --
-    // `WWRS2022` is a men's field under a `W` (quirks §23).
-    tournamentIndex[t.no] = t.code
-      ? t.country !== null || t.span !== null
-        ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span, t.gender]
-        : t.level
-          ? [t.name, t.season, t.tier, t.startOffset, t.code, t.level]
-          : [t.name, t.season, t.tier, t.startOffset, t.code]
-      : t.startOffset === null
-        ? [t.name, t.season, t.tier]
-        : [t.name, t.season, t.tier, t.startOffset];
+    tournamentIndex[t.no] = tournamentMeta(t);
   }
   await writeFile(
     path.join(TMP_DIR, 'tournaments.json'),
@@ -1138,14 +1128,21 @@ async function main() {
   log('config', `age-group world championships ${INCLUDE_AGE_GROUP ? 'included' : 'excluded'}`);
 }
 
-main().catch(async (err) => {
-  // Leave whatever is already published untouched. If the failure landed
-  // mid-swap, the previous tree is parked at OLD_DIR — put it back rather than
-  // discarding it, so a failed run still leaves the site with data to serve.
-  await rm(TMP_DIR, { recursive: true, force: true }).catch(() => {});
-  await recoverInterruptedSwap().catch(() => {});
-  await rm(OLD_DIR, { recursive: true, force: true }).catch(() => {});
-  console.error('\nIngest failed — existing data left in place.');
-  console.error(err);
-  process.exit(1);
-});
+// Only when run as a script (`npm run ingest`), never on import. A test that
+// imports `assertPopulated` used to start the whole ingest as a side effect:
+// a live request to VIS on every `npm test`, and in principle a rebuild and
+// swap of the published tree. The same guard prerender.ts has always had.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(async (err) => {
+    // Leave whatever is already published untouched. If the failure landed
+    // mid-swap, the previous tree is parked at OLD_DIR — put it back rather
+    // than discarding it, so a failed run still leaves the site with data to
+    // serve.
+    await rm(TMP_DIR, { recursive: true, force: true }).catch(() => {});
+    await recoverInterruptedSwap().catch(() => {});
+    await rm(OLD_DIR, { recursive: true, force: true }).catch(() => {});
+    console.error('\nIngest failed — existing data left in place.');
+    console.error(err);
+    process.exit(1);
+  });
+}

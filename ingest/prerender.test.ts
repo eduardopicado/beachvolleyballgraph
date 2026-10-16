@@ -95,14 +95,14 @@ describe('indexDescription', () => {
     // and all 1,616 rows were called played on a day when six were not.
     expect(indexDescription(1610, 6, seasons)).toBe(
       'Every FIVB international beach volleyball tournament by season and draw — ' +
-        '1,610 played across 1987–2027, and 6 awaiting results.',
+        '1,610 played since 1987, and 6 awaiting results.',
     );
   });
 
   it('drops the clause rather than saying "and 0 awaiting results"', () => {
     expect(indexDescription(1616, 0, seasons)).toBe(
       'Every FIVB international beach volleyball tournament by season and draw — ' +
-        '1,616 played across 1987–2027.',
+        '1,616 played since 1987.',
     );
   });
 
@@ -111,6 +111,15 @@ describe('indexDescription', () => {
     // rebuild sees a whole season published and unplayed.
     expect(indexDescription(1610, 1200, seasons)).toContain('1,610 played');
     expect(indexDescription(1610, 1200, seasons)).toContain('1,200 awaiting results');
+  });
+
+  it('names where the archive starts and never its newest scheduled season', () => {
+    // `to` is a season FIVB has published events into, not one anybody has
+    // played: "1987–2027" was on every page while 2027 held nothing but a
+    // calendar.
+    const text = indexDescription(1610, 6, seasons);
+    expect(text).toContain('since 1987');
+    expect(text).not.toContain('2027');
   });
 
   it('says nothing about the future, because the same rows cover an event being played', () => {

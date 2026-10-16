@@ -17,6 +17,7 @@ import type {
   ClassificationTeam,
   Tier,
   TimelineFilter,
+  TournamentMeta,
 } from '../shared/schema.js';
 import type { EntryRoute, EntryTeam, WithdrawalReason, WithdrawnTeam } from '../shared/schema.js';
 import { TOUR_TIERS } from '../shared/schema.js';
@@ -430,6 +431,31 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
     });
   }
   return out;
+}
+
+/**
+ * A tournament's row in the published `tournaments.json` index.
+ *
+ * Fields are appended rather than slotted in, so every existing index keeps
+ * its meaning and each addition stays additive to a published contract. The
+ * level slot, absent for the Olympics, the World Championships and the
+ * age-group championships, is written as an explicit null to hold the place.
+ *
+ * Any row with a code runs to the full nine. `gender` is the reason: a
+ * tournament's own page is addressed by a slug that includes the draw, and the
+ * index flips between the men's and women's calendars. Both readers would
+ * otherwise have to open a classification file per tournament to learn it, and
+ * neither can read it off the code -- `WWRS2022` is a men's field under a `W`
+ * (quirks §23). The shorter coded forms this used to fall back to, when country
+ * and span were both null, dropped gender with them, and the tournament index
+ * skips a row without a gender: the event would have vanished from the site's
+ * calendar. Only a row without a code, which has no page, stays short.
+ */
+export function tournamentMeta(t: Tournament): TournamentMeta {
+  if (t.code) {
+    return [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span, t.gender];
+  }
+  return t.startOffset === null ? [t.name, t.season, t.tier] : [t.name, t.season, t.tier, t.startOffset];
 }
 
 /**
