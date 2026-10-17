@@ -182,6 +182,24 @@ export type TimelineFilter = 'olympics' | 'world-champs' | 'tour-podium';
  */
 export const TOUR_TIERS: ReadonlySet<Tier> = new Set<Tier>(['world-tour', 'beach-pro-tour']);
 
+/**
+ * How long after an event ends its placements may still be missing.
+ *
+ * FIVB writes results into `BeachTeam.Rank` some hours after the last match,
+ * and the ingest runs once a day, so there is always a window where a
+ * tournament has been played and has no field. Set well past the observed lag
+ * — the one case measured resolved in days — so a genuinely stuck event still
+ * surfaces by name.
+ *
+ * Shared because both sides draw the same line with it. The ingest writes an
+ * entry list for every fieldless event inside the window, and names the ones
+ * in it as FIVB catching up rather than as events with no result; the
+ * tournament index lists the fieldless events inside it, so a tournament
+ * vanishes neither on the day it is played nor before its page can load. Two
+ * copies had been kept equal by a comment.
+ */
+export const RESULT_LAG_DAYS = 30;
+
 /** Lazy-loaded detail for every player in one country x gender slice. */
 export interface PlayerDetail {
   id: number;

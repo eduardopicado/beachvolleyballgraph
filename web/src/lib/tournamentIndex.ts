@@ -21,7 +21,7 @@
  */
 
 import type { Gender, Tier, TournamentMeta } from '../../../shared/schema';
-import { TOUR_TIERS } from '../../../shared/schema';
+import { RESULT_LAG_DAYS, TOUR_TIERS } from '../../../shared/schema';
 import { readTournament } from './tournamentMeta';
 import { tournamentSlugs } from '../../../shared/slug';
 
@@ -98,19 +98,13 @@ export interface IndexRow {
 }
 
 /**
- * How long after an event ends its placements may still be missing.
- *
- * FIVB writes results into `BeachTeam.Rank` some hours after the last match,
- * and the ingest runs once a day, so there is always a window where a
- * tournament has been played and has no field. Without this an event would
- * vanish from the index on the day it started and reappear when the next
- * ingest ran — the very days it is most worth looking at.
- *
- * Thirty days, the same figure `RECENT_RESULT_DAYS` uses in the ingest for the
- * same lag, and far past the observed one. The 72 cancelled and postponed
+ * The index keeps a fieldless event in view for `RESULT_LAG_DAYS` after it
+ * ends (shared with the ingest; see there). Without that an event would vanish
+ * from the index on the day it started and reappear when the next ingest ran
+ * — the very days it is most worth looking at. The cancelled and postponed
  * events are all years old, so nothing widens back into view.
  */
-export const RESULT_LAG_DAYS = 30;
+export { RESULT_LAG_DAYS };
 
 /** Rebuild the calendar date a signed day offset stands for. */
 function dateOf(season: number, offset: number | null): Date | null {
