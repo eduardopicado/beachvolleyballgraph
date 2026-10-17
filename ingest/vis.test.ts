@@ -216,7 +216,8 @@ describe('fetchRaw and fetchList retries', () => {
   it('does not retry a VIS error document: the request itself is wrong', async () => {
     fetchMock.mockResolvedValue(ok('<Responses><Error>Unknown field Foo</Error></Responses>'));
     const { error } = await settle(fetchList({ type: 'GetPlayerList', fields: ['Foo'], itemTag: 'Player' }));
-    expect(error?.message).toBe('GetPlayerList failed after 3 attempts: VIS error: Unknown field Foo');
+    // Named by the request, and not "after 3 attempts": there was one.
+    expect(error?.message).toBe('GetPlayerList: VIS error: Unknown field Foo');
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
