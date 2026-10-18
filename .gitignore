@@ -20,6 +20,10 @@ playwright-report/
 # reasoning as the Playwright output above: read it locally, don't commit it.
 coverage/
 
+# One-off investigation scripts (a VIS query, a tally). Kept out so they do
+# not ship as if they were part of the pipeline.
+.scratch/
+
 # Local skill-installer tooling (`npx skills add ...`), not project source.
 .agents/
 .claude/skills/
