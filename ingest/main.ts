@@ -33,7 +33,7 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { fetchList } from './vis.js';
+import { fetchList, type VisRow } from './vis.js';
 import { fetchFederations, countryName, countryIso2 } from './countries.js';
 import { TIER_LABEL, INCLUDE_AGE_GROUP, unrecognisedTourRows } from './tiers.js';
 import {
@@ -168,25 +168,31 @@ async function recoverInterruptedSwap() {
   console.warn('  ! restored data left behind by an interrupted publish');
 }
 
-async function main() {
-  const startedAt = Date.now();
-  const generatedAt = new Date().toISOString();
+// --- the stages -------------------------------------------------------------
+//
+// `main()` used to be one 950-line function, which is why it was the least
+// tested file in the repository: nothing in it could run without the whole of
+// it, network included. Each stage below takes what the one before produced
+// and returns what the next needs. Only `fetchArchive`, `formerNames` and
+// `crossCheck` touch the network; everything from the aggregation to the
+// written tree runs on rows alone, into any directory, so a test can build a
+// tree from a handful of synthetic rows.
 
-  await recoverInterruptedSwap();
+/** What the three VIS list requests return, normalised. */
+export interface Archive {
+  federations: Awaited<ReturnType<typeof fetchFederations>>;
+  tournamentRows: VisRow[];
+  tournaments: ReturnType<typeof normaliseTournaments>;
+  players: ReturnType<typeof normalisePlayers>;
+  teamRows: VisRow[];
+  tierCounts: Record<string, number>;
+  seasonFrom: number;
+  seasonTo: number;
+  sourceVersion: string;
+}
 
-  // Read before anything below touches OUT_DIR, so this is genuinely the
-  // previous run's data — not a `null` because we deleted it ourselves in the
-  // meantime. Missing or unreadable (the very first run, or a corrupt file)
-  // both mean "nothing to compare against"; the absolute floor check further
-  // down is what protects that cold-start case instead.
-  let previousTotals: DatasetTotals | null = null;
-  try {
-    const previous = JSON.parse(await readFile(path.join(OUT_DIR, 'manifest.json'), 'utf8'));
-    previousTotals = previous.totals;
-  } catch {
-    /* no previous manifest to compare against */
-  }
-
+/** Stages 0-3: everything fetched from VIS, checked and normalised. */
+async function fetchArchive(): Promise<Archive> {
   // --- Stage 0: federations (for country display names) --------------------
   const federations = await fetchFederations();
   log('federations', `${federations.size} federations`);
@@ -305,6 +311,19 @@ async function main() {
   });
   log('entries', `${teamRows.length} team entries`);
 
+  return { federations, tournamentRows, tournaments, players, teamRows, tierCounts, seasonFrom, seasonTo, sourceVersion };
+}
+
+/** Partnerships, slices and every per-player tally the files are cut from. */
+export type Aggregate = ReturnType<typeof aggregate>;
+
+/**
+ * Stage 3 onwards to stage 4: the rows turned into partnerships, honours and
+ * slices. Pure apart from its log lines.
+ */
+export function aggregate(archive: Archive, generatedAt: string) {
+  const { tournamentRows, tournaments, players, teamRows } = archive;
+
   const { partnerships, appearances, results, rejects, ownFederation, classifications } =
     aggregatePartnerships(teamRows, tournaments, players);
   log('aggregate', `${partnerships.size} partnerships across ${appearances.size} players`);
@@ -352,11 +371,6 @@ async function main() {
   const olympicGames = olympicGamesByPlayer(results, tournaments);
   log('podiums', `${podiumsByPlayer.size} players with a World Tour or Beach Pro Tour podium`);
 
-  // A collapse in matched entries means the upstream shape changed. Better to
-  // fail loudly than to publish a graph that quietly lost most of its edges.
-  if (partnerships.size < 1000) {
-    throw new Error(`Only ${partnerships.size} partnerships aggregated — refusing to publish`);
-  }
 
   // --- Stage 4: slice ------------------------------------------------------
   const slices = sliceByCountryAndGender(partnerships, appearances, players, tournaments, MIN_NODES);
@@ -411,29 +425,27 @@ async function main() {
   const stranded = [...awayPartners.keys()].filter((id) => inAGraph.has(id) && !partnered.has(id)).length;
   log('cross-fed', `${awayPartners.size} players have a partner in another federation; ${stranded} have no partner in their own`);
 
-  // --- Stage 5: write to temp, then swap -----------------------------------
-  await rm(TMP_DIR, { recursive: true, force: true });
-  await mkdir(path.join(TMP_DIR, 'graphs'), { recursive: true });
-  await mkdir(path.join(TMP_DIR, 'players'), { recursive: true });
-  await mkdir(path.join(TMP_DIR, 'results'), { recursive: true });
+  return {
+    partnerships,
+    appearances,
+    results,
+    ownFederation,
+    classifications,
+    medals,
+    medalsByPlayer,
+    podiumsByPlayer,
+    timelineFilters,
+    olympicGames,
+    slices,
+    awayPartners,
+  };
+}
 
-  // One shared index for every qualifying tournament, named and dated, so a
-  // results file can be nothing but numbers. Written whole rather than
-  // restricted to tournaments somebody actually played: it is the published
-  // form of the filter in tiers.ts, and an event with no entries yet is
-  // exactly the thing worth being able to look up.
-  const tournamentIndex: Record<string, TournamentMeta> = {};
-  for (const t of [...tournaments.values()].sort((a, b) => Number(a.no) - Number(b.no))) {
-    tournamentIndex[t.no] = tournamentMeta(t);
-  }
-  await writeFile(
-    path.join(TMP_DIR, 'tournaments.json'),
-    `{\n  "tournaments": ${jsonByKey(tournamentIndex, '  ')}\n}`,
-  );
-
-  const byCountry = new Map<string, ManifestCountry>();
-  const searchIndex: Record<string, SearchEntry[]> = {};
-
+/**
+ * Former names, from Wikidata, for the search index. Its own stage because it
+ * is the one network call between the aggregation and the written tree.
+ */
+async function formerNames(slices: Aggregate['slices']): Promise<Map<number, string[]>> {
   // Former names, so a reader who remembers "Kloth" still reaches Taryn
   // Brasher. Joined to Wikidata by FIVB player id rather than by name — see
   // aliases.ts, including why none of this is allowed anywhere near a card.
@@ -465,6 +477,59 @@ async function main() {
   } catch (err) {
     console.warn(`  ! former-name lookup skipped: ${(err as Error).message}`);
   }
+  return aka;
+}
+
+/**
+ * Stage 5: write the whole tree into `dir`, which does not exist yet.
+ *
+ * No network and no refusal: what can refuse to publish runs in `verifyTree`
+ * once the tree is on disk, so a test can write a tree from rows that would
+ * never pass the archive-scale floors.
+ */
+export async function writeTree(
+  dir: string,
+  archive: Archive,
+  agg: Aggregate,
+  aka: ReadonlyMap<number, string[]>,
+  generatedAt: string,
+) {
+  const { tournaments, players, federations, teamRows, tierCounts, seasonFrom, seasonTo, sourceVersion } = archive;
+  const {
+    partnerships,
+    appearances,
+    results,
+    classifications,
+    medals,
+    medalsByPlayer,
+    podiumsByPlayer,
+    timelineFilters,
+    olympicGames,
+    slices,
+    awayPartners,
+  } = agg;
+
+  await rm(dir, { recursive: true, force: true });
+  await mkdir(path.join(dir, 'graphs'), { recursive: true });
+  await mkdir(path.join(dir, 'players'), { recursive: true });
+  await mkdir(path.join(dir, 'results'), { recursive: true });
+
+  // One shared index for every qualifying tournament, named and dated, so a
+  // results file can be nothing but numbers. Written whole rather than
+  // restricted to tournaments somebody actually played: it is the published
+  // form of the filter in tiers.ts, and an event with no entries yet is
+  // exactly the thing worth being able to look up.
+  const tournamentIndex: Record<string, TournamentMeta> = {};
+  for (const t of [...tournaments.values()].sort((a, b) => Number(a.no) - Number(b.no))) {
+    tournamentIndex[t.no] = tournamentMeta(t);
+  }
+  await writeFile(
+    path.join(dir, 'tournaments.json'),
+    `{\n  "tournaments": ${jsonByKey(tournamentIndex, '  ')}\n}`,
+  );
+
+  const byCountry = new Map<string, ManifestCountry>();
+  const searchIndex: Record<string, SearchEntry[]> = {};
   let resultRows = 0;
 
   for (const slice of slices) {
@@ -487,7 +552,7 @@ async function main() {
     // granularity. A single minified line makes any change, however small,
     // look like the entire file was rewritten.
     await writeFile(
-      path.join(TMP_DIR, 'graphs', `${slice.country}-${slice.gender}.json`),
+      path.join(dir, 'graphs', `${slice.country}-${slice.gender}.json`),
       JSON.stringify(graph, null, 2),
     );
 
@@ -521,7 +586,7 @@ async function main() {
       }),
     };
     await writeFile(
-      path.join(TMP_DIR, 'players', `${slice.country}-${slice.gender}.json`),
+      path.join(dir, 'players', `${slice.country}-${slice.gender}.json`),
       JSON.stringify(detail, null, 2),
     );
 
@@ -544,7 +609,7 @@ async function main() {
       }
     }
     await writeFile(
-      path.join(TMP_DIR, 'results', `${slice.country}-${slice.gender}.json`),
+      path.join(dir, 'results', `${slice.country}-${slice.gender}.json`),
       [
         '{',
         `  "country": ${JSON.stringify(slice.country)},`,
@@ -625,7 +690,7 @@ async function main() {
   // that reads this is opened from whichever card happens to be in front of
   // the reader. One file each, keyed by FIVB's own code, so opening one event
   // fetches that event and nothing else.
-  await mkdir(path.join(TMP_DIR, 'classifications'), { recursive: true });
+  await mkdir(path.join(dir, 'classifications'), { recursive: true });
 
   /**
    * Player id -> the page they are published on, for every player who has one.
@@ -740,7 +805,7 @@ async function main() {
     // published where its own flags say it is.
     const corrected = Object.keys(elsewhere).length > 0;
     await writeFile(
-      path.join(TMP_DIR, 'classifications', `${tournament.code}.json`),
+      path.join(dir, 'classifications', `${tournament.code}.json`),
       [
         '{',
         `  "code": ${JSON.stringify(tournament.code)},`,
@@ -774,7 +839,7 @@ async function main() {
    * zero entries a year out, and an empty file is what lets its page say "no
    * entries yet" instead of failing to load.
    */
-  await mkdir(path.join(TMP_DIR, 'entries'), { recursive: true });
+  await mkdir(path.join(dir, 'entries'), { recursive: true });
   const lagCutoff = new Date(Date.parse(generatedAt) - RESULT_LAG_DAYS * 86_400_000);
   // What each `Status` and `Type` value means, and the evidence for it, lives
   // with `entryStatus` and `ENTRY_ROUTE` in build.ts. Status 1 rows -- entries
@@ -823,7 +888,7 @@ async function main() {
     entryTeams += teams.length;
     const corrected = Object.keys(elsewhere).length > 0;
     await writeFile(
-      path.join(TMP_DIR, 'entries', `${tournament.code}.json`),
+      path.join(dir, 'entries', `${tournament.code}.json`),
       [
         '{',
         `  "code": ${JSON.stringify(tournament.code)},`,
@@ -851,7 +916,7 @@ async function main() {
    * Gstaad, and fetches only that. The 87% of tournaments in no series at all
    * pay for the index and stop there.
    */
-  await mkdir(path.join(TMP_DIR, 'series'), { recursive: true });
+  await mkdir(path.join(dir, 'series'), { recursive: true });
   const seriesIndex: Record<string, string[]> = {};
   let editionCount = 0;
   for (const definition of SERIES) {
@@ -866,7 +931,7 @@ async function main() {
       (seriesIndex[edition.code] ??= []).push(definition.slug);
     }
     await writeFile(
-      path.join(TMP_DIR, 'series', `${definition.slug}.json`),
+      path.join(dir, 'series', `${definition.slug}.json`),
       [
         '{',
         `  "slug": ${JSON.stringify(definition.slug)},`,
@@ -879,7 +944,7 @@ async function main() {
     );
   }
   await writeFile(
-    path.join(TMP_DIR, 'series', 'index.json'),
+    path.join(dir, 'series', 'index.json'),
     `{\n  "of": ${jsonByKey(seriesIndex, '  ')}\n}`,
   );
   log(
@@ -895,7 +960,7 @@ async function main() {
   );
 
   await writeFile(
-    path.join(TMP_DIR, 'search.json'),
+    path.join(dir, 'search.json'),
     `{\n  "slices": ${jsonByKey(searchIndex, '  ')}\n}`,
   );
 
@@ -967,11 +1032,8 @@ async function main() {
   // The same instinct as the regression check, for the one file where a wrong
   // number is the whole content: a leaderboard built from half the team rows
   // still looks like a leaderboard.
-  const belowFloor = recordsBelowFloor(records.file);
-  if (belowFloor.length > 0) {
-    throw new Error(`Refusing to publish — the records look broken, not merely changed:\n  ${belowFloor.join('\n  ')}`);
-  }
-  await writeFile(path.join(TMP_DIR, 'records.json'), JSON.stringify(records.file, null, 2));
+  // The floor check on these boards runs in verifyTree, with the others.
+  await writeFile(path.join(dir, 'records.json'), JSON.stringify(records.file, null, 2));
 
   log(
     'records',
@@ -996,32 +1058,81 @@ async function main() {
       ? `${manifest.highlights.length} cards for the start-here strip`
       : `${manifest.highlights.length} of ${HIGHLIGHTS.length} cards — the rest were withheld, empty, shared or opened a player already on the strip`,
   );
-  await writeFile(path.join(TMP_DIR, 'manifest.json'), JSON.stringify(manifest, null, 2));
+  await writeFile(path.join(dir, 'manifest.json'), JSON.stringify(manifest, null, 2));
+
+  return { manifest, records: records.file, classificationFiles };
+}
+
+type Written = Awaited<ReturnType<typeof writeTree>>;
+
+/**
+ * The refusals that need the finished tree: file counts, and the archive-scale
+ * floors that tell a broken fetch from a real change.
+ */
+async function verifyTree(dir: string, agg: Aggregate, tree: Written, previousTotals: DatasetTotals | null) {
+  const { slices } = agg;
+  const { classificationFiles, manifest } = tree;
+
+  // The same instinct as the regression check, for the one file where a wrong
+  // number is the whole content: a leaderboard built from half the team rows
+  // still looks like a leaderboard.
+  const belowFloor = recordsBelowFloor(tree.records);
+  if (belowFloor.length > 0) {
+    throw new Error(`Refusing to publish — the records look broken, not merely changed:\n  ${belowFloor.join('\n  ')}`);
+  }
 
   // Sanity-check the temp tree before letting it replace live data.
-  const written = (await readdir(path.join(TMP_DIR, 'graphs'))).length;
+  const written = (await readdir(path.join(dir, 'graphs'))).length;
   if (written !== slices.length) {
     throw new Error(`Expected ${slices.length} graph files, wrote ${written} — refusing to publish`);
   }
-  for (const dir of ['players', 'results']) {
-    const count = (await readdir(path.join(TMP_DIR, dir))).length;
+  for (const kind of ['players', 'results']) {
+    const count = (await readdir(path.join(dir, kind))).length;
     if (count !== slices.length) {
-      throw new Error(`Expected ${slices.length} ${dir} files, wrote ${count} — refusing to publish`);
+      throw new Error(`Expected ${slices.length} ${kind} files, wrote ${count} — refusing to publish`);
     }
   }
 
   // Classifications are counted against the tournaments that produced them
   // rather than against the slice count: there is one per event with a played
   // field, not one per slice, and the two numbers are unrelated.
-  const classified = (await readdir(path.join(TMP_DIR, 'classifications'))).length;
+  const classified = (await readdir(path.join(dir, 'classifications'))).length;
   if (classified !== classificationFiles) {
     throw new Error(
       `Expected ${classificationFiles} classification files, wrote ${classified} — refusing to publish`,
     );
   }
 
-  // Ask FIVB whether it agrees with the partnerships about to be published.
-  // Everything above this point is inference over team rows; this is the only
+  // A rebuild that lost most of its data looks the same, from these numbers
+  // alone, whether that's a real correction or FIVB silently handing back an
+  // empty or truncated response. See regression.ts for why scale is the only
+  // signal available to tell them apart.
+  //
+  // ALLOW_DATA_REGRESSION is the deliberate escape hatch for the one case
+  // this can't tell apart from a broken fetch on its own: a real code change
+  // that correctly excludes data that should never have been counted (e.g.
+  // the Type-15 National Tour fix — a legitimate ~16% drop in one run). It is
+  // wired to a workflow_dispatch checkbox, not a default, and this run is
+  // never silent about using it: the drop is logged either way, published or
+  // not, so it is visible in the run output and in the commit this produces.
+  const regressions = checkForRegression(previousTotals, manifest.totals);
+  if (regressions.length > 0) {
+    const detail = `  ${regressions.join('\n  ')}`;
+    if (process.env.ALLOW_DATA_REGRESSION === 'true') {
+      console.warn(`  ! regression check bypassed (ALLOW_DATA_REGRESSION=true):\n${detail}`);
+    } else {
+      throw new Error(`Refusing to publish — this looks like a broken fetch, not a real change:\n${detail}`);
+    }
+  }
+  return { graphFiles: written, classified };
+}
+
+/**
+ * Ask FIVB whether it agrees with the partnerships about to be published.
+ */
+async function crossCheck(agg: Aggregate) {
+  const { slices, awayPartners } = agg;
+  // Every stage before this one is inference over team rows; this is the only
   // check that consults a second, independent answer to the same question (see
   // teammates.ts). It runs on a sample of 300 rather than every published
   // player (12,110 on 15 October 2026) because the point is to catch a
@@ -1073,29 +1184,10 @@ async function main() {
       throw new Error(`Refusing to publish — ${mismatch}`);
     }
   }
+}
 
-  // A rebuild that lost most of its data looks the same, from these numbers
-  // alone, whether that's a real correction or FIVB silently handing back an
-  // empty or truncated response. See regression.ts for why scale is the only
-  // signal available to tell them apart.
-  //
-  // ALLOW_DATA_REGRESSION is the deliberate escape hatch for the one case
-  // this can't tell apart from a broken fetch on its own: a real code change
-  // that correctly excludes data that should never have been counted (e.g.
-  // the Type-15 National Tour fix — a legitimate ~16% drop in one run). It is
-  // wired to a workflow_dispatch checkbox, not a default, and this run is
-  // never silent about using it: the drop is logged either way, published or
-  // not, so it is visible in the run output and in the commit this produces.
-  const regressions = checkForRegression(previousTotals, manifest.totals);
-  if (regressions.length > 0) {
-    const detail = `  ${regressions.join('\n  ')}`;
-    if (process.env.ALLOW_DATA_REGRESSION === 'true') {
-      console.warn(`  ! regression check bypassed (ALLOW_DATA_REGRESSION=true):\n${detail}`);
-    } else {
-      throw new Error(`Refusing to publish — this looks like a broken fetch, not a real change:\n${detail}`);
-    }
-  }
-
+/** Swap the new tree in for the live one. */
+async function publish() {
   // Swap the new tree in, then delete the old one — never the other way round.
   // `rm` the live directory first and the window between the two calls is a
   // window with no data at all: interrupt the process there (CI cancelled, disk
@@ -1115,13 +1207,46 @@ async function main() {
     throw err;
   }
   await rm(OLD_DIR, { recursive: true, force: true });
+}
+
+async function main() {
+  const startedAt = Date.now();
+  const generatedAt = new Date().toISOString();
+
+  await recoverInterruptedSwap();
+
+  // Read before anything below touches OUT_DIR, so this is genuinely the
+  // previous run's data — not a `null` because we deleted it ourselves in the
+  // meantime. Missing or unreadable (the very first run, or a corrupt file)
+  // both mean "nothing to compare against"; the absolute floor check further
+  // down is what protects that cold-start case instead.
+  let previousTotals: DatasetTotals | null = null;
+  try {
+    const previous = JSON.parse(await readFile(path.join(OUT_DIR, 'manifest.json'), 'utf8'));
+    previousTotals = previous.totals;
+  } catch {
+    /* no previous manifest to compare against */
+  }
+
+  const archive = await fetchArchive();
+  const agg = aggregate(archive, generatedAt);
+  // A collapse in matched entries means the upstream shape changed. Better to
+  // fail loudly than to publish a graph that quietly lost most of its edges.
+  if (agg.partnerships.size < 1000) {
+    throw new Error(`Only ${agg.partnerships.size} partnerships aggregated — refusing to publish`);
+  }
+  const aka = await formerNames(agg.slices);
+  const written = await writeTree(TMP_DIR, archive, agg, aka, generatedAt);
+  const { graphFiles, classified } = await verifyTree(TMP_DIR, agg, written, previousTotals);
+  await crossCheck(agg);
+  await publish();
 
   // graphs + players + results, one classification per tournament with a
   // played field, plus the manifest, the tournament index, the search index
   // and the records. Entry lists and series are not counted here.
   log(
     'published',
-    `${OUT_DIR} (${written * 3 + classified + 4} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
+    `${OUT_DIR} (${graphFiles * 3 + classified + 4} files) in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
   );
   log('config', `age-group world championships ${INCLUDE_AGE_GROUP ? 'included' : 'excluded'}`);
 }
