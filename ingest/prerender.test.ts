@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, routeChunks, tallySlice } from './prerender.js';
+import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, routeChunks, tallySlice, tournamentFacts, factsScript } from './prerender.js';
 import type { GraphFile, Manifest } from '../shared/schema.js';
 
 const manifest: Manifest = {
@@ -217,5 +217,58 @@ describe('routeChunks', () => {
 
   it('refuses a page Vite did not build as a chunk of its own', () => {
     expect(() => routeChunks(viteManifest, 'src/RecordsRoute.tsx')).toThrow('no entry for src/RecordsRoute.tsx');
+  });
+});
+
+describe('tournamentFacts', () => {
+  const row = {
+    slug: 'gstaad-2024-women',
+    code: 'WGST2024',
+    name: 'Gstaad',
+    season: 2024,
+    gender: 'W' as const,
+    tier: 'beach-pro-tour' as const,
+    group: 'tour' as never,
+    level: 'Elite16',
+    country: 'CH',
+    start: new Date(Date.UTC(2024, 6, 9)),
+    end: new Date(Date.UTC(2024, 6, 14)),
+    played: true,
+  };
+  const countries = [
+    { code: 'BRA', name: 'Brazil', iso2: 'BR', genders: {} },
+    { code: 'NED', name: 'Netherlands', iso2: 'NL', genders: {} },
+    { code: 'USA', name: 'United States', iso2: 'US', genders: {} },
+  ];
+
+  it('carries the countries the field flags and the ones its names link to', () => {
+    const facts = tournamentFacts(
+      row,
+      { ...row, gender: 'M', slug: 'gstaad-2024-men' },
+      // XXX has no published slice: no flag, no page, so not carried.
+      { federations: ['USA', 'BRA', 'XXX', 'BRA'], elsewhere: { '101': 'NED-W', '102': null } },
+      countries,
+    );
+    expect(facts.federations).toEqual({
+      BRA: ['Brazil', 'BR'],
+      NED: ['Netherlands', 'NL'],
+      USA: ['United States', 'US'],
+    });
+    expect(facts.counterpart).toEqual({ gender: 'M', slug: 'gstaad-2024-men' });
+    expect(facts.start).toBe('2024-07-09');
+    expect(facts.end).toBe('2024-07-14');
+    expect(facts).not.toHaveProperty('group');
+  });
+
+  it('has no counterpart, and no countries, for a lone draw with no field yet', () => {
+    const facts = tournamentFacts({ ...row, played: false, start: null, end: null }, null, null, countries);
+    expect(facts).toMatchObject({ counterpart: null, federations: {}, start: null, end: null, played: false });
+  });
+
+  it('cannot close its own script element', () => {
+    const facts = tournamentFacts({ ...row, name: '</script><script>alert(1)' }, null, null, countries);
+    const html = factsScript(facts);
+    expect(html.match(/<\/script>/g)).toHaveLength(1);
+    expect(JSON.parse(html.replace(/^<script[^>]*>|<\/script>$/g, '')).name).toBe('</script><script>alert(1)');
   });
 });

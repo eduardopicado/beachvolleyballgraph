@@ -23,14 +23,15 @@ import type {
   GraphFile,
   Manifest,
   RecordsFile,
+  TournamentPageFacts,
   TournamentsFile,
 } from '../shared/schema.js';
-import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE } from '../shared/schema.js';
+import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE, TOURNAMENT_FACTS_ID } from '../shared/schema.js';
 import { nameCarriesSeason, playerPath, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
-import { buildIndex, defaultSeason } from '../web/src/lib/tournamentIndex.js';
+import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
 import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL, sliceHead } from '../shared/site.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -106,6 +107,54 @@ export function jsonLd(data: unknown): string {
   // No user-controlled markup can escape: JSON.stringify plus a guard on the
   // one sequence that could close the script element early.
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+/**
+ * A tournament page's facts about itself — see `TournamentPageFacts`.
+ *
+ * `field` is the page's classification or entry list: its teams' federations
+ * get a flag, and the slices its `elsewhere` names point at get a link, so
+ * those are the countries carried. Only countries the manifest publishes are
+ * included, which is the same answer the page got by reading the manifest
+ * itself: a federation with no published slice has no flag and no page.
+ */
+export function tournamentFacts(
+  row: IndexRow,
+  counterpart: IndexRow | null,
+  field: { federations: string[]; elsewhere?: Record<string, string | null> } | null,
+  countries: Manifest['countries'],
+): TournamentPageFacts {
+  const byCode = new Map(countries.map((c) => [c.code, c] as const));
+  const codes = new Set(field?.federations ?? []);
+  for (const target of Object.values(field?.elsewhere ?? {})) {
+    if (target) codes.add(target.slice(0, target.lastIndexOf('-')));
+  }
+  const federations: TournamentPageFacts['federations'] = {};
+  for (const code of [...codes].sort()) {
+    const entry = byCode.get(code);
+    if (entry) federations[code] = [entry.name, entry.iso2];
+  }
+  const day = (d: Date | null) => (d ? d.toISOString().slice(0, 10) : null);
+  return {
+    slug: row.slug,
+    code: row.code,
+    name: row.name,
+    season: row.season,
+    gender: row.gender,
+    tier: row.tier,
+    level: row.level,
+    country: row.country,
+    start: day(row.start),
+    end: day(row.end),
+    played: row.played,
+    counterpart: counterpart && { gender: counterpart.gender, slug: counterpart.slug },
+    federations,
+  };
+}
+
+/** The facts as the element the page reads them from. Escaped like `jsonLd`. */
+export function factsScript(facts: TournamentPageFacts): string {
+  return `<script type="application/json" id="${TOURNAMENT_FACTS_ID}">${JSON.stringify(facts).replace(/</g, '\\u003c')}</script>`;
 }
 
 function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string; href: string }[]): string {
@@ -622,11 +671,13 @@ async function main() {
     let title: string;
     let description: string;
     let rows = '';
+    let field: Parameters<typeof tournamentFacts>[2] = null;
     if (t.played) {
       const classification: ClassificationFile = JSON.parse(
         await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
       );
       title = `${named} ${label} — final classification`;
+      field = { federations: classification.teams.map((team) => team[3]), elsewhere: classification.elsewhere };
       const winners = classification.teams
         .filter((team) => team[0] === 1)
         .map((team) =>
@@ -655,6 +706,10 @@ async function main() {
         ? JSON.parse(await readFile(entryPath, 'utf8'))
         : null;
       const entered = entries?.teams.length ?? 0;
+      field = entries && {
+        federations: [...entries.teams, ...(entries.withdrawn ?? [])].map((team) => team[2]),
+        elsewhere: entries.elsewhere,
+      };
       title = `${named} ${label} — entry list`;
       description = entered
         ? `${named}, ${label.toLowerCase()}: ${entered} teams entered. The tournament has not been played yet.`
@@ -676,7 +731,9 @@ async function main() {
       url: href,
       title: `${title} — ${SITE_NAME}`,
       description,
-      head: jsonLd({
+      head:
+        factsScript(tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries)) +
+        jsonLd({
         '@context': 'https://schema.org',
         '@type': 'SportsEvent',
         name: named,

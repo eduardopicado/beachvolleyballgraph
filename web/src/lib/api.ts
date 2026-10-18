@@ -82,9 +82,11 @@ export const fetchEntries = (code: string) => load<EntriesFile>(entriesPath(BASE
 /**
  * The tournament index on its own.
  *
- * `fetchResults` already pulls this alongside a slice's results; a tournament
- * page needs it without any slice at all, and the browser cache makes the
- * second caller free when both happen in one visit.
+ * `fetchResults` already pulls this alongside a slice's results; the
+ * tournament index page needs it without any slice at all, and so does a
+ * tournament page that arrived without its prerendered facts (see
+ * `TournamentPageFacts`). The browser cache makes the second caller free when
+ * both happen in one visit.
  */
 export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
 
