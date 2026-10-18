@@ -479,8 +479,9 @@ build without the switch has no such directory, and no page names one.
 
 Each photo is `[no, caption, takenAt, pick]`: FIVB's image number (served by
 `sharp.fivb.com/Legacy/GetImage?No=<no>&width=<w>`), its caption, when it was
-taken to the minute, and `1` for FIVB's own slideshow pick. **Picks first, then
-the rest, each by time taken.** The page learns a file exists from its facts
+taken to the minute (null on 8%), and `1` for FIVB's own slideshow pick.
+**Picks first, then the rest, each by time taken**; undated ones last, by
+image number, which is the order FIVB filed them in. The page learns a file exists from its facts
 (`TournamentPageFacts.photos`, the count), so it never asks for one that is
 not there.
 
