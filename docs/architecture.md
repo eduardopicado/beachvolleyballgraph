@@ -245,7 +245,7 @@ It has **no automatic gate** against `deploy.yml` — disable one by hand.
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
 | **Vitest** 5 | unit tests | Around 700 tests. Same transform pipeline as Vite, no second config to keep in step. |
-| **Playwright** 1.62 | browser tests | Around 150 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
+| **Playwright** 1.64 | browser tests | Around 150 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
 | **ESLint** 9 | lint | Flat config, with the React Hooks rules. |
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
