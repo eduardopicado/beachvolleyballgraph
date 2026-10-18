@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { tournamentSlugFromPath } from './tournamentRoute';
+import { readFacts, tournamentSlugFromPath } from './tournamentRoute';
 
 describe('tournamentSlugFromPath', () => {
   it('reads the slug under the tournament prefix', () => {
@@ -35,5 +35,25 @@ describe('tournamentSlugFromPath', () => {
 
   it('does not match a slice whose name merely starts with the prefix', () => {
     expect(tournamentSlugFromPath('/tournaments-index/', '/')).toBeNull();
+  });
+});
+
+describe('readFacts', () => {
+  const doc = (text: string | null) => ({
+    getElementById: (id: string) => (id === 'tournament-facts' && text !== null ? ({ textContent: text } as HTMLElement) : null),
+  });
+  const facts = JSON.stringify({ slug: 'gstaad-2024-women', code: 'WGST2024' });
+
+  it('reads the facts written for this address', () => {
+    expect(readFacts('gstaad-2024-women', doc(facts))?.code).toBe('WGST2024');
+  });
+
+  it('ignores facts written for another address, so the page fetches instead', () => {
+    expect(readFacts('gstaad-2024-men', doc(facts))).toBeNull();
+  });
+
+  it('falls back to the fetch when there are none, or they do not parse', () => {
+    expect(readFacts('gstaad-2024-women', doc(null))).toBeNull();
+    expect(readFacts('gstaad-2024-women', doc('{not json'))).toBeNull();
   });
 });

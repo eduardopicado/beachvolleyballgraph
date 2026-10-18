@@ -715,6 +715,49 @@ export const resultsPath = (base: string, country: string, gender: Gender) =>
   `${base}${DATA_VERSION}/results/${country}-${gender}.json`;
 
 export const tournamentsPath = (base: string) => `${base}${DATA_VERSION}/tournaments.json`;
+
+/**
+ * What a tournament page needs to know about itself, written by the
+ * prerenderer into the page as `<script type="application/json"
+ * id="tournament-facts">`.
+ *
+ * Without it the page fetched `tournaments.json` (141 KB) and the manifest
+ * (38 KB) to find one row and a handful of flags: every tournament, every
+ * country, to read one of each. The prerenderer already holds both, so it
+ * writes the part this page reads and the page skips the fetch. A page served
+ * without it (the dev server, a page cached from before) still fetches the
+ * two files and works as it always did.
+ *
+ * Not part of the `/v1/` tree: it lives in the HTML and changes with the HTML,
+ * so it is free to change shape between builds.
+ */
+export interface TournamentPageFacts {
+  /** The address the facts belong to, checked against the page's own. */
+  slug: string;
+  code: string;
+  name: string;
+  season: number;
+  gender: Gender;
+  tier: Tier;
+  level: string | null;
+  /** ISO-2 of the venue's country. */
+  country: string | null;
+  /** Calendar days, `YYYY-MM-DD`; null where the archive has none usable. */
+  start: string | null;
+  end: string | null;
+  played: boolean;
+  /** The same event's other draw, when it ran one. */
+  counterpart: { gender: Gender; slug: string } | null;
+  /**
+   * Federation code -> its country's name and ISO-2, for every federation the
+   * page's field names and every slice a name on it links to: the flags beside
+   * the teams, and the graph page each name opens.
+   */
+  federations: Record<string, [name: string, iso2: string | null]>;
+}
+
+/** The id of the element carrying `TournamentPageFacts`. */
+export const TOURNAMENT_FACTS_ID = 'tournament-facts';
 export const seriesIndexPath = (base: string) => `${base}${DATA_VERSION}/series/index.json`;
 export const seriesPath = (base: string, slug: string) =>
   `${base}${DATA_VERSION}/series/${slug}.json`;
