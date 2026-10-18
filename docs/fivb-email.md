@@ -304,18 +304,23 @@ pulled out and why, in your words rather than my paraphrase of a number.
 than a question about the data.
 
 `GetImageList`, filtered by `NoTournament`, returns the tournament photography
-— 124 images for the 2008 Paris Grand Slam, 389 for Gstaad 2019 — each with a
-caption written by whoever filed it, a timestamp, and `Copyright` set to FIVB.
-Every one I have looked at carries `Publish="1"` and `AccessLevel="1"`, and
-`InSlideShow` marks a selection somebody made by hand: 32 of the 389 at
-Gstaad. Sampling fifty tournaments spread across the archive, the photography
-runs from 2006 to 2021 and there is none on either side of that.
+— 124 images for the men's 2008 Paris Grand Slam, 394 for the men's Gstaad
+2019 — each with a caption written by whoever filed it, a timestamp, and
+`Copyright` set to FIVB. Every one I have looked at carries `Publish="1"` and
+`AccessLevel="1"`, and `InSlideShow` marks a selection somebody made by hand:
+33 of the 394 at Gstaad. Across every tournament my site lists, that is
+289,525 photographs of 726 tournaments. Almost all are from 2006 to 2021; the
+exceptions are seven events you still run yourselves, among them the 2025
+World Championships in Adelaide.
 
-I would like to show a handful of them on each tournament page, credited to
-FIVB and served from your own image service rather than copied — the same way
-the site already shows player portraits. If that needs a licence, or a
-different form of credit, or is simply not something you grant, please say so
-and I will leave them out; I would rather ask than assume that
+I would like to show all of them, on each tournament's page: a row of
+thumbnails under the heading, your slideshow picks first, each opening larger
+with its caption, and every one credited to FIVB. They would be served from
+your own image service rather than copied — the same way the site already
+shows player portraits — so nothing leaves your servers that you have not
+published there. If that needs a licence, or a different form of credit, or
+a smaller selection, or is simply not something you grant, please say so and
+I will do it your way or leave them out; I would rather ask than assume that
 `Publish="1"` means what I would like it to mean.
 
 The same records carry `NoPerson`, `TeamCode` and `NoMatch`, so the answer
