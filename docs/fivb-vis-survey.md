@@ -282,10 +282,17 @@ captioned and timestamped to the second.
 | `TakenDT`, `Copyright`, `Credit` | provenance |
 | `Publish`, `AccessLevel` | both `1` on everything seen so far |
 
-**Coverage is 2006–2021 and nothing outside it.** Sampled 50 tournaments
-spread evenly across the archive: none before 2006, none after 2021, and 22 of
-the 50 in between, averaging about 460 images each. The upper edge is FIVB
-moving to volleyballworld.com for the Beach Pro Tour.
+**Coverage is 2006–2021, with a few FIVB events since.** Measured over every
+played tournament (1,612, October 2026, `ingest/photos.ts`): **289,525
+photographs on 726 of them**, from 10 to 2,201 each, median 326, of which
+12,977 are `InSlideShow` picks. None before 2006. 719 of the 726 are 2006–2021;
+the upper edge is FIVB moving to volleyballworld.com for the Beach Pro Tour.
+The other seven are events FIVB still runs itself — the 2025 World
+Championships in Adelaide, the U21 World Championships of 2023 and 2025, and
+the 2025 Futures in Brno — so the archive is not quite closed.
+
+An earlier sample of 50 tournaments said "nothing after 2021"; it missed those
+seven because there are so few of them.
 
 The `Type` parameter on `GetImage` is ignored — `Type=Player`, `Type=Logo` and
 no `Type` at all return identical bytes for the same `No`. Only the number

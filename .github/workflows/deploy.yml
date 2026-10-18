@@ -240,11 +240,26 @@ jobs:
         with:
           site_url: ${{ vars.SITE_URL }}
 
+      # FIVB's tournament photographs: off unless the TOURNAMENT_PHOTOS
+      # repository variable is 1, and they wait on FIVB's permission
+      # (ingest/photos.ts). The lists are cached between runs so a deploy asks
+      # VIS only for the ones that are missing or 90 days old, not for all
+      # 1,612 every day. Skipped entirely while the switch is off.
+      - if: vars.TOURNAMENT_PHOTOS == '1'
+        uses: actions/cache@v6
+        with:
+          path: ingest/.cache/photos.json
+          key: tournament-photos-${{ github.run_id }}
+          restore-keys: tournament-photos-
+
       - name: Build site
         run: npm run build
         env:
           BASE_PATH: ${{ steps.origin.outputs.base_path }}
           SITE_URL: ${{ steps.origin.outputs.site_url }}
+          # Unset is off. See docs/architecture.md, "Tournament photographs".
+          TOURNAMENT_PHOTOS: ${{ vars.TOURNAMENT_PHOTOS }}
+          VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
 
       # Belt and braces. The custom domain is configured in Settings > Pages
       # and that setting is what actually serves the site; this file keeps a

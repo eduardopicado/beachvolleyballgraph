@@ -59,12 +59,27 @@ jobs:
           # shared/site.ts.
           VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
 
+      # FIVB's tournament photographs: off unless the TOURNAMENT_PHOTOS
+      # repository variable is 1, and they wait on FIVB's permission
+      # (ingest/photos.ts). The lists are cached between runs so a deploy asks
+      # VIS only for the ones that are missing or 90 days old, not for all
+      # 1,612 every day. Skipped entirely while the switch is off.
+      - if: vars.TOURNAMENT_PHOTOS == '1'
+        uses: actions/cache@v6
+        with:
+          path: ingest/.cache/photos.json
+          key: tournament-photos-${{ github.run_id }}
+          restore-keys: tournament-photos-
+
       - name: Build site
         run: npm run build
         env:
           # Cloudflare Pages serves from the domain root.
           BASE_PATH: /
           SITE_URL: ${{ vars.SITE_URL }}
+          # Unset is off. See docs/architecture.md, "Tournament photographs".
+          TOURNAMENT_PHOTOS: ${{ vars.TOURNAMENT_PHOTOS }}
+          VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
 
       # Before publishing, never after: a build that does not render must not
       # reach the CDN. This is the only check that sees the freshly fetched
