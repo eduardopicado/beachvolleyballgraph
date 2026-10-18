@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, tallySlice } from './prerender.js';
+import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, routeChunks, tallySlice } from './prerender.js';
 import type { GraphFile, Manifest } from '../shared/schema.js';
 
 const manifest: Manifest = {
@@ -195,5 +195,27 @@ describe('jsonLd', () => {
     const html = jsonLd({ name: 'a < b', n: 1 });
     const body = html.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '');
     expect(JSON.parse(body)).toEqual({ name: 'a < b', n: 1 });
+  });
+});
+
+describe('routeChunks', () => {
+  // The shape Vite writes: the entry, two page chunks, and a chunk the two share.
+  const viteManifest = {
+    'index.html': { file: 'assets/index-E.js', isEntry: true },
+    'src/App.tsx': { file: 'assets/App-A.js', imports: ['index.html', '_shared-S.js'] },
+    'src/TournamentRoute.tsx': { file: 'assets/T-T.js', imports: ['index.html', '_shared-S.js'] },
+    '_shared-S.js': { file: 'assets/shared-S.js', imports: ['index.html'] },
+  };
+
+  it('lists the page chunk and the chunks it imports', () => {
+    expect(routeChunks(viteManifest, 'src/TournamentRoute.tsx')).toEqual(['assets/T-T.js', 'assets/shared-S.js']);
+  });
+
+  it('leaves out the entry, which the template already loads', () => {
+    expect(routeChunks(viteManifest, 'src/App.tsx')).not.toContain('assets/index-E.js');
+  });
+
+  it('refuses a page Vite did not build as a chunk of its own', () => {
+    expect(() => routeChunks(viteManifest, 'src/RecordsRoute.tsx')).toThrow('no entry for src/RecordsRoute.tsx');
   });
 });

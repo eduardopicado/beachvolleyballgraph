@@ -27,16 +27,6 @@ import { TournamentPage, type TournamentPageData } from './components/Tournament
 
 const BASE = import.meta.env.BASE_URL;
 
-/** The slug out of `/tournament/gstaad-2019-women/`, or null if this is not one. */
-export function tournamentSlugFromPath(pathname: string, base: string): string | null {
-  const rest = (pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, ''))
-    .replace(/index\.html$/, '')
-    .replace(/^\/+|\/+$/g, '');
-  const [prefix, slug, ...extra] = rest.split('/');
-  if (prefix !== 'tournament' || !slug || extra.length) return null;
-  return slug;
-}
-
 export default function TournamentRoute({ slug }: { slug: string }) {
   const [tournaments, setTournaments] = useState<TournamentsFile | null>(null);
   const [manifest, setManifest] = useState<Manifest | null>(null);
