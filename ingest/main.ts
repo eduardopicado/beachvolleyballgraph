@@ -398,10 +398,17 @@ async function main() {
   // creates a new one silently, and the count moving week to week is the only
   // signal that it happened. Karen Noppen became one on 16 August 2026 by
   // moving BDI -> NED, losing both her partnerships in a single refresh.
-  const stranded = [...awayPartners.keys()].filter((id) => {
-    const slice = slices.find((s) => s.nodes.some((n) => n.id === id));
-    return slice ? !slice.edges.some((e) => e.a === id || e.b === id) : false;
-  }).length;
+  //
+  // Two sets in one pass rather than a scan of every slice per player: a
+  // player sits in exactly one slice and an edge only joins two of its nodes,
+  // so "has an edge anywhere" is "has an edge in their own".
+  const inAGraph = new Set<number>();
+  const partnered = new Set<number>();
+  for (const slice of slices) {
+    for (const n of slice.nodes) inAGraph.add(n.id);
+    for (const e of slice.edges) partnered.add(e.a).add(e.b);
+  }
+  const stranded = [...awayPartners.keys()].filter((id) => inAGraph.has(id) && !partnered.has(id)).length;
   log('cross-fed', `${awayPartners.size} players have a partner in another federation; ${stranded} have no partner in their own`);
 
   // --- Stage 5: write to temp, then swap -----------------------------------
