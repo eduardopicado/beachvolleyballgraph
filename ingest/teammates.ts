@@ -180,3 +180,18 @@ export async function verifyTeammates(
 
   return compareTeammates(ours, theirs);
 }
+
+/**
+ * What a finished check says, as the line the run logs: null when every
+ * sampled player agrees with FIVB, otherwise the refusal text naming up to ten
+ * of the players who do not.
+ */
+export function describeMismatches(check: TeammateCheck): string | null {
+  if (check.mismatches.length === 0) return null;
+  const rows = check.mismatches
+    .slice(0, 10)
+    .map((m) => `    player ${m.player} -> partners VIS does not list: ${m.missing.join(', ')}`)
+    .join('\n');
+  const more = check.mismatches.length > 10 ? `\n    ...and ${check.mismatches.length - 10} more` : '';
+  return `${check.mismatches.length} of ${check.checked} sampled players carry a partnership FIVB has no record of:\n${rows}${more}`;
+}
