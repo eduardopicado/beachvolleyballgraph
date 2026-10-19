@@ -24,6 +24,7 @@ import type {
   Manifest,
   RecordsFile,
   TournamentPageFacts,
+  TournamentPhotosFile,
   TournamentsFile,
 } from '../shared/schema.js';
 import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE, TOURNAMENT_FACTS_ID } from '../shared/schema.js';
@@ -42,6 +43,18 @@ const DATA = path.join(ROOT, 'web/public/v1');
 /** Public origin, needed for canonical URLs, Open Graph and the sitemap. */
 const SITE_URL = (process.env.SITE_URL ?? 'https://example.invalid').replace(/\/+$/, '');
 const BASE = process.env.BASE_PATH ?? '/';
+
+/**
+ * How many photographs `ingest/photos.ts` wrote for a tournament, or 0. Only
+ * looked for with `TOURNAMENT_PHOTOS=1`: the file is never in a build without
+ * it, and a page should not be told to ask for one that is not there.
+ */
+async function photoCount(code: string): Promise<number> {
+  if (process.env.TOURNAMENT_PHOTOS !== '1') return 0;
+  const file = path.join(DIST, 'v1', 'photos', `${code}.json`);
+  if (!existsSync(file)) return 0;
+  return (JSON.parse(await readFile(file, 'utf8')) as TournamentPhotosFile).photos.length;
+}
 
 /** Cap on players embedded in structured data; the table itself is complete. */
 const JSONLD_MAX = 50;
@@ -123,6 +136,7 @@ export function tournamentFacts(
   counterpart: IndexRow | null,
   field: { federations: string[]; elsewhere?: Record<string, string | null> } | null,
   countries: Manifest['countries'],
+  photos = 0,
 ): TournamentPageFacts {
   const byCode = new Map(countries.map((c) => [c.code, c] as const));
   const codes = new Set(field?.federations ?? []);
@@ -149,6 +163,9 @@ export function tournamentFacts(
     played: row.played,
     counterpart: counterpart && { gender: counterpart.gender, slug: counterpart.slug },
     federations,
+    // Left out at zero, which is every page of a build without the switch, so
+    // the facts of a public build do not name photographs at all.
+    ...(photos > 0 && { photos }),
   };
 }
 
@@ -732,7 +749,9 @@ async function main() {
       title: `${title} — ${SITE_NAME}`,
       description,
       head:
-        factsScript(tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries)) +
+        factsScript(
+          tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries, await photoCount(t.code)),
+        ) +
         jsonLd({
         '@context': 'https://schema.org',
         '@type': 'SportsEvent',

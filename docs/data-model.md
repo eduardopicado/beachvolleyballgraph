@@ -462,6 +462,33 @@ Not here yet: the age-group championships, which are one tier in the published
 data but five competitions, and only 70 of the 86 carry the category in their
 code. They stay unserialised until VIS's `Type` is published.
 
+## photos/{CODE}.json — not in this tree
+
+FIVB's photographs of one tournament, for the strip under a tournament page's
+heading. **Written only by a build with `TOURNAMENT_PHOTOS=1`, and only into
+`dist/v1/photos/`**, never into `web/public/v1/`: the daily ingest commits that
+tree, and the photographs are FIVB's copyright, waiting on their permission. A
+build without the switch has no such directory, and no page names one.
+
+```json
+{ "code": "WGST2019",
+  "photos": [
+    [201940781, "Brazil's Maria Antonelli/Carolina Salgado, USA's April Ross/Alix Klineman, …", "2019-07-14T16:43", 1],
+    … ] }
+```
+
+Each photo is `[no, caption, takenAt, pick]`: FIVB's image number (served by
+`sharp.fivb.com/Legacy/GetImage?No=<no>&width=<w>`), its caption, when it was
+taken to the minute (null on 8%), and `1` for FIVB's own slideshow pick.
+**Picks first, then the rest, each by time taken**; undated ones last, by
+image number, which is the order FIVB filed them in. The page learns a file exists from its facts
+(`TournamentPageFacts.photos`, the count), so it never asks for one that is
+not there.
+
+Measured October 2026: 726 files, 26 MB, median 27 KB, largest 201 KB; 289,525
+photographs, 12,977 of them picks. See architecture.md, "Tournament
+photographs", for the switch.
+
 ## records.json
 
 The archive's extremes: thirteen categories, each a men's and a women's board

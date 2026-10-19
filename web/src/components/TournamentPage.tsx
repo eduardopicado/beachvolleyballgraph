@@ -24,7 +24,7 @@
  * row is a link somewhere else.
  */
 
-import { useMemo } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../../../shared/schema';
 import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../../../shared/schema';
 import { bandsOf } from '../lib/classification';
@@ -89,6 +89,12 @@ interface Props {
   editionHref: (slug: string) => string;
   /** This edition's own code, so it can be marked rather than linked. */
   code: string;
+  /**
+   * FIVB's photographs, as a strip between the heading and the results. Only
+   * ever set by a build with tournament photos switched on (see
+   * `TournamentPhotos`); absent, the page is exactly what it was.
+   */
+  photos?: ReactNode;
 }
 
 const GENDER_LABEL: Record<Gender, string> = { M: "Men's", W: "Women's" };
@@ -307,6 +313,7 @@ export function TournamentPage({
   series,
   editionHref,
   code,
+  photos,
 }: Props) {
   const { name, season, tier, level, gender, country, start, end } = tournament;
   const bands = useMemo(
@@ -371,6 +378,8 @@ export function TournamentPage({
           )}
         </p>
       </header>
+
+      {photos}
 
       {entries && (
         <EntryList entries={entries} iso2Of={iso2Of} onSelectPlayer={onSelectPlayer} />

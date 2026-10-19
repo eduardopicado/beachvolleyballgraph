@@ -265,6 +265,15 @@ describe('tournamentFacts', () => {
     expect(facts).toMatchObject({ counterpart: null, federations: {}, start: null, end: null, played: false });
   });
 
+  it('names a photo count only when there are photographs', () => {
+    expect(tournamentFacts(row, null, null, countries, 412).photos).toBe(412);
+    expect(tournamentFacts(row, null, null, countries, 1).photos).toBe(1);
+    // Zero is every page of a build without the switch: no key at all, so
+    // the public facts do not mention photographs.
+    expect(tournamentFacts(row, null, null, countries, 0)).not.toHaveProperty('photos');
+    expect(tournamentFacts(row, null, null, countries)).not.toHaveProperty('photos');
+  });
+
   it('cannot close its own script element', () => {
     const facts = tournamentFacts({ ...row, name: '</script><script>alert(1)' }, null, null, countries);
     const html = factsScript(facts);

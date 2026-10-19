@@ -235,6 +235,69 @@ the same action, so a pull request builds at the same base as the deploy.
 `deploy-cloudflare.yml` is a complete alternative targeting Cloudflare Pages.
 It has **no automatic gate** against `deploy.yml` — disable one by hand.
 
+## Tournament photographs
+
+FIVB's own photographs of 726 tournaments (fivb-vis-survey.md §6) are ready to
+show as a strip under a tournament page's heading, with a viewer that opens on
+a click. **They are switched off**, because every one is FIVB's copyright and
+the request to show them is still with FIVB.
+
+**One switch, `TOURNAMENT_PHOTOS=1`, at build time.** Without it:
+
+- `ingest/photos.ts` returns at once: no request to VIS, no file written.
+- `__TOURNAMENT_PHOTOS__` (`vite.config.ts`) is `false`, so the dynamic import
+  of the strip in `TournamentRoute.tsx` is dead code and Rollup drops it — the
+  component, its stylesheet, the photo file's address. Nothing is shipped and
+  hidden; it is not shipped.
+- The prerenderer writes no `photos` count into any page's facts.
+
+`e2e/tournament-photos.spec.ts` checks all three on every CI run, by grepping
+the built assets and every page's facts.
+
+With it, the build runs `ingest/photos.ts` between `vite build` and the
+prerenderer: it asks VIS for each played tournament's photo list, keeps them
+in `ingest/.cache/photos.json` (git-ignored, refreshed after 90 days), and
+writes `dist/v1/photos/{CODE}.json` — into the build output, never into the
+committed `web/public/v1/`, so the lists stay out of git history. The images
+themselves are never copied: thumbnails and the large view are served by
+FIVB's image service, as player portraits are.
+
+### Seeing it before it is public
+
+**On your own machine.** Nothing leaves it:
+
+```sh
+TOURNAMENT_PHOTOS=1 npm run build && npm run preview
+```
+
+The first build asks VIS for all 1,612 lists, 25 to a request with a pause
+between; later builds read the cache.
+
+**Shared with someone, still private.** Build as above and upload `dist/` as
+a Cloudflare Pages preview deployment:
+
+```sh
+npx wrangler pages deploy dist --project-name=beachvolleyballgraph --branch=photos-preview
+```
+
+Before that, turn on an Access policy for preview deployments (the Pages
+project's Settings, "Enable access policy") and limit it to the addresses you
+choose. Without that policy a preview URL is public to anyone who has it.
+Never deploy a flagged build to the production branch or to GitHub Pages: both
+serve the world.
+
+### Going live
+
+Only once FIVB has said yes. Add a repository variable `TOURNAMENT_PHOTOS` with
+the value `1` (Settings, Secrets and variables, Actions, Variables) and run the
+deploy workflow. `deploy.yml` and `deploy-cloudflare.yml` pass it to the build
+and cache the photo lists between runs.
+
+**Turning it off** is deleting the variable and deploying again: the next build
+has no strip and no photo files. What a crawler or a reader's browser fetched
+in between is out of reach, which is why the switch waits for permission rather
+than being tried and withdrawn.
+
 ## Stack
 
 | | | Why this |

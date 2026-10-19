@@ -277,15 +277,29 @@ captioned and timestamped to the second.
 |---|---|
 | `No` | the image number; `sharp.fivb.com/Legacy/GetImage?No=<n>&width=<w>` serves it |
 | `Title` | a real caption — *"Jonathan Erdmann goes high as Germany's Sven Winter watches the outcome"* |
-| `InSlideShow` | **FIVB's own editorial pick.** 32 of 389 on Gstaad 2019 |
+| `InSlideShow` | **FIVB's own editorial pick.** 33 of 394 on the men's Gstaad 2019, 38 of 439 on the women's |
 | `NoPerson`, `TeamCode`, `NoMatch` | what the photograph is of |
 | `TakenDT`, `Copyright`, `Credit` | provenance |
 | `Publish`, `AccessLevel` | both `1` on everything seen so far |
 
-**Coverage is 2006–2021 and nothing outside it.** Sampled 50 tournaments
-spread evenly across the archive: none before 2006, none after 2021, and 22 of
-the 50 in between, averaging about 460 images each. The upper edge is FIVB
-moving to volleyballworld.com for the Beach Pro Tour.
+**Coverage is 2006–2021, with a few FIVB events since.** Measured over every
+played tournament (1,612, October 2026, `ingest/photos.ts`): **289,525
+photographs on 726 of them**, from 10 to 2,201 each, median 326, of which
+12,977 are `InSlideShow` picks. None before 2006. 719 of the 726 are 2006–2021;
+the upper edge is FIVB moving to volleyballworld.com for the Beach Pro Tour.
+The other seven are events FIVB still runs itself — the 2025 World
+Championships in Adelaide, the U21 World Championships of 2023 and 2025, and
+the 2025 Futures in Brno — so the archive is not quite closed.
+
+An earlier sample of 50 tournaments said "nothing after 2021"; it missed those
+seven because there are so few of them. The same pass gave Gstaad 2019 as 32
+of 389, which no draw of it matches; how it was counted was not written down.
+
+**Image numbers rise with time**, so a photograph added to an old event would
+stand out: 2006's run from 200600001, 2019's from 201864934 to 201980673,
+2025's reach 202281538. Every Gstaad 2019 number is below 201940790. Nothing
+has been added to it since. `TakenDT` is on 92% of photographs (265,746) but
+on almost none of Gstaad 2019's.
 
 The `Type` parameter on `GetImage` is ignored — `Type=Player`, `Type=Logo` and
 no `Type` at all return identical bytes for the same `No`. Only the number

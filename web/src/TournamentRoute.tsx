@@ -20,7 +20,7 @@
  * against a fetch that already happened.
  */
 
-import { useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import type { Gender, Manifest, SeriesFile, Tier, TournamentsFile } from '../../shared/schema';
 import { readFacts } from './lib/tournamentRoute';
 import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
@@ -32,6 +32,14 @@ import { useEntries } from './lib/useEntries';
 import { TournamentPage, type TournamentPageData } from './components/TournamentPage';
 
 const BASE = import.meta.env.BASE_URL;
+
+/*
+ * FIVB's photographs, only in a build with `TOURNAMENT_PHOTOS=1`. The constant
+ * is replaced at build time, so without the switch this is `false ? … : null`
+ * and the import — the strip, its stylesheet, the photo file's address — is
+ * dropped from the bundle rather than shipped and hidden (TournamentPhotos.tsx).
+ */
+const TournamentPhotos = __TOURNAMENT_PHOTOS__ ? lazy(() => import('./components/TournamentPhotos')) : null;
 
 /** One tournament as this page uses it, from the facts or from the index. */
 interface Resolved {
@@ -210,6 +218,15 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       entries={entries}
       series={series}
       code={found.code}
+      photos={
+        // Only from the facts: the prerenderer counts the photo file, so a
+        // page without one never asks for it.
+        TournamentPhotos && facts?.photos ? (
+          <Suspense fallback={null}>
+            <TournamentPhotos code={found.code} count={facts.photos} />
+          </Suspense>
+        ) : undefined
+      }
       editionHref={(slug) => tournamentPath(BASE, slug)}
       onSelectPlayer={(id, slice) => {
         // A full navigation rather than client-side state: the graph lives in

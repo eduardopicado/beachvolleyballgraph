@@ -11,7 +11,7 @@
   "scripts": {
     "ingest": "tsx ingest/main.ts",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && tsx ingest/prerender.ts",
+    "build": "tsc --noEmit && vite build && tsx ingest/photos.ts && tsx ingest/prerender.ts",
     "prerender": "tsx ingest/prerender.ts",
     "preview": "vite preview",
     "test": "vitest run",

@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  // Off in tests, as in every build that has not asked for it (vite.config.ts).
+  define: { __TOURNAMENT_PHOTOS__: 'false' },
   test: {
     include: ['shared/**/*.test.ts', 'ingest/**/*.test.ts', 'web/src/**/*.test.ts'],
     environment: 'node',

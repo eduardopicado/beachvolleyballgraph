@@ -260,6 +260,14 @@ export interface PlayerDetail {
  * `width` matters: without it FIVB serves the original, which runs to 2-3MB per
  * portrait. With it, the image service returns a resized WebP of about 10KB.
  */
+/**
+ * One of FIVB's own event photographs, by its image number, at a given width.
+ * The same host as the portraits below, and the same width parameter; `Type`
+ * is ignored for these (fivb-vis-survey.md §6), so it is left off.
+ */
+export const tournamentPhotoUrl = (no: number, width: number) =>
+  `https://sharp.fivb.com/Legacy/GetImage?No=${no}&width=${width}`;
+
 export const playerPhotoUrl = (id: number, width = 200) =>
   `https://sharp.fivb.com/Legacy/GetImage?Type=Player&No=${id}&Style=Portrait&width=${width}`;
 
@@ -754,10 +762,40 @@ export interface TournamentPageFacts {
    * the teams, and the graph page each name opens.
    */
   federations: Record<string, [name: string, iso2: string | null]>;
+  /**
+   * How many of FIVB's photographs `photos/{code}.json` holds. Present only on
+   * a build with tournament photos switched on (`TOURNAMENT_PHOTOS`), and only
+   * for a tournament that has some; absent, the page asks for no photo file.
+   */
+  photos?: number;
 }
 
 /** The id of the element carrying `TournamentPageFacts`. */
 export const TOURNAMENT_FACTS_ID = 'tournament-facts';
+
+/**
+ * One photograph: FIVB's image number, its caption, when it was taken
+ * (`YYYY-MM-DDTHH:MM`, null where FIVB has none), and whether FIVB picked it
+ * for its own slideshow.
+ */
+export type TournamentPhoto = [no: number, caption: string, takenAt: string | null, pick: 0 | 1];
+
+/**
+ * `/v1/photos/{CODE}.json`: FIVB's photographs of one tournament, its own
+ * slideshow picks first and the rest after, each group in the order taken.
+ *
+ * **Built only when the site is built with `TOURNAMENT_PHOTOS=1`**, and then
+ * into `dist/` alone, never into the committed tree: every photograph is
+ * FIVB's copyright, and until FIVB agrees to their use a build without the
+ * switch carries no file, no code and no mention of them. See
+ * `ingest/photos.ts`.
+ */
+export interface TournamentPhotosFile {
+  code: string;
+  photos: TournamentPhoto[];
+}
+
+export const photosPath = (base: string, code: string) => `${base}${DATA_VERSION}/photos/${code}.json`;
 export const seriesIndexPath = (base: string) => `${base}${DATA_VERSION}/series/index.json`;
 export const seriesPath = (base: string, slug: string) =>
   `${base}${DATA_VERSION}/series/${slug}.json`;

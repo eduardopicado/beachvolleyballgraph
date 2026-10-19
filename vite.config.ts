@@ -7,6 +7,14 @@ export default defineConfig({
   root: 'web',
   base: process.env.BASE_PATH ?? '/',
   plugins: [react()],
+  define: {
+    // FIVB's tournament photographs, off until FIVB agrees to their use. A
+    // constant rather than an environment read at runtime, so a build without
+    // the switch drops the photo strip's dynamic import as dead code: no
+    // chunk, no stylesheet rules, no string a reader could find. The same
+    // variable makes ingest/photos.ts write the photo files; see there.
+    __TOURNAMENT_PHOTOS__: JSON.stringify(process.env.TOURNAMENT_PHOTOS === '1'),
+  },
   build: {
     outDir: '../dist',
     emptyOutDir: true,
