@@ -23,16 +23,16 @@
   "dependencies": {
     "country-flag-emoji-polyfill": "^0.1.10",
     "d3-force": "^3.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
     "@playwright/test": "1.64.1",
     "@types/d3-force": "^3.0.10",
     "@types/node": "^24.19.2",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^5.0.1",
     "eslint": "^9.39.5",
