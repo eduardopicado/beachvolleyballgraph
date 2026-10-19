@@ -246,7 +246,7 @@ the request to show them is still with FIVB.
 
 - `ingest/photos.ts` returns at once: no request to VIS, no file written.
 - `__TOURNAMENT_PHOTOS__` (`vite.config.ts`) is `false`, so the dynamic import
-  of the strip in `TournamentRoute.tsx` is dead code and Rollup drops it — the
+  of the strip in `TournamentRoute.tsx` is dead code and the bundler drops it — the
   component, its stylesheet, the photo file's address. Nothing is shipped and
   hidden; it is not shipped.
 - The prerenderer writes no `photos` count into any page's facts.
@@ -304,7 +304,7 @@ than being tried and withdrawn.
 |---|---|---|
 | **TypeScript** 5 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
 | **React** 18 | app | Component model for the card/controls/table; the graph opts out of it where it costs frames. |
-| **Vite** 6 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
+| **Vite** 8 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
 | **Vitest** 5 | unit tests | Around 700 tests. Same transform pipeline as Vite, no second config to keep in step. |
