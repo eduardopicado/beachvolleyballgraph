@@ -302,7 +302,7 @@ than being tried and withdrawn.
 
 | | | Why this |
 |---|---|---|
-| **TypeScript** 5 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
+| **TypeScript** 6 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
 | **React** 18 | app | Component model for the card/controls/table; the graph opts out of it where it costs frames. |
 | **Vite** 8 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
