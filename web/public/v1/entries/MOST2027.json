@@ -2,7 +2,13 @@
   "code": "MOST2027",
   "gender": "M",
   "teams": [
-
+    [160555,166274,"SWE",null,null],
+    [171940,202200,"SWE",null,null]
   ],
-  "players": {}
+  "players": {
+    "160555": "David Åhman",
+    "166274": "Jonatan Hellvig",
+    "171940": "Jacob Hölting Nilsson",
+    "202200": "Elmer Andersson"
+  }
 }
