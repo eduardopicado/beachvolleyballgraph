@@ -391,23 +391,40 @@ half-published state is not reachable.
 
 ### Cloudflare Pages + a custom domain
 
-`.github/workflows/deploy-cloudflare.yml` is the alternative to GitHub Pages.
-Disable whichever one you are not using so they do not both rebuild daily.
+The same workflow publishes to Cloudflare Pages instead when the repository
+variable `PAGES_HOST` is `cloudflare`. Only the last job changes: the data is
+still committed daily, code pushes still deploy, and the live site is still
+checked after every publish.
 
-1. Point the domain's nameservers at Cloudflare (at registro.br: *Alterar
-   servidores DNS*). Propagation is usually under an hour.
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Direct Upload**,
-   project name `beachvolleyballgraph`. The workflow uploads to it; there is no
-   need to connect the Git repo, and connecting it would build the site a second
-   time without the FIVB data.
-3. Add the repository secrets `CLOUDFLARE_API_TOKEN` (permission: *Cloudflare
-   Pages → Edit*) and `CLOUDFLARE_ACCOUNT_ID`, and the repository **variable**
-   `SITE_URL` (e.g. `https://beachvolley.com.br`, no trailing slash).
-4. Pages → your project → **Custom domains** → add the domain. Cloudflare adds
-   the CNAME itself when it is the authoritative DNS.
+The switch, in an order that never leaves the site down. The domain's DNS is
+already on Cloudflare.
 
-`BASE_PATH` is `/` there (domain root), versus `/<repo>/` on project Pages —
-which is exactly why the base is configurable rather than hard-coded.
+1. Create the project as a **Direct Upload** project, not a Git one (a Git
+   project would build the site a second time, without the FIVB data):
+   `npx wrangler pages project create beachvolleyballgraph --production-branch=main`,
+   or the dashboard: **Workers & Pages → Create → Pages → Direct Upload**.
+2. Create an API token with *Account → Cloudflare Pages → Edit*. Add it as the
+   repository secret `CLOUDFLARE_API_TOKEN`, and the account ID as
+   `CLOUDFLARE_ACCOUNT_ID`.
+3. Set the repository variable `PAGES_HOST` to `cloudflare` and run the
+   workflow by hand. `SITE_URL` stays the public domain. The site is published
+   to the project's own address, `https://beachvolleyballgraph.pages.dev`
+   unless Cloudflare had to suffix the name, and checked there; the public
+   domain is still GitHub Pages, so that check ends in a warning, not a failure.
+4. Look at the `pages.dev` address. When it is right, **Pages → the project →
+   Custom domains → add** `beachvolleyball.com.br`. Cloudflare rewrites the DNS
+   record from GitHub Pages to the project itself.
+5. Run the workflow again: the public domain is now checked too.
+6. GitHub → **Settings → Pages**: remove the custom domain, then unpublish.
+
+**Going back** is the same in reverse: delete `PAGES_HOST`, attach the domain
+in GitHub Pages again, remove it from the Cloudflare project, and run the
+workflow.
+
+`PAGES_HOST` without `SITE_URL` fails the build on purpose: Cloudflare serves
+from a domain root, and an unset `SITE_URL` builds for GitHub's `/<repo>/`
+path. If the project name is not `beachvolleyballgraph`, set it in the
+`CLOUDFLARE_PROJECT` variable.
 
 ### Being a good citizen of the API
 

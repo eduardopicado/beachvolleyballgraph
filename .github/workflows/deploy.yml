@@ -33,6 +33,15 @@
 # ingest/regression.ts — the job stops before committing, before build and
 # before deploy, so the previously published site keeps serving yesterday's
 # data. Degraded to "slightly stale", never to "down".
+#
+# Where it publishes is the PAGES_HOST repository variable: unset (or anything
+# but `cloudflare`) is GitHub Pages, `cloudflare` is Cloudflare Pages. Exactly
+# one of the two publish jobs at the bottom runs; everything before them is
+# shared. This replaced a second workflow, deploy-cloudflare.yml, which had no
+# gate against this one (enable it without disabling this and the site was
+# built and published twice a day) and had drifted: it never committed the
+# refreshed data, never deployed a code push, and never checked the live site.
+# Switching hosts is docs/architecture.md, "Deployment".
 
 name: Rebuild data and deploy
 
@@ -216,6 +225,7 @@ jobs:
       generated_at: ${{ steps.stamp.outputs.generated_at }}
       bundle: ${{ steps.stamp.outputs.bundle }}
       site_url: ${{ steps.origin.outputs.site_url }}
+      sha: ${{ needs.ingest.outputs.data_sha || github.sha }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -239,6 +249,15 @@ jobs:
         uses: ./.github/actions/site-origin
         with:
           site_url: ${{ vars.SITE_URL }}
+
+      # Cloudflare Pages serves from the root of whatever domain it is given,
+      # and site-origin only builds for the root when SITE_URL is set; unset,
+      # it builds for GitHub's /<repo>/ path, and every asset URL would miss.
+      - name: Check the origin suits Cloudflare
+        if: vars.PAGES_HOST == 'cloudflare' && vars.SITE_URL == ''
+        run: |
+          echo "::error::PAGES_HOST is cloudflare but SITE_URL is unset. Set it to the domain Cloudflare serves, or to https://<project>.pages.dev before a domain is attached."
+          exit 1
 
       # FIVB's tournament photographs: off unless the TOURNAMENT_PHOTOS
       # repository variable is 1, and they wait on FIVB's permission
@@ -269,7 +288,7 @@ jobs:
       # the first time it shipped, which — before DNS resolves — takes the
       # live site down instead of moving it.
       - name: Keep the custom domain attached
-        if: steps.origin.outputs.custom_domain != ''
+        if: vars.PAGES_HOST != 'cloudflare' && steps.origin.outputs.custom_domain != ''
         env:
           CUSTOM_DOMAIN: ${{ steps.origin.outputs.custom_domain }}
         run: echo "$CUSTOM_DOMAIN" > dist/CNAME
@@ -326,12 +345,32 @@ jobs:
       # caps every workflow's token below what its own `permissions:` block
       # asks for.
       - uses: actions/configure-pages@v6
+        if: vars.PAGES_HOST != 'cloudflare'
         with:
           enablement: true
 
       - uses: actions/upload-pages-artifact@v5
+        if: vars.PAGES_HOST != 'cloudflare'
         with:
           path: dist
+
+      # Cloudflare Pages otherwise revalidates every file on every visit. The
+      # bundle's name is its content hash, so whatever is under a name never
+      # changes and can be kept for good; HTML and the data keep revalidating,
+      # which is what lets a daily refresh show up at once. Written here, not
+      # committed to web/public/, for the same reason as CNAME above: GitHub
+      # Pages would publish it as a stray file.
+      - name: Cache the hashed assets for good
+        if: vars.PAGES_HOST == 'cloudflare'
+        run: |
+          printf '%s\n' '/assets/*' '  Cache-Control: public, max-age=31536000, immutable' > dist/_headers
+
+      - uses: actions/upload-artifact@v7
+        if: vars.PAGES_HOST == 'cloudflare'
+        with:
+          name: site
+          path: dist
+          retention-days: 1
 
   deploy:
     needs: build
@@ -340,7 +379,7 @@ jobs:
     # this job's direct needs, so ingest being skipped (a code-only push) was
     # enough to skip this job too even though build itself had just succeeded
     # — caught live: two merges in a row built fine and never deployed.
-    if: always() && needs.build.result == 'success'
+    if: always() && needs.build.result == 'success' && vars.PAGES_HOST != 'cloudflare'
     runs-on: ubuntu-latest
     # Publish plus the propagation check below, which is bounded by its own
     # six attempts at 15s.
@@ -352,36 +391,21 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
-      # Deliberately thin, and deliberately not the browser suite: nothing here
-      # can roll anything back, the identical bytes were already exercised
-      # pre-upload, and a long assertion against a CDN mid-propagation is a
-      # flake generator. This answers one question the localhost runs
-      # structurally cannot — did the build we just published actually become
-      # the thing being served? Caught live once already: two merges in a row
-      # reported success while Pages kept serving the previous build.
-      - name: Verify Pages is serving this build
+      # Is Pages even serving from the origin this build was compiled for?
+      #
+      # This is the one moment the custom-domain cutover can go wrong, and it
+      # is invisible to everything else. Setting the SITE_URL variable moves
+      # the build to the domain root; attaching the domain in Settings > Pages
+      # is what actually moves the *site*. Do the first without the second and
+      # Pages keeps serving /<repo>/ while every asset URL points at /assets/…
+      # — a blank page whose HTML, manifest and bundle name all still check out
+      # below. Order matters, so make the wrong order fail here rather than in
+      # a reader's browser.
+      - name: Check Pages serves the origin this build is for
         env:
-          EXPECTED_DATA: ${{ needs.build.outputs.generated_at }}
-          EXPECTED_BUNDLE: ${{ needs.build.outputs.bundle }}
           EXPECTED_ORIGIN: ${{ needs.build.outputs.site_url }}
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
-          set -uo pipefail
-          if [ -z "$EXPECTED_DATA" ] || [ -z "$EXPECTED_BUNDLE" ]; then
-            echo "::warning::Build job published no fingerprints — cannot verify the deploy."
-            exit 0
-          fi
-
-          # Is Pages even serving from the origin this build was compiled for?
-          #
-          # This is the one moment the custom-domain cutover can go wrong, and
-          # it is invisible to everything else. Setting the SITE_URL variable
-          # moves the build to the domain root; attaching the domain in
-          # Settings > Pages is what actually moves the *site*. Do the first
-          # without the second and Pages keeps serving /<repo>/ while every
-          # asset URL points at /assets/… — a blank page whose HTML, manifest
-          # and bundle name all still check out below. Order matters, so make
-          # the wrong order fail here rather than in a reader's browser.
           case "$PAGE_URL" in
             "$EXPECTED_ORIGIN"|"$EXPECTED_ORIGIN"/*) ;;
             *)
@@ -390,26 +414,103 @@ jobs:
               exit 1
               ;;
           esac
-          echo "Expecting data=$EXPECTED_DATA and bundle=$EXPECTED_BUNDLE at $PAGE_URL"
-          for attempt in 1 2 3 4 5 6; do
-            live_data=$(curl -fsS --max-time 20 "${PAGE_URL}v1/manifest.json" \
-                        | python3 -c 'import json,sys; print(json.load(sys.stdin)["generatedAt"])' 2>/dev/null || true)
-            # Cache-bust: a CDN edge holding the previous index.html is the very
-            # thing being tested for, so don't let it answer from cache.
-            live_html=$(curl -fsS --max-time 20 -H 'Cache-Control: no-cache' \
-                        "${PAGE_URL}?deploycheck=${GITHUB_RUN_ID}" 2>/dev/null || true)
 
-            data_ok=false; bundle_ok=false
-            [ "$live_data" = "$EXPECTED_DATA" ] && data_ok=true
-            case "$live_html" in *"$EXPECTED_BUNDLE"*) bundle_ok=true ;; esac
+      # Only the shared action, not the repository: the check is all this job
+      # needs from it.
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/actions/
+          sparse-checkout-cone-mode: false
 
-            if [ "$data_ok" = true ] && [ "$bundle_ok" = true ]; then
-              echo "Live site is serving this build (data $live_data, bundle $EXPECTED_BUNDLE)."
-              exit 0
-            fi
-            echo "attempt $attempt: data_ok=$data_ok bundle_ok=$bundle_ok; waiting for propagation"
-            sleep 15
-          done
-          echo "::error::Pages is not serving the build that just deployed."
-          echo "::error::expected data=$EXPECTED_DATA got=${live_data:-<unreachable>}; expected bundle=$EXPECTED_BUNDLE (not found in live HTML)"
-          exit 1
+      - uses: ./.github/actions/verify-live
+        with:
+          url: ${{ steps.deployment.outputs.page_url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}
+
+  deploy-cloudflare:
+    needs: build
+    # The same override as deploy above, for the same reason.
+    if: always() && needs.build.result == 'success' && vars.PAGES_HOST == 'cloudflare'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: cloudflare-pages
+      url: ${{ needs.build.outputs.site_url }}
+    steps:
+      # Only the shared action, not the repository. Nothing else may sit in
+      # the workspace: wrangler-action runs `npm i wrangler` in it, which with
+      # the project's package.json present would install every dependency the
+      # site has.
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/actions/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: site
+
+      # The branch decides production or preview: main is the project's
+      # production branch, so the schedule and pushes publish the site, while a
+      # manual run from another branch lands on a preview URL of its own.
+      # The project must exist first (Direct Upload; see docs/architecture.md).
+      - id: publish
+        name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy site
+            --project-name=${{ vars.CLOUDFLARE_PROJECT || 'beachvolleyballgraph' }}
+            --branch=${{ github.ref_name }}
+            --commit-hash=${{ needs.build.outputs.sha }}
+            --commit-dirty=true
+
+      # The project's own address first: proves the upload became the
+      # production deployment, whether or not a domain is attached yet. Taken
+      # from the deployment URL (https://<id>.<project>.pages.dev) rather than
+      # built from the project name, because Cloudflare suffixes the subdomain
+      # when the name is taken.
+      - name: Find the production address
+        if: github.ref_name == 'main'
+        id: production
+        env:
+          DEPLOYMENT_URL: ${{ steps.publish.outputs.deployment-url }}
+        run: |
+          host="${DEPLOYMENT_URL#*://}"
+          host="${host%%/*}"
+          echo "url=https://${host#*.}/" >> "$GITHUB_OUTPUT"
+
+      - if: github.ref_name == 'main'
+        uses: ./.github/actions/verify-live
+        with:
+          url: ${{ steps.production.outputs.url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}
+
+      # Then the public domain, unless GitHub Pages still answers for it. That
+      # is the cutover in progress (publish here first, attach the domain in
+      # Cloudflare second, so the site is never down): a warning, not a
+      # failure, until the domain moves.
+      - name: Check who serves the public domain
+        if: github.ref_name == 'main'
+        id: domain
+        env:
+          SITE_URL: ${{ needs.build.outputs.site_url }}
+        run: |
+          if curl -fsSI --max-time 20 "${SITE_URL}/" | grep -qi '^x-github-request-id:'; then
+            echo "::warning::$SITE_URL is still served by GitHub Pages. Attach it in Cloudflare Pages > Custom domains, then re-run."
+            echo "cloudflare=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "cloudflare=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: github.ref_name == 'main' && steps.domain.outputs.cloudflare == 'true'
+        uses: ./.github/actions/verify-live
+        with:
+          url: ${{ needs.build.outputs.site_url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}

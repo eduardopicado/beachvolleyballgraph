@@ -17,7 +17,7 @@ export const SITE_NAME = 'Beach Volleyball Partnership Graph';
  * The production origin, hard-coded rather than read from `SITE_URL` at
  * runtime: this constant is imported by `ingest/vis.ts` to build the default
  * `User-Agent`, which has to resolve even when nobody has set `SITE_URL` —
- * a local run, a fork, or `deploy-cloudflare.yml` before it is configured.
+ * a local run, a fork, or a deploy before `SITE_URL` is configured.
  * `SITE_URL` at build time can still override the site's own canonical URLs;
  * this is only the fallback identity FIVB sees.
  */
