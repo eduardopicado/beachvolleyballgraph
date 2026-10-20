@@ -29,7 +29,25 @@ import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { prefersReducedMotion } from '../lib/motion';
 import { useResults } from '../lib/useResults';
 import { useClassification } from '../lib/useClassification';
+import { useStateFor } from '../lib/useStateFor';
 import './PlayerCard.css';
+
+/** A tournament whose full field is open over the card. */
+interface OpenEvent {
+  code: string;
+  name: string;
+  season: number;
+  tier: Tier;
+  level: string | null;
+  /** ISO-2 for the flag beside the heading, null when VIS has no usable one. */
+  country: string | null;
+  when: string | null;
+}
+
+/** Fresh per-player state, for `useStateFor`. */
+const nothing = () => null;
+const closed = () => false;
+const noSeasons = (): ReadonlySet<number> => new Set();
 
 export interface PartnerRow {
   node: GraphNode;
@@ -520,11 +538,10 @@ export function PlayerCard({
    * control that appeared after the first click would not be a control anyone
    * could find. Picking one raises the same flag an expansion does.
    */
-  const [filter, setFilter] = useState<TimelineFilter | null>(null);
+  // Per player: a different player has different chips, and one of them may
+  // not exist here.
+  const [filter, setFilter] = useStateFor<number, TimelineFilter | null>(node.id, nothing);
   const available = detail?.filters ?? [];
-
-  // A different player has different chips, and one of them may not exist here.
-  useEffect(() => setFilter(null), [node.id]);
 
   const matchesFilter = useCallback(
     (event: SeasonEvent) => {
@@ -540,7 +557,13 @@ export function PlayerCard({
   );
 
   // --- expanding a season into its tournaments ------------------------------
-  const [openSeasons, setOpenSeasons] = useState<ReadonlySet<number>>(new Set());
+  // This and the per-player state below start over for each player: a
+  // different player's seasons are not this player's. Held per player rather
+  // than cleared by an effect, which painted one frame of the previous
+  // player's open seasons, event and portrait under the new player's name.
+  // `view` is deliberately not among them, so someone reading careers year by
+  // year stays in the timeline as they click through.
+  const [openSeasons, setOpenSeasons] = useStateFor<number, ReadonlySet<number>>(node.id, noSeasons);
   // Raised by the first expansion and never lowered, which is what keeps the
   // fetched slice around as the reader clicks from player to player.
   const [wantResults, setWantResults] = useState(false);
@@ -548,31 +571,22 @@ export function PlayerCard({
 
   // The away list expands independently: the two blocks answer different
   // questions, and a 2015 opened in one is not a 2015 opened in the other.
-  const [openAwaySeasons, setOpenAwaySeasons] = useState<ReadonlySet<number>>(new Set());
+  const [openAwaySeasons, setOpenAwaySeasons] = useStateFor<number, ReadonlySet<number>>(node.id, noSeasons);
 
   // --- the portrait, large --------------------------------------------------
-  // Reset with the seasons below on every change of node: a partner row is
+  // Per player, like the seasons above: a partner row is
   // clickable from behind the scrim on nothing, but the card *does* change
   // player underneath an open portrait via the graph and the search box, and
   // leaving it open would show one player's photo captioned with another's
   // name.
-  const [portraitOpen, setPortraitOpen] = useState(false);
+  const [portraitOpen, setPortraitOpen] = useStateFor(node.id, closed);
 
   // --- a tournament's full field --------------------------------------------
   // The event's whole header is kept, not just its code, so the panel can draw
   // itself before the fetch lands: all of it is already in the timeline row
   // that opened it, and re-reading it from the classification would mean
   // waiting on a request to show a heading we already have.
-  const [openEvent, setOpenEvent] = useState<{
-    code: string;
-    name: string;
-    season: number;
-    tier: Tier;
-    level: string | null;
-    /** ISO-2 for the flag beside the heading, null when VIS has no usable one. */
-    country: string | null;
-    when: string | null;
-  } | null>(null);
+  const [openEvent, setOpenEvent] = useStateFor<number, OpenEvent | null>(node.id, nothing);
   const classification = useClassification(openEvent?.code ?? null);
 
   const openEventPanel = useCallback((event: SeasonEvent, season: number) => {
@@ -588,17 +602,7 @@ export function PlayerCard({
       when: formatDateRange(event.date, event.endDate),
       country: event.country,
     });
-  }, []);
-
-  // A different player's seasons are not this player's, so start them closed —
-  // but leave `view` alone, so someone reading careers year by year stays in
-  // the timeline as they click through.
-  useEffect(() => {
-    setOpenSeasons(new Set());
-    setOpenAwaySeasons(new Set());
-    setPortraitOpen(false);
-    setOpenEvent(null);
-  }, [node.id]);
+  }, [setOpenEvent]);
 
   const toggleAwaySeason = useCallback((season: number) => {
     setWantResults(true);
@@ -607,7 +611,7 @@ export function PlayerCard({
       if (!next.delete(season)) next.add(season);
       return next;
     });
-  }, []);
+  }, [setOpenAwaySeasons]);
 
   const toggleSeason = useCallback((season: number) => {
     setWantResults(true);
@@ -616,7 +620,7 @@ export function PlayerCard({
       if (!next.delete(season)) next.add(season);
       return next;
     });
-  }, []);
+  }, [setOpenSeasons]);
 
   const nameOf = useCallback(
     (id: number) =>

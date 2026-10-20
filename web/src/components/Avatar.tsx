@@ -19,9 +19,10 @@
  * circle says nothing.
  */
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { playerPhotoUrl } from '../../../shared/schema';
 import { initials } from '../lib/format';
+import { useStateFor } from '../lib/useStateFor';
 import './Avatar.css';
 
 /**
@@ -73,22 +74,26 @@ interface Props {
   onExpand?: () => void;
 }
 
-export function Avatar({ id, name, width, className, eager, onExpand }: Props) {
-  const [status, setStatus] = useState<Status>('pending');
-  const imgRef = useRef<HTMLImageElement>(null);
-  const src = playerPhotoUrl(id, width);
+const pending = (): Status => 'pending';
 
-  // A new player means a new URL: reset so a previous result doesn't stick to
-  // the element React reused for somebody else.
+export function Avatar({ id, name, width, className, eager, onExpand }: Props) {
+  const src = playerPhotoUrl(id, width);
+  // Per URL: a new player means a new URL, and a previous result must not stick
+  // to the element React reused for somebody else. Held per URL rather than
+  // reset by an effect, which drew one frame of the previous player's status
+  // over the new player's photo — their initials, or a portrait marked loaded
+  // before it was.
+  const [status, setStatus] = useStateFor<string, Status>(src, pending);
+  const imgRef = useRef<HTMLImageElement>(null);
+
   useEffect(() => {
-    setStatus('pending');
     // A portrait already in the browser's cache can finish before this runs,
     // and its `load` fired at an element React had not yet handed to us — so
     // ask the element instead of waiting for an event that has been and gone.
     // This is the second open of any player, which is most of them.
     const img = imgRef.current;
     if (img?.complete) setStatus(img.naturalWidth > 0 ? 'loaded' : 'failed');
-  }, [src]);
+  }, [src, setStatus]);
 
   const loaded = status === 'loaded';
   return (

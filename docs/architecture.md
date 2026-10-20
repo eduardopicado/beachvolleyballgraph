@@ -309,7 +309,7 @@ than being tried and withdrawn.
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
 | **Vitest** 5 | unit tests | Around 700 tests. Same transform pipeline as Vite, no second config to keep in step. |
 | **Playwright** 1.64 | browser tests | Around 150 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
-| **ESLint** 9 | lint | Flat config, with the React Hooks rules. |
+| **ESLint** 10 | lint | Flat config, with the React Hooks rules, including the compiler-based ones (state set in effects, refs read in render). |
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
 **Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.

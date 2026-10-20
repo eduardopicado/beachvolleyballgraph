@@ -687,8 +687,8 @@ async function main() {
      */
     let title: string;
     let description: string;
-    let rows = '';
-    let field: Parameters<typeof tournamentFacts>[2] = null;
+    let rows: string;
+    let field: Parameters<typeof tournamentFacts>[2];
     if (t.played) {
       const classification: ClassificationFile = JSON.parse(
         await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
