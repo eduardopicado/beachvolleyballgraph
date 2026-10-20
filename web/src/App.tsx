@@ -56,7 +56,9 @@ function setHeadTag(selector: string, attr: 'href' | 'content', value: string) {
 }
 
 export default function App() {
-  const initial = useMemo(readUrl, []);
+  // State, not a memo: React may drop a memoised value and recompute it, and this
+  // must be read once, at mount — see `startedAtRoot` below.
+  const [initial] = useState(readUrl);
 
   /**
    * Did this load arrive at the bare site root?
@@ -80,7 +82,14 @@ export default function App() {
   const [gender, setGender] = useState<Gender>(initial.gender ?? 'M');
   const [graph, setGraph] = useState<GraphFile | null>(null);
   const [details, setDetails] = useState<PlayersFile | null>(null);
-  const [loading, setLoading] = useState(true);
+  /**
+   * The slice whose fetch last finished, either way. Loading is "not the one
+   * asked for": set from an effect, the flag stayed false for the first render
+   * after a change of country, so that render showed the old graph undimmed
+   * under the new country's name.
+   */
+  const [doneFor, setDoneFor] = useState<string | null>(null);
+  const loading = doneFor !== `${country}-${gender}`;
   const [selectedId, setSelectedId] = useState<number | null>(initial.player);
   /**
    * The player this page loaded already showing, so closing their card can
@@ -152,15 +161,15 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Keep gender valid for the chosen country.
-  useEffect(() => {
-    if (!manifest) return;
-    const entry = manifest.countries.find((c) => c.code === country);
-    if (entry && !entry.genders[gender]) {
-      const other = GENDERS.find((g) => entry.genders[g]);
-      if (other) setGender(other);
-    }
-  }, [manifest, country, gender]);
+  // Keep gender valid for the chosen country. During render rather than in an
+  // effect, which React supports for adjusting state to an input: the render
+  // holding a gender the country does not have is replaced before it commits,
+  // where the effect let it commit first.
+  const genderEntry = manifest?.countries.find((c) => c.code === country);
+  if (genderEntry && !genderEntry.genders[gender]) {
+    const other = GENDERS.find((g) => genderEntry.genders[g]);
+    if (other) setGender(other);
+  }
 
   // --- slice ---------------------------------------------------------------
   useEffect(() => {
@@ -169,7 +178,6 @@ export default function App() {
     if (!entry?.genders[gender]) return;
 
     let cancelled = false;
-    setLoading(true);
     Promise.all([fetchGraph(country, gender), fetchPlayers(country, gender)])
       .then(([g, p]) => {
         if (cancelled) return;
@@ -178,7 +186,7 @@ export default function App() {
         setError(null);
       })
       .catch((e: Error) => !cancelled && setError(`Could not load ${country}-${gender}: ${e.message}`))
-      .finally(() => !cancelled && setLoading(false));
+      .finally(() => !cancelled && setDoneFor(`${country}-${gender}`));
     return () => {
       cancelled = true;
     };
@@ -569,11 +577,18 @@ export default function App() {
   // the moment before the new graph arrives the old one is still in state;
   // judging the selection against it would throw away a player who is about to
   // be perfectly valid.
-  useEffect(() => {
-    if (selectedId === null || !graph) return;
-    if (graph.country !== country || graph.gender !== gender) return;
-    if (!nodesById.has(selectedId)) setSelectedId(null);
-  }, [graph, nodesById, selectedId, country, gender]);
+  //
+  // During render, like the gender above, so no committed render — and no URL
+  // written from one — names a player the loaded graph does not have.
+  if (
+    selectedId !== null &&
+    graph &&
+    graph.country === country &&
+    graph.gender === gender &&
+    !nodesById.has(selectedId)
+  ) {
+    setSelectedId(null);
+  }
 
   if (error && !graph) {
     return (

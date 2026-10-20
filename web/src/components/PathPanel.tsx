@@ -15,9 +15,13 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { GraphNode } from '../../../shared/schema';
 import { plural } from '../lib/format';
 import { indexPlayers, searchPlayers, type SearchablePlayer } from '../lib/search';
+import { useStateFor } from '../lib/useStateFor';
 import { findPath, type PartnershipIndex } from '../lib/path';
 import { Avatar } from './Avatar';
 import './PathPanel.css';
+
+/** The first option, or none for an empty list. */
+const topHit = (matches: readonly unknown[]): number => (matches.length > 0 ? 0 : -1);
 
 interface Props {
   index: PartnershipIndex;
@@ -47,7 +51,6 @@ export function PathPanel({
 }: Props) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
   const rootRef = useRef<HTMLLIElement>(null);
 
   // Only this slice: a path can only run through partnerships the graph holds,
@@ -68,7 +71,9 @@ export function PathPanel({
     [searchable, query, home],
   );
 
-  useEffect(() => setActiveIndex(matches.length > 0 ? 0 : -1), [matches]);
+  // Per list of matches, so a new query highlights its own top hit from its
+  // first render — see `useStateFor`.
+  const [activeIndex, setActiveIndex] = useStateFor(matches, topHit);
 
   useEffect(() => {
     if (!open) return;

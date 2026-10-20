@@ -25,6 +25,7 @@ import { pairKey } from '../lib/path';
 import { seasonSpan, plural } from '../lib/format';
 import { prefersReducedMotion } from '../lib/motion';
 import { cancelPortraitDwell, prefetchPortraitOnDwell } from '../lib/prefetchPortrait';
+import { useStateFor } from '../lib/useStateFor';
 import './PartnershipGraph.css';
 
 interface Props {
@@ -70,6 +71,8 @@ interface Hover {
  */
 const TAP_SLOP = 8;
 
+const notSettled = () => false;
+
 export function PartnershipGraph({
   nodes,
   edges,
@@ -91,17 +94,14 @@ export function PartnershipGraph({
   // container size through a ref — otherwise a resize mid-simulation fits the
   // graph to whatever the size was when the layout was built.
   const sizeRef = useRef(size);
-  sizeRef.current = size;
   const [hover, setHover] = useState<Hover | null>(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
   const transformRef = useRef(transform);
-  transformRef.current = transform;
   // Read at pointer-up to toggle the tap target off if it is already selected.
   // A ref rather than a dependency: the pointer handlers are stable across the
   // whole gesture, and rebuilding them mid-drag on a selection change would
   // drop the pan bookkeeping they hold.
   const selectedIdRef = useRef(selectedId);
-  selectedIdRef.current = selectedId;
 
   /**
    * Anchor the tooltip to the node's simulation coordinates rather than the
@@ -116,22 +116,6 @@ export function PartnershipGraph({
     );
   }, []);
 
-  // --- responsive sizing ---------------------------------------------------
-  useLayoutEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver(([entry]) => {
-      if (!entry) return;
-      const { width, height } = entry.contentRect;
-      if (width > 0 && height > 0) setSize({ width, height });
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    onSize?.(size);
-  }, [size, onSize]);
 
   // A dwell timer outlives the element it was armed on. Without this, choosing
   // a different country while the pointer rests on somebody fetches a portrait
@@ -149,6 +133,18 @@ export function PartnershipGraph({
   const layout = useMemo(() => buildLayout(nodes, edges), [nodes, edges, layoutKey]);
 
   const { neighbours } = layout;
+  const layoutRef = useRef(layout);
+
+  // The refs here follow their values after every commit. Written in a layout
+  // effect rather than during render, which React may run and then throw away:
+  // a render that never commits must not leave a callback reading its values.
+  // Current before any other effect of the same commit runs.
+  useLayoutEffect(() => {
+    sizeRef.current = size;
+    transformRef.current = transform;
+    selectedIdRef.current = selectedId;
+    layoutRef.current = layout;
+  });
   const [labelled, setLabelled] = useState<Set<number>>(() => new Set());
 
   // Once the reader pans or zooms, stop auto-framing and leave the view alone.
@@ -157,11 +153,44 @@ export function PartnershipGraph({
     userAdjusted.current = false;
   }, [layout]);
 
+  // --- responsive sizing ---------------------------------------------------
+  // A resize re-frames a settled graph the reader has not moved, here in the
+  // observer's callback because the resize is the event. It used to be an
+  // effect on `size`, one render behind the size it fitted.
+  useLayoutEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return;
+      const { width, height } = entry.contentRect;
+      if (width <= 0 || height <= 0) return;
+      setSize({ width, height });
+      const { nodes, simulation } = layoutRef.current;
+      // Never re-simulate: a layout still running is framed when it stops.
+      if (userAdjusted.current || simulation.alpha() > simulation.alphaMin()) return;
+      const view = fitToView(nodes, width, height);
+      setTransform(view);
+      setLabelled(pickLabels(nodes, view, width, height));
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    onSize?.(size);
+  }, [size, onSize]);
+
   // Whether the simulation has stopped moving and the view has had its initial
   // fit. Anything that wants to take the view over (see the pan-to-selection
   // effect) has to wait for this, or it claims the view before the graph has
   // been framed even once.
-  const [settled, setSettled] = useState(false);
+  //
+  // Per layout. Reset by an effect, the render that started a new layout still
+  // read `true` from the old one, and the pan-to-selection effect in the same
+  // commit took the view at once: it centred a selected player where the
+  // warm-up left them and, by claiming the view, skipped the new layout's fit.
+  // A re-tangle with a player selected ended with them off-centre.
+  const [settled, setSettled] = useStateFor(layout, notSettled);
 
   // --- run the simulation --------------------------------------------------
   useEffect(() => {
@@ -219,8 +248,6 @@ export function PartnershipGraph({
       setSettled(true);
     };
 
-    setSettled(false);
-
     // Warm the layout up off-screen so the first painted frame is already
     // structured, rather than an exploding ball of nodes at the centre.
     simulation.stop();
@@ -244,16 +271,7 @@ export function PartnershipGraph({
     // `size` is deliberately absent, and needs no suppression to be: it is read
     // through `sizeRef` rather than as a dependency, so re-fitting on resize is
     // handled separately and a drag of the window doesn't restart the layout.
-  }, [layout]);
-
-  // Re-frame (but never re-simulate) when the container resizes.
-  useEffect(() => {
-    if (userAdjusted.current) return;
-    if (layout.simulation.alpha() > layout.simulation.alphaMin()) return;
-    const view = fitToView(layout.nodes, size.width, size.height);
-    setTransform(view);
-    setLabelled(pickLabels(layout.nodes, view, size.width, size.height));
-  }, [layout, size]);
+  }, [layout, setSettled]);
 
   // Pan to keep a newly selected player in view — otherwise "select" (from
   // search, a table row, or a partner link in the card) leaves the reader
@@ -282,6 +300,11 @@ export function PartnershipGraph({
     if (!node || !Number.isFinite(node.x) || !Number.isFinite(node.y)) return;
     centeredIdRef.current = selectedId;
     userAdjusted.current = true; // don't let the resize auto-fit undo this
+    // An effect on purpose, so the rule against setting state in one is waived
+    // here alone: the target is where d3 left the node, a position mutated
+    // outside React that only exists once the simulation has settled. Render
+    // cannot read it, and no event fires when it is ready but `settled`.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTransform((prev) => ({
       k: prev.k,
       x: size.width / 2 - (node.x ?? 0) * prev.k,

@@ -22,9 +22,13 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { TournamentPhoto, TournamentPhotosFile } from '../../../shared/schema';
 import { photosPath, tournamentPhotoUrl } from '../../../shared/schema';
 import { formatTaken } from '../lib/photos';
+import { useStateFor } from '../lib/useStateFor';
 import './TournamentPhotos.css';
 
 const BASE = import.meta.env.BASE_URL;
+
+const notLoaded = () => null;
+const notSharp = () => false;
 
 /** Twice the strip's 132 CSS px, for a sharp thumbnail on a 2x display. Measured 23 KB. */
 const THUMB = 320;
@@ -32,12 +36,13 @@ const THUMB = 320;
 const LARGE = 1200;
 
 export default function TournamentPhotos({ code, count }: { code: string; count: number }) {
-  const [photos, setPhotos] = useState<TournamentPhoto[] | null>(null);
+  // Per tournament, so a page that changes event never shows the previous
+  // one's strip while the new list loads — see `useStateFor`.
+  const [photos, setPhotos] = useStateFor<string, TournamentPhoto[] | null>(code, notLoaded);
   const [open, setOpen] = useState<number | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    setPhotos(null);
     fetch(photosPath(BASE, code))
       .then((res) => (res.ok ? (res.json() as Promise<TournamentPhotosFile>) : null))
       .then((file) => !cancelled && setPhotos(file?.photos ?? []))
@@ -47,7 +52,7 @@ export default function TournamentPhotos({ code, count }: { code: string; count:
     return () => {
       cancelled = true;
     };
-  }, [code]);
+  }, [code, setPhotos]);
 
   const close = useCallback(() => setOpen(null), []);
 
@@ -102,12 +107,13 @@ function PhotoViewer({
   onClose: () => void;
 }) {
   const [no, caption, takenAt] = photos[index]!;
-  const [sharp, setSharp] = useState(false);
+  // Per photograph. Reset by an effect, the first frame of the next photograph
+  // drew its large layer at full opacity before it had loaded — a flash of
+  // nothing over the thumbnail the layer exists to hide.
+  const [sharp, setSharp] = useStateFor(no, notSharp);
   const rootRef = useRef<HTMLDivElement>(null);
   const hasPrev = index > 0;
   const hasNext = index < photos.length - 1;
-
-  useEffect(() => setSharp(false), [no]);
 
   useEffect(() => {
     const opener = document.activeElement;
