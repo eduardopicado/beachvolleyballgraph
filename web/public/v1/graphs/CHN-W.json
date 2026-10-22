@@ -1063,7 +1063,7 @@
       "id": 192302,
       "name": "Mingli Zhou",
       "short": "Zhou M. L.",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2023,
       "last": 2026
     },
@@ -1071,7 +1071,7 @@
       "id": 192303,
       "name": "Kaiyue Jiang",
       "short": "Jiang K. Y.",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2022,
       "last": 2026
     },
@@ -1087,7 +1087,7 @@
       "id": 202842,
       "name": "Kadeliye Halaiti",
       "short": "Kadeliye",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2023,
       "last": 2026
     },
@@ -1103,7 +1103,7 @@
       "id": 210159,
       "name": "Jiaying Wang",
       "short": "Wang J.Y.",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2024,
       "last": 2026
     },
@@ -1119,7 +1119,7 @@
       "id": 210161,
       "name": "Siyu Qi",
       "short": "QI S.Y.",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2024,
       "last": 2026
     },
@@ -1239,7 +1239,7 @@
       "id": 221395,
       "name": "Ming Zhuang",
       "short": "ZHUANG Ming",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2025,
       "last": 2026
     },
@@ -4811,7 +4811,7 @@
     {
       "a": 192302,
       "b": 192303,
-      "t": 4,
+      "t": 5,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -4822,8 +4822,8 @@
         ],
         [
           2026,
-          3,
-          217
+          4,
+          287
         ]
       ],
       "r": 1
@@ -4920,6 +4920,21 @@
     },
     {
       "a": 202842,
+      "b": 210159,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 9
+    },
+    {
+      "a": 202842,
       "b": 210161,
       "t": 3,
       "f": 2026,
@@ -5011,14 +5026,14 @@
     {
       "a": 210161,
       "b": 221395,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          188
+          2,
+          287
         ]
       ],
       "r": 4

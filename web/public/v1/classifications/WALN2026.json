@@ -2,10 +2,19 @@
   "code": "WALN2026",
   "gender": "W",
   "teams": [
+    [5,192302,192303,"CHN"],
+    [5,210161,221395,"CHN"],
+    [9,202842,210159,"CHN"],
     [21,181666,216034,"ENG"]
   ],
   "players": {
     "181666": "Alana Snow",
-    "216034": "Ella Watson"
+    "192302": "Mingli Zhou",
+    "192303": "Kaiyue Jiang",
+    "202842": "Kadeliye Halaiti",
+    "210159": "Jiaying Wang",
+    "210161": "Siyu Qi",
+    "216034": "Ella Watson",
+    "221395": "Ming Zhuang"
   }
 }

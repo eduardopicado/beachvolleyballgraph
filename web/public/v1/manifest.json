@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:31:07.886Z",
+  "generatedAt": "2026-10-22T14:32:49.499Z",
   "sourceVersion": "115858",
   "seasons": {
     "from": 1987,
@@ -7,8 +7,8 @@
   },
   "totals": {
     "tournaments": 1698,
-    "players": 12110,
-    "partnerships": 14002
+    "players": 12111,
+    "partnerships": 14004
   },
   "tiers": {
     "FIVB World Tour": 1077,
@@ -390,7 +390,7 @@
         },
         "W": {
           "nodes": 166,
-          "edges": 219
+          "edges": 220
         }
       }
     },
@@ -681,8 +681,8 @@
       "iso2": "FR",
       "genders": {
         "M": {
-          "nodes": 201,
-          "edges": 228
+          "nodes": 202,
+          "edges": 229
         },
         "W": {
           "nodes": 152,
@@ -2138,7 +2138,6 @@
     "MACA2007",
     "MAGA2012",
     "MALA2008",
-    "MALN2026",
     "MAQA2022",
     "MBAL2007",
     "MBEI2013",

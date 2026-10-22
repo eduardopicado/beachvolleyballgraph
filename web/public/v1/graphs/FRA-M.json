@@ -1487,7 +1487,7 @@
       "id": 192377,
       "name": "Kéran Duval",
       "short": "Duval",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -1554,6 +1554,14 @@
       "tournaments": 3,
       "first": 2025,
       "last": 2025
+    },
+    {
+      "id": 223148,
+      "name": "Jules M'Couela",
+      "short": "M'Couela",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
     },
     {
       "id": 223418,
@@ -5576,6 +5584,21 @@
         ]
       ],
       "r": 5
+    },
+    {
+      "a": 192377,
+      "b": 223148,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 199089,

@@ -8,6 +8,7 @@
     [133228,182786,"LAT",null,null],
     [137129,143189,"NOR",null,null],
     [142473,139640,"AUT",null,null],
+    [143639,169352,"SUI",null,null],
     [143640,143686,"SUI",null,null],
     [145990,174855,"ARG",null,null],
     [146488,146481,"QAT",null,null],
@@ -24,6 +25,7 @@
     [160555,166274,"SWE",null,null],
     [160815,182090,"ARG",null,null],
     [161607,181710,"HUN",null,null],
+    [161861,222625,"PAR",null,null],
     [163923,169579,"ITA",null,null],
     [166199,132662,"AUT",null,null],
     [168204,166947,"NED",null,null],
@@ -49,7 +51,8 @@
     [200791,170520,"AUT",null,null],
     [201399,210037,"NOR",null,null],
     [202726,209573,"CZE",null,null],
-    [222089,236101,"CAN",null,null]
+    [222089,236101,"CAN",null,null],
+    [241351,176256,"POL",null,null]
   ],
   "players": {
     "103677": "Alexander Horst",
@@ -64,6 +67,7 @@
     "139640": "Philipp Waller",
     "142473": "Moritz Pristauz-Telsnigg",
     "143189": "Mathias Berntsen",
+    "143639": "Marco Krattiger",
     "143640": "Adrian Heidrich",
     "143686": "Yves Haussener",
     "145990": "Nicolás Capogrosso N.",
@@ -85,6 +89,7 @@
     "160555": "David Åhman",
     "160815": "Juan Bautista Amieva Tarditti",
     "161607": "Artúr Hajós",
+    "161861": "Gonzalo Melgarejo",
     "161955": "Jorge Riveros",
     "162761": "Yorick de Groot",
     "163474": "Arturs Rinkevics",
@@ -103,6 +108,7 @@
     "168767": "Benedikt Sagstetter",
     "168774": "Steven Abrams",
     "169104": "Tim Berger",
+    "169352": "Leo Dillier",
     "169579": "Gianluca Dal Corso",
     "170520": "Peter Raul Georg Holzner",
     "171886": "Batuhan Kuru",
@@ -114,6 +120,7 @@
     "173634": "Marko Makaric",
     "174855": "Tomas Capogrosso",
     "175205": "Téo Rotar",
+    "176256": "Tomasz Woloszuk",
     "177303": "Calvin Aye",
     "178349": "Giuliano Massare Canillas",
     "178483": "Guillaume Rivest",
@@ -146,7 +153,9 @@
     "209573": "Simon Tuma",
     "210037": "Sebastian Lyngaas Kjemperud",
     "222089": "Jaxson Thys",
+    "222625": "Matias Gabriel Yegros Gomez",
     "224058": "Filo Wüst",
-    "236101": "Brendon Lord"
+    "236101": "Brendon Lord",
+    "241351": "Marek Rogiński"
   }
 }
