@@ -999,7 +999,7 @@
       "id": 142309,
       "name": "Andressa Cavalcanti Ramalho",
       "short": "Andressa",
-      "tournaments": 56,
+      "tournaments": 57,
       "first": 2013,
       "last": 2026
     },
@@ -1553,6 +1553,14 @@
       "short": "Leticia",
       "tournaments": 2,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 230257,
+      "name": "Thais Treumann",
+      "short": "Treumann",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
@@ -6267,6 +6275,21 @@
         ]
       ],
       "r": 19
+    },
+    {
+      "a": 142309,
+      "b": 230257,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 4
     },
     {
       "a": 142768,

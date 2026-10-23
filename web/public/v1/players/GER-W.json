@@ -1176,7 +1176,15 @@
       "name": "Nele Barber",
       "dob": "1994-10-27",
       "height": 183,
-      "weight": 63
+      "weight": 63,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 136666,
@@ -1606,7 +1614,15 @@
       "name": "Tabea Schwarz",
       "dob": "2000-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182341,

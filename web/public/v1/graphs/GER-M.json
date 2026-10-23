@@ -1727,7 +1727,7 @@
       "id": 198326,
       "name": "Kalle Pieper",
       "short": "Pieper",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -1759,7 +1759,7 @@
       "id": 203698,
       "name": "Julian Hikel",
       "short": "Hikel",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2024,
       "last": 2026
     },
@@ -7994,6 +7994,21 @@
         ]
       ],
       "r": 2
+    },
+    {
+      "a": 198326,
+      "b": 203698,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 1
     },
     {
       "a": 198326,

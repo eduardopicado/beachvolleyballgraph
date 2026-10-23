@@ -983,7 +983,7 @@
       "id": 151334,
       "name": "Magnus Helgerud",
       "short": "Helgerud",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1143,7 +1143,7 @@
       "id": 190490,
       "name": "Marius Pande",
       "short": "Pande",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -5593,14 +5593,14 @@
     {
       "a": 151334,
       "b": 190490,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          175
+          2,
+          287
         ]
       ],
       "r": 13

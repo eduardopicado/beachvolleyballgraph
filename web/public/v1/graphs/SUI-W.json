@@ -1140,6 +1140,14 @@
       "last": 2026
     },
     {
+      "id": 219126,
+      "name": "Lena Wolperth",
+      "short": "Wolperth",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 219127,
       "name": "Anja Gähwiler",
       "short": "Gähwiler",
@@ -1159,7 +1167,7 @@
       "id": 220702,
       "name": "Sarina Diana Thalmann",
       "short": "Thalmann",
-      "tournaments": 4,
+      "tournaments": 5,
       "first": 2025,
       "last": 2026
     },
@@ -4840,6 +4848,21 @@
         ]
       ],
       "r": 5
+    },
+    {
+      "a": 219126,
+      "b": 220702,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 220289,

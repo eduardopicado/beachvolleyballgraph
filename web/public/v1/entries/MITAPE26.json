@@ -4,6 +4,7 @@
   "teams": [
     [104142,179122,"LAT",null,null],
     [120717,172785,"CAN",null,null],
+    [123528,143120,"AUT",null,null],
     [125329,134415,"CHI",null,null],
     [133228,182786,"LAT",null,null],
     [137129,143189,"NOR",null,null],
@@ -58,6 +59,7 @@
     "103677": "Alexander Horst",
     "104142": "Martins Plavins",
     "120717": "Samuel Schachter",
+    "123528": "Robin Seidl",
     "125329": "Marco Grimalt",
     "132662": "Christoph Dressler",
     "133228": "Edgars Tocs",
@@ -66,6 +68,7 @@
     "139351": "Djordje Klasnic",
     "139640": "Philipp Waller",
     "142473": "Moritz Pristauz-Telsnigg",
+    "143120": "Maximilian Trummer",
     "143189": "Mathias Berntsen",
     "143639": "Marco Krattiger",
     "143640": "Adrian Heidrich",

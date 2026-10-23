@@ -503,7 +503,7 @@
       "id": 144018,
       "name": "Yasin Baysal",
       "short": "Yasin B.",
-      "tournaments": 6,
+      "tournaments": 7,
       "first": 2014,
       "last": 2026
     },
@@ -604,6 +604,14 @@
       "last": 2018
     },
     {
+      "id": 151152,
+      "name": "Oguz Degirmenci",
+      "short": "Oğuz D.",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 151277,
       "name": "Burak Balibey",
       "short": "Burak B.",
@@ -639,7 +647,7 @@
       "id": 154697,
       "name": "Yusuf Özdemir",
       "short": "Özdemir",
-      "tournaments": 31,
+      "tournaments": 32,
       "first": 2016,
       "last": 2026
     },
@@ -719,7 +727,7 @@
       "id": 171886,
       "name": "Batuhan Kuru",
       "short": "Kuru",
-      "tournaments": 25,
+      "tournaments": 26,
       "first": 2022,
       "last": 2026
     },
@@ -743,7 +751,7 @@
       "id": 179503,
       "name": "Sacit Kurt",
       "short": "Kurt",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2022,
       "last": 2026
     },
@@ -751,7 +759,7 @@
       "id": 179505,
       "name": "Ahmet Can Tür",
       "short": "Tür",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2022,
       "last": 2026
     },
@@ -775,7 +783,7 @@
       "id": 204533,
       "name": "Tuna Imdat",
       "short": "Imdat",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2024,
       "last": 2026
     },
@@ -799,14 +807,30 @@
       "id": 214342,
       "name": "Polat Kemal Eser",
       "short": "Polat Kemal Eser",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 234643,
+      "name": "Adam James Fox",
+      "short": "Adam J.F.",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     },
     {
       "id": 234644,
       "name": "Freddie Jude Foks",
       "short": "Freddie J.",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 239448,
+      "name": "ismail hakkı kılınç",
+      "short": "ismail hakkı K.",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -1831,14 +1855,14 @@
     {
       "a": 144018,
       "b": 179505,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          175
+          2,
+          287
         ]
       ],
       "r": 5
@@ -1999,6 +2023,21 @@
       "r": 41
     },
     {
+      "a": 151152,
+      "b": 234643,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
+    },
+    {
       "a": 151277,
       "b": 163389,
       "t": 1,
@@ -2086,7 +2125,7 @@
     {
       "a": 154697,
       "b": 171886,
-      "t": 19,
+      "t": 20,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -2107,8 +2146,8 @@
         ],
         [
           2026,
-          6,
-          175
+          7,
+          287
         ]
       ],
       "r": 1
@@ -2246,7 +2285,7 @@
     {
       "a": 179503,
       "b": 204533,
-      "t": 5,
+      "t": 6,
       "f": 2025,
       "l": 2026,
       "s": [
@@ -2257,8 +2296,8 @@
         ],
         [
           2026,
-          4,
-          175
+          5,
+          287
         ]
       ],
       "r": 5
@@ -2357,6 +2396,21 @@
         ]
       ],
       "r": 37
+    },
+    {
+      "a": 214342,
+      "b": 239448,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 13
     }
   ]
 }

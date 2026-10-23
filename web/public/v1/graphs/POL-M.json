@@ -1183,7 +1183,7 @@
       "id": 174367,
       "name": "Michał Witkoś",
       "short": "Witkoś",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2019,
       "last": 2026
     },
@@ -1415,7 +1415,7 @@
       "id": 212823,
       "name": "Maksymilian Dymczyk",
       "short": "Dymczyk",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -5506,6 +5506,21 @@
         ]
       ],
       "r": 21
+    },
+    {
+      "a": 174367,
+      "b": 212823,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 17
     },
     {
       "a": 174367,

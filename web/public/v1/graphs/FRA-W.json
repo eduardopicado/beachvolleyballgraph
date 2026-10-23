@@ -991,7 +991,7 @@
       "id": 157362,
       "name": "Alexandra Ferreira",
       "short": "Ferreira",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -999,7 +999,7 @@
       "id": 157364,
       "name": "Marion Bernard",
       "short": "Bernard",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2021,
       "last": 2026
     },
@@ -1031,7 +1031,7 @@
       "id": 179179,
       "name": "Maëva Guignan",
       "short": "Guignan",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2021,
       "last": 2026
     },
@@ -1103,7 +1103,7 @@
       "id": 190535,
       "name": "Alexia Joffrin",
       "short": "Joffrin",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -1183,7 +1183,7 @@
       "id": 210071,
       "name": "Marilu Pally",
       "short": "Pally",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2024,
       "last": 2026
     },
@@ -1199,9 +1199,9 @@
       "id": 221167,
       "name": "Joséphine Candela",
       "short": "Candela",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2025,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 223437,
@@ -3982,14 +3982,14 @@
     {
       "a": 157362,
       "b": 190535,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          238
+          2,
+          287
         ]
       ],
       "r": 17
@@ -4012,7 +4012,7 @@
     {
       "a": 157364,
       "b": 179179,
-      "t": 9,
+      "t": 10,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -4033,8 +4033,8 @@
         ],
         [
           2026,
-          1,
-          238
+          2,
+          287
         ]
       ],
       "r": 13
@@ -4530,6 +4530,21 @@
           2024,
           1,
           99
+        ]
+      ],
+      "r": 9
+    },
+    {
+      "a": 210071,
+      "b": 221167,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
         ]
       ],
       "r": 9

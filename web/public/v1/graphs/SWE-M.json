@@ -855,7 +855,7 @@
       "id": 190602,
       "name": "Stefan Andreasson",
       "short": "Andreasson",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2023,
       "last": 2026
     },
@@ -863,7 +863,7 @@
       "id": 190604,
       "name": "Anton Andersson",
       "short": "Andersson, A.",
-      "tournaments": 14,
+      "tournaments": 15,
       "first": 2023,
       "last": 2026
     },
@@ -3243,7 +3243,7 @@
     {
       "a": 190602,
       "b": 190604,
-      "t": 13,
+      "t": 14,
       "f": 2023,
       "l": 2026,
       "s": [
@@ -3264,8 +3264,8 @@
         ],
         [
           2026,
-          4,
-          245
+          5,
+          287
         ]
       ],
       "r": 2

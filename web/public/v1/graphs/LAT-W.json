@@ -535,7 +535,7 @@
       "id": 188963,
       "name": "Renāte Krūklīte",
       "short": "Krūklīte",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2023,
       "last": 2026
     },
@@ -599,7 +599,7 @@
       "id": 202386,
       "name": "Paula Krieva",
       "short": "Krieva P.",
-      "tournaments": 10,
+      "tournaments": 11,
       "first": 2024,
       "last": 2026
     },
@@ -623,7 +623,7 @@
       "id": 211924,
       "name": "Karlīna Bērziņa",
       "short": "Bērziņa K.",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2026,
       "last": 2026
     },
@@ -647,7 +647,7 @@
       "id": 223425,
       "name": "Estere Zakite",
       "short": "Zakite",
-      "tournaments": 7,
+      "tournaments": 8,
       "first": 2025,
       "last": 2026
     },
@@ -2004,14 +2004,14 @@
     {
       "a": 188963,
       "b": 223425,
-      "t": 4,
+      "t": 5,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          4,
-          238
+          5,
+          287
         ]
       ],
       "r": 9
@@ -2215,6 +2215,21 @@
         ]
       ],
       "r": 21
+    },
+    {
+      "a": 202386,
+      "b": 211924,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 13
     },
     {
       "a": 202386,

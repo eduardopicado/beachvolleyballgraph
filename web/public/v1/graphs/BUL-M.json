@@ -175,7 +175,7 @@
       "id": 117793,
       "name": "Konstantin Mitev",
       "short": "Mitev",
-      "tournaments": 8,
+      "tournaments": 9,
       "first": 2010,
       "last": 2026
     },
@@ -279,7 +279,7 @@
       "id": 144035,
       "name": "Dimitar Kalchev",
       "short": "Kalchev",
-      "tournaments": 23,
+      "tournaments": 24,
       "first": 2014,
       "last": 2026
     },
@@ -391,7 +391,7 @@
       "id": 181034,
       "name": "Dimitar Mehandzhiyski",
       "short": "Mehandzhiyski",
-      "tournaments": 22,
+      "tournaments": 23,
       "first": 2021,
       "last": 2026
     },
@@ -439,7 +439,7 @@
       "id": 191703,
       "name": "Boris Georgiev",
       "short": "Georgiev",
-      "tournaments": 1,
+      "tournaments": 2,
       "first": 2026,
       "last": 2026
     },
@@ -750,6 +750,21 @@
     },
     {
       "a": 117793,
+      "b": 191703,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
+    },
+    {
+      "a": 117793,
       "b": 223283,
       "t": 1,
       "f": 2026,
@@ -951,7 +966,7 @@
     {
       "a": 144035,
       "b": 181034,
-      "t": 19,
+      "t": 20,
       "f": 2021,
       "l": 2026,
       "s": [
@@ -972,8 +987,8 @@
         ],
         [
           2026,
-          6,
-          259
+          7,
+          287
         ]
       ],
       "r": 2

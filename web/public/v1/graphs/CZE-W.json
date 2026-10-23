@@ -1239,7 +1239,7 @@
       "id": 212661,
       "name": "Zuzana Lajkebova",
       "short": "Lajkebova",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2026,
       "last": 2026
     },
@@ -1311,6 +1311,14 @@
       "id": 234198,
       "name": "Tereza Lieblova",
       "short": "Lieblova",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 240651,
+      "name": "Aneta Glotzmannova",
+      "short": "Glotzmannova",
       "tournaments": 1,
       "first": 2026,
       "last": 2026
@@ -4961,6 +4969,21 @@
         ]
       ],
       "r": 13
+    },
+    {
+      "a": 212661,
+      "b": 240651,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 17
     },
     {
       "a": 213005,

@@ -823,9 +823,9 @@
       "id": 179113,
       "name": "Sandis Berzins",
       "short": "Berzins",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2022,
-      "last": 2025
+      "last": 2026
     },
     {
       "id": 179122,
@@ -991,7 +991,7 @@
       "id": 211966,
       "name": "Mārcis Bērziņš",
       "short": "Bērziņš M.",
-      "tournaments": 9,
+      "tournaments": 10,
       "first": 2024,
       "last": 2026
     },
@@ -3738,17 +3738,22 @@
     {
       "a": 179113,
       "b": 211966,
-      "t": 1,
+      "t": 2,
       "f": 2024,
-      "l": 2024,
+      "l": 2026,
       "s": [
         [
           2024,
           1,
           241
+        ],
+        [
+          2026,
+          1,
+          287
         ]
       ],
-      "r": 17
+      "r": 5
     },
     {
       "a": 179122,

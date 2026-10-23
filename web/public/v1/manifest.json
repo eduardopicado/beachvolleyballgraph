@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T14:32:49.499Z",
+  "generatedAt": "2026-10-23T14:16:29.282Z",
   "sourceVersion": "115858",
   "seasons": {
     "from": 1987,
@@ -7,8 +7,8 @@
   },
   "totals": {
     "tournaments": 1698,
-    "players": 12111,
-    "partnerships": 14004
+    "players": 12121,
+    "partnerships": 14026
   },
   "tiers": {
     "FIVB World Tour": 1077,
@@ -114,7 +114,7 @@
       "genders": {
         "M": {
           "nodes": 145,
-          "edges": 287
+          "edges": 289
         },
         "W": {
           "nodes": 134,
@@ -251,8 +251,8 @@
           "edges": 412
         },
         "W": {
-          "nodes": 197,
-          "edges": 317
+          "nodes": 198,
+          "edges": 318
         }
       }
     },
@@ -263,7 +263,7 @@
       "genders": {
         "M": {
           "nodes": 61,
-          "edges": 45
+          "edges": 46
         },
         "W": {
           "nodes": 37,
@@ -535,8 +535,8 @@
           "edges": 228
         },
         "W": {
-          "nodes": 168,
-          "edges": 201
+          "nodes": 169,
+          "edges": 202
         }
       }
     },
@@ -686,7 +686,7 @@
         },
         "W": {
           "nodes": 152,
-          "edges": 186
+          "edges": 187
         }
       }
     },
@@ -738,11 +738,11 @@
       "genders": {
         "M": {
           "nodes": 240,
-          "edges": 349
+          "edges": 350
         },
         "W": {
           "nodes": 172,
-          "edges": 285
+          "edges": 286
         }
       }
     },
@@ -1007,7 +1007,7 @@
         },
         "W": {
           "nodes": 169,
-          "edges": 240
+          "edges": 242
         }
       }
     },
@@ -1074,7 +1074,7 @@
         },
         "W": {
           "nodes": 82,
-          "edges": 91
+          "edges": 92
         }
       }
     },
@@ -1492,7 +1492,7 @@
       "genders": {
         "M": {
           "nodes": 184,
-          "edges": 254
+          "edges": 255
         },
         "W": {
           "nodes": 127,
@@ -1704,12 +1704,12 @@
       "iso2": "SK",
       "genders": {
         "M": {
-          "nodes": 50,
-          "edges": 47
+          "nodes": 51,
+          "edges": 48
         },
         "W": {
           "nodes": 57,
-          "edges": 51
+          "edges": 52
         }
       }
     },
@@ -1851,11 +1851,11 @@
       "genders": {
         "M": {
           "nodes": 188,
-          "edges": 237
+          "edges": 238
         },
         "W": {
-          "nodes": 150,
-          "edges": 205
+          "nodes": 151,
+          "edges": 206
         }
       }
     },
@@ -1958,12 +1958,12 @@
       "iso2": "TR",
       "genders": {
         "M": {
-          "nodes": 101,
-          "edges": 92
+          "nodes": 104,
+          "edges": 94
         },
         "W": {
           "nodes": 51,
-          "edges": 46
+          "edges": 47
         }
       }
     },
@@ -2025,12 +2025,12 @@
       "iso2": "US",
       "genders": {
         "M": {
-          "nodes": 399,
-          "edges": 532
+          "nodes": 401,
+          "edges": 533
         },
         "W": {
-          "nodes": 423,
-          "edges": 626
+          "nodes": 424,
+          "edges": 628
         }
       }
     },

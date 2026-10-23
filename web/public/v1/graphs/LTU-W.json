@@ -231,7 +231,7 @@
       "id": 163333,
       "name": "Rugile Grudzinskaite",
       "short": "Grudzinskaite R.",
-      "tournaments": 19,
+      "tournaments": 20,
       "first": 2022,
       "last": 2026
     },
@@ -263,7 +263,7 @@
       "id": 169437,
       "name": "Skalve Krizanauskaite",
       "short": "Krizanauskaite",
-      "tournaments": 24,
+      "tournaments": 25,
       "first": 2022,
       "last": 2026
     },
@@ -1024,14 +1024,14 @@
     {
       "a": 163333,
       "b": 169437,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          245
+          2,
+          287
         ]
       ],
       "r": 3

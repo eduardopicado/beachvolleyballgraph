@@ -2282,7 +2282,15 @@
       "name": "Kalle Pieper",
       "dob": "2007-08-06",
       "height": 205,
-      "weight": 92
+      "weight": 92,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 199225,
@@ -2336,7 +2344,15 @@
       "name": "Julian Hikel",
       "dob": "2006-05-09",
       "height": 190,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 205219,

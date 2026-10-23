@@ -2375,7 +2375,7 @@
       "id": 168577,
       "name": "Katie Horton",
       "short": "Horton",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2022,
       "last": 2026
     },
@@ -2852,6 +2852,14 @@
       "last": 2026
     },
     {
+      "id": 201249,
+      "name": "Leanna Jadus",
+      "short": "Jadus",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
       "id": 201745,
       "name": "Macy Jerger",
       "short": "Jerger",
@@ -2967,7 +2975,7 @@
       "id": 206895,
       "name": "Delaney Peranich",
       "short": "Peranich",
-      "tournaments": 15,
+      "tournaments": 16,
       "first": 2023,
       "last": 2026
     },
@@ -3263,7 +3271,7 @@
       "id": 225969,
       "name": "Amarie Bremel",
       "short": "Bremel",
-      "tournaments": 2,
+      "tournaments": 3,
       "first": 2025,
       "last": 2026
     },
@@ -12056,6 +12064,21 @@
     },
     {
       "a": 168577,
+      "b": 206895,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 17
+    },
+    {
+      "a": 168577,
       "b": 217369,
       "t": 3,
       "f": 2026,
@@ -13423,6 +13446,21 @@
         ]
       ],
       "r": 2
+    },
+    {
+      "a": 201249,
+      "b": 225969,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 201745,

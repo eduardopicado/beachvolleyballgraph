@@ -1311,7 +1311,7 @@
       "id": 183061,
       "name": "Maël Masserey",
       "short": "Masserey",
-      "tournaments": 12,
+      "tournaments": 13,
       "first": 2023,
       "last": 2026
     },
@@ -1463,7 +1463,7 @@
       "id": 230446,
       "name": "Robin Enrico",
       "short": "Enrico",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -5658,6 +5658,21 @@
         ]
       ],
       "r": 17
+    },
+    {
+      "a": 183061,
+      "b": 230446,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
     },
     {
       "a": 187654,

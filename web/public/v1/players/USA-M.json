@@ -4213,6 +4213,22 @@
       "filters": [
         "tour-podium"
       ]
+    },
+    {
+      "id": 244290,
+      "name": "Ezra Krohn",
+      "dob": "1996-11-09",
+      "height": null,
+      "weight": null,
+      "birthPlace": "California"
+    },
+    {
+      "id": 244291,
+      "name": "Zachary Soule",
+      "dob": "2000-05-23",
+      "height": null,
+      "weight": null,
+      "birthPlace": "California"
     }
   ]
 }

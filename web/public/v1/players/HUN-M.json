@@ -265,7 +265,7 @@
       "tour": {
         "gold": 0,
         "silver": 2,
-        "bronze": 1
+        "bronze": 2
       },
       "filters": [
         "tour-podium"
@@ -391,7 +391,7 @@
       "tour": {
         "gold": 1,
         "silver": 2,
-        "bronze": 0
+        "bronze": 1
       },
       "filters": [
         "tour-podium"

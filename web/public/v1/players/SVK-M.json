@@ -397,6 +397,14 @@
       "height": 188,
       "weight": 75,
       "birthPlace": "Kosice"
+    },
+    {
+      "id": 239934,
+      "name": "Lukas Hunady",
+      "dob": "2009-09-02",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Bratislava"
     }
   ]
 }

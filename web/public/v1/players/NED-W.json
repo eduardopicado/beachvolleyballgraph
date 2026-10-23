@@ -1033,7 +1033,7 @@
       "weight": null,
       "birthPlace": "Pietra Ligure",
       "tour": {
-        "gold": 2,
+        "gold": 3,
         "silver": 1,
         "bronze": 2
       },
@@ -1318,7 +1318,7 @@
       "weight": 66,
       "birthPlace": "Amsterdam",
       "tour": {
-        "gold": 1,
+        "gold": 2,
         "silver": 0,
         "bronze": 0
       },

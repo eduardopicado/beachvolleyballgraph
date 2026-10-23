@@ -3194,6 +3194,22 @@
       "tournaments": 1,
       "first": 2026,
       "last": 2026
+    },
+    {
+      "id": 244290,
+      "name": "Ezra Krohn",
+      "short": "Krohn",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
+    },
+    {
+      "id": 244291,
+      "name": "Zachary Soule",
+      "short": "Soule",
+      "tournaments": 1,
+      "first": 2026,
+      "last": 2026
     }
   ],
   "edges": [
@@ -12118,6 +12134,21 @@
         ]
       ],
       "r": 37
+    },
+    {
+      "a": 244290,
+      "b": 244291,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 21
     }
   ]
 }

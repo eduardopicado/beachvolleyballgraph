@@ -335,7 +335,7 @@
       "id": 150235,
       "name": "Lubos Nemec",
       "short": "Nemec",
-      "tournaments": 29,
+      "tournaments": 30,
       "first": 2018,
       "last": 2026
     },
@@ -375,7 +375,7 @@
       "id": 179392,
       "name": "Adrian Petruf",
       "short": "Petruf",
-      "tournaments": 18,
+      "tournaments": 19,
       "first": 2023,
       "last": 2026
     },
@@ -383,7 +383,7 @@
       "id": 182265,
       "name": "Dominik Jancok",
       "short": "Jancok",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2024,
       "last": 2026
     },
@@ -401,6 +401,14 @@
       "short": "Marcok",
       "tournaments": 6,
       "first": 2025,
+      "last": 2026
+    },
+    {
+      "id": 239934,
+      "name": "Lukas Hunady",
+      "short": "Hunady",
+      "tournaments": 1,
+      "first": 2026,
       "last": 2026
     }
   ],
@@ -1133,17 +1141,17 @@
     {
       "a": 150235,
       "b": 182265,
-      "t": 2,
+      "t": 3,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          2,
-          230
+          3,
+          287
         ]
       ],
-      "r": 9
+      "r": 5
     },
     {
       "a": 155009,
@@ -1209,6 +1217,21 @@
         ]
       ],
       "r": 9
+    },
+    {
+      "a": 179392,
+      "b": 239934,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 17
     }
   ]
 }

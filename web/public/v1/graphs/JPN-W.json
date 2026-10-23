@@ -663,7 +663,7 @@
       "id": 122247,
       "name": "Sayaka Mizoe",
       "short": "Mizoe",
-      "tournaments": 129,
+      "tournaments": 130,
       "first": 2009,
       "last": 2026
     },
@@ -815,7 +815,7 @@
       "id": 146166,
       "name": "Shion Tsubouchi",
       "short": "Tsubouchi",
-      "tournaments": 35,
+      "tournaments": 36,
       "first": 2019,
       "last": 2026
     },
@@ -1047,7 +1047,7 @@
       "id": 172195,
       "name": "Paurine Emiri Oto",
       "short": "Oto",
-      "tournaments": 11,
+      "tournaments": 12,
       "first": 2019,
       "last": 2026
     },
@@ -1071,7 +1071,7 @@
       "id": 172468,
       "name": "Riko Tsujimura",
       "short": "Riko",
-      "tournaments": 28,
+      "tournaments": 29,
       "first": 2019,
       "last": 2026
     },
@@ -1183,7 +1183,7 @@
       "id": 192901,
       "name": "Mayu Kikuchi",
       "short": "Kikuchi",
-      "tournaments": 13,
+      "tournaments": 14,
       "first": 2024,
       "last": 2026
     },
@@ -1191,7 +1191,7 @@
       "id": 192902,
       "name": "Noa Kinugasa",
       "short": "Kinugasa",
-      "tournaments": 3,
+      "tournaments": 4,
       "first": 2025,
       "last": 2026
     },
@@ -3529,6 +3529,21 @@
     },
     {
       "a": 122247,
+      "b": 192902,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 5
+    },
+    {
+      "a": 122247,
       "b": 210053,
       "t": 1,
       "f": 2026,
@@ -4359,14 +4374,14 @@
     {
       "a": 146166,
       "b": 172195,
-      "t": 1,
+      "t": 2,
       "f": 2026,
       "l": 2026,
       "s": [
         [
           2026,
-          1,
-          259
+          2,
+          287
         ]
       ],
       "r": 13
@@ -5155,6 +5170,21 @@
         ]
       ],
       "r": 17
+    },
+    {
+      "a": 172468,
+      "b": 192901,
+      "t": 1,
+      "f": 2026,
+      "l": 2026,
+      "s": [
+        [
+          2026,
+          1,
+          287
+        ]
+      ],
+      "r": 2
     },
     {
       "a": 172468,
