@@ -204,15 +204,20 @@ flowchart TD
   subgraph gha["GitHub Actions — deploy.yml"]
     ING["ingest job<br/>fetch FIVB, commit data"]
     BUILD["build job<br/>checks out ingest's commit"]
-    DEP["deploy job"]
-    ING -->|data_sha| BUILD --> DEP
+    DEP["deploy job<br/>PAGES_HOST unset"]
+    DEPCF["deploy-cloudflare job<br/>PAGES_HOST = cloudflare"]
+    ING -->|data_sha| BUILD
+    BUILD --> DEP
+    BUILD -.-> DEPCF
   end
 
   DEP --> PAGES["GitHub Pages"]
+  DEPCF -.-> CFP["Cloudflare Pages"]
   PAGES --> CF["Cloudflare DNS<br/>beachvolleyball.com.br"]
+  CFP -.-> CF
 ```
 
-Three jobs in a strict pipeline. Two details matter:
+Three jobs in a strict pipeline, the last one chosen by host. Two details matter:
 
 - **`build` checks out the exact commit `ingest` produced**, not the ref the run
   started on, because the ingest's push landed after that.
@@ -232,8 +237,32 @@ exists nowhere. `.github/actions/site-origin` derives both from a single
 `SITE_URL` variable, so **the broken combination is not expressible**. CI uses
 the same action, so a pull request builds at the same base as the deploy.
 
-`deploy-cloudflare.yml` is a complete alternative targeting Cloudflare Pages.
-It has **no automatic gate** against `deploy.yml` — disable one by hand.
+**The host is one repository variable, `PAGES_HOST`.** Unset is GitHub Pages;
+`cloudflare` is Cloudflare Pages. Everything up to and including the browser
+suite is the same either way, and exactly one publish job runs, so the two
+hosts cannot both publish. Both end with the same check
+(`.github/actions/verify-live`): the address that was published serves this
+build's data and bundle, or the run fails.
+
+This used to be a second workflow, `deploy-cloudflare.yml`, with no gate
+against `deploy.yml` and a pipeline of its own that had drifted. It never
+committed the refreshed data — so with it live, the data in git would have
+frozen, and the regression guard with it — never deployed a code push, and
+never looked at the live site. The switch to Cloudflare, step by step, is in
+the README, "Cloudflare Pages + a custom domain".
+
+Two differences between the hosts survive, on purpose:
+
+- **Caching.** Cloudflare revalidates every file on every visit unless told
+  otherwise, so the Cloudflare job writes a `_headers` file caching the hashed
+  bundle for a year. GitHub Pages caches everything for 10 minutes and has no
+  such file.
+- **Unknown addresses.** There is no `404.html`. GitHub Pages answers an
+  unknown path with its own 404 page; Cloudflare Pages, finding no 404 page,
+  treats the site as a single-page app and serves the home page with a 200.
+  The app then shows "No such tournament" for a dead tournament link and the
+  graph for anything else, with a 200 either way. A real 404 page would fix
+  both hosts, and is a design change.
 
 ## Tournament photographs
 
@@ -290,8 +319,8 @@ serve the world.
 
 Only once FIVB has said yes. Add a repository variable `TOURNAMENT_PHOTOS` with
 the value `1` (Settings, Secrets and variables, Actions, Variables) and run the
-deploy workflow. `deploy.yml` and `deploy-cloudflare.yml` pass it to the build
-and cache the photo lists between runs.
+deploy workflow. `deploy.yml` passes it to the build and caches the photo
+lists between runs, whichever host publishes.
 
 **Turning it off** is deleting the variable and deploying again: the next build
 has no strip and no photo files. What a crawler or a reader's browser fetched
