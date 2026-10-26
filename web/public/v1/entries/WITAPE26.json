@@ -28,6 +28,7 @@
     [169972,220026,"CHI",null,null],
     [173488,173496,"FIN",null,null],
     [173533,190904,"AUT",null,null],
+    [177705,213393,"NED",null,null],
     [179339,167352,"SUI",null,null],
     [182135,182137,"ARG",null,null],
     [182240,182239,"CZE",null,null],
@@ -37,6 +38,7 @@
     [186538,153243,"ESP",null,null],
     [192301,141784,"CHN",null,null],
     [192303,192302,"CHN",null,null],
+    [192816,182339,"GER",null,null],
     [202842,210161,"CHN",null,null]
   ],
   "players": {
@@ -91,6 +93,7 @@
     "173496": "Anniina Muukka",
     "173533": "Magdalena Rabitsch",
     "174229": "Wakana Akishige",
+    "177705": "Lisa Luini",
     "179339": "Annique Niederhauser",
     "179340": "Leona Kernen",
     "181615": "Stefánia Flóra Kun",
@@ -98,6 +101,7 @@
     "182137": "Morena Marisa Abdala",
     "182239": "Anna Pavelková",
     "182240": "Katerina Pavelková",
+    "182339": "Tabea Schwarz",
     "182352": "Melanie Paul",
     "182615": "Ruby Sorra",
     "182792": "Janne Uhl",
@@ -108,8 +112,10 @@
     "192301": "Xu Yan",
     "192302": "Mingli Zhou",
     "192303": "Kaiyue Jiang",
+    "192816": "Mareet Maidhof",
     "202842": "Kadeliye Halaiti",
     "210161": "Siyu Qi",
+    "213393": "Benthe Essink",
     "220026": "Alejandra Dubost Orrico",
     "221053": "Nina Pavlova"
   }
