@@ -1,0 +1,115 @@
+/*
+ * Documents that are not the app: `404.html`, written by ingest/prerender.ts
+ * with this stylesheet and none of the app's script. The same column, crumb
+ * and heading as a tournament page, so leaving the app does not look like
+ * leaving the site.
+ */
+
+.static-page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.static-page > nav {
+  font-size: 13px;
+}
+
+.static-page > nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .static-page > nav a:hover {
+    color: var(--series-1);
+    text-decoration: underline;
+  }
+}
+
+.static-page > header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.static-page h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.static-page .lede {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--text-secondary);
+}
+
+.static-page code {
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: var(--track);
+  color: var(--text-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+/* --- 404: three ways back in ---------------------------------------------- */
+
+.ways-back {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.ways-back a {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+@media (hover: hover) {
+  .ways-back a:hover {
+    border-color: var(--series-1);
+    background: var(--series-1-wash);
+  }
+}
+
+.ways-back .figure {
+  color: var(--series-1);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.ways-back .unit {
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ways-back .name {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.ways-back .what {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
