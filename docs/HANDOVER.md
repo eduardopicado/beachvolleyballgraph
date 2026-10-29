@@ -147,7 +147,8 @@ deliberate exclusion change), re-run with the `ALLOW_DATA_REGRESSION` input.
   on the remote. Every one of them belongs to a merged pull request unless its
   own pull request says otherwise — check that before assuming a branch name
   implies unshipped work, and never read the pile as a to-do list.
-- `.github/workflows/deploy-cloudflare.yml` is a complete alternative to
-  `deploy.yml` but **has no automatic gate**: its header says to disable the
-  other workflow by hand. If you enable it, do that, or both will rebuild on
-  the same schedule.
+- **The host is the `PAGES_HOST` repository variable**, not a choice of
+  workflow: `deploy.yml` publishes to GitHub Pages, or to Cloudflare Pages
+  when it is `cloudflare`. There used to be a second workflow for Cloudflare;
+  it was folded in because nothing stopped both from publishing, and it had
+  stopped committing the data. The switch is in the README.

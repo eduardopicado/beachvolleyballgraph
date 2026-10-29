@@ -2,8 +2,8 @@
 #
 # Install the browser, run Playwright, keep the report when it fails. The same
 # three steps every publishing path needs, in one place — the version that
-# lived only in ci.yml and deploy.yml is why deploy-cloudflare.yml had no
-# browser check at all.
+# lived only in ci.yml and deploy.yml is why the separate Cloudflare workflow,
+# since folded into deploy.yml, had no browser check at all.
 #
 # `base_path` and `site_url` must match what the site was *built* with, or
 # `vite preview` serves 404s and every test fails for a reason that has

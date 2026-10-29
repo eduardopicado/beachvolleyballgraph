@@ -1,0 +1,70 @@
+### Is the live site serving the build that was just published?
+#
+# Both publish paths in deploy.yml end here, so the check is one definition
+# rather than two copies that can drift — the reason the other composite
+# actions in this directory exist.
+#
+# Deliberately thin, and deliberately not the browser suite: nothing here can
+# roll anything back, the identical bytes were already exercised before
+# publishing, and a long assertion against a CDN mid-propagation is a flake
+# generator. It answers the one question the localhost runs structurally
+# cannot. Caught live once already: two merges in a row reported success while
+# Pages kept serving the previous build.
+#
+# Two fingerprints, because neither alone is enough (see the build job's
+# "Record what this build should publish"): `generatedAt` only moves with the
+# data, the hashed bundle name only with the code, and every real deploy
+# changes at least one.
+
+name: Verify the live site
+description: Poll a published URL until it serves this build's data and bundle, or fail.
+
+inputs:
+  url:
+    description: The published base URL, with or without a trailing slash.
+    required: true
+  generated_at:
+    description: manifest.generatedAt of the build that was published.
+    required: true
+  bundle:
+    description: Hashed bundle path of the build that was published, e.g. assets/index-abc.js.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        PAGE_URL: ${{ inputs.url }}
+        EXPECTED_DATA: ${{ inputs.generated_at }}
+        EXPECTED_BUNDLE: ${{ inputs.bundle }}
+      run: |
+        set -uo pipefail
+        if [ -z "$EXPECTED_DATA" ] || [ -z "$EXPECTED_BUNDLE" ]; then
+          echo "::warning::Build job published no fingerprints — cannot verify the deploy."
+          exit 0
+        fi
+        base="${PAGE_URL%/}/"
+        echo "Expecting data=$EXPECTED_DATA and bundle=$EXPECTED_BUNDLE at $base"
+        for attempt in 1 2 3 4 5 6; do
+          live_data=$(curl -fsS --max-time 20 "${base}v1/manifest.json" \
+                      | python3 -c 'import json,sys; print(json.load(sys.stdin)["generatedAt"])' 2>/dev/null || true)
+          # Cache-bust: a CDN edge holding the previous index.html is the very
+          # thing being tested for, so don't let it answer from cache.
+          live_html=$(curl -fsS --max-time 20 -H 'Cache-Control: no-cache' \
+                      "${base}?deploycheck=${GITHUB_RUN_ID}" 2>/dev/null || true)
+
+          data_ok=false; bundle_ok=false
+          [ "$live_data" = "$EXPECTED_DATA" ] && data_ok=true
+          case "$live_html" in *"$EXPECTED_BUNDLE"*) bundle_ok=true ;; esac
+
+          if [ "$data_ok" = true ] && [ "$bundle_ok" = true ]; then
+            echo "Live site is serving this build (data $live_data, bundle $EXPECTED_BUNDLE)."
+            exit 0
+          fi
+          echo "attempt $attempt: data_ok=$data_ok bundle_ok=$bundle_ok; waiting for propagation"
+          sleep 15
+        done
+        echo "::error::$base is not serving the build that just deployed."
+        echo "::error::expected data=$EXPECTED_DATA got=${live_data:-<unreachable>}; expected bundle=$EXPECTED_BUNDLE (not found in live HTML)"
+        exit 1
