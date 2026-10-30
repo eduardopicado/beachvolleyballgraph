@@ -10,6 +10,9 @@ import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
 // path moves. Vite fingerprints it and serves it from /assets/.
 import flagFontUrl from 'country-flag-emoji-polyfill/dist/TwemojiCountryFlags.woff2?url';
 import './theme.css';
+// Not used by the app: the standalone documents prerender.ts writes borrow the
+// app's one stylesheet, and this is their part of it.
+import './StaticPage.css';
 
 /*
  * Flags on Windows. Every flag on the site is an emoji — regional-indicator

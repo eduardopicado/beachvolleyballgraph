@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, routeChunks, tallySlice, tournamentFacts, factsScript } from './prerender.js';
+import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, notFoundPage, routeChunks, tallySlice, tournamentFacts, factsScript } from './prerender.js';
 import type { GraphFile, Manifest } from '../shared/schema.js';
 
 const manifest: Manifest = {
@@ -279,5 +279,42 @@ describe('tournamentFacts', () => {
     const html = factsScript(facts);
     expect(html.match(/<\/script>/g)).toHaveLength(1);
     expect(JSON.parse(html.replace(/^<script[^>]*>|<\/script>$/g, '')).name).toBe('</script><script>alert(1)');
+  });
+});
+
+describe('notFoundPage', () => {
+  const html = notFoundPage(manifest, 13, '/assets/style-abc.css');
+
+  it('gives the three ways back in, with the figures the data has', () => {
+    const ways = [...html.matchAll(/<a href="([^"]*)"><span class="figure">([^<]*)<\/span><span class="unit">([^<]*)</g)].map(
+      (m) => [m[1], m[2], m[3]],
+    );
+    expect(ways).toEqual([
+      ['/', '15,628', 'players'],
+      ['/tournaments/', '2,163', 'tournaments'],
+      ['/records/', '13', 'records'],
+    ]);
+    expect(html).toContain('Every event since 1987');
+    expect(html).toContain('<a href="/about/">about this project</a>');
+  });
+
+  it('is kept out of search, and is not the app', () => {
+    expect(html).toContain('<meta name="robots" content="noindex"/>');
+    expect(html).not.toContain('type="module"');
+    expect(html).not.toContain('id="root"');
+    expect(html).not.toContain('rel="canonical"');
+  });
+
+  it('names the missing path as text, never as markup', () => {
+    // The path is whatever a stranger typed or linked; it must not reach the
+    // page as HTML.
+    const script = /<script>([\s\S]*?)<\/script>/.exec(html)?.[1] ?? '';
+    expect(script).toContain('textContent = path');
+    expect(script).not.toMatch(/innerHTML|outerHTML|insertAdjacentHTML|document\.write/);
+  });
+
+  it('borrows the stylesheet when there is one, and reads without it', () => {
+    expect(html).toContain('<link rel="stylesheet" href="/assets/style-abc.css"/>');
+    expect(notFoundPage(manifest, 13, null)).not.toContain('rel="stylesheet"');
   });
 });

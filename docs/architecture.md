@@ -251,18 +251,19 @@ frozen, and the regression guard with it — never deployed a code push, and
 never looked at the live site. The switch to Cloudflare, step by step, is in
 the README, "Cloudflare Pages + a custom domain".
 
-Two differences between the hosts survive, on purpose:
+One difference between the hosts survives, on purpose: **caching.** Cloudflare
+revalidates every file on every visit unless told otherwise, so the Cloudflare
+job writes a `_headers` file caching the hashed bundle for a year. GitHub Pages
+caches everything for 10 minutes and has no such file.
 
-- **Caching.** Cloudflare revalidates every file on every visit unless told
-  otherwise, so the Cloudflare job writes a `_headers` file caching the hashed
-  bundle for a year. GitHub Pages caches everything for 10 minutes and has no
-  such file.
-- **Unknown addresses.** There is no `404.html`. GitHub Pages answers an
-  unknown path with its own 404 page; Cloudflare Pages, finding no 404 page,
-  treats the site as a single-page app and serves the home page with a 200.
-  The app then shows "No such tournament" for a dead tournament link and the
-  graph for anything else, with a 200 either way. A real 404 page would fix
-  both hosts, and is a design change.
+**Unknown addresses** get `404.html`, on both hosts and with a 404 status:
+"Nothing at this address", the path that was asked for, and three ways back in
+(the graph, the tournaments, the records) with their figures from the data.
+Written by the prerenderer as a standalone document like `/about/`, with the
+app's stylesheet and none of its script, because the app booted on an unknown
+path draws the default country's graph. Before it existed, Cloudflare Pages,
+finding no 404 page, treated the site as a single-page app and did exactly
+that, with a 200.
 
 ## Tournament photographs
 

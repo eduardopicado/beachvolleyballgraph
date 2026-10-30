@@ -452,6 +452,69 @@ ${headFor(url, title, description)}
 `;
 }
 
+/**
+ * `404.html` — what GitHub Pages and Cloudflare Pages both serve, with a 404,
+ * for an address the site does not have.
+ *
+ * Standalone like `/about/`, and for the same reason: the app booted on an
+ * unknown path falls back to the default country and draws the Brazil graph,
+ * which on Cloudflare (where an absent 404.html means "single-page app") was
+ * exactly what an unknown address showed, with a 200. Every link is absolute
+ * from `BASE`, because this one document answers for every depth of path.
+ *
+ * Three ways back in rather than one link home: the owner chose it on the
+ * mockup over a plain list and over "did you mean". No published tournament
+ * address had gone away in six weeks of daily data, so a lookup would mostly
+ * have caught typos.
+ *
+ * The one script names the missing path, as text. Without it the sentence
+ * reads "this address" and nothing else changes.
+ */
+export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref: string | null): string {
+  const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
+  const n = (v: number) => v.toLocaleString('en-US');
+  const way = (href: string, figure: string, unit: string, name: string, what: string) =>
+    `<a href="${esc(href)}"><span class="figure">${figure}</span><span class="unit">${unit}</span><span class="name">${name}</span><span class="what">${what}</span></a>`;
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<title>Page not found — ${esc(SITE_NAME)}</title>
+${style}
+</head>
+<body>
+<main class="static-page">
+<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+<header>
+<h1>Nothing at this address</h1>
+<p class="lede">There is no page at <span id="missing-path">this address</span>. If a link brought you here, it may have been mistyped. Three ways back in:</p>
+</header>
+<div class="ways-back">
+${way(BASE, n(manifest.totals.players), 'players', 'The partnership graph', 'Who has played with whom, one graph per federation.')}
+${way(`${BASE}tournaments/`, n(manifest.totals.tournaments), 'tournaments', 'Tournaments', `Every event since ${manifest.seasons.from}, season by season, with its full field.`)}
+${way(recordsPagePath(BASE), n(recordKinds), 'records', 'Records', 'Most partners, longest careers, the tallest world champion, for men and women.')}
+</div>
+<p class="lede">Or read <a href="${esc(`${BASE}about/`)}">about this project</a>, including how to report a wrong number.</p>
+</main>
+<script>
+(function () {
+  var slot = document.getElementById('missing-path');
+  if (!slot) return;
+  var path = location.pathname;
+  try { path = decodeURIComponent(path); } catch (e) {}
+  var code = document.createElement('code');
+  code.textContent = path;
+  slot.replaceWith(code);
+})();
+</script>
+</body>
+</html>
+`;
+}
+
 /** One entry of `dist/.vite/manifest.json`, the fields read here. */
 interface ManifestChunk {
   file: string;
@@ -1034,6 +1097,14 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
   if (!styleHref) console.warn('  ! no stylesheet found in index.html; /about/ will be unstyled');
   await mkdir(path.join(DIST, 'about'), { recursive: true });
   await writeFile(path.join(DIST, 'about', 'index.html'), aboutPage(manifest, styleHref));
+
+  // --- not found -------------------------------------------------------------
+  // At the root, where both hosts look for it. Not in the sitemap: it is not a
+  // page anyone should land on from a search.
+  await writeFile(
+    path.join(DIST, '404.html'),
+    notFoundPage(manifest, Object.keys(recordsFile.categories).length, styleHref),
+  );
 
   // --- sitemap & robots ----------------------------------------------------
   const lastmod = manifest.generatedAt.slice(0, 10);
