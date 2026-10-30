@@ -206,10 +206,16 @@ flowchart TD
     BUILD["build job<br/>checks out ingest's commit"]
     DEP["deploy job<br/>PAGES_HOST unset"]
     DEPCF["deploy-cloudflare job<br/>PAGES_HOST = cloudflare"]
+    ANN["announce job<br/>only when FIVB added events"]
     ING -->|data_sha| BUILD
     BUILD --> DEP
     BUILD -.-> DEPCF
+    ING -.->|announcement| ANN
+    DEP -.-> ANN
+    DEPCF -.-> ANN
   end
+
+  ANN -.-> ISSUE["Comment on the<br/>new-tournaments issue"]
 
   DEP --> PAGES["GitHub Pages"]
   DEPCF -.-> CFP["Cloudflare Pages"]
@@ -217,7 +223,7 @@ flowchart TD
   CFP -.-> CF
 ```
 
-Three jobs in a strict pipeline, the last one chosen by host. Two details matter:
+Three jobs in a strict pipeline, the last one chosen by host, and an announcement after them when there is one. Two details matter:
 
 - **`build` checks out the exact commit `ingest` produced**, not the ref the run
   started on, because the ingest's push landed after that.
@@ -228,6 +234,16 @@ Three jobs in a strict pipeline, the last one chosen by host. Two details matter
 Failure semantics: if the ingest fails — including refusing to publish a
 suspicious rebuild — nothing downstream runs and the site keeps serving the previous
 day's data. Degraded to *slightly stale*, never to *down*.
+
+**New tournaments are announced on an issue.** After committing, `ingest` diffs
+the `tournaments.json` it replaced against the one it built, keyed by FIVB's
+tournament number (`ingest/announce.ts`). When FIVB has added events, the
+`announce` job comments the list, with links to their pages, on the one open
+issue labelled `new-tournaments` — creating it, assigned to the repository
+owner, the first time. Being assigned is what makes GitHub notify the owner of
+every later comment. It runs after the publish jobs so the links resolve, and
+whatever they did, since the events are in the committed data either way.
+Most refreshes add nothing and the job is skipped.
 
 **Origin coupling.** Canonical URLs are built as `SITE_URL + BASE_PATH + page`,
 so the two must describe the same place. A project Pages site lives at
