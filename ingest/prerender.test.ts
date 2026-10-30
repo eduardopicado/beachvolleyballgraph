@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { emptyTally, esc, indexDescription, jsonLd, llmsTxt, notFoundPage, routeChunks, tallySlice, tournamentFacts, factsScript } from './prerender.js';
-import type { GraphFile, Manifest } from '../shared/schema.js';
+import { aboutPage, emptyTally, esc, indexDescription, jsonLd, llmsTxt, notFoundPage, routeChunks, seasonCounts, tallySlice, tournamentFacts, factsScript } from './prerender.js';
+import type { GraphFile, Manifest, TournamentMeta } from '../shared/schema.js';
 
 const manifest: Manifest = {
   generatedAt: '2026-08-03T00:00:00.000Z',
@@ -316,5 +316,140 @@ describe('notFoundPage', () => {
   it('borrows the stylesheet when there is one, and reads without it', () => {
     expect(html).toContain('<link rel="stylesheet" href="/assets/style-abc.css"/>');
     expect(notFoundPage(manifest, 13, null)).not.toContain('rel="stylesheet"');
+  });
+});
+
+describe('seasonCounts', () => {
+  const row = (season: number, code?: string): TournamentMeta =>
+    code ? ['Event', season, 'world-tour', 100, code] : ['Event', season, 'world-tour'];
+
+  it('splits every row of a season by whether it has a result', () => {
+    const counts = seasonCounts(
+      { 1: row(2025, 'A'), 2: row(2025, 'B'), 3: row(2026, 'C'), 4: row(2026), 5: row(2027, 'D') },
+      (code) => code === 'A' || code === 'B' || code === 'C',
+    );
+    expect(counts).toEqual([
+      { season: 2025, played: 2, without: 0 },
+      // A row with no FIVB code has no file to look for, so no result.
+      { season: 2026, played: 1, without: 1 },
+      { season: 2027, played: 0, without: 1 },
+    ]);
+    // Every row lands somewhere: the bars add up to the total beside them.
+    expect(counts.reduce((sum, s) => sum + s.played + s.without, 0)).toBe(5);
+  });
+
+  it('gives a season with no rows an empty bar, so bar i is always the i-th season', () => {
+    const counts = seasonCounts({ 1: row(1990, 'A'), 2: row(1993, 'B') }, () => true);
+    expect(counts.map((s) => s.season)).toEqual([1990, 1991, 1992, 1993]);
+    expect(counts[1]).toEqual({ season: 1991, played: 0, without: 0 });
+  });
+
+  it('is empty for an empty file', () => {
+    expect(seasonCounts({}, () => true)).toEqual([]);
+  });
+});
+
+describe('aboutPage', () => {
+  const withHighlights: Manifest = {
+    ...manifest,
+    countries: [
+      { code: 'BRA', name: 'Brazil', iso2: 'BR', genders: { M: { nodes: 3, edges: 2 } } },
+      { code: 'USA', name: 'United States', iso2: 'US', genders: { W: { nodes: 2, edges: 1 } } },
+    ],
+    highlights: [
+      { key: 'titles', gender: 'W', value: 61, who: [{ id: 9, name: 'Larissa França', federation: 'BRA' }] },
+      { key: 'tournaments', gender: 'M', value: 255, who: [{ id: 1, name: 'Emanuel Rego', federation: 'BRA' }] },
+    ],
+  };
+  const seasons = [
+    { season: 1989, played: 2, without: 0 },
+    { season: 1990, played: 3, without: 1 },
+    { season: 1991, played: 0, without: 2 },
+  ];
+  const legend = graph(
+    [{ ...node(1, 255), name: 'Emanuel Rego' }, { ...node(2, 40), name: 'Ricardo <Santos>' }, node(3, 1)],
+    [{ ...edge(1, 2), t: 101 }, edge(2, 3)],
+  );
+  const html = aboutPage(withHighlights, seasons, legend, '/assets/style-abc.css');
+
+  it('leads with the archive’s figures, counting only seasons that have a result', () => {
+    const figures = [...html.matchAll(/<div><dt>([^<]*)<\/dt><dd>([^<]*)<\/dd><\/div>/g)].map((m) => [m[1], m[2]]);
+    expect(figures).toEqual([
+      ['Players', '15,628'],
+      ['Partnerships', '18,900'],
+      ['Tournaments', '2,163'],
+      ['Federations', '2'],
+      // 1991 is only a calendar so far.
+      ['Seasons', '2'],
+    ]);
+    expect(html).toContain('<time datetime="2026-08-03T00:00:00.000Z">3 Aug 2026</time>');
+  });
+
+  it('draws each season against the busiest, with the part that has no result apart', () => {
+    const bars = [...html.matchAll(/<span class="season" title="([^"]*)">(.*?)<\/span><\/span>/g)].map((m) => [m[1], m[2]]);
+    expect(bars).toEqual([
+      ['1989: 2 with a result', '<span class="played" style="height:50.00%">'],
+      ['1990: 3 with a result, 1 without', '<span class="without" style="height:25.00%"></span><span class="played" style="height:75.00%">'],
+      ['1991: 0 with a result, 2 without', '<span class="without" style="height:50.00%">'],
+    ]);
+    expect(html).toContain('Peaking at 4 in 1990.');
+    expect(html).toContain('aria-label="Tournaments per season, 1989 to 1991: 2 in 1989, peaking at 4 in 1990."');
+  });
+
+  it('puts each decade’s label under the middle of its own bar', () => {
+    // 1990 is bar 1 of 3, centred at (1 + 0.5) / 3.
+    expect(html).toContain('<div class="season-ticks" aria-hidden="true"><span style="left:50.00%">1990</span></div>');
+  });
+
+  it('draws the legend at the graph’s own scale, ending on its own largest', () => {
+    const dots = [...html.matchAll(/<span class="dot" style="width:([\d.]+)px;height:\1px"><\/span>([\d,]+)/g)].map((m) => [m[2], m[1]]);
+    // radiusScale(255): 4 + 18 * sqrt(t / 255), doubled for a diameter.
+    expect(dots).toEqual([
+      ['1', '10.3'],
+      ['10', '15.1'],
+      ['50', '23.9'],
+      ['255', '44.0'],
+    ]);
+    const lines = [...html.matchAll(/<span class="line" style="height:([\d.]+)px"><\/span>([\d,]+)/g)].map((m) => [m[2], m[1]]);
+    // edgeWidth(t, 101): 1 + 5 * log1p(t) / log1p(101).
+    expect(lines).toEqual([
+      ['1', '1.7'],
+      ['5', '2.9'],
+      ['20', '4.3'],
+      ['101', '6.0'],
+    ]);
+    expect(html).toContain(
+      'In the graph the site opens on, Brazil&#39;s men, the largest dot is Emanuel Rego, with 255 tournaments, and the widest line is Emanuel Rego and Ricardo &lt;Santos&gt;, with 101 together.',
+    );
+  });
+
+  it('drops a sample the graph’s own largest does not reach', () => {
+    const small = aboutPage(manifest, seasons, graph([node(1, 8), node(2, 3)], [edge(1, 2)]), null);
+    const dots = [...small.matchAll(/<span class="dot" style="[^"]*"><\/span>([\d,]+)/g)].map((m) => m[1]);
+    expect(dots).toEqual(['1', '8']);
+    // A graph whose longest partnership is one event draws one line, not two.
+    const lines = [...small.matchAll(/<span class="line" style="[^"]*"><\/span>([\d,]+)/g)].map((m) => m[1]);
+    expect(lines).toEqual(['1']);
+  });
+
+  it('names the record holders the manifest highlights, and reads without them', () => {
+    expect(html).toContain("for men and women: Emanuel Rego's 255 tournaments, Larissa França's 61 tour titles.</li>");
+    expect(aboutPage(manifest, seasons, legend, null)).toContain('for men and women.</li>');
+  });
+
+  it('counts each tier, largest first', () => {
+    expect(html).toContain('<tbody><tr><td>FIVB World Tour</td><td>1,517</td></tr><tr><td>Olympic Games</td><td>22</td></tr></tbody>');
+  });
+
+  it('credits the flag artwork its licence asks to be credited', () => {
+    expect(html).toContain('Twemoji</a>, © Twitter, Inc and other contributors, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>');
+  });
+
+  it('is a standalone document, with the stylesheet when there is one', () => {
+    expect(html).not.toContain('type="module"');
+    expect(html).not.toContain('id="root"');
+    expect(html).toContain('<link rel="canonical"');
+    expect(html).toContain('<link rel="stylesheet" href="/assets/style-abc.css"/>');
+    expect(aboutPage(manifest, seasons, legend, null)).not.toContain('rel="stylesheet"');
   });
 });

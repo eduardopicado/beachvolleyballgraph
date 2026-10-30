@@ -20,9 +20,12 @@ import type {
   ClassificationFile,
   EntriesFile,
   Gender,
+  GraphEdge,
   GraphFile,
+  GraphNode,
   Manifest,
   RecordsFile,
+  TournamentMeta,
   TournamentPageFacts,
   TournamentPhotosFile,
   TournamentsFile,
@@ -33,7 +36,16 @@ import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
-import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL, sliceHead } from '../shared/site.js';
+import {
+  CONTACT_EMAIL,
+  DEFAULT_COUNTRY,
+  DEFAULT_GENDER,
+  SITE_NAME,
+  SOURCE_NAME,
+  SOURCE_URL,
+  sliceHead,
+} from '../shared/site.js';
+import { edgeWidth, radiusScale } from '../web/src/graph/layout.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -386,8 +398,55 @@ ${pages}
 `;
 }
 
+/** One season's bar on `/about/`: its tournaments with a result, and without. */
+export interface SeasonCount {
+  season: number;
+  played: number;
+  without: number;
+}
+
 /**
- * `/about/` — who runs this, where the data comes from, how to make contact.
+ * Tournaments per season, over every row of `tournaments.json` — so the bars
+ * add up to `manifest.totals.tournaments`, the figure printed above them, and
+ * split the same way the tournament index does.
+ *
+ * `without` is not "still to come": it is that, and also the older events
+ * FIVB lists with no classification (eleven in 2013 alone). The bar draws them
+ * apart rather than leaving them out, because leaving them out would make the
+ * chart disagree with the total beside it.
+ *
+ * A season with no row at all still gets a bar, of nothing, so bar *i* is
+ * always season `first + i` — the tick labels are placed on that assumption.
+ */
+export function seasonCounts(
+  tournaments: Record<string, TournamentMeta>,
+  hasField: (code: string) => boolean,
+): SeasonCount[] {
+  const bySeason = new Map<number, SeasonCount>();
+  for (const row of Object.values(tournaments)) {
+    const season = row[1];
+    const entry = bySeason.get(season) ?? { season, played: 0, without: 0 };
+    const code = row[4];
+    if (code && hasField(code)) entry.played++;
+    else entry.without++;
+    bySeason.set(season, entry);
+  }
+  if (bySeason.size === 0) return [];
+  const seasons = [...bySeason.keys()];
+  const out: SeasonCount[] = [];
+  for (let season = Math.min(...seasons); season <= Math.max(...seasons); season++) {
+    out.push(bySeason.get(season) ?? { season, played: 0, without: 0 });
+  }
+  return out;
+}
+
+/** What the legend draws, beside the graph's own largest; see `aboutPage`. */
+const LEGEND_TOURNAMENTS = [1, 10, 50];
+const LEGEND_TOGETHER = [1, 5, 20];
+
+/**
+ * `/about/` — what the graph shows, where the data comes from, how to make
+ * contact.
  *
  * Emitted as a standalone document rather than through the SPA template, and
  * that is the whole trick: every other page here is prerendered markup that
@@ -396,12 +455,112 @@ ${pages}
  * default country and swap this text for the Brazil graph. Shipping the same
  * stylesheet without the module script keeps the page looking like the site
  * while leaving the markup as the final word.
+ *
+ * Laid out figures first — the owner's pick on the mockup, over a long single
+ * column and over contents in a side column: the archive's size and its shape
+ * over the seasons, then the rest as cards. Every number is read from the
+ * data at build time, so the page cannot drift from the site it describes.
+ *
+ * The legend is drawn at the graph's own scale (`radiusScale`, `edgeWidth`),
+ * from the graph the site opens on, because sizes in the graph are relative to
+ * its busiest player: a dot means a different count in every slice, and only
+ * one slice is the one every first-time reader has just looked at.
+ *
+ * Two pieces of prose carry facts that are not read from the data:
+ *  - The result delays are measured, not promised: the day each
+ *    classification first reached the published tree, against the event's
+ *    last day. Corigliano Rossano and Alanya are every event that finished
+ *    inside the daily refresh's history when this was written.
+ *  - The flag credit is owed because Twemoji's artwork is CC BY 4.0. The
+ *    font only loads where the system draws no flags (see main.tsx), but the
+ *    page cannot know which reader that is.
  */
-function aboutPage(manifest: Manifest, styleHref: string | null): string {
+export function aboutPage(
+  manifest: Manifest,
+  seasons: readonly SeasonCount[],
+  legend: GraphFile,
+  styleHref: string | null,
+): string {
   const url = abs(`${BASE}about/`);
   const title = `About — ${SITE_NAME}`;
-  const description = `Where the data behind ${SITE_NAME} comes from, how the numbers are counted, and how to get in touch.`;
+  const description = `What the ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
   const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
+  const n = (v: number) => v.toLocaleString('en-US');
+  const and = (items: string[]) => new Intl.ListFormat('en', { type: 'conjunction' }).format(items);
+
+  const asOf = new Date(manifest.generatedAt);
+  const asOfText = asOf.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+
+  const figures: [string, number][] = [
+    ['Players', manifest.totals.players],
+    ['Partnerships', manifest.totals.partnerships],
+    ['Tournaments', manifest.totals.tournaments],
+    ['Federations', manifest.countries.length],
+    // Seasons with a result, so a season that is only a calendar so far is
+    // not counted as one the archive covers.
+    ['Seasons', seasons.filter((s) => s.played > 0).length],
+  ];
+
+  // --- tournaments per season ---
+  const peak = Math.max(1, ...seasons.map((s) => s.played + s.without));
+  const peakSeasons = seasons.filter((s) => s.played + s.without === peak).map((s) => String(s.season));
+  const first = seasons[0];
+  const last = seasons.at(-1);
+  const height = (count: number) => `${((100 * count) / peak).toFixed(2)}%`;
+  const bars = seasons
+    .map((s) => {
+      const label = `${s.season}: ${s.played} with a result${s.without ? `, ${s.without} without` : ''}`;
+      return (
+        `<span class="season" title="${label}">` +
+        (s.without ? `<span class="without" style="height:${height(s.without)}"></span>` : '') +
+        (s.played ? `<span class="played" style="height:${height(s.played)}"></span>` : '') +
+        `</span>`
+      );
+    })
+    .join('');
+  // Under the middle of their own bar: bar i of k is centred at (i + 0.5) / k.
+  const ticks = seasons
+    .map((s, i) => ({ s, i }))
+    .filter(({ s }) => s.season % 10 === 0)
+    .map(({ s, i }) => `<span style="left:${(((i + 0.5) / seasons.length) * 100).toFixed(2)}%">${s.season}</span>`)
+    .join('');
+  const chartLabel = first && last
+    ? `Tournaments per season, ${first.season} to ${last.season}: ${first.played + first.without} in ${first.season}, peaking at ${peak} in ${and(peakSeasons)}.`
+    : 'Tournaments per season.';
+
+  // --- legend ---
+  const names = new Map(legend.nodes.map((node) => [node.id, node.name]));
+  const busiest = legend.nodes.reduce<GraphNode | undefined>((a, b) => (!a || b.tournaments > a.tournaments ? b : a), undefined);
+  const longest = legend.edges.reduce<GraphEdge | undefined>((a, b) => (!a || b.t > a.t ? b : a), undefined);
+  const maxTournaments = busiest?.tournaments ?? 1;
+  const maxTogether = longest?.t ?? 1;
+  const radius = radiusScale(maxTournaments);
+  const marks = (samples: number[], max: number) => [...samples.filter((v) => v < max), max];
+  const dots = marks(LEGEND_TOURNAMENTS, maxTournaments)
+    .map((t) => {
+      const d = (2 * radius(t)).toFixed(1);
+      return `<li><span class="dot" style="width:${d}px;height:${d}px"></span>${n(t)}</li>`;
+    })
+    .join('');
+  const lines = marks(LEGEND_TOGETHER, maxTogether)
+    .map((t) => `<li><span class="line" style="height:${edgeWidth(t, maxTogether).toFixed(1)}px"></span>${n(t)}</li>`)
+    .join('');
+  const sliceName = `${legend.countryName}'s ${GENDER_LABEL[legend.gender].toLowerCase()}`;
+  const legendNote =
+    `Sizes are relative to each graph's busiest player and longest partnership.` +
+    (busiest && longest
+      ? ` In the graph the site opens on, ${esc(sliceName)}, the largest dot is ${esc(busiest.name)}, with ${n(busiest.tournaments)} tournaments, and the widest line is ${esc(and([names.get(longest.a) ?? '', names.get(longest.b) ?? '']))}, with ${n(longest.t)} together.`
+      : '');
+
+  const extremes = (['tournaments', 'titles'] as const)
+    .map((key) => manifest.highlights?.find((h) => h.key === key))
+    .filter((h) => h !== undefined)
+    .map((h) => `${esc(and(h.who.map((w) => w.name)))}'s ${n(h.value)} ${RECORD_LABEL[h.key]}`);
+
+  const tiers = Object.entries(manifest.tiers)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tier, count]) => `<tr><td>${esc(tier)}</td><td>${n(count)}</td></tr>`)
+    .join('');
 
   return `<!doctype html>
 <html lang="en">
@@ -413,40 +572,91 @@ ${style}
 ${headFor(url, title, description)}
 </head>
 <body>
-<div class="app">
-<main>
+<main class="static-page about">
+<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+
+<div class="about-top">
+<header>
 <h1>About</h1>
+<p class="lede">Who has played with whom in FIVB international beach volleyball, since ${manifest.seasons.from}. Every dot is a player and every line a partnership, drawn from the archive FIVB itself publishes.</p>
+<p class="about-asof">Data as of <time datetime="${esc(manifest.generatedAt)}">${asOfText}</time>, rebuilt from FIVB every day.</p>
+</header>
+<dl class="about-figures">
+${figures.map(([unit, value]) => `<div><dt>${unit}</dt><dd>${n(value)}</dd></div>`).join('\n')}
+</dl>
+</div>
 
-<p><strong>${esc(SITE_NAME)}</strong> maps who has played with whom in FIVB international beach volleyball. Each node is a player; each edge is a partnership, weighted by the tournaments the pair entered together. Currently ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships across ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}.</p>
+<section class="about-seasons" aria-labelledby="about-seasons">
+<div class="about-seasons-head">
+<h2 id="about-seasons">Tournaments per season</h2>
+<p>Peaking at ${peak} in ${and(peakSeasons)}. The lighter part of a bar has no result published: events still to come, and older ones FIVB lists without one.</p>
+</div>
+<div class="season-bars" role="img" aria-label="${esc(chartLabel)}">${bars}</div>
+<div class="season-ticks" aria-hidden="true">${ticks}</div>
+</section>
 
-<h2>Data</h2>
-
-<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a> and is rebuilt daily. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
-
-<p>Not affiliated with or endorsed by the FIVB.</p>
-
-<h2>Counting rules</h2>
-
+<div class="about-cards">
+<section>
+<h2>How to read the graph</h2>
+<div class="legend">
+<div><span class="legend-label">Player · tournaments</span><ul>${dots}</ul></div>
+<div><span class="legend-label">Partnership · events together</span><ul>${lines}</ul></div>
+</div>
+<p class="legend-picked"><span class="dot picked"></span>Picked: the player whose card is open</p>
+<p class="about-note">${legendNote}</p>
 <ul>
-<li>FIVB-organised international competition only: World Tour, Beach Pro Tour, World Championships, Olympic Games, age-group World Championships. Continental and national tours, snow volleyball and multi-sport games are excluded.</li>
+<li><strong>Pick a player</strong> for their card: every partner, their medals, a season-by-season timeline, and partners from other federations.</li>
+<li><strong>Ask how two players are connected</strong> for the shortest chain of partnerships between them.</li>
+<li><strong><a href="${esc(`${BASE}${INDEX_PREFIX}/`)}">Every tournament</a> has a page</strong>: the final classification, or the entry list for one still to come.</li>
+<li><strong><a href="${esc(recordsPagePath(BASE))}">Records</a></strong> collect the archive's extremes, for men and women${extremes.length ? `: ${extremes.join(', ')}` : ''}.</li>
+</ul>
+</section>
+
+<section>
+<h2>What is covered</h2>
+<table class="about-tiers">
+<thead><tr><th scope="col">Competition</th><th scope="col">Tournaments</th></tr></thead>
+<tbody>${tiers}</tbody>
+</table>
+<ul>
+<li>FIVB-organised international competition only. Continental and national tours, snow volleyball and multi-sport games are left out.</li>
 <li>A pair entering both the qualification and the main draw of one event counts once.</li>
 <li>Teams that registered but never played are not counted.</li>
-<li>A player's country is their current FIVB federation; no history is kept. Both players must share a federation for a partnership to appear.</li>
+<li>A player's country is their current FIVB federation; no history is kept. Both players must share a federation for a partnership to appear in a country's graph.</li>
 </ul>
+</section>
 
-<h2>Contact</h2>
+<section>
+<h2>Where the data comes from</h2>
+<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a>, and the whole archive is rebuilt from it every day. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
+<p>A tournament's placements appear once FIVB publishes them: here, two days after the final for Corigliano Rossano in September 2026, and three to four for Alanya in October. Until then its page shows the entry list.</p>
+<p>Portraits are FIVB's too, and none is stored here: your browser fetches each one from FIVB's image service as you open a player. A player without one on file shows initials.</p>
+<p>Not affiliated with or endorsed by the FIVB.</p>
+</section>
 
-<p><a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a> — corrections, questions, media and partnership enquiries.</p>
+<section>
+<h2>Credits</h2>
+<dl class="about-credits">
+<dt>Data</dt><dd><a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a>, read daily.</dd>
+<dt>Portraits</dt><dd>FIVB's image service.</dd>
+<dt>Flags</dt><dd>Where the system has none, as on Windows: <a href="https://github.com/twitter/twemoji">Twemoji</a>, © Twitter, Inc and other contributors, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</dd>
+</dl>
+</section>
 
-<p>For a wrong number, a link to the page and what you expected to see is the fastest route to a fix.</p>
+<section>
+<h2>Contact and corrections</h2>
+<p><a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a> — corrections, questions, media and partnership enquiries. For a wrong number, a link to the page and what you expected to see is the fastest route to a fix.</p>
+</section>
 
+<section>
 <h2>Code and reuse</h2>
-
 <p>© 2026 Eduardo Picado. All rights reserved. This project's source is publicly viewable for portfolio and reference purposes; no permission is granted to copy, modify or redistribute it without prior written permission. Ask at the address above.</p>
+<p class="about-note">The data behind every page is plain JSON under <a href="${esc(`${BASE}v1/manifest.json`)}">/v1/</a>, summarised for language models at <a href="${esc(`${BASE}llms.txt`)}">/llms.txt</a>.</p>
+</section>
+</div>
 
 <p><a href="${esc(BASE)}">← Back to the graph</a></p>
 </main>
-</div>
 </body>
 </html>
 `;
@@ -696,10 +906,8 @@ async function main() {
    */
   const declared = manifest.withoutField;
   const withoutField = new Set(declared ?? []);
-  const indexRows = buildIndex(
-    tournamentsFile.tournaments,
-    declared ? (code) => !withoutField.has(code) : onDisk,
-  );
+  const hasField = declared ? (code: string) => !withoutField.has(code) : onDisk;
+  const indexRows = buildIndex(tournamentsFile.tournaments, hasField);
 
   // Every row the index shows gets a page, played or not: an event with no
   // result has an entry list to put on it, and a reader following a link from
@@ -1095,8 +1303,19 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
   // degrades rather than failing the build.
   const styleHref = /<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/.exec(template)?.[1] ?? null;
   if (!styleHref) console.warn('  ! no stylesheet found in index.html; /about/ will be unstyled');
+  // The legend's graph is the one `/` opens on, falling back as App.tsx does
+  // when that country is not published.
+  const opening = manifest.countries.find((c) => c.code === DEFAULT_COUNTRY) ?? manifest.countries[0];
+  if (!opening) throw new Error('The manifest publishes no country to draw the About legend from.');
+  const openingGender = opening.genders[DEFAULT_GENDER] ? DEFAULT_GENDER : GENDERS.find((g) => opening.genders[g])!;
+  const legendGraph: GraphFile = JSON.parse(
+    await readFile(path.join(DATA, 'graphs', `${opening.code}-${openingGender}.json`), 'utf8'),
+  );
   await mkdir(path.join(DIST, 'about'), { recursive: true });
-  await writeFile(path.join(DIST, 'about', 'index.html'), aboutPage(manifest, styleHref));
+  await writeFile(
+    path.join(DIST, 'about', 'index.html'),
+    aboutPage(manifest, seasonCounts(tournamentsFile.tournaments, hasField), legendGraph, styleHref),
+  );
 
   // --- not found -------------------------------------------------------------
   // At the root, where both hosts look for it. Not in the sitemap: it is not a

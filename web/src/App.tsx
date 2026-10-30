@@ -3,7 +3,7 @@ import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetai
 import { GENDERS } from '../../shared/schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
 import { flagEmoji, formatMedals, plural } from './lib/format';
-import { CONTACT_EMAIL, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
+import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
@@ -20,9 +20,6 @@ import { StatTiles, type Stat } from './components/StatTiles';
 import { TableView, type TableRow } from './components/TableView';
 import { ThemeToggle } from './components/ThemeToggle';
 import './App.css';
-
-/** Opening view: the country with the most players. */
-const DEFAULT_COUNTRY = 'BRA';
 
 /** Read/write the current slice in the URL so a view is linkable. */
 function readUrl(): {
@@ -79,7 +76,7 @@ export default function App() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [country, setCountry] = useState(initial.country ?? DEFAULT_COUNTRY);
-  const [gender, setGender] = useState<Gender>(initial.gender ?? 'M');
+  const [gender, setGender] = useState<Gender>(initial.gender ?? DEFAULT_GENDER);
   const [graph, setGraph] = useState<GraphFile | null>(null);
   const [details, setDetails] = useState<PlayersFile | null>(null);
   /**

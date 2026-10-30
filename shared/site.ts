@@ -14,6 +14,15 @@ import { GENDER_LABEL, type Gender } from './schema';
 export const SITE_NAME = 'Beach Volleyball Partnership Graph';
 
 /**
+ * The opening view: the country with the most players, men's draw. Here
+ * rather than in App.tsx because `/about/` draws its legend from the same
+ * graph, so the sizes it explains are the ones a reader arriving at `/` has
+ * just seen.
+ */
+export const DEFAULT_COUNTRY = 'BRA';
+export const DEFAULT_GENDER: Gender = 'M';
+
+/**
  * The production origin, hard-coded rather than read from `SITE_URL` at
  * runtime: this constant is imported by `ingest/vis.ts` to build the default
  * `User-Agent`, which has to resolve even when nobody has set `SITE_URL` —
