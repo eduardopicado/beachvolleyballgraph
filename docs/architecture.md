@@ -192,7 +192,11 @@ link previews, text browsers). It also produces `sitemap.xml`, `robots.txt` and
 
 `/about/` is the exception — a standalone document that deliberately ships
 *without* the module script, because booting the app on a path matching no
-slice would fall back to the default country and replace the page.
+slice would fall back to the default country and replace the page. Its figures,
+its tournaments-per-season chart and its legend are all drawn from the data at
+build time; the legend uses the graph's own scale (`radiusScale`, `edgeWidth`)
+over the graph `/` opens on, which is why `DEFAULT_COUNTRY` lives in
+`shared/site.ts` rather than in `App.tsx`.
 
 ## Deployment
 

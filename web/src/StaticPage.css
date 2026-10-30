@@ -1,6 +1,6 @@
 /*
- * Documents that are not the app: `404.html`, written by ingest/prerender.ts
- * with this stylesheet and none of the app's script. The same column, crumb
+ * Documents that are not the app: `/about/` and `404.html`, written by
+ * ingest/prerender.ts with this stylesheet and none of the app's script. The same column, crumb
  * and heading as a tournament page, so leaving the app does not look like
  * leaving the site.
  */
@@ -12,6 +12,11 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.static-page a {
+  color: var(--series-1);
+  text-underline-offset: 2px;
 }
 
 .static-page > nav {
@@ -112,4 +117,300 @@
 .ways-back .what {
   color: var(--text-secondary);
   font-size: 13px;
+}
+
+/* --- About: figures first, then cards -------------------------------------- */
+
+/* Wider than the 404's column: the season chart is the page's second thing
+   to read, and at 760px its 41 bars are slivers. The cards that follow are
+   two columns of prose at about 60 characters each. */
+.static-page.about {
+  max-width: 1080px;
+  gap: 32px;
+}
+
+.about-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 28px 48px;
+}
+
+.about-top > header {
+  flex: 1 1 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about .lede {
+  max-width: 52ch;
+  font-size: 17px;
+}
+
+.about-asof,
+.about-note {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Wide enough for all five on one row beside the header (5 x 104 + gaps);
+   narrower, the rows wrap and their last tiles grow to fill, so a 1px gap
+   on the border colour reads as rules between tiles and never as a hole. */
+.about-figures {
+  flex: 1 1 560px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--border);
+}
+
+.about-figures > div {
+  flex: 1 1 104px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  padding: 14px 16px;
+  background: var(--surface-1);
+}
+
+.about-figures dt {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.about-figures dd {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+}
+
+.about h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+/* --- tournaments per season --- */
+
+.about-seasons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-seasons-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+}
+
+.about-seasons-head p {
+  margin: 0;
+  max-width: 72ch;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.season-bars {
+  display: flex;
+  gap: clamp(1px, 0.3vw, 3px);
+  height: 160px;
+  border-bottom: 1px solid var(--baseline);
+}
+
+/* Heights are percentages of the tallest season, set inline per bar. */
+.season {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.season > span {
+  min-height: 2px;
+  background: var(--series-1);
+}
+
+.season > span:first-child {
+  border-radius: 2px 2px 0 0;
+}
+
+.season > .without {
+  opacity: 0.35;
+}
+
+.season-ticks {
+  position: relative;
+  height: 18px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.season-ticks span {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+/* --- cards --- */
+
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  align-items: start;
+  gap: 20px;
+}
+
+.about-cards > section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-1);
+}
+
+.about-cards p {
+  margin: 0;
+}
+
+.about-cards > section > ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* The legend: the graph's own marks at the graph's own sizes, set inline. */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 32px;
+}
+
+.legend > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.legend-label {
+  color: var(--text-secondary);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.legend ul {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend .dot,
+.legend-picked .dot {
+  display: block;
+  border-radius: 50%;
+  background: var(--series-1);
+}
+
+/* Not the graph's own edge colour: `--baseline` is drawn faint on purpose,
+   so hundreds of crossing lines stay a texture, and on a card in the dark
+   theme a single line of it all but disappears. The legend is about width,
+   so it takes the muted text grey, which holds in both themes. */
+.legend .line {
+  display: block;
+  width: 36px;
+  border-radius: 3px;
+  background: var(--text-muted);
+}
+
+.legend-picked {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.legend-picked .dot.picked {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  background: var(--series-2);
+}
+
+.about-tiers {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.about-tiers th {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--baseline);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.about-tiers td {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-tiers :is(th, td):last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.about-credits {
+  display: grid;
+  grid-template-columns: minmax(84px, max-content) 1fr;
+  gap: 8px 20px;
+  margin: 0;
+}
+
+.about-credits dt {
+  font-weight: 600;
+}
+
+.about-credits dd {
+  margin: 0;
+  color: var(--text-secondary);
 }
