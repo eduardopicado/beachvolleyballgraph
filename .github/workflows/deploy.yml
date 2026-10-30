@@ -42,6 +42,11 @@
 # built and published twice a day) and had drifted: it never committed the
 # refreshed data, never deployed a code push, and never checked the live site.
 # Switching hosts is docs/architecture.md, "Deployment".
+#
+# Last, `announce` comments on a pinned issue when a refresh found tournaments
+# FIVB had not listed the day before (ingest/announce.ts). It runs after the
+# publish jobs, so the links in the comment already resolve, and whatever
+# they did: the events are in the committed data either way.
 
 name: Rebuild data and deploy
 
@@ -143,6 +148,7 @@ jobs:
       contents: write # to commit the refreshed data back to this branch
     outputs:
       data_sha: ${{ steps.commit.outputs.sha }}
+      announcement: ${{ steps.news.outputs.markdown }}
     steps:
       - uses: actions/checkout@v7
 
@@ -211,6 +217,31 @@ jobs:
             git push
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # The links in the announcement are to the published site, so they are
+      # built for the origin the build job will compile for.
+      - id: origin
+        uses: ./.github/actions/site-origin
+        with:
+          site_url: ${{ vars.SITE_URL }}
+
+      # After the commit, so nothing is announced that did not land. The list
+      # this refresh replaced is the one in the commit the run started from.
+      - name: List tournaments new to this refresh
+        id: news
+        env:
+          BEFORE: ${{ github.sha }}
+          SITE_URL: ${{ steps.origin.outputs.site_url }}
+          BASE_PATH: ${{ steps.origin.outputs.base_path }}
+        run: |
+          git show "$BEFORE:web/public/v1/tournaments.json" > "$RUNNER_TEMP/tournaments.before.json" || true
+          npx tsx ingest/announce.ts "$RUNNER_TEMP/tournaments.before.json" > "$RUNNER_TEMP/news.md"
+          cat "$RUNNER_TEMP/news.md" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo 'markdown<<NEWS_EOF'
+            cat "$RUNNER_TEMP/news.md"
+            echo 'NEWS_EOF'
+          } >> "$GITHUB_OUTPUT"
 
   build:
     needs: ingest
@@ -514,3 +545,41 @@ jobs:
           url: ${{ needs.build.outputs.site_url }}
           generated_at: ${{ needs.build.outputs.generated_at }}
           bundle: ${{ needs.build.outputs.bundle }}
+
+  # One open issue, labelled `new-tournaments`, collects a comment per refresh
+  # that found new events. It is created on the first such refresh and
+  # assigned to the repository owner, which subscribes them: every later
+  # comment reaches them through GitHub's own notifications, by email and in
+  # the mobile app, with nothing to run or host. Close it to start a new one.
+  announce:
+    needs: [ingest, deploy, deploy-cloudflare]
+    # After the publish jobs whatever their result: one of the two is skipped
+    # on every run, which alone would make success() skip this, and a failed
+    # deploy does not make the events any less new. Nothing to say is the
+    # usual case, and skips the job.
+    if: always() && needs.ingest.result == 'success' && needs.ingest.outputs.announcement != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      OWNER: ${{ github.repository_owner }}
+      # Through the environment, never spliced into the script: it carries
+      # tournament names from FIVB.
+      NEWS: ${{ needs.ingest.outputs.announcement }}
+    steps:
+      - name: Comment on the new-tournaments issue
+        run: |
+          set -euo pipefail
+          label=new-tournaments
+          issue=$(gh issue list --label "$label" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -z "$issue" ]; then
+            gh label create "$label" --color 2a78d6 --description "Tournaments FIVB has added, one comment per refresh" --force
+            url=$(gh issue create --label "$label" --assignee "$OWNER" \
+              --title "New FIVB tournaments" \
+              --body "Each daily refresh that finds tournaments FIVB had not listed the day before comments here, so being assigned to this issue is being notified. Written by ingest/announce.ts; close it to start a fresh one.")
+            issue="${url##*/}"
+          fi
+          printf '%s\n' "$NEWS" | gh issue comment "$issue" --body-file -
