@@ -49,11 +49,28 @@ export const mdText = (s: string) => s.replace(/[\\`*_[\]<>|]/g, (c) => `\\${c}`
 
 const DRAW_ORDER: Gender[] = ['M', 'W'];
 
-const formatRange = (start: Date, end: Date) =>
-  new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).formatRange(
-    start,
-    end,
-  );
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+/**
+ * "20–24 Jan 2027", "28 Feb – 3 Mar 2027", "30 Dec 2026 – 2 Jan 2027".
+ *
+ * By hand rather than `Intl.DateTimeFormat#formatRange`, whose output belongs
+ * to the runtime's ICU: the same call gave "20–24 Jan" here and "20 – 24 Jan"
+ * on the CI runner's Node.
+ */
+export function dateRange(start: Date, end: Date): string {
+  const day = (d: Date) => String(d.getUTCDate());
+  const month = (d: Date) => MONTHS[d.getUTCMonth()]!;
+  const year = (d: Date) => String(d.getUTCFullYear());
+  if (start.getUTCFullYear() !== end.getUTCFullYear()) {
+    return `${day(start)} ${month(start)} ${year(start)} – ${day(end)} ${month(end)} ${year(end)}`;
+  }
+  if (start.getUTCMonth() !== end.getUTCMonth()) {
+    return `${day(start)} ${month(start)} – ${day(end)} ${month(end)} ${year(end)}`;
+  }
+  if (start.getUTCDate() !== end.getUTCDate()) return `${day(start)}–${day(end)} ${month(end)} ${year(end)}`;
+  return `${day(end)} ${month(end)} ${year(end)}`;
+}
 
 const countryName = (iso2: string) => {
   try {
@@ -112,7 +129,7 @@ export function announcement(
     const when =
       t.startOffset === null
         ? 'dates not published yet'
-        : formatRange(
+        : dateRange(
             new Date(Date.UTC(t.season, 0, 1 + t.startOffset)),
             new Date(Date.UTC(t.season, 0, 1 + t.startOffset + Math.max(t.span ?? 0, 0))),
           );

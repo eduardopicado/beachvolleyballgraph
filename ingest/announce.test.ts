@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { ANNOUNCE_MAX, announcement, mdText } from './announce.js';
+import { ANNOUNCE_MAX, announcement, dateRange, mdText } from './announce.js';
 import type { TournamentMeta } from '../shared/schema.js';
 
 const NOW = new Date('2026-10-30T12:00:00Z');
@@ -94,5 +94,22 @@ describe('mdText', () => {
   it('escapes what would change the Markdown, and leaves letters alone', () => {
     expect(mdText('a*b_c`d|e<f>')).toBe('a\\*b\\_c\\`d\\|e\\<f\\>');
     expect(mdText('João Pessoa')).toBe('João Pessoa');
+  });
+});
+
+describe('dateRange', () => {
+  const d = (s: string) => new Date(`${s}T00:00:00Z`);
+
+  it('says the month and year once when the event stays inside them', () => {
+    expect(dateRange(d('2027-01-20'), d('2027-01-24'))).toBe('20–24 Jan 2027');
+  });
+
+  it('names both months across a month end, and both years across a year end', () => {
+    expect(dateRange(d('2027-02-28'), d('2027-03-03'))).toBe('28 Feb – 3 Mar 2027');
+    expect(dateRange(d('2026-12-30'), d('2027-01-02'))).toBe('30 Dec 2026 – 2 Jan 2027');
+  });
+
+  it('is one date for a one-day event', () => {
+    expect(dateRange(d('2027-09-01'), d('2027-09-01'))).toBe('1 Sep 2027');
   });
 });
