@@ -2,7 +2,13 @@
   "code": "MJOA2027",
   "gender": "M",
   "teams": [
-
+    [161861,222625,"PAR",null,null],
+    [178349,161955,"PAR",null,null]
   ],
-  "players": {}
+  "players": {
+    "161861": "Gonzalo Melgarejo",
+    "161955": "Jorge Riveros",
+    "178349": "Giuliano Massare Canillas",
+    "222625": "Matias Gabriel Yegros Gomez"
+  }
 }
