@@ -95,6 +95,7 @@
     [202726,209573,"CZE",null,null],
     [204711,232900,"IND",null,null],
     [208607,213014,"BRA",null,null],
+    [209262,188593,"BRA",null,null],
     [209570,190771,"CZE",null,null],
     [210034,138642,"NOR",null,null],
     [211356,145647,"RUS",null,null],
@@ -106,7 +107,8 @@
     [222089,236101,"CAN",null,null],
     [225457,225459,"BRA",null,null],
     [233406,208610,"BRA",null,null],
-    [241351,176256,"POL",null,null]
+    [241351,176256,"POL",null,null],
+    [244118,230445,"BRA",null,null]
   ],
   "players": {
     "103677": "Alexander Horst",
@@ -269,6 +271,7 @@
     "185582": "Cameron Chadwick",
     "187399": "D'Artagnan Potts",
     "187569": "Henrique Camboim de Barros",
+    "188593": "Luiz Felipe Meurer Bonilha",
     "189719": "Kota Kurosawa",
     "190440": "Jiri Dostal",
     "190549": "Jørgen Nylund Nilsen",
@@ -290,6 +293,7 @@
     "208607": "Gabriel Teixeira Furquim Siqueira",
     "208610": "Pedro Joaquim Brandao Ribeiro",
     "208790": "Derek Bradford",
+    "209262": "Arthur Apicelo Martins Costa",
     "209570": "Lukas Olsansky",
     "209573": "Simon Tuma",
     "210034": "Mathias Damian Smørholm",
@@ -312,18 +316,21 @@
     "225457": "Thomas Mathias Endler",
     "225459": "Felippe Prudencio Arruda Barbiero",
     "225768": "Jacob La Bouliere",
+    "230445": "Bruno Alexander Peiter",
     "232899": "Rajesh Vinayagamoorthy",
     "232900": "Udaya Suriyan Poonthamizhan",
     "233406": "Lucas Sotelle Silva",
     "236101": "Brendon Lord",
     "239274": "Mitchell Keddie",
     "241351": "Marek Rogiński",
+    "244118": "Ariel Monteiro Wieczorek",
     "246228": "Simón Pablo Antonio Díaz Ramos"
   },
   "elsewhere": {
     "179469": null,
     "211356": null,
     "220302": null,
+    "244118": null,
     "246228": null
   }
 }
