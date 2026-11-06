@@ -629,9 +629,9 @@
       "id": 117847,
       "name": "Takemi Nishibori",
       "dob": "1981-08-20",
-      "height": null,
-      "weight": null,
-      "birthPlace": "Nagano, Japan",
+      "height": 173,
+      "weight": 66,
+      "birthPlace": "nagano, Japan",
       "tour": {
         "gold": 1,
         "silver": 3,

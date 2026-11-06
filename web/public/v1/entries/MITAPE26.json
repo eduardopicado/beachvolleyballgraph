@@ -83,7 +83,6 @@
     [182741,182951,"POL",null,null],
     [182781,179290,"BEL",null,null],
     [184140,167232,"GER",null,null],
-    [187399,178208,"AUS",null,null],
     [187569,217327,"BRA",null,null],
     [190440,190772,"CZE",null,null],
     [192193,181938,"AUT",null,null],
@@ -109,6 +108,9 @@
     [233406,208610,"BRA",null,null],
     [241351,176256,"POL",null,null],
     [244118,230445,"BRA",null,null]
+  ],
+  "withdrawn": [
+    [187399,178208,"AUS",null,null,"withdrawn"]
   ],
   "players": {
     "103677": "Alexander Horst",
