@@ -653,115 +653,134 @@ export default function App() {
 
       {/* Refetch keeps the frame: the previous render stays, dimmed. */}
       <main className={loading ? 'is-loading' : ''}>
-        <StatTiles stats={stats} hero={hero} />
-
-        <section className="graph-section">
-          <div className="section-head">
-            <div>
-              <h2>
-                {countryEntry?.name ?? country} · {gender === 'M' ? 'Men' : 'Women'}
-              </h2>
-              <p className="legend">
-                <span className="key">
-                  <svg width="30" height="12" aria-hidden="true">
-                    <circle cx="6" cy="6" r="3" className="key-dot" />
-                    <circle cx="21" cy="6" r="6" className="key-dot" />
-                  </svg>
-                  Circle size = tournaments entered
-                </span>
-                <span className="key">
-                  <svg width="22" height="12" aria-hidden="true">
-                    <line x1="2" y1="6" x2="20" y2="6" className="key-line" strokeWidth="1.5" />
-                  </svg>
-                  Line thickness = events played together
-                </span>
-                {hidden > 0 && (
-                  <span className="key filtered">
-                    Showing pairs with {minTogether}+ events together · {hidden.toLocaleString()}{' '}
-                    {hidden === 1 ? 'player' : 'players'} hidden
-                  </span>
-                )}
-              </p>
-            </div>
-            <button type="button" className="relayout" onClick={() => setLayoutKey((k) => k + 1)}>
-              Re-tangle
-            </button>
+        {/*
+          A slice that failed to load once another had loaded. The panel above
+          only covers a first load with nothing on screen; here the masthead
+          and controls stay so the reader can choose again, but nothing below
+          them may stay. The graph, the figures and the table all still hold
+          the previous slice, undimmed because the fetch has finished, under
+          the new country's name — and with no word that anything went wrong.
+        */}
+        {error && graph ? (
+          <div className="error-panel" role="alert">
+            <h2>
+              Could not load {countryEntry?.name ?? country} {gender === 'M' ? 'men' : 'women'}
+            </h2>
+            <p>The data for this graph did not arrive. Choose it again, or reload the page.</p>
           </div>
+        ) : (
+          <>
+            <StatTiles stats={stats} hero={hero} />
 
-          {visibleNodes.length > 0 ? (
-            <PartnershipGraph
-              nodes={visibleNodes}
-              edges={visibleEdges}
-              selectedId={selectedId}
-              onSelect={selectPlayer}
-              layoutKey={layoutKey}
-              onSize={onGraphSize}
-              pathIds={litNodes}
-              pathEdges={litEdges}
-            />
-          ) : (
-            <div className="graph-empty">
-              {totalNodes > 0
-                ? `No partnership here reaches ${minTogether} shared tournaments.`
-                : 'No players for this selection.'}
-            </div>
-          )}
+            <section className="graph-section">
+              <div className="section-head">
+                <div>
+                  <h2>
+                    {countryEntry?.name ?? country} · {gender === 'M' ? 'Men' : 'Women'}
+                  </h2>
+                  <p className="legend">
+                    <span className="key">
+                      <svg width="30" height="12" aria-hidden="true">
+                        <circle cx="6" cy="6" r="3" className="key-dot" />
+                        <circle cx="21" cy="6" r="6" className="key-dot" />
+                      </svg>
+                      Circle size = tournaments entered
+                    </span>
+                    <span className="key">
+                      <svg width="22" height="12" aria-hidden="true">
+                        <line x1="2" y1="6" x2="20" y2="6" className="key-line" strokeWidth="1.5" />
+                      </svg>
+                      Line thickness = events played together
+                    </span>
+                    {hidden > 0 && (
+                      <span className="key filtered">
+                        Showing pairs with {minTogether}+ events together · {hidden.toLocaleString()}{' '}
+                        {hidden === 1 ? 'player' : 'players'} hidden
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <button type="button" className="relayout" onClick={() => setLayoutKey((k) => k + 1)}>
+                  Re-tangle
+                </button>
+              </div>
 
-          {selectedNode && pathOpen && (
-            <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
-              <PathPanel
-                index={partnerships}
-                nodes={visibleNodes}
-                from={selectedNode}
-                toId={pathTo}
-                onPick={setPathTo}
-                onSelectPlayer={(id) => {
-                  setPathTo(null);
-                  setPathOpen(false);
-                  setSelectedId(id);
-                }}
-                onClose={() => {
-                  setPathTo(null);
-                  setPathOpen(false);
-                }}
-                country={graph?.country ?? country}
-                gender={graph?.gender ?? gender}
-              />
-            </div>
-          )}
+              {visibleNodes.length > 0 ? (
+                <PartnershipGraph
+                  nodes={visibleNodes}
+                  edges={visibleEdges}
+                  selectedId={selectedId}
+                  onSelect={selectPlayer}
+                  layoutKey={layoutKey}
+                  onSize={onGraphSize}
+                  pathIds={litNodes}
+                  pathEdges={litEdges}
+                />
+              ) : (
+                <div className="graph-empty">
+                  {totalNodes > 0
+                    ? `No partnership here reaches ${minTogether} shared tournaments.`
+                    : 'No players for this selection.'}
+                </div>
+              )}
 
-          {selectedNode && !pathOpen && (
-            <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
-              <PlayerCard
-                node={selectedNode}
-                detail={detailsById.get(selectedNode.id)}
-                partners={partnersByPlayer.get(selectedNode.id) ?? []}
-                away={awayRows}
-                iso2Of={iso2Of}
-                // From the graph, not the selection: the two differ for a
-                // render while an away partner's slice loads.
-                country={graph?.country ?? country}
-                gender={graph?.gender ?? gender}
-                countryName={countryEntry?.name ?? country}
-                flag={flag}
-                names={namesById}
-                onSelectPartner={selectPlayer}
-                onSelectAway={selectAwayPartner}
-                onSelectFieldPlayer={selectFieldPlayer}
-                onFindPath={() => setPathOpen(true)}
-                onClose={closeCard}
-              />
-            </div>
-          )}
-        </section>
+              {selectedNode && pathOpen && (
+                <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
+                  <PathPanel
+                    index={partnerships}
+                    nodes={visibleNodes}
+                    from={selectedNode}
+                    toId={pathTo}
+                    onPick={setPathTo}
+                    onSelectPlayer={(id) => {
+                      setPathTo(null);
+                      setPathOpen(false);
+                      setSelectedId(id);
+                    }}
+                    onClose={() => {
+                      setPathTo(null);
+                      setPathOpen(false);
+                    }}
+                    country={graph?.country ?? country}
+                    gender={graph?.gender ?? gender}
+                  />
+                </div>
+              )}
 
-        <section className="table-section">
-          <div className="section-head">
-            <h2>All players</h2>
-            <p className="muted">{plural(tableRows.length, 'player')}</p>
-          </div>
-          <TableView rows={tableRows} selectedId={selectedId} onSelect={selectPlayer} />
-        </section>
+              {selectedNode && !pathOpen && (
+                <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
+                  <PlayerCard
+                    node={selectedNode}
+                    detail={detailsById.get(selectedNode.id)}
+                    partners={partnersByPlayer.get(selectedNode.id) ?? []}
+                    away={awayRows}
+                    iso2Of={iso2Of}
+                    // From the graph, not the selection: the two differ for a
+                    // render while an away partner's slice loads.
+                    country={graph?.country ?? country}
+                    gender={graph?.gender ?? gender}
+                    countryName={countryEntry?.name ?? country}
+                    flag={flag}
+                    names={namesById}
+                    onSelectPartner={selectPlayer}
+                    onSelectAway={selectAwayPartner}
+                    onSelectFieldPlayer={selectFieldPlayer}
+                    onFindPath={() => setPathOpen(true)}
+                    onClose={closeCard}
+                  />
+                </div>
+              )}
+            </section>
+
+            <section className="table-section">
+              <div className="section-head">
+                <h2>All players</h2>
+                <p className="muted">{plural(tableRows.length, 'player')}</p>
+              </div>
+              <TableView rows={tableRows} selectedId={selectedId} onSelect={selectPlayer} />
+            </section>
+          </>
+        )}
       </main>
 
       <footer>
