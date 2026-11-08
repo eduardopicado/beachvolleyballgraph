@@ -47,6 +47,7 @@ import {
   tidyBirthPlace,
   timelineFiltersByPlayer,
   olympicGamesByPlayer,
+  isEditingNote,
 } from './build.js';
 import type { VisRow } from './vis.js';
 import { readTournament } from '../web/src/lib/tournamentMeta.js';
@@ -535,6 +536,45 @@ describe('normalisePlayers', () => {
       { ...player(14, '0', 'USA'), FirstName: 'Brent', LastName: 'Frohoff  SUSPENDED', TeamName: 'Frohoff' },
     ]);
     expect(map.get(14)).toMatchObject({ name: 'Brent Frohoff', short: 'Frohoff' });
+  });
+
+  it('never draws a note to the record keeper as the label', () => {
+    // Saaga Malosa's record exactly (161781): the one of the 23 such notes in
+    // VIS that reached the graph, labelled "###DO NOT USE###" on his node.
+    const map = normalisePlayers([
+      { ...player(15, '0', 'TUV'), FirstName: 'Saaga', LastName: 'Malosa', TeamName: '###DO NOT USE###' },
+      { ...player(16, '0', 'IRI'), FirstName: 'Ramin', LastName: 'Khani M.', TeamName: 'Duplicate of 134594' },
+      { ...player(17, '0', 'ITA'), FirstName: 'Filippo', LastName: 'Angelini ', TeamName: 'TO BE DELETED' },
+    ]);
+    expect(map.get(15)).toMatchObject({ name: 'Saaga Malosa', short: 'Malosa' });
+    expect(map.get(16)!.short).toBe('Khani M.');
+    expect(map.get(17)!.short).toBe('Angelini');
+  });
+});
+
+describe('isEditingNote', () => {
+  it('knows each kind of note VIS holds in TeamName', () => {
+    // One of each kind among the 23 records, 8 November 2026.
+    for (const note of [
+      '###DO NOT USE###',
+      'Duplicate of 134594',
+      'DUPLICATE - DO NOT USE! ',
+      'TO BE DELETED',
+      'Error - delete user',
+      'WRONG',
+      'Wrong DOB',
+    ]) {
+      expect(isEditingNote(note), note).toBe(true);
+    }
+  });
+
+  it('leaves a label that only contains one of the words', () => {
+    // A match inside a word, a single hash, and the real "Riedl-Test".
+    expect(isEditingNote('Emanuel')).toBe(false);
+    expect(isEditingNote('Wronga')).toBe(false);
+    expect(isEditingNote('Duplicates')).toBe(false);
+    expect(isEditingNote('#1 Seed')).toBe(false);
+    expect(isEditingNote('Riedl-Test')).toBe(false);
   });
 });
 
