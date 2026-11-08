@@ -19,8 +19,9 @@
 # - `build` checks out the exact commit `ingest` produced
 #   (`needs.ingest.outputs.data_sha`) rather than the ref this run started on,
 #   since `ingest`'s own push landed after that. On a code push there is no
-#   such output, so it falls back to `github.sha` — the commit already
-#   carries whatever data was last committed.
+#   such output, so it builds the branch as it stands when the job starts,
+#   which already carries whatever data was last committed — including a
+#   refresh that landed while this run waited its turn behind it.
 #
 # ingest is still split into its own job so that a failure anywhere downstream
 # — a bad Pages permission, a broken build step — can be retried with GitHub's
@@ -207,6 +208,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if [ -z "$(git status --porcelain -- web/public/v1)" ]; then
             echo "No data changes to commit."
+            echo "before=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           else
             suffix=""
             if [ "$ALLOW_DATA_REGRESSION" = "true" ]; then
@@ -214,7 +216,30 @@ jobs:
             fi
             git add web/public/v1
             git commit -m "Refresh FIVB data ($(date -u +%Y-%m-%d))$suffix"
-            git push
+            # A merge to this branch while the run fetched and built makes a
+            # plain push non-fast-forward, and it used to fail the job and lose
+            # the day's refresh. Rebase onto what landed and push again.
+            #
+            # The data was built by the code the run started from. That is no
+            # different from a merge landing ten minutes after the run, and the
+            # next refresh rebuilds it with whatever code is current. What the
+            # rebase must not do is merge two machine-written trees: if the
+            # branch itself changed web/public/v1, it stops instead (CLAUDE.md,
+            # "The published tree is regenerated, never merged").
+            for attempt in 1 2 3; do
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then break; fi
+              if [ "$attempt" = 3 ]; then
+                echo "::error::Could not push the refreshed data after three attempts."
+                exit 1
+              fi
+              git fetch origin "$GITHUB_REF_NAME"
+              if ! git rebase "origin/$GITHUB_REF_NAME"; then
+                git rebase --abort
+                echo "::error::$GITHUB_REF_NAME changed web/public/v1 during this run. Not merging generated data: run the workflow again."
+                exit 1
+              fi
+            done
+            echo "before=$(git rev-parse HEAD^)" >> "$GITHUB_OUTPUT"
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -226,11 +251,12 @@ jobs:
           site_url: ${{ vars.SITE_URL }}
 
       # After the commit, so nothing is announced that did not land. The list
-      # this refresh replaced is the one in the commit the run started from.
+      # this refresh replaced is the one in the data commit's parent: the
+      # commit the run started from, or what it was rebased onto.
       - name: List tournaments new to this refresh
         id: news
         env:
-          BEFORE: ${{ github.sha }}
+          BEFORE: ${{ steps.commit.outputs.before }}
           SITE_URL: ${{ steps.origin.outputs.site_url }}
           BASE_PATH: ${{ steps.origin.outputs.base_path }}
         run: |
@@ -256,14 +282,20 @@ jobs:
       generated_at: ${{ steps.stamp.outputs.generated_at }}
       bundle: ${{ steps.stamp.outputs.bundle }}
       site_url: ${{ steps.origin.outputs.site_url }}
-      sha: ${{ needs.ingest.outputs.data_sha || github.sha }}
+      sha: ${{ steps.head.outputs.sha }}
     steps:
       - uses: actions/checkout@v7
         with:
-          # The commit ingest just produced, if it ran; otherwise the pushed
-          # commit this run started from, which already carries whatever data
-          # was last committed.
-          ref: ${{ needs.ingest.outputs.data_sha || github.sha }}
+          # The commit ingest just produced, if it ran. Otherwise the branch as
+          # it stands now, not the commit that triggered this run: a code
+          # push that lands while the daily refresh is running waits for it
+          # (one run at a time, see `concurrency`), and building its own
+          # commit would then publish the code without the data that landed
+          # on top of it — the site going back a day until the next refresh.
+          ref: ${{ needs.ingest.outputs.data_sha || github.ref }}
+
+      - id: head
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v7
         with:
