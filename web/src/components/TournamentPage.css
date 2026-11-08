@@ -317,6 +317,57 @@
   border-bottom: 1px solid var(--baseline);
 }
 
+/*
+ * Sortable headers, as the "All players" table has them: the whole header is
+ * the button, and only the active column carries an arrow.
+ *
+ * The arrow is drawn in the header's own padding, beside the label — after it
+ * on a text column, before it on a right-aligned figure — rather than taking a
+ * slot in the row. At 390px the five columns already fill the page exactly,
+ * and a reserved 8px arrow plus its gap pushed the table 2px past its box.
+ */
+.tournament-page .entries thead button {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tournament-page .entries th.num button {
+  justify-content: flex-end;
+}
+
+@media (hover: hover) {
+  .tournament-page .entries thead button:hover {
+    color: var(--text-primary);
+  }
+}
+
+.tournament-page .entries thead .label {
+  position: relative;
+}
+
+.tournament-page .entries thead .arrow {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 2px;
+  color: var(--series-1);
+}
+
+.tournament-page .entries th.num .arrow {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 2px;
+}
+
 .tournament-page .entries tbody td {
   padding: 5px 8px;
   border-bottom: 1px solid var(--gridline);
