@@ -153,8 +153,8 @@ Everything under `/v1/` is static JSON:
 
 ```
 /v1/manifest.json            index: countries, node counts, tiers, freshness
-/v1/tournaments.json         every qualifying tournament: name, season, tier, date, FIVB code, level
-/v1/search.json              every published player, grouped by slice, for search
+/v1/tournaments.json         every qualifying tournament: name, season, tier, dates, FIVB code, level, country, draw
+/v1/search.json              every published player, grouped by slice, for search, with graph labels and former names
 /v1/graphs/{CC}-{G}.json     nodes + edges for one country × gender
 /v1/players/{CC}-{G}.json    height, weight, date of birth, medals, foreign partners
 /v1/results/{CC}-{G}.json    every tournament every player in the slice entered
@@ -294,7 +294,7 @@ BASE_PATH=/beachvolleyballgraph/ npm run test:e2e
 `BASE_PATH` has to match between the two — `vite preview` serves at the base the
 site was built with, so a mismatch just 404s.
 
-**Around 700 unit tests** cover the pure logic — tier filtering, pair aggregation and
+**Around 850 unit tests** cover the pure logic — tier filtering, pair aggregation and
 dedupe, medal counting, country-name resolution, the VIS attribute scanner and
 unit conversions, graph layout maths (fit-to-view, label collision, radius
 scaling), slug round-trips and HTML escaping. Logic that starts inside a
@@ -302,14 +302,17 @@ component gets lifted into `web/src/lib/` to be tested there rather than through
 the DOM: the strength threshold and the table's sort comparator were both
 `useMemo` bodies first.
 
-`npm run test:e2e` is the other half: **around 150 Playwright tests in a dozen files**
+`npm run test:e2e` is the other half: **around 200 Playwright tests in 25 files**
 against the *built* site served by `vite preview`, at the same `BASE_PATH` the
 deploy uses, so what it exercises is what ships — prerendered HTML and asset
 URLs included. They cover rendering and the no-JavaScript path (`smoke`), five
 viewport widths (`layout`), the focus contract and search combobox
 (`keyboard`), the min-events threshold (`filter`), sorting (`table`), deep
-links with the canonical tag (`routing`), and tap targets surviving the zoom
-the graph actually chooses (`pointer`).
+links with the canonical tag (`routing`), tap targets surviving the zoom
+the graph actually chooses (`pointer`), the tournament pages and index, the
+records page, the About and not-found pages, and that a tournament page asks
+only for the data files its event has. [docs/implementation.md](docs/implementation.md#testing)
+lists every file.
 
 Every assertion is cross-checked against the JSON the page was built from
 rather than a number written into the test, so the suite survives the daily
@@ -334,7 +337,9 @@ pretty-printed and sorted by immutable keys.
 A client-rendered SPA with everything behind `?country=BRA` gives crawlers one
 URL and an empty `<div id="root">`. Every graph already exists as JSON at build
 time, so `npm run build` also prerenders **one real HTML page per country ×
-gender** (one per published slice, ~265 pages) via `ingest/prerender.ts`:
+gender** (264 today) and **one per tournament** the index lists (about 1,600),
+plus the home page, the tournament index and the records page, via
+`ingest/prerender.ts`:
 
 - `/brazil-men/`, `/norway-women/`, … each a static document containing the
   complete player table, an `h1`/`h2`, and internal links to other countries.
@@ -345,6 +350,9 @@ gender** (one per published slice, ~265 pages) via `ingest/prerender.ts`:
 - JSON-LD: `WebPage` + `BreadcrumbList` + `ItemList` of `Person` per slice, and
   `WebSite` + `Dataset` on the home page.
 - `sitemap.xml` (every page, `lastmod` from the data) and `robots.txt`.
+- `/about/` and `404.html`, written as standalone documents with the site's
+  stylesheet and no app script, so the app cannot boot on them and draw the
+  default graph instead.
 - `llms.txt` ([llmstxt.org](https://llmstxt.org/)) — a markdown briefing for
   language models: the totals, what is deliberately excluded, the counting
   rules they would otherwise guess wrong (edge weights, one-off entrants,
@@ -372,8 +380,14 @@ in practice starting some hours after that, because GitHub queues scheduled
 workflows rather than running them on time), on pushes to `main`, and on demand
 via *Run workflow*. It lints, typechecks, unit-tests,
 ingests, builds, smoke-tests the built site in a browser, and only then deploys
-to GitHub Pages. On a plain code push the ingest job is skipped entirely, so
-shipping a CSS fix does not require FIVB to be reachable.
+to GitHub Pages (or Cloudflare Pages, below). On a plain code push the ingest
+job is skipped entirely, so shipping a CSS fix does not require FIVB to be
+reachable.
+
+When a refresh finds tournaments FIVB had not listed the day before, a last
+job comments them, with links to their pages, on the one open issue labelled
+`new-tournaments`. The first such refresh creates it and assigns the repository
+owner, which is what makes GitHub notify them of every later comment.
 
 The workflow enables Pages itself (`configure-pages` with `enablement: true`),
 so there is nothing to click first. If your organisation restricts who may turn
@@ -385,9 +399,11 @@ published site keeps serving yesterday's data — the failure notification from
 Actions is the whole monitoring story.
 
 The ingest also refuses to publish if the data looks wrong (no qualifying
-tournaments, or fewer than 1,000 aggregated partnerships), and writes to a temp
-directory that is only swapped into place once every file exists — so a
-half-published state is not reachable.
+tournaments, fewer than 1,000 aggregated partnerships, or tournaments, players
+or partnerships down more than 5% on what is committed — see
+`ingest/regression.ts`), and writes to a temp directory that is only swapped
+into place once every file exists — so a half-published state is not
+reachable.
 
 ### Cloudflare Pages + a custom domain
 
@@ -428,7 +444,10 @@ path. If the project name is not `beachvolleyballgraph`, set it in the
 
 ### Being a good citizen of the API
 
-VIS is free and unmetered. This project sends three requests a week. If you fork
+VIS is free and unmetered. This project sends seven requests a day: the three
+bulk lists, the federation list, and three batches checking a 300-player
+sample against FIVB's own teammate lists (`ingest/teammates.ts`). It also sends
+one query a day to Wikidata, for former names. If you fork
 it, set a real contact address in `VIS_USER_AGENT` and request an application
 identifier from `vis.sdk@fivb.org`.
 
@@ -448,8 +467,9 @@ they are defending against.
 ## Layout
 
 ```
-ingest/     the daily pipeline (VIS client, tier allowlist, aggregation)
-web/src/    the app (schema, force layout, components)
+shared/     imported by both: the schema, URL slugs, accent folding, site identity
+ingest/     the daily pipeline (VIS client, tier allowlist, aggregation) and the prerenderer
+web/src/    the app (force layout, components, pure helpers in lib/)
 e2e/        browser smoke tests, run against the built site
 docs/       notes worth keeping (see the data quirks catalogue above)
 ```

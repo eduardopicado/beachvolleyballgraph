@@ -10,17 +10,17 @@ the app; this document explains the *why*.
 ## The tree
 
 ```
-web/public/v1/                                   measured 17 Sept 2026, 21.7 MB in all
-├── manifest.json                   36 KB    index: countries, counts, tiers, freshness
+web/public/v1/                                   measured 8 Nov 2026, 21.3 MB in all
+├── manifest.json                   40 KB    index: countries, counts, tiers, freshness
 ├── tournaments.json               140 KB    every qualifying tournament
 ├── search.json                    392 KB    every published player, for search
 ├── graphs/{CC}-{G}.json           5.5 MB    264 files: nodes + edges
 ├── players/{CC}-{G}.json          2.8 MB    264 files: vitals, medals, foreign partners
 ├── results/{CC}-{G}.json          2.9 MB    264 files: every tournament every player entered
-├── classifications/{CODE}.json    9.3 MB    1,610 files: the full field of one played tournament
-├── entries/{CODE}.json             44 KB    6 files: who has entered a tournament still to come
+├── classifications/{CODE}.json    9.4 MB    1,614 files: the full field of one played tournament
+├── entries/{CODE}.json             68 KB    12 files: who has entered a tournament still to come
 ├── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
-└── records.json                    47 KB    the archive's extremes, 13 categories x 2 genders x top 5
+└── records.json                    48 KB    the archive's extremes, 13 categories x 2 genders x top 5
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
@@ -40,7 +40,7 @@ flowchart LR
   RES["results/{CC}-{G}.json<br/><i>[tournament, partner, rank]</i>"]
 
   GR["<b>graphs/{CC}-{G}.json</b><br/>nodes — id, name, short<br/>edges — a, b, t, s"]
-  TRN["tournaments.json<br/><i>name, season, tier, level, code</i>"]
+  TRN["tournaments.json<br/><i>name, season, tier, dates, code, level, country, gender</i>"]
   CLS["classifications/{CODE}.json<br/><i>[rank, a, b, federation]</i>"]
   ENT["entries/{CODE}.json<br/><i>[a, b, federation, points…]</i>"]
   SER["series/{slug}.json<br/><i>editions, top four each</i>"]
@@ -221,8 +221,8 @@ everywhere, and 264 slices each carrying their own subset would repeat most of
 this file hundreds of times in a committed tree.
 
 ```json
-"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 225, "WBUS2026", "Futures"]
-//        name                season tier             offset code       level
+"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 224, "WBUS2026", "Futures", "KR", 3, "W"]
+//        name                season tier             offset code       level      country span gender
 ```
 
 **The offset dates the day the event opens, not the main draw.** That is the
@@ -269,9 +269,27 @@ another. The names come from
 rather than from tournament names, which is how `Type` 38 spent months
 mislabelled "Major" here when it is `WorldTour5Star`.
 
+**`country` is where it was played**, ISO-3166-1 alpha-2 — VIS's own
+`CountryCode`, already ISO-2, unlike the federation code on a team row. Null on
+the eight rows whose upstream code is not a country (quirks §25): draw no flag
+rather than guess one.
+
+**`span` is the main draw's length in days**, measured from the opening day, so
+the last day is `offset + span`: 0 for a one-day event, 4 for the ordinary tour
+week that qualifies on the Thursday, 15 for an Olympic fortnight. It **can be
+negative**: one row, `MOST1995`, ends before it starts upstream and is published
+as-is, so anything drawing a range has to decide what to draw.
+
+**`gender` is the draw**, `M` or `W`, from VIS's own `Gender` and never from the
+code's first letter — `WWRS2022` is a men's field under a `W` (quirks §23). It
+is on all 1,698 rows. A tournament page's address carries the draw, and the
+index groups by it, so both need it without opening the field.
+
 **The tuple was appended to, never reordered.** Indices 0–3 keep their meaning,
-so this stayed additive to a published contract — twice now, `code` then
-`level`. One consequence: the five-element form makes an *explicit null* offset
+so this stayed additive to a published contract — five times now: `code`,
+`level`, `country`, `span`, then `gender`. All 1,698 rows are nine long today;
+`readTournament` in `web/src/lib/tournamentMeta.ts` is the one reader that
+knows the shorter forms an older tree can hold. One consequence: the five-element form makes an *explicit null* offset
 representable where the slot used to be absent, and a reader that treats null as 0 would date every undated
 tournament to 1 January.
 
@@ -311,11 +329,27 @@ Every published player, grouped by slice. **Lazy** — fetched on first
 interaction with the search box, never with the page.
 
 ```json
-{ "slices": { "BRA-M": [[100427, "Emanuel Rego", 255]] } }
+{ "slices": {
+  "BRA-M": [[100997, "Ricardo Alex Costa Santos", 236]],
+  "BRA-W": [[139087, "Eduarda Santos Lisboa", 104, "Duda"]],
+  "USA-W": [[162432, "Kristen Cruz", 41, "Cruz", ["Kristen Nuss"]]]
+} }
+//          id      name                     tournaments short   former names
 ```
 
-Grouped rather than flat so the slice key is not repeated on 12,074 rows.
+Grouped rather than flat so the slice key is not repeated on 12,120 rows.
 Sorted most-tournaments-first, which is the order the search ranks by anyway.
+
+**Two optional slots.** The fourth is `short`, the graph's label, carried only
+when the name does not contain it, so that searching the one word a reader can
+see on the graph finds them: "Duda" reaches Eduarda Santos Lisboa. The test is
+a substring one, so initial forms such as "Capogrosso N." ride along too;
+1,363 entries carry a `short` their name does not contain. The fifth is the
+names a player has competed under that FIVB no longer holds, from Wikidata
+(`ingest/aliases.ts`): searchable, never displayed, because nothing says
+whether Wikidata or FIVB is the more recent. A row with a fifth slot always
+has the fourth, even where `short` says nothing new. Measured 8 November 2026:
+286 rows carry former names. See `SearchEntry` in `shared/schema.ts`.
 
 It exists so the box can find a player without the reader knowing their
 federation — which is the normal case, and for anyone who transferred the

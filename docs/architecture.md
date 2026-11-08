@@ -32,7 +32,7 @@ flowchart LR
     APP[React app<br/>graph, cards, search]
   end
 
-  VIS -->|3 bulk POSTs| ING
+  VIS -->|3 bulk lists + 4 small requests| ING
   ING -->|writes| DATA
   DATA -->|reads| PRE
   DATA -->|fetch| APP
@@ -47,7 +47,8 @@ in one directory, `shared/` — the schema, the URL slugs, accent folding and th
 site identity — which imports from neither side, so the two cannot drift and
 neither can change what the other does. The pipeline (`ingest/main.ts` and
 everything it calls) imports nothing from `web/src/`; only the prerenderer
-does, because it renders the app's own pages.
+and `ingest/announce.ts` do, because they render or link to the app's own
+pages and must agree with it about which exist.
 
 ## Why static
 
@@ -181,9 +182,10 @@ second implementation.
 
 ## Prerendering
 
-`ingest/prerender.ts` writes one static HTML document per slice and per tournament — 1,882 pages
-including the home page — each containing the actual player table, per-page
-metadata and JSON-LD. React replaces the markup on mount.
+`ingest/prerender.ts` writes one static HTML document per slice and per tournament, plus the
+tournament index, the records page and the home page — 1,893 pages on 8 November 2026 —
+each containing the actual player table or field, per-page metadata and JSON-LD. React
+replaces the markup on mount.
 
 This is not a second implementation to maintain: it is the same committed JSON,
 rendered once at build time, for readers who do not run JavaScript (crawlers,
@@ -357,12 +359,14 @@ than being tried and withdrawn.
 | **Vite** 8 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
-| **Vitest** 5 | unit tests | Around 700 tests. Same transform pipeline as Vite, no second config to keep in step. |
-| **Playwright** 1.64 | browser tests | Around 150 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
+| **Vitest** 5 | unit tests | Around 850 tests. Same transform pipeline as Vite, no second config to keep in step. |
+| **Playwright** 1.64 | browser tests | Around 200 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
 | **ESLint** 10 | lint | Flat config, with the React Hooks rules, including the compiler-based ones (state set in effects, refs read in render). |
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
-**Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.
+**Runtime dependencies are four packages**: `react`, `react-dom`, `d3-force`,
+and `country-flag-emoji-polyfill`, which loads a flags-only font on browsers
+that draw two letters instead of a flag (see `main.tsx`).
 
 **Each page type is its own chunk.** `main.tsx` reads the address and imports
 only that page's component, so a tournament page loads 166 KB of JavaScript
@@ -370,7 +374,7 @@ only that page's component, so a tournament page loads 166 KB of JavaScript
 against 248 KB (80 KB) for every page before the split. The 153 KB entry is
 mostly React. The prerenderer reads Vite's build manifest and preloads each
 page's chunks from its head, so the split costs no round trip. The
-stylesheet is deliberately *not* split: one 49 KB file (8 KB gzipped) for
+stylesheet is deliberately *not* split: one 53 KB file (9 KB gzipped, 8 November 2026) for
 every page, because components lean on rules from other pages' CSS
 (`.sr-only`, `.segmented`, the `main` layout) and splitting it broke the
 tournament page.
@@ -384,10 +388,11 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 49 KB of CSS, linted by
+  component has a sibling stylesheet. The whole site is 53 KB of CSS, linted by
   `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
   closing brace without complaint, so nothing else would catch one.
-- **No data-fetching library.** Six `fetch` calls behind a memoising map.
+- **No data-fetching library.** Eleven `fetch` calls, one per published file
+  kind, behind a memoising map.
 - **No charting library.** The graph is bespoke SVG; a general library would be
   larger than the whole app.
 - **No XML parser.** VIS responses are flat, attribute-only elements; a general

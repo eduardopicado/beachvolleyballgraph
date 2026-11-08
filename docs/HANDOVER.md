@@ -41,8 +41,8 @@ requests, normalises it, and writes static JSON into `web/public/v1/` — which
 is **committed to git**. A **React/Vite app** reads that JSON at runtime, and a
 **prerenderer** emits one static HTML page per slice so the site works without
 JavaScript and is indexable. GitHub Actions runs the ingest daily and
-publishes to GitHub Pages. There is no server, no database and no API of our
-own. See [architecture.md](architecture.md).
+publishes to GitHub Pages, or to Cloudflare Pages when the `PAGES_HOST`
+variable says so. There is no server, no database and no API of our own. See [architecture.md](architecture.md).
 
 ## Current state
 
@@ -58,11 +58,11 @@ they live in the task list rather than in the repository.
 
 | | |
 |---|---|
-| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md`; its data-issues request names each reportable quirk by its [fivb-data-quirks.md](fivb-data-quirks.md) section, so keep the two in step. Nothing is missing — the opening paragraph is the part worth putting in the owner's own voice |
+| #12 | Send the FIVB introduction email. Drafted as `docs/fivb-email.md` on its own open pull request (#80), not on `main`; its data-issues request names each reportable quirk by its [fivb-data-quirks.md](fivb-data-quirks.md) section, so keep the two in step. Nothing is missing — the opening paragraph is the part worth putting in the owner's own voice |
 | #13 | Wire in the VIS application identifier once granted (blocked by #12) |
-| #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private |
+| #27 | Cloudflare: analytics → serve from Cloudflare Pages → possibly make the repo private. `deploy.yml` is ready for the switch; the steps are the README's "Cloudflare Pages + a custom domain" |
 | #28 | Ask 12ndr.at before linking out to their tournament pages |
-| — | The records page. `v1/records.json` is published ([data-model.md](data-model.md)); the page, its name and its home-page entry point are not built. A height row ships only once checked outside FIVB: add the id and source to `CONFIRMED_HEIGHTS` in `ingest/records.ts`; the ingest log's `TODO confirm` lines are the queue |
+| — | Record heights awaiting confirmation. The records page is live at `/records/`, but a height row ships only once checked outside FIVB: add the id and source to `CONFIRMED_HEIGHTS` in `ingest/records.ts`; the ingest log's `TODO confirm` lines are the queue, and until then the row reads as withheld |
 
 ## Things that will bite you
 
@@ -107,7 +107,7 @@ any finished event with no ranked row; it resolves itself. Quirks §17.
 npm ci                 # install
 npm run ingest         # ~15s: fetch FIVB, rebuild every file under web/public/v1/
 npm run dev            # Vite dev server
-npm run build          # typecheck + vite build + prerender a page per slice, plus the home page
+npm run build          # typecheck + vite build + prerender: a page per slice and per tournament, the index, records, home, /about/, 404.html
 npm run preview        # serve the built site
 npm test               # unit tests (vitest)
 npm run test:e2e       # browser tests (Playwright, against the built site)
@@ -123,6 +123,12 @@ lands in the afternoon UTC. Don't infer breakage from a morning with no commit.
 It commits the refreshed data to `main`, then builds and deploys. A code push to
 `main` *skips* the ingest and builds from committed data — so shipping a CSS
 fix never depends on FIVB being reachable.
+
+**New tournaments are announced on an issue.** When a refresh finds events FIVB
+had not listed the day before, the workflow's last job comments them on the
+open issue labelled `new-tournaments`, creating it, assigned to the owner, the
+first time. Close it to start a fresh one. `ingest/announce.ts` writes the
+list.
 
 **If the ingest refuses to publish**, it has decided the fetch looks broken
 rather than genuinely smaller. Read the error, and if the drop is real (a
@@ -143,10 +149,11 @@ deliberate exclusion change), re-run with the `ALLOW_DATA_REGRESSION` input.
 ## Where the bodies are buried
 
 - `web/public/v1/` is generated JSON, megabytes of it. Never hand-edit it.
-- **Merged branches are not deleted automatically**, so `claude/*` accumulates
-  on the remote. Every one of them belongs to a merged pull request unless its
-  own pull request says otherwise — check that before assuming a branch name
-  implies unshipped work, and never read the pile as a to-do list.
+- **Merged branches are deleted automatically** since late October 2026, but
+  the `claude/*` branches from before that are still on the remote. Every one
+  of them belongs to a merged or closed pull request unless its own pull
+  request says otherwise — check that before assuming a branch name implies
+  unshipped work, and never read the pile as a to-do list.
 - **The host is the `PAGES_HOST` repository variable**, not a choice of
   workflow: `deploy.yml` publishes to GitHub Pages, or to Cloudflare Pages
   when it is `cloudflare`. There used to be a second workflow for Cloudflare;

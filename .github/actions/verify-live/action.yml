@@ -12,9 +12,9 @@
 # Pages kept serving the previous build.
 #
 # Two fingerprints, because neither alone is enough (see the build job's
-# "Record what this build should publish"): `generatedAt` only moves with the
-# data, the hashed bundle name only with the code, and every real deploy
-# changes at least one.
+# "Record what this build should publish"): `generatedAt` moves with every
+# ingest run, data changed or not, and not on a code push; the hashed bundle
+# name moves only with the code. Every real deploy changes at least one.
 
 name: Verify the live site
 description: Poll a published URL until it serves this build's data and bundle, or fail.
