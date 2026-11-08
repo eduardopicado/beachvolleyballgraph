@@ -366,7 +366,7 @@
       "name": "Anna Rydenberg",
       "dob": "1983-04-05",
       "height": 174,
-      "weight": 67
+      "weight": 71
     },
     {
       "id": 124774,
@@ -626,7 +626,7 @@
       "id": 158807,
       "name": "Therese Strålman",
       "dob": "1990-10-05",
-      "height": 198,
+      "height": null,
       "weight": null,
       "birthPlace": "Nassjo"
     },
@@ -717,6 +717,14 @@
       "height": null,
       "weight": null,
       "birthPlace": "Sävedalen"
+    },
+    {
+      "id": 171903,
+      "name": "Frida Johansson",
+      "dob": "2004-05-02",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Ljungby"
     },
     {
       "id": 172787,

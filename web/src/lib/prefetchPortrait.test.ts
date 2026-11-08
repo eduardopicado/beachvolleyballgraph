@@ -5,7 +5,7 @@ import {
   prefetchPortraitOnDwell,
   resetPrefetchedPortraits,
 } from './prefetchPortrait';
-import { playerPhotoUrl } from '../schema';
+import { playerPhotoUrl } from '../../../shared/schema';
 
 /** Every `new Image()` this module makes, in order. */
 let made: { src: string; fetchPriority?: string; decoding?: string }[] = [];

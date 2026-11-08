@@ -18,7 +18,7 @@ import {
   type SimulationLinkDatum,
   type SimulationNodeDatum,
 } from 'd3-force';
-import type { GraphEdge, GraphNode } from '../schema';
+import type { GraphEdge, GraphNode } from '../../../shared/schema';
 
 export interface LayoutNode extends SimulationNodeDatum, GraphNode {
   /** Distinct partners — the node's degree. */

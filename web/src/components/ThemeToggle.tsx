@@ -4,6 +4,7 @@
  */
 
 import { useEffect, useState } from 'react';
+import { readStored, writeStored } from '../lib/storage';
 
 type Theme = 'light' | 'dark' | 'system';
 const KEY = 'bvg-theme';
@@ -12,7 +13,7 @@ const ICON: Record<Theme, string> = { system: '◑', light: '☀', dark: '☾' }
 const LABEL: Record<Theme, string> = { system: 'System theme', light: 'Light theme', dark: 'Dark theme' };
 
 function read(): Theme {
-  const stored = localStorage.getItem(KEY);
+  const stored = readStored(KEY);
   return stored === 'light' || stored === 'dark' ? stored : 'system';
 }
 
@@ -23,10 +24,10 @@ export function ThemeToggle() {
     const root = document.documentElement;
     if (theme === 'system') {
       root.removeAttribute('data-theme');
-      localStorage.removeItem(KEY);
+      writeStored(KEY, null);
     } else {
       root.setAttribute('data-theme', theme);
-      localStorage.setItem(KEY, theme);
+      writeStored(KEY, theme);
     }
   }, [theme]);
 

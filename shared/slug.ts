@@ -6,7 +6,7 @@
  * page the other side would not produce.
  */
 
-import type { Gender } from '../schema';
+import type { Gender } from './schema';
 
 export function slugify(value: string): string {
   return value
@@ -29,6 +29,18 @@ export function slicePath(base: string, countryName: string, gender: Gender): st
   return `${base}${sliceSlug(countryName, gender)}/`;
 }
 
+/**
+ * A player's address: their slice, with them already selected.
+ *
+ * Players have no page of their own — the card is drawn over the slice the
+ * player belongs to — so this is the one URL that opens a named person. The
+ * start-here strip, the records page and both of their prerendered bodies
+ * link through here, and have to agree to the character on what it is.
+ */
+export function playerPath(base: string, countryName: string, gender: Gender, id: number): string {
+  return `${slicePath(base, countryName, gender)}?player=${id}`;
+}
+
 /** Where every tournament page lives, under one path segment of its own. */
 export const TOURNAMENT_PREFIX = 'tournament';
 
@@ -47,14 +59,27 @@ export const TOURNAMENT_PREFIX = 'tournament';
  * `tournamentSlugs` for why it is not applied unconditionally.
  */
 /**
- * Does the event's own name already end with its season?
+ * Does the event's own name already end with its year?
  *
  * True for the Olympics, which FIVB names "Paris 2024", and for a few others
- * like "BPT Finals Doha 2023" — 17 of the 1,610 published tournaments. Both
- * the slug and the heading have to know, or they print the year twice.
+ * like "BPT Finals Doha 2023". Both the slug and the heading have to know, or
+ * they print the year twice.
+ *
+ * The year in the name is usually the season, but not always: an edition can
+ * be named for the year it belongs to and played in the next. "Tokyo 2020"
+ * was played in 2021, and "Doha Beach Pro Tour Finals 2022", the 2022 tour's
+ * finals, in January 2023. Matching the season alone printed "Tokyo 2020 2021"
+ * in the heading, the title and the address. Measured 8 November 2026: 22 of
+ * the 1,698 names end with a year, 18 of them their own season and these four
+ * rows the season before.
+ *
+ * Only those two years. A name ending in a *later* year is not the edition's
+ * year but a note about it — "Ventiane (Postponed to 2021)", season 2020 —
+ * and still needs its season.
  */
 export function nameCarriesSeason(name: string, season: number): boolean {
-  return slugify(name).endsWith(`-${season}`);
+  const slug = slugify(name);
+  return slug.endsWith(`-${season}`) || slug.endsWith(`-${season - 1}`);
 }
 
 export function tournamentSlug(

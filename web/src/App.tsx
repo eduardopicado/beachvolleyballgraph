@@ -1,27 +1,25 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetail, PlayersFile } from './schema';
-import { GENDERS } from './schema';
+import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetail, PlayersFile } from '../../shared/schema';
+import { GENDERS } from '../../shared/schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
 import { flagEmoji, formatMedals, plural } from './lib/format';
-import { CONTACT_EMAIL, SOURCE_NAME, SOURCE_URL } from './site';
+import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
 import { indexPath } from './lib/indexRoute';
+import { recordsPagePath } from './lib/recordsRoute';
 import type { SearchablePlayer } from './lib/search';
-import { GENDER_LABEL } from './schema';
-import { sliceSlug, slugFromPath } from './lib/slug';
+import { sliceSlug, slugFromPath } from '../../shared/slug';
 import { PartnershipGraph } from './components/PartnershipGraph';
 import { PathPanel } from './components/PathPanel';
 import { indexPartnerships, pathEdgeKeys, pathNodeIds, findPath } from './lib/path';
 import { PlayerCard, type AwayRow, type PartnerRow } from './components/PlayerCard';
+import { StartHere } from './components/StartHere';
 import { StatTiles, type Stat } from './components/StatTiles';
 import { TableView, type TableRow } from './components/TableView';
 import { ThemeToggle } from './components/ThemeToggle';
 import './App.css';
-
-/** Opening view: the country with the most players. */
-const DEFAULT_COUNTRY = 'BRA';
 
 /** Read/write the current slice in the URL so a view is linkable. */
 function readUrl(): {
@@ -55,14 +53,40 @@ function setHeadTag(selector: string, attr: 'href' | 'content', value: string) {
 }
 
 export default function App() {
-  const initial = useMemo(readUrl, []);
+  // State, not a memo: React may drop a memoised value and recompute it, and this
+  // must be read once, at mount — see `startedAtRoot` below.
+  const [initial] = useState(readUrl);
+
+  /**
+   * Did this load arrive at the bare site root?
+   *
+   * The "start here" strip renders here and nowhere else, and "here" is a fact
+   * about the mount, not about the current state: the effect below rewrites `/`
+   * to `/brazil-men/` on the first render, so by the time anything asks, the
+   * address bar no longer says root. Reading `initial` — captured once, at
+   * mount — is what makes the answer stable for the life of the page, and it is
+   * also what keeps the strip put when the reader changes country: they came in
+   * the front door and the door does not move behind them.
+   *
+   * A legacy deep link (`/?country=USA&gender=W`) is not the front door even
+   * though its path is `/`. It is a page about something, the same as a slice
+   * URL, so it gets the same treatment.
+   */
+  const atRoot = initial.slug === null && initial.country === null && initial.player === null;
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [country, setCountry] = useState(initial.country ?? DEFAULT_COUNTRY);
-  const [gender, setGender] = useState<Gender>(initial.gender ?? 'M');
+  const [gender, setGender] = useState<Gender>(initial.gender ?? DEFAULT_GENDER);
   const [graph, setGraph] = useState<GraphFile | null>(null);
   const [details, setDetails] = useState<PlayersFile | null>(null);
-  const [loading, setLoading] = useState(true);
+  /**
+   * The slice whose fetch last finished, either way. Loading is "not the one
+   * asked for": set from an effect, the flag stayed false for the first render
+   * after a change of country, so that render showed the old graph undimmed
+   * under the new country's name.
+   */
+  const [doneFor, setDoneFor] = useState<string | null>(null);
+  const loading = doneFor !== `${country}-${gender}`;
   const [selectedId, setSelectedId] = useState<number | null>(initial.player);
   /**
    * The player this page loaded already showing, so closing their card can
@@ -134,15 +158,15 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Keep gender valid for the chosen country.
-  useEffect(() => {
-    if (!manifest) return;
-    const entry = manifest.countries.find((c) => c.code === country);
-    if (entry && !entry.genders[gender]) {
-      const other = GENDERS.find((g) => entry.genders[g]);
-      if (other) setGender(other);
-    }
-  }, [manifest, country, gender]);
+  // Keep gender valid for the chosen country. During render rather than in an
+  // effect, which React supports for adjusting state to an input: the render
+  // holding a gender the country does not have is replaced before it commits,
+  // where the effect let it commit first.
+  const genderEntry = manifest?.countries.find((c) => c.code === country);
+  if (genderEntry && !genderEntry.genders[gender]) {
+    const other = GENDERS.find((g) => genderEntry.genders[g]);
+    if (other) setGender(other);
+  }
 
   // --- slice ---------------------------------------------------------------
   useEffect(() => {
@@ -151,7 +175,6 @@ export default function App() {
     if (!entry?.genders[gender]) return;
 
     let cancelled = false;
-    setLoading(true);
     Promise.all([fetchGraph(country, gender), fetchPlayers(country, gender)])
       .then(([g, p]) => {
         if (cancelled) return;
@@ -160,7 +183,7 @@ export default function App() {
         setError(null);
       })
       .catch((e: Error) => !cancelled && setError(`Could not load ${country}-${gender}: ${e.message}`))
-      .finally(() => !cancelled && setLoading(false));
+      .finally(() => !cancelled && setDoneFor(`${country}-${gender}`));
     return () => {
       cancelled = true;
     };
@@ -199,10 +222,13 @@ export default function App() {
     const url = `${base}${sliceSlug(entry.name, gender)}/${query ? `?${query}` : ''}`;
     history.replaceState(null, '', url);
 
-    const label = GENDER_LABEL[gender];
     const counts = entry.genders[gender];
-    const title = `${entry.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${entry.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${counts?.nodes ?? 0} players and ${counts?.edges ?? 0} partnerships, ${manifest.seasons.from}–${manifest.seasons.to}.`;
+    const { title, description } = sliceHead(
+      entry.name,
+      gender,
+      { players: counts?.nodes ?? 0, partnerships: counts?.edges ?? 0 },
+      manifest.seasons.from,
+    );
 
     document.title = title;
     setHeadTag('link[rel="canonical"]', 'href', new URL(url, location.origin).toString());
@@ -278,14 +304,6 @@ export default function App() {
   );
 
   /**
-   * The selected player's partners from other federations, resolved against
-   * the manifest so each one can carry its own flag and country name.
-   *
-   * `linkable` is false when that country x gender slice was too small to
-   * publish (fewer than two players): the partner is real and still worth
-   * naming, but there is no page to send anyone to.
-   */
-  /**
    * Federation code -> ISO-2, for flags on federations that are not the slice's
    * own. The manifest is the only place that mapping exists on the client, and
    * a tournament's classification is full of them: Paris 2024 alone draws teams
@@ -296,6 +314,14 @@ export default function App() {
     [manifest],
   );
 
+  /**
+   * The selected player's partners from other federations, resolved against
+   * the manifest so each one can carry its own flag and country name.
+   *
+   * `linkable` is false when that country x gender slice was too small to
+   * publish (fewer than two players): the partner is real and still worth
+   * naming, but there is no page to send anyone to.
+   */
   const awayRows: AwayRow[] = useMemo(() => {
     const list = selectedId ? (detailsById.get(selectedId)?.away ?? []) : [];
     const named = (code: string) => {
@@ -322,10 +348,19 @@ export default function App() {
     });
   }, [selectedId, detailsById, manifest]);
 
-  /** Follow an away partner into the slice they actually live in. */
+  /**
+   * Follow an away partner into the slice they actually live in.
+   *
+   * The threshold goes back to "All" for the reason `selectFieldPlayer` and
+   * `jumpToPlayer` give: it described the graph the reader was reading, and
+   * carried into another country it can hide the partner they just clicked —
+   * at which point the effect that drops a selection the visible graph lacks
+   * closed the card and left a bare country page.
+   */
   const selectAwayPartner = useCallback((partner: AwayPartner) => {
     setCountry(partner.fed);
     setGender(partner.gender);
+    setMinTogether(1);
     setSelectedId(partner.id);
   }, []);
 
@@ -539,11 +574,18 @@ export default function App() {
   // the moment before the new graph arrives the old one is still in state;
   // judging the selection against it would throw away a player who is about to
   // be perfectly valid.
-  useEffect(() => {
-    if (selectedId === null || !graph) return;
-    if (graph.country !== country || graph.gender !== gender) return;
-    if (!nodesById.has(selectedId)) setSelectedId(null);
-  }, [graph, nodesById, selectedId, country, gender]);
+  //
+  // During render, like the gender above, so no committed render — and no URL
+  // written from one — names a player the loaded graph does not have.
+  if (
+    selectedId !== null &&
+    graph &&
+    graph.country === country &&
+    graph.gender === gender &&
+    !nodesById.has(selectedId)
+  ) {
+    setSelectedId(null);
+  }
 
   if (error && !graph) {
     return (
@@ -577,6 +619,18 @@ export default function App() {
         </div>
       </header>
 
+      {atRoot && manifest?.highlights && manifest.highlights.length > 0 && (
+        <StartHere
+          highlights={manifest.highlights}
+          countries={manifest.countries}
+          base={import.meta.env.BASE_URL}
+          // The same move a name in a tournament field makes: the slice and the
+          // selection travel together, because a card can name somebody from
+          // any of the 264 pages and almost never names one from this one.
+          onOpen={selectFieldPlayer}
+        />
+      )}
+
       {manifest && (
         <Controls
           manifest={manifest}
@@ -599,115 +653,134 @@ export default function App() {
 
       {/* Refetch keeps the frame: the previous render stays, dimmed. */}
       <main className={loading ? 'is-loading' : ''}>
-        <StatTiles stats={stats} hero={hero} />
-
-        <section className="graph-section">
-          <div className="section-head">
-            <div>
-              <h2>
-                {countryEntry?.name ?? country} · {gender === 'M' ? 'Men' : 'Women'}
-              </h2>
-              <p className="legend">
-                <span className="key">
-                  <svg width="30" height="12" aria-hidden="true">
-                    <circle cx="6" cy="6" r="3" className="key-dot" />
-                    <circle cx="21" cy="6" r="6" className="key-dot" />
-                  </svg>
-                  Circle size = tournaments entered
-                </span>
-                <span className="key">
-                  <svg width="22" height="12" aria-hidden="true">
-                    <line x1="2" y1="6" x2="20" y2="6" className="key-line" strokeWidth="1.5" />
-                  </svg>
-                  Line thickness = events played together
-                </span>
-                {hidden > 0 && (
-                  <span className="key filtered">
-                    Showing pairs with {minTogether}+ events together · {hidden.toLocaleString()}{' '}
-                    {hidden === 1 ? 'player' : 'players'} hidden
-                  </span>
-                )}
-              </p>
-            </div>
-            <button type="button" className="relayout" onClick={() => setLayoutKey((k) => k + 1)}>
-              Re-tangle
-            </button>
+        {/*
+          A slice that failed to load once another had loaded. The panel above
+          only covers a first load with nothing on screen; here the masthead
+          and controls stay so the reader can choose again, but nothing below
+          them may stay. The graph, the figures and the table all still hold
+          the previous slice, undimmed because the fetch has finished, under
+          the new country's name — and with no word that anything went wrong.
+        */}
+        {error && graph ? (
+          <div className="error-panel" role="alert">
+            <h2>
+              Could not load {countryEntry?.name ?? country} {gender === 'M' ? 'men' : 'women'}
+            </h2>
+            <p>The data for this graph did not arrive. Choose it again, or reload the page.</p>
           </div>
+        ) : (
+          <>
+            <StatTiles stats={stats} hero={hero} />
 
-          {visibleNodes.length > 0 ? (
-            <PartnershipGraph
-              nodes={visibleNodes}
-              edges={visibleEdges}
-              selectedId={selectedId}
-              onSelect={selectPlayer}
-              layoutKey={layoutKey}
-              onSize={onGraphSize}
-              pathIds={litNodes}
-              pathEdges={litEdges}
-            />
-          ) : (
-            <div className="graph-empty">
-              {totalNodes > 0
-                ? `No partnership here reaches ${minTogether} shared tournaments.`
-                : 'No players for this selection.'}
-            </div>
-          )}
+            <section className="graph-section">
+              <div className="section-head">
+                <div>
+                  <h2>
+                    {countryEntry?.name ?? country} · {gender === 'M' ? 'Men' : 'Women'}
+                  </h2>
+                  <p className="legend">
+                    <span className="key">
+                      <svg width="30" height="12" aria-hidden="true">
+                        <circle cx="6" cy="6" r="3" className="key-dot" />
+                        <circle cx="21" cy="6" r="6" className="key-dot" />
+                      </svg>
+                      Circle size = tournaments entered
+                    </span>
+                    <span className="key">
+                      <svg width="22" height="12" aria-hidden="true">
+                        <line x1="2" y1="6" x2="20" y2="6" className="key-line" strokeWidth="1.5" />
+                      </svg>
+                      Line thickness = events played together
+                    </span>
+                    {hidden > 0 && (
+                      <span className="key filtered">
+                        Showing pairs with {minTogether}+ events together · {hidden.toLocaleString()}{' '}
+                        {hidden === 1 ? 'player' : 'players'} hidden
+                      </span>
+                    )}
+                  </p>
+                </div>
+                <button type="button" className="relayout" onClick={() => setLayoutKey((k) => k + 1)}>
+                  Re-tangle
+                </button>
+              </div>
 
-          {selectedNode && pathOpen && (
-            <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
-              <PathPanel
-                index={partnerships}
-                nodes={visibleNodes}
-                from={selectedNode}
-                toId={pathTo}
-                onPick={setPathTo}
-                onSelectPlayer={(id) => {
-                  setPathTo(null);
-                  setPathOpen(false);
-                  setSelectedId(id);
-                }}
-                onClose={() => {
-                  setPathTo(null);
-                  setPathOpen(false);
-                }}
-                country={graph?.country ?? country}
-                gender={graph?.gender ?? gender}
-              />
-            </div>
-          )}
+              {visibleNodes.length > 0 ? (
+                <PartnershipGraph
+                  nodes={visibleNodes}
+                  edges={visibleEdges}
+                  selectedId={selectedId}
+                  onSelect={selectPlayer}
+                  layoutKey={layoutKey}
+                  onSize={onGraphSize}
+                  pathIds={litNodes}
+                  pathEdges={litEdges}
+                />
+              ) : (
+                <div className="graph-empty">
+                  {totalNodes > 0
+                    ? `No partnership here reaches ${minTogether} shared tournaments.`
+                    : 'No players for this selection.'}
+                </div>
+              )}
 
-          {selectedNode && !pathOpen && (
-            <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
-              <PlayerCard
-                node={selectedNode}
-                detail={detailsById.get(selectedNode.id)}
-                partners={partnersByPlayer.get(selectedNode.id) ?? []}
-                away={awayRows}
-                iso2Of={iso2Of}
-                // From the graph, not the selection: the two differ for a
-                // render while an away partner's slice loads.
-                country={graph?.country ?? country}
-                gender={graph?.gender ?? gender}
-                countryName={countryEntry?.name ?? country}
-                flag={flag}
-                names={namesById}
-                onSelectPartner={selectPlayer}
-                onSelectAway={selectAwayPartner}
-                onSelectFieldPlayer={selectFieldPlayer}
-                onFindPath={() => setPathOpen(true)}
-                onClose={closeCard}
-              />
-            </div>
-          )}
-        </section>
+              {selectedNode && pathOpen && (
+                <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
+                  <PathPanel
+                    index={partnerships}
+                    nodes={visibleNodes}
+                    from={selectedNode}
+                    toId={pathTo}
+                    onPick={setPathTo}
+                    onSelectPlayer={(id) => {
+                      setPathTo(null);
+                      setPathOpen(false);
+                      setSelectedId(id);
+                    }}
+                    onClose={() => {
+                      setPathTo(null);
+                      setPathOpen(false);
+                    }}
+                    country={graph?.country ?? country}
+                    gender={graph?.gender ?? gender}
+                  />
+                </div>
+              )}
 
-        <section className="table-section">
-          <div className="section-head">
-            <h2>All players</h2>
-            <p className="muted">{plural(tableRows.length, 'player')}</p>
-          </div>
-          <TableView rows={tableRows} selectedId={selectedId} onSelect={selectPlayer} />
-        </section>
+              {selectedNode && !pathOpen && (
+                <div className="card-slot" style={graphHeight ? { height: graphHeight } : undefined}>
+                  <PlayerCard
+                    node={selectedNode}
+                    detail={detailsById.get(selectedNode.id)}
+                    partners={partnersByPlayer.get(selectedNode.id) ?? []}
+                    away={awayRows}
+                    iso2Of={iso2Of}
+                    // From the graph, not the selection: the two differ for a
+                    // render while an away partner's slice loads.
+                    country={graph?.country ?? country}
+                    gender={graph?.gender ?? gender}
+                    countryName={countryEntry?.name ?? country}
+                    flag={flag}
+                    names={namesById}
+                    onSelectPartner={selectPlayer}
+                    onSelectAway={selectAwayPartner}
+                    onSelectFieldPlayer={selectFieldPlayer}
+                    onFindPath={() => setPathOpen(true)}
+                    onClose={closeCard}
+                  />
+                </div>
+              )}
+            </section>
+
+            <section className="table-section">
+              <div className="section-head">
+                <h2>All players</h2>
+                <p className="muted">{plural(tableRows.length, 'player')}</p>
+              </div>
+              <TableView rows={tableRows} selectedId={selectedId} onSelect={selectPlayer} />
+            </section>
+          </>
+        )}
       </main>
 
       <footer>
@@ -727,6 +800,8 @@ export default function App() {
           {/* A full page load, deliberately: /about/ is a standalone document
               that never boots the app (see aboutPage in ingest/prerender.ts). */}
           <a href={indexPath(import.meta.env.BASE_URL)}>All tournaments</a>
+          {' · '}
+          <a href={recordsPagePath(import.meta.env.BASE_URL)}>Records</a>
           {' · '}
           <a href={`${import.meta.env.BASE_URL}about/`}>About this project</a>
         </p>

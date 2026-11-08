@@ -23,8 +23,8 @@
  */
 
 import { useEffect, useMemo, useRef } from 'react';
-import type { ClassificationFile, Gender, Tier } from '../schema';
-import { fieldPlayerSlice, TIER_BADGE } from '../schema';
+import type { ClassificationFile, Gender, Tier } from '../../../shared/schema';
+import { fieldPlayerSlice, TIER_BADGE } from '../../../shared/schema';
 import { countryName, flagEmoji, formatFinish, medalFor, ordinal, plural } from '../lib/format';
 import { bandsOf } from '../lib/classification';
 import './TournamentPanel.css';

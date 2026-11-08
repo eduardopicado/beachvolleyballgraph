@@ -38,7 +38,7 @@
  * not a licensing question.
  */
 
-import { foldAccents } from '../web/src/lib/search.js';
+import { foldAccents } from '../shared/fold.js';
 
 const ENDPOINT = 'https://query.wikidata.org/sparql';
 

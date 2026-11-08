@@ -17,8 +17,9 @@
  * the page *makes*, never how long they take.
  */
 
+import { DWELL_MS } from '../web/src/lib/prefetchPortrait.js';
 import { test, expect, graph, manifest } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;
@@ -153,8 +154,16 @@ test('crossing the same node again does not ask again', async ({ page }) => {
   for (let pass = 0; pass < 3; pass++) {
     await page.mouse.move(centre.x - 3, centre.y - 3);
     await page.mouse.move(centre.x, centre.y);
-    // Off the node and back on, which is what a pointer crossing a dense
-    // cluster does several times a second.
+    // Rest past the dwell, so each pass is a hover that would start the
+    // portrait if it were the first one. Without the rest each pass is a
+    // crossing, which the dwell exists to ignore, and whether the portrait
+    // started at all came down to whether one round trip to the browser
+    // happened to take longer than DWELL_MS. It did on a slow machine and did
+    // not on a fast runner: two deploys failed here on 17 Sept 2026 with
+    // "received 0", both attempts, while the same commit passed elsewhere.
+    await page.waitForTimeout(DWELL_MS * 2);
+    // Off the node and back on, which is what a pointer returning to the same
+    // player does. The claim is that the second and third visits cost nothing.
     await page.mouse.move(centre.x + 160, centre.y + 120);
   }
 
@@ -167,23 +176,38 @@ test('sweeping across the graph starts only where the pointer stops', async ({ p
   // passed over — measured at 5.8 KB expected per node (52.5% of players have
   // no photo and 404 at nothing, the rest average 12.3 KB), so 2.4 MB against
   // the 611 KB the page loads in total.
+  //
+  // The page's clock is the test's, not the machine's. Each `mouse.move` is a
+  // round trip to the browser, and the sweep used to take whatever those cost:
+  // under load one took longer than DWELL_MS, the pointer sat on a node for
+  // that long, and the dwell fired exactly as it should for a pointer that
+  // stopped. The test read 7 to 10 requests against its limit of 5 and failed
+  // most runs with four workers on a busy machine. Paused, time moves only by
+  // `runFor`, so every move is the same 16ms apart however slow the browser is.
+  // Installed before the page loads, and running until paused, so the layout
+  // settles as it always has.
+  await page.clock.install();
   const urls = watchPortraits(page);
   await page.goto(`./${slicePath()}`);
   await settled(page);
+  await page.clock.pauseAt((await page.evaluate(() => Date.now())) + 1_000);
 
   const box = (await page.locator('.graph-wrap').boundingBox())!;
   const y = box.y + box.height / 2;
-  // Straight across the middle at roughly a real drag speed: 30 moves, no
-  // pause anywhere. Whatever it crosses, it never stops on.
+  // Straight across the middle at a real drag speed: 30 moves a frame apart,
+  // no pause anywhere. Whatever it crosses, it never stops on.
   for (let i = 0; i <= 30; i++) {
     await page.mouse.move(box.x + 4 + (i * (box.width - 8)) / 30, y);
+    await page.clock.runFor(16);
   }
-  // Off the canvas, so nothing is left mid-dwell when the assertion runs.
+  // Off the canvas, then well past the dwell: a timer the sweep left armed
+  // would have fired by now.
   await page.mouse.move(box.x + box.width / 2, box.y - 40);
+  await page.clock.runFor(DWELL_MS * 2);
 
-  // Not `toBe(0)`: the sweep can legitimately end a frame on a node and rest
-  // there while the loop awaits the next move. The claim is that a sweep costs
-  // a handful of requests rather than one per node crossed.
+  // Exactly none, now that no move can linger by accident. The old limit of 5
+  // allowed for the sweep ending a frame on a node while the loop awaited the
+  // next move; with time stopped between moves, it cannot.
   const crossed = await page.locator('[data-node]').count();
-  expect(urls.length, `swept a graph of ${crossed} nodes`).toBeLessThan(5);
+  expect(urls, `swept a graph of ${crossed} nodes`).toEqual([]);
 });

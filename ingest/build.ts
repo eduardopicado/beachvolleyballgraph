@@ -17,9 +17,10 @@ import type {
   ClassificationTeam,
   Tier,
   TimelineFilter,
-} from '../web/src/schema.js';
-import type { WithdrawalReason } from '../web/src/schema.js';
-import { TOUR_TIERS } from '../web/src/schema.js';
+  TournamentMeta,
+} from '../shared/schema.js';
+import type { EntryRoute, EntryTeam, WithdrawalReason, WithdrawnTeam } from '../shared/schema.js';
+import { TOUR_TIERS } from '../shared/schema.js';
 import { toCentimetres, toKilograms, type VisRow } from './vis.js';
 import { tierFor, levelFor, FIVB_ORGANIZER_TYPE } from './tiers.js';
 import { EXCLUDED_FEDERATIONS, FEDERATION_ALIASES } from './countries.js';
@@ -71,10 +72,14 @@ export interface Tournament {
   /** `YYYY-MM-DD` of the main draw's last day, or null if VIS gave none. */
   endsOn: string | null;
   /**
-   * Days from 1 January of `season` to the main draw's first day. Negative
-   * when an event starts in the previous calendar year, which is why this is
-   * an offset rather than a day-of-year: a December event opening a southern
-   * summer season would otherwise sort *after* the following January's.
+   * Days from 1 January of `season` to the day the event **opens**, which is
+   * the first day of qualification where there is one and the first day of the
+   * main draw otherwise. See `eventStart`.
+   *
+   * Negative when an event starts in the previous calendar year, which is why
+   * this is an offset rather than a day-of-year: a December event opening a
+   * southern summer season would otherwise sort *after* the following
+   * January's.
    *
    * Only ever compared within one season, so the origin is arbitrary as long
    * as it is consistent — and this keeps the published number two or three
@@ -90,8 +95,15 @@ export interface Tournament {
    */
   country: string | null;
   /**
-   * Days from the main draw's first day to its last: 0 for a one-day event,
-   * 3 for the ordinary four-day tour week, up to 15 for an Olympic fortnight.
+   * Days from the day the event opens to the main draw's last: 0 for a one-day
+   * event, 4 for the ordinary tour week that qualifies on the Thursday, up to
+   * 15 for an Olympic fortnight.
+   *
+   * Measured from the same day `startOffset` names, which is qualification
+   * where there is one — so this grew by a day on most of the archive when
+   * `eventStart` landed. It has to: the end date is read as
+   * `startOffset + span`, and a span still measured from the main draw would
+   * have moved every event's *last* day a day earlier.
    *
    * A span rather than a second offset, because it is one digit where an
    * offset is three, and because it is the number a reader is shown — the
@@ -103,15 +115,62 @@ export interface Tournament {
   span: number | null;
 }
 
+/** A `YYYY-MM-DD` day, or undefined when the value is missing or malformed. */
+function isoDay(raw: string | undefined): string | undefined {
+  const day = (raw ?? '').slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : undefined;
+}
+
+/**
+ * The day an event **opens**: the first day of qualification where there is
+ * one, and the first day of the main draw otherwise.
+ *
+ * This used to be `StartDateMainDraw` alone, and the reasoning written here
+ * was that `StartDateQualification` "is populated on barely a third of them,
+ * so using it would order some seasons by one field and some by another".
+ * That measurement was taken over every row VIS returns, including thousands
+ * this project filters out. **Over the tournaments actually published it is
+ * 1,456 of 1,688 (86.3%)**, and the rest are mostly old events.
+ *
+ * What changed the trade is a reader, not the coverage: a tournament whose
+ * qualification had begun was still listed under the main draw's dates, so
+ * the index showed BPT Futures Corigliano Rossano as 18–20 September, and
+ * said *Upcoming*, on the 17th — while it was being played. Measured over the
+ * published set, 1,419 events open earlier than their main draw, 1,231 of
+ * them by a day, 183 by two, and five by three or more.
+ *
+ * The residue is real and small: 232 events have no qualification date and
+ * fall back to the main draw, so a season can mix the two fields by a day or
+ * two. That only ever decides which of two partners is listed first when a
+ * player had two in one season, which the old comment already accepted as
+ * "uniformly approximate by a day or two" — and being a day early on the
+ * *page* is not the same kind of wrong as saying an event has not started.
+ *
+ * **The earlier of the two, never simply qualification.** Six rows in the
+ * archive record a qualification date *after* the main draw — two of them by
+ * more than nine years — so taking qualification whenever it exists would
+ * date those events to the wrong decade. None is currently in the published
+ * set; taking the minimum means the next refresh that pulls one in cannot
+ * break this.
+ */
+export function eventStart(
+  qualification: string | undefined,
+  mainDraw: string | undefined,
+): string | undefined {
+  const q = isoDay(qualification);
+  const m = isoDay(mainDraw);
+  if (!q) return m;
+  if (!m) return q;
+  return q < m ? q : m;
+}
+
 /**
  * `YYYY-MM-DD` -> days from 1 January of `season`.
  *
  * `StartDateMainDraw` is populated on every tournament VIS returns (checked:
  * 9,270 of 9,270), so the null path is for a malformed value rather than a
- * missing one. Qualification can start earlier, but `StartDateQualification`
- * is populated on barely a third of them, so using it would order some
- * seasons by one field and some by another — worse than being uniformly
- * approximate by a day or two.
+ * missing one. What is passed in, though, is `eventStart` — see there for why
+ * qualification comes first when it exists.
  *
  * The two or three digits this promises depend on `season` being the year the
  * event was played. While a ranged `Season` was taken at its leading year, 18
@@ -323,7 +382,11 @@ function curatedName(tier: Tier, season: number): string | null {
 export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
   const out = new Map<string, Tournament>();
   for (const row of rows) {
-    const tier = tierFor(row.OrganizerType, row.Type);
+    // The opening day is read before the tier because the new circuit reused
+    // two old `Type`s, and only the date tells the eras apart — see
+    // NEW_CIRCUIT_FROM in tiers.ts.
+    const opensOn = eventStart(row.StartDateQualification, row.StartDateMainDraw);
+    const tier = tierFor(row.OrganizerType, row.Type, opensOn);
     if (!tier) continue;
     // A tournament that was called off is not a tournament. It never had
     // results, so `Rank` already kept its entrants out of the graph — but it
@@ -348,7 +411,7 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       name: curatedName(tier, season) ?? ((row.Name ?? '').trim() || `Tournament ${no}`),
       code: (row.Code ?? '').trim(),
       tier,
-      level: levelFor(row.Type),
+      level: levelFor(row.Type, opensOn),
       season,
       // Same encoding as a player's: 0 men, 1 women. Anything else is
       // unreachable — every tournament VIS returns carries one of the two —
@@ -359,12 +422,56 @@ export function normaliseTournaments(rows: VisRow[]): Map<string, Tournament> {
       endsOn: /^\d{4}-\d{2}-\d{2}/.test(row.EndDateMainDraw ?? '')
         ? row.EndDateMainDraw!.slice(0, 10)
         : null,
-      startOffset: startOffsetFor(row.StartDateMainDraw, season),
+      // Qualification where there is one, so an event that has started is not
+      // listed under a date still to come — see `eventStart`. `span` is
+      // measured from the same day, or the end date would move with it.
+      startOffset: startOffsetFor(opensOn, season),
       country: countryCodeFor(row.CountryCode),
-      span: spanFor(row.StartDateMainDraw, row.EndDateMainDraw),
+      span: spanFor(opensOn, row.EndDateMainDraw),
     });
   }
   return out;
+}
+
+/**
+ * A tournament's row in the published `tournaments.json` index.
+ *
+ * Fields are appended rather than slotted in, so every existing index keeps
+ * its meaning and each addition stays additive to a published contract. The
+ * level slot, absent for the Olympics, the World Championships and the
+ * age-group championships, is written as an explicit null to hold the place.
+ *
+ * Any row with a code runs to the full nine. `gender` is the reason: a
+ * tournament's own page is addressed by a slug that includes the draw, and the
+ * index flips between the men's and women's calendars. Both readers would
+ * otherwise have to open a classification file per tournament to learn it, and
+ * neither can read it off the code -- `WWRS2022` is a men's field under a `W`
+ * (quirks §23). The shorter coded forms this used to fall back to, when country
+ * and span were both null, dropped gender with them, and the tournament index
+ * skips a row without a gender: the event would have vanished from the site's
+ * calendar. Only a row without a code, which has no page, stays short.
+ */
+export function tournamentMeta(t: Tournament): TournamentMeta {
+  if (t.code) {
+    return [t.name, t.season, t.tier, t.startOffset, t.code, t.level, t.country, t.span, t.gender];
+  }
+  return t.startOffset === null ? [t.name, t.season, t.tier] : [t.name, t.season, t.tier, t.startOffset];
+}
+
+/**
+ * A team row's placement, or null for a row that never played.
+ *
+ * `Rank` 0 or blank is VIS's "registered, never competed" — the rule that
+ * separates an entry from a result (HANDOVER, "things that will bite you" #1).
+ * Anything that is not a finite number is treated the same way rather than let
+ * through: `Number(undefined)` is NaN, and NaN is not 0, so a row without the
+ * attribute used to count as played and publish a null rank. Negative ranks
+ * are real (a qualification or quota elimination) and are kept.
+ */
+export function rankOf(row: VisRow): number | null {
+  // Number('') and Number('  ') are both 0, so blank needs no case of its own.
+  const rank = Number(row.Rank ?? 0);
+  return Number.isFinite(rank) && rank !== 0 ? rank : null;
 }
 
 /**
@@ -391,7 +498,7 @@ export function finishedWithoutResults(
 ): Tournament[] {
   const withAResult = new Set<string>();
   for (const row of teamRows) {
-    if (Number(row.Rank) !== 0) withAResult.add((row.NoTournament ?? '').trim());
+    if (rankOf(row) !== null) withAResult.add((row.NoTournament ?? '').trim());
   }
   const day = asOf.slice(0, 10);
   return [...tournaments.values()]
@@ -467,18 +574,8 @@ export function aggregateMedals(
 }
 
 /**
- * The two tiers that make up the FIVB tour, whatever it has been called.
- *
- * Age-group world championships are excluded — they are world-level events,
- * but they are not the senior tour and a U19 title next to a Grand Slam title
- * would flatter the wrong careers. The Olympics and the World Championships
- * are excluded because they are counted separately and more precisely.
- */
-
-
-/**
- * Per-player podium counts across the tour: 1,552 of the 1,688 qualifying
- * tournaments.
+ * Per-player podium counts across the tour (`TOUR_TIERS`): 1,562 of the 1,698
+ * qualifying tournaments on 15 October 2026.
  *
  * Deliberately mixes levels. A 2019 4-star, a 2015 Grand Slam and a 2024
  * Elite16 all count as one gold, and there is no honest alternative: FIVB has
@@ -702,6 +799,115 @@ export function entryStatus(status: number): EntryStatus | null {
   return ENTRY_STATUS[status] ?? null;
 }
 
+/**
+ * FIVB's `Type` -> the entry route their own list badges.
+ *
+ * Decoded against their published entry list for Corigliano Rossano, team by
+ * team: the one Type 1 is its wild card, the one Type 6 its qualification wild
+ * card, the one Type 9 its continental slot and all four Type 10 rows its open
+ * vacancies. Every other value is the ordinary ranking route and gets no badge
+ * — including Type 4, which is *not* a category: across the archive it carries
+ * both placements and rank-0 rows, and its matching the withdrawn count on one
+ * tournament was a coincidence.
+ */
+export const ENTRY_ROUTE: Record<number, EntryRoute> = { 1: 'WC', 6: 'QWC', 9: 'CS', 10: 'OV' };
+
+/**
+ * A points figure VIS may leave blank, which is not the same as zero.
+ *
+ * Repek/Pribanic entered Corigliano with no points at all and Schmidt/Schmidt
+ * with zero; "no ranking yet" and "ranked, at nothing" are different statements
+ * and the page draws them differently.
+ */
+export function pointsOf(raw: string | undefined): number | null {
+  const n = Number(raw);
+  return raw === undefined || raw === '' || !Number.isFinite(n) ? null : n;
+}
+
+/** One team on an entry list, before it is serialised. */
+export interface EntryRow {
+  a: number;
+  b: number;
+  federation: string;
+  entry: number | null;
+  tech: number | null;
+  route: EntryRoute | null;
+  withdrawal: WithdrawalReason | null;
+}
+
+/**
+ * Every team row that belongs on an entry list, grouped by tournament number,
+ * plus a tally of the rows declined and why.
+ *
+ * `dropped` is keyed by the raw `Status` and is the caller's to log. It exists
+ * because a value `entryStatus` did not know once took a team off a published
+ * page overnight (Status 4, quirks §26), and the only reason anyone noticed
+ * was an entered count moving by one. Counting what is skipped turns the next
+ * unknown value into a line in the run output.
+ *
+ * The player guard is the one every aggregation here applies: a row with a
+ * missing, zero or self-paired player is not a team and is dropped without
+ * being counted as a status — it is a broken row, not an unread state.
+ */
+export function aggregateEntries(teamRows: VisRow[]): {
+  byTournament: Map<string, EntryRow[]>;
+  dropped: Map<number, number>;
+} {
+  const byTournament = new Map<string, EntryRow[]>();
+  const dropped = new Map<number, number>();
+  for (const row of teamRows) {
+    const status = Number(row.Status ?? 0);
+    const state = entryStatus(status);
+    if (state === null) {
+      dropped.set(status, (dropped.get(status) ?? 0) + 1);
+      continue;
+    }
+    const a = Number(row.NoPlayer1);
+    const b = Number(row.NoPlayer2);
+    if (!Number.isFinite(a) || a <= 0 || !Number.isFinite(b) || b <= 0 || a === b) continue;
+    const no = (row.NoTournament ?? '').trim();
+    const list = byTournament.get(no) ?? [];
+    list.push({
+      a,
+      b,
+      federation: (row.FederationCode ?? '').trim(),
+      entry: pointsOf(row.EntryPoints),
+      tech: pointsOf(row.TechnicalPoints),
+      route: ENTRY_ROUTE[Number(row.Type ?? 0)] ?? null,
+      withdrawal: state === 'in' ? null : state,
+    });
+    byTournament.set(no, list);
+  }
+  return { byTournament, dropped };
+}
+
+/**
+ * The order FIVB's own list has: entry points first, technical points to break
+ * a tie, and the pair's own ids after that so a file does not churn between
+ * two runs that hold the same list.
+ *
+ * A missing figure sorts below zero rather than being treated as one — a pair
+ * with no points yet belongs after a pair ranked at nothing, and `pointsOf`
+ * keeps the two apart for exactly this reason.
+ */
+export function entryOrder(x: EntryRow, y: EntryRow): number {
+  return (
+    (y.entry ?? -1) - (x.entry ?? -1) || (y.tech ?? -1) - (x.tech ?? -1) || x.a - y.a || x.b - y.b
+  );
+}
+
+/**
+ * The published tuple for one row. The sixth slot is shared: a withdrawal
+ * reason if the team is out, otherwise the entry route if it had one, otherwise
+ * nothing — never both, because `readEntry` on the other side tells them apart
+ * by value, and a withdrawn wild card is a withdrawn team, not a badge.
+ */
+export function entryTuple(t: EntryRow): EntryTeam | WithdrawnTeam {
+  if (t.withdrawal) return [t.a, t.b, t.federation, t.entry, t.tech, t.withdrawal];
+  if (t.route) return [t.a, t.b, t.federation, t.entry, t.tech, t.route];
+  return [t.a, t.b, t.federation, t.entry, t.tech];
+}
+
 /** A token that is a shout: letters, all of them upper case. */
 function isShouted(token: string): boolean {
   const letters = token.replace(/[^\p{L}]/gu, '');
@@ -774,13 +980,14 @@ function titleCaseWord(word: string): string {
  * from a province, and nothing says which country a bare "Portland" is in — so
  * the value is published verbatim apart from the tidying below.
  *
- * It is far cleaner than it first looks. Measured over the 6,496 published
- * players who have one, **21 are unusable (0.32%)**, and most of those are only
- * suspicious rather than wrong: "Paris 14e", "Praha 4", "Sèvres (92)" and
- * "St Brieul (12)" are arrondissements and department numbers, which are real
- * answers to where somebody was born. Rejecting anything containing a digit
- * would throw all of those away to catch the seven records that are actually
- * broken, so the rules are narrow and each one names its cases:
+ * It is far cleaner than it first looks. Measured over the 6,543 published
+ * players who have one (8 Nov 2026), 16 contain a digit and **7 are unusable
+ * (0.11%)**. The rest of the 16 are only suspicious rather than wrong:
+ * "Paris 14e", "Praha 4", "Sèvres (92)" and "St Brieul (12)" are
+ * arrondissements and department numbers, which are real answers to where
+ * somebody was born. Rejecting anything containing a digit would throw all of
+ * those away to catch the seven records that are actually broken, so the rules
+ * are narrow and each one names its cases:
  *
  *  - a date in the birth *place* field — "21.08.77", "03/09/1988",
  *    "06-05-1991", "17/01/1992" (4 records);
@@ -788,18 +995,23 @@ function titleCaseWord(word: string): string {
  *  - an internal note that should never have left the database —
  *    "to be Merged with (#164181) as" (1).
  *
- * Capitals are normalised in both directions. 444 published birth places shout,
- * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 102 more have no
+ * Capitals are normalised in both directions. 465 published birth places shout,
+ * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 103 more have no
  * capital at all — "rio de janeiro", "salvador" — which is the same box filled
- * in with caps lock the other way. Only a value that is uniformly one case is
- * touched: mixed capitals are a choice somebody made, and "St-Gallen" or
- * "Adelaide, SA" is already right.
+ * in with caps lock the other way. Otherwise mixed capitals are a choice
+ * somebody made, and "St-Gallen" or "Adelaide, SA" is already right, with two
+ * exceptions that are slips rather than choices: a word typed with caps lock
+ * and shift together ("wEIDEN", 1 record), and a value whose first letter is
+ * small ("nagano, Japan", "ciudad la Habana", 3 records).
  *
- * Stray quotation marks are stripped, which is one record — `"9 de JULIO"` is a
- * real Argentine town wearing the quotes FIVB stored it with.
+ * Stray double quotes are stripped, which is one record — `"9 de JULIO"` is a
+ * real Argentine town wearing the quotes FIVB stored it with. Single quotes
+ * are not: both published at an end of a value belong to the name.
  */
 export function tidyBirthPlace(value: string | undefined): string | null {
-  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^["']+|["']+$/g, '').trim();
+  // Double quotes only. A single one at either end is part of the name in both
+  // published cases: "'s Gravenhage" (The Hague) and "K. Male'" (Malé).
+  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^"+|"+$/g, '').trim();
   if (!raw) return null;
 
   // A whole date, however it is punctuated. Anchored, so "Paris 14e" and
@@ -811,8 +1023,8 @@ export function tidyBirthPlace(value: string | undefined): string | null {
   if (/\bto be merged\b|\bmerge[dr]?\s+with\b|#\d{3,}|\bduplicate\b/i.test(raw)) return null;
 
   // A value with no capital in it anywhere has lost its casing rather than
-  // chosen it: "rio de janeiro", "buenos aires", "salvador". 102 published
-  // places are like this, against 444 that shout, and both are the same
+  // chosen it: "rio de janeiro", "buenos aires", "salvador". 103 published
+  // places are like this, against 465 that shout, and both are the same
   // failure — a federation typing into a free-text box with caps lock in one
   // state or the other.
   //
@@ -831,16 +1043,20 @@ export function tidyBirthPlace(value: string | undefined): string | null {
   // place name is a code, not a shout — the "PR" in "Curitiba, PR", the "BRA"
   // in "Juiz de Fora (BRA)", the whole of "TN", the "N2" in "Auckland N2".
   // Title-casing those would turn a province code into a word.
-  return (
-    raw
-      .split(' ')
-      .map((word) => {
-        const letters = word.replace(/[^\p{L}]/gu, '');
-        const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
-        return shouts ? titleCaseWord(word) : word;
-      })
-      .join(' ') || null
-  );
+  const tidied = raw
+    .split(' ')
+    .map((word) => {
+      const letters = word.replace(/[^\p{L}]/gu, '');
+      const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
+      // Caps lock with the shift key held for the first letter: "wEIDEN".
+      const inverted = letters.length >= 4 && /^\p{Ll}\p{Lu}+$/u.test(letters);
+      return shouts || inverted ? titleCaseWord(word) : word;
+    })
+    .join(' ');
+  // Mixed capitals are left as typed, but a place name does not begin with a
+  // small letter: "nagano, Japan", "ciudad la Habana". Only a letter in the
+  // first position, so the apostrophe of "'s Gravenhage" keeps its "s".
+  return tidied.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase()) || null;
 }
 
 /**
@@ -1329,8 +1545,8 @@ export function aggregatePartnerships(
       }
     }
 
-    const rank = Number(row.Rank);
-    if (rank === 0) {
+    const rank = rankOf(row);
+    if (rank === null) {
       rejects.didNotPlay++;
       continue;
     }

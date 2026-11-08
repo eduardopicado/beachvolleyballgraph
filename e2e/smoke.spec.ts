@@ -27,7 +27,7 @@ import {
   strandedPlayer,
   tournamentIndex,
 } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 import {
   indexPlayers,
   searchPlayers,
@@ -35,8 +35,8 @@ import {
   type Slice,
 } from '../web/src/lib/search.js';
 import { findPath, indexPartnerships } from '../web/src/lib/path.js';
-import { parseSliceKey } from '../web/src/schema.js';
-import { CONTACT_EMAIL } from '../web/src/site.js';
+import { parseSliceKey } from '../shared/schema.js';
+import { CONTACT_EMAIL } from '../shared/site.js';
 
 /** A big, always-present slice — the densest realistic render. */
 const COUNTRY = 'BRA';
@@ -506,7 +506,6 @@ test.describe('where a player was born', () => {
  */
 test.describe('the partner list heading', () => {
   test('shows the switch instead of a tally that repeats a tile', async ({ page }) => {
-    const detail = players(COUNTRY, GENDER);
     const busiest = graph(COUNTRY, GENDER).nodes.slice().sort((a, b) => b.tournaments - a.tournaments)[0];
     expect(busiest, 'no players in this slice').toBeTruthy();
 
@@ -669,7 +668,7 @@ test.describe('narrowing the timeline', () => {
     expect(years).toEqual([...years].sort((a, b) => b - a));
   });
 
-  test('names the Games rather than repeating what FIVB typed', async ({ page }) => {
+  test('names the Games rather than repeating what FIVB typed', async () => {
     // FIVB files the 2012 draws as "Olympic Games 2012", which never says
     // London, and the 2021 draws under a season that is not their name.
     const index = tournamentIndex();
@@ -737,6 +736,22 @@ test('the table lists the whole slice', async ({ page }) => {
   await expect.poll(() => page.locator('.table-view tbody tr').count()).toBe(expected);
 });
 
+/*
+ * Former names are the one published field that can legitimately be empty.
+ *
+ * They come from Wikidata, and `main()` fetches them inside a try/catch that
+ * warns and carries on: "Wikimedia rate-limits by IP and a shared CI address
+ * can be throttled by traffic that has nothing to do with us; refusing to
+ * publish a correct dataset over a missing search alias would be the wrong
+ * trade every time."
+ *
+ * These tests used to assert that *some* player carried one, which quietly
+ * cancelled that decision two jobs later: on 21 September 2026 the scheduled
+ * run published a tree with 0 aliases where the previous had 285, the ingest
+ * warned and committed as designed, and then this file failed the build and
+ * skipped the deploy \u2014 the exact outcome the ingest refuses to cause. They
+ * skip now. The ingest's own log line is where a missing lookup is visible.
+ */
 test.describe('former names', () => {
   const box = (page: Page) => page.getByPlaceholder('Start typing a name\u2026');
   const rows = (page: Page) => page.locator('.player-search-results .result');
@@ -774,7 +789,7 @@ test.describe('former names', () => {
 
   test('a player is findable by the name she used to compete under', async ({ page }) => {
     const target = renamed();
-    expect(target, 'no published player carries a former name').not.toBeNull();
+    test.skip(!target, 'no published player carries a former name — see the note above this block');
 
     const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
     await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
@@ -789,6 +804,7 @@ test.describe('former names', () => {
 
   test('the former name is never rendered', async ({ page }) => {
     const target = renamed();
+    test.skip(!target, 'no published player carries a former name — see the note above this block');
     const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
     await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
     await box(page).fill(target!.term);
@@ -811,6 +827,7 @@ test.describe('former names', () => {
 
   test('selecting the row opens the right player', async ({ page }) => {
     const target = renamed();
+    test.skip(!target, 'no published player carries a former name — see the note above this block');
     const entry = manifest().countries.find((c) => c.code === target!.slice.country)!;
     await page.goto(`./${sliceSlug(entry.name, target!.slice.gender)}/`);
     await box(page).fill(target!.term);
@@ -830,7 +847,7 @@ test.describe('cross-country search', () => {
    *
    * Used only to *choose* a query whose matches land in more than one group —
    * which names do that depends entirely on the archive, and the archive moves
-   * every week. Every assertion below is still made against the rendered DOM.
+   * every day. Every assertion below is still made against the rendered DOM.
    */
   const searchable = () => {
     const all: SearchablePlayer[] = [];
@@ -860,7 +877,7 @@ test.describe('cross-country search', () => {
     slice.country !== home.country ? 'elsewhere' : slice.gender === home.gender ? 'home' : 'country';
 
   /** Scan for a query whose eight rows reach every place named. */
-  const queryCovering = (home: Slice, wanted: string[]) => {
+  const queryCovering = (home: Slice, wanted: ReturnType<typeof placeOf>[]) => {
     const index = searchable();
     const seen = new Set<string>();
     for (const player of index) {

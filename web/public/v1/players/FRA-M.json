@@ -786,7 +786,7 @@
             [
               2005,
               5,
-              201
+              200
             ]
           ],
           "at": [
@@ -1238,7 +1238,7 @@
       "name": "Benjamin Toniutti",
       "dob": "1989-10-30",
       "height": 183,
-      "weight": 72,
+      "weight": 83,
       "birthPlace": "Mulhouse"
     },
     {
@@ -1895,6 +1895,14 @@
       "birthPlace": "Fort de France"
     },
     {
+      "id": 223148,
+      "name": "Jules M'Couela",
+      "dob": "2007-05-05",
+      "height": 194,
+      "weight": 86,
+      "birthPlace": "Saint-Paul"
+    },
+    {
       "id": 223418,
       "name": "Jerome Brysse",
       "dob": "1998-10-29",
@@ -1917,6 +1925,14 @@
       "height": null,
       "weight": null,
       "birthPlace": "Saint-Paul"
+    },
+    {
+      "id": 224063,
+      "name": "Pao Rigaud",
+      "dob": "2008-09-14",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Perpignan"
     },
     {
       "id": 233164,

@@ -58,6 +58,44 @@ export default tseslint.config(
     },
   },
 
+  // --- shared by both -----------------------------------------------------
+  //
+  // No globals at all, on purpose. This code runs under Node in the ingest and
+  // in the browser in the app, so a `window` or a `process` reaching into it
+  // would break one side or the other; `no-undef` turning it up here is the
+  // cheapest place to find out.
+  {
+    files: ['shared/**/*.ts'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: { ecmaVersion: 2022 },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+    },
+  },
+
+  // --- browser tests and root config -----------------------------------
+  //
+  // Both globals: a spec runs under Node, and the callbacks it hands to
+  // `page.evaluate` run in the page. Typechecked too (tsconfig.json), which
+  // they were not until the suite had nine errors nobody had seen.
+  {
+    files: ['e2e/**/*.ts', '*.config.{js,ts}'],
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2022,
+      globals: { ...globals.node, ...globals.browser },
+    },
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+    },
+  },
+
   // --- tests ---------------------------------------------------------------
   {
     files: ['**/*.test.ts', '**/*.test.tsx'],

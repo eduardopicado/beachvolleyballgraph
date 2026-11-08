@@ -7,7 +7,7 @@ import {
   pathNodeIds,
   reach,
 } from './path';
-import type { GraphEdge, GraphNode } from '../schema';
+import type { GraphEdge, GraphNode } from '../../../shared/schema';
 
 const node = (id: number, tournaments = 10): GraphNode => ({
   id,

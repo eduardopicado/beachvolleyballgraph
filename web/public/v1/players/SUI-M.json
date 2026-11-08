@@ -895,7 +895,7 @@
             [
               2002,
               1,
-              191
+              190
             ]
           ],
           "r": 9
@@ -1229,7 +1229,7 @@
             [
               2001,
               11,
-              332
+              330
             ]
           ],
           "r": 2
@@ -1246,7 +1246,7 @@
             [
               2002,
               5,
-              275
+              273
             ],
             [
               2003,
@@ -1268,7 +1268,7 @@
             [
               1999,
               1,
-              335
+              333
             ]
           ],
           "r": 41
@@ -1828,6 +1828,22 @@
       "height": 184,
       "weight": 85,
       "birthPlace": "Neuchâtel"
+    },
+    {
+      "id": 236737,
+      "name": "Severin Schmidt",
+      "dob": "2001-03-11",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Scuol"
+    },
+    {
+      "id": 236738,
+      "name": "Dea Schmidt",
+      "dob": "2002-09-13",
+      "height": null,
+      "weight": null,
+      "birthPlace": "Scuol"
     },
     {
       "id": 239250,

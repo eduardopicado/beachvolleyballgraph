@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { TournamentMeta } from '../schema';
+import type { TournamentMeta } from '../../../shared/schema';
 import {
   applyFilter,
   buildIndex,

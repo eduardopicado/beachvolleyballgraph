@@ -254,7 +254,8 @@
       "name": "phanupong Thanan",
       "dob": "2000-01-20",
       "height": 179,
-      "weight": 60
+      "weight": 60,
+      "birthPlace": "Khon Kaen"
     },
     {
       "id": 156433,
@@ -422,7 +423,7 @@
       "dob": "2004-01-21",
       "height": null,
       "weight": null,
-      "birthPlace": "Sisaket"
+      "birthPlace": "Maha Sarakam"
     },
     {
       "id": 187680,

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { Gender } from '../schema';
+import type { Gender } from './schema';
 import {
   sliceSlug, slicePath, slugFromPath, slugify,
   nameCarriesSeason,
@@ -72,6 +72,21 @@ describe('tournamentSlug', () => {
     expect(nameCarriesSeason('Gstaad', 2019)).toBe(false);
     // Contains, but does not end with: still needs the season appended.
     expect(nameCarriesSeason('2018 Warm-up', 2019)).toBe(false);
+  });
+
+  it('knows a name carrying the season before, for an edition played a year late', () => {
+    // Real rows: the Olympics postponed a year, and a tour's finals played the
+    // following January. Both read "Tokyo 2020 2021" before this.
+    expect(nameCarriesSeason('Tokyo 2020', 2021)).toBe(true);
+    expect(tournamentSlug('Tokyo 2020', 2021, 'M')).toBe('tokyo-2020-men');
+    expect(tournamentSlug('Doha Beach Pro Tour Finals 2022', 2023, 'W')).toBe('doha-beach-pro-tour-finals-2022-women');
+  });
+
+  it('still appends the season to a name ending in a later year, which is a note and not the edition', () => {
+    expect(nameCarriesSeason('Ventiane (Postponed to 2021)', 2020)).toBe(false);
+    expect(tournamentSlug('Ventiane (Postponed to 2021)', 2020, 'M')).toBe('ventiane-postponed-to-2021-2020-men');
+    // Nor two years back: an edition is not named for the year before last.
+    expect(nameCarriesSeason('Tokyo 2020', 2022)).toBe(false);
   });
 
   it('does not repeat a season the name already ends with', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { seasonEvents } from './results';
-import type { ResultEntry, TournamentMeta } from '../schema';
+import type { ResultEntry, TournamentMeta } from '../../../shared/schema';
 
 const tournaments: Record<string, TournamentMeta> = {
   '1': ['Doha', 2024, 'beach-pro-tour', 65],

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readEntry, type EntryTeam, type WithdrawnTeam } from '../schema';
+import { readEntry, type EntryTeam, type WithdrawnTeam } from '../../../shared/schema';
 
 /**
  * `readEntry` is the one place that knows how many elements an entry row has,

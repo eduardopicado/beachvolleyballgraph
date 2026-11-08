@@ -9,7 +9,7 @@
  * more tournaments it is over three quarters.
  */
 
-import type { GraphNode, SeasonTally } from '../schema';
+import type { GraphNode, SeasonTally } from '../../../shared/schema';
 
 /** The part of a partner row this needs. `PartnerRow` satisfies it structurally. */
 export interface TimelinePartner {

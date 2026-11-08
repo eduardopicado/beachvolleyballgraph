@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-09-16T14:13:36.029Z",
-  "sourceVersion": "115142",
+  "generatedAt": "2026-11-08T06:52:33.051Z",
+  "sourceVersion": "116075",
   "seasons": {
     "from": 1987,
     "to": 2027
   },
   "totals": {
-    "tournaments": 1688,
-    "players": 12098,
-    "partnerships": 13980
+    "tournaments": 1698,
+    "players": 12121,
+    "partnerships": 14026
   },
   "tiers": {
     "FIVB World Tour": 1077,
     "Olympic Games": 16,
     "World Championships": 32,
     "Age-group World Championships": 88,
-    "Beach Pro Tour": 475
+    "Beach Pro Tour": 485
   },
   "countries": [
     {
@@ -114,7 +114,7 @@
       "genders": {
         "M": {
           "nodes": 145,
-          "edges": 287
+          "edges": 289
         },
         "W": {
           "nodes": 134,
@@ -251,8 +251,8 @@
           "edges": 412
         },
         "W": {
-          "nodes": 197,
-          "edges": 317
+          "nodes": 198,
+          "edges": 318
         }
       }
     },
@@ -263,7 +263,7 @@
       "genders": {
         "M": {
           "nodes": 61,
-          "edges": 45
+          "edges": 46
         },
         "W": {
           "nodes": 37,
@@ -390,7 +390,7 @@
         },
         "W": {
           "nodes": 166,
-          "edges": 219
+          "edges": 220
         }
       }
     },
@@ -532,11 +532,11 @@
       "genders": {
         "M": {
           "nodes": 177,
-          "edges": 227
+          "edges": 228
         },
         "W": {
-          "nodes": 162,
-          "edges": 197
+          "nodes": 169,
+          "edges": 202
         }
       }
     },
@@ -681,12 +681,12 @@
       "iso2": "FR",
       "genders": {
         "M": {
-          "nodes": 200,
-          "edges": 227
+          "nodes": 202,
+          "edges": 229
         },
         "W": {
           "nodes": 152,
-          "edges": 185
+          "edges": 187
         }
       }
     },
@@ -738,11 +738,11 @@
       "genders": {
         "M": {
           "nodes": 240,
-          "edges": 348
+          "edges": 350
         },
         "W": {
           "nodes": 172,
-          "edges": 284
+          "edges": 286
         }
       }
     },
@@ -973,11 +973,11 @@
       "genders": {
         "M": {
           "nodes": 310,
-          "edges": 411
+          "edges": 413
         },
         "W": {
           "nodes": 207,
-          "edges": 270
+          "edges": 271
         }
       }
     },
@@ -1007,7 +1007,7 @@
         },
         "W": {
           "nodes": 169,
-          "edges": 239
+          "edges": 242
         }
       }
     },
@@ -1070,11 +1070,11 @@
       "genders": {
         "M": {
           "nodes": 130,
-          "edges": 166
+          "edges": 167
         },
         "W": {
           "nodes": 82,
-          "edges": 91
+          "edges": 92
         }
       }
     },
@@ -1125,8 +1125,8 @@
       "iso2": "LT",
       "genders": {
         "M": {
-          "nodes": 42,
-          "edges": 41
+          "nodes": 43,
+          "edges": 42
         },
         "W": {
           "nodes": 37,
@@ -1309,7 +1309,7 @@
       "genders": {
         "M": {
           "nodes": 125,
-          "edges": 192
+          "edges": 193
         },
         "W": {
           "nodes": 132,
@@ -1491,8 +1491,8 @@
       "iso2": "PL",
       "genders": {
         "M": {
-          "nodes": 183,
-          "edges": 253
+          "nodes": 184,
+          "edges": 255
         },
         "W": {
           "nodes": 127,
@@ -1638,7 +1638,7 @@
         },
         "W": {
           "nodes": 6,
-          "edges": 5
+          "edges": 6
         }
       }
     },
@@ -1704,12 +1704,12 @@
       "iso2": "SK",
       "genders": {
         "M": {
-          "nodes": 50,
-          "edges": 46
+          "nodes": 51,
+          "edges": 48
         },
         "W": {
           "nodes": 57,
-          "edges": 51
+          "edges": 52
         }
       }
     },
@@ -1839,8 +1839,8 @@
           "edges": 125
         },
         "W": {
-          "nodes": 95,
-          "edges": 111
+          "nodes": 96,
+          "edges": 112
         }
       }
     },
@@ -1850,12 +1850,12 @@
       "iso2": "CH",
       "genders": {
         "M": {
-          "nodes": 186,
-          "edges": 236
+          "nodes": 188,
+          "edges": 238
         },
         "W": {
-          "nodes": 150,
-          "edges": 205
+          "nodes": 151,
+          "edges": 206
         }
       }
     },
@@ -1958,12 +1958,12 @@
       "iso2": "TR",
       "genders": {
         "M": {
-          "nodes": 101,
-          "edges": 92
+          "nodes": 104,
+          "edges": 94
         },
         "W": {
           "nodes": 51,
-          "edges": 46
+          "edges": 47
         }
       }
     },
@@ -2025,12 +2025,12 @@
       "iso2": "US",
       "genders": {
         "M": {
-          "nodes": 399,
-          "edges": 532
+          "nodes": 401,
+          "edges": 533
         },
         "W": {
-          "nodes": 423,
-          "edges": 625
+          "nodes": 424,
+          "edges": 628
         }
       }
     },
@@ -2138,17 +2138,18 @@
     "MACA2007",
     "MAGA2012",
     "MALA2008",
-    "MALN2026",
     "MAQA2022",
     "MBAL2007",
     "MBEI2013",
     "MCAP2023",
-    "MCOR2026",
     "MDUB2005",
     "MDUB2009",
     "MDUB2013",
     "MDUB2023",
+    "MDUB2027",
     "MFIJ2017",
+    "MITAPE26",
+    "MJOA2027",
     "MKAM2013",
     "MKIE2003",
     "MKIE2006",
@@ -2158,6 +2159,7 @@
     "MMTR2004",
     "MMTR2008",
     "MNEG2024",
+    "MOST2027",
     "MPUE2016",
     "MQUE2012",
     "MRAR2025",
@@ -2165,6 +2167,7 @@
     "MROS2001",
     "MROS2009",
     "MSAN1995",
+    "MSAQ2027",
     "MSTA2012",
     "MVAA2005",
     "MVAR2004",
@@ -2176,17 +2179,18 @@
     "W172016",
     "WACA2007",
     "WALA2008",
-    "WALN2026",
     "WAQA2022",
     "WBEI2013",
     "WC2010",
     "WCAP2023",
     "WCAR1991",
-    "WCOR2026",
     "WDUB2009",
     "WDUB2013",
     "WDUB2023",
+    "WDUB2027",
     "WFIJ2017",
+    "WITAPE26",
+    "WJOA2027",
     "WKAM2013",
     "WLAO2020",
     "WLIS2013",
@@ -2195,10 +2199,12 @@
     "WMTR2004",
     "WMTR2008",
     "WNEG2024",
+    "WOST2027",
     "WPHU2014",
     "WPUE2016",
     "WQUE2012",
     "WROS2001",
+    "WSAQ2027",
     "WSEN2008",
     "WSEO2005",
     "WSER1996",
@@ -2211,5 +2217,100 @@
     "WVLA2008",
     "WWCH2027",
     "WYAN2020"
+  ],
+  "highlights": [
+    {
+      "key": "tournaments",
+      "gender": "M",
+      "value": 255,
+      "who": [
+        {
+          "id": 100427,
+          "name": "Emanuel Rego",
+          "federation": "BRA"
+        }
+      ]
+    },
+    {
+      "key": "pair-podiums",
+      "gender": "W",
+      "value": 85,
+      "who": [
+        {
+          "id": 100256,
+          "name": "Adriana Brandão Behar",
+          "federation": "BRA"
+        },
+        {
+          "id": 100926,
+          "name": "Shelda Kelly Bruno Bede",
+          "federation": "BRA"
+        }
+      ],
+      "first": 1995,
+      "last": 2007
+    },
+    {
+      "key": "partnership",
+      "gender": "M",
+      "value": 159,
+      "who": [
+        {
+          "id": 103311,
+          "name": "Pablo Herrera Allepuz",
+          "federation": "ESP"
+        },
+        {
+          "id": 116710,
+          "name": "Adrián Gavira Collado",
+          "federation": "ESP"
+        }
+      ],
+      "first": 2009,
+      "last": 2024
+    },
+    {
+      "key": "titles",
+      "gender": "W",
+      "value": 61,
+      "who": [
+        {
+          "id": 103903,
+          "name": "Larissa França Maestrini",
+          "federation": "BRA"
+        }
+      ]
+    },
+    {
+      "key": "pair-olympic-worlds",
+      "gender": "M",
+      "value": 4,
+      "who": [
+        {
+          "id": 137127,
+          "name": "Christian Sandlie Sørum",
+          "federation": "NOR"
+        },
+        {
+          "id": 143192,
+          "name": "Anders Berntsen Mol",
+          "federation": "NOR"
+        }
+      ],
+      "first": 2016,
+      "last": 2026
+    },
+    {
+      "key": "tournaments",
+      "gender": "W",
+      "value": 234,
+      "who": [
+        {
+          "id": 104079,
+          "name": "Carolina Solberg Salgado",
+          "federation": "BRA"
+        }
+      ]
+    }
   ]
 }

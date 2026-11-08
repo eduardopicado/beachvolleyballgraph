@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readTournament } from './tournamentMeta';
-import type { TournamentMeta } from '../schema';
+import type { TournamentMeta } from '../../../shared/schema';
 
 describe('readTournament', () => {
   it('reads the longest form, gender included', () => {

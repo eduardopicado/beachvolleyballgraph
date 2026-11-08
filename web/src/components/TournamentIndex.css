@@ -287,10 +287,10 @@
 }
 
 /*
- * An event with no result yet. The name links like any other — its page
- * carries the entry list — and the tag says what is not there.
+ * An event with no result yet. The name links like any other, and the tag
+ * names what its page carries instead: the entry list.
  */
-.tournament-index td.what .soon {
+.tournament-index td.what .entries {
   margin-left: 8px;
   padding: 1px 7px;
   border-radius: 999px;

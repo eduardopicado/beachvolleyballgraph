@@ -4,14 +4,25 @@ import { indexPlayers, searchPlayers, type SearchablePlayer } from '../web/src/l
 import {
   fieldPlayerSlice,
   parseSliceKey,
+  readEntry,
   type ClassificationFile,
+  type EntriesFile,
+  type Manifest,
   type SearchEntry,
-} from '../web/src/schema.js';
+  type SeriesFile,
+  type SeriesIndexFile,
+  type TournamentMeta,
+} from '../shared/schema.js';
 import {
   aggregateMedals,
   aggregatePairHonours,
   decorationOf,
   entryStatus,
+  aggregateEntries,
+  entryOrder,
+  entryTuple,
+  pointsOf,
+  type EntryRow,
   type PairDecoration,
   type PairHonours,
   aggregatePartnerships,
@@ -21,12 +32,14 @@ import {
   normalisePlayers,
   finishedWithoutResults,
   normaliseTournaments,
+  tournamentMeta,
   orderResults,
   pairKey,
   awayPartnersByPlayer,
   sliceByCountryAndGender,
   seasonFor,
   seasonRange,
+  eventStart,
   startOffsetFor,
   spanFor,
   countryCodeFor,
@@ -36,6 +49,7 @@ import {
   olympicGamesByPlayer,
 } from './build.js';
 import type { VisRow } from './vis.js';
+import { readTournament } from '../web/src/lib/tournamentMeta.js';
 
 const tournament = (no: string, season: number): VisRow => ({
   No: no,
@@ -53,10 +67,16 @@ const player = (no: number, gender: '0' | '1', fed: string): VisRow => ({
   FederationCode: fed,
 });
 
+/**
+ * A team row that was played. `Rank` 9 — the commonest placing — because VIS
+ * sends a rank on every row, and a fixture without one only passed while a
+ * missing rank was taken for a played one (see `rankOf`).
+ */
 const entry = (tour: string, a: number, b: number): VisRow => ({
   NoTournament: tour,
   NoPlayer1: String(a),
   NoPlayer2: String(b),
+  Rank: '9',
 });
 
 /** An entry that finished somewhere, for the best-finish tests. */
@@ -77,6 +97,36 @@ describe('pairKey', () => {
   });
 });
 
+describe('tournamentMeta', () => {
+  const one = (row: VisRow) => tournamentMeta(normaliseTournaments([row]).get('1')!);
+
+  it('keeps the draw on a coded event with no country and no dates', () => {
+    // No CountryCode, no dates: country and span both null, the case the old
+    // fallbacks cut short. The index drops a row with no gender, so the event
+    // would have left the calendar.
+    const meta = one({ ...tournament('1', 2026), Code: 'WXYZ2026', Gender: '1' });
+    expect(readTournament(meta)).toMatchObject({ code: 'WXYZ2026', country: null, span: null, gender: 'W' });
+  });
+
+  it('writes every slot on a fully populated event', () => {
+    const meta = one({
+      ...tournament('1', 2026),
+      Code: 'MCOR2026',
+      Gender: '0',
+      CountryCode: 'IT',
+      StartDateMainDraw: '2026-09-18',
+      EndDateMainDraw: '2026-09-20',
+    });
+    expect(meta).toHaveLength(9);
+    expect(readTournament(meta)).toMatchObject({ code: 'MCOR2026', country: 'IT', span: 2, gender: 'M' });
+  });
+
+  it('stays short for an event with no code, which has no page to address', () => {
+    expect(one(tournament('1', 2026))).toHaveLength(3);
+    expect(one({ ...tournament('1', 2026), StartDateMainDraw: '2026-09-18' })).toHaveLength(4);
+  });
+});
+
 describe('normaliseTournaments', () => {
   it('carries FIVB\'s own tournament code through', () => {
     // The only stable public handle on a tournament: FIVB retired its
@@ -87,6 +137,38 @@ describe('normaliseTournaments', () => {
 
   it('leaves the code empty rather than inventing one', () => {
     expect(normaliseTournaments([tournament('1', 2026)]).get('1')!.code).toBe('');
+  });
+
+  it('dates an event from qualification, and measures the span from the same day', () => {
+    // End to end, on the real Corigliano Rossano row: qualification on the
+    // 17th, main draw 18-20. Both fields have to move together — a span still
+    // measured from the main draw would put the last day on the 19th, because
+    // the end date is read back as startOffset + span.
+    const kept = normaliseTournaments([
+      {
+        ...tournament('1', 2026),
+        Code: 'MCOR2026',
+        StartDateQualification: '2026-09-17',
+        StartDateMainDraw: '2026-09-18',
+        EndDateMainDraw: '2026-09-20',
+      },
+    ]).get('1')!;
+    const day = (offset: number) =>
+      new Date(Date.UTC(2026, 0, 1) + offset * 86_400_000).toISOString().slice(0, 10);
+    expect(day(kept.startOffset!)).toBe('2026-09-17');
+    expect(day(kept.startOffset! + kept.span!)).toBe('2026-09-20');
+    // The end date itself is still the main draw's last day, untouched.
+    expect(kept.endsOn).toBe('2026-09-20');
+  });
+
+  it('falls back to the main draw for an event with no qualification date', () => {
+    const kept = normaliseTournaments([
+      { ...tournament('1', 2026), StartDateMainDraw: '2026-09-18', EndDateMainDraw: '2026-09-20' },
+    ]).get('1')!;
+    const day = (offset: number) =>
+      new Date(Date.UTC(2026, 0, 1) + offset * 86_400_000).toISOString().slice(0, 10);
+    expect(day(kept.startOffset!)).toBe('2026-09-18');
+    expect(kept.span).toBe(2);
   });
 
   it('keeps FIVB-organized events on the allowlist', () => {
@@ -275,7 +357,7 @@ describe('tidyBirthPlace', () => {
   });
 
   it('normalises capitals and strips the quotes FIVB stored', () => {
-    // 444 published birth places shout; "9 de JULIO" is a real Argentine town
+    // 465 published birth places shout; "9 de JULIO" is a real Argentine town
     // wearing quotation marks.
     expect(tidyBirthPlace('BUENOS AIRES')).toBe('Buenos Aires');
     expect(tidyBirthPlace('"9 de JULIO"')).toBe('9 de Julio');
@@ -284,7 +366,7 @@ describe('tidyBirthPlace', () => {
 
   it('normalises a value that has no capitals either', () => {
     // The mirror of the shout rule, and the same failure: a free-text box
-    // filled in with caps lock in the other state. 102 published places have no
+    // filled in with caps lock in the other state. 103 published places have no
     // capital anywhere.
     expect(tidyBirthPlace('rio de janeiro')).toBe('Rio de Janeiro');
     expect(tidyBirthPlace('buenos aires')).toBe('Buenos Aires');
@@ -312,6 +394,24 @@ describe('tidyBirthPlace', () => {
     expect(tidyBirthPlace('St-Gallen')).toBe('St-Gallen');
     expect(tidyBirthPlace('Adelaide, SA')).toBe('Adelaide, SA');
     expect(tidyBirthPlace('Arendal, norway')).toBe('Arendal, norway');
+  });
+
+  it('mends the two slips that mixed capitals do not excuse', () => {
+    // Caps lock with shift held for the first letter: the one published case.
+    expect(tidyBirthPlace('wEIDEN')).toBe('Weiden');
+    // A first letter typed small, the three published cases. Only the first
+    // letter: the rest is mixed, and so is left as typed.
+    expect(tidyBirthPlace('nagano, Japan')).toBe('Nagano, Japan');
+    expect(tidyBirthPlace('ciudad la Habana')).toBe('Ciudad la Habana');
+    expect(tidyBirthPlace('san juan del sur, Rivas')).toBe('San juan del sur, Rivas');
+  });
+
+  it('keeps a single quote, which belongs to the name wherever FIVB has one', () => {
+    // Both published values with a single quote at an end. Stripping it, as
+    // the double-quote rule once did for both kinds, gave "s Gravenhage" and
+    // "K. Male".
+    expect(tidyBirthPlace("'s Gravenhage")).toBe("'s Gravenhage");
+    expect(tidyBirthPlace("K. Male'")).toBe("K. Male'");
   });
 
   it('capitalises after a bracket or a comma, not only after a hyphen', () => {
@@ -517,6 +617,19 @@ describe('aggregatePartnerships', () => {
   it('treats a blank Rank the same as 0 -- the shape a withdrawn row actually has', () => {
     const { rejects } = aggregatePartnerships([{ ...entry('t1', 1, 2), Rank: '' }], tournaments, players);
     expect(rejects.didNotPlay).toBe(1);
+  });
+
+  it('treats a row with no Rank at all as never played, not as a result', () => {
+    // VIS sends `Rank` on every team row today, blank or 0 when unplayed. Were
+    // it ever left off — a request that stopped asking for it, an upstream
+    // change — `Number(undefined)` is NaN, which is not 0, and every such row
+    // would have counted as played and published a null rank.
+    const missing: VisRow = { NoTournament: 't1', NoPlayer1: '1', NoPlayer2: '2' };
+    const garbled: VisRow = { ...missing, Rank: 'n/a' };
+    const { partnerships, appearances, rejects } = aggregatePartnerships([missing, garbled], tournaments, players);
+    expect(partnerships.size).toBe(0);
+    expect(appearances.size).toBe(0);
+    expect(rejects.didNotPlay).toBe(2);
   });
 
   it('keeps a negative Rank -- a real qualification/quota elimination, not a no-show', () => {
@@ -766,6 +879,46 @@ describe('seasonFor', () => {
   });
 });
 
+describe('eventStart', () => {
+  it('opens the event at qualification when it comes first', () => {
+    // BPT Futures Corigliano Rossano 2026, the row this exists for: the index
+    // showed 18-20 September and said "Upcoming" on the 17th, while
+    // qualification was being played.
+    expect(eventStart('2026-09-17', '2026-09-18')).toBe('2026-09-17');
+  });
+
+  it('falls back to the main draw when there is no qualification date', () => {
+    // 232 of the 1,688 published tournaments, mostly old ones.
+    expect(eventStart(undefined, '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('', '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('not-a-date', '2026-09-18')).toBe('2026-09-18');
+  });
+
+  it('takes the earlier when qualification is recorded after the main draw', () => {
+    // Six rows upstream do this, two of them by more than nine years. Taking
+    // qualification whenever it exists would date those to the wrong decade.
+    expect(eventStart('2026-09-20', '2026-09-18')).toBe('2026-09-18');
+    expect(eventStart('2035-01-04', '2025-07-30')).toBe('2025-07-30');
+  });
+
+  it('is the same day when the two agree', () => {
+    // 37 published events qualify and start the main draw on one day.
+    expect(eventStart('2026-09-18', '2026-09-18')).toBe('2026-09-18');
+  });
+
+  it('reads a date carrying a time, and gives up on neither date at all', () => {
+    expect(eventStart('2026-09-17T00:00:00', '2026-09-18T00:00:00')).toBe('2026-09-17');
+    expect(eventStart(undefined, undefined)).toBeUndefined();
+    expect(eventStart('nonsense', 'also nonsense')).toBeUndefined();
+  });
+
+  it('carries a qualification that opens in the previous calendar year', () => {
+    // The offset is signed for exactly this, and qualification is the field
+    // most likely to cross the boundary.
+    expect(startOffsetFor(eventStart('2019-12-30', '2020-01-02'), 2020)).toBe(-2);
+  });
+});
+
 describe('startOffsetFor', () => {
   it('counts days from 1 January of the season', () => {
     expect(startOffsetFor('2024-01-01', 2024)).toBe(0);
@@ -961,6 +1114,10 @@ describe('awayPartnersByPlayer', () => {
         t: 2,
         f: 2023,
         l: 2024,
+        // Their best finish together. Absent from this expectation until the
+        // fixture carried a rank: rows without one were taken as played with
+        // a NaN rank, which left `r` off.
+        r: 9,
         // The same per-season shape a graph edge carries, so the card can run
         // both through one timeline.
         s: [
@@ -1499,6 +1656,148 @@ describe('entryStatus', () => {
   });
 });
 
+describe('pointsOf', () => {
+  it('keeps a blank apart from a zero', () => {
+    // Repek/Pribanic with no points at all; Schmidt/Schmidt ranked at nothing.
+    expect(pointsOf('')).toBe(null);
+    expect(pointsOf(undefined)).toBe(null);
+    expect(pointsOf('0')).toBe(0);
+  });
+
+  it('reads a real figure and refuses a non-number', () => {
+    expect(pointsOf('1178')).toBe(1178);
+    expect(pointsOf('n/a')).toBe(null);
+  });
+});
+
+describe('aggregateEntries', () => {
+  /** A full team row as VIS returns it for an entry list. */
+  const team = (
+    tour: string,
+    a: number,
+    b: number,
+    extra: Partial<Record<'Status' | 'Type' | 'EntryPoints' | 'TechnicalPoints' | 'FederationCode', string>> = {},
+  ): VisRow => ({ ...entry(tour, a, b), Status: '0', FederationCode: 'ITA', ...extra });
+
+  it('groups the rows of one tournament and reads every field', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { EntryPoints: '1178', TechnicalPoints: '2240' }),
+      team('9149', 3, 4, { EntryPoints: '956', TechnicalPoints: '1284', Type: '1' }),
+      team('9150', 5, 6),
+    ]);
+    expect([...byTournament.keys()].sort()).toEqual(['9149', '9150']);
+    expect(byTournament.get('9149')).toEqual([
+      { a: 1, b: 2, federation: 'ITA', entry: 1178, tech: 2240, route: null, withdrawal: null },
+      { a: 3, b: 4, federation: 'ITA', entry: 956, tech: 1284, route: 'WC', withdrawal: null },
+    ]);
+  });
+
+  it('keeps a withdrawn team on the list with its reason', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { Status: '2' }),
+      team('9149', 3, 4, { Status: '3' }),
+      team('9149', 5, 6, { Status: '4' }),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => t.withdrawal)).toEqual(['withdrawn', 'medical', 'late']);
+  });
+
+  it('counts every row it declines, by status, instead of dropping it in silence', () => {
+    // The guard the Status 4 incident showed was missing: the next unread
+    // value must be a number in the run log, not a team missing from a page.
+    const { byTournament, dropped } = aggregateEntries([
+      team('9149', 1, 2, { Status: '1' }),
+      team('9149', 3, 4, { Status: '1' }),
+      team('9149', 5, 6, { Status: '5' }),
+      team('9149', 7, 8, { Status: '9' }),
+    ]);
+    expect(byTournament.size).toBe(0);
+    expect([...dropped].sort()).toEqual([
+      [1, 2],
+      [5, 1],
+      [9, 1],
+    ]);
+  });
+
+  it('drops a broken row without counting it as a status', () => {
+    // A self-paired or missing player is a malformed row, not an unread
+    // state, so it must neither appear on a list nor inflate the tally.
+    const { byTournament, dropped } = aggregateEntries([
+      team('9149', 1, 1),
+      team('9149', 0, 2),
+      team('9149', 3, 4),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => [t.a, t.b])).toEqual([[3, 4]]);
+    expect(dropped.size).toBe(0);
+  });
+
+  it('publishes a blank points figure as null and a zero as zero', () => {
+    const { byTournament } = aggregateEntries([
+      team('9149', 1, 2, { EntryPoints: '', TechnicalPoints: '' }),
+      team('9149', 3, 4, { EntryPoints: '0', TechnicalPoints: '0' }),
+    ]);
+    expect(byTournament.get('9149')!.map((t) => [t.entry, t.tech])).toEqual([
+      [null, null],
+      [0, 0],
+    ]);
+  });
+});
+
+describe('entryOrder', () => {
+  const row = (a: number, entry: number | null, tech: number | null = null): EntryRow => ({
+    a,
+    b: a + 100,
+    federation: 'ITA',
+    entry,
+    tech,
+    route: null,
+    withdrawal: null,
+  });
+
+  it('puts the most entry points first', () => {
+    expect([row(1, 500), row(2, 900), row(3, 700)].sort(entryOrder).map((r) => r.a)).toEqual([2, 3, 1]);
+  });
+
+  it('breaks a tie on technical points, as FIVB does', () => {
+    // Schinko's 788 technical points beat Saucedo's 744 on an equal 464.
+    expect([row(1, 464, 744), row(2, 464, 788)].sort(entryOrder).map((r) => r.a)).toEqual([2, 1]);
+  });
+
+  it('sorts a pair with no points after a pair ranked at nothing', () => {
+    expect([row(1, null), row(2, 0)].sort(entryOrder).map((r) => r.a)).toEqual([2, 1]);
+  });
+
+  it('falls back to the pair ids so equal rows never reorder between runs', () => {
+    const sorted = [row(9, 100, 100), row(4, 100, 100)].sort(entryOrder);
+    expect(sorted.map((r) => r.a)).toEqual([4, 9]);
+  });
+});
+
+describe('entryTuple', () => {
+  const base: EntryRow = {
+    a: 1,
+    b: 2,
+    federation: 'ITA',
+    entry: 840,
+    tech: 1166,
+    route: null,
+    withdrawal: null,
+  };
+
+  it('writes five elements for the ordinary case', () => {
+    expect(entryTuple(base)).toEqual([1, 2, 'ITA', 840, 1166]);
+  });
+
+  it('puts the route in the sixth slot when there is one', () => {
+    expect(entryTuple({ ...base, route: 'QWC' })).toEqual([1, 2, 'ITA', 840, 1166, 'QWC']);
+  });
+
+  it('lets a withdrawal win the sixth slot over a route', () => {
+    // A withdrawn wild card is a withdrawn team: the page must not badge it
+    // with how it got in, and `readEntry` tells the two apart by value.
+    expect(entryTuple({ ...base, route: 'WC', withdrawal: 'late' })).toEqual([1, 2, 'ITA', 840, 1166, 'late']);
+  });
+});
+
 // A snapshot of every real Olympic Games (Type 5) and FIVB World
 // Championships (Type 4) medal-round result FIVB's VIS API returns, captured
 // so this test suite validates the medal logic against every actual medal
@@ -1811,6 +2110,12 @@ describe('finishedWithoutResults', () => {
     expect(finishedWithoutResults(tournaments, rows, '2026-08-17').map((t) => t.no)).toEqual(['1']);
   });
 
+  it('does not take a row with no Rank for a result', () => {
+    const tournaments = normaliseTournaments([dated('1', '2026-08-16')]);
+    const rows: VisRow[] = [{ NoTournament: '1', NoPlayer1: '1', NoPlayer2: '2' }];
+    expect(finishedWithoutResults(tournaments, rows, '2026-08-17').map((t) => t.no)).toEqual(['1']);
+  });
+
   it('says nothing once a single row has a rank', () => {
     const tournaments = normaliseTournaments([dated('1', '2026-08-16')]);
     const rows: VisRow[] = [
@@ -1828,7 +2133,7 @@ describe('finishedWithoutResults', () => {
 
   it('ignores an event that has not finished', () => {
     // Future events carry full entry lists and no ranks by definition; saying
-    // so every week for every scheduled tournament would be pure noise.
+    // so every day for every scheduled tournament would be pure noise.
     const tournaments = normaliseTournaments([dated('1', '2026-12-01')]);
     const rows: VisRow[] = [{ ...entry('1', 1, 2), Rank: '' }];
     expect(finishedWithoutResults(tournaments, rows, '2026-08-17')).toEqual([]);
@@ -2623,5 +2928,81 @@ describe('a player named in a tournament’s field', () => {
     const byCode = files.filter((f) => f.gender !== (f.code.startsWith('W') ? 'W' : 'M'));
     expect(byCode.map((f) => f.code).sort()).toEqual(['Rio2016W', 'WWRS2022']);
     for (const file of files) expect(['M', 'W']).toContain(file.gender);
+  });
+});
+
+/**
+ * How the per-tournament files fit together, as published.
+ *
+ * `classifications/`, `entries/` and `series/` are written by three different
+ * loops in main.ts over the same tournament set, and the manifest's
+ * `withoutField` by a fourth. data-model.md states what holds between them;
+ * this is where those statements are checked against the tree rather than
+ * against the code that meant to write it that way.
+ */
+describe('the per-tournament files', () => {
+  const DATA = new URL('../web/public/v1/', import.meta.url);
+  const read = (rel: string) => JSON.parse(readFileSync(new URL(rel, DATA), 'utf8'));
+  const codesIn = (dir: string) =>
+    new Set(readdirSync(new URL(`${dir}/`, DATA)).map((name) => name.replace(/\.json$/, '')));
+
+  const classified = codesIn('classifications');
+  const entered = codesIn('entries');
+  const manifest = read('manifest.json') as Manifest;
+  const tournaments = Object.values(read('tournaments.json').tournaments as TournamentMeta[]);
+  const allCodes = new Set(tournaments.map((t) => t[4]).filter((c): c is string => !!c));
+
+  it('covers the whole archive', () => {
+    // Vacuity guard: every assertion below passes trivially on nothing.
+    expect(classified.size).toBeGreaterThan(1_500);
+    expect(allCodes.size).toBeGreaterThan(1_600);
+  });
+
+  it('gives a tournament a classification or an entry list, never both', () => {
+    expect([...entered].filter((code) => classified.has(code))).toEqual([]);
+    for (const code of [...classified, ...entered]) expect(allCodes.has(code)).toBe(true);
+  });
+
+  it('lists in withoutField exactly the tournaments with no classification', () => {
+    // The manifest is what tells the site which tournaments have a page, and
+    // a list that is merely *nearly* the set of files on disk shows up as a
+    // slug resolved two different ways rather than as an error.
+    const expected = [...allCodes].filter((code) => !classified.has(code)).sort();
+    expect(manifest.withoutField).toEqual(expected);
+  });
+
+  it('names every player an entry list carries', () => {
+    for (const code of entered) {
+      const file = read(`entries/${code}.json`) as EntriesFile;
+      for (const team of [...file.teams, ...(file.withdrawn ?? [])]) {
+        const { a, b } = readEntry(team);
+        expect(file.players[a], `${code}: ${a}`).toBeTruthy();
+        expect(file.players[b], `${code}: ${b}`).toBeTruthy();
+      }
+    }
+  });
+
+  it('builds every series edition from a classification that exists, and indexes it', () => {
+    const index = (read('series/index.json') as SeriesIndexFile).of;
+    const slugs = [...codesIn('series')].filter((s) => s !== 'index');
+    expect(slugs.length).toBeGreaterThan(2);
+    let editions = 0;
+    for (const slug of slugs) {
+      const series = read(`series/${slug}.json`) as SeriesFile;
+      expect(series.slug).toBe(slug);
+      for (const edition of series.editions) {
+        editions++;
+        expect(classified.has(edition.code), `${slug}: ${edition.code}`).toBe(true);
+        expect(index[edition.code], `${slug}: ${edition.code} not indexed`).toContain(slug);
+      }
+    }
+    // And nothing in the index points at a series that does not list it.
+    for (const [code, members] of Object.entries(index)) {
+      for (const slug of members) {
+        const series = read(`series/${slug}.json`) as SeriesFile;
+        expect(series.editions.some((e) => e.code === code), `${code} -> ${slug}`).toBe(true);
+      }
+    }
+    expect(editions).toBeGreaterThan(100);
   });
 });

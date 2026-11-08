@@ -5,7 +5,12 @@
  * slice, a card, a search box, a path finder — and every one of those is state
  * a tournament page has no use for. Mounting one or the other in `main.tsx`
  * keeps each free of the other's concerns, and keeps this page cheap: it
- * fetches the tournament index and one classification, and nothing else.
+ * reads its own facts from the prerendered HTML (`TournamentPageFacts`) and
+ * fetches one classification or entry list, and nothing else.
+ *
+ * **Without those facts it resolves the slug itself**, which is what the rest
+ * of this comment describes: the dev server prerenders nothing, and a page
+ * cached from before the facts existed has none.
  *
  * **The slug is resolved by rebuilding every slug, not by looking one up.**
  * There is no published slug->tournament map, and there should not be: a slug
@@ -15,10 +20,11 @@
  * against a fetch that already happened.
  */
 
-import { useEffect, useMemo, useState } from 'react';
-import type { Manifest, SeriesFile, TournamentsFile } from './schema';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import type { Gender, Manifest, SeriesFile, Tier, TournamentsFile } from '../../shared/schema';
+import { readFacts } from './lib/tournamentRoute';
 import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
-import { sliceSlug, tournamentPath } from './lib/slug';
+import { sliceSlug, tournamentPath } from '../../shared/slug';
 import { indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, drawCounterpart } from './lib/tournamentIndex';
 import { useClassification } from './lib/useClassification';
@@ -27,22 +33,39 @@ import { TournamentPage, type TournamentPageData } from './components/Tournament
 
 const BASE = import.meta.env.BASE_URL;
 
-/** The slug out of `/tournament/gstaad-2019-women/`, or null if this is not one. */
-export function tournamentSlugFromPath(pathname: string, base: string): string | null {
-  const rest = (pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, ''))
-    .replace(/index\.html$/, '')
-    .replace(/^\/+|\/+$/g, '');
-  const [prefix, slug, ...extra] = rest.split('/');
-  if (prefix !== 'tournament' || !slug || extra.length) return null;
-  return slug;
+/*
+ * FIVB's photographs, only in a build with `TOURNAMENT_PHOTOS=1`. The constant
+ * is replaced at build time, so without the switch this is `false ? … : null`
+ * and the import — the strip, its stylesheet, the photo file's address — is
+ * dropped from the bundle rather than shipped and hidden (TournamentPhotos.tsx).
+ */
+const TournamentPhotos = __TOURNAMENT_PHOTOS__ ? lazy(() => import('./components/TournamentPhotos')) : null;
+
+/** One tournament as this page uses it, from the facts or from the index. */
+interface Resolved {
+  code: string;
+  name: string;
+  season: number;
+  gender: Gender;
+  tier: Tier;
+  level: string | null;
+  country: string | null;
+  start: Date | null;
+  end: Date | null;
+  played: boolean;
+  counterpart: { gender: Gender; slug: string } | null;
+  /** Country name and ISO-2 for a federation, where it has a published page. */
+  federation: (code: string) => readonly [name: string, iso2: string | null] | undefined;
 }
 
 export default function TournamentRoute({ slug }: { slug: string }) {
+  const facts = useMemo(() => readFacts(slug), [slug]);
   const [tournaments, setTournaments] = useState<TournamentsFile | null>(null);
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
+    if (facts) return;
     let cancelled = false;
     Promise.all([fetchTournaments(), fetchManifest()])
       .then(([t, m]) => {
@@ -54,7 +77,7 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [facts]);
 
   /*
    * Every addressable tournament, built by the function the index and the
@@ -72,16 +95,34 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     return buildIndex(tournaments.tournaments, (code) => !withoutField.has(code));
   }, [tournaments, manifest]);
 
-  /** The row this slug names. */
-  const found = useMemo(() => rows.find((r) => r.slug === slug) ?? null, [rows, slug]);
+  /** The tournament this slug names: from the facts, or found in the index. */
+  const found = useMemo((): Resolved | null => {
+    if (facts) {
+      const day = (d: string | null) => (d ? new Date(`${d}T00:00:00Z`) : null);
+      return {
+        ...facts,
+        start: day(facts.start),
+        end: day(facts.end),
+        federation: (code) => facts.federations[code],
+      };
+    }
+    const row = rows.find((r) => r.slug === slug);
+    if (!row || !manifest) return null;
+    const other = drawCounterpart(rows, row);
+    const byCode = new Map(manifest.countries.map((c) => [c.code, [c.name, c.iso2] as const]));
+    return {
+      ...row,
+      counterpart: other && { gender: other.gender, slug: other.slug },
+      federation: (code) => byCode.get(code),
+    };
+  }, [facts, rows, slug, manifest]);
 
-  /** The same event's other draw, when it ran one. */
-  const counterpart = useMemo(() => (found ? drawCounterpart(rows, found) : null), [rows, found]);
-
-  const classification = useClassification(found?.code ?? null);
-
-  // Only for an event with no field: a played one has a classification, and
-  // fetching an entry list that was never written would be a guaranteed 404.
+  // Each file only for the events that have one. A played event has a
+  // classification and no entry list; one still to be decided has the
+  // reverse. Asking for the other is a guaranteed 404 — and the classification
+  // was being asked for on every entry-list page, where the page then ignores
+  // it anyway (TournamentPage draws the entry list whenever `entries` is set).
+  const classification = useClassification(found?.played ? found.code : null);
   const entries = useEntries(found && !found.played ? found.code : null);
 
   /*
@@ -112,10 +153,7 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     if (found) document.title = `${found.name} ${found.season} — Beach Volleyball Partnership Graph`;
   }, [found]);
 
-  const iso2Of = useMemo(() => {
-    const byCode = new Map((manifest?.countries ?? []).map((c) => [c.code, c.iso2]));
-    return (federation: string) => byCode.get(federation) ?? null;
-  }, [manifest]);
+  const iso2Of = useMemo(() => (federation: string) => found?.federation(federation)?.[1] ?? null, [found]);
 
   if (failed) {
     return (
@@ -125,7 +163,7 @@ export default function TournamentRoute({ slug }: { slug: string }) {
     );
   }
 
-  if (!tournaments || !manifest) {
+  if (!facts && (!tournaments || !manifest)) {
     return (
       <main className="tournament-page">
         <p className="note">Loading…</p>
@@ -175,18 +213,27 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       counterpart={
         // Every listed event has a page now, an unplayed one included, so the
         // switch works across a draw whose half is still to be played.
-        counterpart && { gender: counterpart.gender, href: tournamentPath(BASE, counterpart.slug) }
+        found.counterpart && { gender: found.counterpart.gender, href: tournamentPath(BASE, found.counterpart.slug) }
       }
       entries={entries}
       series={series}
       code={found.code}
+      photos={
+        // Only from the facts: the prerenderer counts the photo file, so a
+        // page without one never asks for it.
+        TournamentPhotos && facts?.photos ? (
+          <Suspense fallback={null}>
+            <TournamentPhotos code={found.code} count={facts.photos} />
+          </Suspense>
+        ) : undefined
+      }
       editionHref={(slug) => tournamentPath(BASE, slug)}
       onSelectPlayer={(id, slice) => {
         // A full navigation rather than client-side state: the graph lives in
         // `App`, which is not mounted here, and its page is prerendered.
-        const entry = manifest.countries.find((c) => c.code === slice.country);
-        if (!entry) return;
-        location.href = `${BASE}${sliceSlug(entry.name, slice.gender)}/?player=${id}`;
+        const country = found.federation(slice.country);
+        if (!country) return;
+        location.href = `${BASE}${sliceSlug(country[0], slice.gender)}/?player=${id}`;
       }}
     />
   );

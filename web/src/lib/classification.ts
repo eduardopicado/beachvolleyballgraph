@@ -8,7 +8,7 @@
  * renderer that lists them separately invents an order FIVB does not publish.
  */
 
-import type { ClassificationFile } from '../schema';
+import type { ClassificationFile } from '../../../shared/schema';
 
 export type Band = [rank: number, teams: ClassificationFile['teams']];
 

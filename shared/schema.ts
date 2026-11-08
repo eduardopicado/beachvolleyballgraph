@@ -170,12 +170,35 @@ export type TimelineFilter = 'olympics' | 'world-champs' | 'tour-podium';
  * The two tiers that together are "the tour" — the World Tour up to 2021 and
  * the Beach Pro Tour after it.
  *
+ * Age-group world championships are left out: they are world-level events,
+ * but not the senior tour, and a U19 title next to a Grand Slam title would
+ * flatter the wrong careers. The Olympics and the World Championships are left
+ * out because they are counted separately and more precisely.
+ *
  * Shared rather than defined twice: the ingest decides which podiums the Tour
  * podiums tile counts, and the card decides which events the matching filter
  * shows. Two copies of this would eventually disagree, and the disagreement
  * would look like a data bug rather than a drifted constant.
  */
 export const TOUR_TIERS: ReadonlySet<Tier> = new Set<Tier>(['world-tour', 'beach-pro-tour']);
+
+/**
+ * How long after an event ends its placements may still be missing.
+ *
+ * FIVB writes results into `BeachTeam.Rank` some hours after the last match,
+ * and the ingest runs once a day, so there is always a window where a
+ * tournament has been played and has no field. Set well past the observed lag
+ * — the one case measured resolved in days — so a genuinely stuck event still
+ * surfaces by name.
+ *
+ * Shared because both sides draw the same line with it. The ingest writes an
+ * entry list for every fieldless event inside the window, and names the ones
+ * in it as FIVB catching up rather than as events with no result; the
+ * tournament index lists the fieldless events inside it, so a tournament
+ * vanishes neither on the day it is played nor before its page can load. Two
+ * copies had been kept equal by a comment.
+ */
+export const RESULT_LAG_DAYS = 30;
 
 /** Lazy-loaded detail for every player in one country x gender slice. */
 export interface PlayerDetail {
@@ -237,6 +260,14 @@ export interface PlayerDetail {
  * `width` matters: without it FIVB serves the original, which runs to 2-3MB per
  * portrait. With it, the image service returns a resized WebP of about 10KB.
  */
+/**
+ * One of FIVB's own event photographs, by its image number, at a given width.
+ * The same host as the portraits below, and the same width parameter; `Type`
+ * is ignored for these (fivb-vis-survey.md §6), so it is left off.
+ */
+export const tournamentPhotoUrl = (no: number, width: number) =>
+  `https://sharp.fivb.com/Legacy/GetImage?No=${no}&width=${width}`;
+
 export const playerPhotoUrl = (id: number, width = 200) =>
   `https://sharp.fivb.com/Legacy/GetImage?Type=Player&No=${id}&Style=Portrait&width=${width}`;
 
@@ -254,9 +285,11 @@ export interface PlayersFile {
  * One tournament in the shared index: `[name, season, tier, startOffset?]`.
  *
  * `startOffset` is the same signed day count as `SeasonTally` carries — days
- * from 1 January of `season` to the main draw's first day — and reconstructs
- * the exact date, so no separate date string is published. Absent, or `null`
- * alongside a code, when the tournament carried no usable date.
+ * from 1 January of `season` to the day the event opens, which is the first
+ * day of qualification where FIVB publishes one and the first day of the main
+ * draw otherwise — and reconstructs the exact date, so no separate date string
+ * is published. Absent, or `null` alongside a code, when the tournament
+ * carried no usable date. See `eventStart` in ingest/build.ts.
  *
  * `code` is FIVB's own identifier for the event — `WBUS2026` is the 2026
  * women's Busan tournament. Published because it is the only stable, public
@@ -541,13 +574,16 @@ export function fieldPlayerSlice(
  * The fourth element exists because the graph draws `short` and the search
  * matched only `name`, so the one word a reader could see was the one word
  * that found nothing: Eduarda Santos Lisboa is labelled "Duda" on every graph
- * she appears in, and searching "Duda" returned nobody. 203 players are in
- * that position -- FIVB nicknames, and names taken later in a career, like
- * Laura Longuet appearing as "Walgenwitz".
+ * she appears in, and searching "Duda" returned nobody. FIVB nicknames, and
+ * names taken later in a career, like Laura Longuet appearing as "Walgenwitz",
+ * are what it is for.
  *
- * Omitted when `short` is already inside `name` (a plain shortening such as
- * "P. Solberg"), which is the overwhelming majority: carrying it for all
- * 12,000 would grow the second-largest published file to no purpose.
+ * Omitted when one of `name` and `short` contains the other (a plain
+ * shortening such as "Emanuel" for Emanuel Rego), which is most players. The
+ * test is a substring one, so initial forms such as "Capogrosso N." are not
+ * recognised as shortenings and are carried too: 1,363 of 12,120 entries carry
+ * a `short` that their name does not contain, measured 8 November 2026, over
+ * half of them initial forms.
  */
 export type SearchEntry =
   | [id: number, name: string, tournaments: number]
@@ -568,8 +604,8 @@ export type SearchEntry =
  * which. Confined to search, the worst a wrong entry can do is make an extra
  * string findable — it can never put a false name in front of a reader.
  *
- * Present on 274 of 12,075 players, so the fourth element carries `short`
- * alone on almost every row.
+ * Present on 286 of 12,120 entries (8 November 2026), so the fourth element
+ * carries `short` alone on almost every row that has one.
  */
 
 /**
@@ -613,7 +649,16 @@ export interface Manifest {
   generatedAt: string;
   /** Highest tournament `Version` seen upstream — changes when FIVB edits data. */
   sourceVersion: string;
-  /** Seasons covered by the qualifying tournament set. */
+  /**
+   * Seasons covered by the qualifying tournament set — **scheduled as well as
+   * played.** FIVB publishes events well ahead, so `to` is routinely next year
+   * (2027, with nothing yet played in it, when this was written).
+   *
+   * So no reader-facing sentence prints `from–to`: "1987–2027" claims a season
+   * that has not happened. The site says "since {from}" everywhere instead, and
+   * `to` stays published for what it is — the newest season FIVB has put
+   * anything into.
+   */
   seasons: { from: number; to: number };
   totals: {
     tournaments: number;
@@ -654,6 +699,14 @@ export interface Manifest {
    * honest failure and lasts until the next ingest.
    */
   withoutField?: string[];
+  /**
+   * The home page's "start here" cards, chosen from the same boards as
+   * `records.json` — see `Highlight` for why they ride here and not there.
+   *
+   * Optional: a tree generated before this field existed has none, and the
+   * strip simply does not render. Nothing else on the page depends on it.
+   */
+  highlights?: Highlight[];
 }
 
 export const GENDERS: Gender[] = ['M', 'W'];
@@ -673,6 +726,79 @@ export const resultsPath = (base: string, country: string, gender: Gender) =>
   `${base}${DATA_VERSION}/results/${country}-${gender}.json`;
 
 export const tournamentsPath = (base: string) => `${base}${DATA_VERSION}/tournaments.json`;
+
+/**
+ * What a tournament page needs to know about itself, written by the
+ * prerenderer into the page as `<script type="application/json"
+ * id="tournament-facts">`.
+ *
+ * Without it the page fetched `tournaments.json` (141 KB) and the manifest
+ * (38 KB) to find one row and a handful of flags: every tournament, every
+ * country, to read one of each. The prerenderer already holds both, so it
+ * writes the part this page reads and the page skips the fetch. A page served
+ * without it (the dev server, a page cached from before) still fetches the
+ * two files and works as it always did.
+ *
+ * Not part of the `/v1/` tree: it lives in the HTML and changes with the HTML,
+ * so it is free to change shape between builds.
+ */
+export interface TournamentPageFacts {
+  /** The address the facts belong to, checked against the page's own. */
+  slug: string;
+  code: string;
+  name: string;
+  season: number;
+  gender: Gender;
+  tier: Tier;
+  level: string | null;
+  /** ISO-2 of the venue's country. */
+  country: string | null;
+  /** Calendar days, `YYYY-MM-DD`; null where the archive has none usable. */
+  start: string | null;
+  end: string | null;
+  played: boolean;
+  /** The same event's other draw, when it ran one. */
+  counterpart: { gender: Gender; slug: string } | null;
+  /**
+   * Federation code -> its country's name and ISO-2, for every federation the
+   * page's field names and every slice a name on it links to: the flags beside
+   * the teams, and the graph page each name opens.
+   */
+  federations: Record<string, [name: string, iso2: string | null]>;
+  /**
+   * How many of FIVB's photographs `photos/{code}.json` holds. Present only on
+   * a build with tournament photos switched on (`TOURNAMENT_PHOTOS`), and only
+   * for a tournament that has some; absent, the page asks for no photo file.
+   */
+  photos?: number;
+}
+
+/** The id of the element carrying `TournamentPageFacts`. */
+export const TOURNAMENT_FACTS_ID = 'tournament-facts';
+
+/**
+ * One photograph: FIVB's image number, its caption, when it was taken
+ * (`YYYY-MM-DDTHH:MM`, null where FIVB has none), and whether FIVB picked it
+ * for its own slideshow.
+ */
+export type TournamentPhoto = [no: number, caption: string, takenAt: string | null, pick: 0 | 1];
+
+/**
+ * `/v1/photos/{CODE}.json`: FIVB's photographs of one tournament, its own
+ * slideshow picks first and the rest after, each group in the order taken.
+ *
+ * **Built only when the site is built with `TOURNAMENT_PHOTOS=1`**, and then
+ * into `dist/` alone, never into the committed tree: every photograph is
+ * FIVB's copyright, and until FIVB agrees to their use a build without the
+ * switch carries no file, no code and no mention of them. See
+ * `ingest/photos.ts`.
+ */
+export interface TournamentPhotosFile {
+  code: string;
+  photos: TournamentPhoto[];
+}
+
+export const photosPath = (base: string, code: string) => `${base}${DATA_VERSION}/photos/${code}.json`;
 export const seriesIndexPath = (base: string) => `${base}${DATA_VERSION}/series/index.json`;
 export const seriesPath = (base: string, slug: string) =>
   `${base}${DATA_VERSION}/series/${slug}.json`;
@@ -817,3 +943,217 @@ export function parseSliceKey(key: string): { country: string; gender: Gender } 
 }
 
 export const manifestPath = (base: string) => `${base}${DATA_VERSION}/manifest.json`;
+
+/**
+ * The categories in `/v1/records.json`, in the order a page lists them.
+ *
+ * Every one is a fact about the sport that the archive can prove from its own
+ * rows — a career, a partnership, a Games — and none is a fact about how FIVB's
+ * database happens to be shaped. That line is the whole difficulty of the
+ * file: "most federations represented" would count data gaps as achievements
+ * (a federation is a snapshot, not a history), so it is not here.
+ *
+ *  - `tournaments`, `career`, `partners`, `titles`, `games`: per player.
+ *  - `partnership`, `span`, `reunion`, `pair-*`: per pair, both halves named.
+ *  - `tallest-champion`, `shortest-champion`: per player, among world
+ *    champions only, from a field entered by hand at a couple of hundred
+ *    federations — so a row here is published only once the height has been
+ *    checked against a source outside FIVB. See `RecordRow`.
+ *
+ *    **World champions only, and on purpose.** There used to be an overall
+ *    Tallest and Shortest. The extremes of the whole archive turned out to be
+ *    mostly teenagers and one-event entrants: players who only ever played an
+ *    age-group championship are a tenth of everyone with a height but held
+ *    half of the ten shortest places in each draw, measured at 15 or 16, and
+ *    the adults among them had no height published anywhere but FIVB. Shortest
+ *    never shipped a single row. A world champion is someone every reference
+ *    covers, so their heights can be checked, and no junior-only player can be
+ *    one — the senior World Championship is a separate tier from the age-group
+ *    ones. It also asks a better question: not "who was tallest" but "how
+ *    tall, or how short, have the people been who won".
+ *
+ * Split by gender throughout. A combined board turned out to be silently
+ * all-men in five of six ranked categories, not because the women's tour is
+ * thinner but because a tie always loses to the bigger of two numbers.
+ */
+export type RecordKey =
+  | 'tournaments'
+  | 'career'
+  | 'partnership'
+  | 'partners'
+  | 'titles'
+  | 'games'
+  | 'span'
+  | 'reunion'
+  | 'tallest-champion'
+  | 'shortest-champion'
+  | 'pair-podiums'
+  | 'pair-titles'
+  | 'pair-olympic-worlds';
+
+export const RECORD_KEYS: readonly RecordKey[] = [
+  'tournaments',
+  'career',
+  'partnership',
+  'partners',
+  'titles',
+  'games',
+  'span',
+  'reunion',
+  'pair-podiums',
+  'pair-titles',
+  'pair-olympic-worlds',
+  'tallest-champion',
+  'shortest-champion',
+];
+
+/** One player on a record row: enough to name them and link to their page. */
+export interface RecordHolder {
+  id: number;
+  name: string;
+  /** Their current federation, which is where their page is. */
+  federation: string;
+}
+
+/**
+ * One row of a leaderboard.
+ *
+ * `who` is one player or the two halves of a pair. `first` and `last` are the
+ * seasons the row spans where a span is what it measures; `gap` is the two
+ * seasons either side of a reunion's idle years.
+ *
+ * **A withheld row is a rank with nothing on it.** It is the standing rule for
+ * the height categories: a value that has not been confirmed outside FIVB does
+ * not ship, not even with a caveat beside it, because a page of records is
+ * exactly where a reader takes a number at face value. The rank is kept so the
+ * board does not quietly promote the second-shortest to shortest; the value and
+ * the name are not. `ingest/records.ts` holds the list of what has been
+ * checked and logs what is waiting.
+ */
+export type RecordRow =
+  | {
+      rank: number;
+      value: number;
+      who: RecordHolder[];
+      first?: number;
+      last?: number;
+      gap?: [from: number, to: number];
+    }
+  | { rank: number; withheld: true };
+
+export interface RecordBoard {
+  /**
+   * The top rows, at most `RecordsFile.top` of them, in rank order.
+   *
+   * **Equal values share a rank**, and the next value takes the place it would
+   * have had anyway: 5, 5, 4 is ranked 1, 1, 3. So `rank` is not the row's
+   * index plus one, and two rows can both be 1. Within a tie the rows are
+   * listed by player id, which keeps the file stable between runs and means
+   * nothing about the sport.
+   */
+  rows: RecordRow[];
+  /**
+   * How many more candidates share the last row's value and were cut for
+   * space rather than merit — they hold the same rank as that row. This is
+   * what lets a page say "and 3 more at 4".
+   */
+  ties: number;
+}
+
+/**
+ * `/v1/records.json`: the archive's extremes, per category and per gender.
+ *
+ * Its own file because every number in it is read across all 264 slices — the
+ * one thing the rest of the tree is built never to do at page load. Built once
+ * per ingest run, a few kilobytes, and guarded by its own sanity floors so a
+ * broken fetch cannot publish an empty board as a record.
+ */
+export interface RecordsFile {
+  /** Rows per board. */
+  top: number;
+  categories: Record<RecordKey, Record<Gender, RecordBoard>>;
+}
+
+export const recordsPath = (base: string) => `${base}${DATA_VERSION}/records.json`;
+
+/**
+ * What each board's number is, phrased to follow the number itself: "255
+ * tournaments", "159 tournaments together", "4 Olympic and world medals".
+ *
+ * Shared rather than written in the component, because the prerenderer writes
+ * the same phrases into the home page's static HTML and the two have to agree
+ * — a crawler reading "255 tournaments" and a reader seeing "255 events" on
+ * the hydrated page is the sort of disagreement nobody notices and Google does.
+ *
+ * `pair-olympic-worlds` counts medals of any colour at the Games and the
+ * Worlds, not titles — see `PairDecoration` for why it is not called "majors".
+ */
+export const RECORD_LABEL: Record<RecordKey, string> = {
+  tournaments: 'tournaments',
+  career: 'years from first to last',
+  partnership: 'tournaments together',
+  partners: 'different partners',
+  titles: 'tour titles',
+  games: 'Olympic Games',
+  span: 'years as a pair',
+  reunion: 'years apart, then back',
+  'tallest-champion': 'centimetres',
+  'shortest-champion': 'centimetres',
+  'pair-podiums': 'podiums together',
+  'pair-titles': 'titles together',
+  'pair-olympic-worlds': 'Olympic and world medals',
+};
+
+/**
+ * Each board's heading on the records page, and in its prerendered HTML.
+ *
+ * A second set of words beside `RECORD_LABEL` rather than one derived from
+ * it: that one follows a number ("159 tournaments together"), this one names
+ * the record ("Most events as a pair"), and no rule turns either into the
+ * other. Shared for the same reason `RECORD_LABEL` is — the static page and the
+ * hydrated one must call a board the same thing.
+ */
+export const RECORD_TITLE: Record<RecordKey, string> = {
+  tournaments: 'Most tournaments',
+  career: 'Longest career',
+  partnership: 'Most events as a pair',
+  partners: 'Most partners',
+  titles: 'Most tour titles',
+  games: 'Most Olympic Games',
+  span: 'Longest-running pair',
+  reunion: 'Longest gap, then back together',
+  'tallest-champion': 'Tallest world champion',
+  'shortest-champion': 'Shortest world champion',
+  'pair-podiums': 'Most podiums as a pair',
+  'pair-titles': 'Most titles as a pair',
+  'pair-olympic-worlds': 'Most Olympic and world medals as a pair',
+};
+
+/**
+ * One card of the home page's "start here" strip: a record, flattened.
+ *
+ * The strip exists because the site opens on Brazil men and says nothing about
+ * why a reader should care — six computed names is the shortest honest answer,
+ * and it gives the prerendered home page some real content, which until now
+ * was a country list and a paragraph of totals.
+ *
+ * **It rides on the manifest rather than reading `records.json`.** The manifest
+ * is fetched on every page already; records.json is 47 KB fetched for six
+ * numbers. The cost is that the manifest grows by a few hundred bytes on every
+ * page including the ones that never draw a strip, which is the cheaper of the
+ * two.
+ *
+ * Optional on the manifest for the same reason `withoutField` is: the tree is
+ * regenerated by the daily ingest, not by the merge that adds a field, so every
+ * reader meets a manifest without it at least once.
+ */
+export interface Highlight {
+  key: RecordKey;
+  gender: Gender;
+  value: number;
+  /** One player, or the two halves of a pair. Never empty. */
+  who: RecordHolder[];
+  /** The seasons the row spans, where the row has them — pairs always do, players rarely. */
+  first?: number;
+  last?: number;
+}

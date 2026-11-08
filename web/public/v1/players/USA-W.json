@@ -428,22 +428,22 @@
             [
               1997,
               1,
-              226
+              225
             ],
             [
               1998,
               6,
-              294
+              292
             ],
             [
               1999,
               7,
-              307
+              305
             ],
             [
               2000,
               11,
-              264
+              259
             ]
           ],
           "r": 7
@@ -470,12 +470,12 @@
             [
               1997,
               6,
-              302
+              301
             ],
             [
               1998,
               1,
-              56
+              54
             ]
           ],
           "r": 5
@@ -2906,7 +2906,7 @@
     },
     {
       "id": 157946,
-      "name": "Molly Phillips",
+      "name": "Molly Martin",
       "dob": "2001-01-31",
       "height": 188,
       "weight": 77,
@@ -3575,7 +3575,7 @@
             [
               2018,
               1,
-              290
+              289
             ]
           ],
           "at": [
@@ -3774,8 +3774,8 @@
       "id": 182388,
       "name": "Xolani Hodel",
       "dob": "2002-06-15",
-      "height": null,
-      "weight": null,
+      "height": 188,
+      "weight": 83,
       "birthPlace": "California, USA",
       "tour": {
         "gold": 1,
@@ -4128,6 +4128,14 @@
       "filters": [
         "tour-podium"
       ]
+    },
+    {
+      "id": 201249,
+      "name": "Leanna Jadus",
+      "dob": "1997-10-04",
+      "height": null,
+      "weight": null,
+      "birthPlace": "California"
     },
     {
       "id": 201745,

@@ -15,7 +15,7 @@
  */
 
 import { test, expect, graph, manifest } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 import { initials } from '../web/src/lib/format.js';
 
 const COUNTRY = 'BRA';

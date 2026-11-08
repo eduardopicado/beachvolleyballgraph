@@ -99,7 +99,7 @@ incremental cache — a full rebuild every day is cheap and self-healing.
   Olympic Games and the FIVB World Championships are read off the raw VIS
   `Type` (5 and 4), narrowly, so a tier gaining a member cannot start minting
   Olympic medals. Everything else on the tour — World Tour and Beach Pro Tour,
-  1,552 of the 1,688 qualifying events — is one *tour podiums* tally with the
+  1,562 of the 1,698 qualifying events — is one *tour podiums* tally with the
   levels mixed: FIVB has renumbered its own hierarchy from
   Open/Challenger/Satellite to 1-to-5-star to Elite16/Challenge/Futures, and no
   mapping between those eras survives the archive. Age-group world
@@ -153,11 +153,15 @@ Everything under `/v1/` is static JSON:
 
 ```
 /v1/manifest.json            index: countries, node counts, tiers, freshness
-/v1/tournaments.json         every qualifying tournament: name, season, tier, date, FIVB code, level
-/v1/search.json              every published player, grouped by slice, for search
+/v1/tournaments.json         every qualifying tournament: name, season, tier, dates, FIVB code, level, country, draw
+/v1/search.json              every published player, grouped by slice, for search, with graph labels and former names
 /v1/graphs/{CC}-{G}.json     nodes + edges for one country × gender
 /v1/players/{CC}-{G}.json    height, weight, date of birth, medals, foreign partners
 /v1/results/{CC}-{G}.json    every tournament every player in the slice entered
+/v1/classifications/{CODE}.json  the full field of one played tournament, by FIVB code
+/v1/entries/{CODE}.json      who has entered a tournament with no result yet, and who withdrew
+/v1/series/{slug}.json       every edition of a recurring event, top four each; index.json maps codes to series
+/v1/records.json             the archive's extremes: 13 categories, men and women, top five each
 ```
 
 Edge keys are terse (`a`, `b`, `t`, `f`, `l`, `s`) because edges dominate file
@@ -190,7 +194,7 @@ own graph, with only the ones from outside it (see below) named in the results
 file itself. The largest results file is 84 KB uncompressed.
 
 Each tournament also carries the **level** FIVB gave it at the time — "Grand
-Slam", "4-star", "Elite16" — on the 1,552 tour events, and absent on the
+Slam", "4-star", "Elite16" — on the 1,562 tour events, and absent on the
 Olympics, World Championships and age-group championships, which have no level
 below their tier. This is what lets the player card badge a week on tour at
 all: `tier` collapses thirteen distinct rungs into one `world-tour` value, so
@@ -225,7 +229,7 @@ reports brackets, so eight teams finish 9th and 89% of played rows sit on a
 rank another team also holds. Negative values are eliminations before the main
 draw: `<= -25` in qualification, `-2` on a confederation quota.
 
-The schema is [`web/src/schema.ts`](web/src/schema.ts), shared verbatim by the
+The schema is [`shared/schema.ts`](shared/schema.ts), shared verbatim by the
 ingest pipeline and the app so the two cannot drift.
 
 Breaking the schema means writing `/v2/` and cutting the frontend over — no
@@ -290,7 +294,7 @@ BASE_PATH=/beachvolleyballgraph/ npm run test:e2e
 `BASE_PATH` has to match between the two — `vite preview` serves at the base the
 site was built with, so a mismatch just 404s.
 
-**467 unit tests** cover the pure logic — tier filtering, pair aggregation and
+**Around 850 unit tests** cover the pure logic — tier filtering, pair aggregation and
 dedupe, medal counting, country-name resolution, the VIS attribute scanner and
 unit conversions, graph layout maths (fit-to-view, label collision, radius
 scaling), slug round-trips and HTML escaping. Logic that starts inside a
@@ -298,14 +302,17 @@ component gets lifted into `web/src/lib/` to be tested there rather than through
 the DOM: the strength threshold and the table's sort comparator were both
 `useMemo` bodies first.
 
-`npm run test:e2e` is the other half: **113 Playwright tests in seven files**
+`npm run test:e2e` is the other half: **around 200 Playwright tests in 25 files**
 against the *built* site served by `vite preview`, at the same `BASE_PATH` the
 deploy uses, so what it exercises is what ships — prerendered HTML and asset
 URLs included. They cover rendering and the no-JavaScript path (`smoke`), five
 viewport widths (`layout`), the focus contract and search combobox
 (`keyboard`), the min-events threshold (`filter`), sorting (`table`), deep
-links with the canonical tag (`routing`), and tap targets surviving the zoom
-the graph actually chooses (`pointer`).
+links with the canonical tag (`routing`), tap targets surviving the zoom
+the graph actually chooses (`pointer`), the tournament pages and index, the
+records page, the About and not-found pages, and that a tournament page asks
+only for the data files its event has. [docs/implementation.md](docs/implementation.md#testing)
+lists every file.
 
 Every assertion is cross-checked against the JSON the page was built from
 rather than a number written into the test, so the suite survives the daily
@@ -330,7 +337,9 @@ pretty-printed and sorted by immutable keys.
 A client-rendered SPA with everything behind `?country=BRA` gives crawlers one
 URL and an empty `<div id="root">`. Every graph already exists as JSON at build
 time, so `npm run build` also prerenders **one real HTML page per country ×
-gender** (one per published slice, ~265 pages) via `ingest/prerender.ts`:
+gender** (264 today) and **one per tournament** the index lists (about 1,600),
+plus the home page, the tournament index and the records page, via
+`ingest/prerender.ts`:
 
 - `/brazil-men/`, `/norway-women/`, … each a static document containing the
   complete player table, an `h1`/`h2`, and internal links to other countries.
@@ -341,6 +350,9 @@ gender** (one per published slice, ~265 pages) via `ingest/prerender.ts`:
 - JSON-LD: `WebPage` + `BreadcrumbList` + `ItemList` of `Person` per slice, and
   `WebSite` + `Dataset` on the home page.
 - `sitemap.xml` (every page, `lastmod` from the data) and `robots.txt`.
+- `/about/` and `404.html`, written as standalone documents with the site's
+  stylesheet and no app script, so the app cannot boot on them and draw the
+  default graph instead.
 - `llms.txt` ([llmstxt.org](https://llmstxt.org/)) — a markdown briefing for
   language models: the totals, what is deliberately excluded, the counting
   rules they would otherwise guess wrong (edge weights, one-off entrants,
@@ -368,8 +380,14 @@ in practice starting some hours after that, because GitHub queues scheduled
 workflows rather than running them on time), on pushes to `main`, and on demand
 via *Run workflow*. It lints, typechecks, unit-tests,
 ingests, builds, smoke-tests the built site in a browser, and only then deploys
-to GitHub Pages. On a plain code push the ingest job is skipped entirely, so
-shipping a CSS fix does not require FIVB to be reachable.
+to GitHub Pages (or Cloudflare Pages, below). On a plain code push the ingest
+job is skipped entirely, so shipping a CSS fix does not require FIVB to be
+reachable.
+
+When a refresh finds tournaments FIVB had not listed the day before, a last
+job comments them, with links to their pages, on the one open issue labelled
+`new-tournaments`. The first such refresh creates it and assigns the repository
+owner, which is what makes GitHub notify them of every later comment.
 
 The workflow enables Pages itself (`configure-pages` with `enablement: true`),
 so there is nothing to click first. If your organisation restricts who may turn
@@ -381,33 +399,55 @@ published site keeps serving yesterday's data — the failure notification from
 Actions is the whole monitoring story.
 
 The ingest also refuses to publish if the data looks wrong (no qualifying
-tournaments, or fewer than 1,000 aggregated partnerships), and writes to a temp
-directory that is only swapped into place once every file exists — so a
-half-published state is not reachable.
+tournaments, fewer than 1,000 aggregated partnerships, or tournaments, players
+or partnerships down more than 5% on what is committed — see
+`ingest/regression.ts`), and writes to a temp directory that is only swapped
+into place once every file exists — so a half-published state is not
+reachable.
 
 ### Cloudflare Pages + a custom domain
 
-`.github/workflows/deploy-cloudflare.yml` is the alternative to GitHub Pages.
-Disable whichever one you are not using so they do not both rebuild daily.
+The same workflow publishes to Cloudflare Pages instead when the repository
+variable `PAGES_HOST` is `cloudflare`. Only the last job changes: the data is
+still committed daily, code pushes still deploy, and the live site is still
+checked after every publish.
 
-1. Point the domain's nameservers at Cloudflare (at registro.br: *Alterar
-   servidores DNS*). Propagation is usually under an hour.
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Direct Upload**,
-   project name `beachvolleyballgraph`. The workflow uploads to it; there is no
-   need to connect the Git repo, and connecting it would build the site a second
-   time without the FIVB data.
-3. Add the repository secrets `CLOUDFLARE_API_TOKEN` (permission: *Cloudflare
-   Pages → Edit*) and `CLOUDFLARE_ACCOUNT_ID`, and the repository **variable**
-   `SITE_URL` (e.g. `https://beachvolley.com.br`, no trailing slash).
-4. Pages → your project → **Custom domains** → add the domain. Cloudflare adds
-   the CNAME itself when it is the authoritative DNS.
+The switch, in an order that never leaves the site down. The domain's DNS is
+already on Cloudflare.
 
-`BASE_PATH` is `/` there (domain root), versus `/<repo>/` on project Pages —
-which is exactly why the base is configurable rather than hard-coded.
+1. Create the project as a **Direct Upload** project, not a Git one (a Git
+   project would build the site a second time, without the FIVB data):
+   `npx wrangler pages project create beachvolleyballgraph --production-branch=main`,
+   or the dashboard: **Workers & Pages → Create → Pages → Direct Upload**.
+2. Create an API token with *Account → Cloudflare Pages → Edit*. Add it as the
+   repository secret `CLOUDFLARE_API_TOKEN`, and the account ID as
+   `CLOUDFLARE_ACCOUNT_ID`.
+3. Set the repository variable `PAGES_HOST` to `cloudflare` and run the
+   workflow by hand. `SITE_URL` stays the public domain. The site is published
+   to the project's own address, `https://beachvolleyballgraph.pages.dev`
+   unless Cloudflare had to suffix the name, and checked there; the public
+   domain is still GitHub Pages, so that check ends in a warning, not a failure.
+4. Look at the `pages.dev` address. When it is right, **Pages → the project →
+   Custom domains → add** `beachvolleyball.com.br`. Cloudflare rewrites the DNS
+   record from GitHub Pages to the project itself.
+5. Run the workflow again: the public domain is now checked too.
+6. GitHub → **Settings → Pages**: remove the custom domain, then unpublish.
+
+**Going back** is the same in reverse: delete `PAGES_HOST`, attach the domain
+in GitHub Pages again, remove it from the Cloudflare project, and run the
+workflow.
+
+`PAGES_HOST` without `SITE_URL` fails the build on purpose: Cloudflare serves
+from a domain root, and an unset `SITE_URL` builds for GitHub's `/<repo>/`
+path. If the project name is not `beachvolleyballgraph`, set it in the
+`CLOUDFLARE_PROJECT` variable.
 
 ### Being a good citizen of the API
 
-VIS is free and unmetered. This project sends three requests a week. If you fork
+VIS is free and unmetered. This project sends seven requests a day: the three
+bulk lists, the federation list, and three batches checking a 300-player
+sample against FIVB's own teammate lists (`ingest/teammates.ts`). It also sends
+one query a day to Wikidata, for former names. If you fork
 it, set a real contact address in `VIS_USER_AGENT` and request an application
 identifier from `vis.sdk@fivb.org`.
 
@@ -427,8 +467,9 @@ they are defending against.
 ## Layout
 
 ```
-ingest/     the daily pipeline (VIS client, tier allowlist, aggregation)
-web/src/    the app (schema, force layout, components)
+shared/     imported by both: the schema, URL slugs, accent folding, site identity
+ingest/     the daily pipeline (VIS client, tier allowlist, aggregation) and the prerenderer
+web/src/    the app (force layout, components, pure helpers in lib/)
 e2e/        browser smoke tests, run against the built site
 docs/       notes worth keeping (see the data quirks catalogue above)
 ```

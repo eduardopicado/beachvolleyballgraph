@@ -5,10 +5,11 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { Gender, Manifest, SearchIndex } from '../schema';
-import { GENDER_LABEL, GENDERS, parseSliceKey } from '../schema';
+import type { Gender, Manifest, SearchIndex } from '../../../shared/schema';
+import { GENDER_LABEL, GENDERS, parseSliceKey } from '../../../shared/schema';
 import { fetchSearchIndex } from '../lib/api';
 import { flagEmoji, plural } from '../lib/format';
+import { useStateFor } from '../lib/useStateFor';
 import {
   indexPlayers,
   searchPlayers,
@@ -19,6 +20,9 @@ import {
 } from '../lib/search';
 import { Avatar } from './Avatar';
 import './Controls.css';
+
+/** The first option, or none for an empty list. */
+const topHit = (matches: readonly unknown[]): number => (matches.length > 0 ? 0 : -1);
 
 /**
  * How far a finger may travel on a result row and still count as a tap.
@@ -128,7 +132,6 @@ function PlayerSearch({
 }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const [wantIndex, setWantIndex] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -218,9 +221,9 @@ function PlayerSearch({
   const showGroups = groups.length > 1 || noneHere;
 
   // A new query invalidates whatever was highlighted; default to the top hit.
-  useEffect(() => {
-    setActiveIndex(matches.length > 0 ? 0 : -1);
-  }, [matches]);
+  // Held per list of matches rather than reset by an effect, which left the
+  // first render of a new list highlighting an index into the old one.
+  const [activeIndex, setActiveIndex] = useStateFor(matches, topHit);
 
   // Keep the highlighted option in view as arrow keys move it. Currently a
   // no-op in practice — the default result limit and the dropdown's max-height
@@ -556,7 +559,7 @@ export function Controls({
           })}
         </time>
         <span className="sep">·</span>
-        {plural(manifest.totals.tournaments, 'tournament')}, {manifest.seasons.from}–{manifest.seasons.to}
+        {plural(manifest.totals.tournaments, 'tournament')} since {manifest.seasons.from}
       </p>
     </div>
   );

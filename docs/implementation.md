@@ -9,14 +9,16 @@ hold. Read [architecture.md](architecture.md) first for the shape;
 ## Layout
 
 ```
+shared/          imported by both halves, imports from neither
+  schema.ts      THE CONTRACT
+  slug.ts        URL slugs, fold.ts accent folding, site.ts site identity
 ingest/          build-time: fetch, normalise, publish, prerender
 web/src/         the app
   lib/           pure helpers, each with a sibling .test.ts
   components/    React components, each with a sibling .css
   graph/         force layout (no React)
-  schema.ts      THE CONTRACT — shared by both halves
 e2e/             Playwright tests against the built site
-.github/         CI, two deploy workflows, three composite actions
+.github/         CI and deploy workflows, four composite actions, Dependabot
 docs/            these documents
 ```
 
@@ -26,7 +28,7 @@ Run with `npm run ingest`. Roughly 15 seconds end to end.
 
 ```mermaid
 flowchart TD
-  V["vis.ts<br/>3 POSTs, attribute scanner"] --> N
+  V["vis.ts<br/>3 bulk lists + federation list,<br/>attribute scanner"] --> N
 
   subgraph N["normalise — build.ts"]
     NT["normaliseTournaments()<br/>tier filter, cancellations, dates, code"]
@@ -37,9 +39,13 @@ flowchart TD
   AG --> SL["sliceByCountryAndGender()<br/>264 slices, per-season tallies"]
   AG --> AW["awayPartnersByPlayer()<br/>the pairs slicing drops"]
   AG --> MD["aggregateMedals()<br/>aggregateTourPodiums()"]
-  SL --> W["main.ts<br/>write to v1.tmp/ → regression check → atomic swap"]
+  AG --> RS["records.ts, series.ts<br/>extremes, recurring events"]
+  WD["aliases.ts<br/>Wikidata: former names"] --> W
+  SL --> W["main.ts<br/>write to v1.tmp/ → checks → atomic swap"]
   AW --> W
   MD --> W
+  RS --> W
+  W -.-> TM["teammates.ts<br/>300-player sample vs<br/>FIVB's teammate lists"]
 ```
 
 | File | Responsibility |
@@ -50,8 +56,15 @@ flowchart TD
 | `build.ts` | All the pure logic. No network, no filesystem — which is why the awkward parts are unit-testable. |
 | `regression.ts` | Refuses to publish a rebuild that looks like a broken fetch. |
 | `olympics.ts`, `worlds.ts` | Season → host for the two championships FIVB names inconsistently. Anything unmapped keeps FIVB's own name. |
+| `federations.ts` | Which federation a partnership represented at each event, since a player's federation in VIS is today's. |
+| `records.ts` | `records.json`: the archive's extremes per category and gender, and the height rows withheld until confirmed outside FIVB (`CONFIRMED_HEIGHTS`). |
+| `series.ts` | Which tournaments are the same recurring event, for each tournament page's other editions. |
+| `aliases.ts` | Former names from Wikidata, joined by FIVB player id, for search only. |
+| `teammates.ts` | The one independent check: a 300-player sample against FIVB's own teammate lists, in three requests. A partnership we publish that FIVB does not list stops the publish. |
 | `main.ts` | Orchestration and I/O: fetch, call `build.ts`, write, check, swap. |
-| `prerender.ts` | Post-build: 265 static pages, sitemap, robots, llms.txt. |
+| `photos.ts` | Build step, off unless `TOURNAMENT_PHOTOS=1`: FIVB's event photographs for the tournament pages. |
+| `prerender.ts` | Post-build: a page per slice and per tournament, the tournament index, records and home (1,893 on 8 November 2026), the standalone `/about/` and `404.html`, sitemap, robots, llms.txt. |
+| `announce.ts` | Run by the deploy workflow after a refresh: the tournaments it added, as a comment for the `new-tournaments` issue. |
 
 **Publishing is atomic.** Everything is written to `v1.tmp/`, checked, then
 swapped: the previous tree is renamed *aside* before the new one is renamed
@@ -60,20 +73,41 @@ data at all; interrupt there and you have nothing. `recoverInterruptedSwap()`
 handles a process killed inside the rename window on the *next* run, because a
 SIGKILL leaves no handler to do it.
 
-## The app
+## Shared by both halves
 
-`App.tsx` owns all state — country, gender, selection, threshold — and passes
-it down. There is no store and no router.
+`shared/` is the only code the ingest and the app both import, and it imports
+nothing from either, so neither side can change what the other does by
+touching a helper. The ESLint block for it grants no globals: a `window` or a
+`process` reaching in fails the lint before it fails one of the runtimes.
 
 | File | Responsibility |
 |---|---|
-| `lib/api.ts` | Six fetches behind a memoising map. A failed fetch is not cached, or a blip would be permanent. |
-| `lib/search.ts` | Match and rank. Accent folding, prefix-before-substring, on-screen-before-elsewhere. |
+| `shared/schema.ts` | **The contract.** Every published shape, and the helpers that read the tuples. |
+| `shared/slug.ts` | `/brazil-men/` ↔ slice, and tournament paths, so a link can never point at a page the other side would not produce. |
+| `shared/fold.ts` | Accent folding. The ingest builds the search index and matches aliases with it; the app searches with it. A name folded one way and looked up another finds nobody. |
+| `shared/site.ts` | Site name, origin and contact address: the footer on every page and the `User-Agent` on every VIS request. |
+
+## The app
+
+`main.tsx` reads the address and imports one page component: `App.tsx` for the
+graph, or `TournamentRoute`, `TournamentIndexRoute` or `RecordsRoute`. Each is
+its own chunk. `App.tsx` owns the graph page's state — country, gender,
+selection, threshold — and passes it down. There is no store and no router
+library.
+
+| File | Responsibility |
+|---|---|
+| `lib/api.ts` | Eleven fetches, one per published file kind, behind a memoising map. A failed fetch is not cached, or a blip would be permanent. |
+| `lib/search.ts` | Match and rank. Prefix-before-substring, on-screen-before-elsewhere. |
 | `lib/timeline.ts` | Regroup a player's partnerships by season. |
 | `lib/results.ts` | Turn published result rows into one season's events. |
 | `lib/useResults.ts` | The lazy fetch behind season expansion. |
 | `lib/format.ts` | Display helpers: dates, medals, ordinals, flags, finishes. |
-| `lib/slug.ts` | `/brazil-men/` ↔ slice, shared with the prerenderer so a link can never point at a page the other side would not produce. |
+| `lib/tournamentMeta.ts` | `readTournament`: the one reader of the `TournamentMeta` tuple's several lengths. |
+| `lib/tournamentIndex.ts` | `buildIndex`: which tournaments get a page and what each is called. The prerenderer and `announce.ts` call it too, so a link and a page cannot disagree. |
+| `lib/path.ts` | The shortest chain of partnerships between two players in one slice. |
+| `lib/records.ts`, `lib/classification.ts` | The records boards and a tournament's field, shaped for display. |
+| `lib/useClassification.ts`, `lib/useEntries.ts`, `lib/useResults.ts` | Lazy fetches, each made only once a reader opens what it loads. |
 | `graph/layout.ts` | d3-force configuration. Many small components, so the centring forces stop the long tail drifting off-canvas. |
 | `components/PartnershipGraph.tsx` | SVG, refs, and the tick loop. The one place that opts out of React re-rendering. |
 | `components/PlayerCard.tsx` | The detail panel: vitals, partners, timeline, season expansion, foreign partners. |
@@ -99,6 +133,11 @@ rows share a rank" — and is a dated observation that stays as written, unless
 re-measuring shows the finding itself no longer holds. Say which you mean when
 the population is the sort that grows.
 
+A third kind is not worth keeping exact at all: a count that a command prints
+and that moves every session, such as how many tests there are. Write it
+rounded ("around 700") and touch it only when the leading digit changes;
+refreshing 683 to 688 is a diff nobody needed.
+
 **Tuples where volume justifies them.** `SeasonTally`, `ResultEntry`,
 `TournamentMeta` and `SearchEntry` are positional arrays, with named tuple
 labels so TypeScript still documents them. Everything else is an object.
@@ -110,9 +149,12 @@ who have none, which is most of them.
 
 ## Testing
 
-Two layers, 580 tests total.
+Two layers. The counts below are rounded on purpose: both suites grow most
+weeks, an exact figure is stale within days, and `npm test` and
+`npm run test:e2e` print the real one. Update them only when the leading digit
+changes.
 
-**Unit — 467 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
+**Unit — around 850 tests, `npm test`.** Vitest, sibling `.test.ts` files. Everything
 in `build.ts` and `web/src/lib/` is pure, so this is where the logic lives.
 Fixtures include real, awkward rows: the 1997 World Championships with two
 bronzes, the Olympic qualifier with two winners.
@@ -123,8 +165,8 @@ tested**, not tested through the DOM: `filter.ts` (the strength threshold) and
 component keeps the state and the markup; the rule it applies becomes a pure
 function with a name.
 
-**Browser — 113 tests, `npm run test:e2e`.** Playwright against `vite preview`
-of the real `dist/`, in seven files:
+**Browser — around 200 tests in 25 files, `npm run test:e2e`.** Playwright
+against `vite preview` of the real `dist/`, one file per concern:
 
 | | |
 |---|---|
@@ -135,6 +177,23 @@ of the real `dist/`, in seven files:
 | `table.spec.ts` | sorting: order, `aria-sort`, and the arrow agreeing |
 | `filter.spec.ts` | the min-events threshold, across every panel it changes |
 | `pointer.spec.ts` | a tap near a node opens it, at the zoom a real slice picks |
+| `classification.spec.ts` | a tournament's field agrees with the timeline that opened it |
+| `entry-links.spec.ts` | each entrant links where the entries file says, here or to FIVB |
+| `withdrawn.spec.ts` | the withdrawn block at phone width: each reason on its own team's row |
+| `portrait.spec.ts` | the card's portrait in its three states: shown, missing, not yet loaded |
+| `prefetch.spec.ts` | hover warms the portrait the card then asks for, once per player |
+| `framing.spec.ts` | after a relayout, the graph ends centred on the selected player |
+| `away-threshold.spec.ts` | following a partner into another country lands on their card, whatever the filter |
+| `seasons.spec.ts` | no page claims a season nobody has played |
+| `flags.spec.ts` | flags on Windows, where the system draws two letters instead |
+| `start-here.spec.ts` | the home page's "start here" strip against the manifest |
+| `index-badge.spec.ts` | what the tournament index says about an event with no result yet |
+| `tournament-facts.spec.ts` | a tournament page reads its facts from its own HTML, and falls back to fetching |
+| `tournament-photos.spec.ts` | photographs absent from a build without the switch, working in one with it |
+| `records.spec.ts` | the records page against `records.json` |
+| `route-split.spec.ts` | each page type downloads its own code, preloaded before the entry asks |
+| `about.spec.ts`, `not-found.spec.ts` | the standalone pages: their figures, chart, legend and ways back |
+| `no-missing-files.spec.ts` | a tournament page asks only for the data files its event has |
 
 The rule that makes these worth having: **every assertion is cross-checked
 against the JSON the page was built from**, never against a number typed into
@@ -172,7 +231,7 @@ worse than no check.
 
 ### Add a field to the published data
 
-1. `web/src/schema.ts` — add it, **appending** if it is a tuple.
+1. `shared/schema.ts` — add it, **appending** if it is a tuple.
 2. `ingest/build.ts` — compute it in a pure function.
 3. `ingest/main.ts` — write it.
 4. The reader in `web/src/`.
