@@ -192,6 +192,16 @@ rendered once at build time, for readers who do not run JavaScript (crawlers,
 link previews, text browsers). It also produces `sitemap.xml`, `robots.txt` and
 `llms.txt`.
 
+Each page's `lastmod` in the sitemap, and its `dateModified` in structured
+data, is when the files it is drawn from last changed: the newest commit
+touching them, read in one `git log` pass. A slice page is dated by its graph
+file, a tournament by its classification or entry list, the index by
+`tournaments.json` and the classifications it links, records by
+`records.json`, and home by the newest change anywhere but `manifest.json`,
+whose `generatedAt` moves on every run. The build checks out the full history
+without file contents (`fetch-depth: 0`, `filter: blob:none`, about 1.4 MB)
+for this. Outside git, every page falls back to `generatedAt`.
+
 `/about/` is the exception — a standalone document that deliberately ships
 *without* the module script, because booting the app on a path matching no
 slice would fall back to the default country and replace the page. Its figures,

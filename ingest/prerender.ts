@@ -11,6 +11,7 @@
  * for readers who do not run JavaScript (crawlers, previews, text browsers).
  */
 
+import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
@@ -72,6 +73,68 @@ async function photoCount(code: string): Promise<number> {
 const JSONLD_MAX = 50;
 
 /**
+ * When each published data file last changed, read from `git log`: path under
+ * the data directory to the ISO time of the newest commit that touched it.
+ *
+ * Why git. Every page used to give `generatedAt` as its `lastmod` and
+ * `dateModified`, and the ingest runs daily, so all 1,894 sitemap entries said
+ * "changed today" every day while most of them had not changed in months — a
+ * signal a crawler learns to ignore. The data is committed, and the ingest
+ * commits only what moved, so the commit history already records when each
+ * file's content changed. The deploy checks out the full history without file
+ * contents (`filter: blob:none`), which costs about 1.4 MB, and this reads it
+ * in one pass. `--no-renames` keeps git from asking for the contents it did
+ * not fetch.
+ *
+ * `log` is the output of `git log --format=%x00%ct --name-only`: a NUL and a
+ * commit time, then the paths that commit touched, newest commit first, so
+ * the first date seen for a path is its last change.
+ */
+export function parseChangeLog(log: string, prefix: string): Map<string, string> {
+  const changed = new Map<string, string>();
+  let at = '';
+  for (const line of log.split('\n')) {
+    if (line.startsWith('\0')) at = new Date(Number(line.slice(1)) * 1000).toISOString();
+    else if (at && line.startsWith(prefix)) {
+      const file = line.slice(prefix.length);
+      if (!changed.has(file)) changed.set(file, at);
+    }
+  }
+  return changed;
+}
+
+/**
+ * When a page drawn from `files` last changed: the newest of their dates.
+ *
+ * A file git has no date for takes `fallback`, the run's `generatedAt`: a
+ * build outside a git checkout, or a local one whose ingest wrote files not
+ * yet committed, is newer than anything git knows, never older.
+ */
+export function lastChanged(changed: ReadonlyMap<string, string>, files: readonly string[], fallback: string): string {
+  let newest = '';
+  for (const file of files) {
+    const at = changed.get(file) ?? fallback;
+    if (at > newest) newest = at;
+  }
+  return newest || fallback;
+}
+
+function dataChanges(): Map<string, string> {
+  const prefix = `${path.relative(ROOT, DATA).split(path.sep).join('/')}/`;
+  try {
+    const log = execFileSync(
+      'git',
+      ['log', '--format=%x00%ct', '--name-only', '--no-renames', 'HEAD', '--', prefix],
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] },
+    );
+    return parseChangeLog(log, prefix);
+  } catch {
+    console.warn('  ! no git history to date pages by; every page is dated by generatedAt');
+    return new Map();
+  }
+}
+
+/**
  * Escape text for HTML. Player names come from an upstream database and reach
  * both element content and quoted attribute values, so `"` must be escaped too.
  */
@@ -102,6 +165,8 @@ interface Page {
   description: string;
   head: string;
   body: string;
+  /** When the data the page is drawn from last changed, ISO. See `parseChangeLog`. */
+  modified: string;
 }
 
 function seasonSpan(a: number, b: number) {
@@ -768,6 +833,8 @@ async function main() {
     await readFile(path.join(DIST, '.vite', 'manifest.json'), 'utf8'),
   );
   const manifest: Manifest = JSON.parse(await readFile(path.join(DATA, 'manifest.json'), 'utf8'));
+  const changes = dataChanges();
+  const changedAt = (...files: string[]) => lastChanged(changes, files, manifest.generatedAt);
 
   // Every published slice, in a stable order.
   const slices: { code: string; name: string; gender: Gender; slug: string; href: string }[] = [];
@@ -795,6 +862,8 @@ async function main() {
       await readFile(path.join(DATA, 'graphs', `${slice.code}-${slice.gender}.json`), 'utf8'),
     );
     tallySlice(graph, shape);
+    // The graph file is all this page is drawn from.
+    const modified = changedAt(`graphs/${slice.code}-${slice.gender}.json`);
     const url = abs(slice.href);
     const label = GENDER_LABEL[slice.gender];
     const { title, description } = sliceHead(
@@ -833,7 +902,7 @@ async function main() {
             name: title,
             description,
             isPartOf: { '@id': abs(BASE) },
-            dateModified: manifest.generatedAt,
+            dateModified: modified,
           },
           {
             '@type': 'BreadcrumbList',
@@ -868,6 +937,7 @@ async function main() {
       description,
       head,
       body: sliceBody(graph, manifest, others),
+      modified,
     });
   }
 
@@ -1040,6 +1110,8 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
         `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
       )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
 </main>`,
+      // The file the page is prerendered from, and the one it fetches.
+      modified: changedAt(t.played ? `classifications/${t.code}.json` : `entries/${t.code}.json`),
     });
   }
 
@@ -1104,6 +1176,11 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
     )
     .join('');
 
+  // The list itself, and which of its events have a result to link to.
+  const indexModified = changedAt(
+    'tournaments.json',
+    ...addressable.filter((r) => r.played).map((r) => `classifications/${r.code}.json`),
+  );
   pages.push({
     slug: INDEX_PREFIX,
     route: 'src/TournamentIndexRoute.tsx',
@@ -1120,8 +1197,9 @@ ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
         name: indexTitle,
         description,
         isPartOf: { '@id': abs(BASE) },
-        dateModified: manifest.generatedAt,
+        dateModified: indexModified,
       }),
+    modified: indexModified,
     body: `<main>
 <h1>Tournaments</h1>
 <p>${esc(description)}</p>
@@ -1184,8 +1262,9 @@ ${staticFooter()}
         name: recordsTitle,
         description: recordsDescription,
         isPartOf: { '@id': abs(BASE) },
-        dateModified: manifest.generatedAt,
+        dateModified: changedAt('records.json'),
       }),
+    modified: changedAt('records.json'),
     body: `<main>
 <nav aria-label="Breadcrumb"><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 <h1>Records</h1>
@@ -1236,6 +1315,10 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>
 </main>`;
 
+  // The totals, the highlights and the country list are drawn from the whole
+  // archive, so home changed when anything in it did — anything but the
+  // manifest's own `generatedAt`, which moves on every run.
+  const datasetModified = changedAt(...[...changes.keys()].filter((file) => file !== 'manifest.json'));
   pages.push({
     slug: '',
     route: 'src/App.tsx',
@@ -1259,7 +1342,7 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
             name: 'FIVB international beach volleyball partnerships',
             description: homeDescription,
             url: homeUrl,
-            dateModified: manifest.generatedAt,
+            dateModified: datasetModified,
             license: 'https://www.fivb.org/VisSDK/VisWebService/',
             creator: { '@type': 'Organization', name: 'FIVB', url: 'https://www.fivb.com/' },
             // Open-ended (ISO 8601 `start/..`), for the same reason every
@@ -1270,6 +1353,7 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
         ],
       }),
     body: homeBody,
+    modified: datasetModified,
   });
 
   // --- write ---------------------------------------------------------------
@@ -1326,23 +1410,32 @@ ${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a hre
   );
 
   // --- sitemap & robots ----------------------------------------------------
-  const lastmod = manifest.generatedAt.slice(0, 10);
   // Home is 1.0, country pages 0.8, About 0.3 — a real page worth indexing,
   // but not something to rank ahead of the data it explains.
-  const sitemapEntries: { url: string; priority: string }[] = [
+  //
+  // `lastmod` is the day the page's own data last changed (see
+  // `parseChangeLog`). No `changefreq`: it said "daily" for every page, which
+  // was the same claim `lastmod` used to make and just as untrue of most.
+  const sitemapEntries: { url: string; priority: string; modified: string }[] = [
     ...pages.map((p) => ({
       url: p.url,
       // Home 1.0, a country slice 0.8, a tournament 0.6: a real page worth
       // indexing, but the graph is what this site is for.
       priority: !p.slug ? '1.0' : p.slug.startsWith(`${TOURNAMENT_PREFIX}/`) ? '0.6' : '0.8',
+      modified: p.modified,
     })),
-    { url: `${BASE}about/`, priority: '0.3' },
+    // The season counts and the legend's graph.
+    {
+      url: `${BASE}about/`,
+      priority: '0.3',
+      modified: changedAt('tournaments.json', `graphs/${opening.code}-${openingGender}.json`),
+    },
   ];
   const urls = sitemapEntries
     .map(
-      ({ url, priority }) =>
-        `  <url><loc>${esc(abs(url))}</loc><lastmod>${lastmod}</lastmod>` +
-        `<changefreq>daily</changefreq><priority>${priority}</priority></url>`,
+      ({ url, priority, modified }) =>
+        `  <url><loc>${esc(abs(url))}</loc><lastmod>${modified.slice(0, 10)}</lastmod>` +
+        `<priority>${priority}</priority></url>`,
     )
     .join('\n');
   await writeFile(
