@@ -8,7 +8,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../../../shared/schema';
 import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../../../shared/schema';
-import { foldAccents } from '../../../shared/fold';
+import { labelAddsToName } from '../../../shared/label';
 import {
   age,
   flagEmoji,
@@ -410,13 +410,15 @@ export function PlayerCard({
   /**
    * The graph's label for this player, when it says something their name does
    * not — "Duda" for Eduarda Santos Lisboa, "Guto" for Gustavo Albrecht
-   * Carvalhaes. 203 published players are in that position. Empty for the
-   * plain shortenings ("P. Solberg"), which would only repeat the heading.
+   * Carvalhaes. 517 published players are in that position (8 November 2026).
+   * Empty for the plain shortenings ("P. Solberg", "Capogrosso T.", "J.Q.
+   * Liu"), which would only repeat the heading; `labelAddsToName` says which
+   * those are, for this and for the search index alike.
    */
-  const alias = useMemo(() => {
-    const short = foldAccents(node.short);
-    return short && !foldAccents(node.name).includes(short) ? node.short : '';
-  }, [node.name, node.short]);
+  const alias = useMemo(
+    () => (labelAddsToName(node.name, node.short) ? node.short : ''),
+    [node.name, node.short],
+  );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

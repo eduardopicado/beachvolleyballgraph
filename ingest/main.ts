@@ -83,7 +83,7 @@ import type {
   TournamentMeta,
 } from '../shared/schema.js';
 import { DATA_VERSION, RECORD_KEYS, RESULT_LAG_DAYS } from '../shared/schema.js';
-import { foldAccents } from '../shared/fold.js';
+import { labelAddsToName } from '../shared/label.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC_DIR = path.resolve(HERE, '../web/public');
@@ -632,12 +632,10 @@ export async function writeTree(
         // Otherwise the graph's label, but only when it says something the
         // name does not. See SearchEntry: this is what makes "Duda" find
         // Eduarda Santos Lisboa, and it is skipped for the plain shortenings
-        // that a name search already reaches.
-        const name = foldAccents(n.name);
-        const short = foldAccents(n.short);
-        return short.includes(name) || name.includes(short)
-          ? [n.id, n.name, n.tournaments]
-          : [n.id, n.name, n.tournaments, n.short];
+        // ("Emanuel", "Capogrosso T.") that a name search already reaches.
+        return labelAddsToName(n.name, n.short)
+          ? [n.id, n.name, n.tournaments, n.short]
+          : [n.id, n.name, n.tournaments];
       });
 
     let entry = byCountry.get(slice.country);

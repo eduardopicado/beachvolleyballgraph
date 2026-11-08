@@ -342,9 +342,10 @@ Sorted most-tournaments-first, which is the order the search ranks by anyway.
 
 **Two optional slots.** The fourth is `short`, the graph's label, carried only
 when the name does not contain it, so that searching the one word a reader can
-see on the graph finds them: "Duda" reaches Eduarda Santos Lisboa. The test is
-a substring one, so initial forms such as "Capogrosso N." ride along too;
-1,363 entries carry a `short` their name does not contain. The fifth is the
+see on the graph finds them: "Duda" reaches Eduarda Santos Lisboa. Left out
+for a plain shortening, which `labelAddsToName` (`shared/label.ts`) decides:
+one name inside the other, or the name in initials ("Capogrosso T.",
+"J.Q. Liu"). 506 rows carry `short` alone. The fifth is the
 names a player has competed under that FIVB no longer holds, from Wikidata
 (`ingest/aliases.ts`): searchable, never displayed, because nothing says
 whether Wikidata or FIVB is the more recent. A row with a fifth slot always
