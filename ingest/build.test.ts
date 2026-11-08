@@ -358,7 +358,7 @@ describe('tidyBirthPlace', () => {
   });
 
   it('normalises capitals and strips the quotes FIVB stored', () => {
-    // 444 published birth places shout; "9 de JULIO" is a real Argentine town
+    // 465 published birth places shout; "9 de JULIO" is a real Argentine town
     // wearing quotation marks.
     expect(tidyBirthPlace('BUENOS AIRES')).toBe('Buenos Aires');
     expect(tidyBirthPlace('"9 de JULIO"')).toBe('9 de Julio');
@@ -367,7 +367,7 @@ describe('tidyBirthPlace', () => {
 
   it('normalises a value that has no capitals either', () => {
     // The mirror of the shout rule, and the same failure: a free-text box
-    // filled in with caps lock in the other state. 102 published places have no
+    // filled in with caps lock in the other state. 103 published places have no
     // capital anywhere.
     expect(tidyBirthPlace('rio de janeiro')).toBe('Rio de Janeiro');
     expect(tidyBirthPlace('buenos aires')).toBe('Buenos Aires');
@@ -395,6 +395,24 @@ describe('tidyBirthPlace', () => {
     expect(tidyBirthPlace('St-Gallen')).toBe('St-Gallen');
     expect(tidyBirthPlace('Adelaide, SA')).toBe('Adelaide, SA');
     expect(tidyBirthPlace('Arendal, norway')).toBe('Arendal, norway');
+  });
+
+  it('mends the two slips that mixed capitals do not excuse', () => {
+    // Caps lock with shift held for the first letter: the one published case.
+    expect(tidyBirthPlace('wEIDEN')).toBe('Weiden');
+    // A first letter typed small, the three published cases. Only the first
+    // letter: the rest is mixed, and so is left as typed.
+    expect(tidyBirthPlace('nagano, Japan')).toBe('Nagano, Japan');
+    expect(tidyBirthPlace('ciudad la Habana')).toBe('Ciudad la Habana');
+    expect(tidyBirthPlace('san juan del sur, Rivas')).toBe('San juan del sur, Rivas');
+  });
+
+  it('keeps a single quote, which belongs to the name wherever FIVB has one', () => {
+    // Both published values with a single quote at an end. Stripping it, as
+    // the double-quote rule once did for both kinds, gave "s Gravenhage" and
+    // "K. Male".
+    expect(tidyBirthPlace("'s Gravenhage")).toBe("'s Gravenhage");
+    expect(tidyBirthPlace("K. Male'")).toBe("K. Male'");
   });
 
   it('capitalises after a bracket or a comma, not only after a hyphen', () => {
