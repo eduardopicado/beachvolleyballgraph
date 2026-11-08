@@ -165,13 +165,6 @@ jobs:
       - name: Fetch FIVB data and build graphs
         run: npm run ingest
         env:
-          # Identify the job to FIVB, contact address included, so a free
-          # service with a problem can email us rather than null-route us.
-          # Points at /about/ rather than the repo — same contact address plus
-          # attribution and the not-affiliated disclaimer, and it survives the
-          # repo going private. Keep in step with SITE_URL and CONTACT_EMAIL in
-          # shared/site.ts.
-          VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
           # false on every trigger except a manual dispatch with the checkbox
           # ticked — schedule and workflow_dispatch runs that leave it
           # unchecked, and push (which skips this job entirely), all get 'false'.
@@ -275,8 +268,8 @@ jobs:
     # code-only push) — only a real ingest *failure* should stop the deploy.
     if: always() && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped')
     runs-on: ubuntu-latest
-    # Install, build, prerender 265 pages and run the browser suite: ~6 minutes
-    # when healthy.
+    # Install, build, prerender every page and run the browser suite: under 4
+    # minutes when healthy (3m42s on 8 Nov 2026, 1,893 pages).
     timeout-minutes: 20
     outputs:
       generated_at: ${{ steps.stamp.outputs.generated_at }}
@@ -341,7 +334,6 @@ jobs:
           SITE_URL: ${{ steps.origin.outputs.site_url }}
           # Unset is off. See docs/architecture.md, "Tournament photographs".
           TOURNAMENT_PHOTOS: ${{ vars.TOURNAMENT_PHOTOS }}
-          VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
 
       # Belt and braces. The custom domain is configured in Settings > Pages
       # and that setting is what actually serves the site; this file keeps a

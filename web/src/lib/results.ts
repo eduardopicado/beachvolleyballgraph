@@ -10,6 +10,7 @@
  */
 
 import type { ResultEntry, Tier, TournamentMeta } from '../../../shared/schema';
+import { readTournament } from './tournamentMeta';
 
 export interface SeasonEvent {
   /** FIVB tournament number. Unique per event *and gender*, so it keys a row. */
@@ -65,8 +66,8 @@ export interface SeasonEvent {
  * to, so a December event opening a southern summer season lands in the
  * previous calendar year — which is exactly what it should do.
  */
-function dateOf(season: number, offset: number | null | undefined): Date | null {
-  if (offset === null || offset === undefined) return null;
+function dateOf(season: number, offset: number | null): Date | null {
+  if (offset === null) return null;
   return new Date(Date.UTC(season, 0, 1) + offset * 86_400_000);
 }
 
@@ -88,15 +89,10 @@ export function seasonEvents(
   const out: SeasonEvent[] = [];
   for (const [no, partner, rank] of entries ?? []) {
     const meta = tournaments[no];
-    if (!meta || meta[1] !== season) continue;
-    const [name, , tier, offset] = meta;
-    // Positional read rather than a destructure: the tuple has four arities
-    // and only the longest carries a level.
-    const level = meta.length > 5 ? (meta[5] ?? null) : null;
-    const code = meta.length > 4 ? (meta[4] ?? null) : null;
-    const country = meta.length > 6 ? (meta[6] ?? null) : null;
-    const span = meta.length > 7 ? (meta[7] ?? null) : null;
-    const date = dateOf(season, offset);
+    if (!meta) continue;
+    const { name, season: held, tier, startOffset, code, level, country, span } = readTournament(meta);
+    if (held !== season) continue;
+    const date = dateOf(season, startOffset);
     out.push({
       no,
       name,
@@ -104,7 +100,7 @@ export function seasonEvents(
       date,
       // A span of 0 is a real one-day event and still gives an end date; only
       // a missing or backwards one gives up. See `endDate` above.
-      endDate: date && span !== null && span >= 0 ? dateOf(season, (offset ?? 0) + span) : null,
+      endDate: startOffset !== null && span !== null && span >= 0 ? dateOf(season, startOffset + span) : null,
       partnerId: partner,
       partner: nameOf(partner),
       rank,

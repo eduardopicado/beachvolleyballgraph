@@ -1349,7 +1349,8 @@ test.describe('without JavaScript', () => {
   // silently: SITE_URL and BASE_PATH are set separately by the workflow, and
   // a canonical assembled from a custom origin and a project-Pages base
   // points at a path that exists on neither host. Nothing else in the suite
-  // would notice, and the first symptom is Google indexing 265 dead URLs.
+  // would notice, and the first symptom is Google indexing every page in the
+  // sitemap at a dead URL.
   test('the canonical URL describes where the page is published', async ({ page, baseURL }) => {
     const here = `./${slicePath()}`;
     await page.goto(here);

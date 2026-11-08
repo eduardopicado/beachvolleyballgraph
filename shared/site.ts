@@ -5,7 +5,7 @@
  * it is genuinely load-bearing in two unrelated places: it is what a reader
  * (or a sponsor) clicks in the footer, and it is what identifies this project
  * to FIVB in the `User-Agent` of every VIS request. Changing it in one and
- * not the other means either a dead link on 265 pages or an unreachable
+ * not the other means either a dead link on every page or an unreachable
  * scraper — the second being the one that gets you null-routed.
  */
 
