@@ -96,6 +96,11 @@ export function PartnershipGraph({
   const sizeRef = useRef(size);
   const [hover, setHover] = useState<Hover | null>(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, k: 1 });
+  // The view on screen, which is not always `transform`: while the layout
+  // animates, the auto-fit writes each framing straight to the DOM (see
+  // `applyView`) and React's state keeps whatever it held before. Hit-testing,
+  // the tooltip and the start of a pan all read this, so they agree with what
+  // the reader is looking at rather than with the stale state.
   const transformRef = useRef(transform);
   // Read at pointer-up to toggle the tap target off if it is already selected.
   // A ref rather than a dependency: the pointer handlers are stable across the
@@ -141,10 +146,16 @@ export function PartnershipGraph({
   // Current before any other effect of the same commit runs.
   useLayoutEffect(() => {
     sizeRef.current = size;
-    transformRef.current = transform;
     selectedIdRef.current = selectedId;
     layoutRef.current = layout;
   });
+  // Only when the state itself changes, which is when React writes it to the
+  // DOM. Synced on every commit, as it was, any re-render during the animation
+  // — a hover, a selection — put the stale state back over the framing
+  // `applyView` had just recorded.
+  useLayoutEffect(() => {
+    transformRef.current = transform;
+  }, [transform]);
   const [labelled, setLabelled] = useState<Set<number>>(() => new Set());
 
   // Once the reader pans or zooms, stop auto-framing and leave the view alone.
@@ -152,6 +163,21 @@ export function PartnershipGraph({
   useEffect(() => {
     userAdjusted.current = false;
   }, [layout]);
+
+  /**
+   * The reader takes the view over, from the view on screen.
+   *
+   * Mid-animation, React's `transform` is still whatever it held before the
+   * layout started — the identity on first load — while the screen shows the
+   * auto-fit's framing. A zoom computed from the state, or a pan that later
+   * fell back to it, snapped the graph back to that old view. Handing React
+   * the framing first makes every adjustment start from what is shown.
+   */
+  const takeView = useCallback(() => {
+    if (userAdjusted.current) return;
+    userAdjusted.current = true;
+    setTransform(transformRef.current);
+  }, []);
 
   // --- responsive sizing ---------------------------------------------------
   // A resize re-frames a settled graph the reader has not moved, here in the
@@ -199,6 +225,7 @@ export function PartnershipGraph({
 
     const applyView = (view: { x: number; y: number; k: number }) => {
       viewRef.current?.setAttribute('transform', `translate(${view.x},${view.y}) scale(${view.k})`);
+      transformRef.current = view;
     };
 
     const paint = () => {
@@ -363,7 +390,7 @@ export function PartnershipGraph({
     // Touch/pen contacts report button 0 too, but aren't "a button held down"
     // in the mouse sense — only gate on it for an actual mouse.
     if (event.pointerType === 'mouse' && event.button !== 0) return;
-    userAdjusted.current = true;
+    takeView();
 
     const svg = event.currentTarget;
     try {
@@ -390,7 +417,7 @@ export function PartnershipGraph({
     }
     // A third simultaneous pointer is tracked but otherwise ignored — pinch
     // math keeps using whichever two pointers were already active.
-  }, []);
+  }, [takeView]);
 
   const onPointerMove = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
     if (!pointers.current.has(event.pointerId)) {
@@ -498,7 +525,7 @@ export function PartnershipGraph({
     if (!svg) return;
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
-      userAdjusted.current = true;
+      takeView();
       const rect = svg.getBoundingClientRect();
       const px = event.clientX - rect.left;
       const py = event.clientY - rect.top;
@@ -510,10 +537,10 @@ export function PartnershipGraph({
     };
     svg.addEventListener('wheel', onWheel, { passive: false });
     return () => svg.removeEventListener('wheel', onWheel);
-  }, []);
+  }, [takeView]);
 
   const zoomBy = (factor: number) => {
-    userAdjusted.current = true;
+    takeView();
     setTransform((prev) => {
       const k = Math.min(4, Math.max(0.25, prev.k * factor));
       const cx = size.width / 2;
