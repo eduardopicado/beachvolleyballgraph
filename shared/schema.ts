@@ -574,13 +574,16 @@ export function fieldPlayerSlice(
  * The fourth element exists because the graph draws `short` and the search
  * matched only `name`, so the one word a reader could see was the one word
  * that found nothing: Eduarda Santos Lisboa is labelled "Duda" on every graph
- * she appears in, and searching "Duda" returned nobody. 203 players are in
- * that position -- FIVB nicknames, and names taken later in a career, like
- * Laura Longuet appearing as "Walgenwitz".
+ * she appears in, and searching "Duda" returned nobody. FIVB nicknames, and
+ * names taken later in a career, like Laura Longuet appearing as "Walgenwitz",
+ * are what it is for.
  *
- * Omitted when `short` is already inside `name` (a plain shortening such as
- * "P. Solberg"), which is the overwhelming majority: carrying it for all
- * 12,000 would grow the second-largest published file to no purpose.
+ * Omitted when one of `name` and `short` contains the other (a plain
+ * shortening such as "Emanuel" for Emanuel Rego), which is most players. The
+ * test is a substring one, so initial forms such as "Capogrosso N." are not
+ * recognised as shortenings and are carried too: 1,363 of 12,120 entries carry
+ * a `short` that their name does not contain, measured 8 November 2026, over
+ * half of them initial forms.
  */
 export type SearchEntry =
   | [id: number, name: string, tournaments: number]
@@ -601,8 +604,8 @@ export type SearchEntry =
  * which. Confined to search, the worst a wrong entry can do is make an extra
  * string findable — it can never put a false name in front of a reader.
  *
- * Present on 274 of 12,075 players, so the fourth element carries `short`
- * alone on almost every row.
+ * Present on 286 of 12,120 entries (8 November 2026), so the fourth element
+ * carries `short` alone on almost every row that has one.
  */
 
 /**
