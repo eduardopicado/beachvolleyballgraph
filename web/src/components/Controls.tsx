@@ -8,7 +8,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Gender, Manifest, SearchIndex } from '../../../shared/schema';
 import { GENDER_LABEL, GENDERS, parseSliceKey } from '../../../shared/schema';
 import { fetchSearchIndex } from '../lib/api';
-import { flagEmoji, plural } from '../lib/format';
+import { flagEmoji, formatDate, plural } from '../lib/format';
 import { useStateFor } from '../lib/useStateFor';
 import {
   indexPlayers,
@@ -551,13 +551,11 @@ export function Controls({
 
       <p className="as-of">
         Data as of{' '}
-        <time dateTime={manifest.generatedAt}>
-          {new Date(manifest.generatedAt).toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </time>
+        {/* The UTC day, like every other date on the site and the About
+            page's own "Data as of". In the reader's time zone, the refresh
+            that lands in the afternoon UTC read as tomorrow from much of Asia
+            and the Pacific. */}
+        <time dateTime={manifest.generatedAt}>{formatDate(manifest.generatedAt.slice(0, 10))}</time>
         <span className="sep">·</span>
         {plural(manifest.totals.tournaments, 'tournament')} since {manifest.seasons.from}
       </p>
