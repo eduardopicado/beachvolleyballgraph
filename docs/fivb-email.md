@@ -209,6 +209,20 @@ one player cannot enter a tournament twice. The other four (`WALA2007`,
 not provable the same way, but they share the same wrong id, the same partner
 and the same three-season window as the twenty-three that are.
 
+The same number carries a second team at twenty-two earlier events as well,
+2001–2005, each time beside Adriana Behar in the same week: with Renata
+Ribeiro twelve times (2003–2004), Damasio Soares six (2005), Ana Paula Connelly
+twice (2005), and Maria Clara Salgado and Tais Jesus once each (Fortaleza 2001,
+Vitoria 2002). Two of them leave no doubt: at Milan 2004
+(`WMIL2004`) Behar/Shelda won and a Renata/"Shelda" team finished second, and
+at Osaka 2005 (`WOSK2005`) Behar/Shelda were third while a Connelly/"Shelda"
+team won. Your own team names say the same — "Renata/Shelda" at Milan,
+"Ana Paula/Shelda" at Osaka, at every one of the five we looked up — so this
+is the record of who played rather than a stray number in one column. Who was actually on those
+twenty-two teams we cannot tell from here — `103655` holds no team rows at all,
+so some may be Shaylyn's too — and your entry lists for those events would
+settle it.
+
 Thirty-seven player records have a `FirstName` of exactly `"..."` — three full
 stops where a given name should be — and thirty of those men played FIVB
 events, so the entry lists that named them presumably still exist. An empty
