@@ -19,6 +19,7 @@ import {
   decorationOf,
   entryStatus,
   aggregateEntries,
+  classificationRows,
   entryOrder,
   entryTuple,
   pointsOf,
@@ -1367,6 +1368,20 @@ describe('aggregateMedals', () => {
     const nonMedal = medalTournaments([{ No: 't3', OrganizerType: '1', Type: '52' }]);
     const rows: VisRow[] = [{ ...entry('t3', 1, 2), Rank: '1' }];
     expect(aggregateMedals(rows, nonMedal).size).toBe(0);
+  });
+});
+
+describe('classificationRows', () => {
+  it('is one row per team per event, with the rank the classification holds', () => {
+    const rows = classificationRows(
+      new Map([
+        ['7', new Map([['1:2', [2, 1, 2, 'BRA'] as [number, number, number, string]], ['3:4', [-25, 3, 4, 'NOR'] as [number, number, number, string]]])],
+      ]),
+    );
+    expect(rows).toEqual([
+      { NoTournament: '7', NoPlayer1: '1', NoPlayer2: '2', Rank: '2' },
+      { NoTournament: '7', NoPlayer1: '3', NoPlayer2: '4', Rank: '-25' },
+    ]);
   });
 });
 
