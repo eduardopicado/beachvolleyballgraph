@@ -35,14 +35,14 @@ import { foldAccents } from './fold';
 /** The words a label part may match: split on spaces, hyphens and quotes. */
 function wordsOf(name: string): string[] {
   return foldAccents(name)
-    .split(/[\s"\-]+/)
+    .split(/[\s"-]+/)
     .map((w) => w.replace(/[.,]/g, ''))
     .filter(Boolean);
 }
 
 /** The label's parts, each keeping a trailing full stop if it had one. */
 function partsOf(label: string): string[] {
-  return foldAccents(label).match(/[^\s.,"\-]+\.?/g) ?? [];
+  return foldAccents(label).match(/[^\s.,"-]+\.?/g) ?? [];
 }
 
 /** Is `letters` a subsequence of `word` that starts with the word's first letter? */
