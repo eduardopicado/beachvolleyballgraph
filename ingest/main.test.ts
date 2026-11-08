@@ -135,4 +135,35 @@ describe('aggregate and writeTree', () => {
     // Nothing above reached for the network.
     expect(fetch).not.toHaveBeenCalled();
   });
+
+  it('writes no classification for a played tournament with no FIVB code', async () => {
+    // A blank `Code` would name the file `.json`, and a second one would
+    // overwrite the first. None in the archive today.
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('no network in this test'))));
+    const { mkdtemp, readdir } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { aggregate, writeTree } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const tournamentRows = [
+      tournament('1', 'MAAA2025', '2025-06-01', '2025-06-04'),
+      tournament('2', '', '2025-07-01', '2025-07-04'),
+      tournament('3', '', '2025-08-01', '2025-08-04'),
+    ];
+    const archive = {
+      federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+      tournamentRows,
+      tournaments: normaliseTournaments(tournamentRows),
+      players: normalisePlayers([1, 2, 3, 4].map((n) => player(n, 'BRA'))),
+      teamRows: [team('1', 1, 2, 'BRA', 1), team('2', 1, 3, 'BRA', 1), team('3', 2, 4, 'BRA', 1), team('1', 3, 4, 'BRA', 2)],
+      tierCounts: { 'Beach Pro Tour': 3 },
+      seasonFrom: 2025,
+      seasonTo: 2025,
+      sourceVersion: '1',
+    };
+    const generatedAt = '2025-09-01T00:00:00.000Z';
+    const dir = path.join(await mkdtemp(path.join(tmpdir(), 'ingest-')), 'v1');
+    await writeTree(dir, archive, aggregate(archive, generatedAt), new Map(), generatedAt);
+    expect(await readdir(path.join(dir, 'classifications'))).toEqual(['MAAA2025.json']);
+  });
 });
