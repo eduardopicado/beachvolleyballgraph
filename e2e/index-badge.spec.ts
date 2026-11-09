@@ -158,3 +158,29 @@ test('a season that is entirely played carries no tag at all', async ({ page }) 
   await expect(page.locator('.tournament-index td.what .entries')).toHaveCount(0);
   await expect(page.locator('.tournament-index p.tally')).not.toContainText('awaiting');
 });
+
+/**
+ * Switching draw from a season the other draw never had.
+ *
+ * The men's archive starts in 1987 and the women's in 1992, so Women from
+ * 1990 asks for a season that does not exist. A link to it already snapped to
+ * the nearest women's season; the click went to the newest one instead, which
+ * is a calendar with nothing played in it yet.
+ */
+test('switching to a draw without the season lands on its nearest one', async ({ page }) => {
+  // The seasons the index shows, from the same builder, not every row in the
+  // file: a long-cancelled event is in the file and not in the index.
+  const rows = buildIndex(tournamentIndex(), (code) => CLASSIFIED.has(code));
+  const seasons = (gender: Gender) =>
+    [...new Set(rows.filter((r) => r.gender === gender).map((r) => r.season))].sort((a, b) => a - b);
+  const women = seasons('W');
+  const asked = seasons('M').find((s) => s < women[0]!);
+  // Guard the guard: the men's draw has to start before the women's for this
+  // to ask the question at all.
+  expect(asked, 'no men-only season before the first women\'s one').toBeDefined();
+
+  await page.goto(`./${INDEX_PREFIX}/?season=${asked}`);
+  await expect(page.getByRole('textbox', { name: 'Season' })).toHaveValue(String(asked));
+  await page.locator('.segmented button', { hasText: 'Women' }).click();
+  await expect(page.getByRole('textbox', { name: 'Season' })).toHaveValue(String(women[0]));
+});

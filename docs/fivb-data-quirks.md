@@ -1785,6 +1785,19 @@ aren't provable the way the 23 above are, but they share every other
 fingerprint: same wrong id, same partner, same three-season window, so
 there's no reason to treat them differently.
 
+**Wider than 2006–2008.** Measured again on 8 November 2026 over the
+published events: `100926` holds two live teams with different partners at
+**47** events, 2001–2008. The 25 with Agatha are the rows above; the other 22
+are earlier, beside Behar the same week, with Renata Ribeiro (12, 2003–2004),
+Damasio Soares (6, 2005), Ana Paula Connelly (2, 2005), Maria Clara Salgado
+(1, `WFOR2001`) and Tais Jesus (1, `WVIT2002`). The fingerprint is the same —
+one of each pair placed where Behar/Shelda belongs — and two are sharp: at
+`WMIL2004` Behar/Shelda won and Renata/"Shelda" was 2nd, and at `WOSK2005`
+Behar/Shelda were 3rd and Connelly/"Shelda" won. VIS's team names carry it as
+well ("Adriana Behar/Shelda" and "Renata/Shelda" in one field). Whose
+results the earlier 22 are is not provable from VIS; 103655 holds no team
+rows at all.
+
 **Why 100926 and not 103655.** The same failure mode as §18's Marion Marquet
 row: whoever keyed in a "Bede" partnered with a rising Agatha Bednarczuk had
 two records to choose from, one of them a household name in Brazilian beach
@@ -1935,6 +1948,41 @@ request 5.
 
 ---
 
+## 27. One player, two live entries, and no way to tell which is real
+
+**What.** On the Beach Elite Itapema 2026 women's list (`WITAPE26`,
+tournament 9583) Toni Rodriguez holds two entries, both `Status` 0: team
+3178458 with Martinez and team 3178477 with Harward, registered minutes
+apart (`Version` 4355117 and 4355125). Neither has entry or technical points.
+The site published both, so the page's entered count is one team higher than
+the field can be.
+
+**Why it is not filtered.** `Status` 1 is how FIVB marks an entry superseded
+by a later one (§26), and neither row has it. The obvious rules — keep the
+later registration, or the earlier — are both wrong about as often as right.
+Measured over the 1,614 published played events on 8 November 2026: a player
+held live entries with two *different* partners 142 times, and the placings
+went to the later registration 57 times, the earlier 39, neither 23 and both
+23. A further 7 are the same pair twice, which the aggregation already folds
+into one partnership.
+
+**"Both" is a data error, not two partnerships.** A player cannot be on two
+teams in one draw. All 23 are one record, Shelda Bede (100926), placed with
+Adriana Behar and on a second team the same week — at Fortaleza 2007
+(`WFOR2007`) 4th with Behar and 13th with Agatha. That is §24, and it is
+wider than §24 first recorded; see there.
+
+**Handled in.** `playersEnteredTwice` in `ingest/build.ts` finds them on each
+upcoming list, and the entries loop in `ingest/main.ts` logs each one —
+`entries      entered twice, FIVB lists both: WITAPE26 Toni Rodriguez
+(187527) with …` — and publishes the list as FIVB has it. When FIVB resolves
+it, one row moves to `Status` 1 or a withdrawal, and the next refresh follows.
+
+**Still open.** Nothing for upcoming lists: a player entered twice will very
+likely withdraw one, so the page does not need to say so.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -2011,7 +2059,8 @@ FIVB if a channel opens up (see the contact address in `shared/site.ts`):
   calls men's. So it is a rename rather than a data correction, and worth
   raising because the code is the identifier anyone outside VIS keys on.
 - **§24**, 27 team-entry rows that credit Shelda Bede (100926) for tournaments
-  her sister Shaylyn (103655) played. Both ids are real and already correctly
+  her sister Shaylyn (103655) played, and 22 earlier same-week second teams on
+  the same number (2001–2005) whose real player VIS cannot tell us. Both ids are real and already correctly
   detailed in VIS — unlike §18 and §20, nothing here needs FIVB to work out who
   a record belongs to, only to repoint `NoPlayer1` from one existing id to the
   other. 23 of the 27 are provable without any outside source: `100926` carries
