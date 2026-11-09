@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { EntryTeam } from '../../../shared/schema';
-import { ENTRY_ORDER, nextEntrySort, sortEntries } from './entrySort';
+import { BY_COUNTRY, ENTRY_ORDER, hasEntryPoints, nextEntrySort, openingSort, sortEntries } from './entrySort';
 
 /*
  * Seven rows of the Corigliano Rossano 2026 women's list as FIVB published it
@@ -89,5 +89,48 @@ describe('nextEntrySort', () => {
     expect(nextEntrySort(ENTRY_ORDER, 'team')).toEqual({ key: 'team', desc: false });
     expect(nextEntrySort({ key: 'team', desc: true }, 'fed')).toEqual({ key: 'fed', desc: false });
     expect(nextEntrySort({ key: 'fed', desc: false }, 'entry')).toEqual(ENTRY_ORDER);
+  });
+});
+
+describe('a list with no points yet', () => {
+  // Itapema 2026 women's shape on 8 November: every figure missing, and the
+  // file in player-id order, which is the ingest's last tie-break and means
+  // nothing to a reader.
+  const BARE: EntryTeam[] = [
+    [13, 14, 'CZE', null, null],
+    [11, 12, 'USA', null, null],
+    [7, 8, 'CZE', null, null],
+    [1, 2, 'BRA', null, null],
+    [9, 10, 'CZE', null, null],
+  ];
+
+  it('opens by country, and a list with points in FIVB order', () => {
+    expect(hasEntryPoints(BARE)).toBe(false);
+    expect(openingSort(BARE)).toEqual(BY_COUNTRY);
+    expect(hasEntryPoints(TEAMS)).toBe(true);
+    expect(openingSort(TEAMS)).toEqual(ENTRY_ORDER);
+  });
+
+  it('counts one published figure as points, and a list of none as none', () => {
+    expect(hasEntryPoints([...BARE, [3, 4, 'GER', 0, null]])).toBe(true);
+    expect(hasEntryPoints([])).toBe(false);
+  });
+
+  it('breaks a tie within a country by name, not by file order', () => {
+    const rows = sortEntries(BARE, BY_COUNTRY, nameOf);
+    // Adela, barbora, Tereza: the three Czech teams by their first name.
+    expect(rows.map((r) => nameOf(r.team[0]))).toEqual([
+      'Giulia Gavio',
+      'Adela Necesana',
+      'barbora Simkova',
+      'Tereza Kafkova',
+      'Halle Hunt',
+    ]);
+  });
+
+  it('still breaks a tie by FIVB order once the list has one', () => {
+    // The Czech teams in TEAMS run Adela, Tereza, barbora in FIVB order, which
+    // is not A–Z: the name tie-break must not reach a list with points.
+    expect(sortEntries(TEAMS, BY_COUNTRY, nameOf).map((r) => r.at)).toEqual([1, 5, 6, 7, 4, 2, 3]);
   });
 });

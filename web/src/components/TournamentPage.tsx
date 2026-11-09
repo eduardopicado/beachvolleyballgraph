@@ -28,7 +28,7 @@ import { useMemo, type ReactNode } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../../../shared/schema';
 import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../../../shared/schema';
 import { bandsOf } from '../lib/classification';
-import { ENTRY_ORDER, nextEntrySort, sortEntries, type EntrySortKey } from '../lib/entrySort';
+import { hasEntryPoints, nextEntrySort, openingSort, sortEntries, type EntrySortKey } from '../lib/entrySort';
 import { useStateFor } from '../lib/useStateFor';
 import { nameCarriesSeason } from '../../../shared/slug';
 import {
@@ -161,8 +161,10 @@ function EntryList({
   iso2Of: (federation: string) => string | null;
   onSelectPlayer: Props['onSelectPlayer'];
 }) {
-  // Per list: opening another tournament starts again in FIVB's order.
-  const [sort, setSort] = useStateFor(entries.status === 'ready' ? entries.data.code : '', () => ENTRY_ORDER);
+  // Per list: opening another tournament starts again in its opening order —
+  // FIVB's once the list has points, by country until it does.
+  const list = entries.status === 'ready' ? entries.data : null;
+  const [sort, setSort] = useStateFor(list?.code ?? '', () => openingSort(list?.teams ?? []));
 
   if (entries.status === 'loading') return <p className="note">Loading the entry list…</p>;
   if (entries.status === 'failed')
@@ -218,15 +220,26 @@ function EntryList({
     );
   }
 
+  // Without points there is no order that decides who gets in: no "#" to
+  // show, and nothing in the two points columns to sort by.
+  const ranked = hasEntryPoints(teams);
+
   return (
     <section aria-label="Entry list" className="entries">
       <h2>Entry list</h2>
-      <p className="blurb">
-        Entry points decide who gets in, and technical points break their ties: # is each team&rsquo;s
-        place in that order, whichever column the list is sorted by. Both are FIVB&rsquo;s figures
-        frozen at the registration deadline, so they sit behind the live points on a player&rsquo;s
-        own page.
-      </p>
+      {ranked ? (
+        <p className="blurb">
+          Entry points decide who gets in, and technical points break their ties: # is each
+          team&rsquo;s place in that order, whichever column the list is sorted by. Both are
+          FIVB&rsquo;s figures frozen at the registration deadline, so they sit behind the live
+          points on a player&rsquo;s own page.
+        </p>
+      ) : (
+        <p className="blurb">
+          FIVB publishes entry and technical points at the registration deadline, and they decide
+          who gets in. They are not out for this list yet, so it is shown by country.
+        </p>
+      )}
 
       {teams.length > 0 && (
         <table>
@@ -234,24 +247,30 @@ function EntryList({
             <tr>
               {/* Not a sort of its own: it is FIVB's order, which is what the
                   entry column sorts by. */}
-              <th scope="col">#</th>
-              {ENTRY_COLUMNS.map((col) => (
-                <th
-                  key={col.key}
-                  scope="col"
-                  className={col.numeric ? 'num' : undefined}
-                  aria-sort={sort.key === col.key ? (sort.desc ? 'descending' : 'ascending') : 'none'}
-                >
-                  <button type="button" onClick={() => setSort((prev) => nextEntrySort(prev, col.key))}>
-                    <span className="label">
-                      {col.label}
-                      <span className="arrow" aria-hidden="true">
-                        {sort.key === col.key ? (sort.desc ? '▾' : '▴') : ''}
+              {ranked && <th scope="col">#</th>}
+              {ENTRY_COLUMNS.map((col) =>
+                !ranked && col.numeric ? (
+                  <th key={col.key} scope="col" className="num">
+                    {col.label}
+                  </th>
+                ) : (
+                  <th
+                    key={col.key}
+                    scope="col"
+                    className={col.numeric ? 'num' : undefined}
+                    aria-sort={sort.key === col.key ? (sort.desc ? 'descending' : 'ascending') : 'none'}
+                  >
+                    <button type="button" onClick={() => setSort((prev) => nextEntrySort(prev, col.key))}>
+                      <span className="label">
+                        {col.label}
+                        <span className="arrow" aria-hidden="true">
+                          {sort.key === col.key ? (sort.desc ? '▾' : '▴') : ''}
+                        </span>
                       </span>
-                    </span>
-                  </button>
-                </th>
-              ))}
+                    </button>
+                  </th>
+                ),
+              )}
             </tr>
           </thead>
           <tbody>
@@ -259,7 +278,7 @@ function EntryList({
               const { a, b, federation, entry, tech, route } = readEntry(team);
               return (
                 <tr key={`${a}-${b}`}>
-                  <td className="at">{at}</td>
+                  {ranked && <td className="at">{at}</td>}
                   <td className="who">
                     {pair(a, b, federation)}
                     {/* Only the four routes that are not "by ranking"; the

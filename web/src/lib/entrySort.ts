@@ -26,6 +26,27 @@ export interface EntrySort {
 /** FIVB's order: the file is written in it (`entryOrder` in the ingest). */
 export const ENTRY_ORDER: EntrySort = { key: 'entry', desc: true };
 
+/** How a list with no points yet opens. */
+export const BY_COUNTRY: EntrySort = { key: 'fed', desc: false };
+
+/**
+ * Whether FIVB has published entry points for this list.
+ *
+ * It does so at the registration deadline. Before then every figure is
+ * missing, and the file's order is only the ingest's last tie-break — player
+ * ids — so there is no order that decides who gets in to show, number or sort
+ * by. Itapema 2026 was in that state on 8 November, a month out: 106 men's
+ * and 93 women's teams, not one with points.
+ */
+export function hasEntryPoints(teams: readonly EntryTeam[]): boolean {
+  return teams.some((team) => readEntry(team).entry !== null);
+}
+
+/** FIVB's order once there is one, by country until then. */
+export function openingSort(teams: readonly EntryTeam[]): EntrySort {
+  return hasEntryPoints(teams) ? ENTRY_ORDER : BY_COUNTRY;
+}
+
 /**
  * Accents and case folded, so Céline sorts among the Cs and a name typed in
  * capitals does not jump to the top. One collator for the module rather than
@@ -62,6 +83,9 @@ export function sortEntries(
 ): SortedEntry[] {
   const rows = teams.map((team, i) => ({ team, at: i + 1, read: readEntry(team) }));
   const dir = sort.desc ? -1 : 1;
+  // With no points the file's order is player ids, which means nothing to a
+  // reader, so a tie goes to the first name in the row instead.
+  const ranked = hasEntryPoints(teams);
   return rows
     .sort((x, y) => {
       let d: number;
@@ -76,8 +100,9 @@ export function sortEntries(
       }
       // FIVB's order breaks every tie, in the same direction whatever the
       // column: five Czech teams under "country" still read in the order they
-      // would get in.
-      return d || x.at - y.at;
+      // would get in. Before there is such an order, the name in the row does.
+      if (d || ranked) return d || x.at - y.at;
+      return collator.compare(nameOf(x.read.a), nameOf(y.read.a)) || x.at - y.at;
     })
     .map(({ team, at }) => ({ team, at }));
 }

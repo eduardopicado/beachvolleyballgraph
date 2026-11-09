@@ -21,8 +21,11 @@ import type { EntriesFile, Gender, TournamentsFile } from '../shared/schema.js';
 
 const DATA = path.resolve(import.meta.dirname, '../web/public/v1');
 
-/** The published entry list with the most teams, found by scanning. */
-function subject(): { code: string; slug: string; entries: EntriesFile } | null {
+/**
+ * The published entry list with the most teams, found by scanning. With
+ * `bare`, only lists FIVB has not yet given points to.
+ */
+function subject(bare = false): { code: string; slug: string; entries: EntriesFile } | null {
   const dir = path.join(DATA, 'entries');
   if (!existsSync(dir)) return null;
   const tournaments = Object.values(
@@ -47,6 +50,7 @@ function subject(): { code: string; slug: string; entries: EntriesFile } | null 
     if (!code || !slug) continue;
     const entries = JSON.parse(readFileSync(path.join(dir, file), 'utf8')) as EntriesFile;
     if (entries.teams.length < 5) continue;
+    if (bare && entries.teams.some((t) => t[3] !== null)) continue;
     if (!best || entries.teams.length > best.entries.teams.length) best = { code, slug, entries };
   }
   return best;
@@ -130,5 +134,38 @@ test.describe('sorting an entry list', () => {
     await page.getByRole('button', { name: 'Entry', exact: true }).click();
     const n = found!.entries.teams.length;
     expect(await column(page, 1)).toEqual(Array.from({ length: n }, (_, i) => String(i + 1)));
+  });
+});
+
+/*
+ * A list FIVB has not given points to yet opens by country, with no "#": the
+ * file's order is player ids, which is no order a reader could use. Tested on
+ * the published file itself, nothing added.
+ */
+const bare = subject(true);
+
+test.describe('an entry list with no points yet', () => {
+  test.skip(!bare, 'every published entry list has points');
+
+  test('opens by country with no "#", and the points columns do not sort', async ({ page }) => {
+    const { slug, entries } = bare!;
+    await page.goto(`./${TOURNAMENT_PREFIX}/${slug}/`);
+    const table = page.locator('.entries table:not(.gone)');
+    await expect(table.locator('tbody tr')).toHaveCount(entries.teams.length);
+
+    // No "#": four headers, the first of them the team. (Fed. also carries its ▴.)
+    await expect(table.locator('thead th')).toHaveText([/^Team/, /^Fed\./, 'Entry', 'Tech']);
+    await expect(header(page, 'Fed.')).toHaveAttribute('aria-sort', 'ascending');
+    await expect(table.getByRole('button', { name: 'Entry', exact: true })).toHaveCount(0);
+    await expect(table.getByRole('button', { name: 'Tech', exact: true })).toHaveCount(0);
+
+    // Country is now column 2, and within a country the rows run by name.
+    const collate = new Intl.Collator('en', { sensitivity: 'base' });
+    const feds = (await column(page, 2)).map((cell) => cell.trim().split(/\s+/).pop()!);
+    expect(feds).toEqual([...feds].sort(collate.compare));
+    const first = (await column(page, 1)).map((cell) => cell.split(' / ')[0]!.trim());
+    for (let i = 1; i < feds.length; i++) {
+      if (feds[i] === feds[i - 1]) expect(collate.compare(first[i - 1]!, first[i]!)).toBeLessThanOrEqual(0);
+    }
   });
 });
