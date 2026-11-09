@@ -22,6 +22,7 @@ import {
   entryOrder,
   entryTuple,
   pointsOf,
+  playersEnteredTwice,
   type EntryRow,
   type PairDecoration,
   type PairHonours,
@@ -1707,6 +1708,30 @@ describe('pointsOf', () => {
   it('reads a real figure and refuses a non-number', () => {
     expect(pointsOf('1178')).toBe(1178);
     expect(pointsOf('n/a')).toBe(null);
+  });
+});
+
+describe('playersEnteredTwice', () => {
+  const row = (a: number, b: number, withdrawal: EntryRow['withdrawal'] = null): EntryRow => ({
+    a, b, federation: 'USA', entry: null, tech: null, route: null, withdrawal,
+  });
+
+  it('names a player on two live teams, with both rows', () => {
+    // Real: Beach Elite Itapema 2026, Toni Rodriguez with Martinez and with
+    // Harward, both Status 0, registered minutes apart.
+    const toniMartinez = row(187527, 182389);
+    const toniHarward = row(187527, 147243);
+    const twice = playersEnteredTwice([toniMartinez, row(1, 2), toniHarward]);
+    expect([...twice.keys()]).toEqual([187527]);
+    expect(twice.get(187527)).toEqual([toniMartinez, toniHarward]);
+  });
+
+  it('does not count a withdrawn team, which is not an entry any more', () => {
+    expect(playersEnteredTwice([row(187527, 182389), row(187527, 147243, 'withdrawn')]).size).toBe(0);
+  });
+
+  it('is empty for a list where everyone is entered once', () => {
+    expect(playersEnteredTwice([row(1, 2), row(3, 4)]).size).toBe(0);
   });
 });
 
