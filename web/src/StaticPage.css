@@ -68,13 +68,13 @@
 
 /* --- 404: three ways back in ---------------------------------------------- */
 
-.ways-back {
+.static-page .ways-back {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 12px;
 }
 
-.ways-back a {
+.static-page .ways-back a {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -87,13 +87,13 @@
 }
 
 @media (hover: hover) {
-  .ways-back a:hover {
+  .static-page .ways-back a:hover {
     border-color: var(--series-1);
     background: var(--series-1-wash);
   }
 }
 
-.ways-back .figure {
+.static-page .ways-back .figure {
   color: var(--series-1);
   font-size: 28px;
   font-weight: 700;
@@ -102,19 +102,19 @@
   line-height: 1.1;
 }
 
-.ways-back .unit {
+.static-page .ways-back .unit {
   color: var(--text-secondary);
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.ways-back .name {
+.static-page .ways-back .name {
   margin-top: 6px;
   font-weight: 600;
 }
 
-.ways-back .what {
+.static-page .ways-back .what {
   color: var(--text-secondary);
   font-size: 13px;
 }
@@ -129,27 +129,27 @@
   gap: 32px;
 }
 
-.about-top {
+.static-page .about-top {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 28px 48px;
 }
 
-.about-top > header {
+.static-page .about-top > header {
   flex: 1 1 360px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.about .lede {
+.static-page.about .lede {
   max-width: 52ch;
   font-size: 17px;
 }
 
-.about-asof,
-.about-note {
+.static-page .about-asof,
+.static-page .about-note {
   margin: 0;
   color: var(--text-secondary);
   font-size: 13px;
@@ -158,7 +158,7 @@
 /* Wide enough for all five on one row beside the header (5 x 104 + gaps);
    narrower, the rows wrap and their last tiles grow to fill, so a 1px gap
    on the border colour reads as rules between tiles and never as a hole. */
-.about-figures {
+.static-page .about-figures {
   flex: 1 1 560px;
   display: flex;
   flex-wrap: wrap;
@@ -170,7 +170,7 @@
   background: var(--border);
 }
 
-.about-figures > div {
+.static-page .about-figures > div {
   flex: 1 1 104px;
   display: flex;
   flex-direction: column-reverse;
@@ -179,12 +179,12 @@
   background: var(--surface-1);
 }
 
-.about-figures dt {
+.static-page .about-figures dt {
   color: var(--text-secondary);
   font-size: 13px;
 }
 
-.about-figures dd {
+.static-page .about-figures dd {
   margin: 0;
   font-size: 24px;
   font-weight: 700;
@@ -193,7 +193,7 @@
   line-height: 1.2;
 }
 
-.about h2 {
+.static-page.about h2 {
   margin: 0;
   font-size: 18px;
   font-weight: 650;
@@ -203,13 +203,13 @@
 
 /* --- tournaments per season --- */
 
-.about-seasons {
+.static-page .about-seasons {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.about-seasons-head {
+.static-page .about-seasons-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -217,14 +217,14 @@
   gap: 4px 16px;
 }
 
-.about-seasons-head p {
+.static-page .about-seasons-head p {
   margin: 0;
   max-width: 72ch;
   color: var(--text-secondary);
   font-size: 13px;
 }
 
-.season-bars {
+.static-page .season-bars {
   display: flex;
   gap: clamp(1px, 0.3vw, 3px);
   height: 160px;
@@ -232,7 +232,7 @@
 }
 
 /* Heights are percentages of the tallest season, set inline per bar. */
-.season {
+.static-page .season {
   flex: 1 1 0;
   min-width: 0;
   height: 100%;
@@ -241,20 +241,20 @@
   justify-content: flex-end;
 }
 
-.season > span {
+.static-page .season > span {
   min-height: 2px;
   background: var(--series-1);
 }
 
-.season > span:first-child {
+.static-page .season > span:first-child {
   border-radius: 2px 2px 0 0;
 }
 
-.season > .without {
+.static-page .season > .without {
   opacity: 0.35;
 }
 
-.season-ticks {
+.static-page .season-ticks {
   position: relative;
   height: 18px;
   color: var(--text-secondary);
@@ -262,7 +262,7 @@
   font-variant-numeric: tabular-nums;
 }
 
-.season-ticks span {
+.static-page .season-ticks span {
   position: absolute;
   top: 0;
   transform: translateX(-50%);
@@ -271,14 +271,14 @@
 
 /* --- cards --- */
 
-.about-cards {
+.static-page .about-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
   align-items: start;
   gap: 20px;
 }
 
-.about-cards > section {
+.static-page .about-cards > section {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -288,11 +288,11 @@
   background: var(--surface-1);
 }
 
-.about-cards p {
+.static-page .about-cards p {
   margin: 0;
 }
 
-.about-cards > section > ul {
+.static-page .about-cards > section > ul {
   margin: 0;
   padding-left: 20px;
   display: flex;
@@ -301,26 +301,30 @@
 }
 
 /* The legend: the graph's own marks at the graph's own sizes, set inline. */
-.legend {
+/* 6px 18px is the spacing this legend has always rendered with: the graph
+   page's own `.legend` rule in App.css shares the class and, while these rules
+   were unscoped, won the tie on source order. Kept, so scoping this sheet
+   changed nothing on the page anyone had seen. */
+.static-page .legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 32px;
+  gap: 6px 18px;
 }
 
-.legend > div {
+.static-page .legend > div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.legend-label {
+.static-page .legend-label {
   color: var(--text-secondary);
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.legend ul {
+.static-page .legend ul {
   display: flex;
   align-items: flex-end;
   gap: 18px;
@@ -329,7 +333,7 @@
   list-style: none;
 }
 
-.legend li {
+.static-page .legend li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -339,8 +343,8 @@
   font-variant-numeric: tabular-nums;
 }
 
-.legend .dot,
-.legend-picked .dot {
+.static-page .legend .dot,
+.static-page .legend-picked .dot {
   display: block;
   border-radius: 50%;
   background: var(--series-1);
@@ -350,14 +354,14 @@
    so hundreds of crossing lines stay a texture, and on a card in the dark
    theme a single line of it all but disappears. The legend is about width,
    so it takes the muted text grey, which holds in both themes. */
-.legend .line {
+.static-page .legend .line {
   display: block;
   width: 36px;
   border-radius: 3px;
   background: var(--text-muted);
 }
 
-.legend-picked {
+.static-page .legend-picked {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -365,20 +369,20 @@
   font-size: 13px;
 }
 
-.legend-picked .dot.picked {
+.static-page .legend-picked .dot.picked {
   width: 18px;
   height: 18px;
   flex: none;
   background: var(--series-2);
 }
 
-.about-tiers {
+.static-page .about-tiers {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
 }
 
-.about-tiers th {
+.static-page .about-tiers th {
   padding: 6px 0;
   border-bottom: 1px solid var(--baseline);
   color: var(--text-secondary);
@@ -389,28 +393,28 @@
   text-transform: uppercase;
 }
 
-.about-tiers td {
+.static-page .about-tiers td {
   padding: 8px 0;
   border-bottom: 1px solid var(--border);
 }
 
-.about-tiers :is(th, td):last-child {
+.static-page .about-tiers :is(th, td):last-child {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-.about-credits {
+.static-page .about-credits {
   display: grid;
   grid-template-columns: minmax(84px, max-content) 1fr;
   gap: 8px 20px;
   margin: 0;
 }
 
-.about-credits dt {
+.static-page .about-credits dt {
   font-weight: 600;
 }
 
-.about-credits dd {
+.static-page .about-credits dd {
   margin: 0;
   color: var(--text-secondary);
 }
