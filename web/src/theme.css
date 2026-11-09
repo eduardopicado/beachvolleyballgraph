@@ -124,6 +124,28 @@ body {
   border-radius: 4px;
 }
 
+/* Text for screen readers only. Global, like everything in this file: the
+   table's caption, the tournament page's entry-list header and the panel's
+   finishes all use it. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  /* `clip-path` is the current way to do this; `clip` is deprecated and stays
+     only as a fallback for browsers that predate it. Both are needed because
+     dropping the old one silently un-hides the text on anything that lacks
+     `clip-path`, and this class is the only thing keeping screen-reader-only
+     labels off the screen. */
+  clip-path: inset(50%);
+  /* stylelint-disable-next-line property-no-deprecated -- kept deliberately, see above */
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -35,12 +35,12 @@
 /* Inline help marker on the threshold control. `title` alone is invisible on
    touch (no hover state to trigger it), so this is a real button that opens a
    rendered bubble on tap or click, in addition to the free desktop hover. */
-.help-tip {
+.controls .help-tip {
   position: relative;
   display: inline-flex;
 }
 
-.help-tip-trigger {
+.controls .help-tip-trigger {
   display: grid;
   place-items: center;
   width: 16px;
@@ -57,7 +57,7 @@
   position: relative;
 }
 
-.help-tip-trigger::after {
+.controls .help-tip-trigger::after {
   content: '';
   position: absolute;
   inset: -10px;
@@ -65,19 +65,19 @@
 
 /* Expanded is a state, not a pointer position — it must survive the gate below,
    or an open tip on a phone loses the highlight that says it is open. */
-.help-tip-trigger[aria-expanded='true'] {
+.controls .help-tip-trigger[aria-expanded='true'] {
   border-color: var(--series-1);
   color: var(--series-1);
 }
 
 @media (hover: hover) {
-  .help-tip-trigger:hover {
+  .controls .help-tip-trigger:hover {
     border-color: var(--series-1);
     color: var(--series-1);
   }
 }
 
-.help-tip-bubble {
+.controls .help-tip-bubble {
   position: absolute;
   z-index: 5;
   top: calc(100% + 8px);
@@ -98,7 +98,7 @@
 }
 
 .controls select,
-.player-search input {
+.controls .player-search input {
   height: 36px;
   padding: 0 10px;
   background: var(--page);
@@ -113,11 +113,11 @@
   cursor: pointer;
 }
 
-.player-search input {
+.controls .player-search input {
   width: 100%;
 }
 
-.player-search input::placeholder {
+.controls .player-search input::placeholder {
   color: var(--text-muted);
 }
 
@@ -179,11 +179,11 @@
    A self-contained combobox: matches render in a dropdown anchored directly
    under the input, not as a filter on the table elsewhere on the page. */
 
-.player-search {
+.controls .player-search {
   position: relative;
 }
 
-.player-search-results {
+.controls .player-search-results {
   position: absolute;
   z-index: 6;
   top: calc(100% + 6px);
@@ -210,7 +210,7 @@
 /* Scoped to `.result` rather than every `li`: results are nested one level
    deeper now, inside a labelled group, and a bare `li` selector would style the
    group wrapper as a row too — giving it a row's padding and pointer cursor. */
-.player-search-results .result {
+.controls .player-search-results .result {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -222,11 +222,11 @@
   color: var(--text-primary);
 }
 
-.player-search-results .result.is-active {
+.controls .player-search-results .result.is-active {
   background: var(--series-1-wash);
 }
 
-.player-search-results .group ul {
+.controls .player-search-results .group ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -237,14 +237,14 @@
    is actually crossed, so the common all-from-this-page result is unchanged. */
 /* Sticky, because the list is long enough to scroll now and a heading that
    scrolls away takes the answer to "which of these are Brazilian?" with it. */
-.player-search-results .group .split {
+.controls .player-search-results .group .split {
   position: sticky;
   top: -6px; /* cancels the list's own 6px of padding */
   z-index: 1;
   background: var(--surface-1);
 }
 
-.player-search-results .split {
+.controls .player-search-results .split {
   display: block;
   padding: 8px 10px 3px;
   color: var(--text-muted);
@@ -256,12 +256,12 @@
 
 /* The first heading in the list sits right under the input; it needs less air
    above it than one that follows a row. */
-.player-search-results > .split:first-child,
-.player-search-results > .group:first-child .split {
+.controls .player-search-results > .split:first-child,
+.controls .player-search-results > .group:first-child .split {
   padding-top: 3px;
 }
 
-.player-search-results .split.is-note {
+.controls .player-search-results .split.is-note {
   text-transform: none;
   letter-spacing: 0;
   font-weight: 500;
@@ -269,7 +269,7 @@
   color: var(--text-secondary);
 }
 
-.player-search-results .split.is-more {
+.controls .player-search-results .split.is-more {
   text-transform: none;
   letter-spacing: 0;
   font-weight: 400;
@@ -280,7 +280,7 @@
 }
 
 /* The two text lines, now beside the portrait rather than filling the row. */
-.player-search-results .who {
+.controls .player-search-results .who {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -291,7 +291,7 @@
 /* 32px, which is the smallest a face is still a face — 24 reads as a coloured
    dot. It costs no height: the name and meta already stand the row at ~40px,
    so the circle fits in space the row had regardless. */
-.player-search-results .avatar {
+.controls .player-search-results .avatar {
   flex: none;
   width: 32px;
   height: 32px;
@@ -300,21 +300,21 @@
 }
 
 /* No photo on file, which is common rather than exceptional — see Avatar.tsx. */
-.player-search-results .avatar.is-fallback {
+.controls .player-search-results .avatar.is-fallback {
   color: var(--series-1);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
 }
 
-.player-search-results .name {
+.controls .player-search-results .name {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.player-search-results .meta {
+.controls .player-search-results .meta {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
@@ -331,23 +331,23 @@
 /* The graph's own label for a player, on the rows where it is not simply their
    name shortened. Quiet: it is there to explain the match, not to compete with
    the name above it. */
-.player-search-results .alias {
+.controls .player-search-results .alias {
   color: var(--text-secondary);
   white-space: nowrap;
 }
 
 /* Neither half of the meta line may break internally — only between them. */
-.player-search-results .meta .tally,
-.player-search-results .where {
+.controls .player-search-results .meta .tally,
+.controls .player-search-results .where {
   white-space: nowrap;
 }
 
-.player-search-results .where {
+.controls .player-search-results .where {
   color: var(--text-secondary);
   font-weight: 600;
 }
 
-.player-search-empty {
+.controls .player-search-empty {
   position: absolute;
   z-index: 6;
   top: calc(100% + 6px);

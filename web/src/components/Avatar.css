@@ -37,7 +37,7 @@
   opacity: 1;
 }
 
-.avatar-initials {
+.avatar-slot .avatar-initials {
   /* Above the background the caller's class paints, below the photo. */
   position: relative;
   user-select: none;

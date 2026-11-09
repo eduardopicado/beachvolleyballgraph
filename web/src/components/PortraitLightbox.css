@@ -47,7 +47,7 @@
 /* The two widths, stacked. The 200px underneath carries the box's height — it
    is in cache, so it paints on the frame the dialog opens — and the 600px is
    laid over it and faded in when it arrives. */
-.portrait-shot {
+.portrait-lightbox .portrait-shot {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -58,13 +58,13 @@
   line-height: 0;
 }
 
-.portrait-lo {
+.portrait-lightbox .portrait-lo {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.portrait-hi {
+.portrait-lightbox .portrait-hi {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -77,25 +77,25 @@
   transition: opacity 180ms ease-out;
 }
 
-.portrait-shot.is-sharp .portrait-hi {
+.portrait-lightbox .portrait-shot.is-sharp .portrait-hi {
   opacity: 1;
 }
 
 /* Nothing underneath to take the height, so the large one has to carry it. */
-.portrait-shot.no-placeholder .portrait-hi {
+.portrait-lightbox .portrait-shot.no-placeholder .portrait-hi {
   position: static;
   height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portrait-hi {
+  .portrait-lightbox .portrait-hi {
     transition: none;
   }
 }
 
 /* Both requests failed — the 200px was in cache when the trigger was offered,
    so getting here means that entry went and the network with it. */
-.portrait-missing {
+.portrait-lightbox .portrait-missing {
   display: grid;
   place-items: center;
   width: 100%;
@@ -130,7 +130,7 @@
   font-size: 13px;
 }
 
-.portrait-close {
+.portrait-lightbox .portrait-close {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -147,13 +147,13 @@
   cursor: pointer;
 }
 
-.portrait-close:focus-visible {
+.portrait-lightbox .portrait-close:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
 @media (hover: hover) {
-  .portrait-close:hover {
+  .portrait-lightbox .portrait-close:hover {
     background: rgba(255, 255, 255, 0.2);
   }
 }

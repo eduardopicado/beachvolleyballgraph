@@ -374,10 +374,21 @@ only that page's component, so a tournament page loads 166 KB of JavaScript
 against 248 KB (80 KB) for every page before the split. The 153 KB entry is
 mostly React. The prerenderer reads Vite's build manifest and preloads each
 page's chunks from its head, so the split costs no round trip. The
-stylesheet is deliberately *not* split: one 53 KB file (9 KB gzipped, 8 November 2026) for
-every page, because components lean on rules from other pages' CSS
-(`.sr-only`, `.segmented`, the `main` layout) and splitting it broke the
-tournament page.
+stylesheet is deliberately *not* split: one 56 KB file (9 KB gzipped, 9 November 2026) for
+every page, because pages lean on rules from other components' CSS — the
+index and the records page draw their draw switch with `.segmented` from
+`Controls.css` — and splitting it broke the tournament page.
+
+One file for every page means a rule written for one component reaches every
+element, on every page, that shares its class. So each component's sheet
+starts every selector at that component's root class (`.player-card
+.timeline .season`, not `.timeline .season`), and
+`web/src/stylesheetScope.test.ts` fails on any that does not. `theme.css` is
+the one global sheet: tokens, element defaults, the focus ring, `.sr-only`.
+The rule came in after the About page's `.season` turned every year on every
+player-card timeline into a solid blue block (#232); scoping the other
+sheets moved no pixel in 62 screenshots (21 states; desktop and phone, light
+and dark).
 
 Deliberately not used:
 
@@ -388,7 +399,7 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 53 KB of CSS, linted by
+  component has a sibling stylesheet. The whole site is 56 KB of CSS, linted by
   `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
   closing brace without complaint, so nothing else would catch one.
 - **No data-fetching library.** Eleven `fetch` calls, one per published file

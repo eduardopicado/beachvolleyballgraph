@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.graph {
+.graph-wrap .graph {
   display: block;
   cursor: grab;
   touch-action: none;
@@ -19,20 +19,20 @@
    prop changed, so a constant className="graph" is written once at mount and
    these survive the re-render that every pan frame causes. Move either into the
    prop and the other gets wiped mid-gesture. */
-.graph.is-panning {
+.graph-wrap .graph.is-panning {
   cursor: grabbing;
 }
 
 /* The dot itself no longer decides what is clickable — the canvas resolves that
    against node centres — so the cursor is the only thing left telling a mouse
    user they are within reach of a node. */
-.graph.is-over-node {
+.graph-wrap .graph.is-over-node {
   cursor: pointer;
 }
 
 /* --- links --------------------------------------------------------------- */
 
-.link {
+.graph-wrap .link {
   stroke: var(--baseline);
   stroke-opacity: 0.55;
   stroke-linecap: round;
@@ -43,26 +43,26 @@
   vector-effect: non-scaling-stroke;
 }
 
-.link.is-active {
+.graph-wrap .link.is-active {
   stroke: var(--series-2);
   stroke-opacity: 0.95;
 }
 
-.link.is-dimmed {
+.graph-wrap .link.is-dimmed {
   stroke-opacity: 0.1;
 }
 
 /* --- nodes --------------------------------------------------------------- */
 
-.node {
+.graph-wrap .node {
   cursor: pointer;
 }
 
-.node .hit {
+.graph-wrap .node .hit {
   fill: transparent;
 }
 
-.node .dot {
+.graph-wrap .node .dot {
   fill: var(--series-1);
   /* A surface-coloured ring, not a border: it keeps overlapping dots legible
      without adding data-weight ink. */
@@ -71,19 +71,19 @@
   transition: fill 0.15s ease, opacity 0.15s ease;
 }
 
-.node.is-active .dot {
+.graph-wrap .node.is-active .dot {
   fill: var(--series-2);
 }
 
-.node.is-partner .dot {
+.graph-wrap .node.is-partner .dot {
   fill: var(--series-1);
 }
 
-.node.is-dimmed .dot {
+.graph-wrap .node.is-dimmed .dot {
   opacity: 0.22;
 }
 
-.label {
+.graph-wrap .label {
   fill: var(--text-secondary);
   font-size: 11px;
   font-weight: 500;
@@ -96,27 +96,27 @@
   pointer-events: none;
 }
 
-.label.is-active {
+.graph-wrap .label.is-active {
   fill: var(--text-primary);
   font-weight: 650;
 }
 
-.label.is-dimmed {
+.graph-wrap .label.is-dimmed {
   opacity: 0.25;
 }
 
-.node:focus {
+.graph-wrap .node:focus {
   outline: none;
 }
 
-.node:focus-visible .dot {
+.graph-wrap .node:focus-visible .dot {
   stroke: var(--series-2);
   stroke-width: 3;
 }
 
 /* --- controls ------------------------------------------------------------ */
 
-.graph-controls {
+.graph-wrap .graph-controls {
   position: absolute;
   right: 12px;
   bottom: 12px;
@@ -124,7 +124,7 @@
   gap: 6px;
 }
 
-.graph-controls button {
+.graph-wrap .graph-controls button {
   min-width: 34px;
   height: 34px;
   padding: 0 10px;
@@ -138,19 +138,19 @@
 }
 
 @media (hover: hover) {
-  .graph-controls button:hover {
+  .graph-wrap .graph-controls button:hover {
     color: var(--text-primary);
     background: var(--series-1-wash);
   }
 }
 
-.graph-controls .reset {
+.graph-wrap .graph-controls .reset {
   font-size: 13px;
 }
 
 /* --- tooltip ------------------------------------------------------------- */
 
-.graph-tooltip {
+.graph-wrap .graph-tooltip {
   position: absolute;
   transform: translate(-50%, -100%);
   min-width: 168px;
@@ -163,32 +163,32 @@
   z-index: 5;
 }
 
-.graph-tooltip strong {
+.graph-wrap .graph-tooltip strong {
   display: block;
   font-size: 13px;
   color: var(--text-primary);
   margin-bottom: 6px;
 }
 
-.graph-tooltip dl {
+.graph-wrap .graph-tooltip dl {
   margin: 0;
   display: grid;
   gap: 2px;
 }
 
-.graph-tooltip dl div {
+.graph-wrap .graph-tooltip dl div {
   display: flex;
   justify-content: space-between;
   gap: 14px;
 }
 
-.graph-tooltip dt {
+.graph-wrap .graph-tooltip dt {
   color: var(--text-muted);
   font-size: 12px;
 }
 
 /* Values lead, labels follow. */
-.graph-tooltip dd {
+.graph-wrap .graph-tooltip dd {
   margin: 0;
   color: var(--text-primary);
   font-size: 12px;
