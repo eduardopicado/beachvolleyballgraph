@@ -910,6 +910,30 @@ export function aggregateEntries(teamRows: VisRow[]): {
 }
 
 /**
+ * Players who hold more than one live entry on one tournament's list, with
+ * the rows that name them.
+ *
+ * FIVB lists both and so does the site, because nothing says which is real.
+ * Measured over the 1,614 published played events on 8 November 2026: a
+ * player held live entries with two different partners 142 times, and the
+ * placings went to the later registration 57 times, the earlier 39, neither
+ * 23 and both 23. The 23 "both" are a data error rather than play — one
+ * record, Shelda Bede, placed on two teams at 23 events (quirks §27). No rule
+ * picks the right one, so none is applied; the caller logs these so a list
+ * carrying one is a line in the run output rather than a surprise on a page.
+ *
+ * Withdrawn rows are not live entries and are not counted.
+ */
+export function playersEnteredTwice(rows: readonly EntryRow[]): Map<number, EntryRow[]> {
+  const byPlayer = new Map<number, EntryRow[]>();
+  for (const row of rows) {
+    if (row.withdrawal) continue;
+    for (const id of [row.a, row.b]) byPlayer.set(id, [...(byPlayer.get(id) ?? []), row]);
+  }
+  return new Map([...byPlayer].filter(([, list]) => list.length > 1));
+}
+
+/**
  * The order FIVB's own list has: entry points first, technical points to break
  * a tie, and the pair's own ids after that so a file does not churn between
  * two runs that hold the same list.
