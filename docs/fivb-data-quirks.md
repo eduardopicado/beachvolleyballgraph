@@ -1983,6 +1983,43 @@ likely withdraw one, so the page does not need to say so.
 
 ---
 
+## 28. Four results under a player number that does not exist
+
+**What.** Four team rows name player `103902`, and VIS has no such player:
+`GetPlayer` answers `NoData` for it, and the full player list (133,202 records
+on 9 November 2026) does not contain it. The team's own `Name` at Cagliari 2004
+reads `"???/Maria Clara"`, so whoever keyed the row did not know the name either.
+
+| Event | Code | Partner | VIS rank | bvbinfo |
+|---|---|---|---:|---|
+| Catania 2002 | `WCAT2002` | Maria Clara Salgado | 3 | not on its FIVB lists |
+| Fortaleza 2004 | `WFOR2004` | Tatiana Minello | 25 | Talita Antunes / Tatiana Minello, 25th |
+| Cagliari 2004 | `WCAG2004` | Maria Clara Salgado | 2 | Talita Antunes / Maria Clara Salgado, 2nd |
+| Rio de Janeiro 2004 | `WRIO2004` | Tais Jesus | −2 (quota) | Talita Antunes / Tais Jesus, CQ |
+
+They are Talita Antunes's. Her record is **`103892`** — one digit from
+`103902` — and holds no row at any of the four, and bvbinfo names her at three
+of them beside the same partner, in the same place (tournaments 1431, 1495 and
+1457 there). The owner found it from the Cagliari page, whose podium has no
+second place.
+
+**What it does here.** A row with no player record cannot be drawn: there is no
+node for `103902`, so the Cagliari page lists 1st, 3rd and 4th, Talita's card is
+four events short, and neither Maria Clara nor Talita shows Cagliari 2004 or
+Catania 2002 on a timeline. Maria Clara's tour silver from Cagliari was still
+counted until the medal tallies moved onto the classifications (#220).
+
+**Not the only one.** Over the published events, 19 played team rows name 12
+player numbers with no record (9 November 2026): `103902` ×4; `116619`,
+`102987`, `118282`, `116665`, `103168` ×2; `104877`, `119807`, `103457`,
+`104121`, `105035`, `103169` ×1. Only `103902` has been traced to its player.
+
+**Handled in.** Nothing, for the reason §24 gives: the fix is four `NoPlayer1`
+values pointed at a record that already exists, and that is FIVB's correction
+to make. Reported in the email (`docs/fivb-email.md`).
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -2074,6 +2111,12 @@ FIVB if a channel opens up (see the contact address in `shared/site.ts`):
   all with `01` in `CountryName` too. And `MOST1995` (Ostende) ends 29 days
   before it starts: `StartDateMainDraw` 1995-09-17 against
   `EndDateMainDraw` 1995-08-19. Both are single-field fixes on named rows.
+
+- **§28**, four team rows on player `103902`, a number VIS has no record of,
+  that are Talita Antunes's (`103892`): Catania 2002, Fortaleza and Cagliari
+  2004 (where the team is named "???/Maria Clara") and Rio de Janeiro 2004.
+  bvbinfo confirms three. A repoint, as §24. And the wider list: 19 played
+  rows on 12 numbers with no record, ids in the section.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.

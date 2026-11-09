@@ -223,6 +223,19 @@ twenty-two teams we cannot tell from here — `103655` holds no team rows at all
 so some may be Shaylyn's too — and your entry lists for those events would
 settle it.
 
+Four more of Talita Antunes's results sit under a player number that does not
+exist. `103902` has no record — `GetPlayer` returns no data for it — yet four
+team rows name it, and at Cagliari 2004 your own team name reads
+"???/Maria Clara". Her record is `103892`, one digit away, with no row at any
+of the four, and bvbinfo has her at three of them beside the same partner in
+the same place: 25th at Fortaleza 2004 with Tatiana Minello, 2nd at Cagliari
+2004 with Maria Clara Salgado, and a country-quota exit at Rio de Janeiro 2004
+with Tais Jesus. The fourth is Catania 2002 (`WCAT2002`), 3rd beside Maria
+Clara. Pointing those four rows at `103892` would put a podium back on each of
+two careers. They are not the only rows of the kind: across the events we
+publish, 19 played team rows name 12 player numbers that have no record, and we
+can send the list.
+
 Thirty-seven player records have a `FirstName` of exactly `"..."` — three full
 stops where a given name should be — and thirty of those men played FIVB
 events, so the entry lists that named them presumably still exist. An empty
@@ -499,8 +512,9 @@ duplicated records), §19 (codes contradicting their dates), §20 (the same
 athlete under two player numbers, checked individually rather than reported as
 the raw candidate list), §21 (two names and the word `or`), §22 (`"..."` as a
 first name), §23 (the gender letter in a tournament code), §24 (team rows
-crediting one sister for the other's results) and §25 (the `01` country codes
-and Ostende's reversed dates). That is the whole reporting list at the end of
+crediting one sister for the other's results), §25 (the `01` country codes
+and Ostende's reversed dates) and §28 (Talita Antunes's results under a
+number with no record). That is the whole reporting list at the end of
 that document. If a new one is found, add it here too.
 
 **Request 6 is not on that list and never will be**, because it is not a
