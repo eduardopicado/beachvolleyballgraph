@@ -51,6 +51,7 @@ import {
   tournamentMeta,
   sliceByCountryAndGender,
   aggregateEntries,
+  playersEnteredTwice,
   entryOrder,
   entryTuple,
   aggregatePairHonours,
@@ -853,6 +854,7 @@ export async function writeTree(
 
   let entryFiles = 0;
   let entryTeams = 0;
+  const enteredTwice: string[] = [];
   for (const tournament of tournaments.values()) {
     if (!tournament.code || classifications.has(tournament.no)) continue;
     const endsOn = tournament.endsOn === null ? null : new Date(`${tournament.endsOn}T00:00:00Z`);
@@ -881,6 +883,11 @@ export async function writeTree(
       }
     }
 
+    for (const [id, rows] of playersEnteredTwice(teams)) {
+      const partners = rows.map((t) => named[t.a === id ? t.b : t.a]).join(' and ');
+      enteredTwice.push(`${tournament.code} ${named[id]} (${id}) with ${partners}`);
+    }
+
     entryFiles++;
     entryTeams += teams.length;
     const corrected = Object.keys(elsewhere).length > 0;
@@ -901,6 +908,10 @@ export async function writeTree(
     );
   }
   log('entries', `${entryTeams} teams entered across ${entryFiles} tournaments without a result`);
+  // Published as FIVB lists them, both teams, because no rule tells which
+  // entry is the live one (playersEnteredTwice, quirks §27). Logged so the
+  // entered count on such a page is known to be one team high.
+  for (const line of enteredTwice) log('entries', `entered twice, FIVB lists both: ${line}`);
 
   // --- series ---------------------------------------------------------------
   /*

@@ -683,6 +683,19 @@ export function PlayerCard({
     [filteredSeasons],
   );
 
+  /**
+   * A chip is on, and so the list below the switch is the whole answer.
+   *
+   * The filtered list is built from the player's every result, partners from
+   * other federations included, so it is the one place those events belong
+   * while it is up. Two things got that wrong: the card checked for an empty
+   * home partner list first, so for a player whose partners are all elsewhere
+   * the chip changed nothing on screen, and the away block below kept its
+   * unfiltered timeline, so the same Olympics showed twice, once filtered and
+   * once not.
+   */
+  const filtering = showing === 'timeline' && filter !== null;
+
 
   return (
     <aside
@@ -881,22 +894,7 @@ export function PlayerCard({
           </div>
         )}
 
-        {partners.length === 0 ? (
-          <p className="empty">
-            {/* Says where the partnerships *are*, not just where they are not.
-                An earlier wording ended on "none of them appear in the
-                ${countryName} graph" with a list of them immediately below it,
-                which reads as a contradiction rather than an explanation.
-
-                The pointer stays; naming its target does not. The heading is
-                the next thing on the card, so "See Partners not in this graph
-                below" would spend six words on a place the eye has already
-                reached. */}
-            {away.length > 0
-              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
-              : `No partnerships on record for this player.`}
-          </p>
-        ) : showing === 'timeline' && filter ? (
+        {filtering ? (
           results.status !== 'ready' ? (
             <p className="events-note">Loading…</p>
           ) : filteredSeasons.length === 0 ? (
@@ -917,6 +915,21 @@ export function PlayerCard({
               variant="is-filtered"
             />
           )
+        ) : partners.length === 0 ? (
+          <p className="empty">
+            {/* Says where the partnerships *are*, not just where they are not.
+                An earlier wording ended on "none of them appear in the
+                ${countryName} graph" with a list of them immediately below it,
+                which reads as a contradiction rather than an explanation.
+
+                The pointer stays; naming its target does not. The heading is
+                the next thing on the card, so "See Partners not in this graph
+                below" would spend six words on a place the eye has already
+                reached. */}
+            {away.length > 0
+              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
+              : `No partnerships on record for this player.`}
+          </p>
         ) : showing === 'timeline' ? (
           <SeasonList
             rows={timeline}
@@ -945,7 +958,7 @@ export function PlayerCard({
           </ul>
         )}
 
-        {away.length > 0 && (
+        {away.length > 0 && !filtering && (
           <div className="away">
             {/* Named rather than hidden: the graph deliberately holds only
                 same-slice pairs, and a player who moved keeps their new country
