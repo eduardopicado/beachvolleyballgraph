@@ -19,9 +19,11 @@ import {
   decorationOf,
   entryStatus,
   aggregateEntries,
+  classificationRows,
   entryOrder,
   entryTuple,
   pointsOf,
+  playersEnteredTwice,
   type EntryRow,
   type PairDecoration,
   type PairHonours,
@@ -357,7 +359,7 @@ describe('tidyBirthPlace', () => {
   });
 
   it('normalises capitals and strips the quotes FIVB stored', () => {
-    // 444 published birth places shout; "9 de JULIO" is a real Argentine town
+    // 465 published birth places shout; "9 de JULIO" is a real Argentine town
     // wearing quotation marks.
     expect(tidyBirthPlace('BUENOS AIRES')).toBe('Buenos Aires');
     expect(tidyBirthPlace('"9 de JULIO"')).toBe('9 de Julio');
@@ -366,7 +368,7 @@ describe('tidyBirthPlace', () => {
 
   it('normalises a value that has no capitals either', () => {
     // The mirror of the shout rule, and the same failure: a free-text box
-    // filled in with caps lock in the other state. 102 published places have no
+    // filled in with caps lock in the other state. 103 published places have no
     // capital anywhere.
     expect(tidyBirthPlace('rio de janeiro')).toBe('Rio de Janeiro');
     expect(tidyBirthPlace('buenos aires')).toBe('Buenos Aires');
@@ -394,6 +396,24 @@ describe('tidyBirthPlace', () => {
     expect(tidyBirthPlace('St-Gallen')).toBe('St-Gallen');
     expect(tidyBirthPlace('Adelaide, SA')).toBe('Adelaide, SA');
     expect(tidyBirthPlace('Arendal, norway')).toBe('Arendal, norway');
+  });
+
+  it('mends the two slips that mixed capitals do not excuse', () => {
+    // Caps lock with shift held for the first letter: the one published case.
+    expect(tidyBirthPlace('wEIDEN')).toBe('Weiden');
+    // A first letter typed small, the three published cases. Only the first
+    // letter: the rest is mixed, and so is left as typed.
+    expect(tidyBirthPlace('nagano, Japan')).toBe('Nagano, Japan');
+    expect(tidyBirthPlace('ciudad la Habana')).toBe('Ciudad la Habana');
+    expect(tidyBirthPlace('san juan del sur, Rivas')).toBe('San juan del sur, Rivas');
+  });
+
+  it('keeps a single quote, which belongs to the name wherever FIVB has one', () => {
+    // Both published values with a single quote at an end. Stripping it, as
+    // the double-quote rule once did for both kinds, gave "s Gravenhage" and
+    // "K. Male".
+    expect(tidyBirthPlace("'s Gravenhage")).toBe("'s Gravenhage");
+    expect(tidyBirthPlace("K. Male'")).toBe("K. Male'");
   });
 
   it('capitalises after a bracket or a comma, not only after a hyphen', () => {
@@ -1370,6 +1390,20 @@ describe('aggregateMedals', () => {
   });
 });
 
+describe('classificationRows', () => {
+  it('is one row per team per event, with the rank the classification holds', () => {
+    const rows = classificationRows(
+      new Map([
+        ['7', new Map([['1:2', [2, 1, 2, 'BRA'] as [number, number, number, string]], ['3:4', [-25, 3, 4, 'NOR'] as [number, number, number, string]]])],
+      ]),
+    );
+    expect(rows).toEqual([
+      { NoTournament: '7', NoPlayer1: '1', NoPlayer2: '2', Rank: '2' },
+      { NoTournament: '7', NoPlayer1: '3', NoPlayer2: '4', Rank: '-25' },
+    ]);
+  });
+});
+
 describe('aggregateTourPodiums', () => {
   /** One tournament of each tier, so the filter can be checked from both sides. */
   const byTier = normaliseTournaments([
@@ -1649,6 +1683,30 @@ describe('pointsOf', () => {
   it('reads a real figure and refuses a non-number', () => {
     expect(pointsOf('1178')).toBe(1178);
     expect(pointsOf('n/a')).toBe(null);
+  });
+});
+
+describe('playersEnteredTwice', () => {
+  const row = (a: number, b: number, withdrawal: EntryRow['withdrawal'] = null): EntryRow => ({
+    a, b, federation: 'USA', entry: null, tech: null, route: null, withdrawal,
+  });
+
+  it('names a player on two live teams, with both rows', () => {
+    // Real: Beach Elite Itapema 2026, Toni Rodriguez with Martinez and with
+    // Harward, both Status 0, registered minutes apart.
+    const toniMartinez = row(187527, 182389);
+    const toniHarward = row(187527, 147243);
+    const twice = playersEnteredTwice([toniMartinez, row(1, 2), toniHarward]);
+    expect([...twice.keys()]).toEqual([187527]);
+    expect(twice.get(187527)).toEqual([toniMartinez, toniHarward]);
+  });
+
+  it('does not count a withdrawn team, which is not an entry any more', () => {
+    expect(playersEnteredTwice([row(187527, 182389), row(187527, 147243, 'withdrawn')]).size).toBe(0);
+  });
+
+  it('is empty for a list where everyone is entered once', () => {
+    expect(playersEnteredTwice([row(1, 2), row(3, 4)]).size).toBe(0);
   });
 });
 

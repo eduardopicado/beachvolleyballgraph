@@ -387,10 +387,13 @@ export function applyFilter(rows: readonly IndexRow[], filter: IndexFilter): Ind
  * filter that has both and can keep only one keeps the group.
  */
 export function reconcile(rows: readonly IndexRow[], filter: IndexFilter): IndexFilter {
-  const seasons = seasonsFor(rows, filter.gender);
+  // The nearest season the draw has, not the newest. Flipping to the women's
+  // draw on 1990, which has no women's events before 1992, used to land on
+  // the newest women's season, a calendar with nothing played in it yet,
+  // while the same request typed as a URL snapped to 1992. One rule for both.
   // An empty archive has no season to fall back to; keep what was asked for
   // rather than inventing one, and let the caller render "nothing published".
-  const season = seasons.includes(filter.season) ? filter.season : (seasons[0] ?? filter.season);
+  const season = nearestSeason(rows, filter.gender, filter.season) ?? filter.season;
 
   const slice = sliceOf(rows, filter.gender, season);
   const group = filter.group && groupsIn(slice).includes(filter.group) ? filter.group : null;

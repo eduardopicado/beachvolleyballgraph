@@ -215,7 +215,7 @@ footer .caveat {
   border-radius: var(--radius);
 }
 
-.error-panel h1 {
+.error-panel :is(h1, h2) {
   margin: 0 0 8px;
   font-size: 20px;
 }

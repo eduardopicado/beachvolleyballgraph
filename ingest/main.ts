@@ -51,6 +51,8 @@ import {
   tournamentMeta,
   sliceByCountryAndGender,
   aggregateEntries,
+  classificationRows,
+  playersEnteredTwice,
   entryOrder,
   entryTuple,
   aggregatePairHonours,
@@ -328,6 +330,10 @@ export function aggregate(archive: Archive, generatedAt: string) {
     aggregatePartnerships(teamRows, tournaments, players);
   log('aggregate', `${partnerships.size} partnerships across ${appearances.size} players`);
   log('rejected', JSON.stringify(rejects));
+  // Every honour below is counted from these, not from `teamRows`, so a medal
+  // on a card is always one the classification it opens shows. See
+  // classificationRows.
+  const playedRows = classificationRows(classifications);
 
   // Medal tournaments are picked out of the raw rows directly (Type 5 / 4),
   // not the broader `olympics`/`world-champs` tiers above — see
@@ -356,13 +362,17 @@ export function aggregate(archive: Archive, generatedAt: string) {
   }
 
   const medals = medalTournaments(tournamentRows);
-  const medalsByPlayer = aggregateMedals(teamRows, medals);
+  const medalsByPlayer = aggregateMedals(playedRows, medals);
   log('medals', `${medalsByPlayer.size} players with an Olympic or World Championships medal`);
 
   // Tour podiums are the other end of the same question: the Olympics and the
   // World Championships say who peaked, this says who kept turning up on
   // Sundays. Levels mixed on purpose -- see aggregateTourPodiums.
-  const podiumsByPlayer = aggregateTourPodiums(teamRows, tournaments);
+  const podiumsByPlayer = aggregateTourPodiums(playedRows, tournaments);
+  // Honours are a property of the team row, so the pair's tallies come from
+  // the rows directly rather than from the two players' own — see
+  // aggregatePairHonours for why joining the per-player counts cannot work.
+  const pairHonours = aggregatePairHonours(playedRows, tournaments, medals);
   // Which narrowings the timeline can offer each player, published so the card
   // can draw the controls before it fetches a single result — the results file
   // only loads when somebody opens a season.
@@ -434,6 +444,7 @@ export function aggregate(archive: Archive, generatedAt: string) {
     medals,
     medalsByPlayer,
     podiumsByPlayer,
+    pairHonours,
     timelineFilters,
     olympicGames,
     slices,
@@ -500,9 +511,9 @@ export async function writeTree(
     appearances,
     results,
     classifications,
-    medals,
     medalsByPlayer,
     podiumsByPlayer,
+    pairHonours,
     timelineFilters,
     olympicGames,
     slices,
@@ -860,6 +871,7 @@ export async function writeTree(
 
   let entryFiles = 0;
   let entryTeams = 0;
+  const enteredTwice: string[] = [];
   for (const tournament of tournaments.values()) {
     // Every event with a page and no result: the same rule as the index.
     if (classifications.has(tournament.no) || !hasPage(tournament, false, endsOnDate(tournament), now)) continue;
@@ -887,6 +899,11 @@ export async function writeTree(
       }
     }
 
+    for (const [id, rows] of playersEnteredTwice(teams)) {
+      const partners = rows.map((t) => named[t.a === id ? t.b : t.a]).join(' and ');
+      enteredTwice.push(`${tournament.code} ${named[id]} (${id}) with ${partners}`);
+    }
+
     entryFiles++;
     entryTeams += teams.length;
     const corrected = Object.keys(elsewhere).length > 0;
@@ -907,6 +924,10 @@ export async function writeTree(
     );
   }
   log('entries', `${entryTeams} teams entered across ${entryFiles} tournaments without a result`);
+  // Published as FIVB lists them, both teams, because no rule tells which
+  // entry is the live one (playersEnteredTwice, quirks §27). Logged so the
+  // entered count on such a page is known to be one team high.
+  for (const line of enteredTwice) log('entries', `entered twice, FIVB lists both: ${line}`);
 
   // --- series ---------------------------------------------------------------
   /*
@@ -1005,10 +1026,6 @@ export async function writeTree(
     }
   }
   const recordPlayerById = new Map(recordPlayers.map((p) => [p.id, p] as const));
-  // Honours are a property of the team row, so the pair's tallies come from
-  // the rows directly rather than from the two players' own — see
-  // aggregatePairHonours for why joining the per-player counts cannot work.
-  const pairHonours = aggregatePairHonours(teamRows, tournaments, medals);
   const recordPairs: RecordPair[] = [];
   for (const [key, pair] of partnerships) {
     const a = recordPlayerById.get(pair.a);

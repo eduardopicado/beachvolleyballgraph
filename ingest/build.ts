@@ -539,6 +539,34 @@ const RANK_TO_MEDAL: Record<number, keyof MedalCounts> = { 1: 'gold', 2: 'silver
  * (1997) had no bronze-medal match and awarded two bronzes — both semifinal
  * losers carry `Rank: 3`, and both are credited here.
  */
+/**
+ * The rows behind every published classification, in the shape the honour
+ * tallies below read.
+ *
+ * Those tallies used to walk the raw team rows, each with its own copy of
+ * the player check, and so missed everything else `aggregatePartnerships`
+ * decides about a row: a pair entered twice for one event, a partner who is
+ * not a published player, a rank that is not a result. A medal then counted
+ * on the card that the classification it opens does not show. Measured on
+ * 8 November 2026, it was one: Maria Clara Salgado's silver at Cagliari 2004,
+ * won beside a record FIVB keeps as "???", which the Cagliari page leaves off
+ * its podium and her card counted as a fifth tour silver.
+ *
+ * Fed this instead, every tally agrees with the classifications by
+ * construction: one row per pair per event, the rank that event's page shows.
+ */
+export function classificationRows(
+  classifications: ReadonlyMap<string, ReadonlyMap<string, ClassificationTeam>>,
+): VisRow[] {
+  const rows: VisRow[] = [];
+  for (const [no, field] of classifications) {
+    for (const [rank, a, b] of field.values()) {
+      rows.push({ NoTournament: no, NoPlayer1: String(a), NoPlayer2: String(b), Rank: String(rank) });
+    }
+  }
+  return rows;
+}
+
 export function aggregateMedals(
   teamRows: VisRow[],
   medals: Map<string, MedalCategory>,
@@ -882,6 +910,30 @@ export function aggregateEntries(teamRows: VisRow[]): {
 }
 
 /**
+ * Players who hold more than one live entry on one tournament's list, with
+ * the rows that name them.
+ *
+ * FIVB lists both and so does the site, because nothing says which is real.
+ * Measured over the 1,614 published played events on 8 November 2026: a
+ * player held live entries with two different partners 142 times, and the
+ * placings went to the later registration 57 times, the earlier 39, neither
+ * 23 and both 23. The 23 "both" are a data error rather than play — one
+ * record, Shelda Bede, placed on two teams at 23 events (quirks §27). No rule
+ * picks the right one, so none is applied; the caller logs these so a list
+ * carrying one is a line in the run output rather than a surprise on a page.
+ *
+ * Withdrawn rows are not live entries and are not counted.
+ */
+export function playersEnteredTwice(rows: readonly EntryRow[]): Map<number, EntryRow[]> {
+  const byPlayer = new Map<number, EntryRow[]>();
+  for (const row of rows) {
+    if (row.withdrawal) continue;
+    for (const id of [row.a, row.b]) byPlayer.set(id, [...(byPlayer.get(id) ?? []), row]);
+  }
+  return new Map([...byPlayer].filter(([, list]) => list.length > 1));
+}
+
+/**
  * The order FIVB's own list has: entry points first, technical points to break
  * a tie, and the pair's own ids after that so a file does not churn between
  * two runs that hold the same list.
@@ -980,13 +1032,14 @@ function titleCaseWord(word: string): string {
  * from a province, and nothing says which country a bare "Portland" is in — so
  * the value is published verbatim apart from the tidying below.
  *
- * It is far cleaner than it first looks. Measured over the 6,496 published
- * players who have one, **21 are unusable (0.32%)**, and most of those are only
- * suspicious rather than wrong: "Paris 14e", "Praha 4", "Sèvres (92)" and
- * "St Brieul (12)" are arrondissements and department numbers, which are real
- * answers to where somebody was born. Rejecting anything containing a digit
- * would throw all of those away to catch the seven records that are actually
- * broken, so the rules are narrow and each one names its cases:
+ * It is far cleaner than it first looks. Measured over the 6,543 published
+ * players who have one (8 Nov 2026), 16 contain a digit and **7 are unusable
+ * (0.11%)**. The rest of the 16 are only suspicious rather than wrong:
+ * "Paris 14e", "Praha 4", "Sèvres (92)" and "St Brieul (12)" are
+ * arrondissements and department numbers, which are real answers to where
+ * somebody was born. Rejecting anything containing a digit would throw all of
+ * those away to catch the seven records that are actually broken, so the rules
+ * are narrow and each one names its cases:
  *
  *  - a date in the birth *place* field — "21.08.77", "03/09/1988",
  *    "06-05-1991", "17/01/1992" (4 records);
@@ -994,18 +1047,23 @@ function titleCaseWord(word: string): string {
  *  - an internal note that should never have left the database —
  *    "to be Merged with (#164181) as" (1).
  *
- * Capitals are normalised in both directions. 444 published birth places shout,
- * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 102 more have no
+ * Capitals are normalised in both directions. 465 published birth places shout,
+ * and "BUENOS AIRES" is no more correct than "MUKUNZI" was; 103 more have no
  * capital at all — "rio de janeiro", "salvador" — which is the same box filled
- * in with caps lock the other way. Only a value that is uniformly one case is
- * touched: mixed capitals are a choice somebody made, and "St-Gallen" or
- * "Adelaide, SA" is already right.
+ * in with caps lock the other way. Otherwise mixed capitals are a choice
+ * somebody made, and "St-Gallen" or "Adelaide, SA" is already right, with two
+ * exceptions that are slips rather than choices: a word typed with caps lock
+ * and shift together ("wEIDEN", 1 record), and a value whose first letter is
+ * small ("nagano, Japan", "ciudad la Habana", 3 records).
  *
- * Stray quotation marks are stripped, which is one record — `"9 de JULIO"` is a
- * real Argentine town wearing the quotes FIVB stored it with.
+ * Stray double quotes are stripped, which is one record — `"9 de JULIO"` is a
+ * real Argentine town wearing the quotes FIVB stored it with. Single quotes
+ * are not: both published at an end of a value belong to the name.
  */
 export function tidyBirthPlace(value: string | undefined): string | null {
-  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^["']+|["']+$/g, '').trim();
+  // Double quotes only. A single one at either end is part of the name in both
+  // published cases: "'s Gravenhage" (The Hague) and "K. Male'" (Malé).
+  const raw = (value ?? '').replace(/\s+/g, ' ').trim().replace(/^"+|"+$/g, '').trim();
   if (!raw) return null;
 
   // A whole date, however it is punctuated. Anchored, so "Paris 14e" and
@@ -1017,8 +1075,8 @@ export function tidyBirthPlace(value: string | undefined): string | null {
   if (/\bto be merged\b|\bmerge[dr]?\s+with\b|#\d{3,}|\bduplicate\b/i.test(raw)) return null;
 
   // A value with no capital in it anywhere has lost its casing rather than
-  // chosen it: "rio de janeiro", "buenos aires", "salvador". 102 published
-  // places are like this, against 444 that shout, and both are the same
+  // chosen it: "rio de janeiro", "buenos aires", "salvador". 103 published
+  // places are like this, against 465 that shout, and both are the same
   // failure — a federation typing into a free-text box with caps lock in one
   // state or the other.
   //
@@ -1037,16 +1095,20 @@ export function tidyBirthPlace(value: string | undefined): string | null {
   // place name is a code, not a shout — the "PR" in "Curitiba, PR", the "BRA"
   // in "Juiz de Fora (BRA)", the whole of "TN", the "N2" in "Auckland N2".
   // Title-casing those would turn a province code into a word.
-  return (
-    raw
-      .split(' ')
-      .map((word) => {
-        const letters = word.replace(/[^\p{L}]/gu, '');
-        const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
-        return shouts ? titleCaseWord(word) : word;
-      })
-      .join(' ') || null
-  );
+  const tidied = raw
+    .split(' ')
+    .map((word) => {
+      const letters = word.replace(/[^\p{L}]/gu, '');
+      const shouts = letters.length >= 4 && word === word.toUpperCase() && word !== word.toLowerCase();
+      // Caps lock with the shift key held for the first letter: "wEIDEN".
+      const inverted = letters.length >= 4 && /^\p{Ll}\p{Lu}+$/u.test(letters);
+      return shouts || inverted ? titleCaseWord(word) : word;
+    })
+    .join(' ');
+  // Mixed capitals are left as typed, but a place name does not begin with a
+  // small letter: "nagano, Japan", "ciudad la Habana". Only a letter in the
+  // first position, so the apostrophe of "'s Gravenhage" keeps its "s".
+  return tidied.replace(/^\p{Ll}/u, (letter) => letter.toUpperCase()) || null;
 }
 
 /**
