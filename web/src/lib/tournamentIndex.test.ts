@@ -508,10 +508,21 @@ describe('reconcile', () => {
     expect(reconcile(rows, filter)).toEqual(filter);
   });
 
-  it('falls back to the newest season when the draw has nothing in the one asked for', () => {
+  // The women's draw with 1992 and 2025, as the archive has it: its first
+  // women's events are from 1992.
+  const withEarly = [
+    ...rows,
+    ...index({ 9: meta({ name: 'Women 1992', season: 1992, gender: 'W', level: 'Open', code: 'W2' }) }),
+  ];
+
+  it('falls back to the nearest season the draw has, not the newest', () => {
     // Flipping to the women's draw on 1990, which is men-only.
-    const got = reconcile(rows, { gender: 'W', season: 1990, group: null, level: null });
-    expect(got.season).toBe(2025);
+    const got = reconcile(withEarly, { gender: 'W', season: 1990, group: null, level: null });
+    expect(got.season).toBe(1992);
+  });
+
+  it('keeps the season asked for when the draw has it, even an old one', () => {
+    expect(reconcile(withEarly, { gender: 'W', season: 1992, group: null, level: null }).season).toBe(1992);
   });
 
   it('drops a tier group the new season does not hold', () => {

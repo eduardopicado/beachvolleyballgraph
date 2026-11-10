@@ -49,7 +49,11 @@ function HelpTip({ text }: { text: string }) {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key !== 'Escape') return;
+      // Stopped here so the same Escape does not reach the player card, which
+      // closes on Escape at `window`: the innermost thing open is what goes.
+      e.stopPropagation();
+      setOpen(false);
     };
     document.addEventListener('pointerdown', onOutside);
     document.addEventListener('keydown', onKey);
@@ -271,6 +275,10 @@ function PlayerSearch({
         select(match);
       }
     } else if (event.key === 'Escape') {
+      // Only when there is a list to dismiss. Stopped, or the open player
+      // card, which closes on any Escape at `window`, went with it — and on a
+      // card opened from a link, closing can mean leaving the page.
+      if (open && (matches.length > 0 || query.trim().length > 0)) event.stopPropagation();
       setOpen(false);
     }
   };
