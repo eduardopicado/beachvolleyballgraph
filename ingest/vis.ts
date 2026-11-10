@@ -22,11 +22,13 @@ const ENDPOINT = 'https://www.fivb.org/Vis2009/XmlRequest.asmx';
  * contact address plus attribution and the not-affiliated disclaimer, and it
  * survives the repo going private, which a github.com link would not.
  *
- * `VIS_USER_AGENT` overrides it (the workflows set it explicitly too, so this
- * default is only exercised by a local run or a fork), but the default is
- * deliberately reachable too, rather than falling back to an anonymous string.
+ * `VIS_USER_AGENT` overrides it. The workflows do not set it: this default is
+ * the identity production sends, built from `shared/site.ts`, so a change of
+ * address there reaches FIVB without a second copy in a workflow to keep in
+ * step. Exported for the Wikidata query in `aliases.ts`, which identifies the
+ * project the same way.
  */
-const USER_AGENT = process.env.VIS_USER_AGENT ?? `beachvolleyballgraph/1.0 (+${SITE_URL}/about/; ${CONTACT_EMAIL})`;
+export const USER_AGENT = process.env.VIS_USER_AGENT ?? `beachvolleyballgraph/1.0 (+${SITE_URL}/about/; ${CONTACT_EMAIL})`;
 
 const MAX_ATTEMPTS = 3;
 const BASE_BACKOFF_MS = 2000;
