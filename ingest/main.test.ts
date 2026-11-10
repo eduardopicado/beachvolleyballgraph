@@ -135,4 +135,55 @@ describe('aggregate and writeTree', () => {
     // Nothing above reached for the network.
     expect(fetch).not.toHaveBeenCalled();
   });
+
+  it('credits a podium once, and only one the classification shows', async () => {
+    // The two real shapes: a pair entered in qualification and the main draw
+    // of one event with both rows ranked, and a podium beside a partner who is
+    // not a published player — Maria Clara Salgado's Cagliari 2004 silver
+    // beside a record FIVB keeps as "???", which that event's page leaves off
+    // its podium and her card counted anyway.
+    const { aggregate } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const tournamentRows = [
+      tournament('1', 'MAAA2025', '2025-06-01', '2025-06-04'),
+      tournament('2', 'MBBB2025', '2025-07-01', '2025-07-04'),
+      // A World Championships, for the medal tally.
+      { ...tournament('3', 'MWCH2025', '2025-08-01', '2025-08-10'), Type: '4' },
+    ];
+    const teamRows = [
+      team('1', 1, 2, 'BRA', 2),
+      { ...team('1', 1, 2, 'BRA', 2), No: 'qualification' },
+      team('2', 1, 99, 'BRA', 2),
+      team('3', 1, 2, 'BRA', 1),
+      { ...team('3', 1, 2, 'BRA', 1), No: 'qualification-wch' },
+    ];
+    const agg = aggregate(
+      {
+        federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+        tournamentRows,
+        tournaments: normaliseTournaments(tournamentRows),
+        players: normalisePlayers([1, 2].map((n) => player(n, 'BRA'))),
+        teamRows,
+        tierCounts: { 'Beach Pro Tour': 2 },
+        seasonFrom: 2025,
+        seasonTo: 2025,
+        sourceVersion: '1',
+      },
+      '2025-08-01T00:00:00.000Z',
+    );
+
+    // The classifications hold one silver for the pair and none for player 1
+    // with 99, so that is what the tally may say.
+    expect([...agg.classifications.get('1')!.values()]).toEqual([[2, 1, 2, 'BRA']]);
+    expect(agg.classifications.get('2')).toBeUndefined();
+    expect(agg.podiumsByPlayer.get(1)).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(agg.podiumsByPlayer.get(2)).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(agg.podiumsByPlayer.has(99)).toBe(false);
+    // The same rule for the Worlds, and for the pair's own honours.
+    expect(agg.medalsByPlayer.get(1)!['world-champs']).toEqual({ gold: 1, silver: 0, bronze: 0 });
+    const pair = agg.pairHonours.get('1:2')!;
+    expect(pair.tour).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(pair['world-champs']).toEqual({ gold: 1, silver: 0, bronze: 0 });
+    expect([...agg.pairHonours.keys()]).toEqual(['1:2']);
+  });
 });

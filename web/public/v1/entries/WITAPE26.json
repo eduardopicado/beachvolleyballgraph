@@ -7,7 +7,6 @@
     [117882,173480,"UKR",null,null],
     [120938,164600,"ESP",null,null],
     [124153,179340,"SUI",null,null],
-    [124979,141868,"CAN",null,null],
     [124999,152865,"SUI",null,null],
     [132695,120937,"BRA",null,null],
     [132824,162690,"LTU",null,null],
@@ -95,6 +94,9 @@
     [217332,132696,"BRA",null,null],
     [230447,236829,"BRA",null,null],
     [230513,230480,"BRA",null,null]
+  ],
+  "withdrawn": [
+    [124979,141868,"CAN",null,null,"withdrawn"]
   ],
   "players": {
     "103892": "Talita Da Rocha Antunes",
