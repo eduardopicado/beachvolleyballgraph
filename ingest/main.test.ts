@@ -136,6 +136,62 @@ describe('aggregate and writeTree', () => {
     expect(fetch).not.toHaveBeenCalled();
   });
 
+  /*
+   * A series edition links to a page by slug, and `tournamentSlugs` suffixes
+   * every member of a clash with its code, so the two only agree when they are
+   * built over the same tournaments. Carolina 1994 (women) shared its name,
+   * season and draw with a cancelled event and so got a suffix the page never
+   * had. Olympic Games stand in for it here: their name comes from the season
+   * alone, so two Type 5 rows in one season clash by construction.
+   */
+  it('links each series edition to the address its page is written at', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('no network in this test'))));
+    const { mkdtemp, readdir, readFile } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { aggregate, writeTree } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const { buildIndex } = await import('../web/src/lib/tournamentIndex');
+
+    const olympic = (no: string, code: string) => ({ ...tournament(no, code, '2024-07-28', '2024-08-10'), Type: '5' });
+    // Played, and a second listing of the same Games that never was: no
+    // field, and over by years when the archive is taken.
+    const tournamentRows = [olympic('1', 'MOG2024'), olympic('2', 'MOGX2024')];
+    const teamRows = [team('1', 1, 2, 'BRA', 1), team('1', 3, 4, 'BRA', 2)];
+    const archive = {
+      federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+      tournamentRows,
+      tournaments: normaliseTournaments(tournamentRows),
+      players: normalisePlayers([1, 2, 3, 4].map((n) => player(n, 'BRA'))),
+      teamRows,
+      tierCounts: { 'Olympic Games': 2 },
+      seasonFrom: 2024,
+      seasonTo: 2024,
+      sourceVersion: '1',
+    };
+
+    const generatedAt = '2027-01-01T00:00:00.000Z';
+    const agg = aggregate(archive, generatedAt);
+    const dir = path.join(await mkdtemp(path.join(tmpdir(), 'ingest-')), 'v1');
+    await writeTree(dir, archive, agg, new Map(), generatedAt);
+    const read = async (...p: string[]) => JSON.parse(await readFile(path.join(dir, ...p), 'utf8'));
+
+    // The pages, decided the way the prerenderer decides them.
+    const classified = new Set(
+      (await readdir(path.join(dir, 'classifications'))).map((f) => f.replace(/\.json$/, '')),
+    );
+    const pages = buildIndex(
+      (await read('tournaments.json')).tournaments,
+      (code) => classified.has(code),
+      new Date(generatedAt),
+    );
+    expect(pages.map((p) => p.code)).toEqual(['MOG2024']);
+
+    const { editions } = await read('series', 'olympics.json');
+    expect(editions.map((e: { code: string }) => e.code)).toEqual(['MOG2024']);
+    expect(editions[0].slug).toBe(pages[0]!.slug);
+  });
+
   it('writes no classification for a played tournament with no FIVB code', async () => {
     // A blank `Code` would name the file `.json`, and a second one would
     // overwrite the first. None in the archive today.
