@@ -635,22 +635,21 @@ export async function writeTree(
     // ranks by — and so an eye scanning it lands on the names it would expect.
     searchIndex[`${slice.country}-${slice.gender}`] = [...slice.nodes]
       .sort((a, b) => b.tournaments - a.tournaments || a.name.localeCompare(b.name))
-      .map((n): SearchEntry =>
-        // The graph's label, but only when it says something the name does
-        // not. See SearchEntry: this is what makes "Duda" find Eduarda Santos
-        // Lisboa, and it is skipped for the plain shortenings that a name
-        // search already reaches.
-        foldAccents(n.short).includes(foldAccents(n.name)) ||
-        foldAccents(n.name).includes(foldAccents(n.short))
-          ? aka.get(n.id)
-            // A former name still has to occupy the fifth slot, so `short`
-            // fills the fourth even where it says nothing new.
-            ? [n.id, n.name, n.tournaments, n.short, aka.get(n.id)!]
-            : [n.id, n.name, n.tournaments]
-          : aka.get(n.id)
-            ? [n.id, n.name, n.tournaments, n.short, aka.get(n.id)!]
-            : [n.id, n.name, n.tournaments, n.short],
-      );
+      .map((n): SearchEntry => {
+        const former = aka.get(n.id);
+        // A former name has to occupy the fifth slot, so `short` fills the
+        // fourth even where it says nothing new.
+        if (former) return [n.id, n.name, n.tournaments, n.short, former];
+        // Otherwise the graph's label, but only when it says something the
+        // name does not. See SearchEntry: this is what makes "Duda" find
+        // Eduarda Santos Lisboa, and it is skipped for the plain shortenings
+        // that a name search already reaches.
+        const name = foldAccents(n.name);
+        const short = foldAccents(n.short);
+        return short.includes(name) || name.includes(short)
+          ? [n.id, n.name, n.tournaments]
+          : [n.id, n.name, n.tournaments, n.short];
+      });
 
     let entry = byCountry.get(slice.country);
     if (!entry) {
@@ -992,9 +991,12 @@ export async function writeTree(
   // The number the published shape rests on: if the guess ever stopped being
   // nearly always right, storing the corrections would be the wrong trade and
   // this is where that shows.
+  // A tree with no classifications has no names to count, and "NaN%" would
+  // read as a fault in a run that has none.
+  const share = fieldNames === 0 ? '' : ` (${((100 * guessed) / fieldNames).toFixed(2)}%)`;
   log(
     'field links',
-    `${guessed.toLocaleString()} of ${fieldNames.toLocaleString()} names (${((100 * guessed) / fieldNames).toFixed(2)}%) reach their page from the team's own federation; ${(fieldNames - guessed).toLocaleString()} corrected`,
+    `${guessed.toLocaleString()} of ${fieldNames.toLocaleString()} names${share} reach their page from the team's own federation; ${(fieldNames - guessed).toLocaleString()} corrected`,
   );
 
   await writeFile(
