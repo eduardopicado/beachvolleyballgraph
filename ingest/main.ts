@@ -749,6 +749,7 @@ export async function writeTree(
   );
 
   let classifiedTeams = 0;
+  let withoutCode = 0;
   /** Field appearances, and how many of them the guess below gets right. */
   let fieldNames = 0;
   let guessed = 0;
@@ -758,6 +759,16 @@ export async function writeTree(
     // reachable if the two ever disagree. Skipping beats writing a file whose
     // name has to come from somewhere.
     if (!tournament) continue;
+    // The file is named by FIVB's code, and `normaliseTournaments` keeps a
+    // blank one. Written anyway, it would be `classifications/.json`, and a
+    // second such event would overwrite the first. Every other use of the code
+    // here (the slugs, `withoutField`, entry lists) already skips a blank one,
+    // and so does the index, so there is no page that could ask for it. None
+    // in the archive today; counted and logged so the first is noticed.
+    if (!tournament.code) {
+      withoutCode++;
+      continue;
+    }
     const teams = [...field.values()].sort(
       (x, y) =>
         // Placements first and in order, then the eliminations below them, and
@@ -838,6 +849,9 @@ export async function writeTree(
     'classified',
     `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
   );
+  if (withoutCode > 0) {
+    log('classified', `${withoutCode} played tournament${withoutCode === 1 ? '' : 's'} with no FIVB code, not written`);
+  }
 
   // --- one file per tournament without a result: who has entered ------------
   /*
