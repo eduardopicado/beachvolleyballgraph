@@ -539,6 +539,34 @@ const RANK_TO_MEDAL: Record<number, keyof MedalCounts> = { 1: 'gold', 2: 'silver
  * (1997) had no bronze-medal match and awarded two bronzes — both semifinal
  * losers carry `Rank: 3`, and both are credited here.
  */
+/**
+ * The rows behind every published classification, in the shape the honour
+ * tallies below read.
+ *
+ * Those tallies used to walk the raw team rows, each with its own copy of
+ * the player check, and so missed everything else `aggregatePartnerships`
+ * decides about a row: a pair entered twice for one event, a partner who is
+ * not a published player, a rank that is not a result. A medal then counted
+ * on the card that the classification it opens does not show. Measured on
+ * 8 November 2026, it was one: Maria Clara Salgado's silver at Cagliari 2004,
+ * won beside a record FIVB keeps as "???", which the Cagliari page leaves off
+ * its podium and her card counted as a fifth tour silver.
+ *
+ * Fed this instead, every tally agrees with the classifications by
+ * construction: one row per pair per event, the rank that event's page shows.
+ */
+export function classificationRows(
+  classifications: ReadonlyMap<string, ReadonlyMap<string, ClassificationTeam>>,
+): VisRow[] {
+  const rows: VisRow[] = [];
+  for (const [no, field] of classifications) {
+    for (const [rank, a, b] of field.values()) {
+      rows.push({ NoTournament: no, NoPlayer1: String(a), NoPlayer2: String(b), Rank: String(rank) });
+    }
+  }
+  return rows;
+}
+
 export function aggregateMedals(
   teamRows: VisRow[],
   medals: Map<string, MedalCategory>,
