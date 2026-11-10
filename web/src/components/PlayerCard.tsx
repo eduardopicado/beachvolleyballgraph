@@ -6,13 +6,14 @@
  */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../schema';
-import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../schema';
-import { foldAccents } from '../lib/search';
+import type { AwayPartner, Gender, GraphNode, PlayerDetail, SeasonTally, Tier } from '../../../shared/schema';
+import { playerProfileUrl, TIER_BADGE, TOUR_TIERS, type TimelineFilter } from '../../../shared/schema';
+import { foldAccents } from '../../../shared/fold';
 import {
   age,
+  flagEmoji,
   formatDate,
-  formatDayMonth,
+  formatDateRange,
   formatFinish,
   formatMedals,
   medalAriaLabel,
@@ -28,7 +29,25 @@ import { seasonEvents, type SeasonEvent } from '../lib/results';
 import { prefersReducedMotion } from '../lib/motion';
 import { useResults } from '../lib/useResults';
 import { useClassification } from '../lib/useClassification';
+import { useStateFor } from '../lib/useStateFor';
 import './PlayerCard.css';
+
+/** A tournament whose full field is open over the card. */
+interface OpenEvent {
+  code: string;
+  name: string;
+  season: number;
+  tier: Tier;
+  level: string | null;
+  /** ISO-2 for the flag beside the heading, null when VIS has no usable one. */
+  country: string | null;
+  when: string | null;
+}
+
+/** Fresh per-player state, for `useStateFor`. */
+const nothing = () => null;
+const closed = () => false;
+const noSeasons = (): ReadonlySet<number> => new Set();
 
 export interface PartnerRow {
   node: GraphNode;
@@ -161,7 +180,12 @@ function SeasonList({
                         {events.map((event) => {
                           const finish = formatFinish(event.rank);
                           const medal = medalFor(event.rank);
-                          const when = formatDayMonth(event.date);
+                          const when = formatDateRange(event.date, event.endDate);
+                          // Empty string when there is no country, which is
+                          // every row until the tree is next regenerated with
+                          // the field — so this renders nothing rather than a
+                          // placeholder glyph in the meantime.
+                          const flag = flagEmoji(event.country);
                           // Tier first, then level. The Olympics, the World
                           // Championships and the age-group championships are
                           // badged by tier and have no level below it; every
@@ -181,6 +205,16 @@ function SeasonList({
                                     only the oldest, whose tuple is too short
                                     to carry one — stays plain text rather than
                                     offering a button that cannot answer. */}
+                                {/* Outside the button, so the flag is not part
+                                    of the click target or of the button's
+                                    accessible name — it repeats the country
+                                    the name already implies and adds nothing
+                                    when read aloud. */}
+                                {flag && (
+                                  <span className="where" aria-hidden="true">
+                                    {flag}
+                                  </span>
+                                )}
                                 {event.code ? (
                                   <button
                                     type="button"
@@ -504,11 +538,10 @@ export function PlayerCard({
    * control that appeared after the first click would not be a control anyone
    * could find. Picking one raises the same flag an expansion does.
    */
-  const [filter, setFilter] = useState<TimelineFilter | null>(null);
+  // Per player: a different player has different chips, and one of them may
+  // not exist here.
+  const [filter, setFilter] = useStateFor<number, TimelineFilter | null>(node.id, nothing);
   const available = detail?.filters ?? [];
-
-  // A different player has different chips, and one of them may not exist here.
-  useEffect(() => setFilter(null), [node.id]);
 
   const matchesFilter = useCallback(
     (event: SeasonEvent) => {
@@ -524,7 +557,13 @@ export function PlayerCard({
   );
 
   // --- expanding a season into its tournaments ------------------------------
-  const [openSeasons, setOpenSeasons] = useState<ReadonlySet<number>>(new Set());
+  // This and the per-player state below start over for each player: a
+  // different player's seasons are not this player's. Held per player rather
+  // than cleared by an effect, which painted one frame of the previous
+  // player's open seasons, event and portrait under the new player's name.
+  // `view` is deliberately not among them, so someone reading careers year by
+  // year stays in the timeline as they click through.
+  const [openSeasons, setOpenSeasons] = useStateFor<number, ReadonlySet<number>>(node.id, noSeasons);
   // Raised by the first expansion and never lowered, which is what keeps the
   // fetched slice around as the reader clicks from player to player.
   const [wantResults, setWantResults] = useState(false);
@@ -532,29 +571,22 @@ export function PlayerCard({
 
   // The away list expands independently: the two blocks answer different
   // questions, and a 2015 opened in one is not a 2015 opened in the other.
-  const [openAwaySeasons, setOpenAwaySeasons] = useState<ReadonlySet<number>>(new Set());
+  const [openAwaySeasons, setOpenAwaySeasons] = useStateFor<number, ReadonlySet<number>>(node.id, noSeasons);
 
   // --- the portrait, large --------------------------------------------------
-  // Reset with the seasons below on every change of node: a partner row is
+  // Per player, like the seasons above: a partner row is
   // clickable from behind the scrim on nothing, but the card *does* change
   // player underneath an open portrait via the graph and the search box, and
   // leaving it open would show one player's photo captioned with another's
   // name.
-  const [portraitOpen, setPortraitOpen] = useState(false);
+  const [portraitOpen, setPortraitOpen] = useStateFor(node.id, closed);
 
   // --- a tournament's full field --------------------------------------------
   // The event's whole header is kept, not just its code, so the panel can draw
   // itself before the fetch lands: all of it is already in the timeline row
   // that opened it, and re-reading it from the classification would mean
   // waiting on a request to show a heading we already have.
-  const [openEvent, setOpenEvent] = useState<{
-    code: string;
-    name: string;
-    season: number;
-    tier: Tier;
-    level: string | null;
-    when: string | null;
-  } | null>(null);
+  const [openEvent, setOpenEvent] = useStateFor<number, OpenEvent | null>(node.id, nothing);
   const classification = useClassification(openEvent?.code ?? null);
 
   const openEventPanel = useCallback((event: SeasonEvent, season: number) => {
@@ -565,19 +597,12 @@ export function PlayerCard({
       season,
       tier: event.tier,
       level: event.level,
-      when: formatDayMonth(event.date),
+      // The full run, not just the opening day: the panel has room for it and
+      // "9-13 Jul" is what a reader looking at one event wants to know.
+      when: formatDateRange(event.date, event.endDate),
+      country: event.country,
     });
-  }, []);
-
-  // A different player's seasons are not this player's, so start them closed —
-  // but leave `view` alone, so someone reading careers year by year stays in
-  // the timeline as they click through.
-  useEffect(() => {
-    setOpenSeasons(new Set());
-    setOpenAwaySeasons(new Set());
-    setPortraitOpen(false);
-    setOpenEvent(null);
-  }, [node.id]);
+  }, [setOpenEvent]);
 
   const toggleAwaySeason = useCallback((season: number) => {
     setWantResults(true);
@@ -586,7 +611,7 @@ export function PlayerCard({
       if (!next.delete(season)) next.add(season);
       return next;
     });
-  }, []);
+  }, [setOpenAwaySeasons]);
 
   const toggleSeason = useCallback((season: number) => {
     setWantResults(true);
@@ -595,7 +620,7 @@ export function PlayerCard({
       if (!next.delete(season)) next.add(season);
       return next;
     });
-  }, []);
+  }, [setOpenSeasons]);
 
   const nameOf = useCallback(
     (id: number) =>
@@ -655,6 +680,19 @@ export function PlayerCard({
     () => new Set(filteredSeasons.map((r) => r.season)),
     [filteredSeasons],
   );
+
+  /**
+   * A chip is on, and so the list below the switch is the whole answer.
+   *
+   * The filtered list is built from the player's every result, partners from
+   * other federations included, so it is the one place those events belong
+   * while it is up. Two things got that wrong: the card checked for an empty
+   * home partner list first, so for a player whose partners are all elsewhere
+   * the chip changed nothing on screen, and the away block below kept its
+   * unfiltered timeline, so the same Olympics showed twice, once filtered and
+   * once not.
+   */
+  const filtering = showing === 'timeline' && filter !== null;
 
 
   return (
@@ -854,22 +892,7 @@ export function PlayerCard({
           </div>
         )}
 
-        {partners.length === 0 ? (
-          <p className="empty">
-            {/* Says where the partnerships *are*, not just where they are not.
-                An earlier wording ended on "none of them appear in the
-                ${countryName} graph" with a list of them immediately below it,
-                which reads as a contradiction rather than an explanation.
-
-                The pointer stays; naming its target does not. The heading is
-                the next thing on the card, so "See Partners not in this graph
-                below" would spend six words on a place the eye has already
-                reached. */}
-            {away.length > 0
-              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
-              : `No partnerships on record for this player.`}
-          </p>
-        ) : showing === 'timeline' && filter ? (
+        {filtering ? (
           results.status !== 'ready' ? (
             <p className="events-note">Loading…</p>
           ) : filteredSeasons.length === 0 ? (
@@ -890,6 +913,21 @@ export function PlayerCard({
               variant="is-filtered"
             />
           )
+        ) : partners.length === 0 ? (
+          <p className="empty">
+            {/* Says where the partnerships *are*, not just where they are not.
+                An earlier wording ended on "none of them appear in the
+                ${countryName} graph" with a list of them immediately below it,
+                which reads as a contradiction rather than an explanation.
+
+                The pointer stays; naming its target does not. The heading is
+                the next thing on the card, so "See Partners not in this graph
+                below" would spend six words on a place the eye has already
+                reached. */}
+            {away.length > 0
+              ? `None of these partnerships appear in the ${countryName} graph, which links players by the federation they are in today. See below.`
+              : `No partnerships on record for this player.`}
+          </p>
         ) : showing === 'timeline' ? (
           <SeasonList
             rows={timeline}
@@ -918,7 +956,7 @@ export function PlayerCard({
           </ul>
         )}
 
-        {away.length > 0 && (
+        {away.length > 0 && !filtering && (
           <div className="away">
             {/* Named rather than hidden: the graph deliberately holds only
                 same-slice pairs, and a player who moved keeps their new country
@@ -1065,6 +1103,7 @@ export function PlayerCard({
           tier={openEvent.tier}
           level={openEvent.level}
           when={openEvent.when}
+          country={openEvent.country}
           state={classification}
           iso2Of={iso2Of}
           highlightId={node.id}

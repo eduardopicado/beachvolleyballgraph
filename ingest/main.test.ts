@@ -1,0 +1,276 @@
+import { afterEach, describe, expect, it, vi } from 'vitest';
+
+/**
+ * Importing the ingest must not run it.
+ *
+ * `populated.test.ts` imports `assertPopulated` from `main.ts`, and for as long
+ * as `main()` ran at module load, every `npm test` — every pull request's CI
+ * run included, whose workflow promises it never contacts FIVB — opened a real
+ * request to VIS, and would have gone on to rebuild and swap the published tree
+ * had the worker lived long enough. Nothing failed; the test file simply
+ * finished first.
+ *
+ * Stubs `fetch` rather than trusting the network to be absent, so the check is
+ * the same on a laptop, in CI and in a sandbox.
+ */
+describe('ingest/main.ts', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.resetModules();
+  });
+
+  it('does not start an ingest when imported', async () => {
+    const fetch = vi.fn(() => new Promise<Response>(() => {}));
+    vi.stubGlobal('fetch', fetch);
+    vi.resetModules();
+
+    await import('./main');
+    // main() awaits two filesystem reads before its first request, so give it
+    // well past that before deciding nothing was sent.
+    await new Promise((r) => setTimeout(r, 300));
+
+    expect(fetch).not.toHaveBeenCalled();
+  });
+});
+
+/**
+ * The stages after the fetch, run end to end on a handful of synthetic rows.
+ *
+ * Until `main()` was split, none of this could run without VIS: the aggregation,
+ * the writing and the refusals were one function that began with three list
+ * requests. Now `aggregate` and `writeTree` take rows and a directory, so the
+ * whole published shape can be built here and read back.
+ */
+describe('aggregate and writeTree', () => {
+  const tournament = (no: string, code: string, start: string, end: string) => ({
+    No: no,
+    Code: code,
+    Name: `Event ${no}`,
+    Season: start.slice(0, 4),
+    Gender: '0',
+    Type: '52', // Beach Pro Tour Elite16
+    OrganizerType: '1',
+    Version: '1',
+    StartDateMainDraw: start,
+    EndDateMainDraw: end,
+    CountryCode: 'IT',
+  });
+  const player = (no: number, fed: string) => ({
+    No: String(no),
+    FirstName: `First${no}`,
+    LastName: `Last${no}`,
+    Gender: '0',
+    FederationCode: fed,
+  });
+  const team = (tour: string, a: number, b: number, fed: string, rank: number) => ({
+    No: `${tour}${a}${b}`,
+    NoTournament: tour,
+    NoPlayer1: String(a),
+    NoPlayer2: String(b),
+    FederationCode: fed,
+    Rank: String(rank),
+  });
+
+  it('writes every file of the published tree from rows alone', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('no network in this test'))));
+    const { mkdtemp, readdir, readFile } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { aggregate, writeTree } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+
+    const tournamentRows = [
+      tournament('1', 'MAAA2025', '2025-06-01', '2025-06-04'),
+      tournament('2', 'MBBB2025', '2025-07-01', '2025-07-04'),
+      // Still to come, so it has entries rather than a classification.
+      tournament('3', 'MCCC2099', '2099-07-01', '2099-07-04'),
+    ];
+    const playerRows = [1, 2, 3, 4].map((n) => player(n, 'BRA')).concat([5, 6].map((n) => player(n, 'USA')));
+    const teamRows = [
+      team('1', 1, 2, 'BRA', 1),
+      team('1', 3, 4, 'BRA', 2),
+      team('1', 5, 6, 'USA', 3),
+      team('2', 1, 3, 'BRA', 1),
+      team('2', 2, 4, 'BRA', 2),
+    ];
+    const archive = {
+      federations: new Map([
+        ['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }],
+        ['USA', { code: 'USA', name: 'United States', iso2: 'US' }],
+      ]),
+      tournamentRows,
+      tournaments: normaliseTournaments(tournamentRows),
+      players: normalisePlayers(playerRows),
+      teamRows,
+      tierCounts: { 'Beach Pro Tour': 3 },
+      seasonFrom: 2025,
+      seasonTo: 2099,
+      sourceVersion: '1',
+    };
+
+    const generatedAt = '2025-08-01T00:00:00.000Z';
+    const agg = aggregate(archive, generatedAt);
+    const dir = path.join(await mkdtemp(path.join(tmpdir(), 'ingest-')), 'v1');
+    const { manifest } = await writeTree(dir, archive, agg, new Map(), generatedAt);
+    const read = async (...p: string[]) => JSON.parse(await readFile(path.join(dir, ...p), 'utf8'));
+
+    expect(manifest.totals).toEqual({ tournaments: 3, players: 6, partnerships: 5 });
+    expect(manifest.countries.map((c) => c.code)).toEqual(['BRA', 'USA']);
+    expect(await read('manifest.json')).toEqual(manifest);
+
+    const brazil = await read('graphs', 'BRA-M.json');
+    expect(brazil.nodes).toHaveLength(4);
+    expect(brazil.edges).toHaveLength(4);
+    expect((await readdir(path.join(dir, 'players'))).sort()).toEqual(['BRA-M.json', 'USA-M.json']);
+    expect((await readdir(path.join(dir, 'results'))).sort()).toEqual(['BRA-M.json', 'USA-M.json']);
+
+    expect((await readdir(path.join(dir, 'classifications'))).sort()).toEqual(['MAAA2025.json', 'MBBB2025.json']);
+    expect((await read('classifications', 'MAAA2025.json')).teams).toHaveLength(3);
+    expect(await readdir(path.join(dir, 'entries'))).toEqual(['MCCC2099.json']);
+    expect(manifest.withoutField).toEqual(['MCCC2099']);
+
+    expect(Object.keys((await read('tournaments.json')).tournaments)).toEqual(['1', '2', '3']);
+    expect(Object.keys((await read('search.json')).slices).sort()).toEqual(['BRA-M', 'USA-M']);
+    expect((await read('records.json')).categories.tournaments.M.rows[0].value).toBe(2);
+    // Nothing above reached for the network.
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  /*
+   * A series edition links to a page by slug, and `tournamentSlugs` suffixes
+   * every member of a clash with its code, so the two only agree when they are
+   * built over the same tournaments. Carolina 1994 (women) shared its name,
+   * season and draw with a cancelled event and so got a suffix the page never
+   * had. Olympic Games stand in for it here: their name comes from the season
+   * alone, so two Type 5 rows in one season clash by construction.
+   */
+  it('links each series edition to the address its page is written at', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('no network in this test'))));
+    const { mkdtemp, readdir, readFile } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { aggregate, writeTree } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const { buildIndex } = await import('../web/src/lib/tournamentIndex');
+
+    const olympic = (no: string, code: string) => ({ ...tournament(no, code, '2024-07-28', '2024-08-10'), Type: '5' });
+    // Played, and a second listing of the same Games that never was: no
+    // field, and over by years when the archive is taken.
+    const tournamentRows = [olympic('1', 'MOG2024'), olympic('2', 'MOGX2024')];
+    const teamRows = [team('1', 1, 2, 'BRA', 1), team('1', 3, 4, 'BRA', 2)];
+    const archive = {
+      federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+      tournamentRows,
+      tournaments: normaliseTournaments(tournamentRows),
+      players: normalisePlayers([1, 2, 3, 4].map((n) => player(n, 'BRA'))),
+      teamRows,
+      tierCounts: { 'Olympic Games': 2 },
+      seasonFrom: 2024,
+      seasonTo: 2024,
+      sourceVersion: '1',
+    };
+
+    const generatedAt = '2027-01-01T00:00:00.000Z';
+    const agg = aggregate(archive, generatedAt);
+    const dir = path.join(await mkdtemp(path.join(tmpdir(), 'ingest-')), 'v1');
+    await writeTree(dir, archive, agg, new Map(), generatedAt);
+    const read = async (...p: string[]) => JSON.parse(await readFile(path.join(dir, ...p), 'utf8'));
+
+    // The pages, decided the way the prerenderer decides them.
+    const classified = new Set(
+      (await readdir(path.join(dir, 'classifications'))).map((f) => f.replace(/\.json$/, '')),
+    );
+    const pages = buildIndex(
+      (await read('tournaments.json')).tournaments,
+      (code) => classified.has(code),
+      new Date(generatedAt),
+    );
+    expect(pages.map((p) => p.code)).toEqual(['MOG2024']);
+
+    const { editions } = await read('series', 'olympics.json');
+    expect(editions.map((e: { code: string }) => e.code)).toEqual(['MOG2024']);
+    expect(editions[0].slug).toBe(pages[0]!.slug);
+  });
+
+  it('writes no classification for a played tournament with no FIVB code', async () => {
+    // A blank `Code` would name the file `.json`, and a second one would
+    // overwrite the first. None in the archive today.
+    vi.stubGlobal('fetch', vi.fn(() => Promise.reject(new Error('no network in this test'))));
+    const { mkdtemp, readdir } = await import('node:fs/promises');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { aggregate, writeTree } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const tournamentRows = [
+      tournament('1', 'MAAA2025', '2025-06-01', '2025-06-04'),
+      tournament('2', '', '2025-07-01', '2025-07-04'),
+      tournament('3', '', '2025-08-01', '2025-08-04'),
+    ];
+    const archive = {
+      federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+      tournamentRows,
+      tournaments: normaliseTournaments(tournamentRows),
+      players: normalisePlayers([1, 2, 3, 4].map((n) => player(n, 'BRA'))),
+      teamRows: [team('1', 1, 2, 'BRA', 1), team('2', 1, 3, 'BRA', 1), team('3', 2, 4, 'BRA', 1), team('1', 3, 4, 'BRA', 2)],
+      tierCounts: { 'Beach Pro Tour': 3 },
+      seasonFrom: 2025,
+      seasonTo: 2025,
+      sourceVersion: '1',
+    };
+    const generatedAt = '2025-09-01T00:00:00.000Z';
+    const dir = path.join(await mkdtemp(path.join(tmpdir(), 'ingest-')), 'v1');
+    await writeTree(dir, archive, aggregate(archive, generatedAt), new Map(), generatedAt);
+    expect(await readdir(path.join(dir, 'classifications'))).toEqual(['MAAA2025.json']);
+  });
+
+  it('credits a podium once, and only one the classification shows', async () => {
+    // The two real shapes: a pair entered in qualification and the main draw
+    // of one event with both rows ranked, and a podium beside a partner who is
+    // not a published player — Maria Clara Salgado's Cagliari 2004 silver
+    // beside a record FIVB keeps as "???", which that event's page leaves off
+    // its podium and her card counted anyway.
+    const { aggregate } = await import('./main');
+    const { normalisePlayers, normaliseTournaments } = await import('./build');
+    const tournamentRows = [
+      tournament('1', 'MAAA2025', '2025-06-01', '2025-06-04'),
+      tournament('2', 'MBBB2025', '2025-07-01', '2025-07-04'),
+      // A World Championships, for the medal tally.
+      { ...tournament('3', 'MWCH2025', '2025-08-01', '2025-08-10'), Type: '4' },
+    ];
+    const teamRows = [
+      team('1', 1, 2, 'BRA', 2),
+      { ...team('1', 1, 2, 'BRA', 2), No: 'qualification' },
+      team('2', 1, 99, 'BRA', 2),
+      team('3', 1, 2, 'BRA', 1),
+      { ...team('3', 1, 2, 'BRA', 1), No: 'qualification-wch' },
+    ];
+    const agg = aggregate(
+      {
+        federations: new Map([['BRA', { code: 'BRA', name: 'Brazil', iso2: 'BR' }]]),
+        tournamentRows,
+        tournaments: normaliseTournaments(tournamentRows),
+        players: normalisePlayers([1, 2].map((n) => player(n, 'BRA'))),
+        teamRows,
+        tierCounts: { 'Beach Pro Tour': 2 },
+        seasonFrom: 2025,
+        seasonTo: 2025,
+        sourceVersion: '1',
+      },
+      '2025-08-01T00:00:00.000Z',
+    );
+
+    // The classifications hold one silver for the pair and none for player 1
+    // with 99, so that is what the tally may say.
+    expect([...agg.classifications.get('1')!.values()]).toEqual([[2, 1, 2, 'BRA']]);
+    expect(agg.classifications.get('2')).toBeUndefined();
+    expect(agg.podiumsByPlayer.get(1)).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(agg.podiumsByPlayer.get(2)).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(agg.podiumsByPlayer.has(99)).toBe(false);
+    // The same rule for the Worlds, and for the pair's own honours.
+    expect(agg.medalsByPlayer.get(1)!['world-champs']).toEqual({ gold: 1, silver: 0, bronze: 0 });
+    const pair = agg.pairHonours.get('1:2')!;
+    expect(pair.tour).toEqual({ gold: 0, silver: 1, bronze: 0 });
+    expect(pair['world-champs']).toEqual({ gold: 1, silver: 0, bronze: 0 });
+    expect([...agg.pairHonours.keys()]).toEqual(['1:2']);
+  });
+});

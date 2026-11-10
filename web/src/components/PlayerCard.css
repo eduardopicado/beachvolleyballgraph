@@ -697,6 +697,15 @@
   gap: 8px;
 }
 
+/* The venue's flag, ahead of the name. `flex: none` so it never gives up
+   width to the ellipsis on a long tournament name beside it, and a line-height
+   of 1 so an emoji taller than the text does not open the row up. */
+.events .where {
+  flex: none;
+  line-height: 1;
+  font-size: 12px;
+}
+
 .events .name {
   min-width: 0;
   overflow: hidden;

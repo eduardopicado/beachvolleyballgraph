@@ -369,7 +369,7 @@
       "dob": "1967-03-21",
       "height": 172,
       "weight": 62,
-      "birthPlace": "wEIDEN"
+      "birthPlace": "Weiden"
     },
     {
       "id": 103276,
@@ -1176,7 +1176,15 @@
       "name": "Nele Barber",
       "dob": "1994-10-27",
       "height": 183,
-      "weight": 63
+      "weight": 63,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 136666,
@@ -1428,7 +1436,7 @@
       "weight": null,
       "birthPlace": "Nurnberg",
       "tour": {
-        "gold": 1,
+        "gold": 2,
         "silver": 3,
         "bronze": 0
       },
@@ -1606,7 +1614,15 @@
       "name": "Tabea Schwarz",
       "dob": "2000-09-22",
       "height": null,
-      "weight": null
+      "weight": null,
+      "tour": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 1
+      },
+      "filters": [
+        "tour-podium"
+      ]
     },
     {
       "id": 182341,
@@ -1708,7 +1724,7 @@
       "weight": null,
       "birthPlace": "Neuss",
       "tour": {
-        "gold": 0,
+        "gold": 1,
         "silver": 2,
         "bronze": 0
       },

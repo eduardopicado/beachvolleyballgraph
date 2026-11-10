@@ -45,7 +45,7 @@ export interface TeammateCheck {
  * Which players to ask about.
  *
  * Deterministic, because a check that samples randomly reports a different
- * failure every week and cannot be reproduced from a log line. Two groups, for
+ * failure every run and cannot be reproduced from a log line. Two groups, for
  * two different jobs:
  *
  *  - the busiest careers, which carry the most edges and therefore give a
@@ -179,4 +179,19 @@ export async function verifyTeammates(
   }
 
   return compareTeammates(ours, theirs);
+}
+
+/**
+ * What a finished check says, as the line the run logs: null when every
+ * sampled player agrees with FIVB, otherwise the refusal text naming up to ten
+ * of the players who do not.
+ */
+export function describeMismatches(check: TeammateCheck): string | null {
+  if (check.mismatches.length === 0) return null;
+  const rows = check.mismatches
+    .slice(0, 10)
+    .map((m) => `    player ${m.player} -> partners VIS does not list: ${m.missing.join(', ')}`)
+    .join('\n');
+  const more = check.mismatches.length > 10 ? `\n    ...and ${check.mismatches.length - 10} more` : '';
+  return `${check.mismatches.length} of ${check.checked} sampled players carry a partnership FIVB has no record of:\n${rows}${more}`;
 }

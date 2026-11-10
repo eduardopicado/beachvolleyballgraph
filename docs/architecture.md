@@ -4,6 +4,11 @@ How the system is shaped, and the reasoning behind each major choice. For what
 individual modules do see [implementation.md](implementation.md); for the
 published data see [data-model.md](data-model.md).
 
+Every figure in this document — counts, file sizes, bundle sizes — was measured
+on 2026-09-17 and is a snapshot, not a live value. The archive is rebuilt daily,
+so they drift; `web/public/v1/manifest.json` carries the current totals and
+`npm run build` prints the current bundle. Re-measure before quoting one.
+
 ---
 
 ## The shape
@@ -18,7 +23,7 @@ flowchart LR
 
   subgraph build["Build time — Node + tsx"]
     ING[ingest/<br/>fetch, normalise, slice]
-    PRE[prerender/<br/>265 static pages]
+    PRE[prerender/<br/>a page per slice and per tournament, plus home]
   end
 
   DATA[["web/public/v1/**<br/>static JSON<br/>committed to git"]]
@@ -27,7 +32,7 @@ flowchart LR
     APP[React app<br/>graph, cards, search]
   end
 
-  VIS -->|3 bulk POSTs| ING
+  VIS -->|3 bulk lists + 4 small requests| ING
   ING -->|writes| DATA
   DATA -->|reads| PRE
   DATA -->|fetch| APP
@@ -37,8 +42,13 @@ flowchart LR
 ```
 
 The contract is `web/public/v1/`. Everything upstream of it is a build-time
-concern; everything downstream is a browser concern. They share exactly one
-source file — `web/src/schema.ts` — so the two cannot drift.
+concern; everything downstream is a browser concern. The code they share lives
+in one directory, `shared/` — the schema, the URL slugs, accent folding and the
+site identity — which imports from neither side, so the two cannot drift and
+neither can change what the other does. The pipeline (`ingest/main.ts` and
+everything it calls) imports nothing from `web/src/`; only the prerenderer
+and `ingest/announce.ts` do, because they render or link to the app's own
+pages and must agree with it about which exist.
 
 ## Why static
 
@@ -46,7 +56,7 @@ There is no server, no database, no API of ours. The whole dataset is 12 MB of
 JSON on a CDN.
 
 This follows from the data's shape rather than from minimalism for its own
-sake. The archive changes **once a week**, is **fully public**, and is **small
+sake. The archive moves **a little every day**, is **fully public**, and is **small
 enough to ship whole**. A database would add an availability dependency, an
 operational surface and a cost, in exchange for freshness the data does not
 have and query flexibility the site does not need. A static tree is free to
@@ -91,11 +101,11 @@ sequenceDiagram
   participant I as ingest
   participant V as VIS
   I->>V: GetBeachTournamentList (Fields=...)
-  V-->>I: 9,270 tournaments
+  V-->>I: 9,276 tournaments
   I->>V: GetPlayerList (Fields=...)
-  V-->>I: 130,992 players
+  V-->>I: 131,657 players
   I->>V: GetBeachTeamList (Fields=...)
-  V-->>I: 206,489 team entries
+  V-->>I: 206,934 team entries
   Note over I: normalise → aggregate → slice → write
 ```
 
@@ -117,7 +127,7 @@ requests return a silently empty element without one.
 
 The graph is sliced into 264 files rather than served whole.
 
-A single global graph would be 12,074 nodes — unreadable as a visualisation and
+A single global graph would be 12,097 nodes — unreadable as a visualisation and
 a large download to answer a question that is almost always about one country.
 Slicing gives each page a payload proportional to what it shows.
 
@@ -140,8 +150,8 @@ flowchart TD
   B --> D["players/{CC}-{G}.json<br/>vitals, medals, foreign partners"]
   C --> E{"Reader acts"}
   D --> E
-  E -->|"types in search"| F["search.json — 392 KB<br/>all 12,074 players"]
-  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 120 KB"]
+  E -->|"types in search"| F["search.json — 392 KB<br/>all 12,098 players"]
+  E -->|"opens a season"| G["results/{CC}-{G}.json<br/>+ tournaments.json — 140 KB"]
 
   style F stroke-dasharray: 4 4
   style G stroke-dasharray: 4 4
@@ -150,7 +160,7 @@ flowchart TD
 Solid edges load with the page; dashed ones are fetched on first interaction
 and never otherwise. The two lazy tiers exist because they are the two largest
 things published and most visits need neither: `results/` is 2.9 MB across all
-slices (127,899 rows), `search.json` is 392 KB.
+slices (128,217 rows), `search.json` is 392 KB.
 
 `api.ts` memoises every fetch by URL, so switching country and back, or opening
 a second season, costs nothing.
@@ -172,9 +182,10 @@ second implementation.
 
 ## Prerendering
 
-`ingest/prerender.ts` writes one static HTML document per slice — 265 pages
-including the home page — each containing the actual player table, per-page
-metadata and JSON-LD. React replaces the markup on mount.
+`ingest/prerender.ts` writes one static HTML document per slice and per tournament, plus the
+tournament index, the records page and the home page — 1,893 pages on 8 November 2026 —
+each containing the actual player table or field, per-page metadata and JSON-LD. React
+replaces the markup on mount.
 
 This is not a second implementation to maintain: it is the same committed JSON,
 rendered once at build time, for readers who do not run JavaScript (crawlers,
@@ -183,27 +194,42 @@ link previews, text browsers). It also produces `sitemap.xml`, `robots.txt` and
 
 `/about/` is the exception — a standalone document that deliberately ships
 *without* the module script, because booting the app on a path matching no
-slice would fall back to the default country and replace the page.
+slice would fall back to the default country and replace the page. Its figures,
+its tournaments-per-season chart and its legend are all drawn from the data at
+build time; the legend uses the graph's own scale (`radiusScale`, `edgeWidth`)
+over the graph `/` opens on, which is why `DEFAULT_COUNTRY` lives in
+`shared/site.ts` rather than in `App.tsx`.
 
 ## Deployment
 
 ```mermaid
 flowchart TD
-  CRON["Monday 09:17 UTC cron"] --> ING
+  CRON["Daily cron, 09:17 UTC<br/>(GitHub starts it hours later)"] --> ING
   PUSH["push to main"] -.->|"ingest skipped"| BUILD
 
   subgraph gha["GitHub Actions — deploy.yml"]
     ING["ingest job<br/>fetch FIVB, commit data"]
     BUILD["build job<br/>checks out ingest's commit"]
-    DEP["deploy job"]
-    ING -->|data_sha| BUILD --> DEP
+    DEP["deploy job<br/>PAGES_HOST unset"]
+    DEPCF["deploy-cloudflare job<br/>PAGES_HOST = cloudflare"]
+    ANN["announce job<br/>only when FIVB added events"]
+    ING -->|data_sha| BUILD
+    BUILD --> DEP
+    BUILD -.-> DEPCF
+    ING -.->|announcement| ANN
+    DEP -.-> ANN
+    DEPCF -.-> ANN
   end
 
+  ANN -.-> ISSUE["Comment on the<br/>new-tournaments issue"]
+
   DEP --> PAGES["GitHub Pages"]
+  DEPCF -.-> CFP["Cloudflare Pages"]
   PAGES --> CF["Cloudflare DNS<br/>beachvolleyball.com.br"]
+  CFP -.-> CF
 ```
 
-Three jobs in a strict pipeline. Two details matter:
+Three jobs in a strict pipeline, the last one chosen by host, and an announcement after them when there is one. Two details matter:
 
 - **`build` checks out the exact commit `ingest` produced**, not the ref the run
   started on, because the ingest's push landed after that.
@@ -212,8 +238,18 @@ Three jobs in a strict pipeline. Two details matter:
   successful job's outputs across a partial re-run.
 
 Failure semantics: if the ingest fails — including refusing to publish a
-suspicious rebuild — nothing downstream runs and the site keeps serving last
-week's data. Degraded to *slightly stale*, never to *down*.
+suspicious rebuild — nothing downstream runs and the site keeps serving the previous
+day's data. Degraded to *slightly stale*, never to *down*.
+
+**New tournaments are announced on an issue.** After committing, `ingest` diffs
+the `tournaments.json` it replaced against the one it built, keyed by FIVB's
+tournament number (`ingest/announce.ts`). When FIVB has added events, the
+`announce` job comments the list, with links to their pages, on the one open
+issue labelled `new-tournaments` — creating it, assigned to the repository
+owner, the first time. Being assigned is what makes GitHub notify the owner of
+every later comment. It runs after the publish jobs so the links resolve, and
+whatever they did, since the events are in the committed data either way.
+Most refreshes add nothing and the job is skipped.
 
 **Origin coupling.** Canonical URLs are built as `SITE_URL + BASE_PATH + page`,
 so the two must describe the same place. A project Pages site lives at
@@ -223,25 +259,125 @@ exists nowhere. `.github/actions/site-origin` derives both from a single
 `SITE_URL` variable, so **the broken combination is not expressible**. CI uses
 the same action, so a pull request builds at the same base as the deploy.
 
-`deploy-cloudflare.yml` is a complete alternative targeting Cloudflare Pages.
-It has **no automatic gate** against `deploy.yml` — disable one by hand.
+**The host is one repository variable, `PAGES_HOST`.** Unset is GitHub Pages;
+`cloudflare` is Cloudflare Pages. Everything up to and including the browser
+suite is the same either way, and exactly one publish job runs, so the two
+hosts cannot both publish. Both end with the same check
+(`.github/actions/verify-live`): the address that was published serves this
+build's data and bundle, or the run fails.
+
+This used to be a second workflow, `deploy-cloudflare.yml`, with no gate
+against `deploy.yml` and a pipeline of its own that had drifted. It never
+committed the refreshed data — so with it live, the data in git would have
+frozen, and the regression guard with it — never deployed a code push, and
+never looked at the live site. The switch to Cloudflare, step by step, is in
+the README, "Cloudflare Pages + a custom domain".
+
+One difference between the hosts survives, on purpose: **caching.** Cloudflare
+revalidates every file on every visit unless told otherwise, so the Cloudflare
+job writes a `_headers` file caching the hashed bundle for a year. GitHub Pages
+caches everything for 10 minutes and has no such file.
+
+**Unknown addresses** get `404.html`, on both hosts and with a 404 status:
+"Nothing at this address", the path that was asked for, and three ways back in
+(the graph, the tournaments, the records) with their figures from the data.
+Written by the prerenderer as a standalone document like `/about/`, with the
+app's stylesheet and none of its script, because the app booted on an unknown
+path draws the default country's graph. Before it existed, Cloudflare Pages,
+finding no 404 page, treated the site as a single-page app and did exactly
+that, with a 200.
+
+## Tournament photographs
+
+FIVB's own photographs of 726 tournaments (fivb-vis-survey.md §6) are ready to
+show as a strip under a tournament page's heading, with a viewer that opens on
+a click. **They are switched off**, because every one is FIVB's copyright and
+the request to show them is still with FIVB.
+
+**One switch, `TOURNAMENT_PHOTOS=1`, at build time.** Without it:
+
+- `ingest/photos.ts` returns at once: no request to VIS, no file written.
+- `__TOURNAMENT_PHOTOS__` (`vite.config.ts`) is `false`, so the dynamic import
+  of the strip in `TournamentRoute.tsx` is dead code and the bundler drops it — the
+  component, its stylesheet, the photo file's address. Nothing is shipped and
+  hidden; it is not shipped.
+- The prerenderer writes no `photos` count into any page's facts.
+
+`e2e/tournament-photos.spec.ts` checks all three on every CI run, by grepping
+the built assets and every page's facts.
+
+With it, the build runs `ingest/photos.ts` between `vite build` and the
+prerenderer: it asks VIS for each played tournament's photo list, keeps them
+in `ingest/.cache/photos.json` (git-ignored, refreshed after 90 days), and
+writes `dist/v1/photos/{CODE}.json` — into the build output, never into the
+committed `web/public/v1/`, so the lists stay out of git history. The images
+themselves are never copied: thumbnails and the large view are served by
+FIVB's image service, as player portraits are.
+
+### Seeing it before it is public
+
+**On your own machine.** Nothing leaves it:
+
+```sh
+TOURNAMENT_PHOTOS=1 npm run build && npm run preview
+```
+
+The first build asks VIS for all 1,612 lists, 25 to a request with a pause
+between; later builds read the cache.
+
+**Shared with someone, still private.** Build as above and upload `dist/` as
+a Cloudflare Pages preview deployment:
+
+```sh
+npx wrangler pages deploy dist --project-name=beachvolleyballgraph --branch=photos-preview
+```
+
+Before that, turn on an Access policy for preview deployments (the Pages
+project's Settings, "Enable access policy") and limit it to the addresses you
+choose. Without that policy a preview URL is public to anyone who has it.
+Never deploy a flagged build to the production branch or to GitHub Pages: both
+serve the world.
+
+### Going live
+
+Only once FIVB has said yes. Add a repository variable `TOURNAMENT_PHOTOS` with
+the value `1` (Settings, Secrets and variables, Actions, Variables) and run the
+deploy workflow. `deploy.yml` passes it to the build and caches the photo
+lists between runs, whichever host publishes.
+
+**Turning it off** is deleting the variable and deploying again: the next build
+has no strip and no photo files. What a crawler or a reader's browser fetched
+in between is out of reach, which is why the switch waits for permission rather
+than being tried and withdrawn.
 
 ## Stack
 
 | | | Why this |
 |---|---|---|
-| **TypeScript** 5 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
+| **TypeScript** 6 | everything | One `schema.ts` shared by ingest and app is what stops the contract drifting. Strict mode. |
 | **React** 18 | app | Component model for the card/controls/table; the graph opts out of it where it costs frames. |
-| **Vite** 6 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
+| **Vite** 8 | build, dev | Fast dev server, and `BASE_URL` handling that makes the base-path switch a config change. |
 | **d3-force** 3 | layout only | Just the simulation — not `d3-selection`, not `d3-scale`. Rendering stays ours. |
 | **tsx** | ingest runner | Runs the TypeScript ingest directly; no separate build step for build-time code. |
-| **Vitest** 2 | unit tests | 467 tests. Same transform pipeline as Vite, no second config to keep in step. |
-| **Playwright** 1.62 | browser tests | 113 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
-| **ESLint** 9 | lint | Flat config, with the React Hooks rules. |
+| **Vitest** 5 | unit tests | Around 850 tests. Same transform pipeline as Vite, no second config to keep in step. |
+| **Playwright** 1.64 | browser tests | Around 200 tests against `vite preview` of the real `dist/`, cross-checked against the published JSON. |
+| **ESLint** 10 | lint | Flat config, with the React Hooks rules, including the compiler-based ones (state set in effects, refs read in render). |
 | **stylelint** 17 | CSS lint | The errors-only preset. The one check that reads CSS at all — see the note under "No CSS framework". |
 
-**Runtime dependencies are three packages**: `react`, `react-dom`, `d3-force`.
-214 KB of JavaScript, 71 KB gzipped.
+**Runtime dependencies are four packages**: `react`, `react-dom`, `d3-force`,
+and `country-flag-emoji-polyfill`, which loads a flags-only font on browsers
+that draw two letters instead of a flag (see `main.tsx`).
+
+**Each page type is its own chunk.** `main.tsx` reads the address and imports
+only that page's component, so a tournament page loads 166 KB of JavaScript
+(55 KB gzipped) and the graph page 231 KB (77 KB) — measured 15 October 2026,
+against 248 KB (80 KB) for every page before the split. The 153 KB entry is
+mostly React. The prerenderer reads Vite's build manifest and preloads each
+page's chunks from its head, so the split costs no round trip. The
+stylesheet is deliberately *not* split: one 53 KB file (9 KB gzipped, 8 November 2026) for
+every page, because components lean on rules from other pages' CSS
+(`.sr-only`, `.segmented`, the `main` layout) and splitting it broke the
+tournament page.
 
 Deliberately not used:
 
@@ -252,10 +388,11 @@ Deliberately not used:
   threshold. `useState` in `App.tsx` is enough, and prop-drilling keeps the
   data flow legible.
 - **No CSS framework.** Plain CSS with custom properties for theming; each
-  component has a sibling stylesheet. The whole site is 28 KB of CSS, linted by
+  component has a sibling stylesheet. The whole site is 53 KB of CSS, linted by
   `stylelint` — `tsc` and `vite build` both parse a stylesheet with a dropped
   closing brace without complaint, so nothing else would catch one.
-- **No data-fetching library.** Six `fetch` calls behind a memoising map.
+- **No data-fetching library.** Eleven `fetch` calls, one per published file
+  kind, behind a memoising map.
 - **No charting library.** The graph is bespoke SVG; a general library would be
   larger than the whole app.
 - **No XML parser.** VIS responses are flat, attribute-only elements; a general

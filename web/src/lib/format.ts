@@ -67,6 +67,40 @@ export function flagEmoji(iso2: string | null | undefined, federationCode?: stri
   );
 }
 
+/**
+ * "CH" -> "Switzerland", from the browser rather than from a table.
+ *
+ * `Intl.DisplayNames` already knows every region code and is localised for
+ * free, so publishing VIS's `CountryName` alongside the code would be paying
+ * bytes for something every browser can already answer.
+ *
+ * An unassigned code gets whatever the runtime calls it — Node and Chrome both
+ * say "Unknown Region" for `ZZ` rather than throwing — and nothing is done
+ * about that here, because the ingest only ever publishes a country that
+ * matched two letters and every assigned pair has a real name. The fallback
+ * that remains is for a runtime with no `DisplayNames` at all.
+ *
+ * Built once: constructing a `DisplayNames` is not free and a timeline can ask
+ * this for every row of a twenty-season career.
+ */
+const REGION_NAMES = (() => {
+  try {
+    return new Intl.DisplayNames(['en'], { type: 'region' });
+  } catch {
+    return null;
+  }
+})();
+
+export function countryName(iso2: string | null | undefined): string | null {
+  if (!iso2 || !/^[A-Za-z]{2}$/.test(iso2)) return null;
+  const code = iso2.toUpperCase();
+  try {
+    return REGION_NAMES?.of(code) ?? code;
+  } catch {
+    return code;
+  }
+}
+
 /** Whole years from an ISO date to `now`. Null when the date is unusable. */
 export function age(dob: string | null, now = new Date()): number | null {
   if (!dob) return null;
@@ -111,6 +145,32 @@ export function ordinal(n: number): string {
 export function formatDayMonth(date: Date | null): string | null {
   if (!date || Number.isNaN(date.getTime())) return null;
   return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+}
+
+/**
+ * The days a tournament ran: "9–13 Jul" inside one month, "29 Jul – 2 Aug"
+ * across two, and a bare "9 Jul" when it lasted a day or has no end.
+ *
+ * The month is dropped from the first date only when both fall in the same
+ * one, which is the ordinary tour week; an Olympic fortnight and the events
+ * that straddle a month boundary keep both. Spaces around the dash only in
+ * the two-month form, where the parts are long enough to need them.
+ *
+ * An end before the start never reaches here — `seasonEvents` drops the span
+ * rather than pass one backwards (quirks §25).
+ */
+export function formatDateRange(start: Date | null, end: Date | null): string | null {
+  const from = formatDayMonth(start);
+  if (!from) return null;
+  const to = formatDayMonth(end);
+  if (!to) return from;
+  // Compared as dates, not as the strings they format to. "28 Dec" and
+  // "28 Dec" are equal as text and a year apart as days — a December event
+  // opening the next southern season (§19) would have read as a single day.
+  if (start!.getTime() === end!.getTime()) return from;
+  const sameMonth =
+    start!.getUTCMonth() === end!.getUTCMonth() && start!.getUTCFullYear() === end!.getUTCFullYear();
+  return sameMonth ? `${start!.getUTCDate()}–${to}` : `${from} – ${to}`;
 }
 
 /**

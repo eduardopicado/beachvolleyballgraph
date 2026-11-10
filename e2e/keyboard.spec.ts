@@ -19,7 +19,7 @@
  */
 
 import { test, expect, graph, manifest } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 
 const COUNTRY = 'BRA';
 const GENDER = 'M' as const;
@@ -288,7 +288,9 @@ test.describe('the portrait lightbox', () => {
 
     // The photo is inside the backdrop, so without the stopPropagation the
     // gesture that means "look closer" would dismiss the thing being looked at.
-    await dialog.locator('figure img').click();
+    // The box rather than an image: it holds two, the cached 200px and the
+    // 600px laid over it, and the guard belongs to the pair.
+    await dialog.locator('.portrait-shot').click();
     await expect(dialog).toBeVisible();
 
     // A corner of the scrim, well clear of the figure.
@@ -310,5 +312,48 @@ test.describe('the portrait lightbox', () => {
     await expect(page.locator('.player-card')).toBeVisible();
     await expect(page.locator('.player-card .player-photo.is-fallback')).toBeVisible();
     await expect(page.locator('.player-card .portrait-trigger')).toHaveCount(0);
+  });
+});
+
+/**
+ * One Escape, one thing closed, with a player card open.
+ *
+ * The card closes on Escape at `window`, so anything inside the page that
+ * also answers Escape has to keep the key to itself, as the tournament panel
+ * and the portrait viewer already did. The search list and the help tip did
+ * not: dismissing either closed the card as well, and a card opened from a
+ * `?player=` link closes by going back in history, off the page.
+ */
+test.describe('Escape with a card open', () => {
+  const busiest = () => [...graph(COUNTRY, GENDER).nodes].sort((a, b) => b.tournaments - a.tournaments)[0]!;
+
+  test('closes the search list and leaves the card', async ({ page }) => {
+    await page.goto(`./${slicePath()}?player=${busiest().id}`);
+    const card = page.locator('.player-card');
+    await expect(card).toBeVisible();
+
+    const input = page.getByRole('combobox', { name: 'Find a player' });
+    await input.click();
+    await input.fill('a');
+    await expect(page.locator('.player-search-results .result').first()).toBeVisible();
+    await input.press('Escape');
+    await expect(page.locator('.player-search-results')).toHaveCount(0);
+    await expect(card).toBeVisible();
+
+    // With nothing left to dismiss, Escape is the card's again.
+    await input.press('Escape');
+    await expect(card).toHaveCount(0);
+  });
+
+  test('closes the help tip and leaves the card', async ({ page }) => {
+    await page.goto(`./${slicePath()}?player=${busiest().id}`);
+    const card = page.locator('.player-card');
+    await expect(card).toBeVisible();
+
+    await page.locator('.help-tip-trigger').first().click();
+    await expect(page.locator('.help-tip-bubble')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(page.locator('.help-tip-bubble')).toHaveCount(0);
+    await expect(card).toBeVisible();
   });
 });

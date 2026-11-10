@@ -7,7 +7,7 @@
  * coverage at any layer.
  */
 
-import type { GraphEdge, GraphNode } from '../schema';
+import type { GraphEdge, GraphNode } from '../../../shared/schema';
 
 export interface Slice {
   nodes: GraphNode[];

@@ -2,7 +2,7 @@
 
 The published `/v1/` contract, field by field, and the rules that hold it
 together. The authoritative definition is
-[`web/src/schema.ts`](../web/src/schema.ts), shared verbatim by the ingest and
+[`shared/schema.ts`](../shared/schema.ts), shared verbatim by the ingest and
 the app; this document explains the *why*.
 
 ---
@@ -10,17 +10,22 @@ the app; this document explains the *why*.
 ## The tree
 
 ```
-web/public/v1/
-├── manifest.json              36 KB    index: countries, counts, tiers, freshness
-├── tournaments.json          120 KB    every qualifying tournament
-├── search.json               392 KB    every published player, for search
-├── graphs/{CC}-{G}.json      5.5 MB    264 files: nodes + edges
-├── players/{CC}-{G}.json     2.9 MB    264 files: vitals, medals, foreign partners
-└── results/{CC}-{G}.json     2.9 MB    264 files: every tournament every player entered
+web/public/v1/                                   measured 8 Nov 2026, 21.3 MB in all
+├── manifest.json                   40 KB    index: countries, counts, tiers, freshness
+├── tournaments.json               140 KB    every qualifying tournament
+├── search.json                    392 KB    every published player, for search
+├── graphs/{CC}-{G}.json           5.5 MB    264 files: nodes + edges
+├── players/{CC}-{G}.json          2.8 MB    264 files: vitals, medals, foreign partners
+├── results/{CC}-{G}.json          2.9 MB    264 files: every tournament every player entered
+├── classifications/{CODE}.json    9.4 MB    1,614 files: the full field of one played tournament
+├── entries/{CODE}.json             68 KB    12 files: who has entered a tournament still to come
+├── series/{slug}.json              52 KB    4 series + index.json: every edition of a recurring event
+└── records.json                    48 KB    the archive's extremes, 13 categories x 2 genders x top 5
 ```
 
 `{CC}` is a **FIVB federation code** (BRA, USA, GER, ENG) — *not* an ISO
-country code. `{G}` is `M` or `W`.
+country code. `{G}` is `M` or `W`. `{CODE}` is FIVB's own tournament code
+(`MPAR2024`), the same value `tournaments.json` carries in its fifth slot.
 
 ## How the files join
 
@@ -35,13 +40,21 @@ flowchart LR
   RES["results/{CC}-{G}.json<br/><i>[tournament, partner, rank]</i>"]
 
   GR["<b>graphs/{CC}-{G}.json</b><br/>nodes — id, name, short<br/>edges — a, b, t, s"]
-  TRN["tournaments.json<br/><i>name, season, tier, level</i>"]
+  TRN["tournaments.json<br/><i>name, season, tier, dates, code, level, country, gender</i>"]
+  CLS["classifications/{CODE}.json<br/><i>[rank, a, b, federation]</i>"]
+  ENT["entries/{CODE}.json<br/><i>[a, b, federation, points…]</i>"]
+  SER["series/{slug}.json<br/><i>editions, top four each</i>"]
 
   MAN -->|"names the slice"| GR
   PL -->|"player id"| GR
   SRC -->|"player id"| GR
   RES -->|"partner id"| GR
   RES -->|"tournament no."| TRN
+  CLS -->|"code"| TRN
+  ENT -->|"code"| TRN
+  SER -->|"edition code"| TRN
+  CLS -->|"federation + gender,<br/>corrected by <b>elsewhere</b>"| GR
+  ENT -->|"the same rule"| GR
 
   RES -.->|"partner from<br/>another slice"| RN["the results file's<br/>own <b>names</b> map"]
   PL -.-> ND["away partner whose slice<br/>was too small to publish —<br/>no page to link to"]
@@ -50,6 +63,14 @@ flowchart LR
   style RN stroke-dasharray: 4 4
   style ND stroke-dasharray: 4 4
 ```
+
+**A name in a tournament's field is sent to a page by a guess with a
+correction list.** A classification or entry list names its players itself, so
+it can be read alone, but the page each name opens is a slice — and for 99.17%
+of the archive's field appearances that slice is the team's own federation plus
+the file's gender. `elsewhere` holds the exceptions: a transfer since, the GBR
+split into ENG and SCO, or no page at all. `fieldPlayerSlice` in the schema is
+the one place that rule lives, for both files.
 
 **A partner is named by the graph, not by the row that references them.** A
 result row is three numbers; the partner's name comes from the `nodes` array of
@@ -89,7 +110,10 @@ The index. Loaded first, on every page.
   "totals": { "tournaments": 1688, "players": 12075, "partnerships": 13931 },
   "tiers": { "FIVB World Tour": 1077, "Beach Pro Tour": 475, "...": 0 },
   "countries": [ { "code": "BRA", "name": "Brazil", "iso2": "BR",
-                   "genders": { "M": { "nodes": 234, "edges": 412 } } } ]
+                   "genders": { "M": { "nodes": 234, "edges": 412 } } } ],
+  "withoutField": [ "MACA2007", "…" ],
+  "highlights": [ { "key": "tournaments", "gender": "M", "value": 255,
+                    "who": [ { "id": 100427, "name": "Emanuel Rego", "federation": "BRA" } ] } ]
 }
 ```
 
@@ -102,6 +126,14 @@ The index. Loaded first, on every page.
   computed over the qualifying tournament set, and FIVB publishes future events
   with entry lists. Quirks §4, §11.
 - **`iso2`** is for the flag glyph, and is `null` where FIVB has no usable code.
+- **`withoutField`** lists the qualifying tournaments VIS publishes no field
+  for at all — mostly cancellations — so the prerenderer and the tournament
+  index skip the same set. Optional; see `Manifest.withoutField`.
+- **`highlights`** is the home page's "start here" strip: the leaders of six
+  `records.json` boards (`HIGHLIGHTS` in `ingest/records.ts`), flattened, no
+  player opening two cards. It rides here because the manifest is already on
+  every page and records.json is 47 KB for six numbers. Optional: a tree
+  without it draws no strip.
 
 ## graphs/{CC}-{G}.json
 
@@ -140,7 +172,7 @@ file size — roughly a 30% saving for free.
   of the ~5,900 seasons in which a player had more than one partner** — a
   one-off fill-in routinely outranked the partner somebody actually switched
   to. (The 38% was measured when the change was made; the population it was
-  measured over grows a little every week.)
+  measured over grows a little every day.)
 - Optional, because slices published before the field existed do not carry it;
   the timeline hides itself rather than rendering empty.
 
@@ -166,7 +198,7 @@ Per-player detail. Loaded with the graph, so opening a card costs no request.
 **Three medal tallies, never merged.** Olympics and World Championships are read
 off the raw VIS `Type` (5 and 4) narrowly, so a tier gaining a member cannot
 start minting Olympic medals. `tour` is everything else on the FIVB tour —
-World Tour plus Beach Pro Tour, 1,552 of 1,688 events — with levels mixed,
+World Tour plus Beach Pro Tour, 1,562 of 1,698 events — with levels mixed,
 because FIVB has renumbered its own hierarchy repeatedly and no mapping across
 those eras survives the archive. Age-group championships are in none of the
 three. Each is broken out by colour rather than totalled: a total says 149 and
@@ -189,9 +221,20 @@ everywhere, and 264 slices each carrying their own subset would repeat most of
 this file hundreds of times in a committed tree.
 
 ```json
-"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 225, "WBUS2026", "Futures"]
-//        name                season tier             offset code       level
+"8954": ["BPT Futures Busan", 2026, "beach-pro-tour", 224, "WBUS2026", "Futures", "KR", 3, "W"]
+//        name                season tier             offset code       level      country span gender
 ```
+
+**The offset dates the day the event opens, not the main draw.** That is the
+first day of qualification where FIVB publishes one, which is 1,456 of the
+1,688 rows, and the first day of the main draw on the rest. It moved 1,419
+events earlier — 1,231 of them by a day — and it exists because the index
+showed an event that had already begun under a date still to come, and called
+it upcoming. `span` is measured from the same day, so the last day is still
+`offset + span`; both had to move together or every event's end would have
+slipped a day. `seasonFor` still dates a ranged season by the main draw, which
+is the right anchor for which season an event belongs to. See `eventStart` in
+`ingest/build.ts`.
 
 **`code` is FIVB's own identifier** — gender letter, venue, year. Populated on
 all 1,688 tournaments, no duplicates. It is published because it is the only
@@ -212,7 +255,7 @@ so the two fields are close to interchangeable and still must not be joined as
 if they were.
 
 **`level` is what FIVB called the event's rung at the time** — "Grand Slam",
-"4-star", "Elite16". Present on the 1,552 tour events, absent on the Olympics,
+"4-star", "Elite16". Present on the 1,562 tour events, absent on the Olympics,
 the World Championships and the age-group championships, which have no level
 below their tier. It is what lets the player card badge an ordinary week on
 tour: `tier` collapses thirteen distinct rungs into one `world-tour` value, so
@@ -226,9 +269,27 @@ another. The names come from
 rather than from tournament names, which is how `Type` 38 spent months
 mislabelled "Major" here when it is `WorldTour5Star`.
 
+**`country` is where it was played**, ISO-3166-1 alpha-2 — VIS's own
+`CountryCode`, already ISO-2, unlike the federation code on a team row. Null on
+the eight rows whose upstream code is not a country (quirks §25): draw no flag
+rather than guess one.
+
+**`span` is the main draw's length in days**, measured from the opening day, so
+the last day is `offset + span`: 0 for a one-day event, 4 for the ordinary tour
+week that qualifies on the Thursday, 15 for an Olympic fortnight. It **can be
+negative**: one row, `MOST1995`, ends before it starts upstream and is published
+as-is, so anything drawing a range has to decide what to draw.
+
+**`gender` is the draw**, `M` or `W`, from VIS's own `Gender` and never from the
+code's first letter — `WWRS2022` is a men's field under a `W` (quirks §23). It
+is on all 1,698 rows. A tournament page's address carries the draw, and the
+index groups by it, so both need it without opening the field.
+
 **The tuple was appended to, never reordered.** Indices 0–3 keep their meaning,
-so this stayed additive to a published contract — twice now, `code` then
-`level`. One consequence: the five-element form makes an *explicit null* offset
+so this stayed additive to a published contract — five times now: `code`,
+`level`, `country`, `span`, then `gender`. All 1,698 rows are nine long today;
+`readTournament` in `web/src/lib/tournamentMeta.ts` is the one reader that
+knows the shorter forms an older tree can hold. One consequence: the five-element form makes an *explicit null* offset
 representable where the slot used to be absent, and a reader that treats null as 0 would date every undated
 tournament to 1 January.
 
@@ -268,15 +329,289 @@ Every published player, grouped by slice. **Lazy** — fetched on first
 interaction with the search box, never with the page.
 
 ```json
-{ "slices": { "BRA-M": [[100427, "Emanuel Rego", 255]] } }
+{ "slices": {
+  "BRA-M": [[100997, "Ricardo Alex Costa Santos", 236]],
+  "BRA-W": [[139087, "Eduarda Santos Lisboa", 104, "Duda"]],
+  "USA-W": [[162432, "Kristen Cruz", 41, "Cruz", ["Kristen Nuss"]]]
+} }
+//          id      name                     tournaments short   former names
 ```
 
-Grouped rather than flat so the slice key is not repeated on 12,074 rows.
+Grouped rather than flat so the slice key is not repeated on 12,120 rows.
 Sorted most-tournaments-first, which is the order the search ranks by anyway.
+
+**Two optional slots.** The fourth is `short`, the graph's label, carried only
+when the name does not contain it, so that searching the one word a reader can
+see on the graph finds them: "Duda" reaches Eduarda Santos Lisboa. The test is
+a substring one, so initial forms such as "Capogrosso N." ride along too;
+1,363 entries carry a `short` their name does not contain. The fifth is the
+names a player has competed under that FIVB no longer holds, from Wikidata
+(`ingest/aliases.ts`): searchable, never displayed, because nothing says
+whether Wikidata or FIVB is the more recent. A row with a fifth slot always
+has the fourth, even where `short` says nothing new. Measured 8 November 2026:
+286 rows carry former names. See `SearchEntry` in `shared/schema.ts`.
 
 It exists so the box can find a player without the reader knowing their
 federation — which is the normal case, and for anyone who transferred the
 federation you remember is the wrong answer.
+
+## classifications/{CODE}.json
+
+The full final classification of one played tournament: every team, whatever
+federation it came from. **Lazy** — fetched when a reader opens a tournament,
+from a season row on a card or from the tournament's own page.
+
+```json
+{ "code": "MPAR2024", "gender": "M",
+  "teams": [ [1, 143685, 143686, "SWE"], [2, 100427, 104073, "GER"], [3, …] ],
+  "players": { "143685": "David Åhman", "143686": "Jonatan Hellvig" },
+  "elsewhere": { "104073": "BRA-M" } }
+//  rank  a       b       team federation
+```
+
+**One small file per tournament, not one per season or one for all.** The
+panel that reads it opens for a single event, so the fetch should be that event
+and nothing else: measured over the archive a file averages 3.9 KB and the
+largest is 10.5 KB, against 146 KB for an average season and 9.3 MB for the
+lot. 1,610 of the 1,688 tournaments have one; the other 78 are listed in
+`manifest.withoutField`, and that list is exactly the set of tournaments with
+no file, because it is what tells the site which tournaments have a page.
+
+**The federation is the team's, taken from its own row, never a player's.**
+A player's record holds their federation *today*; a classification is a
+historical document. Reading the flag off the player would show Taiana Lima
+under Azerbaijan at a 2010 event she played for Brazil, and would silently
+rewrite the flags of every athlete who has ever transferred.
+
+**Self-contained, and that is what `players` is for.** The obvious saving is to
+drop the names and look them up in `search.json`, which already holds every
+player — but that file is 392 KB and is deliberately not fetched until somebody
+uses the search box. Depending on it here would mean pulling 392 KB to read a
+2 KB classification. The file carries no name, season or date for the
+tournament itself: `tournaments.json` has them and is already loaded by anything
+that can open this.
+
+**`gender` is stored, not read off the code.** The code usually opens with the
+gender letter — `WBUS2026` — and on two tournaments it does not: `Rio2016W`
+carries it at the end, and `WWRS2022` is a men's field under a `W`. Quirks §23.
+
+**`elsewhere` is the correction list** described under the join diagram: 1,066
+of 128,118 field appearances, 30 KB across the archive against the 1.3 MB of
+storing every player's slice. `null` here means a player whose slice held too
+few players to publish — one player in the whole archive. 496 files carry the
+field; the largest has eight entries.
+
+**Sorted by placement, then eliminations, then the pair's own ids**, so a
+rebuild that holds the same result rewrites nothing. `rank` is shared, not
+unique — see `results/` above — so a tournament's teams arrive grouped by
+placement.
+
+## entries/{CODE}.json
+
+Who has entered a tournament that has no result yet: one still to come, or
+played so recently that FIVB has not written placements. **Lazy**, read by the
+tournament's page. A tournament has a classification *or* an entry list, never
+both, and a cancellation from 2004 gets neither.
+
+```json
+{ "code": "MALN2026", "gender": "M",
+  "teams": [ [167130, 199950, "INA", 1660, 2492], [179503, 204533, "TUR", 690, 1411, "WC"] ],
+  "withdrawn": [ [190604, 190602, "SWE", 690, 1326, "medical"] ],
+  "players": { "167130": "…" },
+  "elsewhere": { "204533": null } }
+//  a       b       fed    entry tech  route / reason
+```
+
+**`entry` and `tech` are FIVB's entry and technical points, frozen at the
+registration deadline.** A player's own page shows live points and the two
+differ by every result since. Null where FIVB publishes none, which happens for
+a pair who have never scored. Entry points decide who gets in and technical
+points break their ties, which is the order the file is in — confirmed against
+FIVB's own list, where Schinko's 788 technical points beat Saucedo's 744 on an
+equal 464 entry points.
+
+**`route` is how a team got in when not by ranking**, decoded from
+`BeachTeam.Type` against FIVB's published entry lists: `WC` wild card, `QWC`
+qualification wild card, `CS` continental slot, `OV` open vacancy. The ordinary
+route carries no label, which is why the slot is absent on most rows.
+
+**`withdrawn` is kept rather than dropped** because an entry list a week out is
+read to see who is coming, and "was coming, is not" is part of that answer.
+The reason is `BeachTeam.Status` decoded — `withdrawn`, `medical`, `late` —
+each matched against FIVB's own list for one event. Status 1, an entry
+superseded by a later one, is published nowhere, including by FIVB. Quirks §26.
+Absent when nobody withdrew.
+
+**Written even when nobody has entered.** The 2027 World Championships had zero
+entries a year out, and an empty file is what lets its page say "no entries
+yet" instead of failing to load. Six files today, 174 teams in and 68
+withdrawn; the count moves with the calendar.
+
+**`null` in `elsewhere` means something different here.** On a classification
+it is a player with no published page. On an entry list it is a player with no
+international result this site counts *yet* — 59 of 491 current entrants when
+measured — and says nothing about whether they have a career: fourteen of Oguz
+Degirmenci's twenty tournaments are Turkish National Tour events, a tier this
+site excludes on purpose. These are the names that link to FIVB's profile
+rather than to a card.
+
+## series/{slug}.json and series/index.json
+
+A recurring event and every edition of it, with the first four placements of
+each. **Lazy**, in two steps: a tournament page fetches the index, learns it is
+a Gstaad, and fetches only that series. The 87% of tournaments in no series at
+all pay for the index and stop there.
+
+```json
+// series/index.json
+{ "of": { "MGST2026": ["gstaad"], "MPAR2024": ["olympics"] } }
+
+// series/gstaad.json
+{ "slug": "gstaad", "name": "Gstaad", "blurb": "The Swiss stop, …",
+  "editions": [ { "code": "MGST2026", "season": 2026, "gender": "M",
+                  "slug": "bpt-elite-gstaad-2026-men", "name": "BPT Elite Gstaad",
+                  "top": [[1, "Alexander Brouwer / Stefan Boermans", "NED"], …] } ] }
+```
+
+**Series membership is not something VIS publishes.** There is no series id and
+no parent record, and the code is not a reliable handle: `?RIO` is not a Rio de
+Janeiro marker, because FIVB reused the stem for Salvador, Itapema and
+Uberlândia once the original run ended. `ingest/series.ts` defines membership,
+**deriving it where the data supports it and enumerating it where it does
+not**, never guessing from a name. Four series today: the Olympic Games (16
+editions), the World Championships (30), Gstaad (51) and the Rio de Janeiro
+event of 1987–98 (17); 112 tournaments in all.
+
+**The top four are precomputed** because a Gstaad page listing 51 editions
+would otherwise fetch 51 classification files to find four rows in each. "Four
+placements" is more than four teams whenever a rank is shared — and it usually
+is.
+
+**Editions are newest first, men's draw before women's**, the order the two are
+named in everywhere else on the site. Each carries its own `slug` and `name`,
+because an edition's page is addressed by them and both change across a long
+series ("Gstaad Open", "BPT Elite16 Gstaad").
+
+Not here yet: the age-group championships, which are one tier in the published
+data but five competitions, and only 70 of the 86 carry the category in their
+code. They stay unserialised until VIS's `Type` is published.
+
+## photos/{CODE}.json — not in this tree
+
+FIVB's photographs of one tournament, for the strip under a tournament page's
+heading. **Written only by a build with `TOURNAMENT_PHOTOS=1`, and only into
+`dist/v1/photos/`**, never into `web/public/v1/`: the daily ingest commits that
+tree, and the photographs are FIVB's copyright, waiting on their permission. A
+build without the switch has no such directory, and no page names one.
+
+```json
+{ "code": "WGST2019",
+  "photos": [
+    [201940781, "Brazil's Maria Antonelli/Carolina Salgado, USA's April Ross/Alix Klineman, …", "2019-07-14T16:43", 1],
+    … ] }
+```
+
+Each photo is `[no, caption, takenAt, pick]`: FIVB's image number (served by
+`sharp.fivb.com/Legacy/GetImage?No=<no>&width=<w>`), its caption, when it was
+taken to the minute (null on 8%), and `1` for FIVB's own slideshow pick.
+**Picks first, then the rest, each by time taken**; undated ones last, by
+image number, which is the order FIVB filed them in. The page learns a file exists from its facts
+(`TournamentPageFacts.photos`, the count), so it never asks for one that is
+not there.
+
+Measured October 2026: 726 files, 26 MB, median 27 KB, largest 201 KB; 289,525
+photographs, 12,977 of them picks. See architecture.md, "Tournament
+photographs", for the switch.
+
+## records.json
+
+The archive's extremes: thirteen categories, each a men's and a women's board
+of five rows. **Lazy**, for the page that lists them. Built by
+`ingest/records.ts` once per run.
+
+```json
+{ "top": 5,
+  "categories": {
+    "tournaments": { "M": { "rows": [ { "rank": 1, "value": 255,
+                              "who": [ { "id": 100427, "name": "Emanuel Rego", "federation": "BRA" } ] } ],
+                            "ties": 1 },
+                     "W": { … } },
+    "reunion": { "W": { "rows": [ { "rank": 1, "value": 16, "who": [ {…}, {…} ],
+                                    "first": 2003, "last": 2024, "gap": [2004, 2021] } ] } },
+    "shortest-champion": { "M": { "rows": [ { "rank": 1, "value": 185, "who": [ {…} ] },
+                                            { "rank": 2, "value": 186, "who": [ {…} ] },
+                                            { "rank": 2, "value": 186, "who": [ {…} ] }, … ],
+                                  "ties": 1 } } } }
+```
+
+**Its own file because of what it reads.** Every other file is one slice, and
+the site is built never to load the archive at once; a leaderboard is the one
+page whose whole job is comparing across all 264 of them. So it is computed
+where the slices are cut, from the same in-memory data, and a page fetches a
+few kilobytes instead of twelve megabytes.
+
+**A record is about the sport, never about the database.** `RECORD_KEYS` in
+the schema lists what is counted and why "most federations represented" is
+not: a federation is a snapshot, so that would count data gaps as
+achievements. Per player: tournaments, career (years from first to last
+season), partners, tour titles, Olympic Games, and the tallest and shortest
+world champion. Per pair, both halves named:
+tournaments together, span, the longest reunion (idle years between two stints,
+with `gap` naming the seasons either side), and the three decorations —
+podiums, titles, Olympic and World medals — read from the team rows, never
+assembled from two players' own tallies. Pairs are every partnership with both
+halves published, so a cross-federation pair counts here even though no graph
+draws it: the longest women's partnership is the Nyström sisters, filed under
+Cyprus and Finland.
+
+**Split by gender throughout.** A combined board was silently all-men in five
+of six ranked categories, not because the women's tour is thinner but because
+a tie always loses to the bigger of two numbers.
+
+**The height boards are world champions only.** There used to be an overall
+tallest and shortest. Their extremes were mostly teenagers and one-event
+entrants: players whose only FIVB events were age-group championships held
+half of the ten shortest places in each draw, measured at 15 or 16, with no
+height published anywhere but FIVB — Shortest never shipped a row. A senior
+world champion is someone every reference covers, so the height can be
+checked, and no junior-only player can be one. `RecordKey` in the schema has
+the full reasoning.
+
+**A withheld row is a rank with nothing on it.** The two height boards
+publish a row only when every player on it is in `CONFIRMED_HEIGHTS` in
+`ingest/records.ts`, a hand-kept list of players whose height has been checked
+against a source independent of FIVB, with the source — 22 players on 15
+October 2026, enough that all twenty height rows ship. Height is entered by
+hand at a couple of hundred federations and the extremes are exactly where a
+typo lands — two Czech players tied at 149 cm is more likely one stale import
+than two coincident measurements. The rank stays so the board cannot quietly
+promote the second-shortest to shortest; the value and the name do not ship,
+not even with a caveat, because a page of records is where a reader takes a
+number at face value. The ingest log prints a `TODO confirm` line for each,
+which is the standing list of what to check next. The page draws no withheld
+row, and leaves out a board with nothing else on it.
+
+**A disproven height is off the boards entirely.** `DISPROVEN_HEIGHTS` lists
+players whose FIVB height an outside source contradicts — one today, Therese
+Strålman, 198 cm in VIS and 171 on volleybox, the same as her twin. Her height
+is removed from every height candidate and from her player card; her other
+records are untouched. Withholding is for a number not yet checked; this is
+for one checked and found wrong.
+
+**Equal values share a rank.** 5, 5, 4 is ranked 1, 1, 3, so `rank` is not
+the row's index plus one. Within a tie, rows are listed by player id, which
+keeps the file the same on every run that holds the same data and means
+nothing about the sport.
+
+**`ties` is what the cut left behind:** the candidates beyond the last row
+that share its value and hold its rank. It is what lets a page say "and four
+more at 4 Games" rather than imply a fifth place that is really a ninth.
+
+**Guarded by its own floors.** `RECORD_FLOORS` holds, per board, roughly half
+the leader's value when measured on 17 September 2026; a run whose leader
+falls under one refuses to publish, the same instinct as `regression.ts` for
+the one file where a wrong number is the whole content. The height boards have
+no floor, because every row withheld is a legitimate state for them.
 
 ## Invariants
 
@@ -290,6 +625,20 @@ Things that are true, and that tests assert against the published files:
 4. Every tournament referenced by `results` exists in `tournaments.json`.
 5. Both halves of a partnership carry the same `t`, `f`, `l`.
 6. Every player in `search.json` is a node in their slice's graph.
+7. Every player a classification or entry list names has a name in its own
+   `players` map, and `fieldPlayerSlice` sends each one to the slice
+   `search.json` publishes them in, or to `null` when there is none — asserted
+   across all 1,610 classifications against an index built by a different route
+   through the ingest.
+8. A tournament has a classification or an entry list, never both, and
+   `manifest.withoutField` is exactly the set of tournaments with no
+   classification file.
+9. Every edition in a series file has a classification file of the same code,
+   and every code in `series/index.json` names a series file that lists it.
+10. Every player named in `records.json` is published on the slice the row
+    says; every board is ranked 1 upwards without gaps; a withheld row carries
+    nothing but its rank; and a height appears only for a player on the
+    confirmed list.
 
 ## Changing the contract
 

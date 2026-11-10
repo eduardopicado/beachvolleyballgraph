@@ -5,10 +5,11 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import type { Gender, Manifest, SearchIndex } from '../schema';
-import { GENDER_LABEL, GENDERS, parseSliceKey } from '../schema';
+import type { Gender, Manifest, SearchIndex } from '../../../shared/schema';
+import { GENDER_LABEL, GENDERS, parseSliceKey } from '../../../shared/schema';
 import { fetchSearchIndex } from '../lib/api';
-import { flagEmoji, plural } from '../lib/format';
+import { flagEmoji, formatDate, plural } from '../lib/format';
+import { useStateFor } from '../lib/useStateFor';
 import {
   indexPlayers,
   searchPlayers,
@@ -19,6 +20,9 @@ import {
 } from '../lib/search';
 import { Avatar } from './Avatar';
 import './Controls.css';
+
+/** The first option, or none for an empty list. */
+const topHit = (matches: readonly unknown[]): number => (matches.length > 0 ? 0 : -1);
 
 /**
  * How far a finger may travel on a result row and still count as a tap.
@@ -45,7 +49,11 @@ function HelpTip({ text }: { text: string }) {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key !== 'Escape') return;
+      // Stopped here so the same Escape does not reach the player card, which
+      // closes on Escape at `window`: the innermost thing open is what goes.
+      e.stopPropagation();
+      setOpen(false);
     };
     document.addEventListener('pointerdown', onOutside);
     document.addEventListener('keydown', onKey);
@@ -128,7 +136,6 @@ function PlayerSearch({
 }) {
   const [query, setQuery] = useState('');
   const [open, setOpen] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(-1);
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const [wantIndex, setWantIndex] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -218,9 +225,9 @@ function PlayerSearch({
   const showGroups = groups.length > 1 || noneHere;
 
   // A new query invalidates whatever was highlighted; default to the top hit.
-  useEffect(() => {
-    setActiveIndex(matches.length > 0 ? 0 : -1);
-  }, [matches]);
+  // Held per list of matches rather than reset by an effect, which left the
+  // first render of a new list highlighting an index into the old one.
+  const [activeIndex, setActiveIndex] = useStateFor(matches, topHit);
 
   // Keep the highlighted option in view as arrow keys move it. Currently a
   // no-op in practice — the default result limit and the dropdown's max-height
@@ -268,6 +275,10 @@ function PlayerSearch({
         select(match);
       }
     } else if (event.key === 'Escape') {
+      // Only when there is a list to dismiss. Stopped, or the open player
+      // card, which closes on any Escape at `window`, went with it — and on a
+      // card opened from a link, closing can mean leaving the page.
+      if (open && (matches.length > 0 || query.trim().length > 0)) event.stopPropagation();
       setOpen(false);
     }
   };
@@ -548,15 +559,13 @@ export function Controls({
 
       <p className="as-of">
         Data as of{' '}
-        <time dateTime={manifest.generatedAt}>
-          {new Date(manifest.generatedAt).toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </time>
+        {/* The UTC day, like every other date on the site and the About
+            page's own "Data as of". In the reader's time zone, the refresh
+            that lands in the afternoon UTC read as tomorrow from much of Asia
+            and the Pacific. */}
+        <time dateTime={manifest.generatedAt}>{formatDate(manifest.generatedAt.slice(0, 10))}</time>
         <span className="sep">·</span>
-        {plural(manifest.totals.tournaments, 'tournament')}, {manifest.seasons.from}–{manifest.seasons.to}
+        {plural(manifest.totals.tournaments, 'tournament')} since {manifest.seasons.from}
       </p>
     </div>
   );

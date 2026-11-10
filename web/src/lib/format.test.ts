@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   age,
+  countryName,
+  formatDateRange,
   flagEmoji,
   formatDate,
   formatDayMonth,
@@ -240,5 +242,60 @@ describe('formatDayMonth', () => {
   it('is null for no date and for an unparseable one', () => {
     expect(formatDayMonth(null)).toBeNull();
     expect(formatDayMonth(new Date('nonsense'))).toBeNull();
+  });
+});
+
+describe('formatDateRange', () => {
+  const d = (iso: string) => new Date(`${iso}T00:00:00Z`);
+
+  it('drops the repeated month inside one month', () => {
+    // The ordinary tour week, and the reason this exists: "9-13 Jul" rather
+    // than "9 Jul - 13 Jul".
+    expect(formatDateRange(d('2019-07-09'), d('2019-07-13'))).toBe('9\u201313 Jul');
+  });
+
+  it('keeps both months when the event crosses one', () => {
+    expect(formatDateRange(d('2008-07-30'), d('2008-08-03'))).toBe('30 Jul \u2013 3 Aug');
+  });
+
+  it('keeps both when the months match but the years do not', () => {
+    // A December event opening the next southern season: same month number,
+    // twelve months apart. Collapsing it would read as a four-day week.
+    expect(formatDateRange(d('2019-12-28'), d('2020-12-28'))).toBe('28 Dec \u2013 28 Dec');
+  });
+
+  it('is a single day when the end matches the start or is missing', () => {
+    expect(formatDateRange(d('2024-05-02'), d('2024-05-02'))).toBe('2 May');
+    expect(formatDateRange(d('2024-05-02'), null)).toBe('2 May');
+  });
+
+  it('is null without a start, whatever the end', () => {
+    expect(formatDateRange(null, d('2024-05-05'))).toBeNull();
+    expect(formatDateRange(null, null)).toBeNull();
+  });
+});
+
+describe('countryName', () => {
+  it('names a region from its ISO-2 code', () => {
+    expect(countryName('CH')).toBe('Switzerland');
+    expect(countryName('br')).toBe('Brazil');
+  });
+
+  it('is null for anything that is not a two-letter code', () => {
+    // `01` is what the eight British rows carry (quirks §25). The ingest
+    // already publishes those as null, so this is the second line of defence
+    // rather than the first.
+    expect(countryName('01')).toBeNull();
+    expect(countryName(null)).toBeNull();
+    expect(countryName(undefined)).toBeNull();
+    expect(countryName('CHE')).toBeNull();
+  });
+
+  it('leaves an unassigned code to the runtime rather than second-guessing it', () => {
+    // `ZZ` is reserved and unassigned. Node and Chrome answer "Unknown Region"
+    // instead of throwing, and this does not try to improve on that: the
+    // ingest publishes null for anything that is not two letters, so no
+    // unassigned pair reaches here from our own data.
+    expect(countryName('ZZ')).toBe('Unknown Region');
   });
 });

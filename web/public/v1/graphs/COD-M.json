@@ -22,15 +22,15 @@
     {
       "id": 212596,
       "name": "Mulapwa Sakeni Jonathan",
-      "short": "Jonathan",
+      "short": "Mulapwa",
       "tournaments": 1,
       "first": 2025,
       "last": 2025
     },
     {
       "id": 212597,
-      "name": "Mutendi Nzazi",
-      "short": "Gloire",
+      "name": "Gloire Nzazi Mutendi",
+      "short": "Mutendi",
       "tournaments": 1,
       "first": 2025,
       "last": 2025
@@ -47,12 +47,12 @@
         [
           2017,
           1,
-          192
+          191
         ],
         [
           2021,
           1,
-          195
+          194
         ]
       ],
       "r": 17
@@ -67,7 +67,7 @@
         [
           2025,
           1,
-          280
+          279
         ]
       ],
       "r": 17

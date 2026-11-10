@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { compareTeammates, parseTeammateBatch, sampleForCheck } from './teammates';
+import { compareTeammates, describeMismatches, parseTeammateBatch, sampleForCheck } from './teammates';
 
 const set = (...ids: number[]) => new Set(ids);
 
@@ -152,5 +152,33 @@ describe('sampleForCheck', () => {
   it('comes back sorted, so batches and diffs are stable', () => {
     const picked = sampleForCheck(many(5000), 300);
     expect(picked).toEqual([...picked].sort((a, b) => a - b));
+  });
+});
+
+describe('describeMismatches', () => {
+  const check = (mismatches: { player: number; missing: number[] }[]) => ({
+    checked: 300,
+    agreed: 300 - mismatches.length,
+    mismatches,
+    unanswered: 0,
+  });
+
+  it('says nothing when every sampled player agrees', () => {
+    expect(describeMismatches(check([]))).toBeNull();
+  });
+
+  it('names each disagreeing player and the partners VIS does not list', () => {
+    expect(describeMismatches(check([{ player: 7, missing: [8, 9] }]))).toBe(
+      '1 of 300 sampled players carry a partnership FIVB has no record of:\n' +
+        '    player 7 -> partners VIS does not list: 8, 9',
+    );
+  });
+
+  it('lists ten and counts the rest, so a systemic failure stays readable', () => {
+    const many = Array.from({ length: 13 }, (_, i) => ({ player: i + 1, missing: [100 + i] }));
+    const text = describeMismatches(check(many))!;
+    expect(text.split('\n').filter((l) => l.includes('-> partners'))).toHaveLength(10);
+    expect(text.endsWith('...and 3 more')).toBe(true);
+    expect(text.startsWith('13 of 300')).toBe(true);
   });
 });

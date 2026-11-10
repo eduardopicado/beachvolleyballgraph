@@ -16,10 +16,36 @@ import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import type { Gender, GraphFile, Manifest } from '../web/src/schema.js';
-import { GENDER_LABEL, GENDERS } from '../web/src/schema.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
-import { CONTACT_EMAIL, SITE_NAME, SOURCE_NAME, SOURCE_URL } from '../web/src/site.js';
+import type {
+  ClassificationFile,
+  EntriesFile,
+  Gender,
+  GraphEdge,
+  GraphFile,
+  GraphNode,
+  Manifest,
+  RecordsFile,
+  TournamentMeta,
+  TournamentPageFacts,
+  TournamentPhotosFile,
+  TournamentsFile,
+} from '../shared/schema.js';
+import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE, TOURNAMENT_FACTS_ID } from '../shared/schema.js';
+import { nameCarriesSeason, playerPath, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
+import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
+import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
+import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
+import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
+import {
+  CONTACT_EMAIL,
+  DEFAULT_COUNTRY,
+  DEFAULT_GENDER,
+  SITE_NAME,
+  SOURCE_NAME,
+  SOURCE_URL,
+  sliceHead,
+} from '../shared/site.js';
+import { edgeWidth, radiusScale } from '../web/src/graph/layout.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
@@ -29,6 +55,18 @@ const DATA = path.join(ROOT, 'web/public/v1');
 /** Public origin, needed for canonical URLs, Open Graph and the sitemap. */
 const SITE_URL = (process.env.SITE_URL ?? 'https://example.invalid').replace(/\/+$/, '');
 const BASE = process.env.BASE_PATH ?? '/';
+
+/**
+ * How many photographs `ingest/photos.ts` wrote for a tournament, or 0. Only
+ * looked for with `TOURNAMENT_PHOTOS=1`: the file is never in a build without
+ * it, and a page should not be told to ask for one that is not there.
+ */
+async function photoCount(code: string): Promise<number> {
+  if (process.env.TOURNAMENT_PHOTOS !== '1') return 0;
+  const file = path.join(DIST, 'v1', 'photos', `${code}.json`);
+  if (!existsSync(file)) return 0;
+  return (JSON.parse(await readFile(file, 'utf8')) as TournamentPhotosFile).photos.length;
+}
 
 /** Cap on players embedded in structured data; the table itself is complete. */
 const JSONLD_MAX = 50;
@@ -50,8 +88,15 @@ const abs = (p: string) => `${SITE_URL}${p}`;
 /** "54.2%" — one decimal, and never NaN on an empty dataset. */
 const pct = (n: number, of: number) => `${of > 0 ? ((100 * n) / of).toFixed(1) : '0.0'}%`;
 
+/**
+ * The page component each prerendered page boots into — the module `main.tsx`
+ * imports for that address, named as Vite's build manifest names it.
+ */
+type Route = 'src/App.tsx' | 'src/TournamentRoute.tsx' | 'src/TournamentIndexRoute.tsx' | 'src/RecordsRoute.tsx';
+
 interface Page {
   slug: string;
+  route: Route;
   url: string;
   title: string;
   description: string;
@@ -87,6 +132,58 @@ export function jsonLd(data: unknown): string {
   // No user-controlled markup can escape: JSON.stringify plus a guard on the
   // one sequence that could close the script element early.
   return `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, '\\u003c')}</script>`;
+}
+
+/**
+ * A tournament page's facts about itself — see `TournamentPageFacts`.
+ *
+ * `field` is the page's classification or entry list: its teams' federations
+ * get a flag, and the slices its `elsewhere` names point at get a link, so
+ * those are the countries carried. Only countries the manifest publishes are
+ * included, which is the same answer the page got by reading the manifest
+ * itself: a federation with no published slice has no flag and no page.
+ */
+export function tournamentFacts(
+  row: IndexRow,
+  counterpart: IndexRow | null,
+  field: { federations: string[]; elsewhere?: Record<string, string | null> } | null,
+  countries: Manifest['countries'],
+  photos = 0,
+): TournamentPageFacts {
+  const byCode = new Map(countries.map((c) => [c.code, c] as const));
+  const codes = new Set(field?.federations ?? []);
+  for (const target of Object.values(field?.elsewhere ?? {})) {
+    if (target) codes.add(target.slice(0, target.lastIndexOf('-')));
+  }
+  const federations: TournamentPageFacts['federations'] = {};
+  for (const code of [...codes].sort()) {
+    const entry = byCode.get(code);
+    if (entry) federations[code] = [entry.name, entry.iso2];
+  }
+  const day = (d: Date | null) => (d ? d.toISOString().slice(0, 10) : null);
+  return {
+    slug: row.slug,
+    code: row.code,
+    name: row.name,
+    season: row.season,
+    gender: row.gender,
+    tier: row.tier,
+    level: row.level,
+    country: row.country,
+    start: day(row.start),
+    end: day(row.end),
+    played: row.played,
+    counterpart: counterpart && { gender: counterpart.gender, slug: counterpart.slug },
+    federations,
+    // Left out at zero, which is every page of a build without the switch, so
+    // the facts of a public build do not name photographs at all.
+    ...(photos > 0 && { photos }),
+  };
+}
+
+/** The facts as the element the page reads them from. Escaped like `jsonLd`. */
+export function factsScript(facts: TournamentPageFacts): string {
+  return `<script type="application/json" id="${TOURNAMENT_FACTS_ID}">${JSON.stringify(facts).replace(/</g, '\\u003c')}</script>`;
 }
 
 function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string; href: string }[]): string {
@@ -130,7 +227,7 @@ function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string;
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro Tour, World Championships and Olympic Games.</p>
 <h2>${esc(graph.countryName)} · ${esc(GENDER_LABEL[graph.gender])}</h2>
-<p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments between ${manifest.seasons.from} and ${manifest.seasons.to}.</p>
+<p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments since ${manifest.seasons.from}.</p>
 <table>
 <caption>${esc(graph.countryName)} ${esc(GENDER_LABEL[graph.gender])} — players, tournaments entered, distinct partners and seasons active</caption>
 <thead><tr><th scope="col">Player</th><th scope="col">Tournaments</th><th scope="col">Partners</th><th scope="col">Seasons</th><th scope="col">Most frequent partner</th></tr></thead>
@@ -207,6 +304,35 @@ function staticFooter(): string {
 }
 
 /**
+ * The tournament index's meta description, which is the sentence a search
+ * result shows under the link.
+ *
+ * Pulled out of `main()` to be testable, because the number in it was wrong
+ * for as long as it existed. It read
+ * `indexRows.length - addressable.length`, and `addressable` is an alias for
+ * `indexRows` — a value minus itself. So the "awaiting results" clause never
+ * rendered once, and every row was counted as played: the live page claimed
+ * 1,616 played on a day when 1,610 were and six were still to be decided.
+ *
+ * `played` is the count that has a classification published; `awaiting` is
+ * every other row the index shows, which is an event still to come, one being
+ * played right now, or one whose placements FIVB has not written yet. The
+ * clause is dropped when nothing is awaiting rather than reading "and 0".
+ */
+export function indexDescription(
+  played: number,
+  awaiting: number,
+  seasons: { from: number },
+): string {
+  const n = (value: number) => value.toLocaleString('en-US');
+  return (
+    `Every FIVB international beach volleyball tournament by season and draw — ` +
+    `${n(played)} played since ${seasons.from}` +
+    `${awaiting > 0 ? `, and ${n(awaiting)} awaiting results` : ''}.`
+  );
+}
+
+/**
  * `/llms.txt` — a plain-markdown briefing for language models, per llmstxt.org.
  *
  * The point is to answer the questions a model would otherwise get wrong by
@@ -229,7 +355,7 @@ export function llmsTxt(
 
   return `# Beach Volleyball Partnership Graph
 
-> Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments between ${manifest.seasons.from} and ${manifest.seasons.to}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt weekly.
+> Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt daily.
 
 Data as of ${manifest.generatedAt}.
 
@@ -256,9 +382,13 @@ tours, snow volleyball, multi-sport games and King of the Court are excluded.
 - [Manifest](${abs(`${BASE}v1/manifest.json`)}): every published country, node and edge counts, tier breakdown, freshness.
 - [Graph file](${abs(`${BASE}v1/graphs/BRA-M.json`)}): \`/v1/graphs/{FEDERATION}-{M|W}.json\` — \`nodes\` (id, name, short, tournaments, first, last) and \`edges\` (\`a\`, \`b\` player ids, \`t\` tournaments together, \`f\`/\`l\` first and last season, \`s\` per-season breakdown as \`[season, tournaments, days from 1 January to the pair's last event that season]\` — the last optional).
 - [Player detail](${abs(`${BASE}v1/players/BRA-M.json`)}): \`/v1/players/{FEDERATION}-{M|W}.json\` — date of birth, height, weight, \`olympics\`/\`worldChamps\`/\`tour\` podium counts (gold, silver, bronze; the tour tally is the World Tour and Beach Pro Tour with levels mixed and age-group events excluded), and \`away\`: partners from another federation, which the graph excludes.
-- [Search index](${abs(`${BASE}v1/search.json`)}): every published player as \`[id, name, tournaments]\`, grouped by \`FEDERATION-{M|W}\` — the quickest way to resolve a name to a player id and a country.
-- [Tournament index](${abs(`${BASE}v1/tournaments.json`)}): every qualifying tournament by FIVB number, as \`[name, season, tier, days from 1 January to the main draw's first day, FIVB tournament code, level]\`. The date offset may be null and the code is FIVB's own identifier for the event (\`WBUS2026\` is the 2026 women's Busan tournament) — the stable key to join this data to another source. \`level\` is what FIVB called the event's rung at the time — "Grand Slam", "4-star", "Elite16" — present on the 1,552 tour events and absent on the Olympics, the World Championships and the age-group championships, which have no level below their tier. It is a label, not a rank: the hierarchy was renumbered from Open/Challenger/Satellite to 1-to-5-star to Elite16/Challenge/Futures and no mapping across those eras survives, so a 2005 Grand Slam cannot be ordered against a 2019 4-star.
+- [Search index](${abs(`${BASE}v1/search.json`)}): every published player as \`[id, name, tournaments]\`, grouped by \`FEDERATION-{M|W}\` — the quickest way to resolve a name to a player id and a country. Two optional slots follow: \`short\`, the name the graph labels them with, where typing their full name would not reach it ("Duda" for Eduarda Santos Lisboa), and an array of former names from Wikidata, searchable but never displayed. A row with the fifth slot always has the fourth.
+- [Tournament index](${abs(`${BASE}v1/tournaments.json`)}): every qualifying tournament by FIVB number, as \`[name, season, tier, days from 1 January to the day the event opens, FIVB tournament code, level, country, span, gender]\`. The opening day is the first day of qualification where FIVB publishes one (86% of these rows) and the first day of the main draw otherwise. The date offset may be null and the code is FIVB's own identifier for the event (\`WBUS2026\` is the 2026 women's Busan tournament) — the stable key to join this data to another source. \`country\` is where it was played, ISO-3166-1 alpha-2, null on the eight rows whose code upstream is not a country. \`span\` runs from that opening day to the main draw's last, so the last day is the offset plus the span: 4 for the ordinary tour week that qualifies on the Thursday, 15 for an Olympic fortnight, and negative on the single row that ends before it starts. \`level\` is what FIVB called the event's rung at the time — "Grand Slam", "4-star", "Elite16" — present on the 1,562 tour events and absent on the Olympics, the World Championships and the age-group championships, which have no level below their tier. It is a label, not a rank: the hierarchy was renumbered from Open/Challenger/Satellite to 1-to-5-star to Elite16/Challenge/Futures and no mapping across those eras survives, so a 2005 Grand Slam cannot be ordered against a 2019 4-star. \`gender\` is the draw, \`M\` or \`W\`, from FIVB's own record rather than the code's first letter: \`WWRS2022\` is a men's event.
 - [Results](${abs(`${BASE}v1/results/BRA-M.json`)}): \`/v1/results/{FEDERATION}-{M|W}.json\` — \`players\`, keyed by player id, each holding every tournament they entered as \`[tournament number, partner id, rank]\`, most recent first. \`names\` covers partners with no node in that slice. \`rank\` is FIVB's own placement and is shared rather than unique: eight teams finish 9th, and negative values are eliminations before the main draw (\`<= -25\` in qualification, \`-2\` on a confederation quota).
+- [Classification](${abs(`${BASE}v1/classifications/MPAR2024.json`)}): \`/v1/classifications/{CODE}.json\`, one per played tournament, keyed by the FIVB code above — \`teams\` as \`[rank, player a, player b, federation]\` best placement first, with the federation the team competed under at the time rather than either player's current one, and \`players\` naming every id in the file. \`elsewhere\` lists the few players whose page is not the team's federation plus the file's \`gender\` (a transfer since, or \`null\` for no page at all).
+- Entry lists: \`/v1/entries/{CODE}.json\`, one per tournament that has no result yet (the codes are the manifest's \`withoutField\` that fall inside the coming weeks) — \`teams\` as \`[a, b, federation, entry points, technical points, route?]\` in FIVB's own order (entry points, then technical to break ties, both frozen at the registration deadline), \`withdrawn\` as the same with a reason (\`withdrawn\`, \`medical\`, \`late\`) in the sixth slot, and \`players\` and \`elsewhere\` as on a classification. A tournament has a classification or an entry list, never both.
+- [Series](${abs(`${BASE}v1/series/index.json`)}): \`/v1/series/index.json\` maps a tournament code to the recurring events it belongs to (the Olympic Games, the World Championships, Gstaad, the Rio de Janeiro event of 1987–98), and \`/v1/series/{slug}.json\` lists every edition of one with its first four placements as \`[rank, "A / B", federation]\`, newest first.
+- [Records](${abs(`${BASE}v1/records.json`)}): the archive's extremes, thirteen categories (most tournaments, longest career, longest partnership, most partners, most tour titles, most Olympic Games, widest partnership span, longest reunion, the three pair decorations, and the tallest and shortest World Champions — heights are ranked among World Champions only), each a men's and a women's board of five \`rows\` with \`rank\`, \`value\` and \`who\` (one player, or both halves of a pair, each with id, name and federation). Equal values share a rank, so two rows can both be 1. A row that reads \`{"rank": n, "withheld": true}\` is a height not yet confirmed outside FIVB and deliberately not published; \`ties\` counts further candidates sharing the last row's value.
 
 Federation codes are FIVB three-letter codes (BRA, USA, GER), not ISO country codes.
 
@@ -268,8 +398,55 @@ ${pages}
 `;
 }
 
+/** One season's bar on `/about/`: its tournaments with a result, and without. */
+export interface SeasonCount {
+  season: number;
+  played: number;
+  without: number;
+}
+
 /**
- * `/about/` — who runs this, where the data comes from, how to make contact.
+ * Tournaments per season, over every row of `tournaments.json` — so the bars
+ * add up to `manifest.totals.tournaments`, the figure printed above them, and
+ * split the same way the tournament index does.
+ *
+ * `without` is not "still to come": it is that, and also the older events
+ * FIVB lists with no classification (eleven in 2013 alone). The bar draws them
+ * apart rather than leaving them out, because leaving them out would make the
+ * chart disagree with the total beside it.
+ *
+ * A season with no row at all still gets a bar, of nothing, so bar *i* is
+ * always season `first + i` — the tick labels are placed on that assumption.
+ */
+export function seasonCounts(
+  tournaments: Record<string, TournamentMeta>,
+  hasField: (code: string) => boolean,
+): SeasonCount[] {
+  const bySeason = new Map<number, SeasonCount>();
+  for (const row of Object.values(tournaments)) {
+    const season = row[1];
+    const entry = bySeason.get(season) ?? { season, played: 0, without: 0 };
+    const code = row[4];
+    if (code && hasField(code)) entry.played++;
+    else entry.without++;
+    bySeason.set(season, entry);
+  }
+  if (bySeason.size === 0) return [];
+  const seasons = [...bySeason.keys()];
+  const out: SeasonCount[] = [];
+  for (let season = Math.min(...seasons); season <= Math.max(...seasons); season++) {
+    out.push(bySeason.get(season) ?? { season, played: 0, without: 0 });
+  }
+  return out;
+}
+
+/** What the legend draws, beside the graph's own largest; see `aboutPage`. */
+const LEGEND_TOURNAMENTS = [1, 10, 50];
+const LEGEND_TOGETHER = [1, 5, 20];
+
+/**
+ * `/about/` — what the graph shows, where the data comes from, how to make
+ * contact.
  *
  * Emitted as a standalone document rather than through the SPA template, and
  * that is the whole trick: every other page here is prerendered markup that
@@ -278,12 +455,112 @@ ${pages}
  * default country and swap this text for the Brazil graph. Shipping the same
  * stylesheet without the module script keeps the page looking like the site
  * while leaving the markup as the final word.
+ *
+ * Laid out figures first — the owner's pick on the mockup, over a long single
+ * column and over contents in a side column: the archive's size and its shape
+ * over the seasons, then the rest as cards. Every number is read from the
+ * data at build time, so the page cannot drift from the site it describes.
+ *
+ * The legend is drawn at the graph's own scale (`radiusScale`, `edgeWidth`),
+ * from the graph the site opens on, because sizes in the graph are relative to
+ * its busiest player: a dot means a different count in every slice, and only
+ * one slice is the one every first-time reader has just looked at.
+ *
+ * Two pieces of prose carry facts that are not read from the data:
+ *  - The result delays are measured, not promised: the day each
+ *    classification first reached the published tree, against the event's
+ *    last day. Corigliano Rossano and Alanya are every event that finished
+ *    inside the daily refresh's history when this was written.
+ *  - The flag credit is owed because Twemoji's artwork is CC BY 4.0. The
+ *    font only loads where the system draws no flags (see main.tsx), but the
+ *    page cannot know which reader that is.
  */
-function aboutPage(manifest: Manifest, styleHref: string | null): string {
+export function aboutPage(
+  manifest: Manifest,
+  seasons: readonly SeasonCount[],
+  legend: GraphFile,
+  styleHref: string | null,
+): string {
   const url = abs(`${BASE}about/`);
   const title = `About — ${SITE_NAME}`;
-  const description = `Where the data behind ${SITE_NAME} comes from, how the numbers are counted, and how to get in touch.`;
+  const description = `What the ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
   const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
+  const n = (v: number) => v.toLocaleString('en-US');
+  const and = (items: string[]) => new Intl.ListFormat('en', { type: 'conjunction' }).format(items);
+
+  const asOf = new Date(manifest.generatedAt);
+  const asOfText = asOf.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
+
+  const figures: [string, number][] = [
+    ['Players', manifest.totals.players],
+    ['Partnerships', manifest.totals.partnerships],
+    ['Tournaments', manifest.totals.tournaments],
+    ['Federations', manifest.countries.length],
+    // Seasons with a result, so a season that is only a calendar so far is
+    // not counted as one the archive covers.
+    ['Seasons', seasons.filter((s) => s.played > 0).length],
+  ];
+
+  // --- tournaments per season ---
+  const peak = Math.max(1, ...seasons.map((s) => s.played + s.without));
+  const peakSeasons = seasons.filter((s) => s.played + s.without === peak).map((s) => String(s.season));
+  const first = seasons[0];
+  const last = seasons.at(-1);
+  const height = (count: number) => `${((100 * count) / peak).toFixed(2)}%`;
+  const bars = seasons
+    .map((s) => {
+      const label = `${s.season}: ${s.played} with a result${s.without ? `, ${s.without} without` : ''}`;
+      return (
+        `<span class="season" title="${label}">` +
+        (s.without ? `<span class="without" style="height:${height(s.without)}"></span>` : '') +
+        (s.played ? `<span class="played" style="height:${height(s.played)}"></span>` : '') +
+        `</span>`
+      );
+    })
+    .join('');
+  // Under the middle of their own bar: bar i of k is centred at (i + 0.5) / k.
+  const ticks = seasons
+    .map((s, i) => ({ s, i }))
+    .filter(({ s }) => s.season % 10 === 0)
+    .map(({ s, i }) => `<span style="left:${(((i + 0.5) / seasons.length) * 100).toFixed(2)}%">${s.season}</span>`)
+    .join('');
+  const chartLabel = first && last
+    ? `Tournaments per season, ${first.season} to ${last.season}: ${first.played + first.without} in ${first.season}, peaking at ${peak} in ${and(peakSeasons)}.`
+    : 'Tournaments per season.';
+
+  // --- legend ---
+  const names = new Map(legend.nodes.map((node) => [node.id, node.name]));
+  const busiest = legend.nodes.reduce<GraphNode | undefined>((a, b) => (!a || b.tournaments > a.tournaments ? b : a), undefined);
+  const longest = legend.edges.reduce<GraphEdge | undefined>((a, b) => (!a || b.t > a.t ? b : a), undefined);
+  const maxTournaments = busiest?.tournaments ?? 1;
+  const maxTogether = longest?.t ?? 1;
+  const radius = radiusScale(maxTournaments);
+  const marks = (samples: number[], max: number) => [...samples.filter((v) => v < max), max];
+  const dots = marks(LEGEND_TOURNAMENTS, maxTournaments)
+    .map((t) => {
+      const d = (2 * radius(t)).toFixed(1);
+      return `<li><span class="dot" style="width:${d}px;height:${d}px"></span>${n(t)}</li>`;
+    })
+    .join('');
+  const lines = marks(LEGEND_TOGETHER, maxTogether)
+    .map((t) => `<li><span class="line" style="height:${edgeWidth(t, maxTogether).toFixed(1)}px"></span>${n(t)}</li>`)
+    .join('');
+  const sliceName = `${legend.countryName}'s ${GENDER_LABEL[legend.gender].toLowerCase()}`;
+  const legendNote =
+    `Sizes are relative to each graph's busiest player and longest partnership.` +
+    (busiest && longest
+      ? ` In the graph the site opens on, ${esc(sliceName)}, the largest dot is ${esc(busiest.name)}, with ${n(busiest.tournaments)} tournaments, and the widest line is ${esc(and([names.get(longest.a) ?? '', names.get(longest.b) ?? '']))}, with ${n(longest.t)} together.`
+      : '');
+
+  const extremes = (['tournaments', 'titles'] as const)
+    .map((key) => manifest.highlights?.find((h) => h.key === key))
+    .filter((h) => h !== undefined)
+    .map((h) => `${esc(and(h.who.map((w) => w.name)))}'s ${n(h.value)} ${RECORD_LABEL[h.key]}`);
+
+  const tiers = Object.entries(manifest.tiers)
+    .sort((a, b) => b[1] - a[1])
+    .map(([tier, count]) => `<tr><td>${esc(tier)}</td><td>${n(count)}</td></tr>`)
+    .join('');
 
   return `<!doctype html>
 <html lang="en">
@@ -295,45 +572,188 @@ ${style}
 ${headFor(url, title, description)}
 </head>
 <body>
-<div class="app">
-<main>
+<main class="static-page about">
+<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+
+<div class="about-top">
+<header>
 <h1>About</h1>
+<p class="lede">Who has played with whom in FIVB international beach volleyball, since ${manifest.seasons.from}. Every dot is a player and every line a partnership, drawn from the archive FIVB itself publishes.</p>
+<p class="about-asof">Data as of <time datetime="${esc(manifest.generatedAt)}">${asOfText}</time>, rebuilt from FIVB every day.</p>
+</header>
+<dl class="about-figures">
+${figures.map(([unit, value]) => `<div><dt>${unit}</dt><dd>${n(value)}</dd></div>`).join('\n')}
+</dl>
+</div>
 
-<p><strong>${esc(SITE_NAME)}</strong> maps who has played with whom in FIVB international beach volleyball. Each node is a player; each edge is a partnership, weighted by the tournaments the pair entered together. Currently ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships across ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments, ${manifest.seasons.from}–${manifest.seasons.to}.</p>
+<section class="about-seasons" aria-labelledby="about-seasons">
+<div class="about-seasons-head">
+<h2 id="about-seasons">Tournaments per season</h2>
+<p>Peaking at ${peak} in ${and(peakSeasons)}. The lighter part of a bar has no result published: events still to come, and older ones FIVB lists without one.</p>
+</div>
+<div class="season-bars" role="img" aria-label="${esc(chartLabel)}">${bars}</div>
+<div class="season-ticks" aria-hidden="true">${ticks}</div>
+</section>
 
-<h2>Data</h2>
-
-<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a> and is rebuilt weekly. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
-
-<p>Player photographs are FIVB's as well, and none are stored here — your browser fetches each one from FIVB's image service as you open a player. Most players have no photo on file, and those show initials instead.</p>
-
-<p>Not affiliated with or endorsed by the FIVB.</p>
-
-<h2>Counting rules</h2>
-
+<div class="about-cards">
+<section>
+<h2>How to read the graph</h2>
+<div class="legend">
+<div><span class="legend-label">Player · tournaments</span><ul>${dots}</ul></div>
+<div><span class="legend-label">Partnership · events together</span><ul>${lines}</ul></div>
+</div>
+<p class="legend-picked"><span class="dot picked"></span>Picked: the player whose card is open</p>
+<p class="about-note">${legendNote}</p>
 <ul>
-<li>FIVB-organised international competition only: World Tour, Beach Pro Tour, World Championships, Olympic Games, age-group World Championships. Continental and national tours, snow volleyball and multi-sport games are excluded.</li>
+<li><strong>Pick a player</strong> for their card: every partner, their medals, a season-by-season timeline, and partners from other federations.</li>
+<li><strong>Ask how two players are connected</strong> for the shortest chain of partnerships between them.</li>
+<li><strong><a href="${esc(`${BASE}${INDEX_PREFIX}/`)}">Every tournament</a> has a page</strong>: the final classification, or the entry list for one still to come.</li>
+<li><strong><a href="${esc(recordsPagePath(BASE))}">Records</a></strong> collect the archive's extremes, for men and women${extremes.length ? `: ${extremes.join(', ')}` : ''}.</li>
+</ul>
+</section>
+
+<section>
+<h2>What is covered</h2>
+<table class="about-tiers">
+<thead><tr><th scope="col">Competition</th><th scope="col">Tournaments</th></tr></thead>
+<tbody>${tiers}</tbody>
+</table>
+<ul>
+<li>FIVB-organised international competition only. Continental and national tours, snow volleyball and multi-sport games are left out.</li>
 <li>A pair entering both the qualification and the main draw of one event counts once.</li>
 <li>Teams that registered but never played are not counted.</li>
-<li>A player's country is their current FIVB federation; no history is kept. Both players must share a federation for a partnership to appear.</li>
+<li>A player's country is their current FIVB federation; no history is kept. Both players must share a federation for a partnership to appear in a country's graph.</li>
 </ul>
+</section>
 
-<h2>Contact</h2>
+<section>
+<h2>Where the data comes from</h2>
+<p>Every figure comes from the <a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a>, and the whole archive is rebuilt from it every day. Nothing is hand-edited, so a number that looks wrong is either what VIS returns or a bug in how this site reads it.</p>
+<p>A tournament's placements appear once FIVB publishes them: here, two days after the final for Corigliano Rossano in September 2026, and three to four for Alanya in October. Until then its page shows the entry list.</p>
+<p>Portraits are FIVB's too, and none is stored here: your browser fetches each one from FIVB's image service as you open a player. A player without one on file shows initials.</p>
+<p>Not affiliated with or endorsed by the FIVB.</p>
+</section>
 
-<p><a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a> — corrections, questions, media and partnership enquiries.</p>
+<section>
+<h2>Credits</h2>
+<dl class="about-credits">
+<dt>Data</dt><dd><a href="${esc(SOURCE_URL)}">${esc(SOURCE_NAME)}</a>, read daily.</dd>
+<dt>Portraits</dt><dd>FIVB's image service.</dd>
+<dt>Flags</dt><dd>Where the system has none, as on Windows: <a href="https://github.com/twitter/twemoji">Twemoji</a>, © Twitter, Inc and other contributors, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</dd>
+</dl>
+</section>
 
-<p>For a wrong number, a link to the page and what you expected to see is the fastest route to a fix.</p>
+<section>
+<h2>Contact and corrections</h2>
+<p><a href="mailto:${esc(CONTACT_EMAIL)}">${esc(CONTACT_EMAIL)}</a> — corrections, questions, media and partnership enquiries. For a wrong number, a link to the page and what you expected to see is the fastest route to a fix.</p>
+</section>
 
+<section>
 <h2>Copyright</h2>
-
 <p>© 2026 Eduardo Picado. All rights reserved.</p>
+<p class="about-note">The data behind every page is plain JSON under <a href="${esc(`${BASE}v1/manifest.json`)}">/v1/</a>, summarised for language models at <a href="${esc(`${BASE}llms.txt`)}">/llms.txt</a>.</p>
+</section>
+</div>
 
 <p><a href="${esc(BASE)}">← Back to the graph</a></p>
 </main>
-</div>
 </body>
 </html>
 `;
+}
+
+/**
+ * `404.html` — what GitHub Pages and Cloudflare Pages both serve, with a 404,
+ * for an address the site does not have.
+ *
+ * Standalone like `/about/`, and for the same reason: the app booted on an
+ * unknown path falls back to the default country and draws the Brazil graph,
+ * which on Cloudflare (where an absent 404.html means "single-page app") was
+ * exactly what an unknown address showed, with a 200. Every link is absolute
+ * from `BASE`, because this one document answers for every depth of path.
+ *
+ * Three ways back in rather than one link home: the owner chose it on the
+ * mockup over a plain list and over "did you mean". No published tournament
+ * address had gone away in six weeks of daily data, so a lookup would mostly
+ * have caught typos.
+ *
+ * The one script names the missing path, as text. Without it the sentence
+ * reads "this address" and nothing else changes.
+ */
+export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref: string | null): string {
+  const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
+  const n = (v: number) => v.toLocaleString('en-US');
+  const way = (href: string, figure: string, unit: string, name: string, what: string) =>
+    `<a href="${esc(href)}"><span class="figure">${figure}</span><span class="unit">${unit}</span><span class="name">${name}</span><span class="what">${what}</span></a>`;
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex"/>
+<title>Page not found — ${esc(SITE_NAME)}</title>
+${style}
+</head>
+<body>
+<main class="static-page">
+<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+<header>
+<h1>Nothing at this address</h1>
+<p class="lede">There is no page at <span id="missing-path">this address</span>. If a link brought you here, it may have been mistyped. Three ways back in:</p>
+</header>
+<div class="ways-back">
+${way(BASE, n(manifest.totals.players), 'players', 'The partnership graph', 'Who has played with whom, one graph per federation.')}
+${way(`${BASE}tournaments/`, n(manifest.totals.tournaments), 'tournaments', 'Tournaments', `Every event since ${manifest.seasons.from}, season by season, with its full field.`)}
+${way(recordsPagePath(BASE), n(recordKinds), 'records', 'Records', 'Most partners, longest careers, the tallest world champion, for men and women.')}
+</div>
+<p class="lede">Or read <a href="${esc(`${BASE}about/`)}">about this project</a>, including how to report a wrong number.</p>
+</main>
+<script>
+(function () {
+  var slot = document.getElementById('missing-path');
+  if (!slot) return;
+  var path = location.pathname;
+  try { path = decodeURIComponent(path); } catch (e) {}
+  var code = document.createElement('code');
+  code.textContent = path;
+  slot.replaceWith(code);
+})();
+</script>
+</body>
+</html>
+`;
+}
+
+/** One entry of `dist/.vite/manifest.json`, the fields read here. */
+interface ManifestChunk {
+  file: string;
+  imports?: string[];
+  isEntry?: boolean;
+}
+
+/**
+ * The chunks a page's component needs, for `<link rel="modulepreload">`.
+ *
+ * `main.tsx` imports each page's component only once the address has chosen
+ * it, so without these the browser would learn of the chunk a round trip
+ * late: entry first, then the page. Listed in the head, both download at
+ * once.
+ *
+ * Walks `imports` because shared code is chunks of its own. Stops at the
+ * entry, which the template's own script tag already loads.
+ */
+export function routeChunks(viteManifest: Record<string, ManifestChunk>, route: Route): string[] {
+  const files = new Set<string>();
+  const visit = (key: string) => {
+    const chunk = viteManifest[key];
+    if (!chunk) throw new Error(`Vite manifest has no entry for ${key}`);
+    if (chunk.isEntry || files.has(chunk.file)) return;
+    files.add(chunk.file);
+    for (const dep of chunk.imports ?? []) visit(dep);
+  };
+  visit(route);
+  return [...files];
 }
 
 async function main() {
@@ -344,6 +764,9 @@ async function main() {
   }
 
   const template = await readFile(path.join(DIST, 'index.html'), 'utf8');
+  const viteManifest: Record<string, ManifestChunk> = JSON.parse(
+    await readFile(path.join(DIST, '.vite', 'manifest.json'), 'utf8'),
+  );
   const manifest: Manifest = JSON.parse(await readFile(path.join(DATA, 'manifest.json'), 'utf8'));
 
   // Every published slice, in a stable order.
@@ -374,8 +797,12 @@ async function main() {
     tallySlice(graph, shape);
     const url = abs(slice.href);
     const label = GENDER_LABEL[slice.gender];
-    const title = `${slice.name} ${label} — Beach Volleyball Partnership Graph`;
-    const description = `Every ${label.toLowerCase()}'s beach volleyball player from ${slice.name} who has competed on the FIVB World Tour, Beach Pro Tour, World Championships or Olympic Games — ${graph.nodes.length} players and ${graph.edges.length} partnerships, ${manifest.seasons.from}–${manifest.seasons.to}.`;
+    const { title, description } = sliceHead(
+      slice.name,
+      slice.gender,
+      { players: graph.nodes.length, partnerships: graph.edges.length },
+      manifest.seasons.from,
+    );
 
     // Sibling links: the other gender for this country, then a rotating
     // window of other countries starting just after this one.
@@ -435,6 +862,7 @@ async function main() {
 
     pages.push({
       slug: slice.slug,
+      route: 'src/App.tsx',
       url: slice.href,
       title,
       description,
@@ -443,19 +871,374 @@ async function main() {
     });
   }
 
+  // --- one page per tournament ---------------------------------------------
+  /*
+   * The header and the podium, not the whole field.
+   *
+   * A page carrying all 105 teams of Gstaad 2002 would be tens of kilobytes of
+   * HTML repeating a classification already published as JSON, times 1,610.
+   * What a search engine — and a reader arriving cold — actually wants is the
+   * name, where and when it was played, and who won; the rest of the table
+   * hydrates from the same file the panel uses. So the prerendered body stops
+   * after the medals.
+   */
+  const tournamentsFile: TournamentsFile = JSON.parse(
+    await readFile(path.join(DATA, 'tournaments.json'), 'utf8'),
+  );
+  // Built by the same function the index page uses, over the same set, which
+  // is the only way the two are guaranteed to agree. `tournamentSlugs`
+  // appends FIVB's code to every member of a colliding group, so a set that
+  // differs by one row resolves a collision differently — and the symptom is
+  // not an error but an index full of links to addresses that were never
+  // written. Sharing the builder makes that impossible rather than unlikely.
+  const onDisk = (code: string) => existsSync(path.join(DATA, 'classifications', `${code}.json`));
+
+  /*
+   * `withoutField` is the ingest's claim about which tournaments have a field;
+   * the files on disk are the fact.
+   *
+   * The claim is absent on any tree published before the field existed — which
+   * includes the one this very change is built against, since the code that
+   * writes it is landing here and the tree is only regenerated by the daily
+   * ingest. So the fact is the fallback, and the claim is preferred only for
+   * being what the browser can also read: the index page has no filesystem and
+   * must be given the same answer this gets for free.
+   */
+  const declared = manifest.withoutField;
+  const withoutField = new Set(declared ?? []);
+  const hasField = declared ? (code: string) => !withoutField.has(code) : onDisk;
+  const indexRows = buildIndex(tournamentsFile.tournaments, hasField);
+
+  // Every row the index shows gets a page, played or not: an event with no
+  // result has an entry list to put on it, and a reader following a link from
+  // the index to a page that does not exist is the worse failure.
+  const addressable = indexRows;
+  const played = addressable.filter((t) => t.played);
+
+  // Only meaningful when there is a claim to check. The two come out of one
+  // run and cannot normally disagree, so a mismatch means a partially-written
+  // tree — worth stopping for, because every page built after it would be
+  // built on a wrong set.
+  if (declared) {
+    for (const t of played) {
+      if (!onDisk(t.code)) {
+        throw new Error(
+          `${t.code} is not in manifest.withoutField but has no classification file — the data tree is incomplete.`,
+        );
+      }
+    }
+  }
+
+  const seenTournamentSlugs = new Set<string>();
+  for (const t of addressable) {
+    const { slug } = t;
+    // The slug builder appends FIVB's code to every member of a clash, so a
+    // duplicate here means two tournaments share a code as well as a name,
+    // season and draw — which would silently overwrite one page with the
+    // other's.
+    if (seenTournamentSlugs.has(slug)) {
+      throw new Error(`Tournament slug collision would make a page unreachable: ${slug}`);
+    }
+    seenTournamentSlugs.add(slug);
+
+    const href = `${BASE}tournament/${slug}/`;
+    const url = abs(href);
+    const label = GENDER_LABEL[t.gender];
+    // "Beijing 2008 2008" otherwise: the Olympics carry the year in the name.
+    const named = nameCarriesSeason(t.name, t.season) ? t.name : `${t.name} ${t.season}`;
+
+    /*
+     * A played event is described by who won it; one without a result is
+     * described by who is coming.
+     *
+     * Both are prerendered from the file the page itself fetches, so the
+     * static document and the hydrated one say the same thing — which for an
+     * upcoming event is the only version a search engine will see until the
+     * week it is played.
+     */
+    let title: string;
+    let description: string;
+    let rows: string;
+    let field: Parameters<typeof tournamentFacts>[2];
+    if (t.played) {
+      const classification: ClassificationFile = JSON.parse(
+        await readFile(path.join(DATA, 'classifications', `${t.code}.json`), 'utf8'),
+      );
+      title = `${named} ${label} — final classification`;
+      field = { federations: classification.teams.map((team) => team[3]), elsewhere: classification.elsewhere };
+      const winners = classification.teams
+        .filter((team) => team[0] === 1)
+        .map((team) =>
+          [classification.players[team[1]], classification.players[team[2]]]
+            .filter(Boolean)
+            .join(' / '),
+        )
+        .filter(Boolean);
+      description = winners.length
+        ? `${named}, ${label.toLowerCase()}: won by ${winners.join(' and ')}. Full final classification of all ${classification.teams.length} teams.`
+        : `${named}, ${label.toLowerCase()}: final classification of all ${classification.teams.length} teams.`;
+      rows = classification.teams
+        .filter((team) => team[0] >= 1 && team[0] <= 3)
+        .sort((a, b) => a[0] - b[0])
+        .map(
+          ([rank, a, b, federation]) =>
+            `<li>${rank}. ${esc(
+              [classification.players[a], classification.players[b]].filter(Boolean).join(' / ') ||
+                `Players ${a} and ${b}`,
+            )} (${esc(federation)})</li>`,
+        )
+        .join('');
+    } else {
+      const entryPath = path.join(DATA, 'entries', `${t.code}.json`);
+      const entries: EntriesFile | null = existsSync(entryPath)
+        ? JSON.parse(await readFile(entryPath, 'utf8'))
+        : null;
+      const entered = entries?.teams.length ?? 0;
+      field = entries && {
+        federations: [...entries.teams, ...(entries.withdrawn ?? [])].map((team) => team[2]),
+        elsewhere: entries.elsewhere,
+      };
+      title = `${named} ${label} — entry list`;
+      description = entered
+        ? `${named}, ${label.toLowerCase()}: ${entered} teams entered. The tournament has not been played yet.`
+        : `${named}, ${label.toLowerCase()}: not played yet, and no teams have entered so far.`;
+      rows = (entries?.teams ?? [])
+        .map(
+          ([a, b, federation]) =>
+            `<li>${esc(
+              [entries!.players[a], entries!.players[b]].filter(Boolean).join(' / ') ||
+                `Players ${a} and ${b}`,
+            )} (${esc(federation)})</li>`,
+        )
+        .join('');
+    }
+
+    pages.push({
+      slug: `tournament/${slug}`,
+      route: 'src/TournamentRoute.tsx',
+      url: href,
+      title: `${title} — ${SITE_NAME}`,
+      description,
+      head:
+        factsScript(
+          tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries, await photoCount(t.code)),
+        ) +
+        jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'SportsEvent',
+        name: named,
+        sport: 'Beach volleyball',
+        url,
+        startDate: t.start?.toISOString().slice(0, 10),
+        location: t.country ? { '@type': 'Country', identifier: t.country } : undefined,
+      }),
+      body: `<main>
+<h1>${esc(named)}</h1>
+<p>${esc(description)}</p>
+${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
+<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a> · <a href="${esc(
+        `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
+      )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
+</main>`,
+    });
+  }
+
+  // --- the tournament index ------------------------------------------------
+  /*
+   * The index is prerendered as one season per link rather than as its default
+   * view alone.
+   *
+   * The page a crawler is handed here is the newest men's season; every other
+   * season is behind a query parameter that only the app applies, so a static
+   * render of the default view would leave 74 of the 75 season-and-draw slices
+   * with nothing to index. Listing them as links is what makes the whole
+   * archive reachable without JavaScript — and it is the same set of links the
+   * stepper walks, so nothing is claimed here that the page cannot honour.
+   */
+  const indexHref = `${BASE}${INDEX_PREFIX}/`;
+  const indexUrl = abs(indexHref);
+  const indexTitle = `Tournaments — ${SITE_NAME}`;
+  // Counted off `played`, not off `addressable`, which is `indexRows` under
+  // another name — see indexDescription() for what that cost. "Awaiting
+  // results" rather than "still to come": the same rows cover an event being
+  // played right now and one that finished yesterday, so a claim about the
+  // future is wrong for both. Matches the tag in TournamentIndex.tsx.
+  const description = indexDescription(
+    played.length,
+    indexRows.length - played.length,
+    manifest.seasons,
+  );
+
+  // Every season the index can show, upcoming ones included: 2027 exists as a
+  // season the moment FIVB publishes the World Championships into it, and a
+  // crawler should be able to reach that page like any other.
+  const bySeason = new Map<string, { season: number; gender: Gender; count: number }>();
+  for (const t of indexRows) {
+    const key = `${t.season}-${t.gender}`;
+    const entry = bySeason.get(key) ?? { season: t.season, gender: t.gender, count: 0 };
+    entry.count++;
+    bySeason.set(key, entry);
+  }
+  const seasonLinks = [...bySeason.values()]
+    .sort((a, b) => b.season - a.season || a.gender.localeCompare(b.gender))
+    .map((s) => {
+      // Matches `paramsFor`: the men's draw is the default and writes nothing.
+      const query = s.gender === 'M' ? `season=${s.season}` : `gender=W&season=${s.season}`;
+      const label = `${s.season} ${GENDER_LABEL[s.gender]}`;
+      return `<li><a href="${esc(`${indexHref}?${query}`)}">${esc(label)}</a> — ${s.count}</li>`;
+    })
+    .join('');
+
+  // The same season the app opens on, so the static page and the hydrated one
+  // do not disagree about which year this is. `defaultSeason` is why that is
+  // this calendar year rather than the newest row: FIVB publishes tournaments
+  // before they are played.
+  const opensOn = defaultSeason(addressable, 'M') ?? manifest.seasons.to;
+  const newestRows = addressable
+    .filter((t) => t.season === opensOn && t.gender === 'M')
+    .map(
+      (t) =>
+        `<li><a href="${esc(`${BASE}${TOURNAMENT_PREFIX}/${t.slug}/`)}">${esc(t.name)}</a>${
+          t.country ? ` — ${esc(t.country)}` : ''
+        }${t.level ? ` (${esc(t.level)})` : ''}</li>`,
+    )
+    .join('');
+
+  pages.push({
+    slug: INDEX_PREFIX,
+    route: 'src/TournamentIndexRoute.tsx',
+    url: indexHref,
+    title: indexTitle,
+    description,
+    head:
+      headFor(indexUrl, indexTitle, description) +
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': indexUrl,
+        url: indexUrl,
+        name: indexTitle,
+        description,
+        isPartOf: { '@id': abs(BASE) },
+        dateModified: manifest.generatedAt,
+      }),
+    body: `<main>
+<h1>Tournaments</h1>
+<p>${esc(description)}</p>
+<h2>${opensOn} men</h2>
+<ul>${newestRows}</ul>
+<nav aria-label="Every season"><h2>Every season</h2><ul>${seasonLinks}</ul></nav>
+${staticFooter()}
+</main>`,
+  });
+
+  // --- records page ---------------------------------------------------------
+  /*
+   * Both draws in the static HTML, though the app shows one at a time: the men's
+   * and women's boards are the same kind of fact and a crawler should reach
+   * every name on the page, not only the default draw's. Built through
+   * `boardsFor`, the same function the app renders from, so an unconfirmed
+   * height is absent here for the same reason and by the same rule it is
+   * absent on screen — this is the copy a search engine keeps.
+   */
+  const recordsFile: RecordsFile = JSON.parse(await readFile(path.join(DATA, 'records.json'), 'utf8'));
+  const recordsHref = recordsPagePath(BASE);
+  const recordsUrl = abs(recordsHref);
+  const recordsTitle = `Records — ${SITE_NAME}`;
+  const recordsDescription = `The extremes of FIVB international beach volleyball since ${manifest.seasons.from}: most tournaments, longest careers, most titles, the longest partnerships and the most decorated pairs, for men and women. Heights appear only once confirmed outside FIVB.`;
+  const countryName = (code: string) => manifest.countries.find((c) => c.code === code)?.name ?? code;
+  const recordSections = GENDERS.map((gender) => {
+    const boards = boardsFor(recordsFile, gender)
+      .map((board) => {
+        const unit = IN_CM.has(board.key) ? ' cm' : '';
+        const items = board.rows
+          .map((row) => {
+            const names = row.who
+              .map((w) => `<a href="${esc(playerPath(BASE, countryName(w.federation), gender, w.id))}">${esc(w.name)}</a>`)
+              .join(' &amp; ');
+            const rank = row.joint ? `=${row.rank}` : String(row.rank);
+            return `<li>${rank}. ${names} — ${row.value.toLocaleString('en-US')}${unit} (${esc(rowDetail(board.key, row, countryName))})</li>`;
+          })
+          .join('');
+        const last = board.rows[board.rows.length - 1]!;
+        const ties = board.ties > 0 ? `<p>and ${board.ties} more at ${last.value.toLocaleString('en-US')}${unit}</p>` : '';
+        return `<section><h3>${esc(RECORD_TITLE[board.key])}</h3><p>${esc(RECORD_LABEL[board.key])}</p><ol>${items}</ol>${ties}</section>`;
+      })
+      .join('\n');
+    return `<h2>${esc(GENDER_LABEL[gender])}</h2>\n${boards}`;
+  }).join('\n');
+
+  pages.push({
+    slug: RECORDS_PREFIX,
+    route: 'src/RecordsRoute.tsx',
+    url: recordsHref,
+    title: recordsTitle,
+    description: recordsDescription,
+    head:
+      headFor(recordsUrl, recordsTitle, recordsDescription) +
+      jsonLd({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': recordsUrl,
+        url: recordsUrl,
+        name: recordsTitle,
+        description: recordsDescription,
+        isPartOf: { '@id': abs(BASE) },
+        dateModified: manifest.generatedAt,
+      }),
+    body: `<main>
+<nav aria-label="Breadcrumb"><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
+<h1>Records</h1>
+<p>${esc(recordsDescription)}</p>
+${recordSections}
+${staticFooter()}
+</main>`,
+  });
+
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
   const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
-  const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments, ${manifest.seasons.from}–${manifest.seasons.to}. Pick a country and gender to see the partnership graph.`;
+  const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments since ${manifest.seasons.from}. Pick a country and gender to see the partnership graph.`;
+  /**
+   * The "start here" strip, in static HTML.
+   *
+   * Half the point of the strip: until now the home page's crawlable body was a
+   * paragraph of totals and 264 country links, which says what the site holds
+   * and names nobody in it. These six are the archive's own extremes, each
+   * linking to the page it lives on with the player already selected — the same
+   * six cards the app draws once it hydrates, in the same order, with the same
+   * figures, because both read `manifest.highlights` and `RECORD_LABEL`.
+   *
+   * Absent from a manifest generated before the field existed, in which case
+   * this is empty and the page is what it was.
+   */
+  const strip = (manifest.highlights ?? []).flatMap((h) => {
+    const lead = h.who[0];
+    if (!lead) return [];
+    const slice = slices.find((s) => s.code === lead.federation && s.gender === h.gender);
+    if (!slice) return [];
+    const who = h.who.map((w) => w.name).join(' & ');
+    const where = [...new Set(h.who.map((w) => w.federation))]
+      .map((code) => manifest.countries.find((c) => c.code === code)?.name ?? code)
+      .join(' & ');
+    const when = h.first !== undefined && h.last !== undefined ? ` (${h.first}–${h.last})` : '';
+    return [
+      `<li><a href="${esc(playerPath(BASE, slice.name, h.gender, lead.id))}">${esc(who)}</a> — ${h.value.toLocaleString('en-US')} ${esc(RECORD_LABEL[h.key])}, ${esc(where)}${when}</li>`,
+    ];
+  });
+
   const homeBody = `<main>
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>${esc(homeDescription)}</p>
+${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
+<p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
 <h2>Countries</h2>
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>
 </main>`;
 
   pages.push({
     slug: '',
+    route: 'src/App.tsx',
     url: BASE,
     title: homeTitle,
     description: homeDescription,
@@ -479,7 +1262,9 @@ async function main() {
             dateModified: manifest.generatedAt,
             license: 'https://www.fivb.org/VisSDK/VisWebService/',
             creator: { '@type': 'Organization', name: 'FIVB', url: 'https://www.fivb.com/' },
-            temporalCoverage: `${manifest.seasons.from}/${manifest.seasons.to}`,
+            // Open-ended (ISO 8601 `start/..`), for the same reason every
+            // sentence on the site says "since": see `Manifest.seasons`.
+            temporalCoverage: `${manifest.seasons.from}/..`,
             keywords: ['beach volleyball', 'FIVB', 'Beach Pro Tour', 'partnerships', 'network graph'],
           },
         ],
@@ -497,8 +1282,11 @@ async function main() {
     // instead of itself. No name in the current archive has one, so this is
     // hardening rather than a live fix, but the failure mode is silent
     // corruption of a published page and the guard costs nothing.
+    const preload = routeChunks(viteManifest, page.route)
+      .map((file) => `<link rel="modulepreload" crossorigin href="${BASE}${file}">`)
+      .join('');
     let html = template;
-    html = html.replace('</head>', () => `${page.head}</head>`);
+    html = html.replace('</head>', () => `${preload}${page.head}</head>`);
     html = html.replace('<div id="root"></div>', () => `<div id="root">${page.body}</div>`);
     // The static <title> in index.html is generic; each page overrides it.
     html = html.replace(/<title>.*?<\/title>/, () => `<title>${esc(page.title)}</title>`);
@@ -515,22 +1303,46 @@ async function main() {
   // degrades rather than failing the build.
   const styleHref = /<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/.exec(template)?.[1] ?? null;
   if (!styleHref) console.warn('  ! no stylesheet found in index.html; /about/ will be unstyled');
+  // The legend's graph is the one `/` opens on, falling back as App.tsx does
+  // when that country is not published.
+  const opening = manifest.countries.find((c) => c.code === DEFAULT_COUNTRY) ?? manifest.countries[0];
+  if (!opening) throw new Error('The manifest publishes no country to draw the About legend from.');
+  const openingGender = opening.genders[DEFAULT_GENDER] ? DEFAULT_GENDER : GENDERS.find((g) => opening.genders[g])!;
+  const legendGraph: GraphFile = JSON.parse(
+    await readFile(path.join(DATA, 'graphs', `${opening.code}-${openingGender}.json`), 'utf8'),
+  );
   await mkdir(path.join(DIST, 'about'), { recursive: true });
-  await writeFile(path.join(DIST, 'about', 'index.html'), aboutPage(manifest, styleHref));
+  await writeFile(
+    path.join(DIST, 'about', 'index.html'),
+    aboutPage(manifest, seasonCounts(tournamentsFile.tournaments, hasField), legendGraph, styleHref),
+  );
+
+  // --- not found -------------------------------------------------------------
+  // At the root, where both hosts look for it. Not in the sitemap: it is not a
+  // page anyone should land on from a search.
+  await writeFile(
+    path.join(DIST, '404.html'),
+    notFoundPage(manifest, Object.keys(recordsFile.categories).length, styleHref),
+  );
 
   // --- sitemap & robots ----------------------------------------------------
   const lastmod = manifest.generatedAt.slice(0, 10);
   // Home is 1.0, country pages 0.8, About 0.3 — a real page worth indexing,
   // but not something to rank ahead of the data it explains.
   const sitemapEntries: { url: string; priority: string }[] = [
-    ...pages.map((p) => ({ url: p.url, priority: p.slug ? '0.8' : '1.0' })),
+    ...pages.map((p) => ({
+      url: p.url,
+      // Home 1.0, a country slice 0.8, a tournament 0.6: a real page worth
+      // indexing, but the graph is what this site is for.
+      priority: !p.slug ? '1.0' : p.slug.startsWith(`${TOURNAMENT_PREFIX}/`) ? '0.6' : '0.8',
+    })),
     { url: `${BASE}about/`, priority: '0.3' },
   ];
   const urls = sitemapEntries
     .map(
       ({ url, priority }) =>
         `  <url><loc>${esc(abs(url))}</loc><lastmod>${lastmod}</lastmod>` +
-        `<changefreq>weekly</changefreq><priority>${priority}</priority></url>`,
+        `<changefreq>daily</changefreq><priority>${priority}</priority></url>`,
     )
     .join('\n');
   await writeFile(
@@ -551,7 +1363,7 @@ async function main() {
   if (existsSync(screenshot)) await copyFile(screenshot, path.join(DIST, 'og.png'));
 
   console.log(
-    `prerendered ${pages.length} pages (${slices.length} slices + home), sitemap.xml, robots.txt and llms.txt`,
+    `prerendered ${pages.length} pages (${slices.length} slices, ${addressable.length} tournaments, the index, records and home), /about/, 404.html, sitemap.xml, robots.txt and llms.txt`,
   );
 }
 

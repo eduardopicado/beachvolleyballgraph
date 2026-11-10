@@ -23,9 +23,10 @@
  */
 
 import { useEffect, useMemo, useRef } from 'react';
-import type { ClassificationFile, Gender, Tier } from '../schema';
-import { fieldPlayerSlice, TIER_BADGE } from '../schema';
-import { flagEmoji, formatFinish, medalFor, ordinal, plural } from '../lib/format';
+import type { ClassificationFile, Gender, Tier } from '../../../shared/schema';
+import { fieldPlayerSlice, TIER_BADGE } from '../../../shared/schema';
+import { countryName, flagEmoji, formatFinish, medalFor, ordinal, plural } from '../lib/format';
+import { bandsOf } from '../lib/classification';
 import './TournamentPanel.css';
 
 interface Props {
@@ -35,6 +36,13 @@ interface Props {
   tier: Tier;
   level: string | null;
   when: string | null;
+  /**
+   * Where it was played, ISO-2, for the flag and country name in the header.
+   * Null on a tree published before the field existed and on the eight rows
+   * whose country VIS gives as `01` (quirks §25) — the header simply carries
+   * no place in either case, rather than a placeholder.
+   */
+  country: string | null;
   state:
     | { status: 'loading' }
     | { status: 'ready'; data: ClassificationFile }
@@ -61,6 +69,7 @@ export function TournamentPanel({
   tier,
   level,
   when,
+  country,
   state,
   iso2Of,
   highlightId,
@@ -95,22 +104,13 @@ export function TournamentPanel({
   }, [onClose]);
 
   /** The field, grouped by placement and ordered best first. */
-  const bands = useMemo(() => {
-    if (state.status !== 'ready') return [];
-    const byRank = new Map<number, ClassificationFile['teams']>();
-    for (const team of state.data.teams) {
-      let group = byRank.get(team[0]);
-      if (!group) byRank.set(team[0], (group = []));
-      group.push(team);
-    }
-    return [...byRank.entries()].sort(
-      // Placements ascending, then everything eliminated before the main draw,
-      // which is what a negative rank means.
-      ([x], [y]) => Number(x < 0) - Number(y < 0) || x - y,
-    );
-  }, [state]);
+  const bands = useMemo(
+    () => (state.status === 'ready' ? bandsOf(state.data.teams) : []),
+    [state],
+  );
 
   const badge = TIER_BADGE[tier] ?? level;
+  const where = countryName(country);
 
   return (
     <div className="tournament-panel" role="dialog" aria-modal="true" aria-label={`${name} ${season}: final classification`} ref={rootRef}>
@@ -120,6 +120,15 @@ export function TournamentPanel({
             {name} <span className="season">{season}</span>
           </h3>
           <p className="meta">
+            {/* Place before date: a reader who opened this from a timeline row
+                already knows roughly when, and "Switzerland" is the thing the
+                row could not tell them. The flag is decorative beside a country
+                that is spelled out next to it. */}
+            {where && (
+              <span>
+                <span aria-hidden="true">{flagEmoji(country)}</span> {where}
+              </span>
+            )}
             {when && <span>{when}</span>}
             {badge && <span className="badge">{badge}</span>}
             {state.status === 'ready' && <span>{plural(state.data.teams.length, 'team')}</span>}

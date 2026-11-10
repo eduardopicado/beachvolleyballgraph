@@ -7,7 +7,7 @@
  * no gap, nothing to notice. The only way to catch it is to assert the order.
  */
 
-import type { GraphNode } from '../schema';
+import type { GraphNode } from '../../../shared/schema';
 
 export interface TableRow extends GraphNode {
   partners: number;

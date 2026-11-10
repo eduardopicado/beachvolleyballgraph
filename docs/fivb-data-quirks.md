@@ -515,7 +515,8 @@ widening the admitted types would have published them.
 **They are now dropped by name**, in `isTestAccount`, so the exclusion is
 deliberate rather than a side effect of §1. It changed nothing published, which
 is the point: the same 12,097 players and 13,966 partnerships came out of the
-run that introduced it. 17 records are newly excluded rather than 19, because
+run that introduced it (1 September 2026) as had come out of the run before —
+the archive's totals on that day; `manifest.json` has today's. 17 records are newly excluded rather than 19, because
 `Test Test` (139736, SMA) and `Player Jessica Test` (179298, FIV) were already
 dropped by the excluded-federation rule.
 
@@ -869,6 +870,21 @@ tournament count as "tournaments in the graph".
   retired athletes. Cross-checked: 66% of players it flags active have no
   qualifying beach tournament in the last five seasons. Deliberately not
   carried through.
+- **`Player.BeachPosition`** reads as a two-value defender/blocker field and
+  isn't one. Measured on the most recent Elite16 (Montreal 2026, both draws,
+  112 players, checked 2026-09-07): at least seven codes appear — `0`, `1`,
+  `2`, `3`, `4`, `6`, `7` — and no legend for them exists anywhere VIS
+  documents. Population tracks the federation, not the player: USA is 30/30
+  `0` and Canada 23/24, against Austria 0/4, Argentina 0/2 and Italy 0/2 fully
+  populated. Some federations answer the question and some don't, which is not
+  the same thing as the field being true. Deliberately not carried through.
+- **`Player.Handedness`** is two codes, `1` and `4`, and on the same roster
+  they split 96:5 with 11 blank — the right shape for a real right/left
+  population, and the blanks cluster by federation the same way `BeachPosition`
+  does (7 of 11 are Canadian). But shape is all there is: no individual code
+  has been checked against a player whose handedness is independently known,
+  so which code means which hand is unconfirmed. Not carried through until one
+  is.
 - **`PlaysBeach`** is unreliable in the other direction: a few thousand
   players who have entered FIVB beach events are not flagged, and filtering on
   it silently drops their edges. The player list is fetched unfiltered because
@@ -1644,7 +1660,8 @@ exactly why this survived: the visible half of the site looked fine.
 | Any alphabetical ordering | `.` sorts before every letter, so **all 30 sit at the head of the archive** |
 
 That last one is the reason to fix rather than document. The first thirty names
-in an alphabetical listing of 12,096 players were thirty records with no name.
+in an alphabetical listing of the archive — 12,096 players at the time — were
+thirty records with no name.
 
 **Handled in `blankUnknownName` (`ingest/build.ts`).** A name field that is
 nothing but dots is blanked before the parts are joined, so `... Grimalt`
@@ -1693,7 +1710,7 @@ a mislabelled event.
 **Read from there, and published on the classification.**
 `classifications/*.json` carries a `gender` taken straight from that field,
 because a classification is read on its own — see `ClassificationFile` in
-`web/src/schema.ts` for why the file is deliberately self-contained.
+`shared/schema.ts` for why the file is deliberately self-contained.
 
 Cross-checked against the archive: for all 1,608 tournaments with a published
 field, VIS's gender is the same as the gender the majority of that
@@ -1703,10 +1720,273 @@ the wrong gender rather than events.
 
 ---
 
+## 24. A legend's number, entered twice a week for two seasons
+
+**What.** Shelda Kelly Bruno Bede (100926, BRA-W, born 1973-01-01) is a real
+Olympic silver medallist whose career is otherwise exactly what it should be —
+partnered with Adriana Behar through 2006-07 and Ana Paula Connelly through
+2008, finishing where that pairing finishes. Her younger sister, Shaylyn Kelly
+Bruno Bede, has her own player record too: **103655**, BRA-W, born
+1981-12-12, same birthplace. Nothing in the player table is merged.
+
+The fault is in the **team-entry rows**, and it is dated, not archival —
+checked live against VIS today with `GetBeachTeamList`, not just the
+published tree. 27 rows across 2006-2008 name `NoPlayer1=100926` alongside
+Agatha Bednarczuk (115287), a partnership that does not appear in any other
+season and that the age gap alone makes implausible as Shelda's own: Agatha's
+FIVB debut-era results are a 22-year-old's, not a 33-year-old Olympic
+medallist stepping outside her established partnership at both ends of it in
+the same weeks.
+
+**Proof that needs no outside source.** At 23 of the 27 events, `100926`
+carries *two* team rows the same week — one with her real partner finishing
+where that pairing belongs, and a second with Agatha finishing nowhere close.
+One player cannot enter a tournament twice under two different partners, so
+whichever row is real, the other names the wrong athlete:
+
+| Tournament | Season | Real partner | Real finish | Agatha-partnered finish |
+|---|---:|---|---:|---:|
+| `WSTA2006` | 2006 | Behar | 2nd | Quota |
+| `WGST2006` | 2006 | Behar | 17th | 17th |
+| `WRHO2006` | 2006 | Behar | 5th | Quota |
+| `WSHA2006` | 2006 | Behar | 5th | Quota |
+| `WMOD2006` | 2006 | Behar | 5th | Quota |
+| `WFOR2007` | 2007 | Behar | 4th | 13th |
+| `WKRI2007` | 2007 | Behar | 9th | Quota |
+| `WKLA2007` | 2007 | Behar | 9th | Quota |
+| `WBER2007` | 2007 | Behar | 9th | Quota |
+| `WMTR2007` | 2007 | Behar | 3rd | 13th |
+| `WSTA2007` | 2007 | Behar | 17th | Quota |
+| `WPAR2007` | 2007 | Behar | Quota | Quota |
+| `WWAR2007` | 2007 | Behar | 2nd | Quota |
+| `WSEO2007` | 2007 | Behar | 7th | 17th |
+| `WSEN2007` | 2007 | Behar | 5th | 41st |
+| `WGUA2008` | 2008 | Connelly | 3rd | **2nd** |
+| `WSTA2008` | 2008 | Connelly | 4th | Quota |
+| `WPAR2008` | 2008 | Connelly | 9th | Quota |
+| `WBER2008` | 2008 | Connelly | 5th | Quota |
+| `WSTJ2008` | 2008 | Connelly | 1st | Quota |
+| `WBCN2008` | 2008 | Connelly | 5th | Quota |
+| `WOSK2008` | 2008 | Connelly | 5th | 13th |
+| `WSEO2008` | 2008 | Connelly | 2nd | Quota |
+
+`WGUA2008` is the sharpest single row: two Brazilian pairs on the same
+podium chase, one 3rd and one 2nd, and VIS's `NoPlayer1` names Shelda for
+both. `Quota` is VIS's own `Rank -2`, elimination via a confederation quota
+(§3) — a real, played entry, not the stale pre-tournament registration §3
+describes, which would carry `Rank 0`. Every Agatha row above has a played
+result, several of them good ones, so this isn't a withdrawn partner's row
+left behind; it's a second team that actually competed, credited to the
+wrong athlete.
+
+**Four more rows carry no companion entry** — `WALA2007`, `WMRS2007`,
+`WESP2007`, `WSHA2007` — because Shelda simply didn't play those weeks. They
+aren't provable the way the 23 above are, but they share every other
+fingerprint: same wrong id, same partner, same three-season window, so
+there's no reason to treat them differently.
+
+**Wider than 2006–2008.** Measured again on 8 November 2026 over the
+published events: `100926` holds two live teams with different partners at
+**47** events, 2001–2008. The 25 with Agatha are the rows above; the other 22
+are earlier, beside Behar the same week, with Renata Ribeiro (12, 2003–2004),
+Damasio Soares (6, 2005), Ana Paula Connelly (2, 2005), Maria Clara Salgado
+(1, `WFOR2001`) and Tais Jesus (1, `WVIT2002`). The fingerprint is the same —
+one of each pair placed where Behar/Shelda belongs — and two are sharp: at
+`WMIL2004` Behar/Shelda won and Renata/"Shelda" was 2nd, and at `WOSK2005`
+Behar/Shelda were 3rd and Connelly/"Shelda" won. VIS's team names carry it as
+well ("Adriana Behar/Shelda" and "Renata/Shelda" in one field). Whose
+results the earlier 22 are is not provable from VIS; 103655 holds no team
+rows at all.
+
+**Why 100926 and not 103655.** The same failure mode as §18's Marion Marquet
+row: whoever keyed in a "Bede" partnered with a rising Agatha Bednarczuk had
+two records to choose from, one of them a household name in Brazilian beach
+volleyball and one of them not, and reached for the one they recognised.
+
+**Handled in.** Nothing. Both ids are real, distinct, and already correctly
+detailed in VIS — this isn't the guesswork §20 and §18 describe, where the
+right id is unknown or doesn't exist. It's still 27 specific rows on someone
+else's number, and reassigning them is FIVB's correction to make, not a
+judgement this pipeline should make about which of two sisters played which
+match. The consequence on the site is real, though: Shelda's tournament count
+and her graph edge to Agatha are inflated by these rows, and Shaylyn — who
+qualifies for a published career by every rule this pipeline applies to
+anyone else — doesn't appear on the site at all, because every result that
+should be hers is filed under her sister's number.
+
+---
+
+## 25. Where and when a tournament was played, and the two rows that lie
+
+**What.** `BeachTournament` carries `CountryCode`, `CountryName`,
+`StartDateMainDraw` and `EndDateMainDraw`. Measured on the 1,688 qualifying
+tournaments, 2026-09-08:
+
+| Field | Populated | Note |
+|---|---:|---|
+| `CountryCode` | 1,688 (100%) | **already ISO-3166-1 alpha-2** — `AU`, `CH` |
+| `CountryName` | 1,688 (100%) | the country in full |
+| `StartDateMainDraw` | 1,688 (100%) | |
+| `EndDateMainDraw` | 1,688 (100%) | |
+| `City` | **0** | empty on every row |
+| `Venue` | **0** | empty on every row |
+| `DefaultCity` | 331 (19.6%) | see §6.7 |
+
+**`CountryCode` needs no lookup, and that is worth saying out loud**, because
+the other country-ish field in this archive does: a team row's
+`FederationCode` is FIVB's own three-letter code and `countries.ts` exists to
+map it. The tournament's is ISO-2 as it stands, so a flag is one string away.
+79 distinct countries across the archive.
+
+**Eight rows are not a country.** They carry the literal string `01` in *both*
+`CountryCode` and `CountryName`:
+
+| Code | Event |
+|---|---|
+| `MU212008`, `WU212008` | Brighton |
+| `MU212009`, `WU212009` | Blackpool |
+| `MLON2013`, `WLON2013` | London |
+| `MBRI2026`, `WBRI2026` | Bridlington |
+
+All four venues are British, which makes the intended value obvious and the
+correction still not ours to make: §9 has FIVB unable to tell the UK home
+nations apart by country code at all, so a collapse to `GB` may be exactly
+what was being avoided. `countryCodeFor` in `ingest/build.ts` publishes null
+for anything that is not two letters — the shape, not a list of known-bad
+values, so the next junk value is caught rather than let through.
+
+**One tournament ends before it begins.** `MOST1995`, Ostende:
+`StartDateMainDraw` 1995-09-17, `EndDateMainDraw` 1995-08-19 — a span of
+**-29 days**. One row in 1,688, and published as-is: a floor of zero here
+would bury the only evidence the row is wrong, so anything drawing a date
+range decides for itself what to show when the span is negative.
+
+**Long spans are not the same kind of thing.** Thirteen events run longer than
+nine days and every one is legitimate — Beijing 2008 at 15 days, London 2012
+and Rio 2016 at 12, Athens 2004 at 11, Rio 1991 at 11. That is the Olympic
+fortnight, not corruption, so no upper bound belongs here either. The median
+across the archive is 3 days, which is the ordinary four-day tour week.
+
+**`StartDateQualification` is the day an event really opens**, and six rows put
+it after the main draw. Measured 2026-09-21 over all 9,276 tournaments VIS
+returns: 2,759 carry a qualification date, and on the 1,688 this project
+publishes it is 1,456 (86.3%). Qualification runs a day before the main draw
+on most of them, two days on 183, and the same day on 37.
+
+Six rows record it *after* the main draw opens:
+
+| Row | Qualification | Main draw | Off by |
+|---|---|---|---:|
+| `MCC10EUE` Illichivsk 2010 | 2020-01-10 | 2010-09-05 | 3,414 days |
+| `MCC10EUF` Yantarniy 2010 | 2020-01-10 | 2010-07-25 | 3,456 days |
+| `NITA0120` Caorle 2020 | 2020-09-27 | 2020-08-28 | 30 days |
+| `NESP01` Madison Beach Volley Tour 2021 | 2021-06-27 | 2021-05-28 | 30 days |
+| `NQAT0316` Doha 2016 | 2016-02-10 | 2016-02-09 | 1 day |
+| `NLTU0119` Klaipeda 2019 | 2019-08-17 | 2019-08-16 | 1 day |
+
+**None of the six is a mis-paired draw.** Each comparison is between two
+fields of one row, and the other draw of the same event is correct where it
+exists — `WCC10EUE` qualifies 2010-09-04 for a 2010-09-05 main draw, against
+its men's twin's 2020. The two 2010 rows carry the *identical* wrong date,
+which reads as one edit rather than two typos.
+
+**None of the six can reach the published tree either.** Both 2010 rows are
+CEV events (`OrganizerType` 2) and the other four are National Tour
+(`Type` 15), so `tierFor` excludes all six whatever their dates say — the last
+of them under the rule that drops Type 15 even when `OrganizerType` claims
+FIVB (§2). They are recorded here because the field is now read, not because
+they are in anything.
+
+**Handled in.** `countryCodeFor` and `spanFor` in `ingest/build.ts`, published
+on `TournamentMeta` as `country` and `span`; `eventStart` takes the *earlier*
+of the two start dates rather than trusting qualification, so a row like these
+dates from its main draw if the tier allowlist ever widens to admit one.
+
+---
+
+## 26. `BeachTeam.Status`: six values, no enum, and the one that took a team off a page
+
+**What.** Every team row carries a `Status`, and VIS documents no meaning for
+it. Measured over the whole archive on 2026-09-17, 206,934 rows:
+
+| `Status` | Rows | Ever carries a placement | Read as |
+|---:|---:|---|---|
+| 0 | 168,146 | yes — the only one that does | in the tournament |
+| 1 | 8,527 | no (8 rows, all rank ≤ 0 noise) | superseded entry — not shown |
+| 2 | 24,453 | no | withdrawn |
+| 3 | 4,040 | no | medical certificate |
+| 4 | 1,037 | no | **late withdrawal** |
+| 5 | 731 | no | unread — not shown |
+
+**How each was read.** By putting FIVB's own entry list for one event beside
+what VIS returns for it. Corigliano Rossano 2026 (`MCOR2026`, tournament
+9149) on 10 September: 45 rows at 0 against the 12 main draw, 16
+qualification and 17 reserves their page showed; three each at 2 and 3
+against their three withdrawals and three medical certificates.
+
+**The one this cost.** On 15 September the site's Corigliano list dropped
+from 40 entered to 39 while its withdrawals held at 7 and 4. Nothing had
+withdrawn — team 3174416, Ulisse/Spadoni, had moved from `Status` 0 to 4, a
+value the ingest lumped in with 1 as "superseded, don't publish". So a pair
+readers had seen entered the day before was simply gone, with no row saying
+why. On the 17th their page showed the pair under withdrawals with the reason
+**"Late"**. Archive-wide, 4 holds 932 rows in qualifying tournaments from
+2015 to 2026 (306 of them in 2019) and not one has a placement — the shape a
+withdrawal has and nothing else does.
+
+**Handled in.** `entryStatus` in `ingest/build.ts` reads 0, 2, 3 and 4 and
+returns null for everything else; the entries loop in `ingest/main.ts` counts
+what it dropped and logs `entries      not published: status 1 ×N, status 5
+×M`, so the next unread value shows up in a run log rather than as a team
+missing from a page. Published as `WithdrawalReason` `'late'`, shown as
+"Late" with "withdrawal" for screen readers.
+
+**Still open.** What 5 means (731 rows, none placed, none seen moving live);
+and the `StatusDate`/`StatusText` that would replace all of this reading with
+FIVB's own words, which VIS withholds — see survey §1.5 and the FIVB email,
+request 5.
+
+---
+
+## 27. One player, two live entries, and no way to tell which is real
+
+**What.** On the Beach Elite Itapema 2026 women's list (`WITAPE26`,
+tournament 9583) Toni Rodriguez holds two entries, both `Status` 0: team
+3178458 with Martinez and team 3178477 with Harward, registered minutes
+apart (`Version` 4355117 and 4355125). Neither has entry or technical points.
+The site published both, so the page's entered count is one team higher than
+the field can be.
+
+**Why it is not filtered.** `Status` 1 is how FIVB marks an entry superseded
+by a later one (§26), and neither row has it. The obvious rules — keep the
+later registration, or the earlier — are both wrong about as often as right.
+Measured over the 1,614 published played events on 8 November 2026: a player
+held live entries with two *different* partners 142 times, and the placings
+went to the later registration 57 times, the earlier 39, neither 23 and both
+23. A further 7 are the same pair twice, which the aggregation already folds
+into one partnership.
+
+**"Both" is a data error, not two partnerships.** A player cannot be on two
+teams in one draw. All 23 are one record, Shelda Bede (100926), placed with
+Adriana Behar and on a second team the same week — at Fortaleza 2007
+(`WFOR2007`) 4th with Behar and 13th with Agatha. That is §24, and it is
+wider than §24 first recorded; see there.
+
+**Handled in.** `playersEnteredTwice` in `ingest/build.ts` finds them on each
+upcoming list, and the entries loop in `ingest/main.ts` logs each one —
+`entries      entered twice, FIVB lists both: WITAPE26 Toni Rodriguez
+(187527) with …` — and publishes the list as FIVB has it. When FIVB resolves
+it, one row moves to `Status` 1 or a withdrawal, and the next refresh follows.
+
+**Still open.** Nothing for upcoming lists: a player entered twice will very
+likely withdraw one, so the page does not need to say so.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
-FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
+FIVB if a channel opens up (see the contact address in `shared/site.ts`):
 
 - **§1**, National Tour events carrying `OrganizerType` 1, which looks like a
   data-entry inconsistency rather than a deliberate classification.
@@ -1778,12 +2058,28 @@ FIVB if a channel opens up (see the contact address in `web/src/site.ts`):
   field of 54 men under a `W` — on an event VIS's own `Gender` field correctly
   calls men's. So it is a rename rather than a data correction, and worth
   raising because the code is the identifier anyone outside VIS keys on.
+- **§24**, 27 team-entry rows that credit Shelda Bede (100926) for tournaments
+  her sister Shaylyn (103655) played, and 22 earlier same-week second teams on
+  the same number (2001–2005) whose real player VIS cannot tell us. Both ids are real and already correctly
+  detailed in VIS — unlike §18 and §20, nothing here needs FIVB to work out who
+  a record belongs to, only to repoint `NoPlayer1` from one existing id to the
+  other. 23 of the 27 are provable without any outside source: `100926` carries
+  two team rows the same week, one with Shelda's real partner and one with
+  Agatha Bednarczuk, and a player cannot enter a tournament twice.
+
+- **§25**, two small corrections in the tournament record. Eight events carry
+  the literal `01` where a country code belongs — `MU212008`, `WU212008`
+  (Brighton), `MU212009`, `WU212009` (Blackpool), `MLON2013`, `WLON2013`
+  (London) and `MBRI2026`, `WBRI2026` (Bridlington), all British venues, and
+  all with `01` in `CountryName` too. And `MOST1995` (Ostende) ends 29 days
+  before it starts: `StartDateMainDraw` 1995-09-17 against
+  `EndDateMainDraw` 1995-08-19. Both are single-field fixes on named rows.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email now covers all of this except §1, §21, §22 and §23.** It
-is `docs/fivb-email.md` (task #12), and its "would a list of data issues be
-useful" section names each quirk by the section number used here — so the two
-files have to be kept in step, and a new section added above is not reported
-until it is added there too.
+**The draft introduction email now covers all of this except §1, §21, §22,
+§23, §24 and §25.** It is `docs/fivb-email.md` (task #12), and its "would a
+list of data issues be useful" section names each quirk by the section number
+used here — so the two files have to be kept in step, and a new section added
+above is not reported until it is added there too.

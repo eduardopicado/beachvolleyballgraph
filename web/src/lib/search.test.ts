@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import {
-  foldAccents,
   groupOf,
   indexPlayers,
   searchPlayers,
@@ -237,17 +236,6 @@ describe('the label the graph draws', () => {
     const plain = p(4, 'Ana Someone', 5);
     expect(plain.foldedShort).toBeUndefined();
     expect(searchPlayers([plain], 'zzz', HOME).matches).toEqual([]);
-  });
-});
-
-describe('foldAccents', () => {
-  it('strips diacritics and case', () => {
-    expect(foldAccents('João')).toBe('joao');
-    expect(foldAccents('ÅSA-Märta')).toBe('asa-marta');
-  });
-
-  it('leaves a plain name alone', () => {
-    expect(foldAccents('Emanuel Rego')).toBe('emanuel rego');
   });
 });
 

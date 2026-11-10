@@ -13,9 +13,13 @@ import type {
   ResultsFile,
   SearchIndex,
   ClassificationFile,
+  EntriesFile,
   TournamentsFile,
   Gender,
-} from '../schema';
+  SeriesFile,
+  SeriesIndexFile,
+  RecordsFile,
+} from '../../../shared/schema';
 import {
   graphPath,
   manifestPath,
@@ -23,8 +27,12 @@ import {
   resultsPath,
   searchPath,
   classificationPath,
+  entriesPath,
   tournamentsPath,
-} from '../schema';
+  recordsPath,
+  seriesIndexPath,
+  seriesPath,
+} from '../../../shared/schema';
 
 /** Vite rewrites this to the deploy base ("/" or "/<repo>/"). */
 const BASE = import.meta.env.BASE_URL;
@@ -54,15 +62,8 @@ export const fetchPlayers = (country: string, gender: Gender) =>
   load<PlayersFile>(playersPath(BASE, country, gender));
 
 /**
- * The two files behind an expanded season, fetched together because neither is
- * usable alone: the results name no tournaments, the index names no players.
- *
- * Deliberately not part of the slice load above — this is the largest data in
- * the published tree and most visits never open a season at all.
- */
-/**
  * The cross-country player index. Its own fetch, triggered by the first
- * interaction with the search box rather than by page load — 370 KB that most
+ * interaction with the search box rather than by page load — 391 KB that most
  * visits never need.
  */
 export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
@@ -75,6 +76,37 @@ export const fetchSearchIndex = () => load<SearchIndex>(searchPath(BASE));
 export const fetchClassification = (code: string) =>
   load<ClassificationFile>(classificationPath(BASE, code));
 
+/** Who has entered a tournament that has no result yet. */
+export const fetchEntries = (code: string) => load<EntriesFile>(entriesPath(BASE, code));
+
+/**
+ * The tournament index on its own.
+ *
+ * `fetchResults` already pulls this alongside a slice's results; the
+ * tournament index page needs it without any slice at all, and so does a
+ * tournament page that arrived without its prerendered facts (see
+ * `TournamentPageFacts`). The browser cache makes the second caller free when
+ * both happen in one visit.
+ */
+export const fetchTournaments = () => load<TournamentsFile>(tournamentsPath(BASE));
+
+/** The archive's extremes, for `/records/`. Nothing else fetches it. */
+export const fetchRecords = () => load<RecordsFile>(recordsPath(BASE));
+
+/** Which series each tournament belongs to. Small; most pages stop here. */
+export const fetchSeriesIndex = () => load<SeriesIndexFile>(seriesIndexPath(BASE));
+
+/** One series and all its editions, fetched only when a page is in one. */
+export const fetchSeries = (slug: string) => load<SeriesFile>(seriesPath(BASE, slug));
+
+/**
+ * The two files behind an expanded season, fetched together because neither is
+ * usable alone: the results name no tournaments, the index names no players.
+ *
+ * Deliberately not part of the slice load (`fetchGraph`, `fetchPlayers`): this
+ * is the largest data in the published tree and most visits never open a
+ * season at all.
+ */
 export const fetchResults = (country: string, gender: Gender) =>
   Promise.all([
     load<ResultsFile>(resultsPath(BASE, country, gender)),

@@ -16,7 +16,7 @@
  */
 
 import { test, expect, graph, manifest } from './fixtures.js';
-import { sliceSlug } from '../web/src/lib/slug.js';
+import { sliceSlug } from '../shared/slug.js';
 import { MIN_TAP_RADIUS } from '../web/src/graph/layout.js';
 
 const COUNTRY = 'BRA';

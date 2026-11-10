@@ -1,0 +1,239 @@
+/*
+ * The strip under a tournament's heading, and the viewer it opens. Only in a
+ * build with `TOURNAMENT_PHOTOS=1` — see TournamentPhotos.tsx.
+ */
+
+.photo-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  /* The page's column is 760px; a strip that stopped at its edge would read
+     as a row of eight and nothing more. The overflow is what says "more". */
+  min-width: 0;
+}
+
+.photo-strip ul {
+  margin: 0;
+  padding: 0 0 6px;
+  list-style: none;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 132px;
+  gap: 8px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+}
+
+.photo-strip li {
+  scroll-snap-align: start;
+  aspect-ratio: 3 / 2;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--track);
+}
+
+/* Held while the list loads, so the results below do not jump when it lands. */
+.photo-strip li.is-waiting {
+  animation: photo-wait 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes photo-wait {
+  to {
+    opacity: 0.55;
+  }
+}
+
+.photo-strip li > button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: none;
+  cursor: zoom-in;
+}
+
+.photo-strip li > button:focus-visible {
+  outline: 2px solid var(--series-1);
+  outline-offset: -2px;
+}
+
+.photo-strip li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* FIVB's frames are mostly 3:2 but not all; a portrait one is cropped to
+     the strip's row rather than leaving a gap in it. The viewer shows it whole. */
+  object-fit: cover;
+}
+
+@media (hover: hover) {
+  .photo-strip li > button:hover img {
+    filter: brightness(1.08);
+  }
+}
+
+.photo-credit {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/*
+ * The viewer. It renders inside `.photo-strip`, which is why every strip rule
+ * above is scoped to the list: a bare `.photo-strip button` once stretched the
+ * close button over the whole screen.
+ *
+ * Its scrim is PortraitLightbox's and for the same reason: one
+ * colour over either theme, with the photograph and its caption taking their
+ * colours from the scrim rather than from the page.
+ */
+.photo-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(6, 6, 6, 0.86);
+  animation: photo-in 140ms ease-out;
+}
+
+@keyframes photo-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.photo-viewer figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Fixed rather than sized by the photograph, so a click beside it is
+     backdrop and closes — the portrait viewer's lesson (PortraitLightbox.css).
+     Bounded by the height too: a landscape frame at 3:2 plus its caption and
+     buttons has to fit a short window. */
+  width: min(960px, 100%, calc((100vh - 160px) * 1.5));
+}
+
+.photo-shot {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  line-height: 0;
+}
+
+.photo-lo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 160px);
+  object-fit: contain;
+}
+
+.photo-hi {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 180ms ease-out;
+}
+
+.photo-shot.is-sharp .photo-hi {
+  opacity: 1;
+}
+
+.photo-viewer figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.photo-caption {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.photo-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.photo-viewer nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.photo-viewer nav button,
+.photo-close {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.photo-viewer nav button {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.photo-viewer nav button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.photo-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.photo-viewer nav button:focus-visible,
+.photo-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .photo-viewer nav button:not(:disabled):hover,
+  .photo-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-strip li.is-waiting,
+  .photo-viewer {
+    animation: none;
+  }
+
+  .photo-hi {
+    transition: none;
+  }
+}

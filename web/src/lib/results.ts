@@ -9,7 +9,8 @@
  * never loads at all.
  */
 
-import type { ResultEntry, Tier, TournamentMeta } from '../schema';
+import type { ResultEntry, Tier, TournamentMeta } from '../../../shared/schema';
+import { readTournament } from './tournamentMeta';
 
 export interface SeasonEvent {
   /** FIVB tournament number. Unique per event *and gender*, so it keys a row. */
@@ -38,6 +39,24 @@ export interface SeasonEvent {
    * age-group championships, which the card badges by tier instead.
    */
   level: string | null;
+  /**
+   * Where it was played, ISO-3166-1 alpha-2, for the flag beside the name.
+   *
+   * Null on three different kinds of row and the display cannot tell them
+   * apart, which is fine because it draws nothing for all three: a tuple too
+   * short to carry the field, a published tree written before the field
+   * existed, and the eight rows whose country VIS gives as `01` (quirks §25).
+   */
+  country: string | null;
+  /**
+   * The main draw's last day, or null when there is no usable span.
+   *
+   * Rebuilt here rather than published: the tree carries a day count and the
+   * start, and a `Date` is what a caller wants. Null when the count is
+   * missing *or negative* — `MOST1995` ends 29 days before it starts (§25),
+   * and a range that runs backwards is worse than no range at all.
+   */
+  endDate: Date | null;
 }
 
 /**
@@ -47,8 +66,8 @@ export interface SeasonEvent {
  * to, so a December event opening a southern summer season lands in the
  * previous calendar year — which is exactly what it should do.
  */
-function dateOf(season: number, offset: number | null | undefined): Date | null {
-  if (offset === null || offset === undefined) return null;
+function dateOf(season: number, offset: number | null): Date | null {
+  if (offset === null) return null;
   return new Date(Date.UTC(season, 0, 1) + offset * 86_400_000);
 }
 
@@ -70,22 +89,24 @@ export function seasonEvents(
   const out: SeasonEvent[] = [];
   for (const [no, partner, rank] of entries ?? []) {
     const meta = tournaments[no];
-    if (!meta || meta[1] !== season) continue;
-    const [name, , tier, offset] = meta;
-    // Positional read rather than a destructure: the tuple has four arities
-    // and only the longest carries a level.
-    const level = meta.length > 5 ? (meta[5] ?? null) : null;
-    const code = meta.length > 4 ? (meta[4] ?? null) : null;
+    if (!meta) continue;
+    const { name, season: held, tier, startOffset, code, level, country, span } = readTournament(meta);
+    if (held !== season) continue;
+    const date = dateOf(season, startOffset);
     out.push({
       no,
       name,
       tier,
-      date: dateOf(season, offset),
+      date,
+      // A span of 0 is a real one-day event and still gives an end date; only
+      // a missing or backwards one gives up. See `endDate` above.
+      endDate: startOffset !== null && span !== null && span >= 0 ? dateOf(season, startOffset + span) : null,
       partnerId: partner,
       partner: nameOf(partner),
       rank,
       level,
       code,
+      country,
     });
   }
   return out;

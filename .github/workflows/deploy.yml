@@ -1,4 +1,4 @@
-### Weekly rebuild + publish.
+### Daily rebuild + publish.
 #
 # Three jobs, in a strict pipeline: fetch the FIVB archive and rebuild every
 # graph from scratch (ingest), compile the site around that data (build), then
@@ -19,8 +19,9 @@
 # - `build` checks out the exact commit `ingest` produced
 #   (`needs.ingest.outputs.data_sha`) rather than the ref this run started on,
 #   since `ingest`'s own push landed after that. On a code push there is no
-#   such output, so it falls back to `github.sha` — the commit already
-#   carries whatever data was last committed.
+#   such output, so it builds the branch as it stands when the job starts,
+#   which already carries whatever data was last committed — including a
+#   refresh that landed while this run waited its turn behind it.
 #
 # ingest is still split into its own job so that a failure anywhere downstream
 # — a bad Pages permission, a broken build step — can be retried with GitHub's
@@ -31,35 +32,80 @@
 # Failure semantics: if ingest fails — including refusing to publish a rebuild
 # that looks like a broken fetch rather than a real change, see
 # ingest/regression.ts — the job stops before committing, before build and
-# before deploy, so the previously published site keeps serving last week's
+# before deploy, so the previously published site keeps serving yesterday's
 # data. Degraded to "slightly stale", never to "down".
+#
+# Where it publishes is the PAGES_HOST repository variable: unset (or anything
+# but `cloudflare`) is GitHub Pages, `cloudflare` is Cloudflare Pages. Exactly
+# one of the two publish jobs at the bottom runs; everything before them is
+# shared. This replaced a second workflow, deploy-cloudflare.yml, which had no
+# gate against this one (enable it without disabling this and the site was
+# built and published twice a day) and had drifted: it never committed the
+# refreshed data, never deployed a code push, and never checked the live site.
+# Switching hosts is docs/architecture.md, "Deployment".
+#
+# Last, `announce` comments on a pinned issue when a refresh found tournaments
+# FIVB had not listed the day before (ingest/announce.ts). It runs after the
+# publish jobs, so the links in the comment already resolve, and whatever
+# they did: the events are in the committed data either way.
 
 name: Rebuild data and deploy
 
 on:
   schedule:
-    # Mondays at 09:17 UTC. Off the hour to avoid the cron stampede.
+    # Daily at 09:17 UTC — which GitHub treats as "no earlier than", not as a
+    # time. Measured over every scheduled run this workflow has ever had, it
+    # has never once started within half an hour of the hour asked for:
     #
-    # Monday rather than Sunday because the data is not finished when the
-    # tournament is. Finals are played on Sunday, but a placement reaches VIS
-    # only once someone publishes it: BPT Futures Busan finished with every
-    # match recorded and every team still at `Rank 0` — the pair who took
-    # bronze read as "has not played" — and the placements appeared several
-    # hours later. Refreshing on Sunday means capturing that gap and then
-    # keeping it for a week.
+    #     under this daily cron (6 runs, 11-16 Sept)  3h36m - 6h37m late
+    #     every scheduled run ever (11 runs)          0h45m - 7h46m late
     #
-    # 09:17 rather than early Monday because the archive spans every time
-    # zone: a Sunday-evening final in the Americas ends around 01:00-04:00 UTC
-    # on Monday, so an 03:17 run would still be racing the last events of the
-    # weekend. This clears them all and gives FIVB the European Monday morning
-    # to publish.
-    - cron: '17 9 * * 1'
+    # Scheduled workflows sit in a shared queue and are dropped to the back of
+    # it under load, so the delay is not ours to fix and not worth chasing.
+    # Read the cron as a floor: the refresh lands somewhere in the afternoon,
+    # UTC, and nothing downstream should assume better.
+    #
+    # 09:17 as the floor because the data is not finished when the tournament
+    # is. A placement reaches VIS only once someone publishes it: BPT Futures
+    # Busan finished with every match recorded and every team still at
+    # `Rank 0` — the pair who took bronze read as "has not played" — and the
+    # placements appeared several hours later. The archive spans every time
+    # zone, so an evening final in the Americas ends around 01:00-04:00 UTC the
+    # next day; 09:17 clears those and gives FIVB the European morning to
+    # publish. That argument was originally written for Monday, but it is
+    # about the hour and holds for any day.
+    #
+    # The lateness only ever helps that argument — every extra hour is more
+    # time for FIVB to publish — which is why this is documented rather than
+    # worked around. Waiting deliberately would cost a cron that says what it
+    # means; the `:17` stays for the same reason, even though being off the
+    # hour has bought no measurable punctuality.
+    #
+    # Daily rather than weekly because two parts of the archive move faster
+    # than a week. Entry lists change every day up to the registration
+    # deadline — Alanya gained a men's and a women's team between two runs six
+    # hours apart — and they are the whole content of a page for an event that
+    # has not been played. Results are the other: a placement FIVB published
+    # just after a Monday run waited a full week for the next one, and the
+    # Monday runs show that backlog arriving in one go — 79-122 files changed,
+    # against the 1-9 of a mid-week run.
+    #
+    # Cheap enough not to need thinking about. A run is ~3m45s, of which the
+    # FIVB fetch is 14s and the browser suite 2m20s; the repository is public,
+    # so GitHub-hosted minutes are free. Were it private, the whole schedule
+    # would be ~150 of the 2,000 minutes GitHub Free includes — the pull
+    # request CI, at ~627, is the bill that would matter.
+    #
+    # `manifest.generatedAt` moves on every run, so a quiet day still commits
+    # a timestamp. That is wanted, not tolerated: the site prints "Data as of
+    # {generatedAt}", and a daily bump is it saying truthfully that it looked.
+    - cron: '17 9 * * *'
   workflow_dispatch:
     inputs:
       allow_data_regression:
         description: >-
           Publish even if tournaments/players/partnerships drop more than 5%
-          from what's already committed. The weekly schedule never sets this —
+          from what's already committed. The schedule never sets this —
           it exists for a deliberate, reviewed correction (e.g. a tier
           reclassification) that legitimately shrinks the dataset, which
           ingest/regression.ts would otherwise refuse on the assumption that a
@@ -103,6 +149,7 @@ jobs:
       contents: write # to commit the refreshed data back to this branch
     outputs:
       data_sha: ${{ steps.commit.outputs.sha }}
+      announcement: ${{ steps.news.outputs.markdown }}
     steps:
       - uses: actions/checkout@v7
 
@@ -118,13 +165,6 @@ jobs:
       - name: Fetch FIVB data and build graphs
         run: npm run ingest
         env:
-          # Identify the job to FIVB, contact address included, so a free
-          # service with a problem can email us rather than null-route us.
-          # Points at /about/ rather than the repo — same contact address plus
-          # attribution and the not-affiliated disclaimer, and it survives the
-          # repo going private. Keep in step with SITE_URL and CONTACT_EMAIL in
-          # web/src/site.ts.
-          VIS_USER_AGENT: 'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)'
           # false on every trigger except a manual dispatch with the checkbox
           # ticked — schedule and workflow_dispatch runs that leave it
           # unchecked, and push (which skips this job entirely), all get 'false'.
@@ -161,6 +201,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if [ -z "$(git status --porcelain -- web/public/v1)" ]; then
             echo "No data changes to commit."
+            echo "before=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           else
             suffix=""
             if [ "$ALLOW_DATA_REGRESSION" = "true" ]; then
@@ -168,9 +209,58 @@ jobs:
             fi
             git add web/public/v1
             git commit -m "Refresh FIVB data ($(date -u +%Y-%m-%d))$suffix"
-            git push
+            # A merge to this branch while the run fetched and built makes a
+            # plain push non-fast-forward, and it used to fail the job and lose
+            # the day's refresh. Rebase onto what landed and push again.
+            #
+            # The data was built by the code the run started from. That is no
+            # different from a merge landing ten minutes after the run, and the
+            # next refresh rebuilds it with whatever code is current. What the
+            # rebase must not do is merge two machine-written trees: if the
+            # branch itself changed web/public/v1, it stops instead (CLAUDE.md,
+            # "The published tree is regenerated, never merged").
+            for attempt in 1 2 3; do
+              if git push origin "HEAD:$GITHUB_REF_NAME"; then break; fi
+              if [ "$attempt" = 3 ]; then
+                echo "::error::Could not push the refreshed data after three attempts."
+                exit 1
+              fi
+              git fetch origin "$GITHUB_REF_NAME"
+              if ! git rebase "origin/$GITHUB_REF_NAME"; then
+                git rebase --abort
+                echo "::error::$GITHUB_REF_NAME changed web/public/v1 during this run. Not merging generated data: run the workflow again."
+                exit 1
+              fi
+            done
+            echo "before=$(git rev-parse HEAD^)" >> "$GITHUB_OUTPUT"
           fi
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # The links in the announcement are to the published site, so they are
+      # built for the origin the build job will compile for.
+      - id: origin
+        uses: ./.github/actions/site-origin
+        with:
+          site_url: ${{ vars.SITE_URL }}
+
+      # After the commit, so nothing is announced that did not land. The list
+      # this refresh replaced is the one in the data commit's parent: the
+      # commit the run started from, or what it was rebased onto.
+      - name: List tournaments new to this refresh
+        id: news
+        env:
+          BEFORE: ${{ steps.commit.outputs.before }}
+          SITE_URL: ${{ steps.origin.outputs.site_url }}
+          BASE_PATH: ${{ steps.origin.outputs.base_path }}
+        run: |
+          git show "$BEFORE:web/public/v1/tournaments.json" > "$RUNNER_TEMP/tournaments.before.json" || true
+          npx tsx ingest/announce.ts "$RUNNER_TEMP/tournaments.before.json" > "$RUNNER_TEMP/news.md"
+          cat "$RUNNER_TEMP/news.md" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo 'markdown<<NEWS_EOF'
+            cat "$RUNNER_TEMP/news.md"
+            echo 'NEWS_EOF'
+          } >> "$GITHUB_OUTPUT"
 
   build:
     needs: ingest
@@ -178,20 +268,27 @@ jobs:
     # code-only push) — only a real ingest *failure* should stop the deploy.
     if: always() && (needs.ingest.result == 'success' || needs.ingest.result == 'skipped')
     runs-on: ubuntu-latest
-    # Install, build, prerender 265 pages and run the browser suite: ~6 minutes
-    # when healthy.
+    # Install, build, prerender every page and run the browser suite: under 4
+    # minutes when healthy (3m42s on 8 Nov 2026, 1,893 pages).
     timeout-minutes: 20
     outputs:
       generated_at: ${{ steps.stamp.outputs.generated_at }}
       bundle: ${{ steps.stamp.outputs.bundle }}
       site_url: ${{ steps.origin.outputs.site_url }}
+      sha: ${{ steps.head.outputs.sha }}
     steps:
       - uses: actions/checkout@v7
         with:
-          # The commit ingest just produced, if it ran; otherwise the pushed
-          # commit this run started from, which already carries whatever data
-          # was last committed.
-          ref: ${{ needs.ingest.outputs.data_sha || github.sha }}
+          # The commit ingest just produced, if it ran. Otherwise the branch as
+          # it stands now, not the commit that triggered this run: a code
+          # push that lands while the daily refresh is running waits for it
+          # (one run at a time, see `concurrency`), and building its own
+          # commit would then publish the code without the data that landed
+          # on top of it — the site going back a day until the next refresh.
+          ref: ${{ needs.ingest.outputs.data_sha || github.ref }}
+
+      - id: head
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@v7
         with:
@@ -209,11 +306,34 @@ jobs:
         with:
           site_url: ${{ vars.SITE_URL }}
 
+      # Cloudflare Pages serves from the root of whatever domain it is given,
+      # and site-origin only builds for the root when SITE_URL is set; unset,
+      # it builds for GitHub's /<repo>/ path, and every asset URL would miss.
+      - name: Check the origin suits Cloudflare
+        if: vars.PAGES_HOST == 'cloudflare' && vars.SITE_URL == ''
+        run: |
+          echo "::error::PAGES_HOST is cloudflare but SITE_URL is unset. Set it to the domain Cloudflare serves, or to https://<project>.pages.dev before a domain is attached."
+          exit 1
+
+      # FIVB's tournament photographs: off unless the TOURNAMENT_PHOTOS
+      # repository variable is 1, and they wait on FIVB's permission
+      # (ingest/photos.ts). The lists are cached between runs so a deploy asks
+      # VIS only for the ones that are missing or 90 days old, not for all
+      # 1,612 every day. Skipped entirely while the switch is off.
+      - if: vars.TOURNAMENT_PHOTOS == '1'
+        uses: actions/cache@v6
+        with:
+          path: ingest/.cache/photos.json
+          key: tournament-photos-${{ github.run_id }}
+          restore-keys: tournament-photos-
+
       - name: Build site
         run: npm run build
         env:
           BASE_PATH: ${{ steps.origin.outputs.base_path }}
           SITE_URL: ${{ steps.origin.outputs.site_url }}
+          # Unset is off. See docs/architecture.md, "Tournament photographs".
+          TOURNAMENT_PHOTOS: ${{ vars.TOURNAMENT_PHOTOS }}
 
       # Belt and braces. The custom domain is configured in Settings > Pages
       # and that setting is what actually serves the site; this file keeps a
@@ -223,7 +343,7 @@ jobs:
       # the first time it shipped, which — before DNS resolves — takes the
       # live site down instead of moving it.
       - name: Keep the custom domain attached
-        if: steps.origin.outputs.custom_domain != ''
+        if: vars.PAGES_HOST != 'cloudflare' && steps.origin.outputs.custom_domain != ''
         env:
           CUSTOM_DOMAIN: ${{ steps.origin.outputs.custom_domain }}
         run: echo "$CUSTOM_DOMAIN" > dist/CNAME
@@ -234,7 +354,7 @@ jobs:
       # failure path above.
       #
       # This is the only check that sees the freshly fetched data. CI covers
-      # code changes on a pull request, but the weekly ingest rewrites every
+      # code changes on a pull request, but the scheduled ingest rewrites every
       # graph file with no pull request and no review: a shape change there
       # can break rendering with nothing else in the pipeline looking. The
       # regression guard counts rows; this one loads the page.
@@ -280,12 +400,32 @@ jobs:
       # caps every workflow's token below what its own `permissions:` block
       # asks for.
       - uses: actions/configure-pages@v6
+        if: vars.PAGES_HOST != 'cloudflare'
         with:
           enablement: true
 
       - uses: actions/upload-pages-artifact@v5
+        if: vars.PAGES_HOST != 'cloudflare'
         with:
           path: dist
+
+      # Cloudflare Pages otherwise revalidates every file on every visit. The
+      # bundle's name is its content hash, so whatever is under a name never
+      # changes and can be kept for good; HTML and the data keep revalidating,
+      # which is what lets a daily refresh show up at once. Written here, not
+      # committed to web/public/, for the same reason as CNAME above: GitHub
+      # Pages would publish it as a stray file.
+      - name: Cache the hashed assets for good
+        if: vars.PAGES_HOST == 'cloudflare'
+        run: |
+          printf '%s\n' '/assets/*' '  Cache-Control: public, max-age=31536000, immutable' > dist/_headers
+
+      - uses: actions/upload-artifact@v7
+        if: vars.PAGES_HOST == 'cloudflare'
+        with:
+          name: site
+          path: dist
+          retention-days: 1
 
   deploy:
     needs: build
@@ -294,7 +434,7 @@ jobs:
     # this job's direct needs, so ingest being skipped (a code-only push) was
     # enough to skip this job too even though build itself had just succeeded
     # — caught live: two merges in a row built fine and never deployed.
-    if: always() && needs.build.result == 'success'
+    if: always() && needs.build.result == 'success' && vars.PAGES_HOST != 'cloudflare'
     runs-on: ubuntu-latest
     # Publish plus the propagation check below, which is bounded by its own
     # six attempts at 15s.
@@ -306,36 +446,21 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@v5
 
-      # Deliberately thin, and deliberately not the browser suite: nothing here
-      # can roll anything back, the identical bytes were already exercised
-      # pre-upload, and a long assertion against a CDN mid-propagation is a
-      # flake generator. This answers one question the localhost runs
-      # structurally cannot — did the build we just published actually become
-      # the thing being served? Caught live once already: two merges in a row
-      # reported success while Pages kept serving the previous build.
-      - name: Verify Pages is serving this build
+      # Is Pages even serving from the origin this build was compiled for?
+      #
+      # This is the one moment the custom-domain cutover can go wrong, and it
+      # is invisible to everything else. Setting the SITE_URL variable moves
+      # the build to the domain root; attaching the domain in Settings > Pages
+      # is what actually moves the *site*. Do the first without the second and
+      # Pages keeps serving /<repo>/ while every asset URL points at /assets/…
+      # — a blank page whose HTML, manifest and bundle name all still check out
+      # below. Order matters, so make the wrong order fail here rather than in
+      # a reader's browser.
+      - name: Check Pages serves the origin this build is for
         env:
-          EXPECTED_DATA: ${{ needs.build.outputs.generated_at }}
-          EXPECTED_BUNDLE: ${{ needs.build.outputs.bundle }}
           EXPECTED_ORIGIN: ${{ needs.build.outputs.site_url }}
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         run: |
-          set -uo pipefail
-          if [ -z "$EXPECTED_DATA" ] || [ -z "$EXPECTED_BUNDLE" ]; then
-            echo "::warning::Build job published no fingerprints — cannot verify the deploy."
-            exit 0
-          fi
-
-          # Is Pages even serving from the origin this build was compiled for?
-          #
-          # This is the one moment the custom-domain cutover can go wrong, and
-          # it is invisible to everything else. Setting the SITE_URL variable
-          # moves the build to the domain root; attaching the domain in
-          # Settings > Pages is what actually moves the *site*. Do the first
-          # without the second and Pages keeps serving /<repo>/ while every
-          # asset URL points at /assets/… — a blank page whose HTML, manifest
-          # and bundle name all still check out below. Order matters, so make
-          # the wrong order fail here rather than in a reader's browser.
           case "$PAGE_URL" in
             "$EXPECTED_ORIGIN"|"$EXPECTED_ORIGIN"/*) ;;
             *)
@@ -344,26 +469,141 @@ jobs:
               exit 1
               ;;
           esac
-          echo "Expecting data=$EXPECTED_DATA and bundle=$EXPECTED_BUNDLE at $PAGE_URL"
-          for attempt in 1 2 3 4 5 6; do
-            live_data=$(curl -fsS --max-time 20 "${PAGE_URL}v1/manifest.json" \
-                        | python3 -c 'import json,sys; print(json.load(sys.stdin)["generatedAt"])' 2>/dev/null || true)
-            # Cache-bust: a CDN edge holding the previous index.html is the very
-            # thing being tested for, so don't let it answer from cache.
-            live_html=$(curl -fsS --max-time 20 -H 'Cache-Control: no-cache' \
-                        "${PAGE_URL}?deploycheck=${GITHUB_RUN_ID}" 2>/dev/null || true)
 
-            data_ok=false; bundle_ok=false
-            [ "$live_data" = "$EXPECTED_DATA" ] && data_ok=true
-            case "$live_html" in *"$EXPECTED_BUNDLE"*) bundle_ok=true ;; esac
+      # Only the shared action, not the repository: the check is all this job
+      # needs from it.
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/actions/
+          sparse-checkout-cone-mode: false
 
-            if [ "$data_ok" = true ] && [ "$bundle_ok" = true ]; then
-              echo "Live site is serving this build (data $live_data, bundle $EXPECTED_BUNDLE)."
-              exit 0
-            fi
-            echo "attempt $attempt: data_ok=$data_ok bundle_ok=$bundle_ok; waiting for propagation"
-            sleep 15
-          done
-          echo "::error::Pages is not serving the build that just deployed."
-          echo "::error::expected data=$EXPECTED_DATA got=${live_data:-<unreachable>}; expected bundle=$EXPECTED_BUNDLE (not found in live HTML)"
-          exit 1
+      - uses: ./.github/actions/verify-live
+        with:
+          url: ${{ steps.deployment.outputs.page_url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}
+
+  deploy-cloudflare:
+    needs: build
+    # The same override as deploy above, for the same reason.
+    if: always() && needs.build.result == 'success' && vars.PAGES_HOST == 'cloudflare'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: cloudflare-pages
+      url: ${{ needs.build.outputs.site_url }}
+    steps:
+      # Only the shared action, not the repository. Nothing else may sit in
+      # the workspace: wrangler-action runs `npm i wrangler` in it, which with
+      # the project's package.json present would install every dependency the
+      # site has.
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: .github/actions/
+          sparse-checkout-cone-mode: false
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: site
+
+      # The branch decides production or preview: main is the project's
+      # production branch, so the schedule and pushes publish the site, while a
+      # manual run from another branch lands on a preview URL of its own.
+      # The project must exist first (Direct Upload; see docs/architecture.md).
+      - id: publish
+        name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: >-
+            pages deploy site
+            --project-name=${{ vars.CLOUDFLARE_PROJECT || 'beachvolleyballgraph' }}
+            --branch=${{ github.ref_name }}
+            --commit-hash=${{ needs.build.outputs.sha }}
+            --commit-dirty=true
+
+      # The project's own address first: proves the upload became the
+      # production deployment, whether or not a domain is attached yet. Taken
+      # from the deployment URL (https://<id>.<project>.pages.dev) rather than
+      # built from the project name, because Cloudflare suffixes the subdomain
+      # when the name is taken.
+      - name: Find the production address
+        if: github.ref_name == 'main'
+        id: production
+        env:
+          DEPLOYMENT_URL: ${{ steps.publish.outputs.deployment-url }}
+        run: |
+          host="${DEPLOYMENT_URL#*://}"
+          host="${host%%/*}"
+          echo "url=https://${host#*.}/" >> "$GITHUB_OUTPUT"
+
+      - if: github.ref_name == 'main'
+        uses: ./.github/actions/verify-live
+        with:
+          url: ${{ steps.production.outputs.url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}
+
+      # Then the public domain, unless GitHub Pages still answers for it. That
+      # is the cutover in progress (publish here first, attach the domain in
+      # Cloudflare second, so the site is never down): a warning, not a
+      # failure, until the domain moves.
+      - name: Check who serves the public domain
+        if: github.ref_name == 'main'
+        id: domain
+        env:
+          SITE_URL: ${{ needs.build.outputs.site_url }}
+        run: |
+          if curl -fsSI --max-time 20 "${SITE_URL}/" | grep -qi '^x-github-request-id:'; then
+            echo "::warning::$SITE_URL is still served by GitHub Pages. Attach it in Cloudflare Pages > Custom domains, then re-run."
+            echo "cloudflare=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "cloudflare=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: github.ref_name == 'main' && steps.domain.outputs.cloudflare == 'true'
+        uses: ./.github/actions/verify-live
+        with:
+          url: ${{ needs.build.outputs.site_url }}
+          generated_at: ${{ needs.build.outputs.generated_at }}
+          bundle: ${{ needs.build.outputs.bundle }}
+
+  # One open issue, labelled `new-tournaments`, collects a comment per refresh
+  # that found new events. It is created on the first such refresh and
+  # assigned to the repository owner, which subscribes them: every later
+  # comment reaches them through GitHub's own notifications, by email and in
+  # the mobile app, with nothing to run or host. Close it to start a new one.
+  announce:
+    needs: [ingest, deploy, deploy-cloudflare]
+    # After the publish jobs whatever their result: one of the two is skipped
+    # on every run, which alone would make success() skip this, and a failed
+    # deploy does not make the events any less new. Nothing to say is the
+    # usual case, and skips the job.
+    if: always() && needs.ingest.result == 'success' && needs.ingest.outputs.announcement != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      OWNER: ${{ github.repository_owner }}
+      # Through the environment, never spliced into the script: it carries
+      # tournament names from FIVB.
+      NEWS: ${{ needs.ingest.outputs.announcement }}
+    steps:
+      - name: Comment on the new-tournaments issue
+        run: |
+          set -euo pipefail
+          label=new-tournaments
+          issue=$(gh issue list --label "$label" --state open --limit 1 --json number --jq '.[0].number // empty')
+          if [ -z "$issue" ]; then
+            gh label create "$label" --color 2a78d6 --description "Tournaments FIVB has added, one comment per refresh" --force
+            url=$(gh issue create --label "$label" --assignee "$OWNER" \
+              --title "New FIVB tournaments" \
+              --body "Each daily refresh that finds tournaments FIVB had not listed the day before comments here, so being assigned to this issue is being notified. Written by ingest/announce.ts; close it to start a fresh one.")
+            issue="${url##*/}"
+          fi
+          printf '%s\n' "$NEWS" | gh issue comment "$issue" --body-file -

@@ -1,0 +1,59 @@
+import { describe, expect, it } from 'vitest';
+import { readFacts, tournamentSlugFromPath } from './tournamentRoute';
+
+describe('tournamentSlugFromPath', () => {
+  it('reads the slug under the tournament prefix', () => {
+    expect(tournamentSlugFromPath('/tournament/gstaad-2019-women/', '/')).toBe('gstaad-2019-women');
+  });
+
+  it('honours a deploy base', () => {
+    expect(tournamentSlugFromPath('/repo/tournament/doha-2019-men/', '/repo/')).toBe('doha-2019-men');
+  });
+
+  it('tolerates a missing trailing slash and an explicit index.html', () => {
+    expect(tournamentSlugFromPath('/tournament/gstaad-2019-women', '/')).toBe('gstaad-2019-women');
+    expect(tournamentSlugFromPath('/tournament/gstaad-2019-women/index.html', '/')).toBe(
+      'gstaad-2019-women',
+    );
+  });
+
+  it('is null for a slice page, so the graph still mounts', () => {
+    // The whole routing decision rests on this: anything that is not a
+    // tournament must fall through to `App`.
+    expect(tournamentSlugFromPath('/brazil-men/', '/')).toBeNull();
+    expect(tournamentSlugFromPath('/', '/')).toBeNull();
+    expect(tournamentSlugFromPath('/about/', '/')).toBeNull();
+  });
+
+  it('is null for the prefix alone and for anything deeper', () => {
+    // `/tournament/` has no page of its own, and a third segment is not an
+    // address this app publishes — both belong in the graph's not-found path
+    // rather than being resolved to a half-slug.
+    expect(tournamentSlugFromPath('/tournament/', '/')).toBeNull();
+    expect(tournamentSlugFromPath('/tournament/gstaad-2019-women/teams/', '/')).toBeNull();
+  });
+
+  it('does not match a slice whose name merely starts with the prefix', () => {
+    expect(tournamentSlugFromPath('/tournaments-index/', '/')).toBeNull();
+  });
+});
+
+describe('readFacts', () => {
+  const doc = (text: string | null) => ({
+    getElementById: (id: string) => (id === 'tournament-facts' && text !== null ? ({ textContent: text } as HTMLElement) : null),
+  });
+  const facts = JSON.stringify({ slug: 'gstaad-2024-women', code: 'WGST2024' });
+
+  it('reads the facts written for this address', () => {
+    expect(readFacts('gstaad-2024-women', doc(facts))?.code).toBe('WGST2024');
+  });
+
+  it('ignores facts written for another address, so the page fetches instead', () => {
+    expect(readFacts('gstaad-2024-men', doc(facts))).toBeNull();
+  });
+
+  it('falls back to the fetch when there are none, or they do not parse', () => {
+    expect(readFacts('gstaad-2024-women', doc(null))).toBeNull();
+    expect(readFacts('gstaad-2024-women', doc('{not json'))).toBeNull();
+  });
+});

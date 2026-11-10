@@ -11,8 +11,8 @@
 # page, so the two have to describe the same place. A project Pages site with
 # no custom domain lives at https://<owner>.github.io/<repo>/; the moment a
 # custom domain is attached it moves to the domain root. Setting the origin
-# without also flipping the base would publish ~265 canonical tags pointing at
-# https://<domain>/<repo>/… — a path that exists nowhere.
+# without also flipping the base would point the canonical tag of every page
+# at https://<domain>/<repo>/… — a path that exists nowhere.
 #
 # So both are derived here from a single switch, the SITE_URL repository
 # variable, and the broken combination is simply not expressible:

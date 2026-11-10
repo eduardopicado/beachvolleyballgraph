@@ -38,7 +38,8 @@
  * not a licensing question.
  */
 
-import { foldAccents } from '../web/src/lib/search.js';
+import { foldAccents } from '../shared/fold.js';
+import { USER_AGENT } from './vis.js';
 
 const ENDPOINT = 'https://query.wikidata.org/sparql';
 
@@ -158,9 +159,7 @@ export async function fetchWikidataNames(timeoutMs = 120_000): Promise<Map<numbe
         Accept: 'application/sparql-results+json',
         // Wikimedia asks for a contactable agent and throttles anonymous ones
         // harder; this is the same identity VIS sees.
-        'User-Agent':
-          process.env.VIS_USER_AGENT ??
-          'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)',
+        'User-Agent': USER_AGENT,
       },
       signal: controller.signal,
     });

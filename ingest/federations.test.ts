@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { federationSpans, PLACEHOLDER_FEDERATIONS, resolveFederation } from './federations';
-import type { PlayersFile } from '../web/src/schema.js';
+import type { PlayersFile } from '../shared/schema.js';
 
 /** How often each code appears on the pair's *other* entries that season. */
 const season = (counts: Record<string, number>) => new Map(Object.entries(counts));
