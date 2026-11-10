@@ -649,8 +649,8 @@ ${figures.map(([unit, value]) => `<div><dt>${unit}</dt><dd>${n(value)}</dd></div
 </section>
 
 <section>
-<h2>Code and reuse</h2>
-<p>© 2026 Eduardo Picado. All rights reserved. This project's source is publicly viewable for portfolio and reference purposes; no permission is granted to copy, modify or redistribute it without prior written permission. Ask at the address above.</p>
+<h2>Copyright</h2>
+<p>© 2026 Eduardo Picado. All rights reserved.</p>
 <p class="about-note">The data behind every page is plain JSON under <a href="${esc(`${BASE}v1/manifest.json`)}">/v1/</a>, summarised for language models at <a href="${esc(`${BASE}llms.txt`)}">/llms.txt</a>.</p>
 </section>
 </div>
