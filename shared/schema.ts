@@ -200,6 +200,34 @@ export const TOUR_TIERS: ReadonlySet<Tier> = new Set<Tier>(['world-tour', 'beach
  */
 export const RESULT_LAG_DAYS = 30;
 
+/**
+ * Does this tournament have a page?
+ *
+ * Every played event with a code and a draw does. One with no result does
+ * while it is still to come or within `RESULT_LAG_DAYS` of its last day, so
+ * it can carry its entry list; the fieldless events older than that are
+ * cancellations and postponements, and get nothing.
+ *
+ * One rule for every place that has to agree on it: the tournament index and
+ * the prerenderer (`buildIndex`), the entry lists the ingest writes, and the
+ * series editions that link to pages. The series once built its addresses
+ * over every coded event instead, and `tournamentSlugs` resolves a clash by
+ * suffixing every member, so an old cancellation sharing a name, season and
+ * draw with a played edition gave that edition a different address from the
+ * page actually written: Carolina 1994 (women) was `carolina-1994-women` on
+ * its page and `carolina-1994-women-wcar1994` to the series builder.
+ */
+export function hasPage(
+  t: { code: string | null; gender: Gender | null },
+  played: boolean,
+  endsOn: Date | null,
+  now: Date,
+): boolean {
+  if (!t.code || !t.gender) return false;
+  if (played) return true;
+  return endsOn !== null && endsOn.getTime() >= now.getTime() - RESULT_LAG_DAYS * 86_400_000;
+}
+
 /** Lazy-loaded detail for every player in one country x gender slice. */
 export interface PlayerDetail {
   id: number;

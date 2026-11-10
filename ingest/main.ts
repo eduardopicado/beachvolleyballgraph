@@ -84,7 +84,7 @@ import type {
   SearchEntry,
   TournamentMeta,
 } from '../shared/schema.js';
-import { DATA_VERSION, RECORD_KEYS, RESULT_LAG_DAYS } from '../shared/schema.js';
+import { DATA_VERSION, hasPage, RECORD_KEYS, RESULT_LAG_DAYS } from '../shared/schema.js';
 import { labelAddsToName } from '../shared/label.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -727,9 +727,14 @@ export async function writeTree(
    * Slug per tournament code, built over the same set the prerenderer uses so
    * an edition's link and the page it points at cannot disagree. Both sides
    * call `tournamentSlugs`, which is what makes the code suffix land on the
-   * same members of a clash in both.
+   * same members of a clash in both, and both decide the set with `hasPage`:
+   * the same set, not merely the same function, is what makes the suffixes
+   * agree.
    */
-  const slugInputs = [...tournaments.values()].filter((t) => t.code);
+  const now = new Date(generatedAt);
+  const slugInputs = [...tournaments.values()].filter((t) =>
+    hasPage(t, classifications.has(t.no), endsOnDate(t), now),
+  );
   const slugByTournament = tournamentSlugs(slugInputs, (t) => ({
     name: t.name,
     season: t.season,
@@ -741,6 +746,7 @@ export async function writeTree(
   );
 
   let classifiedTeams = 0;
+  let withoutCode = 0;
   /** Field appearances, and how many of them the guess below gets right. */
   let fieldNames = 0;
   let guessed = 0;
@@ -750,6 +756,16 @@ export async function writeTree(
     // reachable if the two ever disagree. Skipping beats writing a file whose
     // name has to come from somewhere.
     if (!tournament) continue;
+    // The file is named by FIVB's code, and `normaliseTournaments` keeps a
+    // blank one. Written anyway, it would be `classifications/.json`, and a
+    // second such event would overwrite the first. Every other use of the code
+    // here (the slugs, `withoutField`, entry lists) already skips a blank one,
+    // and so does the index, so there is no page that could ask for it. None
+    // in the archive today; counted and logged so the first is noticed.
+    if (!tournament.code) {
+      withoutCode++;
+      continue;
+    }
     const teams = [...field.values()].sort(
       (x, y) =>
         // Placements first and in order, then the eliminations below them, and
@@ -830,6 +846,9 @@ export async function writeTree(
     'classified',
     `${classifiedTeams.toLocaleString()} teams across ${classificationFiles.toLocaleString()} tournaments`,
   );
+  if (withoutCode > 0) {
+    log('classified', `${withoutCode} played tournament${withoutCode === 1 ? '' : 's'} with no FIVB code, not written`);
+  }
 
   // --- one file per tournament without a result: who has entered ------------
   /*
@@ -848,7 +867,6 @@ export async function writeTree(
    * entries yet" instead of failing to load.
    */
   await mkdir(path.join(dir, 'entries'), { recursive: true });
-  const lagCutoff = new Date(Date.parse(generatedAt) - RESULT_LAG_DAYS * 86_400_000);
   // What each `Status` and `Type` value means, and the evidence for it, lives
   // with `entryStatus` and `ENTRY_ROUTE` in build.ts. Status 1 rows -- entries
   // superseded by a later one -- are the ones that made one player appear in
@@ -866,9 +884,8 @@ export async function writeTree(
   let entryTeams = 0;
   const enteredTwice: string[] = [];
   for (const tournament of tournaments.values()) {
-    if (!tournament.code || classifications.has(tournament.no)) continue;
-    const endsOn = tournament.endsOn === null ? null : new Date(`${tournament.endsOn}T00:00:00Z`);
-    if (endsOn === null || endsOn < lagCutoff) continue;
+    // Every event with a page and no result: the same rule as the index.
+    if (classifications.has(tournament.no) || !hasPage(tournament, false, endsOnDate(tournament), now)) continue;
 
     /*
      * Ordered as FIVB orders it: entry points first, technical points to break
@@ -1202,6 +1219,9 @@ async function crossCheck(agg: Aggregate) {
     }
   }
 }
+
+/** A tournament's last day as a date, or null when VIS gave none. */
+const endsOnDate = (t: { endsOn: string | null }) => (t.endsOn === null ? null : new Date(`${t.endsOn}T00:00:00Z`));
 
 /** Swap the new tree in for the live one. */
 async function publish() {
