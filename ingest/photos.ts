@@ -96,6 +96,61 @@ export function needsFetch(codes: string[], cache: Cache, now: Date): string[] {
   });
 }
 
+/**
+ * Ask VIS for the `stale` lists, batch by batch, into `cache`.
+ *
+ * Stops at the first batch VIS will not answer and hands the error back
+ * rather than throwing it. `fetchRaw` has already retried that batch, so the
+ * next one would most likely fail the same way; and the photographs are the
+ * one part of a page it is complete without (the strip leaves itself out when
+ * its file is missing). A VIS outage used to fail the whole build, which held
+ * back the day's data with it. Now a list that was cached keeps its old copy,
+ * one never fetched has no file, and the next build asks again.
+ *
+ * `save` runs after every batch, so an interrupted run keeps what it fetched.
+ */
+export async function refreshLists(
+  stale: readonly string[],
+  noByCode: ReadonlyMap<string, string>,
+  cache: Cache,
+  {
+    fetch = fetchRaw,
+    save = async () => {},
+    pauseMs = PAUSE_MS,
+    now = () => new Date(),
+  }: {
+    fetch?: (xml: string, label: string) => Promise<string>;
+    save?: (cache: Cache) => Promise<void>;
+    pauseMs?: number;
+    now?: () => Date;
+  } = {},
+): Promise<{ fetched: number; error: unknown }> {
+  let fetched = 0;
+  for (let i = 0; i < stale.length; i += BATCH) {
+    const codes = stale.slice(i, i + BATCH);
+    const xml = `<Requests>${codes
+      .map(
+        (code) =>
+          `<Request Type="GetImageList" Fields="No Title TakenDT InSlideShow"><Filter NoTournament="${noByCode.get(code)}"/></Request>`,
+      )
+      .join('')}</Requests>`;
+    let parts: string[];
+    try {
+      parts = splitImageResponses(await fetch(xml, 'GetImageList'), codes.length);
+    } catch (error) {
+      return { fetched, error };
+    }
+    const at = now().toISOString();
+    codes.forEach((code, k) => {
+      cache[code] = { at, photos: photosFromRows(extractRows(parts[k]!, 'Image')) };
+    });
+    fetched += codes.length;
+    await save(cache);
+    if (i + BATCH < stale.length) await new Promise((r) => setTimeout(r, pauseMs));
+  }
+  return { fetched, error: null };
+}
+
 async function readJson<T>(file: string, fallback: T): Promise<T> {
   try {
     return JSON.parse(await readFile(file, 'utf8')) as T;
@@ -120,23 +175,16 @@ async function main() {
   const stale = needsFetch([...byCode.keys()].sort(), cache, new Date());
   console.log(`photos: ${byCode.size} played tournaments, ${stale.length} lists to fetch`);
 
-  for (let i = 0; i < stale.length; i += BATCH) {
-    const codes = stale.slice(i, i + BATCH);
-    const xml = `<Requests>${codes
-      .map(
-        (code) =>
-          `<Request Type="GetImageList" Fields="No Title TakenDT InSlideShow"><Filter NoTournament="${byCode.get(code)}"/></Request>`,
-      )
-      .join('')}</Requests>`;
-    const parts = splitImageResponses(await fetchRaw(xml, 'GetImageList'), codes.length);
-    const at = new Date().toISOString();
-    codes.forEach((code, k) => {
-      cache[code] = { at, photos: photosFromRows(extractRows(parts[k]!, 'Image')) };
-    });
-    // Saved after every batch, so an interrupted run keeps what it fetched.
-    await mkdir(path.dirname(CACHE), { recursive: true });
-    await writeFile(CACHE, JSON.stringify(cache));
-    if (i + BATCH < stale.length) await new Promise((r) => setTimeout(r, PAUSE_MS));
+  const { fetched, error } = await refreshLists(stale, byCode, cache, {
+    save: async (c) => {
+      await mkdir(path.dirname(CACHE), { recursive: true });
+      await writeFile(CACHE, JSON.stringify(c));
+    },
+  });
+  if (error) {
+    const line = `VIS did not answer (${error instanceof Error ? error.message : String(error)}); ${stale.length - fetched} of ${stale.length} lists left as cached, or without photographs, until the next build`;
+    console.warn(`photos: ${line}`);
+    if (process.env.GITHUB_ACTIONS) console.log(`::warning title=Tournament photographs::${line}`);
   }
 
   await mkdir(OUT, { recursive: true });

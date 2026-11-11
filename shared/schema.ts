@@ -606,12 +606,13 @@ export function fieldPlayerSlice(
  * names taken later in a career, like Laura Longuet appearing as "Walgenwitz",
  * are what it is for.
  *
- * Omitted when one of `name` and `short` contains the other (a plain
- * shortening such as "Emanuel" for Emanuel Rego), which is most players. The
- * test is a substring one, so initial forms such as "Capogrosso N." are not
- * recognised as shortenings and are carried too: 1,363 of 12,120 entries carry
- * a `short` that their name does not contain, measured 8 November 2026, over
- * half of them initial forms.
+ * Omitted when the label is a plain shortening of the name, which is most
+ * players: one containing the other ("Emanuel" for Emanuel Rego), or the name
+ * in initials ("Capogrosso T.", "J.Q. Liu"). `labelAddsToName` in
+ * `shared/label.ts` decides, the same test the player card uses. Kept for a
+ * label of whole name words ("Marcio Araujo"), which search ranks on. Measured
+ * 8 November 2026: 506 of 12,120 entries carry `short` alone, down from 1,339
+ * while initial forms rode along with a substring test.
  */
 export type SearchEntry =
   | [id: number, name: string, tournaments: number]
@@ -632,8 +633,8 @@ export type SearchEntry =
  * which. Confined to search, the worst a wrong entry can do is make an extra
  * string findable — it can never put a false name in front of a reader.
  *
- * Present on 286 of 12,120 entries (8 November 2026), so the fourth element
- * carries `short` alone on almost every row that has one.
+ * Present on 286 of 12,120 entries (8 November 2026), against 506 that carry
+ * `short` alone.
  */
 
 /**

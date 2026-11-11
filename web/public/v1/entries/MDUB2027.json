@@ -2,7 +2,10 @@
   "code": "MDUB2027",
   "gender": "M",
   "teams": [
-
+    [181034,144035,"BUL",null,null]
   ],
-  "players": {}
+  "players": {
+    "144035": "Dimitar Kalchev",
+    "181034": "Dimitar Mehandzhiyski"
+  }
 }

@@ -314,6 +314,11 @@ committed `web/public/v1/`, so the lists stay out of git history. The images
 themselves are never copied: thumbnails and the large view are served by
 FIVB's image service, as player portraits are.
 
+A VIS outage costs photographs, not the build. The step stops at the first
+batch VIS will not answer, keeps the cached copy of every list it could not
+refresh, writes no file for a list it never had (the strip leaves itself out
+without one), and says so in a workflow warning. The next build asks again.
+
 ### Seeing it before it is public
 
 **On your own machine.** Nothing leaves it:
@@ -322,7 +327,7 @@ FIVB's image service, as player portraits are.
 TOURNAMENT_PHOTOS=1 npm run build && npm run preview
 ```
 
-The first build asks VIS for all 1,612 lists, 25 to a request with a pause
+The first build asks VIS for all 1,614 lists (8 Nov 2026), 25 to a request with a pause
 between; later builds read the cache.
 
 **Shared with someone, still private.** Build as above and upload `dist/` as
