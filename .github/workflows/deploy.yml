@@ -286,6 +286,11 @@ jobs:
           # commit would then publish the code without the data that landed
           # on top of it — the site going back a day until the next refresh.
           ref: ${{ needs.ingest.outputs.data_sha || github.ref }}
+          # Every commit, without the file contents of any but this one: the
+          # prerenderer dates each page by when its data last changed, from
+          # `git log` (see `parseChangeLog`). About 1.4 MB on 8 Nov 2026.
+          fetch-depth: 0
+          filter: blob:none
 
       - id: head
         run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
