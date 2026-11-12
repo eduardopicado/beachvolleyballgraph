@@ -1983,6 +1983,85 @@ likely withdraw one, so the page does not need to say so.
 
 ---
 
+## 28. Four results under a player number that does not exist
+
+**What.** Four team rows name player `103902`, and VIS has no such player:
+`GetPlayer` answers `NoData` for it, and the full player list (133,202 records
+on 9 November 2026) does not contain it. The team's own `Name` at Cagliari 2004
+reads `"???/Maria Clara"`, so whoever keyed the row did not know the name either.
+
+| Event | Code | Partner | VIS rank | bvbinfo |
+|---|---|---|---:|---|
+| Catania 2002 | `WCAT2002` | Maria Clara Salgado | 3 | not on its FIVB lists |
+| Fortaleza 2004 | `WFOR2004` | Tatiana Minello | 25 | Talita Antunes / Tatiana Minello, 25th |
+| Cagliari 2004 | `WCAG2004` | Maria Clara Salgado | 2 | Talita Antunes / Maria Clara Salgado, 2nd |
+| Rio de Janeiro 2004 | `WRIO2004` | Tais Jesus | −2 (quota) | Talita Antunes / Tais Jesus, CQ |
+
+They are Talita Antunes's. Her record is **`103892`** — one digit from
+`103902` — and holds no row at any of the four, and bvbinfo names her at three
+of them beside the same partner, in the same place (tournaments 1431, 1495 and
+1457 there). The owner found it from the Cagliari page, whose podium has no
+second place.
+
+**What it does here.** A row with no player record cannot be drawn: there is no
+node for `103902`, so the Cagliari page lists 1st, 3rd and 4th, Talita's card is
+four events short, and neither Maria Clara nor Talita shows Cagliari 2004 or
+Catania 2002 on a timeline. Maria Clara's tour silver from Cagliari was still
+counted until the medal tallies moved onto the classifications (#220).
+
+**Not the only one.** Over the published events, 19 played team rows name 12
+player numbers with no record (9 November 2026): `103902` ×4; `116619`,
+`102987`, `118282`, `116665`, `103168` ×2; `104877`, `119807`, `103457`,
+`104121`, `105035`, `103169` ×1. Only `103902` has been traced to its player.
+
+**Handled in.** Nothing, for the reason §24 gives: the fix is four `NoPlayer1`
+values pointed at a record that already exists, and that is FIVB's correction
+to make. Reported in the email (`docs/fivb-email.md`).
+
+---
+
+## 29. Notes to the record keeper in the short-name field
+
+**What.** `TeamName` is the short name a player competes under — "Malosa",
+"R.Khani". On 23 of the 133,347 player records (12 November 2026) it holds a
+note from whoever was cleaning the table instead:
+
+| Note | Records | Federation |
+|---|---|---|
+| `Duplicate of …` and variants, naming the record to keep | 120009 → 153755; 132510, 134861, 159250 → 134594; 136752 → 142755; 145972 → 152745; 153541 → 153542; 159246 → 152758; 168554 → 174373; 174371 → 168562; 174378 → 168552 | IRI |
+| `DUPLICATE - DO NOT USE! `, naming none | 190158 | HUN |
+| `TO BE DELETED` | 188387, 188403, 188404, 188405 | ITA |
+| `WRONG` | 177090, 193827, 213474 | BIZ |
+| `wrong`, on a record whose name is `wrong data` | 147030 | PNG |
+| `Wrong DOB` | 168510 | DOM |
+| `Error - delete user` | 161817 | CAY |
+| `###DO NOT USE###` | 161781 | TUV |
+
+So the cleanup was decided and labelled, and then not carried out: every record
+is still live, and the eleven `Duplicate of` notes each point at a record that
+exists. Two of those pairs disagree on the birthdate they were meant to share:
+120009 says 1983-07-10 and 153755 1983-07-11, and 159246 1998-05-10 and 152758
+1998-05-18. The other nine agree.
+
+**The one that reaches a page.** Saaga Malosa's only result we publish, 9th at
+the Cook Islands 1-star in 2020 (`MCOK2020`) beside Ampelosa Luka, sits on
+161781, the record marked `###DO NOT USE###`. The note names no record to keep,
+but 190081 is the same name in the same federation (`Malosa`, born 1998-02-14
+against 161781's 1997-02-14), and holds no result. Following the note would
+mean deleting the record with the history on it. Until #230 the note was also
+his label on the TUV men's graph, his card and his search entry. None of the
+other 22 records carries a result we publish.
+
+**Handled in.** `isEditingNote` in `ingest/build.ts` (#230) treats a
+`TeamName` matching `duplicate`, `do not use`, `to be deleted`, `delete user`
+or `wrong` as whole words as blank, so the label falls back to the surname.
+Over the full player list it matches these 23 records and nothing else.
+
+**Still open.** Whether 161781's row should move to 190081 before either is
+removed, and which birth year is right. FIVB's to settle; reported in the email.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -2075,11 +2154,29 @@ FIVB if a channel opens up (see the contact address in `shared/site.ts`):
   before it starts: `StartDateMainDraw` 1995-09-17 against
   `EndDateMainDraw` 1995-08-19. Both are single-field fixes on named rows.
 
+- **§28**, four team rows on player `103902`, a number VIS has no record of,
+  that are Talita Antunes's (`103892`): Catania 2002, Fortaleza and Cagliari
+  2004 (where the team is named "???/Maria Clara") and Rio de Janeiro 2004.
+  bvbinfo confirms three. A repoint, as §24. And the wider list: 19 played
+  rows on 12 numbers with no record, ids in the section.
+
+- **§29**, 23 player records whose `TeamName` is a note to whoever maintains
+  the table — `Duplicate of 134594`, `TO BE DELETED`, `###DO NOT USE###` — on
+  records that are all still live. The sharp one is Saaga Malosa: the record
+  marked `###DO NOT USE###` (161781) is the one holding his result, and the
+  same-name record (190081) holds none and a birth year one later. Following
+  the note as written would delete his history. Ids for all 23 in the section.
+
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
 
-**The draft introduction email now covers all of this except §1, §21, §22,
-§23, §24 and §25.** It is `docs/fivb-email.md` (task #12), and its "would a
-list of data issues be useful" section names each quirk by the section number
-used here — so the two files have to be kept in step, and a new section added
-above is not reported until it is added there too.
+**The draft introduction email now covers all of them.** `docs/fivb-email.md`
+(task #12) carries every entry on this list in its "would a list of data issues
+be useful" section, with the player and tournament numbers spelled out so each
+one is a lookup rather than a search.
+
+**If you add an entry here, add it there too.** This note used to say how many
+were still missing, and that count went stale twice — it said three, then five —
+because §18 and §6.5a were written on branches that merged independently and
+each looked correct on its own. Naming the gap turned out to be less reliable
+than closing it, so there is deliberately no number left to drift.
