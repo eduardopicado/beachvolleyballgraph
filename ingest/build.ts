@@ -1300,6 +1300,29 @@ function blankUnknownName(value: string): string {
   return /^[.…]+$/u.test(value.trim()) ? '' : value;
 }
 
+/**
+ * A `TeamName` that is a note to whoever maintains the record, blanked so it
+ * is never drawn as the player's label.
+ *
+ * 23 of the 133,202 VIS player records (8 November 2026) use `TeamName` for
+ * this: "Duplicate of 134594" (nine of them), "TO BE DELETED" (four),
+ * "WRONG", "Wrong DOB", "Error - delete user", "DUPLICATE - DO NOT USE! ",
+ * and "###DO NOT USE###". One reaches the published graph: Saaga Malosa
+ * (161781, TUV) was labelled "###DO NOT USE###" on his node, his card and in
+ * search. His twin record, 190081, says "Malosa" and has no admitted results,
+ * so the note sits on the record that carries the results; blanking it gives
+ * him the surname, which is what the twin says.
+ *
+ * `TeamName` only. Names are not read here, and the pattern is the five notes
+ * the field actually holds rather than every word an editor might use, so it
+ * matches exactly those 23 records and nothing else, measured over the full
+ * player list. Word boundaries keep it off any real name that contains one of
+ * the words.
+ */
+export function isEditingNote(teamName: string): boolean {
+  return /(?<!\p{L})(duplicate|do not use|to be deleted|delete user|wrong)(?!\p{L})/iu.test(teamName);
+}
+
 function fullName(row: VisRow): string {
   const first = blankUnknownName(stripCompetitionStatus((row.FirstName ?? '').trim()));
   const last = blankUnknownName(stripCompetitionStatus((row.LastName ?? '').trim()));
@@ -1307,7 +1330,8 @@ function fullName(row: VisRow): string {
   // whole name: "Katharina HETZENDORFER" is a marked surname, but a LastName of
   // "HETZENDORFER" on its own looks like a name that simply shouts.
   const joined = tidyName(`${first} ${last}`);
-  return joined || tidyName(stripCompetitionStatus(row.TeamName ?? '')) || `Player ${row.No}`;
+  const team = row.TeamName ?? '';
+  return joined || (isEditingNote(team) ? '' : tidyName(stripCompetitionStatus(team))) || `Player ${row.No}`;
 }
 
 /**
@@ -1315,9 +1339,11 @@ function fullName(row: VisRow): string {
  * is not always populated — fall back to the surname, then the full name.
  */
 function shortName(row: VisRow, full: string): string {
-  // A `TeamName` of nothing but "Suspended" is emptied by the strip, and so
-  // falls through to the surname the same way an unpopulated one does.
-  const team = tidyName(blankUnknownName(stripCompetitionStatus(row.TeamName ?? '')));
+  // A `TeamName` of nothing but "Suspended" is emptied by the strip, and an
+  // editing note is emptied outright, so both fall through to the surname the
+  // same way an unpopulated one does.
+  const raw = row.TeamName ?? '';
+  const team = isEditingNote(raw) ? '' : tidyName(blankUnknownName(stripCompetitionStatus(raw)));
   if (team) return team;
   // From the raw field rather than sliced out of `full`, which is already
   // tidied and may have been title-cased as part of a longer name.
