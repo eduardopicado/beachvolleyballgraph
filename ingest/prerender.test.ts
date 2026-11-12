@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aboutPage, emptyTally, esc, indexDescription, jsonLd, llmsTxt, notFoundPage, routeChunks, seasonCounts, tallySlice, tournamentFacts, factsScript } from './prerender.js';
+import { aboutPage, emptyTally, esc, indexDescription, jsonLd, lastChanged, llmsTxt, notFoundPage, parseChangeLog, routeChunks, seasonCounts, tallySlice, tournamentFacts, factsScript } from './prerender.js';
 import type { GraphFile, Manifest, TournamentMeta } from '../shared/schema.js';
 
 const manifest: Manifest = {
@@ -451,5 +451,57 @@ describe('aboutPage', () => {
     expect(html).toContain('<link rel="canonical"');
     expect(html).toContain('<link rel="stylesheet" href="/assets/style-abc.css"/>');
     expect(aboutPage(manifest, seasons, legend, null)).not.toContain('rel="stylesheet"');
+  });
+});
+
+describe('parseChangeLog', () => {
+  // Shaped like `git log --format=%x00%ct --name-only`, newest commit first:
+  // a NUL and a commit time, a blank line, then the paths that commit touched.
+  const log = [
+    '\u00001762566250', // 2025-11-08T01:44:10Z
+    '',
+    'web/public/v1/manifest.json',
+    'web/public/v1/search.json',
+    '\u00001758446006', // 2025-09-21T09:13:26Z
+    '',
+    'web/public/v1/manifest.json',
+    'web/public/v1/graphs/BRA-M.json',
+    'web/src/App.tsx',
+  ].join('\n');
+
+  it('dates each file by the newest commit that touched it', () => {
+    const changed = parseChangeLog(log, 'web/public/v1/');
+    expect(changed.get('manifest.json')).toBe('2025-11-08T01:44:10.000Z');
+    expect(changed.get('graphs/BRA-M.json')).toBe('2025-09-21T09:13:26.000Z');
+  });
+
+  it('keeps only paths under the data directory, without the prefix', () => {
+    expect([...parseChangeLog(log, 'web/public/v1/').keys()].sort()).toEqual([
+      'graphs/BRA-M.json',
+      'manifest.json',
+      'search.json',
+    ]);
+  });
+});
+
+describe('lastChanged', () => {
+  const changed = new Map([
+    ['graphs/BRA-M.json', '2026-09-21T09:13:26.000Z'],
+    ['tournaments.json', '2026-10-23T02:00:00.000Z'],
+  ]);
+  const generatedAt = '2026-11-08T06:45:06.399Z';
+
+  it('is the newest of the files a page is drawn from', () => {
+    expect(lastChanged(changed, ['graphs/BRA-M.json'], generatedAt)).toBe('2026-09-21T09:13:26.000Z');
+    expect(lastChanged(changed, ['graphs/BRA-M.json', 'tournaments.json'], generatedAt)).toBe(
+      '2026-10-23T02:00:00.000Z',
+    );
+  });
+
+  it('counts a file git has no date for as changed by this run, never as old', () => {
+    // A build outside git, or a local ingest not yet committed.
+    expect(lastChanged(changed, ['graphs/BRA-M.json', 'entries/NEW.json'], generatedAt)).toBe(generatedAt);
+    expect(lastChanged(new Map(), ['graphs/BRA-M.json'], generatedAt)).toBe(generatedAt);
+    expect(lastChanged(changed, [], generatedAt)).toBe(generatedAt);
   });
 });
