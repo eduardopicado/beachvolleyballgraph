@@ -177,6 +177,20 @@ short competition name VIS holds for Tim Hovland (`100131`) is currently the
 word "Suspended". The others are `100051`, `100368`, `100873`, `100875` and
 `100881`. That one looks like the cheapest correction in this whole list.
 
+The same field holds something else on 23 records: a note to whoever maintains
+the player table. Eleven Iranian records read `Duplicate of` another number
+that exists — `132510`, `134861` and `159250` all point at `134594` — and the
+rest read `TO BE DELETED` (four Italian records, `188387` and `188403` to
+`188405`), `WRONG`, `Wrong DOB`, `Error - delete user` or `DO NOT USE`. All 23
+are still live, so it looks like a cleanup that was labelled and never run, and
+two of the duplicate pairs disagree on the birthdate they should share, by a
+day (`120009`, `153755`) and by eight (`159246`, `152758`). The one to look at
+before running it is Saaga Malosa (TUV). The record marked `###DO NOT USE###`,
+`161781`, is the one holding his result — 9th at the Cook Islands 1-star in
+2020 (`MCOK2020`) — while `190081`, the same name in the same federation, holds
+none and gives a birth year one later. Removing the marked record as the note says
+would take his result with it. We can send all 23 ids.
+
 Seven `BirthPlace` values are not places: two postcodes (`30019`, `98278`),
 three dates written as digits (`2003-01-02`, `17072010`, `05011992`), and two
 internal notes that have ended up in the athlete's record —
@@ -513,8 +527,9 @@ athlete under two player numbers, checked individually rather than reported as
 the raw candidate list), §21 (two names and the word `or`), §22 (`"..."` as a
 first name), §23 (the gender letter in a tournament code), §24 (team rows
 crediting one sister for the other's results), §25 (the `01` country codes
-and Ostende's reversed dates) and §28 (Talita Antunes's results under a
-number with no record). That is the whole reporting list at the end of
+and Ostende's reversed dates), §28 (Talita Antunes's results under a
+number with no record) and §29 (cleanup notes in `TeamName`, and the one on
+the record holding Saaga Malosa's result). That is the whole reporting list at the end of
 that document. If a new one is found, add it here too.
 
 **Request 6 is not on that list and never will be**, because it is not a

@@ -2020,6 +2020,48 @@ to make. Reported in the email (`docs/fivb-email.md`).
 
 ---
 
+## 29. Notes to the record keeper in the short-name field
+
+**What.** `TeamName` is the short name a player competes under — "Malosa",
+"R.Khani". On 23 of the 133,347 player records (12 November 2026) it holds a
+note from whoever was cleaning the table instead:
+
+| Note | Records | Federation |
+|---|---|---|
+| `Duplicate of …` and variants, naming the record to keep | 120009 → 153755; 132510, 134861, 159250 → 134594; 136752 → 142755; 145972 → 152745; 153541 → 153542; 159246 → 152758; 168554 → 174373; 174371 → 168562; 174378 → 168552 | IRI |
+| `DUPLICATE - DO NOT USE! `, naming none | 190158 | HUN |
+| `TO BE DELETED` | 188387, 188403, 188404, 188405 | ITA |
+| `WRONG` | 177090, 193827, 213474 | BIZ |
+| `wrong`, on a record whose name is `wrong data` | 147030 | PNG |
+| `Wrong DOB` | 168510 | DOM |
+| `Error - delete user` | 161817 | CAY |
+| `###DO NOT USE###` | 161781 | TUV |
+
+So the cleanup was decided and labelled, and then not carried out: every record
+is still live, and the eleven `Duplicate of` notes each point at a record that
+exists. Two of those pairs disagree on the birthdate they were meant to share:
+120009 says 1983-07-10 and 153755 1983-07-11, and 159246 1998-05-10 and 152758
+1998-05-18. The other nine agree.
+
+**The one that reaches a page.** Saaga Malosa's only result we publish, 9th at
+the Cook Islands 1-star in 2020 (`MCOK2020`) beside Ampelosa Luka, sits on
+161781, the record marked `###DO NOT USE###`. The note names no record to keep,
+but 190081 is the same name in the same federation (`Malosa`, born 1998-02-14
+against 161781's 1997-02-14), and holds no result. Following the note would
+mean deleting the record with the history on it. Until #230 the note was also
+his label on the TUV men's graph, his card and his search entry. None of the
+other 22 records carries a result we publish.
+
+**Handled in.** `isEditingNote` in `ingest/build.ts` (#230) treats a
+`TeamName` matching `duplicate`, `do not use`, `to be deleted`, `delete user`
+or `wrong` as whole words as blank, so the label falls back to the surname.
+Over the full player list it matches these 23 records and nothing else.
+
+**Still open.** Whether 161781's row should move to 190081 before either is
+removed, and which birth year is right. FIVB's to settle; reported in the email.
+
+---
+
 ## Reporting these upstream
 
 Most of the above is ours to work around. These are the ones worth raising with
@@ -2117,6 +2159,13 @@ FIVB if a channel opens up (see the contact address in `shared/site.ts`):
   2004 (where the team is named "???/Maria Clara") and Rio de Janeiro 2004.
   bvbinfo confirms three. A repoint, as §24. And the wider list: 19 played
   rows on 12 numbers with no record, ids in the section.
+
+- **§29**, 23 player records whose `TeamName` is a note to whoever maintains
+  the table — `Duplicate of 134594`, `TO BE DELETED`, `###DO NOT USE###` — on
+  records that are all still live. The sharp one is Saaga Malosa: the record
+  marked `###DO NOT USE###` (161781) is the one holding his result, and the
+  same-name record (190081) holds none and a birth year one later. Following
+  the note as written would delete his history. Ids for all 23 in the section.
 
 Everything in this list is worked around already. Raising them is about the
 archive being better for everyone reading it, not about unblocking this site.
