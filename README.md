@@ -349,7 +349,8 @@ plus the home page, the tournament index and the records page, via
   cards.
 - JSON-LD: `WebPage` + `BreadcrumbList` + `ItemList` of `Person` per slice, and
   `WebSite` + `Dataset` on the home page.
-- `sitemap.xml` (every page, `lastmod` from the data) and `robots.txt`.
+- `sitemap.xml` (every page, `lastmod` the day its own data last changed, from
+  `git log`) and `robots.txt`.
 - `/about/` and `404.html`, written as standalone documents with the site's
   stylesheet and no app script, so the app cannot boot on them and draw the
   default graph instead.

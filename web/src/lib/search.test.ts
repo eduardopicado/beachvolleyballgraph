@@ -197,8 +197,8 @@ describe('searchPlayers', () => {
 /**
  * The graph draws `short`, and until this the search matched only `name` — so
  * the one word a reader could see was the one word that found nobody. Eduarda
- * Santos Lisboa is "Duda" on every graph she appears in; 203 published players
- * are labelled with something their name does not contain.
+ * Santos Lisboa is "Duda" on every graph she appears in; 517 published players
+ * are labelled with something their name does not reach (8 November 2026).
  */
 describe('the label the graph draws', () => {
   const duda = p(1, 'Eduarda Santos Lisboa', 104, HOME, 'Duda');

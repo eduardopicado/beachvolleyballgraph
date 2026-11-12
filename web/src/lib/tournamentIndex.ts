@@ -21,7 +21,7 @@
  */
 
 import type { Gender, Tier, TournamentMeta } from '../../../shared/schema';
-import { RESULT_LAG_DAYS, TOUR_TIERS } from '../../../shared/schema';
+import { hasPage, RESULT_LAG_DAYS, TOUR_TIERS } from '../../../shared/schema';
 import { readTournament } from './tournamentMeta';
 import { tournamentSlugs } from '../../../shared/slug';
 
@@ -144,16 +144,12 @@ export function buildIndex(
    * it excludes are cancellations, postponements and two non-events, none of
    * them within years of today.
    */
-  const lagCutoff = new Date(now.getTime() - RESULT_LAG_DAYS * 86_400_000);
   const shown = Object.values(tournaments)
     .map(readTournament)
     .filter((t): t is ReturnType<typeof readTournament> & { code: string; gender: Gender } => {
-      if (!t.code || !t.gender) return false;
-      if (hasField(t.code)) return true;
-      const start = dateOf(t.season, t.startOffset);
-      if (start === null) return false;
       const span = t.span !== null && t.span >= 0 ? t.span : 0;
-      return dateOf(t.season, (t.startOffset ?? 0) + span)! >= lagCutoff;
+      const endsOn = t.startOffset === null ? null : dateOf(t.season, t.startOffset + span);
+      return hasPage(t, t.code !== null && hasField(t.code), endsOn, now);
     });
 
   /*

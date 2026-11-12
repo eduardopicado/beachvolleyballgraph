@@ -39,6 +39,7 @@
  */
 
 import { foldAccents } from '../shared/fold.js';
+import { USER_AGENT } from './vis.js';
 
 const ENDPOINT = 'https://query.wikidata.org/sparql';
 
@@ -97,6 +98,20 @@ export function parseSparqlNames(json: unknown): Map<number, WikidataNames> {
       birthNames: [...(existing?.birthNames ?? []), ...split(r.birthNames?.value)],
     };
     out.set(id, merged);
+  }
+
+  // Sorted, because nothing else fixes the order. SPARQL's GROUP_CONCAT joins
+  // values in whatever order the endpoint meets them, and Wikidata's answer
+  // differs between runs: Mariia Lazurenko's five names came back in two
+  // orders on 8 November 2026, an hour apart. The order reaches search.json
+  // unchanged, so each reshuffle was a line of churn in a data commit with no
+  // change in it — and the order also decides which of two spellings that
+  // fold alike `newNamesFor` keeps. Code-unit order rather than a collator so
+  // it cannot move with the ICU build either.
+  const byCodeUnit = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
+  for (const names of out.values()) {
+    names.aliases.sort(byCodeUnit);
+    names.birthNames.sort(byCodeUnit);
   }
   return out;
 }
@@ -158,9 +173,7 @@ export async function fetchWikidataNames(timeoutMs = 120_000): Promise<Map<numbe
         Accept: 'application/sparql-results+json',
         // Wikimedia asks for a contactable agent and throttles anonymous ones
         // harder; this is the same identity VIS sees.
-        'User-Agent':
-          process.env.VIS_USER_AGENT ??
-          'beachvolleyballgraph/1.0 (+https://beachvolleyball.com.br/about/; beachgraph@picado.com.br)',
+        'User-Agent': USER_AGENT,
       },
       signal: controller.signal,
     });

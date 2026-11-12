@@ -192,6 +192,16 @@ rendered once at build time, for readers who do not run JavaScript (crawlers,
 link previews, text browsers). It also produces `sitemap.xml`, `robots.txt` and
 `llms.txt`.
 
+Each page's `lastmod` in the sitemap, and its `dateModified` in structured
+data, is when the files it is drawn from last changed: the newest commit
+touching them, read in one `git log` pass. A slice page is dated by its graph
+file, a tournament by its classification or entry list, the index by
+`tournaments.json` and the classifications it links, records by
+`records.json`, and home by the newest change anywhere but `manifest.json`,
+whose `generatedAt` moves on every run. The build checks out the full history
+without file contents (`fetch-depth: 0`, `filter: blob:none`, about 1.4 MB)
+for this. Outside git, every page falls back to `generatedAt`.
+
 `/about/` is the exception — a standalone document that deliberately ships
 *without* the module script, because booting the app on a path matching no
 slice would fall back to the default country and replace the page. Its figures,
@@ -314,6 +324,11 @@ committed `web/public/v1/`, so the lists stay out of git history. The images
 themselves are never copied: thumbnails and the large view are served by
 FIVB's image service, as player portraits are.
 
+A VIS outage costs photographs, not the build. The step stops at the first
+batch VIS will not answer, keeps the cached copy of every list it could not
+refresh, writes no file for a list it never had (the strip leaves itself out
+without one), and says so in a workflow warning. The next build asks again.
+
 ### Seeing it before it is public
 
 **On your own machine.** Nothing leaves it:
@@ -322,7 +337,7 @@ FIVB's image service, as player portraits are.
 TOURNAMENT_PHOTOS=1 npm run build && npm run preview
 ```
 
-The first build asks VIS for all 1,612 lists, 25 to a request with a pause
+The first build asks VIS for all 1,614 lists (8 Nov 2026), 25 to a request with a pause
 between; later builds read the cache.
 
 **Shared with someone, still private.** Build as above and upload `dist/` as

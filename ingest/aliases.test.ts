@@ -17,6 +17,33 @@ describe('parseSparqlNames', () => {
     });
   });
 
+  it('gives the same names in the same order however Wikidata grouped them', () => {
+    // The two orders Wikidata returned for one player an hour apart on
+    // 8 November 2026; each reached search.json as a line of churn.
+    const one = parseSparqlNames(
+      sparql([
+        {
+          fivb: '156338',
+          label: 'Maria Lazurenko',
+          aliases: 'Maria Bocharova || Mariia Bocharova || Mariya Aleksandrovna Bocharova',
+          birthNames: 'Mariya Bocharova || Maria Bocharova',
+        },
+      ]),
+    );
+    const other = parseSparqlNames(
+      sparql([
+        {
+          fivb: '156338',
+          label: 'Maria Lazurenko',
+          aliases: 'Mariya Aleksandrovna Bocharova || Maria Bocharova || Mariia Bocharova',
+          birthNames: 'Maria Bocharova || Mariya Bocharova',
+        },
+      ]),
+    );
+    expect(other).toEqual(one);
+    expect(one.get(156338)!.aliases).toEqual(['Maria Bocharova', 'Mariia Bocharova', 'Mariya Aleksandrovna Bocharova']);
+  });
+
   /**
    * The FIVB id is a free-text external identifier on Wikidata — an editor can
    * type anything into it. A junk value that happens to parse as a number would

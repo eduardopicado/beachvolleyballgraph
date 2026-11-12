@@ -200,6 +200,34 @@ export const TOUR_TIERS: ReadonlySet<Tier> = new Set<Tier>(['world-tour', 'beach
  */
 export const RESULT_LAG_DAYS = 30;
 
+/**
+ * Does this tournament have a page?
+ *
+ * Every played event with a code and a draw does. One with no result does
+ * while it is still to come or within `RESULT_LAG_DAYS` of its last day, so
+ * it can carry its entry list; the fieldless events older than that are
+ * cancellations and postponements, and get nothing.
+ *
+ * One rule for every place that has to agree on it: the tournament index and
+ * the prerenderer (`buildIndex`), the entry lists the ingest writes, and the
+ * series editions that link to pages. The series once built its addresses
+ * over every coded event instead, and `tournamentSlugs` resolves a clash by
+ * suffixing every member, so an old cancellation sharing a name, season and
+ * draw with a played edition gave that edition a different address from the
+ * page actually written: Carolina 1994 (women) was `carolina-1994-women` on
+ * its page and `carolina-1994-women-wcar1994` to the series builder.
+ */
+export function hasPage(
+  t: { code: string | null; gender: Gender | null },
+  played: boolean,
+  endsOn: Date | null,
+  now: Date,
+): boolean {
+  if (!t.code || !t.gender) return false;
+  if (played) return true;
+  return endsOn !== null && endsOn.getTime() >= now.getTime() - RESULT_LAG_DAYS * 86_400_000;
+}
+
 /** Lazy-loaded detail for every player in one country x gender slice. */
 export interface PlayerDetail {
   id: number;
@@ -578,12 +606,13 @@ export function fieldPlayerSlice(
  * names taken later in a career, like Laura Longuet appearing as "Walgenwitz",
  * are what it is for.
  *
- * Omitted when one of `name` and `short` contains the other (a plain
- * shortening such as "Emanuel" for Emanuel Rego), which is most players. The
- * test is a substring one, so initial forms such as "Capogrosso N." are not
- * recognised as shortenings and are carried too: 1,363 of 12,120 entries carry
- * a `short` that their name does not contain, measured 8 November 2026, over
- * half of them initial forms.
+ * Omitted when the label is a plain shortening of the name, which is most
+ * players: one containing the other ("Emanuel" for Emanuel Rego), or the name
+ * in initials ("Capogrosso T.", "J.Q. Liu"). `labelAddsToName` in
+ * `shared/label.ts` decides, the same test the player card uses. Kept for a
+ * label of whole name words ("Marcio Araujo"), which search ranks on. Measured
+ * 8 November 2026: 506 of 12,120 entries carry `short` alone, down from 1,339
+ * while initial forms rode along with a substring test.
  */
 export type SearchEntry =
   | [id: number, name: string, tournaments: number]
@@ -604,8 +633,8 @@ export type SearchEntry =
  * which. Confined to search, the worst a wrong entry can do is make an extra
  * string findable — it can never put a false name in front of a reader.
  *
- * Present on 286 of 12,120 entries (8 November 2026), so the fourth element
- * carries `short` alone on almost every row that has one.
+ * Present on 286 of 12,120 entries (8 November 2026), against 506 that carry
+ * `short` alone.
  */
 
 /**

@@ -37,6 +37,7 @@ import {
 import { findPath, indexPartnerships } from '../web/src/lib/path.js';
 import { parseSliceKey } from '../shared/schema.js';
 import { CONTACT_EMAIL } from '../shared/site.js';
+import { labelAddsToName } from '../shared/label.js';
 
 /** A big, always-present slice — the densest realistic render. */
 const COUNTRY = 'BRA';
@@ -104,7 +105,7 @@ test('the card carries the name the graph draws, when that is not the name itsel
   page,
 }) => {
   const subject = [...graph(COUNTRY, GENDER).nodes]
-    .filter((n) => n.short.length >= 4 && !n.name.toLowerCase().includes(n.short.toLowerCase()))
+    .filter((n) => n.short.length >= 4 && labelAddsToName(n.name, n.short))
     .sort((a, b) => b.tournaments - a.tournaments)[0];
   test.skip(!subject, 'no player in this slice has a label outside their name');
 
@@ -124,6 +125,22 @@ test('a player whose label is just their name shortened gets no second name', as
   test.skip(!plain, 'no player in this slice has a label inside their name');
 
   await page.goto(`./${slicePath()}?player=${plain!.id}`);
+  await expect(page.locator('.player-card header .alias')).toHaveCount(0);
+});
+
+test('a label that is the name in initials gets no second name either', async ({ page }) => {
+  // "Capogrosso T." under "Tomas Capogrosso": not inside the name, so the
+  // substring test above let 846 of these onto cards across the archive.
+  // Picked with a full stop in the label so the case is unmistakably an
+  // initial form, whatever the helper's other rules decide.
+  const initials = [...graph(COUNTRY, GENDER).nodes]
+    .filter((n) => /\./.test(n.short) && !n.name.toLowerCase().includes(n.short.toLowerCase()))
+    .filter((n) => !labelAddsToName(n.name, n.short))
+    .sort((a, b) => b.tournaments - a.tournaments)[0];
+  test.skip(!initials, 'no player in this slice has an initial-style label');
+
+  await page.goto(`./${slicePath()}?player=${initials!.id}`);
+  await expect(page.locator('.player-card h2')).toHaveText(initials!.name);
   await expect(page.locator('.player-card header .alias')).toHaveCount(0);
 });
 
@@ -1137,12 +1154,9 @@ test.describe('cross-country search', () => {
   test('a player is findable by the label their own node carries', async ({ page }) => {
     const rows = graph(COUNTRY, GENDER).nodes;
     const subject = [...rows]
-      .filter((n) => {
-        const short = n.short.toLowerCase();
-        // A label that reaches somewhere the name does not, and long enough to
-        // be worth typing.
-        return short.length >= 4 && !n.name.toLowerCase().includes(short);
-      })
+      // A label that reaches somewhere the name does not, and long enough to
+      // be worth typing.
+      .filter((n) => n.short.length >= 4 && labelAddsToName(n.name, n.short))
       .sort((a, b) => b.tournaments - a.tournaments)[0];
     test.skip(!subject, 'no player in this slice has a label outside their name');
 
@@ -1349,7 +1363,8 @@ test.describe('without JavaScript', () => {
   // silently: SITE_URL and BASE_PATH are set separately by the workflow, and
   // a canonical assembled from a custom origin and a project-Pages base
   // points at a path that exists on neither host. Nothing else in the suite
-  // would notice, and the first symptom is Google indexing 265 dead URLs.
+  // would notice, and the first symptom is Google indexing every page in the
+  // sitemap at a dead URL.
   test('the canonical URL describes where the page is published', async ({ page, baseURL }) => {
     const here = `./${slicePath()}`;
     await page.goto(here);
