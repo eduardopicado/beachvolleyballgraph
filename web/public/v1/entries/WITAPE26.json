@@ -60,8 +60,6 @@
     [171852,204323,"BRA",null,null],
     [172195,117847,"JPN",null,null],
     [173488,173496,"FIN",null,null],
-    [173533,190904,"AUT",null,null],
-    [177705,213393,"NED",null,null],
     [179339,167352,"SUI",null,null],
     [181264,179491,"FRA",null,null],
     [181598,201267,"NED",null,null],
@@ -96,7 +94,9 @@
   ],
   "withdrawn": [
     [124979,141868,"CAN",null,null,"withdrawn"],
-    [162674,182615,"CAN",null,null,"withdrawn"]
+    [162674,182615,"CAN",null,null,"withdrawn"],
+    [173533,190904,"AUT",null,null,"withdrawn"],
+    [177705,213393,"NED",null,null,"withdrawn"]
   ],
   "players": {
     "103892": "Talita Da Rocha Antunes",
