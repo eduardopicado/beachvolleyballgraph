@@ -221,7 +221,11 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
               <tr>
                 <th scope="col">Dates</th>
                 <th scope="col">Tournament</th>
-                <th scope="col">Country</th>
+                {/* The span is what a phone hides: the column narrows to a flag
+                    there, and the word "Country" would hold it 81px wide. */}
+                <th scope="col" className="where">
+                  <span>Country</span>
+                </th>
                 <th scope="col">Level</th>
               </tr>
             </thead>
