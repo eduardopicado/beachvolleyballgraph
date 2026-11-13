@@ -705,6 +705,13 @@ export default function App() {
                 </button>
               </div>
 
+              {/* Shown only while it has focus. The graph is a single tab stop,
+                  but it is still a large thing to be dropped into, and the
+                  table says the same in a form a keyboard reads straight down. */}
+              <a className="skip" href="#all-players">
+                Skip to the player table
+              </a>
+
               {visibleNodes.length > 0 ? (
                 <PartnershipGraph
                   nodes={visibleNodes}
@@ -772,7 +779,7 @@ export default function App() {
               )}
             </section>
 
-            <section className="table-section">
+            <section className="table-section" id="all-players" tabIndex={-1}>
               <div className="section-head">
                 <h2>All players</h2>
                 <p className="muted">{plural(tableRows.length, 'player')}</p>
