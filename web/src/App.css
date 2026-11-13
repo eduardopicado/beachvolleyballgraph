@@ -256,3 +256,28 @@
     color: var(--text-primary);
   }
 }
+
+
+/* The way past the graph for a keyboard. Off screen until it is focused, then
+   it sits over the graph's corner; it takes no room either way. */
+.app .skip {
+  position: absolute;
+  left: -9999px;
+  z-index: 3;
+  padding: 8px 12px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.app .skip:focus {
+  left: auto;
+  margin: 8px;
+}
+
+/* Focused by the skip link, not by a reader: no ring around the whole table. */
+.app .table-section:focus {
+  outline: none;
+}
