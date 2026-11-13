@@ -34,7 +34,7 @@
   align-items: start;
 }
 
-.player-photo {
+.player-card .player-photo {
   width: 68px;
   height: 68px;
   border-radius: 50%;
@@ -44,7 +44,7 @@
 
 /* No photo on file, or none yet — see Avatar.css for why those are one case
    as far as this circle is concerned. */
-.player-photo.is-fallback {
+.player-card .player-photo.is-fallback {
   color: var(--series-1);
   font-size: 22px;
   font-weight: 650;
@@ -103,7 +103,7 @@
 
 /* --- vitals -------------------------------------------------------------- */
 
-.vitals {
+.player-card .vitals {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -113,14 +113,14 @@
   border-bottom: 1px solid var(--gridline);
 }
 
-.vitals dt {
+.player-card .vitals dt {
   color: var(--text-muted);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
 
-.vitals dd {
+.player-card .vitals dd {
   margin: 2px 0 0;
   color: var(--text-primary);
   font-size: 16px;
@@ -130,7 +130,7 @@
 /* A second, quieter line inside a vitals tile — the Games behind a medal
    tally. Same weight as the birth city below it: the tile's headline value is
    the fact it is named for, and this qualifies it. */
-.vitals dd .sub {
+.player-card .vitals dd .sub {
   display: block;
   margin-top: 1px;
   font-size: 13px;
@@ -141,7 +141,7 @@
 /* The birth city, under the date in the same tile. Smaller and quieter than
    the date it hangs off: the date is the fact the tile is named for, and the
    city is a qualifier on it, not a second value. */
-.vitals .birth-place {
+.player-card .vitals .birth-place {
   display: block;
   margin-top: 1px;
   font-size: 13px;
@@ -153,14 +153,14 @@
    control: these are not views of the same thing at the same level as
    Partners/Timeline, they are a question asked *inside* the timeline, and one
    of them can be off. */
-.tl-filters {
+.player-card .tl-filters {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   margin: 0 0 10px;
 }
 
-.tl-filters button {
+.player-card .tl-filters button {
   padding: 3px 10px;
   border: 1px solid var(--gridline);
   border-radius: 999px;
@@ -172,43 +172,43 @@
 }
 
 @media (hover: hover) {
-  .tl-filters button:hover {
+  .player-card .tl-filters button:hover {
     color: var(--text-primary);
     border-color: var(--border-strong);
   }
 }
 
-.tl-filters button.on {
+.player-card .tl-filters button.on {
   background: var(--series-1-wash);
   border-color: transparent;
   color: var(--series-1);
   font-weight: 600;
 }
 
-.tl-filters button:focus-visible {
+.player-card .tl-filters button:focus-visible {
   outline: 2px solid var(--series-1);
   outline-offset: 2px;
 }
 
 /* Every event in a filtered season is on screen, so the tally beside the year
    only repeats what the reader can already count. */
-.timeline.is-filtered .total {
+.player-card .timeline.is-filtered .total {
   display: none;
 }
 
 /* A filtered season cannot be collapsed — there is nothing behind it but the
    events already on screen — so its year is a label, not a control. */
-.timeline.is-filtered .season {
+.player-card .timeline.is-filtered .season {
   cursor: default;
 }
 
-.timeline.is-filtered .season .caret {
+.player-card .timeline.is-filtered .season .caret {
   visibility: hidden;
 }
 
 /* --- partners ------------------------------------------------------------ */
 
-.partners {
+.player-card .partners {
   display: flex;
   flex-direction: column;
   /* Grow to absorb whatever height the card gained by matching the graph, so
@@ -226,7 +226,7 @@
      rather than a 23-season timeline's full height. */
 }
 
-.partners-head {
+.player-card .partners-head {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -234,7 +234,7 @@
   margin: 0 0 8px;
 }
 
-.partners h3 {
+.player-card .partners h3 {
   margin: 0;
   display: flex;
   align-items: baseline;
@@ -244,7 +244,7 @@
   font-weight: 650;
 }
 
-.partners ul {
+.player-card .partners ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -282,7 +282,7 @@
   min-height: 150px;
 }
 
-.partners li button {
+.player-card .partners li button {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -297,12 +297,12 @@
 }
 
 @media (hover: hover) {
-  .partners li button:hover {
+  .player-card .partners li button:hover {
     background: var(--series-1-wash);
   }
 }
 
-.partners .name {
+.player-card .partners .name {
   flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
@@ -311,14 +311,14 @@
   font-size: 13px;
 }
 
-.partners .meta {
+.player-card .partners .meta {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
 }
 
-.partners .tally {
+.player-card .partners .tally {
   min-width: 26px;
   padding: 1px 6px;
   border-radius: 999px;
@@ -336,7 +336,7 @@
    like. Quieter than the tournament count beside it on purpose: how often two
    people played together is what the list is sorted and sized by, and the
    placement is the detail you read second. */
-.partners .best {
+.player-card .partners .best {
   flex-shrink: 0;
   min-width: 24px;
   text-align: right;
@@ -346,17 +346,17 @@
   font-variant-numeric: tabular-nums;
 }
 
-.partners .best.is-podium {
+.player-card .partners .best.is-podium {
   color: var(--series-1);
 }
 
-.partners .span {
+.player-card .partners .span {
   color: var(--text-muted);
   font-size: 11px;
   font-variant-numeric: tabular-nums;
 }
 
-.partners .empty {
+.player-card .partners .empty {
   margin: 0;
   color: var(--text-secondary);
   font-size: 13px;
@@ -367,14 +367,14 @@
 /* Sits below whichever list is showing, outside its scroll area, so it stays
    visible rather than being something you have to scroll the list to find —
    for a player who transferred, this *is* their career. */
-.away {
+.player-card .away {
   flex-shrink: 0;
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid var(--border);
 }
 
-.away h4 {
+.player-card .away h4 {
   margin: 0 0 4px;
   color: var(--text-muted);
   font-size: 11px;
@@ -383,7 +383,7 @@
   letter-spacing: 0.04em;
 }
 
-.away ul {
+.player-card .away ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -399,8 +399,8 @@
   min-height: 0;
 }
 
-.away li button,
-.away li .unlinked {
+.player-card .away li button,
+.player-card .away li .unlinked {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -415,24 +415,24 @@
   color: inherit;
 }
 
-.away li button {
+.player-card .away li button {
   cursor: pointer;
 }
 
 @media (hover: hover) {
-  .away li button:hover {
+  .player-card .away li button:hover {
     background: var(--series-1-wash);
   }
 }
 
 /* No page to send anyone to: that country x gender slice had fewer than two
    players, so it was never published. Still named — the partner is real. */
-.away li .unlinked {
+.player-card .away li .unlinked {
   cursor: default;
   color: var(--text-secondary);
 }
 
-.away .fed {
+.player-card .away .fed {
   font-size: 12px;
   line-height: 1;
   /* The two flags and the arrow are one unit; without this a narrow card can
@@ -445,7 +445,7 @@
    Dimmed and a size down, because the row is primarily about the partnership
    and this is the footnote that explains why the row is in this block at all
    — and where selecting it will take you. */
-.away .moved-to {
+.player-card .away .moved-to {
   margin-left: 1px;
   color: var(--text-muted);
   font-size: 10px;
@@ -455,7 +455,7 @@
 
 /* Fills the row now that the heading beside it is gone. It is the section's
    label as well as its control, so it gets the width a heading had. */
-.view-switch {
+.player-card .view-switch {
   display: flex;
   gap: 2px;
   flex: 1;
@@ -469,7 +469,7 @@
   background: var(--track);
 }
 
-.view-switch button {
+.player-card .view-switch button {
   /* Equal halves, so neither view reads as the secondary one. The type steps
      up from 11px to the 13px the heading used, because this now carries the
      job that heading had. */
@@ -486,7 +486,7 @@
 }
 
 @media (hover: hover) {
-  .view-switch button:hover {
+  .player-card .view-switch button:hover {
     color: var(--text-primary);
   }
 }
@@ -496,7 +496,7 @@
    learn "selected" twice. Losing the white thumb is the cost of that, and it
    is paid back three times over: fill, text colour and weight all move
    together, where the thumb signalled with fill alone. */
-.view-switch button[aria-pressed='true'] {
+.player-card .view-switch button[aria-pressed='true'] {
   background: var(--series-1-wash);
   color: var(--series-1);
 }
@@ -505,7 +505,7 @@
 
 /* Shares .partners' scroll and flex behaviour — same slot in the card, same
    constraints — so only what differs is set here. */
-.timeline {
+.player-card .timeline {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -517,7 +517,7 @@
 /* Year in a fixed gutter, partners in the column beside it. A season with two
    partners then reads as one year with two names against it, and a 20-season
    career stays scannable instead of alternating heading/row down the card. */
-.timeline > li {
+.player-card .timeline > li {
   display: grid;
   /* Wide enough for the caret plus four digits. */
   grid-template-columns: 4.1em minmax(0, 1fr);
@@ -525,7 +525,7 @@
   align-items: start;
 }
 
-.timeline > li + li {
+.player-card .timeline > li + li {
   margin-top: 4px;
   padding-top: 4px;
   border-top: 1px solid var(--border);
@@ -535,7 +535,7 @@
    It takes the whole gutter rather than just the digits: the row is as tall as
    its partner list, and a four-character target in a card this narrow is not
    one worth aiming at. */
-.timeline .season {
+.player-card .timeline .season {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -553,12 +553,12 @@
 }
 
 @media (hover: hover) {
-  .timeline .season:hover {
+  .player-card .timeline .season:hover {
     background: var(--series-1-wash);
   }
 }
 
-.timeline .year-row {
+.player-card .timeline .year-row {
   display: flex;
   align-items: center;
   gap: 3px;
@@ -568,7 +568,7 @@
    asset and no colour of its own — it inherits, so it dims and brightens with
    the year beside it. Always visible: this is the affordance, and an
    affordance that only appears on hover does not exist on a touchscreen. */
-.timeline .caret {
+.player-card .timeline .caret {
   width: 0;
   height: 0;
   flex-shrink: 0;
@@ -582,34 +582,34 @@
 /* Open is a state, not a pointer position, so the colour stays out of the
    hover gate below — on a phone this is the only one of the two that can ever
    be true, and it is what says the season is open. */
-.timeline .season[aria-expanded='true'] .caret {
+.player-card .timeline .season[aria-expanded='true'] .caret {
   color: var(--series-1);
   transform: rotate(90deg);
 }
 
 @media (hover: hover) {
-  .timeline .season:hover .caret {
+  .player-card .timeline .season:hover .caret {
     color: var(--series-1);
   }
 }
 
 @media (hover: hover) {
-  .timeline .season:hover .year {
+  .player-card .timeline .season:hover .year {
     color: var(--text-primary);
   }
 }
 
-.timeline .season[aria-expanded='true'] .year {
+.player-card .timeline .season[aria-expanded='true'] .year {
   color: var(--series-1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .timeline .caret {
+  .player-card .timeline .caret {
     transition: none;
   }
 }
 
-.timeline .year {
+.player-card .timeline .year {
   font-size: 12px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -618,13 +618,13 @@
 
 /* Context for the rows beside it, not a peer of the per-partner tallies —
    quieter, so the eye still lands on the names. */
-.timeline .total {
+.player-card .timeline .total {
   color: var(--text-muted);
   font-size: 10px;
   font-variant-numeric: tabular-nums;
 }
 
-.timeline ul {
+.player-card .timeline ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -640,7 +640,7 @@
   min-height: 0;
 }
 
-.timeline li button {
+.player-card .timeline li button {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -655,7 +655,7 @@
 }
 
 @media (hover: hover) {
-  .timeline li button:hover {
+  .player-card .timeline li button:hover {
     background: var(--series-1-wash);
   }
 }
@@ -665,7 +665,7 @@
 /* Two lines per tournament rather than one: name and finish are what the eye
    is looking for, and cramming the date, the tier and the partner onto the
    same row inside a card this narrow would ellipsis away the name itself. */
-.events {
+.player-card .events {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -683,13 +683,13 @@
    unaligned lines — but grouped content is neither selected nor clickable, and
    painting it in the accent put four blue blocks under a blue selected chip.
    The panel stays; only its colour stops making a claim. */
-.events > li {
+.player-card .events > li {
   padding: 4px 8px 5px;
   border-radius: 6px;
   background: var(--track);
 }
 
-.events .event {
+.player-card .events .event {
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -700,13 +700,13 @@
 /* The venue's flag, ahead of the name. `flex: none` so it never gives up
    width to the ellipsis on a long tournament name beside it, and a line-height
    of 1 so an emoji taller than the text does not open the row up. */
-.events .where {
+.player-card .events .where {
   flex: none;
   line-height: 1;
   font-size: 12px;
 }
 
-.events .name {
+.player-card .events .name {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -720,7 +720,7 @@
    colouring them all would make the list read as a wall of links and lose the
    emphasis the finish beside it needs. The affordance is the pointer and the
    underline on hover, with focus-visible carrying the keyboard case. */
-.events button.name {
+.player-card .events button.name {
   border: 0;
   background: none;
   padding: 0;
@@ -733,13 +733,13 @@
 }
 
 @media (hover: hover) {
-  .events button.name:hover {
+  .player-card .events button.name:hover {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
 }
 
-.events .finish {
+.player-card .events .finish {
   flex-shrink: 0;
   font-size: 12px;
   font-weight: 700;
@@ -752,20 +752,20 @@
    accent on a third meaning in a row that already has enough of them. Primary
    rather than secondary keeps the placement a shade stronger than an ordinary
    finish, which is the part worth keeping. */
-.events .finish.podium {
+.player-card .events .finish.podium {
   color: var(--text-primary);
 }
 
 /* Sits tight against the ordinal it qualifies, and slightly below the cap
    height so the glyph's optical centre lines up with the digits rather than
    riding above them. */
-.events .finish .medal {
+.player-card .events .finish .medal {
   margin-right: 3px;
   font-size: 11px;
   vertical-align: -0.5px;
 }
 
-.events .event-meta {
+.player-card .events .event-meta {
   margin: 2px 0 0;
   display: flex;
   flex-wrap: wrap;
@@ -775,7 +775,7 @@
   font-size: 11px;
 }
 
-.events .badge {
+.player-card .events .badge {
   padding: 0 5px;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -784,7 +784,7 @@
 
 /* The partner is the reason this row differs from the one above it in a season
    somebody split between two people, so it reads as text rather than metadata. */
-.events .with {
+.player-card .events .with {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -792,7 +792,7 @@
   color: var(--text-secondary);
 }
 
-.events-note {
+.player-card .events-note {
   margin: 0;
   padding: 5px 8px;
   color: var(--text-muted);
@@ -803,7 +803,7 @@
    Nothing styled `.card-foot` or `.find-path` when the path panel was added, so
    the button rendered at the browser default — grey, chunky, and the loudest
    thing on a card whose every other control is quiet. */
-.card-foot {
+.player-card .card-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -814,7 +814,7 @@
 /* Sized against the row it sits on rather than as a call to action. The card is
    already a page of controls, and this is one more of them — not the point of
    the card. */
-.find-path {
+.player-card .find-path {
   flex: none;
   display: inline-flex;
   align-items: center;
@@ -834,7 +834,7 @@
 
 /* The arrow says "this leads somewhere" without spending a word on it, and is
    hidden from screen readers, which already have the label. */
-.find-path::before {
+.player-card .find-path::before {
   content: '⇢';
   font-size: 13px;
   line-height: 1;
@@ -842,19 +842,19 @@
 }
 
 @media (hover: hover) {
-  .find-path:hover {
+  .player-card .find-path:hover {
     background: var(--series-1-wash);
     border-color: var(--series-1);
     color: var(--text-primary);
   }
 }
 
-.find-path:focus-visible {
+.player-card .find-path:focus-visible {
   outline: 2px solid var(--series-1);
   outline-offset: 2px;
 }
 
-.profile-link {
+.player-card .profile-link {
   flex: none;
   font-size: 13px;
   font-weight: 600;
@@ -862,7 +862,7 @@
 }
 
 @media (hover: hover) {
-  .profile-link:hover {
+  .player-card .profile-link:hover {
     text-decoration: underline;
   }
 }

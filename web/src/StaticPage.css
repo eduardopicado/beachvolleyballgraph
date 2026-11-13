@@ -301,14 +301,18 @@
 }
 
 /* The legend: the graph's own marks at the graph's own sizes, set inline. */
-/* 6px 18px is the spacing this legend has always rendered with: the graph
-   page's own `.legend` rule in App.css shares the class and, while these rules
-   were unscoped, won the tie on source order. Kept, so scoping this sheet
-   changed nothing on the page anyone had seen. */
+/* The margin, colour, size and 6px 18px spacing are what this legend has
+   always rendered with: they came from the graph page's own `.legend` rule in
+   App.css, which shares the class and, while both sheets were unscoped, reached
+   this page too. Copied here when App.css was scoped to `.app`, so containing
+   the two sheets changed nothing on the page anyone had seen. */
 .static-page .legend {
+  margin: 5px 0 0;
   display: flex;
   flex-wrap: wrap;
   gap: 6px 18px;
+  color: var(--text-muted);
+  font-size: 12px;
 }
 
 .static-page .legend > div {

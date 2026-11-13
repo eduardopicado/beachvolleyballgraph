@@ -6,8 +6,8 @@
  * every year on a player card's timeline sat on a solid block of the blue it is
  * written in, so the column read as a stack of empty bars; and the year in a
  * tournament page's title was turned into a flex column and pushed onto a line
- * of its own. `web/src/staticPageCss.test.ts` guards the sheet; this guards
- * what a reader actually saw.
+ * of its own. `web/src/stylesheetScope.test.ts` guards every sheet; this
+ * guards what a reader actually saw.
  */
 
 import { test, expect, graph } from './fixtures.js';

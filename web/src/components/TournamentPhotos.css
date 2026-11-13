@@ -75,7 +75,7 @@
   }
 }
 
-.photo-credit {
+.photo-strip .photo-credit {
   margin: 0;
   display: flex;
   justify-content: space-between;
@@ -122,7 +122,7 @@
   width: min(960px, 100%, calc((100vh - 160px) * 1.5));
 }
 
-.photo-shot {
+.photo-viewer .photo-shot {
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -131,7 +131,7 @@
   line-height: 0;
 }
 
-.photo-lo {
+.photo-viewer .photo-lo {
   display: block;
   width: 100%;
   height: auto;
@@ -139,7 +139,7 @@
   object-fit: contain;
 }
 
-.photo-hi {
+.photo-viewer .photo-hi {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -149,7 +149,7 @@
   transition: opacity 180ms ease-out;
 }
 
-.photo-shot.is-sharp .photo-hi {
+.photo-viewer .photo-shot.is-sharp .photo-hi {
   opacity: 1;
 }
 
@@ -159,14 +159,14 @@
   gap: 2px;
 }
 
-.photo-caption {
+.photo-viewer .photo-caption {
   color: #fff;
   font-size: 15px;
   font-weight: 600;
   text-wrap: balance;
 }
 
-.photo-meta {
+.photo-viewer .photo-meta {
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -182,7 +182,7 @@
 }
 
 .photo-viewer nav button,
-.photo-close {
+.photo-viewer .photo-close {
   border: 1px solid rgba(255, 255, 255, 0.28);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
@@ -201,7 +201,7 @@
   cursor: default;
 }
 
-.photo-close {
+.photo-viewer .photo-close {
   position: absolute;
   top: 14px;
   right: 14px;
@@ -215,14 +215,14 @@
 }
 
 .photo-viewer nav button:focus-visible,
-.photo-close:focus-visible {
+.photo-viewer .photo-close:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
 
 @media (hover: hover) {
   .photo-viewer nav button:not(:disabled):hover,
-  .photo-close:hover {
+  .photo-viewer .photo-close:hover {
     background: rgba(255, 255, 255, 0.2);
   }
 }
@@ -233,7 +233,7 @@
     animation: none;
   }
 
-  .photo-hi {
+  .photo-viewer .photo-hi {
     transition: none;
   }
 }

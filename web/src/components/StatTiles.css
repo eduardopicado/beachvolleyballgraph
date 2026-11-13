@@ -10,7 +10,7 @@
   gap: 12px;
 }
 
-.tile {
+.stat-tiles .tile {
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -25,7 +25,7 @@
   min-width: 0;
 }
 
-.tile .label {
+.stat-tiles .tile .label {
   color: var(--text-muted);
   font-size: 11px;
   font-weight: 600;
@@ -34,7 +34,7 @@
 }
 
 /* Proportional figures — tabular-nums makes large standalone numbers look loose. */
-.tile .value {
+.stat-tiles .tile .value {
   color: var(--text-primary);
   font-size: 26px;
   font-weight: 650;
@@ -45,17 +45,17 @@
    columns as well, which was a third signal saying what the wash and the 48px
    value already say — and it was the reason the row arithmetic never came out
    even, since six tiles then consumed seven columns. */
-.tile.is-hero {
+.stat-tiles .tile.is-hero {
   background: var(--series-1-wash);
   border-color: transparent;
 }
 
-.tile.is-hero .value {
+.stat-tiles .tile.is-hero .value {
   font-size: 48px;
   letter-spacing: -0.02em;
 }
 
-.tile .detail {
+.stat-tiles .tile .detail {
   color: var(--text-secondary);
   font-size: 12px;
 }
@@ -65,13 +65,13 @@
    a mistake. Below this the narrower basis is what keeps a phone at two tiles
    per row instead of one. */
 @media (min-width: 700px) {
-  .tile {
+  .stat-tiles .tile {
     flex-basis: 180px;
   }
 }
 
 @media (max-width: 560px) {
-  .tile.is-hero .value {
+  .stat-tiles .tile.is-hero .value {
     font-size: 38px;
   }
 }
