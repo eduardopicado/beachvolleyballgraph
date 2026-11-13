@@ -195,3 +195,10 @@
   font-weight: 650;
   font-variant-numeric: tabular-nums;
 }
+
+@media (pointer: coarse) {
+  .graph-wrap .graph-controls button {
+    min-width: 44px;
+    height: 44px;
+  }
+}

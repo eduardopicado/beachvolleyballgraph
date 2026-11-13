@@ -121,3 +121,11 @@
     transition: none;
   }
 }
+
+@media (pointer: coarse) {
+  .start-here .head .all {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

@@ -301,3 +301,17 @@
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
+
+@media (pointer: coarse) {
+  .tournament-index > nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .tournament-index td.what a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+}

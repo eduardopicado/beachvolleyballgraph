@@ -866,3 +866,17 @@
     text-decoration: underline;
   }
 }
+
+@media (pointer: coarse) {
+  .player-card .profile-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* One of up to twenty names in a season: the list floor, not the control one. */
+  .player-card .events button.name {
+    min-width: 0;
+    min-height: 32px;
+  }
+}

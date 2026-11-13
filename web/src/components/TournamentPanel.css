@@ -202,3 +202,9 @@
   color: var(--text-secondary);
 }
 
+@media (pointer: coarse) {
+  .tournament-panel .pair button {
+    min-width: 0;
+    min-height: 32px;
+  }
+}

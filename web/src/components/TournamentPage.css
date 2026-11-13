@@ -537,3 +537,38 @@
     color: var(--text-primary);
   }
 }
+
+@media (pointer: coarse) {
+  .tournament-page > nav a,
+  .tournament-page .draws a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .tournament-page .draws .is-here {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* The sortable headings are 44px buttons now; "#" is plain text and would
+     otherwise hang at their baseline. */
+  .tournament-page .entries thead th {
+    vertical-align: middle;
+  }
+
+  /* Names in a field of fifty teams, and the fifty editions under it: the
+     list floor. */
+  .tournament-page .pair button,
+  .tournament-page .entries .who button {
+    min-width: 0;
+    min-height: 32px;
+  }
+
+  .tournament-page .entries .who .offsite,
+  .tournament-page .edition a.year {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+}

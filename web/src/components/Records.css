@@ -195,3 +195,16 @@
   font-size: 14px;
   color: var(--text-muted);
 }
+
+@media (pointer: coarse) {
+  .records-page > nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .records-page .who a {
+    display: inline-block;
+    padding-block: 7px;
+  }
+}

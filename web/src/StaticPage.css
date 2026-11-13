@@ -422,3 +422,14 @@
   margin: 0;
   color: var(--text-secondary);
 }
+
+@media (pointer: coarse) {
+  /* The breadcrumb, and the About page's way back: the two links on these
+     pages that stand alone rather than inside a sentence. */
+  .static-page > nav a,
+  .static-page.about > p > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

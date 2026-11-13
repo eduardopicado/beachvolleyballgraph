@@ -155,3 +155,26 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Touch. A finger needs about 44px to land on a control, and almost nothing
+ * here gave it: the draw switch was 28px tall, the card's close button 30px,
+ * a player's name in a classification 22px. Measured on a phone, 56 of the 60
+ * kinds of control on the site were under 44px one way or the other.
+ *
+ * `pointer: coarse` rather than a width, because it is the finger that needs
+ * the room and not the small screen: a narrow desktop window keeps its density
+ * and a tablet gets the larger targets. `:where()` so the floor carries no
+ * specificity and any component may set its own, which the names in long lists
+ * do: 44px on every line of a 53-team classification would double the page,
+ * so those take 32px, above the 24px WCAG 2.2 asks as its minimum.
+ */
+@media (pointer: coarse) {
+  :where(button, select, input, [role='option']) {
+    min-height: 44px;
+  }
+
+  :where(button) {
+    min-width: 44px;
+  }
+}
