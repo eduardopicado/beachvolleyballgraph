@@ -24,7 +24,7 @@
 
 .start-here .head .all {
   font-size: 12.5px;
-  color: var(--series-1);
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: -0.006em;
-  color: var(--series-1);
+  color: var(--link);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

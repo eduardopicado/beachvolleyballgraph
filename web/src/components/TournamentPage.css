@@ -24,7 +24,7 @@
 
 @media (hover: hover) {
   .tournament-page > nav a:hover {
-    color: var(--series-1);
+    color: var(--link);
     text-decoration: underline;
   }
 }
@@ -159,7 +159,7 @@
   background: none;
   padding: 0;
   font: inherit;
-  color: var(--series-1);
+  color: var(--link);
   cursor: pointer;
   text-align: left;
 }
@@ -224,7 +224,7 @@
   font-size: 15px;
   font-weight: 650;
   font-variant-numeric: tabular-nums;
-  color: var(--series-1);
+  color: var(--link);
   text-decoration: none;
 }
 
@@ -358,7 +358,7 @@
   top: 0;
   left: 100%;
   margin-left: 2px;
-  color: var(--series-1);
+  color: var(--link);
 }
 
 .tournament-page .entries th.num .arrow {
@@ -409,7 +409,7 @@
   background: none;
   padding: 0;
   font: inherit;
-  color: var(--series-1);
+  color: var(--link);
   cursor: pointer;
   text-align: left;
   text-decoration: none;
@@ -527,7 +527,7 @@
 }
 
 .tournament-page .draws .is-here {
-  background: var(--series-1);
+  background: var(--accent-fill);
   color: #fff;
 }
 

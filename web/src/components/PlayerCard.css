@@ -45,7 +45,7 @@
 /* No photo on file, or none yet — see Avatar.css for why those are one case
    as far as this circle is concerned. */
 .player-card .player-photo.is-fallback {
-  color: var(--series-1);
+  color: var(--link);
   font-size: 22px;
   font-weight: 650;
   letter-spacing: 0.02em;
@@ -181,7 +181,7 @@
 .player-card .tl-filters button.on {
   background: var(--series-1-wash);
   border-color: transparent;
-  color: var(--series-1);
+  color: var(--link);
   font-weight: 600;
 }
 
@@ -347,7 +347,7 @@
 }
 
 .player-card .partners .best.is-podium {
-  color: var(--series-1);
+  color: var(--link);
 }
 
 .player-card .partners .span {
@@ -498,7 +498,7 @@
    together, where the thumb signalled with fill alone. */
 .player-card .view-switch button[aria-pressed='true'] {
   background: var(--series-1-wash);
-  color: var(--series-1);
+  color: var(--link);
 }
 
 /* --- Timeline ------------------------------------------------------------ */
@@ -583,13 +583,13 @@
    hover gate below — on a phone this is the only one of the two that can ever
    be true, and it is what says the season is open. */
 .player-card .timeline .season[aria-expanded='true'] .caret {
-  color: var(--series-1);
+  color: var(--link);
   transform: rotate(90deg);
 }
 
 @media (hover: hover) {
   .player-card .timeline .season:hover .caret {
-    color: var(--series-1);
+    color: var(--link);
   }
 }
 
@@ -600,7 +600,7 @@
 }
 
 .player-card .timeline .season[aria-expanded='true'] .year {
-  color: var(--series-1);
+  color: var(--link);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -838,7 +838,7 @@
   content: '⇢';
   font-size: 13px;
   line-height: 1;
-  color: var(--series-1);
+  color: var(--link);
 }
 
 @media (hover: hover) {
