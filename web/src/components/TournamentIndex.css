@@ -308,6 +308,16 @@
     font-size: 13.5px;
   }
 
+  /* What is left can still be wider than a narrow phone with wide fonts: one
+     long word in a name, or "Challenge" beside it. Either may break rather
+     than push the table off the screen; it failed at 360px in CI and not on
+     the machine it was written on, by the width of a typeface. */
+  .tournament-index td.what,
+  .tournament-index td.level {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
   /* A range across two months, "30 Mar – 2 Apr", may break; the floor keeps
      the ordinary "11–15 Mar" on one line, which the table would otherwise
      squeeze to give the name more room. */

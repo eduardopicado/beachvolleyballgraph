@@ -12,7 +12,10 @@
 
 import { test, expect } from './fixtures.js';
 
-for (const width of [390, 360]) {
+// 320 is narrower than any phone this is likely to meet. It is here for the
+// margin: fonts differ between machines, and at 360 the table fitted on one and
+// not on another.
+for (const width of [390, 360, 320]) {
   test.describe(`${width}px wide`, () => {
     test.use({ viewport: { width, height: 780 } });
 
