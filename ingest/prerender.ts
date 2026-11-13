@@ -37,6 +37,7 @@ import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
+import { openingSort, sortEntries } from '../web/src/lib/entrySort.js';
 import {
   CONTACT_EMAIL,
   DEFAULT_COUNTRY,
@@ -1072,7 +1073,12 @@ async function main() {
       description = entered
         ? `${named}, ${label.toLowerCase()}: ${entered} teams entered. The tournament has not been played yet.`
         : `${named}, ${label.toLowerCase()}: not played yet, and no teams have entered so far.`;
-      rows = (entries?.teams ?? [])
+      // In the order the page opens on — FIVB's once the list has points, by
+      // country until then — so the static list and the hydrated one agree.
+      const teams = entries?.teams ?? [];
+      const nameOf = (id: number) => entries?.players[id] ?? `Player ${id}`;
+      rows = sortEntries(teams, openingSort(teams), nameOf)
+        .map(({ team }) => team)
         .map(
           ([a, b, federation]) =>
             `<li>${esc(

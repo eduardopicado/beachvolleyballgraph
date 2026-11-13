@@ -28,6 +28,8 @@ import { useMemo, type ReactNode } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../../../shared/schema';
 import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../../../shared/schema';
 import { bandsOf } from '../lib/classification';
+import { hasEntryPoints, nextEntrySort, openingSort, sortEntries, type EntrySortKey } from '../lib/entrySort';
+import { useStateFor } from '../lib/useStateFor';
 import { nameCarriesSeason } from '../../../shared/slug';
 import {
   countryName,
@@ -107,6 +109,14 @@ const GENDER_LABEL: Record<Gender, string> = { M: "Men's", W: "Women's" };
  */
 const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
 
+/** The entry list's sortable columns, in the order the table draws them. */
+const ENTRY_COLUMNS: { key: EntrySortKey; label: string; numeric: boolean }[] = [
+  { key: 'team', label: 'Team', numeric: false },
+  { key: 'fed', label: 'Fed.', numeric: false },
+  { key: 'entry', label: 'Entry', numeric: true },
+  { key: 'tech', label: 'Tech', numeric: true },
+];
+
 /**
  * Who has entered an event that has not produced a result.
  *
@@ -115,6 +125,13 @@ const DRAW_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
  * down the list, breaking ties on technical points. It reads as their own
  * entry list reads, and the earlier version — grouped alphabetically by
  * federation — hid the one thing the list is for.
+ *
+ * **Sortable, but always opened in that order.** The column headers re-sort
+ * by team, country, entry or technical points, for a reader looking for
+ * someone; "#" stays each team's place in FIVB's order whatever the sort, so a
+ * list sorted by country still says who gets in. Chosen from a mockup over a
+ * "Sort by" control above the table, and drawn as the "All players" table
+ * draws its sortable headers. See `lib/entrySort.ts`.
  *
  * **The points are frozen, and the page says so.** A player's own card on this
  * site shows live points, so the same pair can show two different numbers a
@@ -144,6 +161,11 @@ function EntryList({
   iso2Of: (federation: string) => string | null;
   onSelectPlayer: Props['onSelectPlayer'];
 }) {
+  // Per list: opening another tournament starts again in its opening order —
+  // FIVB's once the list has points, by country until it does.
+  const list = entries.status === 'ready' ? entries.data : null;
+  const [sort, setSort] = useStateFor(list?.code ?? '', () => openingSort(list?.teams ?? []));
+
   if (entries.status === 'loading') return <p className="note">Loading the entry list…</p>;
   if (entries.status === 'failed')
     return <p className="note">Could not load this tournament&rsquo;s entry list.</p>;
@@ -198,36 +220,65 @@ function EntryList({
     );
   }
 
+  // Without points there is no order that decides who gets in: no "#" to
+  // show, and nothing in the two points columns to sort by.
+  const ranked = hasEntryPoints(teams);
+
   return (
     <section aria-label="Entry list" className="entries">
       <h2>Entry list</h2>
-      <p className="blurb">
-        Entry points decide who gets in, and technical points break their ties. Both are FIVB&rsquo;s
-        figures frozen at the registration deadline, so they sit behind the live points on a
-        player&rsquo;s own page.
-      </p>
+      {ranked ? (
+        <p className="blurb">
+          Entry points decide who gets in, and technical points break their ties: # is each
+          team&rsquo;s place in that order, whichever column the list is sorted by. Both are
+          FIVB&rsquo;s figures frozen at the registration deadline, so they sit behind the live
+          points on a player&rsquo;s own page.
+        </p>
+      ) : (
+        <p className="blurb">
+          FIVB publishes entry and technical points at the registration deadline, and they decide
+          who gets in. They are not out for this list yet, so it is shown by country.
+        </p>
+      )}
 
       {teams.length > 0 && (
         <table>
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Team</th>
-              <th scope="col">Fed.</th>
-              <th scope="col" className="num">
-                Entry
-              </th>
-              <th scope="col" className="num">
-                Tech
-              </th>
+              {/* Not a sort of its own: it is FIVB's order, which is what the
+                  entry column sorts by. */}
+              {ranked && <th scope="col">#</th>}
+              {ENTRY_COLUMNS.map((col) =>
+                !ranked && col.numeric ? (
+                  <th key={col.key} scope="col" className="num">
+                    {col.label}
+                  </th>
+                ) : (
+                  <th
+                    key={col.key}
+                    scope="col"
+                    className={col.numeric ? 'num' : undefined}
+                    aria-sort={sort.key === col.key ? (sort.desc ? 'descending' : 'ascending') : 'none'}
+                  >
+                    <button type="button" onClick={() => setSort((prev) => nextEntrySort(prev, col.key))}>
+                      <span className="label">
+                        {col.label}
+                        <span className="arrow" aria-hidden="true">
+                          {sort.key === col.key ? (sort.desc ? '▾' : '▴') : ''}
+                        </span>
+                      </span>
+                    </button>
+                  </th>
+                ),
+              )}
             </tr>
           </thead>
           <tbody>
-            {teams.map((team, at) => {
+            {sortEntries(teams, sort, (id) => players[id] ?? `Player ${id}`).map(({ team, at }) => {
               const { a, b, federation, entry, tech, route } = readEntry(team);
               return (
                 <tr key={`${a}-${b}`}>
-                  <td className="at">{at + 1}</td>
+                  {ranked && <td className="at">{at}</td>}
                   <td className="who">
                     {pair(a, b, federation)}
                     {/* Only the four routes that are not "by ranking"; the
