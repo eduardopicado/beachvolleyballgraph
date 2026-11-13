@@ -13,7 +13,9 @@
   --page: #f9f9f7; /* page plane */
   --text-primary: #0b0b0b;
   --text-secondary: #52514e;
-  --text-muted: #898781;
+  /* 5.2:1 on the page and 5.3:1 on a card. The first value, #898781, was
+     3.4:1 and carried every label and caption on the site at 11px. */
+  --text-muted: #6b6964;
   --gridline: #e1e0d9;
   --baseline: #c3c2b7;
   --border: rgba(11, 11, 11, 0.1);
@@ -24,6 +26,11 @@
 
   --series-1: #2a78d6; /* player node */
   --series-2: #eb6834; /* selected player */
+  /* Blue as text, and blue under white text. Darker than --series-1, which
+     is a mark colour chosen against the graph's surface and reaches only
+     4.2:1 as 12px text and 4.4:1 under white. Both of these clear 4.5:1. */
+  --link: #1a5db4;
+  --accent-fill: #1f66c1;
   --series-1-wash: rgba(42, 120, 214, 0.1);
   --series-2-wash: rgba(235, 104, 52, 0.12);
 
@@ -47,7 +54,7 @@
     --page: #0d0d0d;
     --text-primary: #ffffff;
     --text-secondary: #c3c2b7;
-    --text-muted: #898781;
+    --text-muted: #9a988f;
     --gridline: #2c2c2a;
     --baseline: #383835;
     --border: rgba(255, 255, 255, 0.1);
@@ -56,6 +63,8 @@
 
     --series-1: #3987e5;
     --series-2: #d95926;
+    --link: #6aa7f0;
+    --accent-fill: #2a6fca;
     --series-1-wash: rgba(57, 135, 229, 0.14);
     --series-2-wash: rgba(217, 89, 38, 0.16);
 
@@ -72,7 +81,7 @@
   --page: #0d0d0d;
   --text-primary: #ffffff;
   --text-secondary: #c3c2b7;
-  --text-muted: #898781;
+  --text-muted: #9a988f;
   --gridline: #2c2c2a;
   --baseline: #383835;
   --border: rgba(255, 255, 255, 0.1);
@@ -81,6 +90,8 @@
 
   --series-1: #3987e5;
   --series-2: #d95926;
+  --link: #6aa7f0;
+  --accent-fill: #2a6fca;
   --series-1-wash: rgba(57, 135, 229, 0.14);
   --series-2-wash: rgba(217, 89, 38, 0.16);
 
@@ -114,7 +125,7 @@ body {
 }
 
 :where(a) {
-  color: var(--series-1);
+  color: var(--link);
 }
 
 /* A single visible focus treatment, used everywhere. */

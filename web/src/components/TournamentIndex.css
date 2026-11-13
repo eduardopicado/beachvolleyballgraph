@@ -24,7 +24,7 @@
 
 @media (hover: hover) {
   .tournament-index > nav a:hover {
-    color: var(--series-1);
+    color: var(--link);
     text-decoration: underline;
   }
 }
@@ -97,7 +97,7 @@
 }
 
 .tournament-index .segmented button.is-selected {
-  background: var(--series-1);
+  background: var(--accent-fill);
   color: #fff;
 }
 
