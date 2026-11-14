@@ -256,3 +256,16 @@
     color: var(--text-primary);
   }
 }
+
+@media (pointer: coarse) {
+  .app .masthead-actions .pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .app .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}
