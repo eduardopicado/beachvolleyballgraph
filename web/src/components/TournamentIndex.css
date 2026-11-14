@@ -281,6 +281,51 @@
     display: none;
   }
 
+  /*
+   * Hiding the name was not enough: the table still measured 453px on a 390px
+   * phone, so "Country" was cut and "Level" sat off the screen. Its heading
+   * held the flag column 81px wide, and the cells' padding did the rest. The
+   * heading stays for a screen reader and gives up its width; the same recipe
+   * as `.sr-only`, here because it applies on a phone only.
+   */
+  .tournament-index th.where span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .tournament-index thead th,
+  .tournament-index tbody td {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .tournament-index table {
+    font-size: 13.5px;
+  }
+
+  /* What is left can still be wider than a narrow phone with wide fonts: one
+     long word in a name, or "Challenge" beside it. Either may break rather
+     than push the table off the screen; it failed at 360px in CI and not on
+     the machine it was written on, by the width of a typeface. */
+  .tournament-index td.what,
+  .tournament-index td.level {
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  /* A range across two months, "30 Mar – 2 Apr", may break; the floor keeps
+     the ordinary "11–15 Mar" on one line, which the table would otherwise
+     squeeze to give the name more room. */
+  .tournament-index td.when {
+    white-space: normal;
+    min-width: 80px;
+  }
+
   .tournament-index .key {
     min-width: 0;
   }
