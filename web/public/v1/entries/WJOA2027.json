@@ -2,7 +2,13 @@
   "code": "WJOA2027",
   "gender": "W",
   "teams": [
-
+    [192301,141784,"CHN",null,null],
+    [202842,210161,"CHN",null,null]
   ],
-  "players": {}
+  "players": {
+    "141784": "Xinyi Xia",
+    "192301": "Xu Yan",
+    "202842": "Kadeliye Halaiti",
+    "210161": "Siyu Qi"
+  }
 }
