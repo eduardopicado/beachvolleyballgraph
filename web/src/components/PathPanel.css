@@ -86,7 +86,7 @@
 .path-panel .chosen button {
   border: 0;
   background: transparent;
-  color: var(--series-1);
+  color: var(--link);
   font-size: 12px;
   cursor: pointer;
   padding: 0;
@@ -234,7 +234,7 @@
 }
 
 .path-panel .chain .avatar.is-fallback {
-  color: var(--series-1);
+  color: var(--link);
   font-size: 10px;
   font-weight: 600;
   line-height: 1;

@@ -15,7 +15,7 @@
 }
 
 .static-page a {
-  color: var(--series-1);
+  color: var(--link);
   text-underline-offset: 2px;
 }
 
@@ -30,7 +30,7 @@
 
 @media (hover: hover) {
   .static-page > nav a:hover {
-    color: var(--series-1);
+    color: var(--link);
     text-decoration: underline;
   }
 }
@@ -94,7 +94,7 @@
 }
 
 .static-page .ways-back .figure {
-  color: var(--series-1);
+  color: var(--link);
   font-size: 28px;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -421,4 +421,15 @@
 .static-page .about-credits dd {
   margin: 0;
   color: var(--text-secondary);
+}
+
+@media (pointer: coarse) {
+  /* The breadcrumb, and the About page's way back: the two links on these
+     pages that stand alone rather than inside a sentence. */
+  .static-page > nav a,
+  .static-page.about > p > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }

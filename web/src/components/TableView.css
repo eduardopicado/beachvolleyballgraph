@@ -60,7 +60,7 @@
 
 .table-view .arrow {
   width: 8px;
-  color: var(--series-1);
+  color: var(--link);
 }
 
 .table-view tbody tr {
