@@ -174,6 +174,7 @@ against `vite preview` of the real `dist/`, one file per concern:
 | `routing.spec.ts` | deep links, the address bar, the canonical tag |
 | `layout.spec.ts` | five viewports; no overflow, no collapsed list |
 | `keyboard.spec.ts` | focus contract and the search combobox |
+| `graph-keyboard.spec.ts` | the graph as one tab stop, arrow keys between players, the skip link |
 | `table.spec.ts` | sorting: order, `aria-sort`, and the arrow agreeing |
 | `filter.spec.ts` | the min-events threshold, across every panel it changes |
 | `pointer.spec.ts` | a tap near a node opens it, at the zoom a real slice picks |

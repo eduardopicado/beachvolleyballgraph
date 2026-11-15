@@ -26,6 +26,7 @@ import { seasonSpan, plural } from '../lib/format';
 import { prefersReducedMotion } from '../lib/motion';
 import { cancelPortraitDwell, prefetchPortraitOnDwell } from '../lib/prefetchPortrait';
 import { useStateFor } from '../lib/useStateFor';
+import { isArrowKey, nextNode, tabStop } from '../lib/graphNav';
 import './PartnershipGraph.css';
 
 interface Props {
@@ -550,6 +551,12 @@ export function PartnershipGraph({
   };
 
   // --- highlight state -----------------------------------------------------
+  // The graph is one tab stop, moved within by the arrow keys (lib/graphNav).
+  // With a stop on every node the Brazilian women's graph put 198 presses of
+  // Tab between the filters and the table.
+  const [lastFocused, setLastFocused] = useState<number | null>(null);
+  const stopId = tabStop(layout.nodes, lastFocused, selectedId);
+
   const activeId = hover?.node.id ?? selectedId;
   const activeNeighbours = activeId === null ? null : (neighbours.get(activeId) ?? new Set<number>());
 
@@ -611,7 +618,7 @@ export function PartnershipGraph({
           setHover(null);
         }}
         role="group"
-        aria-label={`Partnership graph: ${plural(nodes.length, 'player')}, ${plural(edges.length, 'partnership')}. Use the table view below for a screen-reader friendly listing.`}
+        aria-label={`Partnership graph: ${plural(nodes.length, 'player')}, ${plural(edges.length, 'partnership')}. Arrow keys move between players, Enter opens one. The table below lists every player.`}
       >
         <g ref={viewRef} transform={`translate(${transform.x},${transform.y}) scale(${transform.k})`}>
           <g className="links">
@@ -636,16 +643,26 @@ export function PartnershipGraph({
                   if (el) nodeEls.current.set(node.id, el);
                   else nodeEls.current.delete(node.id);
                 }}
-                tabIndex={0}
+                tabIndex={node.id === stopId ? 0 : -1}
                 role="button"
                 aria-label={`${node.name}, ${plural(node.tournaments, 'tournament')}, ${plural(node.degree, 'partner')}`}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     onSelect(node.id === selectedId ? null : node.id);
+                  } else if (isArrowKey(e.key)) {
+                    // Always swallowed, so the page does not scroll out from
+                    // under the graph when the keys run out of players.
+                    e.preventDefault();
+                    const placed = layout.nodes.map((n) => ({ id: n.id, x: n.x ?? 0, y: n.y ?? 0 }));
+                    const next = nextNode(placed, node.id, e.key);
+                    if (next !== null) nodeEls.current.get(next)?.focus();
                   }
                 }}
-                onFocus={() => showHover(node)}
+                onFocus={() => {
+                  setLastFocused(node.id);
+                  showHover(node);
+                }}
                 onBlur={() => setHover(null)}
               >
                 {/*
