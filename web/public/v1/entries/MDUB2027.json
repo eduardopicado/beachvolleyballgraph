@@ -2,10 +2,13 @@
   "code": "MDUB2027",
   "gender": "M",
   "teams": [
+    [176256,118152,"POL",null,null],
     [181034,144035,"BUL",null,null]
   ],
   "players": {
+    "118152": "Karol Szczepanik",
     "144035": "Dimitar Kalchev",
+    "176256": "Tomasz Woloszuk",
     "181034": "Dimitar Mehandzhiyski"
   }
 }
