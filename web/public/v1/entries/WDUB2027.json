@@ -2,13 +2,19 @@
   "code": "WDUB2027",
   "gender": "W",
   "teams": [
+    [141366,156402,"PAR",null,null],
+    [141983,141984,"LAT",null,null],
     [156369,162511,"CHN",null,null],
     [192301,141784,"CHN",null,null],
     [202842,210161,"CHN",null,null]
   ],
   "players": {
+    "141366": "Michelle Sharon Valiente Amarilla",
     "141784": "Xinyi Xia",
+    "141983": "Tina Graudina",
+    "141984": "Anastasija Samoilova",
     "156369": "Shuting Cao",
+    "156402": "Giuliana Poletti Corrales",
     "162511": "Jie Dong",
     "192301": "Xu Yan",
     "202842": "Kadeliye Halaiti",

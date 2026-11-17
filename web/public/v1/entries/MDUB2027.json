@@ -2,12 +2,18 @@
   "code": "MDUB2027",
   "gender": "M",
   "teams": [
+    [168204,166947,"NED",null,null],
+    [168503,162761,"NED",null,null],
     [176256,118152,"POL",null,null],
     [181034,144035,"BUL",null,null]
   ],
   "players": {
     "118152": "Karol Szczepanik",
     "144035": "Dimitar Kalchev",
+    "162761": "Yorick de Groot",
+    "166947": "Matthew Immers",
+    "168204": "Leon Luini",
+    "168503": "Stefan Boermans",
     "176256": "Tomasz Woloszuk",
     "181034": "Dimitar Mehandzhiyski"
   }
