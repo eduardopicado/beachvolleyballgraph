@@ -32,20 +32,15 @@ interface Props {
   gender: Gender;
   onGender: (gender: Gender) => void;
   base: string;
-  homeHref: string;
   seasons: { from: number };
 }
 
-export function Records({ file, countries, gender, onGender, base, homeHref, seasons }: Props) {
+export function Records({ file, countries, gender, onGender, base, seasons }: Props) {
   const nameOf = (code: string) => countries.find((c) => c.code === code)?.name ?? code;
   const boards = boardsFor(file, gender);
 
   return (
     <main className="records-page">
-      <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
-      </nav>
-
       <header>
         <h1>Records</h1>
         <p className="blurb">

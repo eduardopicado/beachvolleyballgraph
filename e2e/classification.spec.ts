@@ -275,7 +275,7 @@ test.describe('a tournament’s final classification', () => {
     // page has moved to the one they are actually published on.
     await expect(page.locator('.tournament-panel')).toHaveCount(0);
     await expect(page.locator('.player-card h2')).toHaveText(file.players[away!]!);
-    await expect(page.locator('.graph-section .section-head h2')).toContainText(country!.name);
+    await expect(page.locator('.app .masthead h1')).toContainText(country!.name);
     await expect(page).toHaveURL(new RegExp(`/${sliceSlug(country!.name, target!.gender)}/`));
   });
 

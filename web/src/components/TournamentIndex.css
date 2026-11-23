@@ -13,22 +13,6 @@
   gap: 20px;
 }
 
-.tournament-index > nav {
-  font-size: 13px;
-}
-
-.tournament-index > nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .tournament-index > nav a:hover {
-    color: var(--link);
-    text-decoration: underline;
-  }
-}
-
 .tournament-index > header {
   display: flex;
   flex-direction: column;
@@ -348,12 +332,6 @@
 }
 
 @media (pointer: coarse) {
-  .tournament-index > nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
-
   .tournament-index td.what a {
     display: inline-flex;
     align-items: center;

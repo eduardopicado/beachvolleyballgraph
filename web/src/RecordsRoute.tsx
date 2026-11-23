@@ -79,7 +79,6 @@ export default function RecordsRoute() {
         setGender(next);
       }}
       base={BASE}
-      homeHref={BASE}
       seasons={manifest.seasons}
     />
   );

@@ -99,7 +99,6 @@ export default function TournamentIndexRoute() {
         setSearch(`?${query}`);
       }}
       tournamentHref={(slug) => tournamentPath(BASE, slug)}
-      homeHref={BASE}
     />
   );
 }

@@ -203,7 +203,6 @@ export default function TournamentRoute({ slug }: { slug: string }) {
       tournament={data}
       state={classification}
       iso2Of={iso2Of}
-      homeHref={BASE}
       indexHref={`${indexPath(BASE)}?${paramsFor({
         gender: found.gender,
         season: found.season,
