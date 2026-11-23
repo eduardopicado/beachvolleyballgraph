@@ -121,8 +121,15 @@
     gap: 0 12px;
   }
 
+  /* Takes the row beside the switch and wraps within it. Unwrapped, a long
+     name in a wide fallback font ran 39px past a 320px screen on CI's
+     machines and scrolled every page sideways; here it is a second line. */
   .site-bar .brand {
+    flex: 1 1 0;
+    min-width: 0;
     font-size: 16px;
+    line-height: 1.2;
+    white-space: normal;
   }
 
   .site-bar .tools {

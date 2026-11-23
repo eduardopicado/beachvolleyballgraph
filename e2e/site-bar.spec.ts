@@ -135,5 +135,21 @@ for (const width of [390, 320]) {
         expect(overflow).toBe(0);
       });
     }
+
+    test('a name too long for the row wraps beside the switch, not off the screen', async ({ page }) => {
+      // Fonts differ by machine: the old name fit a 320px row in one test
+      // browser and ran 39px past it in CI's. A name longer than any font can
+      // fit makes the check the same everywhere.
+      await page.goto('/about/');
+      await page.locator('.site-bar .brand span:last-child').evaluate((s) => {
+        s.textContent = 'Beach Volleyball Partnership Graph of the World';
+      });
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow).toBe(0);
+      const brand = (await page.locator('.site-bar .brand').boundingBox())!;
+      const slot = (await page.locator('.site-bar .tools').boundingBox())!;
+      expect(slot.x, 'the switch stays on the name’s row').toBeGreaterThanOrEqual(brand.x + brand.width);
+      expect(slot.y).toBeLessThan(brand.y + brand.height);
+    });
   });
 }
