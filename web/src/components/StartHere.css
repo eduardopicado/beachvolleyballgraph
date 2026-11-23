@@ -1,8 +1,9 @@
 /*
  * Six cards that have to read as an entrance, not as a second masthead.
  *
- * Everything here is small and quiet on purpose: the strip sits above a graph
- * that is the actual page, and a row of big-number tiles would out-shout it.
+ * Everything here is small and quiet on purpose: the graph is the actual page,
+ * and a row of big-number tiles would out-shout it. The strip sits below the
+ * graph and its figures, for a reader who has looked and wants somewhere to go.
  * The name is the only thing in link colour, because the name is what is being
  * offered; the figure is the reason and sits in body weight below it.
  */

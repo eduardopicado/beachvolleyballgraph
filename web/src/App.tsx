@@ -619,18 +619,6 @@ export default function App() {
         </div>
       </header>
 
-      {atRoot && manifest?.highlights && manifest.highlights.length > 0 && (
-        <StartHere
-          highlights={manifest.highlights}
-          countries={manifest.countries}
-          base={import.meta.env.BASE_URL}
-          // The same move a name in a tournament field makes: the slice and the
-          // selection travel together, because a card can name somebody from
-          // any of the 264 pages and almost never names one from this one.
-          onOpen={selectFieldPlayer}
-        />
-      )}
-
       {manifest && (
         <Controls
           manifest={manifest}
@@ -670,8 +658,11 @@ export default function App() {
           </div>
         ) : (
           <>
-            <StatTiles stats={stats} hero={hero} />
-
+            {/* The graph comes first, straight under the filters that shape it;
+                the figures and the "Start here" strip follow it. In the old
+                order the graph began 1,602px down a phone's page, two and a
+                half screens, and on a 1366x657 laptop not one pixel of it was
+                on the first screen. */}
             <section className="graph-section">
               <div className="section-head">
                 <div>
@@ -778,6 +769,20 @@ export default function App() {
                 </div>
               )}
             </section>
+
+            <StatTiles stats={stats} hero={hero} />
+
+            {atRoot && manifest?.highlights && manifest.highlights.length > 0 && (
+              <StartHere
+                highlights={manifest.highlights}
+                countries={manifest.countries}
+                base={import.meta.env.BASE_URL}
+                // The same move a name in a tournament field makes: the slice and the
+                // selection travel together, because a card can name somebody from
+                // any of the 264 pages and almost never names one from this one.
+                onOpen={selectFieldPlayer}
+              />
+            )}
 
             <section className="table-section" id="all-players" tabIndex={-1}>
               <div className="section-head">
