@@ -52,7 +52,12 @@ export function StartHere({ highlights, countries, base, onOpen }: Props) {
   return (
     <section className="start-here" aria-labelledby="start-here-head">
       <div className="head">
-        <h2 id="start-here-head">Start here</h2>
+        {/* "Explore", not "Start here": that was the heading while the strip
+            opened the page, above the filters. It now follows the graph and
+            the figures, so the reader has already started; what it offers
+            them is somewhere else to go. The class and the component keep
+            the old name. Same word as the prerendered body in prerender.ts. */}
+        <h2 id="start-here-head">Explore</h2>
         {/* A full navigation: /records/ mounts its own root (see main.tsx). */}
         <a className="all" href={recordsPagePath(base)}>
           All records →

@@ -33,6 +33,19 @@ test.describe('the start here strip', () => {
     await expect(strip.locator('.cards > li')).toHaveCount(cards.length);
   });
 
+  test('is headed "Explore", in the app and in the prerendered page alike', async ({ page, request }) => {
+    // Two copies of one word: React's, and the static body prerender.ts writes
+    // for crawlers and for the moment before the script runs. "Start here"
+    // stopped being true when the strip moved below the graph, and a rename
+    // that reaches only one of them shows a reader one heading and then swaps
+    // it for another as the page hydrates.
+    await page.goto('/');
+    await expect(page.locator('#start-here-head')).toHaveText('Explore');
+    const html = await (await request.get('/')).text();
+    expect(html).toContain('<h2>Explore</h2>');
+    expect(html).not.toContain('Start here');
+  });
+
   test('names and figures come from the manifest, in its order', async ({ page }) => {
     await page.goto('/');
     const items = page.locator('.start-here .cards > li');
