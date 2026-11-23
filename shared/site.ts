@@ -11,7 +11,18 @@
 
 import { GENDER_LABEL, type Gender } from './schema';
 
-export const SITE_NAME = 'Beach Volleyball Partnership Graph';
+/**
+ * The display name: page titles, link previews, llms.txt, the structured data.
+ * Not the identity FIVB sees — the VIS `User-Agent` names the project by its
+ * repository slug, and the address below stays. Every copy of the name reads
+ * this constant except `web/index.html`, which cannot import it and which
+ * prerender.ts overwrites on every page it writes.
+ *
+ * Short on purpose: it follows every page title ("Brazil Men — Beach
+ * Partners"), so a long name pushes the part that differs off a narrow tab.
+ * It does not say volleyball, so the home page's title does.
+ */
+export const SITE_NAME = 'Beach Partners';
 
 /**
  * The opening view: the country with the most players, men's draw. Here

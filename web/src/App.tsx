@@ -3,7 +3,7 @@ import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetai
 import { GENDERS } from '../../shared/schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
 import { flagEmoji, formatMedals, plural } from './lib/format';
-import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
+import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SITE_NAME, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
@@ -602,7 +602,7 @@ export default function App() {
     <div className="app">
       <header className="masthead">
         <div>
-          <h1>Beach Volleyball Partnership Graph</h1>
+          <h1>{SITE_NAME}</h1>
           <p>
             Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro
             Tour, World Championships and Olympic Games.

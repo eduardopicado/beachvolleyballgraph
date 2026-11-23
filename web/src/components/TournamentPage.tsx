@@ -26,6 +26,7 @@
 
 import { useMemo, type ReactNode } from 'react';
 import type { ClassificationFile, EntriesFile, Gender, SeriesFile, Tier } from '../../../shared/schema';
+import { SITE_NAME } from '../../../shared/site';
 import { fieldPlayerSlice, playerProfileUrl, readEntry, TIER_BADGE } from '../../../shared/schema';
 import { bandsOf } from '../lib/classification';
 import { hasEntryPoints, nextEntrySort, openingSort, sortEntries, type EntrySortKey } from '../lib/entrySort';
@@ -384,7 +385,7 @@ export function TournamentPage({
           the one link out was the graph, which is the least related of the
           three. */}
       <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
+        <a href={homeHref}>{SITE_NAME}</a>
         <span aria-hidden="true"> / </span>
         <a href={indexHref}>
           {season} {DRAW_LABEL[gender ?? 'M']}

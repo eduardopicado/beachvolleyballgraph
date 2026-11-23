@@ -29,6 +29,7 @@
 
 import { useState } from 'react';
 import type { Gender } from '../../../shared/schema';
+import { SITE_NAME } from '../../../shared/site';
 import {
   groupsIn,
   levelsIn,
@@ -77,7 +78,7 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
   return (
     <main className="tournament-index">
       <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
+        <a href={homeHref}>{SITE_NAME}</a>
       </nav>
 
       <header>
