@@ -1315,7 +1315,7 @@ ${staticFooter()}
   const homeBody = `<main>
 <h1>Beach Volleyball Partnership Graph</h1>
 <p>${esc(homeDescription)}</p>
-${strip.length > 0 ? `<h2>Start here</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
+${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
 <p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
 <h2>Countries</h2>
 <ul>${slices.map((s) => `<li><a href="${esc(s.href)}">${esc(s.name)} ${esc(GENDER_LABEL[s.gender])}</a></li>`).join('')}</ul>

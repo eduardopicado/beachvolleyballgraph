@@ -18,7 +18,7 @@ async function graphTop(page: import('@playwright/test').Page) {
   });
 }
 
-test('the graph comes before the stat tiles and the Start here strip', async ({ page }) => {
+test('the graph comes before the stat tiles and the Explore strip', async ({ page }) => {
   await page.goto('./');
   await expect(page.locator('.start-here')).toBeVisible();
   const order = await page.evaluate(() => {
