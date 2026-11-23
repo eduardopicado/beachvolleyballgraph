@@ -2,11 +2,14 @@
   "code": "WSAQ2027",
   "gender": "W",
   "teams": [
+    [164576,148474,"CZE",null,null],
     [192301,141784,"CHN",null,null],
     [202842,210161,"CHN",null,null]
   ],
   "players": {
     "141784": "Xinyi Xia",
+    "148474": "Marie-Sara Bercik",
+    "164576": "Marketa Svozilova",
     "192301": "Xu Yan",
     "202842": "Kadeliye Halaiti",
     "210161": "Siyu Qi"
