@@ -11,7 +11,23 @@
 
 import { GENDER_LABEL, type Gender } from './schema';
 
-export const SITE_NAME = 'Beach Volleyball Partnership Graph';
+/**
+ * The display name: page titles, link previews, llms.txt, the structured data.
+ * Not the identity FIVB sees — the VIS `User-Agent` names the project by its
+ * repository slug, and the address below stays. Every copy of the name reads
+ * this constant except `web/index.html`, which cannot import it and which
+ * prerender.ts overwrites on every page it writes.
+ *
+ * It names the sport because it is often all there is: a tab, a bookmark or
+ * a link preview shows the name with nothing around it, and "Beach Partners"
+ * alone could be a travel agent. It also matches the address. It follows
+ * every page title ("Brazil Men — Beach Volleyball Partners"), so it is kept
+ * to three words; it fits the phone bar on one line down to 320px.
+ *
+ * Careful when searching: the old name, "Beach Volleyball Partnership Graph",
+ * contains this one ("Partners" is the start of "Partnership").
+ */
+export const SITE_NAME = 'Beach Volleyball Partners';
 
 /**
  * The opening view: the country with the most players, men's draw. Here

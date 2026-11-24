@@ -13,6 +13,7 @@
 import { useEffect, useState } from 'react';
 import type { Gender, Manifest, RecordsFile } from '../../shared/schema';
 import { GENDER_LABEL } from '../../shared/schema';
+import { SITE_NAME } from '../../shared/site';
 import { fetchManifest, fetchRecords } from './lib/api';
 import { genderFromParams, paramsForGender, recordsPagePath } from './lib/recordsRoute';
 import { Records } from './components/Records';
@@ -48,7 +49,7 @@ export default function RecordsRoute() {
   useEffect(() => {
     // The draw is in the title because it is in the URL: two tabs open on the
     // two draws should not be indistinguishable in a tab bar.
-    document.title = `Records — ${GENDER_LABEL[gender]} — Beach Volleyball Partnership Graph`;
+    document.title = `Records — ${GENDER_LABEL[gender]} — ${SITE_NAME}`;
   }, [gender]);
 
   if (failed) {

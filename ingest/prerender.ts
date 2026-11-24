@@ -195,7 +195,7 @@ function headFor(url: string, title: string, description: string): string {
     `<meta name="description" content="${esc(description)}"/>`,
     `<meta name="robots" content="index,follow,max-image-preview:large"/>`,
     `<meta property="og:type" content="website"/>`,
-    `<meta property="og:site_name" content="Beach Volleyball Partnership Graph"/>`,
+    `<meta property="og:site_name" content="${esc(SITE_NAME)}"/>`,
     `<meta property="og:title" content="${esc(title)}"/>`,
     `<meta property="og:description" content="${esc(description)}"/>`,
     `<meta property="og:url" content="${esc(url)}"/>`,
@@ -431,7 +431,7 @@ export function llmsTxt(
     .map((s) => `- [${s.name} ${GENDER_LABEL[s.gender]}](${abs(s.href)})`)
     .join('\n');
 
-  return `# Beach Volleyball Partnership Graph
+  return `# ${SITE_NAME}
 
 > Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt daily.
 
@@ -561,7 +561,7 @@ export function aboutPage(
 ): string {
   const url = abs(`${BASE}about/`);
   const title = `About — ${SITE_NAME}`;
-  const description = `What the ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
+  const description = `What ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
   const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
   const n = (v: number) => v.toLocaleString('en-US');
   const and = (items: string[]) => new Intl.ListFormat('en', { type: 'conjunction' }).format(items);
@@ -1293,7 +1293,7 @@ ${staticFooter()}
 
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
-  const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
+  const homeTitle = `${SITE_NAME} — who has played with whom on the FIVB tour`;
   const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments since ${manifest.seasons.from}. Pick a country and gender to see the partnership graph.`;
   /**
    * The "start here" strip, in static HTML.
@@ -1351,7 +1351,7 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
             '@type': 'WebSite',
             '@id': homeUrl,
             url: homeUrl,
-            name: 'Beach Volleyball Partnership Graph',
+            name: SITE_NAME,
             description: homeDescription,
           },
           {

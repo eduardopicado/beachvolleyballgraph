@@ -13,6 +13,19 @@ import { SITE_NAME } from '../shared/site.js';
 
 const LINKS = ['Graph', 'Tournaments', 'Records', 'About'];
 
+/**
+ * Wait for the app's own bar where there is an app. On those pages the
+ * prerendered bar is replaced moments after load, and a measurement taken
+ * across the swap reads an element that has just left the page: boundingBox
+ * returns null. That is how "is one row on a laptop" failed once under a
+ * loaded full run. Only the theme switch tells the two bars apart.
+ */
+async function settled(page: import('@playwright/test').Page, path: string) {
+  if (path !== '/about/' && path !== '/404.html') {
+    await expect(page.locator('.site-bar .theme-toggle')).toBeVisible();
+  }
+}
+
 /** Path, the section it belongs to, and whether the app (and so the theme switch) runs there. */
 const PAGES: [string, string | null, boolean][] = [
   ['/', 'Graph', true],
@@ -74,6 +87,7 @@ test.describe('the site bar', () => {
     // the name and all four sections fit beside each other from about 560px.
     await page.setViewportSize({ width: 1366, height: 657 });
     await page.goto('/');
+    await settled(page, '/');
     const bar = await page.locator('.site-bar').boundingBox();
     expect(bar!.height).toBeLessThanOrEqual(57);
     const brand = await page.locator('.site-bar .brand').boundingBox();
@@ -122,6 +136,7 @@ for (const width of [390, 320]) {
     for (const path of ['/', '/tournament/gstaad-2019-women/', '/about/']) {
       test(`${path}: every section on screen, on its own row, nothing sideways`, async ({ page }) => {
         await page.goto(path);
+        await settled(page, path);
         const links = page.locator('.site-bar nav a');
         await expect(links).toHaveCount(4);
         const brand = await page.locator('.site-bar .brand').boundingBox();

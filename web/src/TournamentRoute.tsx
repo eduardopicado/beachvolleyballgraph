@@ -25,6 +25,7 @@ import type { Gender, Manifest, SeriesFile, Tier, TournamentsFile } from '../../
 import { readFacts } from './lib/tournamentRoute';
 import { fetchManifest, fetchSeries, fetchSeriesIndex, fetchTournaments } from './lib/api';
 import { sliceSlug, tournamentPath } from '../../shared/slug';
+import { SITE_NAME } from '../../shared/site';
 import { indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, drawCounterpart } from './lib/tournamentIndex';
 import { useClassification } from './lib/useClassification';
@@ -150,7 +151,7 @@ export default function TournamentRoute({ slug }: { slug: string }) {
   }, [found?.code]);
 
   useEffect(() => {
-    if (found) document.title = `${found.name} ${found.season} — Beach Volleyball Partnership Graph`;
+    if (found) document.title = `${found.name} ${found.season} — ${SITE_NAME}`;
   }, [found]);
 
   const iso2Of = useMemo(() => (federation: string) => found?.federation(federation)?.[1] ?? null, [found]);
