@@ -1,0 +1,158 @@
+/*
+ * The bar across the top of every page — app and prerendered alike, which is
+ * why this sheet is scoped to `.site-bar` and not to any page's root: on
+ * /about/ and 404.html there is no `.app` around it.
+ *
+ * Full width, with its contents on the graph page's own 1720px column, so the
+ * name sits over the left edge of the filters and the theme switch over the
+ * right edge of the graph.
+ */
+
+.site-bar {
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-bar .in {
+  max-width: 1720px;
+  min-height: 56px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 26px;
+}
+
+.site-bar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  color: var(--text-primary);
+  font-size: 17px;
+  font-weight: 680;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-bar .mark-slot {
+  display: inline-flex;
+}
+
+.site-bar .mark line {
+  stroke: var(--text-muted);
+  stroke-width: 1.6;
+}
+
+.site-bar .mark .a {
+  fill: var(--series-1);
+}
+
+.site-bar .mark .b {
+  fill: var(--series-2);
+}
+
+.site-bar nav {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+}
+
+.site-bar nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* The section this page belongs to: darker, heavier and underlined, so the
+   state does not rest on colour alone. */
+.site-bar nav a[aria-current='page'] {
+  color: var(--text-primary);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--link);
+}
+
+@media (hover: hover) {
+  .site-bar nav a:hover {
+    color: var(--text-primary);
+  }
+}
+
+/* Holds the switch's width even where there is no switch, so a prerendered
+   page and the app that replaces it put the links in the same place. */
+.site-bar .tools {
+  display: inline-flex;
+  min-width: 38px;
+}
+
+.site-bar .theme-toggle {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  background: var(--surface-1);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .site-bar .theme-toggle:hover {
+    color: var(--text-primary);
+    background: var(--series-1-wash);
+  }
+}
+
+/* A phone: the name and the switch on one row, the four sections on a second,
+   spread across the width. Four labels on one row with the name do not fit
+   below about 560px, and a bar that scrolls sideways hides the section the
+   reader is in. */
+@media (max-width: 600px) {
+  .site-bar .in {
+    padding: 0 16px;
+    gap: 0 12px;
+  }
+
+  /* Takes the row beside the switch and wraps within it. Unwrapped, a long
+     name in a wide fallback font ran 39px past a 320px screen on CI's
+     machines and scrolled every page sideways; here it is a second line. */
+  .site-bar .brand {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .site-bar .tools {
+    margin-left: auto;
+  }
+
+  .site-bar nav {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    margin-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (pointer: coarse) {
+  .site-bar .tools {
+    min-width: 44px;
+  }
+
+  .site-bar .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
+}

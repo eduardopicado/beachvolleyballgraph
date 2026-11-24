@@ -35,6 +35,7 @@ import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE, TOURNAMENT_FACTS_ID 
 import { nameCarriesSeason, playerPath, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
+import { siteBarHtml, type Section } from '../web/src/lib/siteNav.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
 import { openingSort, sortEntries } from '../web/src/lib/entrySort.js';
@@ -157,6 +158,18 @@ const pct = (n: number, of: number) => `${of > 0 ? ((100 * n) / of).toFixed(1) :
  * imports for that address, named as Vite's build manifest names it.
  */
 type Route = 'src/App.tsx' | 'src/TournamentRoute.tsx' | 'src/TournamentIndexRoute.tsx' | 'src/RecordsRoute.tsx';
+
+/**
+ * The bar's current section for each page component — the same choice
+ * main.tsx makes when it mounts one, so the bar in the static page and the
+ * bar the app draws over it underline the same link.
+ */
+const SECTION_OF: Record<Route, Section> = {
+  'src/App.tsx': 'graph',
+  'src/TournamentRoute.tsx': 'tournaments',
+  'src/TournamentIndexRoute.tsx': 'tournaments',
+  'src/RecordsRoute.tsx': 'records',
+};
 
 interface Page {
   slug: string;
@@ -289,10 +302,9 @@ function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string;
     .map((o) => `<li><a href="${esc(o.href)}">${esc(o.name)}</a></li>`)
     .join('');
 
+  // Titled as the app titles it, "Brazil men": the site's name is in the bar.
   return `<main>
-<h1>${esc(SITE_NAME)}</h1>
-<p>Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro Tour, World Championships and Olympic Games.</p>
-<h2>${esc(graph.countryName)} · ${esc(GENDER_LABEL[graph.gender])}</h2>
+<h1>${esc(graph.countryName)} ${gender}</h1>
 <p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments since ${manifest.seasons.from}.</p>
 <table>
 <caption>${esc(graph.countryName)} ${esc(GENDER_LABEL[graph.gender])} — players, tournaments entered, distinct partners and seasons active</caption>
@@ -638,8 +650,8 @@ ${style}
 ${headFor(url, title, description)}
 </head>
 <body>
+${siteBarHtml(BASE, 'about')}
 <main class="static-page about">
-<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 
 <div class="about-top">
 <header>
@@ -762,8 +774,8 @@ export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref:
 ${style}
 </head>
 <body>
+${siteBarHtml(BASE, null)}
 <main class="static-page">
-<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 <header>
 <h1>Nothing at this address</h1>
 <p class="lede">There is no page at <span id="missing-path">this address</span>. If a link brought you here, it may have been mistyped. Three ways back in:</p>
@@ -1089,13 +1101,21 @@ async function main() {
         .join('');
     }
 
+    const pageTitle = `${title} — ${SITE_NAME}`;
     pages.push({
       slug: `tournament/${slug}`,
       route: 'src/TournamentRoute.tsx',
       url: href,
-      title: `${title} — ${SITE_NAME}`,
+      title: pageTitle,
       description,
+      // The tags every other page kind has had from the start, which a
+      // tournament page went without: no canonical address, no description
+      // for a search result, and nothing for a link preview to build a card
+      // from — a Gstaad 2019 link pasted into a chat showed a bare title or
+      // the URL. `description` was written all along; it reached only the
+      // page body.
       head:
+        headFor(url, pageTitle, description) +
         factsScript(
           tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries, await photoCount(t.code)),
         ) +
@@ -1112,7 +1132,7 @@ async function main() {
 <h1>${esc(named)}</h1>
 <p>${esc(description)}</p>
 ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
-<p><a href="${esc(BASE)}">${esc(SITE_NAME)}</a> · <a href="${esc(
+<p><a href="${esc(
         `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
       )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
 </main>`,
@@ -1272,7 +1292,6 @@ ${staticFooter()}
       }),
     modified: changedAt('records.json'),
     body: `<main>
-<nav aria-label="Breadcrumb"><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 <h1>Records</h1>
 <p>${esc(recordsDescription)}</p>
 ${recordSections}
@@ -1313,7 +1332,7 @@ ${staticFooter()}
   });
 
   const homeBody = `<main>
-<h1>${esc(SITE_NAME)}</h1>
+<h1>Who has played with whom in FIVB beach volleyball</h1>
 <p>${esc(homeDescription)}</p>
 ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
 <p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
@@ -1377,7 +1396,12 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
       .join('');
     let html = template;
     html = html.replace('</head>', () => `${preload}${page.head}</head>`);
-    html = html.replace('<div id="root"></div>', () => `<div id="root">${page.body}</div>`);
+    // The bar first, as the app will draw it: it is the page's way to the
+    // other sections before the script runs, and the only one without it.
+    html = html.replace(
+      '<div id="root"></div>',
+      () => `<div id="root">${siteBarHtml(BASE, SECTION_OF[page.route])}${page.body}</div>`,
+    );
     // The static <title> in index.html is generic; each page overrides it.
     html = html.replace(/<title>.*?<\/title>/, () => `<title>${esc(page.title)}</title>`);
 

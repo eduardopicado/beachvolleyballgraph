@@ -84,8 +84,8 @@ test.describe('deep links', () => {
     // Links shared before the prerendered paths existed. Cheap to keep
     // working, and there is no way to find out who still holds one.
     await page.goto(`./?country=${COUNTRY}&gender=W`);
-    await expect(page.locator('.graph-section h2')).toContainText(nameOf(COUNTRY));
-    await expect(page.locator('.graph-section h2')).toContainText('Women');
+    await expect(page.locator('.app .masthead h1')).toContainText(nameOf(COUNTRY));
+    await expect(page.locator('.app .masthead h1')).toContainText('women');
     // ...and is rewritten to the path that is actually indexed.
     await expect
       .poll(() => new URL(page.url()).pathname)
@@ -96,7 +96,7 @@ test.describe('deep links', () => {
     // Someone edits a URL, or a page is unpublished when a federation drops
     // below two players. The app should open on something, not on an error.
     await page.goto('./atlantis-men/');
-    await expect(page.locator('.graph-section h2')).toBeVisible();
+    await expect(page.locator('.app .masthead h1')).toBeVisible();
     await expect(page.locator('[data-node]').first()).toBeVisible();
   });
 });
@@ -184,7 +184,7 @@ test.describe('the document head follows the view', () => {
 
     const other = manifest().countries.find((c) => c.code !== COUNTRY && c.genders[GENDER])!;
     await page.locator('.controls select').selectOption(other.code);
-    await expect(page.locator('.graph-section h2')).toContainText(other.name);
+    await expect(page.locator('.app .masthead h1')).toContainText(other.name);
 
     await expect.poll(async () => (await head(page)).title).not.toBe(before.title);
     const after = await head(page);
@@ -203,7 +203,7 @@ test.describe('a country published for one gender only', () => {
     // app's own default does for a women-only country.
     await page.goto(`./?country=${only!.code}&gender=${only!.missing}`);
 
-    await expect(page.locator('.graph-section h2')).toContainText(only!.name);
+    await expect(page.locator('.app .masthead h1')).toContainText(only!.name);
     await expect
       .poll(() => new URL(page.url()).pathname)
       .toBe(`/${sliceSlug(only!.name, only!.has)}/`);

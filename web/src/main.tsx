@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { tournamentSlugFromPath } from './lib/tournamentRoute';
 import { isIndexPath } from './lib/indexRoute';
 import { isRecordsPath } from './lib/recordsRoute';
+import type { Section } from './lib/siteNav';
+import { SiteBar } from './components/SiteBar';
 import { polyfillCountryFlagEmojis } from 'country-flag-emoji-polyfill';
 // Our own copy of the font, not the package's default jsDelivr URL: a reader
 // on Windows should not have their visit announced to a third-party CDN for a
@@ -59,25 +61,37 @@ if (!root) throw new Error('#root missing from index.html');
  * prefix of nothing and cannot be mistaken for a slug, whereas leaving either
  * to fall through would have `App` treat "tournaments" or "records" as a
  * country slice and quietly draw Brazil.
+ *
+ * The bar across the top is drawn here, once, above whichever page it is, and
+ * told which section that page belongs to. It is in the entry chunk because
+ * every page has it; it is small, and the prerendered copy already in #root
+ * means a page that waits for it shows the same bar meanwhile.
  */
 const BASE = import.meta.env.BASE_URL;
 
-async function page(): Promise<ReactElement> {
+async function page(): Promise<[ReactElement, Section]> {
   if (isIndexPath(location.pathname, BASE)) {
     const { default: TournamentIndexRoute } = await import('./TournamentIndexRoute');
-    return <TournamentIndexRoute />;
+    return [<TournamentIndexRoute />, 'tournaments'];
   }
   if (isRecordsPath(location.pathname, BASE)) {
     const { default: RecordsRoute } = await import('./RecordsRoute');
-    return <RecordsRoute />;
+    return [<RecordsRoute />, 'records'];
   }
   const slug = tournamentSlugFromPath(location.pathname, BASE);
   if (slug) {
     const { default: TournamentRoute } = await import('./TournamentRoute');
-    return <TournamentRoute slug={slug} />;
+    return [<TournamentRoute slug={slug} />, 'tournaments'];
   }
   const { default: App } = await import('./App');
-  return <App />;
+  return [<App />, 'graph'];
 }
 
-void page().then((element) => createRoot(root).render(<StrictMode>{element}</StrictMode>));
+void page().then(([element, section]) =>
+  createRoot(root).render(
+    <StrictMode>
+      <SiteBar current={section} base={BASE} />
+      {element}
+    </StrictMode>,
+  ),
+);

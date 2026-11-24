@@ -18,31 +18,30 @@ import { SITE_NAME } from '../shared/site.js';
 const OLD_NAME = 'Beach Volleyball Partnership Graph';
 
 /**
- * Pages the app mounts on, the tab title it sets once running, and whether
- * the static page has link-preview tags at all: tournament pages are written
- * without any (no og:title either), so there is no site name to check there.
+ * Pages the app mounts on, and the tab title it sets once running. Every one
+ * names the site in its link-preview tags too; tournament pages were the
+ * exception until they were given the tags (see link-previews.spec.ts).
  */
-const APP_PAGES: [string, string, boolean][] = [
+const APP_PAGES: [string, string][] = [
   // The app opens on Brazil men at the root and titles the tab as it titles
   // that slice anywhere else; the prerendered home title, checked in the
   // static HTML below, is what search results and link previews read.
-  ['/', `Brazil Men — ${SITE_NAME}`, true],
-  ['/brazil-women/', `Brazil Women — ${SITE_NAME}`, true],
-  ['/tournament/gstaad-2019-women/', `Gstaad 2019 — ${SITE_NAME}`, false],
-  ['/tournaments/', `Tournaments — ${SITE_NAME}`, true],
-  ['/records/', `Records — Men — ${SITE_NAME}`, true],
+  ['/', `Brazil Men — ${SITE_NAME}`],
+  ['/brazil-women/', `Brazil Women — ${SITE_NAME}`],
+  ['/tournament/gstaad-2019-women/', `Gstaad 2019 — ${SITE_NAME}`],
+  ['/tournaments/', `Tournaments — ${SITE_NAME}`],
+  ['/records/', `Records — Men — ${SITE_NAME}`],
 ];
 
 /** Documents with no app: what prerender.ts writes is all there is. */
 const STATIC_PAGES = ['/about/', '/404.html'];
 
 test.describe('the site name', () => {
-  for (const [path, title, previews] of APP_PAGES) {
+  for (const [path, title] of APP_PAGES) {
     test(`${path} carries it, before and after the app runs`, async ({ page, request }) => {
       const html = await (await request.get(path)).text();
       expect(html, 'static <title>').toMatch(new RegExp(`<title>[^<]*${SITE_NAME}</title>|<title>${SITE_NAME} —`));
-      if (previews) expect(html, 'link previews').toContain(`<meta property="og:site_name" content="${SITE_NAME}"/>`);
-      else expect(html).not.toContain('og:site_name');
+      expect(html, 'link previews').toContain(`<meta property="og:site_name" content="${SITE_NAME}"/>`);
       expect(html).not.toContain(OLD_NAME);
 
       await page.goto(path);
@@ -58,7 +57,8 @@ test.describe('the site name', () => {
     test(`${path} carries it`, async ({ request }) => {
       const html = await (await request.get(path)).text();
       expect(html).toMatch(new RegExp(`<title>[^<]* — ${SITE_NAME}</title>`));
-      expect(html).toContain(`>${SITE_NAME}</a>`);
+      // The bar's link home, the one place these pages name the site.
+      expect(html).toContain(`<span>${SITE_NAME}</span></a>`);
       expect(html).not.toContain(OLD_NAME);
     });
   }
