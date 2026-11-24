@@ -16,15 +16,16 @@
 
 /* --- masthead ------------------------------------------------------------ */
 
+/* The page's title, "Brazil men", and one line on what the graph is. The
+   site's name and the way to the other sections are in the bar above. */
 .app .masthead {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .app .masthead h1 {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: clamp(22px, 3.2vw, 30px);
   font-weight: 680;
   letter-spacing: -0.02em;
@@ -36,26 +37,6 @@
   max-width: 62ch;
   color: var(--text-secondary);
   font-size: 14px;
-}
-
-.app .theme-toggle {
-  flex-shrink: 0;
-  width: 38px;
-  height: 38px;
-  background: var(--surface-1);
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  color: var(--text-secondary);
-  font-size: 16px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-@media (hover: hover) {
-  .app .theme-toggle:hover {
-    color: var(--text-primary);
-    background: var(--series-1-wash);
-  }
 }
 
 /* --- layout -------------------------------------------------------------- */
@@ -225,50 +206,7 @@
   color: var(--text-secondary);
 }
 
-/*
- * The masthead's right-hand cluster: the link to the tournament index beside
- * the theme toggle.
- *
- * The index is the only other place on the site a reader can go from here, so
- * it sits where the eye already lands for a control rather than being buried
- * in the footer alone — but it is a link, drawn quieter than the toggle, not a
- * second primary action competing with the graph.
- */
-.app .masthead-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.app .masthead-actions .pill {
-  font-size: 13px;
-  padding: 5px 14px;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-@media (hover: hover) {
-  .app .masthead-actions .pill:hover {
-    background: var(--track);
-    color: var(--text-primary);
-  }
-}
-
 @media (pointer: coarse) {
-  .app .masthead-actions .pill {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
-
-  .app .theme-toggle {
-    width: 44px;
-    height: 44px;
-  }
-
   /* Off screen until focused, but measured all the same, and a finger can
      reach it through a screen reader's swipe. */
   .app .skip {

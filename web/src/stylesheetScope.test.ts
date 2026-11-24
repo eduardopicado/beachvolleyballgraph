@@ -37,6 +37,8 @@ const ROOTS: Record<string, string[]> = {
   // The trigger is the button over the card's photo; the lightbox is the dialog.
   'components/PortraitLightbox.css': ['.portrait-lightbox', '.portrait-trigger'],
   'components/Records.css': ['.records-page'],
+  // The bar is drawn outside every page's root, on /about/ and 404.html too.
+  'components/SiteBar.css': ['.site-bar'],
   'components/StartHere.css': ['.start-here'],
   'components/StatTiles.css': ['.stat-tiles'],
   'components/TableView.css': ['.table-view'],

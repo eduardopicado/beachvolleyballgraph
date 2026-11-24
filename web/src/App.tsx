@@ -3,7 +3,7 @@ import type { AwayPartner, Gender, GraphFile, Manifest, MedalCounts, PlayerDetai
 import { GENDERS } from '../../shared/schema';
 import { fetchGraph, fetchManifest, fetchPlayers } from './lib/api';
 import { flagEmoji, formatMedals, plural } from './lib/format';
-import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SITE_NAME, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
+import { CONTACT_EMAIL, DEFAULT_COUNTRY, DEFAULT_GENDER, SOURCE_NAME, SOURCE_URL, sliceHead } from '../../shared/site';
 import { Controls, MIN_TOGETHER_OPTIONS } from './components/Controls';
 import { filterByStrength } from './lib/filter';
 import { parseMinTogether } from './lib/params';
@@ -18,7 +18,6 @@ import { PlayerCard, type AwayRow, type PartnerRow } from './components/PlayerCa
 import { StartHere } from './components/StartHere';
 import { StatTiles, type Stat } from './components/StatTiles';
 import { TableView, type TableRow } from './components/TableView';
-import { ThemeToggle } from './components/ThemeToggle';
 import './App.css';
 
 /** Read/write the current slice in the URL so a view is linkable. */
@@ -398,6 +397,8 @@ export default function App() {
   );
 
   const countryEntry = manifest?.countries.find((c) => c.code === country);
+  const sliceName = countryEntry?.name ?? country;
+  const sliceCounts = countryEntry?.genders[gender];
   const flag = flagEmoji(countryEntry?.iso2, countryEntry?.code);
 
   const tableRows: TableRow[] = useMemo(
@@ -600,24 +601,25 @@ export default function App() {
 
   return (
     <div className="app">
-      <header className="masthead">
-        <div>
-          <h1>{SITE_NAME}</h1>
+      {/* The page is titled with what it shows. The site's name is in the bar
+          above, and printing it again here put it on screen twice; the
+          heading that used to sit over the graph ("Brazil · Men") said what
+          this one now says, so it went. The figures are the whole slice's,
+          not the slider's, so the title holds still while the reader filters. */}
+      <div className="masthead">
+        <h1>
+          {sliceName} {gender === 'M' ? 'men' : 'women'}
+        </h1>
+        {sliceCounts && manifest && (
           <p>
-            Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro
-            Tour, World Championships and Olympic Games.
+            Who has played with whom in FIVB international beach volleyball since{' '}
+            {manifest.seasons.from}: {sliceCounts.nodes.toLocaleString('en-US')}{' '}
+            {sliceCounts.nodes === 1 ? 'player' : 'players'} and{' '}
+            {sliceCounts.edges.toLocaleString('en-US')}{' '}
+            {sliceCounts.edges === 1 ? 'partnership' : 'partnerships'}.
           </p>
-        </div>
-        <div className="masthead-actions">
-          {/* A full navigation: /tournaments/ is its own prerendered page and
-              mounts a different root (see main.tsx), so there is no client-side
-              route to push. */}
-          <a className="pill" href={indexPath(import.meta.env.BASE_URL)}>
-            Tournaments
-          </a>
-          <ThemeToggle />
-        </div>
-      </header>
+        )}
+      </div>
 
       {manifest && (
         <Controls
@@ -666,9 +668,6 @@ export default function App() {
             <section className="graph-section">
               <div className="section-head">
                 <div>
-                  <h2>
-                    {countryEntry?.name ?? country} · {gender === 'M' ? 'Men' : 'Women'}
-                  </h2>
                   <p className="legend">
                     <span className="key">
                       <svg width="30" height="12" aria-hidden="true">

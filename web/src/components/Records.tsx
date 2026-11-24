@@ -21,7 +21,6 @@
  */
 
 import type { Gender, ManifestCountry, RecordsFile } from '../../../shared/schema';
-import { SITE_NAME } from '../../../shared/site';
 import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE } from '../../../shared/schema';
 import { playerPath } from '../../../shared/slug';
 import { boardsFor, IN_CM, rowDetail } from '../lib/records';
@@ -33,20 +32,15 @@ interface Props {
   gender: Gender;
   onGender: (gender: Gender) => void;
   base: string;
-  homeHref: string;
   seasons: { from: number };
 }
 
-export function Records({ file, countries, gender, onGender, base, homeHref, seasons }: Props) {
+export function Records({ file, countries, gender, onGender, base, seasons }: Props) {
   const nameOf = (code: string) => countries.find((c) => c.code === code)?.name ?? code;
   const boards = boardsFor(file, gender);
 
   return (
     <main className="records-page">
-      <nav aria-label="Breadcrumb">
-        <a href={homeHref}>{SITE_NAME}</a>
-      </nav>
-
       <header>
         <h1>Records</h1>
         <p className="blurb">

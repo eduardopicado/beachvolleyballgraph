@@ -1,8 +1,8 @@
 /*
  * Documents that are not the app: `/about/` and `404.html`, written by
- * ingest/prerender.ts with this stylesheet and none of the app's script. The same column, crumb
- * and heading as a tournament page, so leaving the app does not look like
- * leaving the site.
+ * ingest/prerender.ts with this stylesheet and none of the app's script. The same bar
+ * (SiteBar.css), column and heading as a tournament page, so leaving the app
+ * does not look like leaving the site.
  */
 
 .static-page {
@@ -17,22 +17,6 @@
 .static-page a {
   color: var(--link);
   text-underline-offset: 2px;
-}
-
-.static-page > nav {
-  font-size: 13px;
-}
-
-.static-page > nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .static-page > nav a:hover {
-    color: var(--link);
-    text-decoration: underline;
-  }
 }
 
 .static-page > header {
@@ -424,9 +408,8 @@
 }
 
 @media (pointer: coarse) {
-  /* The breadcrumb, and the About page's way back: the two links on these
-     pages that stand alone rather than inside a sentence. */
-  .static-page > nav a,
+  /* The About page's way back: a link that stands alone rather than inside
+     a sentence. */
   .static-page.about > p > a {
     display: inline-flex;
     align-items: center;

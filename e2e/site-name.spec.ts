@@ -55,7 +55,8 @@ test.describe('the site name', () => {
     test(`${path} carries it`, async ({ request }) => {
       const html = await (await request.get(path)).text();
       expect(html).toMatch(new RegExp(`<title>[^<]* — ${SITE_NAME}</title>`));
-      expect(html).toContain(`>${SITE_NAME}</a>`);
+      // The bar's link home, the one place these pages name the site.
+      expect(html).toContain(`<span>${SITE_NAME}</span></a>`);
       expect(html).not.toContain(OLD_NAME);
     });
   }
