@@ -23,7 +23,10 @@ const OLD_NAME = 'Beach Volleyball Partnership Graph';
  * without any (no og:title either), so there is no site name to check there.
  */
 const APP_PAGES: [string, string, boolean][] = [
-  ['/', SITE_NAME, true],
+  // The app opens on Brazil men at the root and titles the tab as it titles
+  // that slice anywhere else; the prerendered home title, checked in the
+  // static HTML below, is what search results and link previews read.
+  ['/', `Brazil Men — ${SITE_NAME}`, true],
   ['/brazil-women/', `Brazil Women — ${SITE_NAME}`, true],
   ['/tournament/gstaad-2019-women/', `Gstaad 2019 — ${SITE_NAME}`, false],
   ['/tournaments/', `Tournaments — ${SITE_NAME}`, true],
@@ -43,10 +46,10 @@ test.describe('the site name', () => {
       expect(html).not.toContain(OLD_NAME);
 
       await page.goto(path);
-      // Home keeps its long prerendered title; every other page's tab ends
-      // with the name, after whatever that page is about.
-      if (path === '/') await expect(page).toHaveTitle(new RegExp(`^${SITE_NAME} — `));
-      else await expect(page).toHaveTitle(title);
+      // The title the app settles on, every page alike. This used to accept
+      // home's prerendered title instead, which only held when the check ran
+      // before the app replaced it: a race, lost 2 times in 10 under load.
+      await expect(page).toHaveTitle(title);
       await expect(page.locator('body')).not.toContainText(OLD_NAME);
     });
   }
