@@ -21,6 +21,7 @@
  */
 
 import type { Gender, ManifestCountry, RecordsFile } from '../../../shared/schema';
+import { SITE_NAME } from '../../../shared/site';
 import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE } from '../../../shared/schema';
 import { playerPath } from '../../../shared/slug';
 import { boardsFor, IN_CM, rowDetail } from '../lib/records';
@@ -43,7 +44,7 @@ export function Records({ file, countries, gender, onGender, base, homeHref, sea
   return (
     <main className="records-page">
       <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
+        <a href={homeHref}>{SITE_NAME}</a>
       </nav>
 
       <header>

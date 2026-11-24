@@ -51,7 +51,7 @@ const slicePath = () => {
 
 test('home page renders and lists countries', async ({ page }) => {
   await page.goto('./');
-  await expect(page.getByRole('heading', { name: 'Beach Volleyball Partnership Graph', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Beach Volleyball Partners', level: 1 })).toBeVisible();
 
   // The country picker is populated from the manifest, so an empty one means
   // the data never loaded — the most likely shape of a "blank page" report.
