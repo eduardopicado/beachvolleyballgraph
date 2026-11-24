@@ -1,4 +1,4 @@
-# Beach Partners
+# Beach Volleyball Partners
 
 Pick a country and gender, and see every player who has competed in FIVB
 international beach volleyball, linked to the partners they have played with.

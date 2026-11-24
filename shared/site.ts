@@ -18,11 +18,16 @@ import { GENDER_LABEL, type Gender } from './schema';
  * this constant except `web/index.html`, which cannot import it and which
  * prerender.ts overwrites on every page it writes.
  *
- * Short on purpose: it follows every page title ("Brazil Men — Beach
- * Partners"), so a long name pushes the part that differs off a narrow tab.
- * It does not say volleyball, so the home page's title does.
+ * It names the sport because it is often all there is: a tab, a bookmark or
+ * a link preview shows the name with nothing around it, and "Beach Partners"
+ * alone could be a travel agent. It also matches the address. It follows
+ * every page title ("Brazil Men — Beach Volleyball Partners"), so it is kept
+ * to three words; it fits the phone bar on one line down to 320px.
+ *
+ * Careful when searching: the old name, "Beach Volleyball Partnership Graph",
+ * contains this one ("Partners" is the start of "Partnership").
  */
-export const SITE_NAME = 'Beach Partners';
+export const SITE_NAME = 'Beach Volleyball Partners';
 
 /**
  * The opening view: the country with the most players, men's draw. Here

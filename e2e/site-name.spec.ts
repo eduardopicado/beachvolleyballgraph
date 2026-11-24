@@ -4,7 +4,7 @@
  * It is written in two places per page: the static HTML prerender.ts writes,
  * which is what a crawler indexes and a link preview shows, and the title the
  * app sets once it runs, which is what the tab says. Before the rename to
- * "Beach Partners" seven of those copies were string literals, and a rename
+ * "Beach Volleyball Partners" seven of those copies were string literals, and a rename
  * that missed one would leave a page announcing a site that no longer exists
  * under that name — on the one page kind nobody happened to open.
  *

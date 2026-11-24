@@ -1282,7 +1282,7 @@ ${staticFooter()}
 
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
-  const homeTitle = `${SITE_NAME} — who has played with whom in FIVB beach volleyball`;
+  const homeTitle = `${SITE_NAME} — who has played with whom on the FIVB tour`;
   const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments since ${manifest.seasons.from}. Pick a country and gender to see the partnership graph.`;
   /**
    * The "start here" strip, in static HTML.
