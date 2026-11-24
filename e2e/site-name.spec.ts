@@ -23,7 +23,10 @@ const OLD_NAME = 'Beach Volleyball Partnership Graph';
  * exception until they were given the tags (see link-previews.spec.ts).
  */
 const APP_PAGES: [string, string][] = [
-  ['/', SITE_NAME],
+  // The app opens on Brazil men at the root and titles the tab as it titles
+  // that slice anywhere else; the prerendered home title, checked in the
+  // static HTML below, is what search results and link previews read.
+  ['/', `Brazil Men — ${SITE_NAME}`],
   ['/brazil-women/', `Brazil Women — ${SITE_NAME}`],
   ['/tournament/gstaad-2019-women/', `Gstaad 2019 — ${SITE_NAME}`],
   ['/tournaments/', `Tournaments — ${SITE_NAME}`],
@@ -42,10 +45,10 @@ test.describe('the site name', () => {
       expect(html).not.toContain(OLD_NAME);
 
       await page.goto(path);
-      // Home keeps its long prerendered title; every other page's tab ends
-      // with the name, after whatever that page is about.
-      if (path === '/') await expect(page).toHaveTitle(new RegExp(`^${SITE_NAME} — `));
-      else await expect(page).toHaveTitle(title);
+      // The title the app settles on, every page alike. This used to accept
+      // home's prerendered title instead, which only held when the check ran
+      // before the app replaced it: a race, lost 2 times in 10 under load.
+      await expect(page).toHaveTitle(title);
       await expect(page.locator('body')).not.toContainText(OLD_NAME);
     });
   }
