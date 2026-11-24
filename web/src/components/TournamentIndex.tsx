@@ -51,14 +51,12 @@ interface Props {
   onFilter: (next: IndexFilter) => void;
   /** Where a row links. */
   tournamentHref: (slug: string) => string;
-  /** Back to the graph. */
-  homeHref: string;
 }
 
 const GENDER_LABEL: Record<Gender, string> = { M: 'Men', W: 'Women' };
 const GENDERS: Gender[] = ['M', 'W'];
 
-export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHref }: Props) {
+export function TournamentIndex({ rows, filter, onFilter, tournamentHref }: Props) {
   // Newest first is the natural reading order for a list of years; the stepper
   // needs the opposite, so it walks its own ascending copy.
   const seasons = seasonsFor(rows, filter.gender);
@@ -76,10 +74,6 @@ export function TournamentIndex({ rows, filter, onFilter, tournamentHref, homeHr
 
   return (
     <main className="tournament-index">
-      <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
-      </nav>
-
       <header>
         <h1>Tournaments</h1>
         <p className="blurb">

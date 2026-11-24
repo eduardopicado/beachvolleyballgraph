@@ -140,7 +140,7 @@ describe('llmsTxt', () => {
 
   it('opens with the llmstxt.org shape: an H1 then a blockquote summary', () => {
     const lines = llmsTxt(manifest, slices, shape).split('\n');
-    expect(lines[0]).toBe('# Beach Volleyball Partnership Graph');
+    expect(lines[0]).toBe('# Beach Volleyball Partners');
     expect(lines.find((l) => l.startsWith('>'))).toBeTruthy();
   });
 

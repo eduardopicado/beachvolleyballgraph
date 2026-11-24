@@ -35,6 +35,7 @@ import { GENDER_LABEL, GENDERS, RECORD_LABEL, RECORD_TITLE, TOURNAMENT_FACTS_ID 
 import { nameCarriesSeason, playerPath, sliceSlug, TOURNAMENT_PREFIX } from '../shared/slug.js';
 import { INDEX_PREFIX } from '../web/src/lib/indexRoute.js';
 import { RECORDS_PREFIX, recordsPagePath } from '../web/src/lib/recordsRoute.js';
+import { siteBarHtml, type Section } from '../web/src/lib/siteNav.js';
 import { boardsFor, IN_CM, rowDetail } from '../web/src/lib/records.js';
 import { buildIndex, defaultSeason, drawCounterpart, type IndexRow } from '../web/src/lib/tournamentIndex.js';
 import { openingSort, sortEntries } from '../web/src/lib/entrySort.js';
@@ -158,6 +159,18 @@ const pct = (n: number, of: number) => `${of > 0 ? ((100 * n) / of).toFixed(1) :
  */
 type Route = 'src/App.tsx' | 'src/TournamentRoute.tsx' | 'src/TournamentIndexRoute.tsx' | 'src/RecordsRoute.tsx';
 
+/**
+ * The bar's current section for each page component — the same choice
+ * main.tsx makes when it mounts one, so the bar in the static page and the
+ * bar the app draws over it underline the same link.
+ */
+const SECTION_OF: Record<Route, Section> = {
+  'src/App.tsx': 'graph',
+  'src/TournamentRoute.tsx': 'tournaments',
+  'src/TournamentIndexRoute.tsx': 'tournaments',
+  'src/RecordsRoute.tsx': 'records',
+};
+
 interface Page {
   slug: string;
   route: Route;
@@ -182,7 +195,7 @@ function headFor(url: string, title: string, description: string): string {
     `<meta name="description" content="${esc(description)}"/>`,
     `<meta name="robots" content="index,follow,max-image-preview:large"/>`,
     `<meta property="og:type" content="website"/>`,
-    `<meta property="og:site_name" content="Beach Volleyball Partnership Graph"/>`,
+    `<meta property="og:site_name" content="${esc(SITE_NAME)}"/>`,
     `<meta property="og:title" content="${esc(title)}"/>`,
     `<meta property="og:description" content="${esc(description)}"/>`,
     `<meta property="og:url" content="${esc(url)}"/>`,
@@ -289,10 +302,9 @@ function sliceBody(graph: GraphFile, manifest: Manifest, others: { name: string;
     .map((o) => `<li><a href="${esc(o.href)}">${esc(o.name)}</a></li>`)
     .join('');
 
+  // Titled as the app titles it, "Brazil men": the site's name is in the bar.
   return `<main>
-<h1>Beach Volleyball Partnership Graph</h1>
-<p>Who has played with whom in FIVB international beach volleyball — the World Tour, Beach Pro Tour, World Championships and Olympic Games.</p>
-<h2>${esc(graph.countryName)} · ${esc(GENDER_LABEL[graph.gender])}</h2>
+<h1>${esc(graph.countryName)} ${gender}</h1>
 <p>${graph.nodes.length} ${gender}'s players from ${esc(graph.countryName)} have entered FIVB international beach volleyball, forming ${graph.edges.length} partnerships across ${manifest.totals.tournaments} tournaments since ${manifest.seasons.from}.</p>
 <table>
 <caption>${esc(graph.countryName)} ${esc(GENDER_LABEL[graph.gender])} — players, tournaments entered, distinct partners and seasons active</caption>
@@ -419,7 +431,7 @@ export function llmsTxt(
     .map((s) => `- [${s.name} ${GENDER_LABEL[s.gender]}](${abs(s.href)})`)
     .join('\n');
 
-  return `# Beach Volleyball Partnership Graph
+  return `# ${SITE_NAME}
 
 > Who has played with whom in FIVB international beach volleyball. ${manifest.totals.players.toLocaleString('en-US')} players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships drawn from ${manifest.totals.tournaments.toLocaleString('en-US')} tournaments since ${manifest.seasons.from}, sliced by country and gender. Source data is the official FIVB VIS Web Service; the whole dataset is rebuilt daily.
 
@@ -549,7 +561,7 @@ export function aboutPage(
 ): string {
   const url = abs(`${BASE}about/`);
   const title = `About — ${SITE_NAME}`;
-  const description = `What the ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
+  const description = `What ${SITE_NAME} shows, where its data comes from, how the numbers are counted, and how to get in touch.`;
   const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
   const n = (v: number) => v.toLocaleString('en-US');
   const and = (items: string[]) => new Intl.ListFormat('en', { type: 'conjunction' }).format(items);
@@ -638,8 +650,8 @@ ${style}
 ${headFor(url, title, description)}
 </head>
 <body>
+${siteBarHtml(BASE, 'about')}
 <main class="static-page about">
-<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 
 <div class="about-top">
 <header>
@@ -762,8 +774,8 @@ export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref:
 ${style}
 </head>
 <body>
+${siteBarHtml(BASE, null)}
 <main class="static-page">
-<nav><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 <header>
 <h1>Nothing at this address</h1>
 <p class="lede">There is no page at <span id="missing-path">this address</span>. If a link brought you here, it may have been mistyped. Three ways back in:</p>
@@ -1120,7 +1132,7 @@ async function main() {
 <h1>${esc(named)}</h1>
 <p>${esc(description)}</p>
 ${rows ? (t.played ? `<ol>${rows}</ol>` : `<ul>${rows}</ul>`) : ''}
-<p><a href="${esc(BASE)}">Beach Volleyball Partnership Graph</a> · <a href="${esc(
+<p><a href="${esc(
         `${BASE}${INDEX_PREFIX}/?${t.gender === 'M' ? '' : 'gender=W&'}season=${t.season}`,
       )}">${t.season} ${esc(GENDER_LABEL[t.gender])}</a></p>
 </main>`,
@@ -1280,7 +1292,6 @@ ${staticFooter()}
       }),
     modified: changedAt('records.json'),
     body: `<main>
-<nav aria-label="Breadcrumb"><a href="${esc(BASE)}">${esc(SITE_NAME)}</a></nav>
 <h1>Records</h1>
 <p>${esc(recordsDescription)}</p>
 ${recordSections}
@@ -1290,7 +1301,7 @@ ${staticFooter()}
 
   // --- home page -----------------------------------------------------------
   const homeUrl = abs(BASE);
-  const homeTitle = 'Beach Volleyball Partnership Graph — who has played with whom on the FIVB tour';
+  const homeTitle = `${SITE_NAME} — who has played with whom on the FIVB tour`;
   const homeDescription = `Explore ${manifest.totals.players.toLocaleString('en-US')} beach volleyball players and ${manifest.totals.partnerships.toLocaleString('en-US')} partnerships from ${manifest.totals.tournaments.toLocaleString('en-US')} FIVB international tournaments since ${manifest.seasons.from}. Pick a country and gender to see the partnership graph.`;
   /**
    * The "start here" strip, in static HTML.
@@ -1321,7 +1332,7 @@ ${staticFooter()}
   });
 
   const homeBody = `<main>
-<h1>Beach Volleyball Partnership Graph</h1>
+<h1>Who has played with whom in FIVB beach volleyball</h1>
 <p>${esc(homeDescription)}</p>
 ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="${esc(recordsHref)}">All records</a></p>` : ''}
 <p><a href="${esc(indexHref)}">Browse every tournament by season</a></p>
@@ -1348,7 +1359,7 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
             '@type': 'WebSite',
             '@id': homeUrl,
             url: homeUrl,
-            name: 'Beach Volleyball Partnership Graph',
+            name: SITE_NAME,
             description: homeDescription,
           },
           {
@@ -1385,7 +1396,12 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
       .join('');
     let html = template;
     html = html.replace('</head>', () => `${preload}${page.head}</head>`);
-    html = html.replace('<div id="root"></div>', () => `<div id="root">${page.body}</div>`);
+    // The bar first, as the app will draw it: it is the page's way to the
+    // other sections before the script runs, and the only one without it.
+    html = html.replace(
+      '<div id="root"></div>',
+      () => `<div id="root">${siteBarHtml(BASE, SECTION_OF[page.route])}${page.body}</div>`,
+    );
     // The static <title> in index.html is generic; each page overrides it.
     html = html.replace(/<title>.*?<\/title>/, () => `<title>${esc(page.title)}</title>`);
 

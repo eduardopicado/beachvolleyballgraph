@@ -16,6 +16,7 @@ import { useEffect, useMemo, useState } from 'react';
 import type { Manifest, TournamentsFile } from '../../shared/schema';
 import { fetchManifest, fetchTournaments } from './lib/api';
 import { tournamentPath } from '../../shared/slug';
+import { SITE_NAME } from '../../shared/site';
 import { filterFromParams, indexPath, paramsFor } from './lib/indexRoute';
 import { buildIndex, defaultSeason, reconcile } from './lib/tournamentIndex';
 import { TournamentIndex } from './components/TournamentIndex';
@@ -69,7 +70,7 @@ export default function TournamentIndexRoute() {
   }, [rows, search]);
 
   useEffect(() => {
-    document.title = 'Tournaments — Beach Volleyball Partnership Graph';
+    document.title = `Tournaments — ${SITE_NAME}`;
   }, []);
 
   if (failed) {
@@ -99,7 +100,6 @@ export default function TournamentIndexRoute() {
         setSearch(`?${query}`);
       }}
       tournamentHref={(slug) => tournamentPath(BASE, slug)}
-      homeHref={BASE}
     />
   );
 }

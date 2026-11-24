@@ -1,6 +1,6 @@
 /*
  * The index page's measure and chrome, so the two read as one site: same
- * breadcrumb, same heading scale, the same segmented switch. What differs is
+ * heading scale, the same segmented switch. What differs is
  * the body — a grid of small boards rather than one table, because 14 lists of
  * five are 14 separate questions and a reader scans for the one they came for.
  */
@@ -12,22 +12,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-}
-
-.records-page > nav {
-  font-size: 13px;
-}
-
-.records-page > nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  .records-page > nav a:hover {
-    color: var(--link);
-    text-decoration: underline;
-  }
 }
 
 .records-page > header {
@@ -197,12 +181,6 @@
 }
 
 @media (pointer: coarse) {
-  .records-page > nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-  }
-
   .records-page .who a {
     display: inline-block;
     padding-block: 7px;

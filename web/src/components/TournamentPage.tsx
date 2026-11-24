@@ -64,8 +64,6 @@ interface Props {
   iso2Of: (federation: string) => string | null;
   /** Opens a player on the slice they are published under. */
   onSelectPlayer: (id: number, slice: { country: string; gender: Gender }) => void;
-  /** Back to the graph. */
-  homeHref: string;
   /**
    * The index, filtered to this event's own season and draw — the page this
    * one actually sits in.
@@ -357,7 +355,6 @@ export function TournamentPage({
   state,
   iso2Of,
   onSelectPlayer,
-  homeHref,
   indexHref,
   counterpart,
   entries,
@@ -378,14 +375,11 @@ export function TournamentPage({
 
   return (
     <main className="tournament-page">
-      {/* Three steps, because a tournament page has three ancestors and a
-          reader arriving cold on a search result had only the first: the site,
-          the season and draw this event sits in, and the event. Before this
-          the one link out was the graph, which is the least related of the
-          three. */}
+      {/* The season and draw this event sits in: the one ancestor the bar
+          above cannot name, since it is different on every page. The site
+          itself was the first step here until the bar carried it on every
+          page. */}
       <nav aria-label="Breadcrumb">
-        <a href={homeHref}>Beach Volleyball Partnership Graph</a>
-        <span aria-hidden="true"> / </span>
         <a href={indexHref}>
           {season} {DRAW_LABEL[gender ?? 'M']}
         </a>
