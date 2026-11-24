@@ -1101,13 +1101,21 @@ async function main() {
         .join('');
     }
 
+    const pageTitle = `${title} — ${SITE_NAME}`;
     pages.push({
       slug: `tournament/${slug}`,
       route: 'src/TournamentRoute.tsx',
       url: href,
-      title: `${title} — ${SITE_NAME}`,
+      title: pageTitle,
       description,
+      // The tags every other page kind has had from the start, which a
+      // tournament page went without: no canonical address, no description
+      // for a search result, and nothing for a link preview to build a card
+      // from — a Gstaad 2019 link pasted into a chat showed a bare title or
+      // the URL. `description` was written all along; it reached only the
+      // page body.
       head:
+        headFor(url, pageTitle, description) +
         factsScript(
           tournamentFacts(t, drawCounterpart(addressable, t), field, manifest.countries, await photoCount(t.code)),
         ) +
