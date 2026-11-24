@@ -207,6 +207,17 @@ function headFor(url: string, title: string, description: string): string {
   ].join('');
 }
 
+/**
+ * The tab and Home Screen icon tags out of the built index.html: every
+ * `<link rel="icon">`, the `apple-touch-icon` and the suggested Home Screen
+ * name. For the two documents written from templates of their own.
+ */
+export function iconTags(template: string): string {
+  return (
+    template.match(/<link rel="(?:icon|apple-touch-icon)"[^>]*>|<meta name="apple-mobile-web-app-title"[^>]*>/g) ?? []
+  ).join('');
+}
+
 export function jsonLd(data: unknown): string {
   // No user-controlled markup can escape: JSON.stringify plus a guard on the
   // one sequence that could close the script element early.
@@ -558,6 +569,7 @@ export function aboutPage(
   seasons: readonly SeasonCount[],
   legend: GraphFile,
   styleHref: string | null,
+  icons = '',
 ): string {
   const url = abs(`${BASE}about/`);
   const title = `About — ${SITE_NAME}`;
@@ -647,6 +659,7 @@ export function aboutPage(
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>${esc(title)}</title>
 ${style}
+${icons}
 ${headFor(url, title, description)}
 </head>
 <body>
@@ -758,7 +771,7 @@ ${figures.map(([unit, value]) => `<div><dt>${unit}</dt><dd>${n(value)}</dd></div
  * The one script names the missing path, as text. Without it the sentence
  * reads "this address" and nothing else changes.
  */
-export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref: string | null): string {
+export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref: string | null, icons = ''): string {
   const style = styleHref ? `<link rel="stylesheet" href="${esc(styleHref)}"/>` : '';
   const n = (v: number) => v.toLocaleString('en-US');
   const way = (href: string, figure: string, unit: string, name: string, what: string) =>
@@ -772,6 +785,7 @@ export function notFoundPage(manifest: Manifest, recordKinds: number, styleHref:
 <meta name="robots" content="noindex"/>
 <title>Page not found — ${esc(SITE_NAME)}</title>
 ${style}
+${icons}
 </head>
 <body>
 ${siteBarHtml(BASE, null)}
@@ -1417,6 +1431,12 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
   // degrades rather than failing the build.
   const styleHref = /<link[^>]+rel="stylesheet"[^>]+href="([^"]+)"/.exec(template)?.[1] ?? null;
   if (!styleHref) console.warn('  ! no stylesheet found in index.html; /about/ will be unstyled');
+  // The icons too, as Vite wrote them, base path included: index.html is the
+  // one place they are listed, and without them these two pages had none at
+  // all — not even the tab's — and a browser asked for a /favicon.ico that
+  // does not exist.
+  const icons = iconTags(template);
+  if (!icons) console.warn('  ! no icon tags found in index.html; /about/ and 404.html will have no icon');
   // The legend's graph is the one `/` opens on, falling back as App.tsx does
   // when that country is not published.
   const opening = manifest.countries.find((c) => c.code === DEFAULT_COUNTRY) ?? manifest.countries[0];
@@ -1428,7 +1448,7 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
   await mkdir(path.join(DIST, 'about'), { recursive: true });
   await writeFile(
     path.join(DIST, 'about', 'index.html'),
-    aboutPage(manifest, seasonCounts(tournamentsFile.tournaments, hasField), legendGraph, styleHref),
+    aboutPage(manifest, seasonCounts(tournamentsFile.tournaments, hasField), legendGraph, styleHref, icons),
   );
 
   // --- not found -------------------------------------------------------------
@@ -1436,7 +1456,7 @@ ${strip.length > 0 ? `<h2>Explore</h2>\n<ul>${strip.join('')}</ul>\n<p><a href="
   // page anyone should land on from a search.
   await writeFile(
     path.join(DIST, '404.html'),
-    notFoundPage(manifest, Object.keys(recordsFile.categories).length, styleHref),
+    notFoundPage(manifest, Object.keys(recordsFile.categories).length, styleHref, icons),
   );
 
   // --- sitemap & robots ----------------------------------------------------

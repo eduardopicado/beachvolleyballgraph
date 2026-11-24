@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <title>Beach Volleyball Partners</title>
+  <!--
+    The tab icon: the Home Screen icon (docs/icon/home-screen.svg) redrawn for
+    16 and 32 pixels. Same court, net and pair, but the lines about three times
+    as thick and the players half as large again: at 16px the original's
+    3.4-unit lines come to a third of a pixel and vanish, leaving two specks.
+  -->
+  <rect width="180" height="180" fill="#031b3b"/>
+  <g fill="none" stroke="#b7babc" stroke-width="10" stroke-linejoin="round">
+    <path d="M21 145 L75 34 H155 L114 145 Z"/>
+    <path d="M53.8 77.5 H138.9"/>
+  </g>
+  <path d="M60 104 L104 128" stroke="#fcfcfb" stroke-width="9"/>
+  <g fill="#eb6834">
+    <circle cx="60" cy="104" r="18"/>
+    <circle cx="104" cy="128" r="18"/>
+  </g>
+</svg>

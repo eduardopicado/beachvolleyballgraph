@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <title>Beach Volleyball Partners</title>
+  <!--
+    Source of web/public/apple-touch-icon.png, the icon an iPad or iPhone puts
+    on its Home Screen: a beach court in perspective, the net across it, and a
+    pair on their own side of it. Drawn by the owner, exported at 180 x 180
+    from Inkscape; the PNG in web/public is that export with its metadata
+    removed (pixels unchanged). Full bleed and opaque on purpose: iOS rounds
+    the corners itself and fills any transparency with black. Not served —
+    the tab icon is a bolder redrawing, web/public/favicon.svg.
+  -->
+  <rect width="180" height="180" fill="#031b3b"/>
+  <g fill="none" stroke="#b7babc" stroke-width="3.4" stroke-linejoin="round">
+    <path d="M21 145 L75 34 H155 L114 145 Z"/>
+    <path d="M53.8 77.5 H138.9"/>
+  </g>
+  <path d="M65 100 L101 123" stroke="#fcfcfb" stroke-width="3.6"/>
+  <g fill="#eb6834">
+    <circle cx="65" cy="100" r="12"/>
+    <circle cx="101" cy="123" r="12"/>
+  </g>
+</svg>

@@ -25,7 +25,19 @@
       it; images are not.)
     -->
     <link rel="preconnect" href="https://sharp.fivb.com" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏐</text></svg>" />
+    <!--
+      The site's icons, from web/public. The tab takes the SVG, or the 32px
+      PNG where SVG icons are not drawn; an iPad or iPhone takes the 180px
+      PNG for its Home Screen and suggests the short name below for it, where
+      the page title ("Brazil Men — Beach Volleyball Partners") would be cut
+      to a few words. ingest/prerender.ts copies these tags from this file
+      into /about/ and 404.html, which are written from templates of their
+      own, so this is the one place they are listed.
+    -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="BV Partners" />
   </head>
   <body>
     <div id="root"></div>
