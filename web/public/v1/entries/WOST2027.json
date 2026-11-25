@@ -2,7 +2,10 @@
   "code": "WOST2027",
   "gender": "W",
   "teams": [
-
+    [135488,169390,"LTU",null,null]
   ],
-  "players": {}
+  "players": {
+    "135488": "Monika Paulikiene",
+    "169390": "Aine Raupelyte"
+  }
 }

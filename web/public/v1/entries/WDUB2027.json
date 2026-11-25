@@ -2,6 +2,7 @@
   "code": "WDUB2027",
   "gender": "W",
   "teams": [
+    [135488,169390,"LTU",null,null],
     [141366,156402,"PAR",null,null],
     [141366,156402,"PAR",null,null],
     [141983,141984,"LAT",null,null],
@@ -14,6 +15,7 @@
     [202842,210161,"CHN",null,null]
   ],
   "players": {
+    "135488": "Monika Paulikiene",
     "141366": "Michelle Sharon Valiente Amarilla",
     "141784": "Xinyi Xia",
     "141983": "Tina Graudina",
@@ -25,6 +27,7 @@
     "157546": "Asami Shiba",
     "162511": "Jie Dong",
     "164576": "Marketa Svozilova",
+    "169390": "Aine Raupelyte",
     "192301": "Xu Yan",
     "202842": "Kadeliye Halaiti",
     "210161": "Siyu Qi"

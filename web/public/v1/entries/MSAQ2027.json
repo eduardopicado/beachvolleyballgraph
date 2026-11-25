@@ -2,7 +2,16 @@
   "code": "MSAQ2027",
   "gender": "M",
   "teams": [
-
+    [153921,164474,"POR",null,null],
+    [160555,166274,"SWE",null,null],
+    [171940,202200,"SWE",null,null]
   ],
-  "players": {}
+  "players": {
+    "153921": "Joao Pedrosa",
+    "160555": "David Åhman",
+    "164474": "Hugo Campos",
+    "166274": "Jonatan Hellvig",
+    "171940": "Jacob Hölting Nilsson",
+    "202200": "Elmer Andersson"
+  }
 }
