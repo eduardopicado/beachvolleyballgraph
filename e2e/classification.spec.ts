@@ -203,10 +203,13 @@ test.describe('a tournament’s final classification', () => {
 
     const panel = page.locator('.tournament-panel');
     await expect(panel).toBeVisible();
-    const bands = await panel.locator('.band').count();
-    const teams = await panel.locator('.team').count();
-    expect(bands).toBeLessThan(teams);
-    expect(bands).toBe(new Set(file.teams.map(([r]) => r)).size);
+    // Counted with assertions that wait, not with count(): the panel opens
+    // before its classification file arrives, and a count taken in between
+    // reads 0 bands and 0 teams. Under ten workers that failed 2 runs in 10.
+    const bands = new Set(file.teams.map(([r]) => r)).size;
+    expect(bands, 'the field shares a placement').toBeLessThan(file.teams.length);
+    await expect(panel.locator('.team')).toHaveCount(file.teams.length);
+    await expect(panel.locator('.band')).toHaveCount(bands);
   });
 
   test('Escape closes the classification and leaves the card', async ({ page }) => {
