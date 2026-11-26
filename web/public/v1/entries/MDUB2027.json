@@ -2,7 +2,9 @@
   "code": "MDUB2027",
   "gender": "M",
   "teams": [
+    [133285,145393,"BRA",null,null],
     [153921,164474,"POR",null,null],
+    [157761,139387,"GER",null,null],
     [160555,166274,"SWE",null,null],
     [168204,166947,"NED",null,null],
     [168204,166947,"NED",null,null],
@@ -16,8 +18,12 @@
   ],
   "players": {
     "118152": "Karol Szczepanik",
+    "133285": "Evandro Gonçalves Oliveira Júnior",
+    "139387": "Clemens Wickler",
     "144035": "Dimitar Kalchev",
+    "145393": "Arthur Diego Mariano Lanci",
     "153921": "Joao Pedrosa",
+    "157761": "Lukas Pfretzschner L.",
     "160555": "David Åhman",
     "162761": "Yorick de Groot",
     "164474": "Hugo Campos",
