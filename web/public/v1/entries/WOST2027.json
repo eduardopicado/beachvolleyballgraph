@@ -2,10 +2,13 @@
   "code": "WOST2027",
   "gender": "W",
   "teams": [
-    [135488,169390,"LTU",null,null]
+    [135488,169390,"LTU",null,null],
+    [182240,182239,"CZE",null,null]
   ],
   "players": {
     "135488": "Monika Paulikiene",
-    "169390": "Aine Raupelyte"
+    "169390": "Aine Raupelyte",
+    "182239": "Anna Pavelková",
+    "182240": "Katerina Pavelková"
   }
 }

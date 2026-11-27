@@ -4,6 +4,7 @@
   "teams": [
     [135488,169390,"LTU",null,null],
     [164576,148474,"CZE",null,null],
+    [182240,182239,"CZE",null,null],
     [192301,141784,"CHN",null,null],
     [202842,210161,"CHN",null,null]
   ],
@@ -13,6 +14,8 @@
     "148474": "Marie-Sara Bercik",
     "164576": "Marketa Svozilova",
     "169390": "Aine Raupelyte",
+    "182239": "Anna Pavelková",
+    "182240": "Katerina Pavelková",
     "192301": "Xu Yan",
     "202842": "Kadeliye Halaiti",
     "210161": "Siyu Qi"

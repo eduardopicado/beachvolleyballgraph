@@ -3,6 +3,8 @@
   "gender": "M",
   "teams": [
     [133285,145393,"BRA",null,null],
+    [142889,183549,"BRA",null,null],
+    [147009,156493,"BRA",null,null],
     [153921,164474,"POR",null,null],
     [157761,139387,"GER",null,null],
     [160555,166274,"SWE",null,null],
@@ -14,15 +16,19 @@
     [171940,202200,"SWE",null,null],
     [176256,118152,"POL",null,null],
     [181034,144035,"BUL",null,null],
-    [182598,164797,"ENG",null,null]
+    [182598,164797,"ENG",null,null],
+    [233406,208610,"BRA",null,null]
   ],
   "players": {
     "118152": "Karol Szczepanik",
     "133285": "Evandro Gonçalves Oliveira Júnior",
     "139387": "Clemens Wickler",
+    "142889": "George Souto Maior Wanderley",
     "144035": "Dimitar Kalchev",
     "145393": "Arthur Diego Mariano Lanci",
+    "147009": "Andre Loyola Stein",
     "153921": "Joao Pedrosa",
+    "156493": "Renato Andrew Lima de Carvalho",
     "157761": "Lukas Pfretzschner L.",
     "160555": "David Åhman",
     "162761": "Yorick de Groot",
@@ -38,6 +44,9 @@
     "176256": "Tomasz Woloszuk",
     "181034": "Dimitar Mehandzhiyski",
     "182598": "Niko Gleed",
-    "202200": "Elmer Andersson"
+    "183549": "Pedro Augusto Sousa De Oliveira",
+    "202200": "Elmer Andersson",
+    "208610": "Pedro Joaquim Brandao Ribeiro",
+    "233406": "Lucas Sotelle Silva"
   }
 }
